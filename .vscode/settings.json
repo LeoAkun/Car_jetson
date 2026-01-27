@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./utils/global_graph_planner/build/global_route_msg/rosidl_generator_py"
+    ]
+}

@@ -1,0 +1,6 @@
+# 开锁命令服务
+uint8 board_address    # 板地址 (1-32)
+uint8 lock_address     # 锁地址 (1-24), 0表示全部锁
+---
+bool success           # 是否成功
+string message         # 反馈消息

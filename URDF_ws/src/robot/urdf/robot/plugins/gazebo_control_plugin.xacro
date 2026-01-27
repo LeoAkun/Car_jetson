@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="gazebo_control_plugin">
+        <gazebo>
+            <!-- 插件 -->
+            <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+
+                <!-- 传递给ROS的参数 -->
+                <ros>
+                    <namespace>/</namespace>
+                    <remapping>cmd_vel:=cmd_vel</remapping>
+                    <remapping>odom:=diff_drive_odom</remapping>
+                </ros>
+                <!-- 话题发布频率 -->
+                <update_rate>30</update_rate>
+                
+                <!-- 轮子控制,使用后驱 -->
+                <left_joint>wheel_2_joint</left_joint>
+                <right_joint>wheel_4_joint</right_joint>
+                
+                <!-- 运动学配置，例如轮距,  轮子直径-->
+                <wheel_separation>0.34</wheel_separation>
+                <wheel_diameter>0.10</wheel_diameter>
+
+                <!-- 限制与约束，如最大扭矩, 最大加速度 -->
+                <max_wheel_torque>1000</max_wheel_torque>
+                <max_wheel_acceleration>5.0</max_wheel_acceleration>
+
+                <!-- 决定是否发布某些话题 -->
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>false</publish_odom_tf>
+                <publish_wheel_tf>true</publish_wheel_tf>
+                
+
+                <odometry_frame>odom</odometry_frame>
+                <!-- <robot_base_frame>base_footprint</robot_base_frame> -->
+                <robot_base_frame>base_link</robot_base_frame>
+            </plugin>
+        </gazebo>
+   </xacro:macro>
+</robot>

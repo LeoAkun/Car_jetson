@@ -1,0 +1,774 @@
+1. 第一组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769064490.426820575] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769064491.364993097
+- Translation: [0.012, 0.024, -0.001]
+- Rotation: in Quaternion (xyzw) [-0.003, -0.001, -0.062, 0.998]
+- Rotation: in RPY (radian) [-0.006, -0.001, -0.124]
+- Rotation: in RPY (degree) [-0.358, -0.084, -7.100]
+- Matrix:
+  0.992  0.124 -0.001  0.012
+ -0.124  0.992  0.006  0.024
+  0.001 -0.006  1.000 -0.001
+  0.000  0.000  0.000  1.000
+At time 1769064492.364901409
+- Translation: [0.021, 0.024, -0.013]
+- Rotation: in Quaternion (xyzw) [-0.003, -0.001, -0.062, 0.998]
+- Rotation: in RPY (radian) [-0.006, -0.002, -0.124]
+- Rotation: in RPY (degree) [-0.354, -0.112, -7.086]
+- Matrix:
+  0.992  0.123 -0.001  0.021
+ -0.123  0.992  0.006  0.024
+  0.002 -0.006  1.000 -0.013
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769064492.780349597] [rclcpp]: signal_handler(signum=2)
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769064501
+    nanosec: 367173406
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.767518666666668
+longitude: 103.98390233333333
+altitude: 517.5
+position_covariance:
+- 1.6384
+- 0.0
+- 0.0
+- 0.0
+- 1.6384
+- 0.0
+- 0.0
+- 0.0
+- 3.2768
+position_covariance_type: 1
+---
+
+2.第2组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769064692.927318520] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769064693.784329786
+- Translation: [49.009, 0.844, -0.340]
+- Rotation: in Quaternion (xyzw) [-0.000, 0.000, 0.326, 0.945]
+- Rotation: in RPY (radian) [-0.000, 0.001, 0.665]
+- Rotation: in RPY (degree) [-0.005, 0.059, 38.080]
+- Matrix:
+  0.787 -0.617  0.001 49.009
+  0.617  0.787  0.001  0.844
+ -0.001 -0.000  1.000 -0.340
+  0.000  0.000  0.000  1.000
+At time 1769064694.767163260
+- Translation: [49.010, 0.845, -0.348]
+- Rotation: in Quaternion (xyzw) [-0.000, 0.000, 0.326, 0.945]
+- Rotation: in RPY (radian) [-0.000, 0.001, 0.665]
+- Rotation: in RPY (degree) [-0.006, 0.032, 38.080]
+- Matrix:
+  0.787 -0.617  0.000 49.010
+  0.617  0.787  0.000  0.845
+ -0.001 -0.000  1.000 -0.348
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769064695.077534802] [rclcpp]: signal_handler(signum=2)
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769064722
+    nanosec: 497455655
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.76722983333333
+longitude: 103.98351650000001
+altitude: 520.1
+position_covariance:
+- 1.2544000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2544000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.5088000000000004
+position_covariance_type: 1
+---
+
+3.第3组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769064939.044326302] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769064940.900075525
+- Translation: [81.483, 98.992, -1.013]
+- Rotation: in Quaternion (xyzw) [0.001, 0.004, 0.647, 0.762]
+- Rotation: in RPY (radian) [0.006, 0.005, 1.409]
+- Rotation: in RPY (degree) [0.356, 0.264, 80.703]
+- Matrix:
+  0.162 -0.987  0.007 81.483
+  0.987  0.162  0.004 98.992
+ -0.005  0.006  1.000 -1.013
+  0.000  0.000  0.000  1.000
+At time 1769064941.900350070
+- Translation: [81.400, 98.993, -1.015]
+- Rotation: in Quaternion (xyzw) [0.001, 0.003, 0.648, 0.762]
+- Rotation: in RPY (radian) [0.005, 0.004, 1.409]
+- Rotation: in RPY (degree) [0.298, 0.243, 80.745]
+- Matrix:
+  0.161 -0.987  0.006 81.400
+  0.987  0.161  0.003 98.993
+ -0.004  0.005  1.000 -1.015
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769064942.169196945] [rclcpp]: signal_handler(signum=2)
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769064955
+    nanosec: 467610175
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.766394833333333
+longitude: 103.9840185
+altitude: 517.7
+position_covariance:
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 3.0752
+position_covariance_type: 1
+---
+
+4.第四组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769065293
+    nanosec: 417499651
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.764222166666666
+longitude: 103.98589016666668
+altitude: 516.4
+position_covariance:
+- 1.4884
+- 0.0
+- 0.0
+- 0.0
+- 1.4884
+- 0.0
+- 0.0
+- 0.0
+- 2.9768
+position_covariance_type: 1
+---
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769065321.690381909] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769065322.489257207
+- Translation: [123.120, 398.006, -6.857]
+- Rotation: in Quaternion (xyzw) [0.007, -0.019, 0.610, 0.792]
+- Rotation: in RPY (radian) [-0.012, -0.039, 1.314]
+- Rotation: in RPY (degree) [-0.686, -2.248, 75.258]
+- Matrix:
+  0.254 -0.967 -0.022 123.120
+  0.966  0.255 -0.035 398.006
+  0.039 -0.012  0.999 -6.857
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769065323.416102009] [rclcpp]: signal_handler(signum=2)
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769065333.906661184] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769065334.809506652
+- Translation: [123.123, 398.012, -6.859]
+- Rotation: in Quaternion (xyzw) [0.007, -0.019, 0.610, 0.792]
+- Rotation: in RPY (radian) [-0.012, -0.039, 1.314]
+- Rotation: in RPY (degree) [-0.712, -2.208, 75.270]
+- Matrix:
+  0.254 -0.967 -0.022 123.123
+  0.966  0.255 -0.034 398.012
+  0.039 -0.012  0.999 -6.859
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769065335.591211728] [rclcpp]: signal_handler(signum=2)
+
+5.第五组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769065690
+    nanosec: 487508435
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.765724666666664
+longitude: 103.98745750000002
+altitude: 512.4
+position_covariance:
+- 1.9043999999999996
+- 0.0
+- 0.0
+- 0.0
+- 1.9043999999999996
+- 0.0
+- 0.0
+- 0.0
+- 3.8087999999999993
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769065691
+    nanosec: 407552193
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.765724833333334
+longitude: 103.98745816666666
+altitude: 512.4
+position_covariance:
+- 1.9043999999999996
+- 0.0
+- 0.0
+- 0.0
+- 1.9043999999999996
+- 0.0
+- 0.0
+- 0.0
+- 3.8087999999999993
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769065692
+    nanosec: 467226194
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.765724833333334
+longitude: 103.98745883333335
+altitude: 512.4
+position_covariance:
+- 1.9043999999999996
+- 0.0
+- 0.0
+- 0.0
+- 1.9043999999999996
+- 0.0
+- 0.0
+- 0.0
+- 3.8087999999999993
+position_covariance_type: 1
+---
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769065711.501858860] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1769065713.027121117] [tf2_echo]: Waiting for transform map ->  base_link: Could not find a connection between 'map' and 'base_link' because they are not part of the same tree.Tf has two or more unconnected trees.
+At time 1769065715.24174366
+- Translation: [-98.166, 384.569, -9.432]
+- Rotation: in Quaternion (xyzw) [-0.008, 0.000, 0.999, 0.050]
+- Rotation: in RPY (radian) [-0.000, 0.016, 3.042]
+- Rotation: in RPY (degree) [-0.008, 0.913, 174.306]
+- Matrix:
+ -0.995 -0.099 -0.016 -98.166
+  0.099 -0.995  0.001 384.569
+ -0.016 -0.000  1.000 -9.432
+  0.000  0.000  0.000  1.000
+At time 1769065716.18392128
+- Translation: [-98.161, 384.592, -9.428]
+- Rotation: in Quaternion (xyzw) [-0.008, 0.001, 0.999, 0.050]
+- Rotation: in RPY (radian) [0.000, 0.016, 3.042]
+- Rotation: in RPY (degree) [0.012, 0.943, 174.283]
+- Matrix:
+ -0.995 -0.100 -0.016 -98.161
+  0.100 -0.995  0.002 384.592
+ -0.016  0.000  1.000 -9.428
+  0.000  0.000  0.000  1.000
+At time 1769065717.18432332
+- Translation: [-98.166, 384.586, -9.427]
+- Rotation: in Quaternion (xyzw) [-0.008, 0.000, 0.999, 0.050]
+- Rotation: in RPY (radian) [0.000, 0.016, 3.041]
+- Rotation: in RPY (degree) [0.010, 0.932, 174.255]
+- Matrix:
+ -0.995 -0.100 -0.016 -98.166
+  0.100 -0.995  0.002 384.586
+ -0.016  0.000  1.000 -9.427
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769065717.370248886] [rclcpp]: signal_handler(signum=2)
+
+
+
+6.第六组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769066012
+    nanosec: 477467035
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.767034
+longitude: 103.98825283333332
+altitude: 517.5
+position_covariance:
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 2.5991999999999997
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066013
+    nanosec: 527359689
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.767034
+longitude: 103.98825299999999
+altitude: 517.5
+position_covariance:
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 2.5991999999999997
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066014
+    nanosec: 507533253
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.767033833333336
+longitude: 103.98825316666668
+altitude: 517.5
+position_covariance:
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.4200000000000004
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066015
+    nanosec: 528443469
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.767033666666666
+longitude: 103.98825333333335
+altitude: 517.6
+position_covariance:
+- 1.2544000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2544000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.5088000000000004
+position_covariance_type: 1
+---
+^C
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769066039.585478875] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1769066041.134789346] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769066042.131980504
+- Translation: [-258.737, 338.616, -12.974]
+- Rotation: in Quaternion (xyzw) [-0.022, -0.000, 0.979, 0.201]
+- Rotation: in RPY (radian) [-0.009, 0.044, 2.737]
+- Rotation: in RPY (degree) [-0.532, 2.515, 156.830]
+- Matrix:
+ -0.918 -0.393 -0.044 -258.737
+  0.393 -0.919  0.009 338.616
+ -0.044 -0.009  0.999 -12.974
+  0.000  0.000  0.000  1.000
+At time 1769066043.131822097
+- Translation: [-258.713, 338.657, -12.993]
+- Rotation: in Quaternion (xyzw) [-0.023, 0.001, 0.979, 0.201]
+- Rotation: in RPY (radian) [-0.008, 0.046, 2.737]
+- Rotation: in RPY (degree) [-0.469, 2.621, 156.807]
+- Matrix:
+ -0.918 -0.393 -0.045 -258.713
+  0.393 -0.919  0.010 338.657
+ -0.046 -0.008  0.999 -12.993
+  0.000  0.000  0.000  1.000
+At time 1769066044.132083992
+- Translation: [-258.707, 338.668, -12.976]
+- Rotation: in Quaternion (xyzw) [-0.023, 0.000, 0.979, 0.201]
+- Rotation: in RPY (radian) [-0.009, 0.045, 2.737]
+- Rotation: in RPY (degree) [-0.500, 2.583, 156.804]
+- Matrix:
+ -0.918 -0.394 -0.045 -258.707
+  0.393 -0.919  0.010 338.668
+ -0.045 -0.009  0.999 -12.976
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769066044.493339664] [rclcpp]: signal_handler(signum=2)
+
+7.第7组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769066289
+    nanosec: 517169453
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769819999999996
+longitude: 103.98688966666666
+altitude: 517.1
+position_covariance:
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 2.5991999999999997
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066290
+    nanosec: 487303974
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769819999999996
+longitude: 103.98688949999999
+altitude: 517.1
+position_covariance:
+- 1.3923999999999999
+- 0.0
+- 0.0
+- 0.0
+- 1.3923999999999999
+- 0.0
+- 0.0
+- 0.0
+- 2.7847999999999997
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066291
+    nanosec: 517183497
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769819999999996
+longitude: 103.98688916666667
+altitude: 517.0
+position_covariance:
+- 1.44
+- 0.0
+- 0.0
+- 0.0
+- 1.44
+- 0.0
+- 0.0
+- 0.0
+- 2.88
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066292
+    nanosec: 467359207
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769820166666666
+longitude: 103.986889
+altitude: 517.0
+position_covariance:
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 3.0752
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066293
+    nanosec: 447326367
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769820333333335
+longitude: 103.98688883333334
+altitude: 517.0
+position_covariance:
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 3.0752
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066294
+    nanosec: 437354258
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769820333333335
+longitude: 103.98688849999999
+altitude: 516.9
+position_covariance:
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 1.5376
+- 0.0
+- 0.0
+- 0.0
+- 3.0752
+position_covariance_type: 1
+---
+^
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769066304.029472929] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769066305.972535519
+- Translation: [-395.956, 32.319, -19.257]
+- Rotation: in Quaternion (xyzw) [0.013, -0.002, -0.645, 0.764]
+- Rotation: in RPY (radian) [0.023, 0.014, -1.403]
+- Rotation: in RPY (degree) [1.310, 0.801, -80.377]
+- Matrix:
+  0.167  0.986 -0.020 -395.956
+ -0.986  0.167 -0.018 32.319
+ -0.014  0.023  1.000 -19.257
+  0.000  0.000  0.000  1.000
+At time 1769066306.972462435
+- Translation: [-395.969, 32.306, -19.261]
+- Rotation: in Quaternion (xyzw) [0.013, -0.002, -0.645, 0.764]
+- Rotation: in RPY (radian) [0.023, 0.014, -1.403]
+- Rotation: in RPY (degree) [1.292, 0.794, -80.359]
+- Matrix:
+  0.167  0.986 -0.020 -395.969
+ -0.986  0.167 -0.017 32.306
+ -0.014  0.023  1.000 -19.261
+  0.000  0.000  0.000  1.000
+At time 1769066307.972574808
+- Translation: [-395.969, 32.330, -19.256]
+- Rotation: in Quaternion (xyzw) [0.013, -0.002, -0.645, 0.764]
+- Rotation: in RPY (radian) [0.023, 0.014, -1.403]
+- Rotation: in RPY (degree) [1.290, 0.782, -80.360]
+- Matrix:
+  0.167  0.986 -0.020 -395.969
+ -0.986  0.167 -0.017 32.330
+ -0.014  0.023  1.000 -19.256
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769066308.319090594] [rclcpp]: signal_handler(signum=2)
+
+
+8.第8组
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 topic echo /sensing/gnss/pose_with_covariance
+header:
+  stamp:
+    sec: 1769066575
+    nanosec: 537184150
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769518833333336
+longitude: 103.9841615
+altitude: 517.0
+position_covariance:
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 1.2995999999999999
+- 0.0
+- 0.0
+- 0.0
+- 2.5991999999999997
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066576
+    nanosec: 567323910
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769518666666666
+longitude: 103.98416133333333
+altitude: 517.0
+position_covariance:
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.4200000000000004
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066577
+    nanosec: 487226001
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769518666666666
+longitude: 103.98416133333333
+altitude: 517.0
+position_covariance:
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.4200000000000004
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066578
+    nanosec: 487483173
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769518500000004
+longitude: 103.98416133333333
+altitude: 517.0
+position_covariance:
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.4200000000000004
+position_covariance_type: 1
+---
+header:
+  stamp:
+    sec: 1769066579
+    nanosec: 437478938
+  frame_id: gnss_link
+status:
+  status: 1
+  service: 15
+latitude: 30.769518500000004
+longitude: 103.98416133333333
+altitude: 517.1
+position_covariance:
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 1.2100000000000002
+- 0.0
+- 0.0
+- 0.0
+- 2.4200000000000004
+position_covariance_type: 1
+---
+^C
+akun@yunle-Default-string:~/workspace/Car_jetson/nav2$ ros2 run tf2_ros tf2_echo map base_link
+[INFO] [1769066594.955025890] [tf2_echo]: Waiting for transform map ->  base_link: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+At time 1769066596.104802834
+- Translation: [-194.107, -132.253, -23.182]
+- Rotation: in Quaternion (xyzw) [-0.004, 0.009, -0.099, 0.995]
+- Rotation: in RPY (radian) [-0.010, 0.017, -0.199]
+- Rotation: in RPY (degree) [-0.567, 0.975, -11.386]
+- Matrix:
+  0.980  0.197  0.019 -194.107
+ -0.197  0.980  0.006 -132.253
+ -0.017 -0.010  1.000 -23.182
+  0.000  0.000  0.000  1.000
+At time 1769066597.104861659
+- Translation: [-194.113, -132.233, -23.185]
+- Rotation: in Quaternion (xyzw) [-0.004, 0.009, -0.099, 0.995]
+- Rotation: in RPY (radian) [-0.010, 0.018, -0.199]
+- Rotation: in RPY (degree) [-0.591, 1.018, -11.376]
+- Matrix:
+  0.980  0.197  0.019 -194.113
+ -0.197  0.980  0.007 -132.233
+ -0.018 -0.010  1.000 -23.185
+  0.000  0.000  0.000  1.000
+At time 1769066598.104838940
+- Translation: [-194.111, -132.230, -23.184]
+- Rotation: in Quaternion (xyzw) [-0.004, 0.009, -0.100, 0.995]
+- Rotation: in RPY (radian) [-0.010, 0.018, -0.200]
+- Rotation: in RPY (degree) [-0.581, 1.014, -11.431]
+- Matrix:
+  0.980  0.198  0.019 -194.111
+ -0.198  0.980  0.006 -132.230
+ -0.018 -0.010  1.000 -23.184
+  0.000  0.000  0.000  1.000
+At time 1769066599.104940335
+- Translation: [-194.118, -132.232, -23.186]
+- Rotation: in Quaternion (xyzw) [-0.004, 0.009, -0.099, 0.995]
+- Rotation: in RPY (radian) [-0.010, 0.017, -0.199]
+- Rotation: in RPY (degree) [-0.593, 0.973, -11.379]
+- Matrix:
+  0.980  0.197  0.019 -194.118
+ -0.197  0.980  0.007 -132.232
+ -0.017 -0.010  1.000 -23.186
+  0.000  0.000  0.000  1.000
+^C[INFO] [1769066599.354326680] [rclcpp]: signal_handler(signum=2)

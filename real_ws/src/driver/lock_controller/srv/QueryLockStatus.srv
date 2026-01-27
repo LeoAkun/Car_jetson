@@ -1,0 +1,8 @@
+# 查询锁状态服务
+uint8 board_address    # 板地址 (1-32)
+uint8 lock_address     # 锁地址 (1-24), 0表示查询所有锁
+---
+bool success           # 是否成功
+bool is_locked         # 锁状态 (仅当查询单个锁时有效)
+bool[] all_lock_states # 所有锁状态 (仅当lock_address=0时有效)
+string message         # 反馈消息

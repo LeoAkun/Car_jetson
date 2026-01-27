@@ -1,0 +1,6 @@
+# 批量开锁命令服务 (开多个通道锁)
+uint8 board_address    # 板地址 (1-32)
+bool[] lock_mask       # 锁掩码数组，最多24个元素，true表示要打开该锁
+---
+bool success           # 是否成功
+string message         # 反馈消息

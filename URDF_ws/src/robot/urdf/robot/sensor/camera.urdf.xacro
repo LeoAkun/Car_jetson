@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <xacro:macro name="camera_xacro" params="xyz">
+        <!-- 机器人的camera部件 -->
+        <link name="camera_link">
+            <!-- 部件外观描述 -->
+            <visual>
+
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 正方体， 长0.02m， 宽0.02m，高0.02m -->
+                    <box size="0.02 0.10 0.02"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="red">
+                    <!-- RGB透明度 -->
+                    <color rgba="1 0.0 0.0 0.5"/>
+                </material>
+            </visual>
+
+            <!-- 碰撞属性 -->
+            <collision>
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 正方体， 长0.02m， 宽0.02m，高0.02m -->
+                    <box size="0.02 0.10 0.02"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="red">
+                    <!-- RGB透明度 -->
+                    <color rgba="1 0.0 0.0 0.5"/>
+                </material>
+            </collision>
+
+            <!-- 质量与惯性 -->
+            <xacro:box_inertia m="0.1" w="0.10" h="0.2" d="0.02"/>
+            
+        </link>
+        
+        <!-- 机器人的关节：组合机器人部件 -->
+        <!-- IMU是固定死的，所以使用"fixed" -->
+        <joint name="camera_joint" type="fixed">
+            
+            <!-- 表示把carema固定到机器人上 -->
+            <parent link="base_link"/>
+            <child link="camera_link"/>
+            
+            <!-- 固定位置，固定在几何中心向上0.03m -->
+            <origin xyz="${xyz}" rpy="0.0 0.0 0.0"/>
+        </joint>
+
+        <gazebo reference="camera_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+    </xacro:macro>
+
+</robot>

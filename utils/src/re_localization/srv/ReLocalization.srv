@@ -1,0 +1,8 @@
+# Request
+geometry_msgs/PoseWithCovarianceStamped initial_pose
+---
+
+# Response
+bool success
+float64 fitness_score
+geometry_msgs/PoseWithCovarianceStamped pose

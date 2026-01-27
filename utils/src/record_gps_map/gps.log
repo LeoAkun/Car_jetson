@@ -1,0 +1,10281 @@
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 68247966
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4895.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 118631763
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4900.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 168648593
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4905.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 218576733
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4910.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 268347114
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4915.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 318400969
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4920.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 368615707
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4925.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 418623059
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4930.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 468701762
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4935.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 518349026
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4940.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 568572802
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4945.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 618608005
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4950.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 668451467
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4955.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 718354834
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4960.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 768394058
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4965.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 818630097
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4970.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 868754289
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4975.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 918579752
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4980.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087994
+    nanosec: 968606442
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4985.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 18578866
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4990.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 68800605
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 4995.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 118617393
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5000.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 168804464
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5005.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 218610734
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5010.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 268898825
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5015.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 318394560
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5020.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 368590838
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5025.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 418616706
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5030.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 468353018
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5035.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 518520830
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5040.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 568595638
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5045.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 618760972
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5050.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 668660123
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5055.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 718612797
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5060.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 768574603
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5065.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 818795359
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5070.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 868668610
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5075.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 918619567
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5080.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087995
+    nanosec: 968476511
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5085.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 18616027
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5090.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 68599201
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5095.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 118618140
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5100.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 168573752
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5105.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 218658518
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5110.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 268617170
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5115.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 318404248
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5120.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 368352279
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5125.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 418680956
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5130.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 468627185
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5135.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 518680281
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5140.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 568401608
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5145.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 618414071
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5150.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 668576952
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5155.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 718376579
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5160.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 768358817
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5165.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 818284090
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5170.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 868288108
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5175.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 918370349
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5180.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087996
+    nanosec: 968656316
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5185.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 18588834
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5190.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 68590127
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5195.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 118657240
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5200.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 168614007
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5205.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 218595106
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5210.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 268593523
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5215.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 318809520
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5220.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 368621725
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5225.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 418597480
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5230.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 468733978
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5235.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 518650336
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5240.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 568613474
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5245.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 618566942
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5250.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 668657326
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5255.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 718733741
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5260.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 768335185
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5265.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 818373581
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5270.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 868643518
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5275.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 918574119
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5280.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087997
+    nanosec: 968612343
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5285.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 18683694
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5290.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 68667130
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5295.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 118593564
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5300.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 168582670
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5305.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 218673492
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5310.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 268662126
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5315.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 318637226
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5320.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 368652535
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5325.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 418624940
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5330.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 468253888
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5335.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 518632096
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5340.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 568641099
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5345.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 618754969
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5350.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 668615510
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5355.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 718610546
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5360.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 768391953
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5365.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 818615503
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5370.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 868616216
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5375.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 918604865
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5380.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087998
+    nanosec: 968612567
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5385.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 18583049
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5390.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 68700994
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5395.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 118631742
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5400.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 168637863
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5405.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 218599248
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5410.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 268614549
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5415.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 318613698
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5420.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 368653787
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5425.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 418608589
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5430.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 468729127
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5435.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 518613004
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5440.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 568376876
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5445.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 618633161
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5450.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 668582332
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5455.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 718595349
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5460.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 768614294
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5465.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 818614896
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5470.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 868628898
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5475.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 918693165
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5480.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769087999
+    nanosec: 968618115
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5485.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 18624048
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5490.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 68823285
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5495.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 118584819
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5500.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 168628830
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5505.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 218617514
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5510.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 268790932
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5515.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 318613585
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5520.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 368806142
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5525.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 418661340
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5530.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 468296992
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5535.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 518682583
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5540.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 568395965
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5545.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 618585817
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5550.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 668584313
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5555.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 718636478
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5560.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 768623770
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5565.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 818609221
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5570.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 868593535
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5575.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 918614477
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5580.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088000
+    nanosec: 968614154
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5585.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 18589324
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5590.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 68546157
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5595.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 118631037
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5600.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 168680792
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5605.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 218745666
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5610.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 268633374
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5615.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 318622516
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5620.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 368594213
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5625.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 418394009
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5630.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 468359600
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5635.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 518258514
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5640.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 568262705
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5645.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 618445640
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5650.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 668594953
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5655.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 718619706
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5660.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 768799526
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5665.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 818613337
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5670.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 868606141
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5675.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 918622533
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5680.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088001
+    nanosec: 968593922
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5685.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 18602977
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5690.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 68317467
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5695.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 118630542
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5700.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 168635953
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5705.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 218600937
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5710.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 268596320
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5715.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 318630292
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5720.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 368600998
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5725.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 418614237
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5730.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 468640718
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5735.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 518592036
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5740.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 568643063
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5745.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 618635498
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5750.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 668823789
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5755.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 718633537
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5760.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 768614418
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5765.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 818621842
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5770.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 868635632
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5775.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 918406174
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5780.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088002
+    nanosec: 968312665
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5785.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 18527978
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5790.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 68592364
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5795.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 118775430
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5800.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 168578291
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5805.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 218616243
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5810.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 268730250
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5815.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 318595191
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5820.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 368620013
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5825.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 418619015
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5830.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 468633543
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5835.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 518602167
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5840.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 568806692
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5845.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 618613498
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5850.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 668833016
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5855.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 718612293
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5860.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 768664897
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5865.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 818617452
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5870.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 868766375
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5875.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 918640561
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5880.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088003
+    nanosec: 968636867
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5885.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 18626862
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5890.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 68388780
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5895.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 118602591
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5900.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 168688446
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5905.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 218610016
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5910.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 268638446
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5915.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 318605688
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5920.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 368641820
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5925.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 418646927
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5930.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 468783091
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5935.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 518631369
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5940.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 568762020
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5945.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 618607036
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5950.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 668636322
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5955.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 718635096
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5960.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 768595460
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5965.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 818631304
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5970.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 868615586
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5975.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 918604346
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5980.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088004
+    nanosec: 968612641
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5985.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 18633864
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5990.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 68589621
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 5995.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 118633373
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6000.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 168637209
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6005.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 218715662
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6010.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 268650242
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6015.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 318631976
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6020.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 368581959
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6025.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 418636045
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6030.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 468368132
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6035.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 518516668
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6040.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 568638461
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6045.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 618588166
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6050.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 668641365
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6055.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 718604215
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6060.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 768339991
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6065.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 818642708
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6070.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 868634105
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6075.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 918924464
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6080.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088005
+    nanosec: 968897999
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6085.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 18752146
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6090.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 68652914
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6095.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 118397555
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6100.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 168282807
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6105.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 218351265
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6110.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 268366529
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6115.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 318283767
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6120.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 368297683
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6125.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 418564879
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6130.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 468666299
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6135.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 518619098
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6140.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 568642378
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6145.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 618632039
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6150.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 668689190
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6155.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 718586286
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6160.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 768799453
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6165.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 818901079
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6170.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 868844366
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6175.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 918609078
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6180.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088006
+    nanosec: 968476964
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6185.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 18401472
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6190.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 68434764
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6195.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 118440328
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6200.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 168620834
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6205.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 218615800
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6210.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 268593942
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6215.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 318601019
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6220.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 368640025
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6225.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 418629977
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6230.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 468596534
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6235.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 518416090
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6240.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 568470687
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6245.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 618603409
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6250.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 668620050
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6255.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 718615012
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6260.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 768649713
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6265.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 818599211
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6270.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 868508528
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6275.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 918394962
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6280.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088007
+    nanosec: 968638667
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6285.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 18503986
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6290.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 68573160
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6295.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 118586184
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6300.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 168548254
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6305.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 218571395
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6310.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 268642749
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6315.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 318599521
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6320.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 368600240
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6325.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 418623738
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6330.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 468634952
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6335.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 518643075
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6340.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 568622693
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6345.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 618626640
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6350.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 668571551
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6355.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 718618490
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6360.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 768298721
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6365.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 818602399
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6370.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 868612804
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6375.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 918606049
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6380.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088008
+    nanosec: 968302520
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6385.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 18370070
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6390.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 68595307
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6395.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 118774610
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6400.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 168611188
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6405.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 218640365
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6410.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 268610051
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6415.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 318634470
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6420.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 368631946
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6425.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 418630220
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6430.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 468627631
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6435.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 518647274
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6440.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 568580256
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6445.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 618566508
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6450.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 668564727
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6455.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 718752441
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6460.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 768329798
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6465.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 818578319
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6470.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 868588182
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6475.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 918623514
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6480.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088009
+    nanosec: 968630900
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6485.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 18644983
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6490.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 68634099
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6495.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 118627280
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6500.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 168764460
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6505.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 218647499
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6510.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 268378043
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6515.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 318617995
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6520.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 368638595
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6525.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 418608896
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6530.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 468297293
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6535.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 518514552
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6540.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 568331227
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6545.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 618415782
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6550.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 668619112
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6555.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 718767353
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6560.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 768506923
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6565.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 818501894
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6570.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 868376167
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6575.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 918337492
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6580.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088010
+    nanosec: 968262916
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6585.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 18249055
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6590.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 68356310
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6595.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 118575258
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6600.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 168376777
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6605.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 218578372
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6610.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 268480284
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6615.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 318412157
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6620.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 368637709
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6625.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 418598999
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6630.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 468626439
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6635.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 518596884
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6640.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 568623402
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6645.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 618659680
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6650.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 668610712
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6655.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 718602539
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6660.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 768596714
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6665.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 818581185
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6670.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 868654893
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6675.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 918606328
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6680.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088011
+    nanosec: 968751541
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6685.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 18596526
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6690.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 68611523
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6695.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 118305550
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6700.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 168622208
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6705.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 218617731
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6710.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 268722528
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6715.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 318605804
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6720.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 368621905
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6725.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 418374260
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6730.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 468444846
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6735.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 518609134
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6740.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 568669630
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6745.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 618618157
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6750.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 668628978
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6755.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 718759085
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6760.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 768606594
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6765.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 818613687
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6770.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 868575651
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6775.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 918637762
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6780.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088012
+    nanosec: 968656420
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6785.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 18625328
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6790.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 68606554
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6795.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 118618054
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6800.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 168599091
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6805.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 218626229
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6810.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 268642042
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6815.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 318615117
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6820.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 368609563
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6825.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 418619802
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6830.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 468611781
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6835.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 518624208
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6840.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 568637600
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6845.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 618639810
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6850.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 668396596
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6855.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 718359584
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6860.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 768266078
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6865.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 818706456
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6870.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 868507998
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6875.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 918367327
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6880.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088013
+    nanosec: 968645860
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6885.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 18645133
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6890.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 68340688
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6895.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 118343719
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6900.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 168693962
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6905.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 218685026
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6910.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 268642730
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6915.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 318639310
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6920.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 368833166
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6925.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 418629925
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6930.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 468665254
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6935.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 518788435
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6940.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 568636485
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6945.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 618671661
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6950.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 668326419
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6955.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 718479031
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6960.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 768610562
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6965.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 818805625
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6970.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 868600993
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6975.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 918636339
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6980.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088014
+    nanosec: 968662515
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6985.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 18615926
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6990.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 68357005
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 6995.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 118609461
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7000.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 168623610
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7005.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 218604162
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7010.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 268638576
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7015.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 318625825
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7020.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 368780520
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7025.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 418608770
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7030.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 468341768
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7035.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 518548285
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7040.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 568367852
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7045.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 618447914
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7050.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 668297207
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7055.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 718258007
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7060.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 768411505
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7065.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 818606356
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7070.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 868610443
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7075.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 918603012
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7080.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088015
+    nanosec: 968617432
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7085.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 18625669
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7090.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 68605136
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7095.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 118642030
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7100.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 168600017
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7105.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 218636204
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7110.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 268617820
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7115.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 318613316
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7120.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---
+header:
+  stamp:
+    sec: 1769088016
+    nanosec: 368601848
+  frame_id: gnss_link
+status:
+  status: 0
+  service: 0
+latitude: 0.0
+longitude: 7125.0
+altitude: 0.0
+position_covariance:
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.0001
+- 0.0
+- 0.0
+- 0.0
+- 0.1
+position_covariance_type: 2
+---

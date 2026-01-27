@@ -1,0 +1,22 @@
+/**:
+  ros__parameters:
+    registration_method: GICP
+    score_threshold: 2.0
+    ndt_resolution: 0.5
+    ndt_step_size: 0.1
+    ndt_num_threads: 4
+    transform_epsilon: 0.01
+    voxel_leaf_size: 0.3 # pcd下采样数
+    scan_max_range: 100.0
+    scan_min_range: 1.0
+    scan_period: 0.1
+    use_pcd_map: true
+    # map_path: /home/akun/workspace/Car_jetson/cloudGlobal_clean.pcd # 实验室地图
+    map_path: /home/akun/workspace/Car_jetson/GlobalMap3.pcd  # 室外地图
+    use_odom: false
+    use_imu: false
+    enable_debug: true
+    global_frame_id: map
+    odom_frame_id: odom
+    base_frame_id: base_link
+    lidar_topic: /livox_Pointcloud2

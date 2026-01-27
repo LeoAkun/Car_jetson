@@ -1,0 +1,6 @@
+# 请求
+string start_place_name
+string dest_place_name
+---
+# 响应
+global_route_msg/Node[] points

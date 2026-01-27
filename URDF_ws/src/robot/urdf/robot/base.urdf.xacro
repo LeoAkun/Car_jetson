@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find robot)/urdf/robot/common_inertial.xacro"/>
+
+    <!-- 定义一个宏，类似函数 -->
+    <xacro:macro name="base_xacro">
+        <!-- 虚拟部件，如果base_link为基准坐标点,则轮子会在基准面下方 -->
+        <!-- <link name="base_footprint" /> -->
+
+        <!-- 机器人身体 -->
+        <link name="base_link">
+
+            <!-- 部件外观描述 -->
+            <visual>
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 长方体， 长50cm 宽30cm 高10cm -->
+                    <box size="0.5 0.30 0.1"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="white">
+                    <!-- RGB透明度 -->
+                    <color rgba="1.0 1.0 1.0 0.5"/>
+                </material>
+            </visual>
+            
+            <!-- 碰撞属性 -->
+            <collision>
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 长方体， 长50cm 宽30cm 高10cm -->
+                    <box size="0.5 0.30 0.1"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="white">
+                    <!-- RGB透明度 -->
+                    <color rgba="1.0 1.0 1.0 0.5"/>
+                </material>
+            </collision>
+
+            <!-- 质量与惯性 -->
+            <xacro:box_inertia m="1.0" w="0.30" h="0.1" d="0.5"/>
+
+            <damping>
+                <linear>0.5</linear>   <!-- 线性阻尼系数（N·s/m）-->
+                <angular>0.5</angular> <!-- 旋转阻尼系数（N·m·s/rad）-->
+            </damping>
+            <mu1>1.0</mu1>          <!-- 摩擦系数 -->
+            <mu2>1.0</mu2>
+        </link>
+
+        
+
+        <!-- <joint name="joint_name" type="fixed"> -->
+            <!-- <origin xyz="0.0 0.0 ${0.1/2.0 + 0.025 - 0.001}" rpy="0.0 0.0 0.0"/> -->
+            <!-- <parent link="base_footprint"/> -->
+            <!-- <child link="base_link"/> -->
+        <!-- </joint> -->
+    </xacro:macro>
+
+</robot>

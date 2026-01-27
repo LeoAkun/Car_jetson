@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <xacro:macro name="laser_xacro" params="xyz">
+
+        <!-- 机器人的雷达支撑杆部件 -->
+        <link name="laser_cylinder_link">
+            <!-- 部件外观描述 -->
+            <visual>
+
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 圆柱体 -->
+                    <cylinder radius="0.01" length="0.10"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="black">
+                    <!-- RGB透明度 -->
+                    <color rgba="0.0 0.0 0.0 1.0"/>
+                </material>
+            </visual>
+
+            <!-- 碰撞属性 -->
+            <collision>
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 圆柱体 -->
+                    <cylinder radius="0.01" length="0.10"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="black">
+                    <!-- RGB透明度 -->
+                    <color rgba="0.0 0.0 0.0 1.0"/>
+                </material>
+            </collision>
+
+            <!-- 质量与惯性 -->
+            <xacro:cylinder_inertia m="0.05" r="0.01" h="0.10"/>
+
+        </link>
+
+        <!-- 机器人的laser部件 -->
+        
+        <link name="laser_link">
+            <!-- 部件外观描述 -->
+            <visual>
+
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 正方体， 长0.02m， 宽0.02m，高0.02m -->
+                    <!-- <box size="0.02 0.02 0.02"/> -->
+                    <cylinder radius="0.02" length="0.02"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="blue">
+                    <!-- RGB透明度 -->
+                    <color rgba="0.0 0.0 1.0 0.5"/>
+                </material>
+            </visual>
+
+            <!-- 碰撞属性 -->
+            <collision>
+                <!-- 沿着自己几何中心的偏移和旋转 -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+                <!-- 几何形状 -->
+                <geometry>
+                    <!-- 圆柱体 -->
+                    <cylinder radius="0.02" length="0.02"/>
+                </geometry>
+
+                <!-- 材质颜色 -->
+                <material name="blue">
+                    <!-- RGB透明度 -->
+                    <color rgba="0.0 0.0 1.0 0.5"/>
+                </material>
+            </collision>
+
+            <!-- 质量与惯性 -->
+            <xacro:cylinder_inertia m="0.10" r="0.02" h="0.02"/>
+        
+        </link>
+        
+        <!-- 机器人的关节：组合机器人部件 -->
+        <joint name="laser_joint" type="fixed">
+            
+            <!-- 表示把laser固定到支撑杆上 -->
+            <parent link="laser_cylinder_link"/>
+            <child link="laser_link"/>
+            
+            <!-- 固定位置，固定在几何中心向上0.03m -->
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+        </joint>
+
+        <joint name="laser_cylinder_joint" type="fixed">
+            
+            <!-- 表示把支撑杆固定到base_link上 -->
+            <parent link="base_link"/>
+            <child link="laser_cylinder_link"/>
+            
+            <!-- 固定位置，固定在几何中心向上0.03m -->
+            <origin xyz="${xyz}" rpy="0.0 0.0 0.0"/>
+        </joint>
+        
+        <!-- gazebo标签,给gazebo看的 -->
+        <gazebo reference="laser_cylinder_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+        <gazebo reference="laser_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>

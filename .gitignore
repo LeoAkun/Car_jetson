@@ -1,0 +1,8 @@
+rosbag2_*/
+**/build/
+**/install/
+**/log/
+*dataset/
+bag/
+.git
+*.pcd

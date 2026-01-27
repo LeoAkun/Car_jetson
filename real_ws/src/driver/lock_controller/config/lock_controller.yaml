@@ -1,0 +1,12 @@
+# Lock Controller Configuration
+
+lock_controller:
+  ros__parameters:
+    # 串口设备路径
+    serial_port: "/dev/ttyUSB3"
+
+    # 波特率 (固定为9600)
+    baud_rate: 9600
+
+    # 默认板地址 (1-32)
+    board_address: 1

@@ -1,0 +1,8 @@
+/cmdvel_to_ecu:  # 节点名
+  ros__parameters:
+    L: 0.5  # 轴距（米）
+    LOW_SPEED_THRESH: 0.08 # 低于这个速度认为是停车
+    OMEGA_DEADZONE: 0.20 # 旋转角度的死区
+    MAX_STEER_DEG: 30.0 # 舵机最大能打的转向角度
+    OMEGA_FULL_STEER: 5.0 # 停车时推满摇杆对应的角速度 -> 5.0即对应最大转向角度, 或者说敏感度，数值越小越敏感
+    rear_wheel_flag: True # 是否开启双阿克曼模式

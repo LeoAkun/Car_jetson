@@ -1,0 +1,7 @@
+# 长通电控制服务 (用于电磁锁)
+uint8 board_address    # 板地址 (1-32)
+uint8 lock_address     # 锁地址 (1-24)
+bool enable            # true=开启长通电, false=关闭长通电
+---
+bool success           # 是否成功
+string message         # 反馈消息

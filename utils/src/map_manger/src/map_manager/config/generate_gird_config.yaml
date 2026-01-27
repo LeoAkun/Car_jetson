@@ -1,0 +1,6 @@
+generate_gird_config:
+  map_folder: "/home/akun/workspace/CAR/utils/map_manger/src/map_manager/map"
+  json_path: "/home/akun/workspace/CAR/utils/map_manger/src/map_manager/json/map_grid_corners.json"
+  place_name: "Southwest Jiaotong University (Xipu Campus)"
+  grid_size: 300
+  use_empty_pcd_pgm: True

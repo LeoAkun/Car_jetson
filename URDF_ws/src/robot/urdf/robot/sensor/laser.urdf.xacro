@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro" />
+
+    <xacro:macro name="laser_xacro" params="xyz">
+
+        <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro" />
+        <!-- 机器人的laser部件 -->
+        <!-- <xacro:mid360 name="livox_frame" parent="odom" topic="livox"> -->
+        <xacro:mid360 name="livox_frame" parent="base_link" topic="livox">
+            <origin xyz="${xyz}" rpy="0 0 0"/>
+        </xacro:mid360>
+
+
+
+
+    </xacro:macro>
+
+</robot>

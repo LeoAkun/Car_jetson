@@ -1,0 +1,16 @@
+# GNSS Converter 配置文件示例
+
+gnss_converter_node:
+  ros__parameters:
+    # 串口设备
+    serial_port: "/dev/ttyACM0"
+
+    # 波特率
+    baudrate: 115200
+
+    # 坐标系 ID
+    frame_id: "gnss_link"
+
+    # 原点经纬度（可选，留空则自动使用第一个有效位置作为原点）
+    # origin_latitude: 30.7676
+    # origin_longitude: 103.9836

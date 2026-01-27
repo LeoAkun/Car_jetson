@@ -1,0 +1,24 @@
+[INFO] [1769089469.514229456] [gps_map_logger]: 已删除旧的 CSV 文件: /home/akun/workspace/Car_jetson/utils/src/record_gps_map/record_gps_map.csv
+[INFO] [1769089469.514772085] [gps_map_logger]: 节点已启动：每 2 秒记录一次 GPS ↔ map 坐标
+[INFO] [1769089469.515142284] [gps_map_logger]: 保存路径: /home/akun/workspace/Car_jetson/utils/src/record_gps_map/record_gps_map.csv
+[INFO] [1769089469.515499334] [gps_map_logger]: CSV 格式: latitude,longitude,map_x,map_y
+[时间戳(非小数点):1769089471, 123500790]  [时间戳(小数点):1769089471.1235008]GPS: (30.76753383, 103.98388667)  →  Map: x=0.012, y=0.061    [时间差 +0.0 ms] 已保存
+[时间戳(非小数点):1769089473, 163093602]  [时间戳(小数点):1769089473.1630936]GPS: (30.76753283, 103.98388800)  →  Map: x=0.014, y=0.060    [时间差 +0.0 ms] 已保存
+[时间戳(非小数点):1769089475, 163079540]  [时间戳(小数点):1769089475.1630795]GPS: (30.76753083, 103.98388950)  →  Map: x=0.013, y=0.064    [时间差 +0.0 ms] 已保存
+[时间戳(非小数点):1769089477, 163118247]  [时间戳(小数点):1769089477.1631184]GPS: (30.76752917, 103.98389083)  →  Map: x=0.015, y=0.064    [时间差 +0.0 ms] 已保存
+[时间戳(非小数点):1769089479, 132935150]  [时间戳(小数点):1769089479.132935]GPS: (30.76752750, 103.98389133)  →  Map: x=0.013, y=0.063    [时间差 +0.0 ms] 已保存
+[时间戳(非小数点):1769089481, 142900059]  [时间戳(小数点):1769089481.1429]GPS: (30.76752667, 103.98389117)  →  Map: x=0.018, y=0.065    [时间差 +0.0 ms] 已保存
+[时间戳(非小数点):1769089483, 132921315]  [时间戳(小数点):1769089483.1329212]GPS: (30.76752633, 103.98389100)  →  Map: x=0.017, y=0.065    [时间差 +0.0 ms] 已保存
+Traceback (most recent call last):
+  File "/home/akun/workspace/Car_jetson/utils/install/record_gps_map/lib/record_gps_map/record_gps_map", line 33, in <module>
+    sys.exit(load_entry_point('record-gps-map==0.0.0', 'console_scripts', 'record_gps_map')())
+  File "/home/akun/workspace/Car_jetson/utils/install/record_gps_map/lib/python3.10/site-packages/record_gps_map/record_gps_map.py", line 113, in main
+    rclpy.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+    _shutdown(context=context)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+    return context.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+    self.__context.shutdown()
+rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[ros2run]: Process exited with failure 1

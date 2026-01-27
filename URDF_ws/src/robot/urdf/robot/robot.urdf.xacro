@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+<!-- 包含头文件 -->
+<xacro:include filename="$(find robot)/urdf/robot/base.urdf.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/sensor/imu.urdf.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/sensor/camera.urdf.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/sensor/laser.urdf.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/actor/wheel.urdf.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/actor/wheel_congdong.urdf.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/plugins/gazebo_control_plugin.xacro"/>
+<xacro:include filename="$(find robot)/urdf/robot/plugins/gazebo_imu_plugin.xacro"/>
+<!-- <xacro:include filename="$(find robot)/urdf/robot/plugins/gazebo_laser_plugin.xacro"/> -->
+
+<!-- 使用机器人各部分 -->
+<xacro:base_xacro/>
+<xacro:imu_xacro xyz="0.0 0.0 0.02"/>
+<xacro:camera_xacro xyz="0.25 0.0 0.05"/>
+<xacro:laser_xacro xyz="0.0 0.0 0.10"/>
+<xacro:wheel_congdong_xacro wheel_name="wheel_1" xyz="0.25 0.17 -0.05"/>
+<xacro:wheel_xacro wheel_name="wheel_2" xyz="-0.25 0.17 -0.05"/>
+<xacro:wheel_congdong_xacro wheel_name="wheel_3" xyz="0.25 -0.17 -0.05"/>
+<xacro:wheel_xacro wheel_name="wheel_4" xyz="-0.25 -0.17 -0.05"/>
+
+<!-- 使用插件 -->
+<xacro:gazebo_control_plugin/>
+<xacro:gazebo_imu_plugin/>
+<!-- <xacro:gazebo_laser_plugin/> -->
+</robot>

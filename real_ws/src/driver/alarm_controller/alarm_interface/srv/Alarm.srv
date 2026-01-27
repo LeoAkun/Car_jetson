@@ -1,0 +1,4 @@
+bool operate
+---
+bool success
+string message
