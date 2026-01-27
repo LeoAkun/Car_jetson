@@ -178,6 +178,12 @@ add_executable(rslidar_convert_node
 target_link_libraries(rslidar_convert_node
                       ${YAML_CPP_LIBRARIES})
 
+add_executable(imu_qos_converter_node
+               node/imu_qos_converter_node.cpp)
+
+target_link_libraries(imu_qos_converter_node
+                      ${YAML_CPP_LIBRARIES})
+
 #Ros#
 if(roscpp_FOUND)
 
@@ -204,9 +210,14 @@ if(rclcpp_FOUND)
     rclcpp
     sensor_msgs)
 
+  ament_target_dependencies(imu_qos_converter_node
+    rclcpp
+    sensor_msgs)
+
   install(TARGETS
     rslidar_sdk_node
     rslidar_convert_node
+    imu_qos_converter_node
     DESTINATION lib/${PROJECT_NAME})
 
   install(DIRECTORY

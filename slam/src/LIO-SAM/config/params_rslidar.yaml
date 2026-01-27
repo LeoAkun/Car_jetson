@@ -2,7 +2,7 @@
   ros__parameters:
 
     # Topics
-    pointCloudTopic: "/rslidar_Pointcloud2"         # 真实的
+    pointCloudTopic: "livox_Pointcloud2"         # 真实的
     imuTopic: "/imu"                        # 真实的
     odomTopic: "/odom"                    # IMU pre-preintegration odometry, same frequency as IMU
     gpsTopic: "/odometry/gpsz"                    # GPS odometry topic from navsat_transform_node
