@@ -16,10 +16,10 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(
         nav2_bringup_dir, 'rviz', 'nav2_default_view.rviz')
     
-    # 地图路径
-    # map_dir = "/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/map_room.yaml" # 实验室地图
-    map_dir = "/home/akun/workspace/Car_jetson/mapp4.yaml" # 学校室外地图
-    # map_dir = "/home/akun/workspace/CAR/map.yaml"
+    # 地图路径 - 默认使用学校室外地图
+    # map_path = "/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/map_room.yaml" # 实验室地图
+    map_path = "/home/akun/workspace/Car_jetson/mapp4.yaml" # 学校室外地图
+
     # nav2配置路径
     nav2_dir = get_package_share_directory('nav2')
     params_dir = os.path.join(nav2_dir, 'config', 'nav2_real_params.yaml')
@@ -28,7 +28,7 @@ def generate_launch_description():
     use_sim_time = launch.substitutions.LaunchConfiguration(
         'use_sim_time', default='false')
     map_yaml_path = launch.substitutions.LaunchConfiguration(
-        'map', default=map_dir)
+        'map', default=map_path)
     nav2_param_path = launch.substitutions.LaunchConfiguration(
         'params_file', default=params_dir)
 

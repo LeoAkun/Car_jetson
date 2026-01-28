@@ -30,13 +30,13 @@ def generate_launch_description():
     return LaunchDescription([
         params_declare,
         # 注释掉静态TF，让LIO-SAM在GPS融合时动态管理map->odom变换
-        # Node(
-        #      package='tf2_ros',
-        #      executable='static_transform_publisher',
-        #      arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
-        #      parameters=[parameter_file],
-        #      output='screen'
-        #      ),
+        Node(
+             package='tf2_ros',
+             executable='static_transform_publisher',
+             arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
+             parameters=[parameter_file],
+             output='screen'
+             ),
 
         
         

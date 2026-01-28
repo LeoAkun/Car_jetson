@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             "nav2_init_pose=nav2_init_pose.nav2_init_pose:main",
+            "nav2_init_pose_room=nav2_init_pose.nav2_init_pose_room:main",
         ],
     },
 )

@@ -503,6 +503,7 @@ public:
     {
         std::lock_guard<std::mutex> lock(mtx);
 
+        imu_raw->linear_acceleration.z /= 10;
         // 修改源码的部分
         // imu_raw->header.frame_id="imu_link";
         // std::cout << "x_before: " << imu_raw->linear_acceleration.x 

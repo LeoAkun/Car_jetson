@@ -136,6 +136,14 @@ void PCLLocalization::initializeParameters()
   get_parameter("scan_period", scan_period_);
   get_parameter("use_pcd_map", use_pcd_map_);
   get_parameter("map_path", map_path_);
+
+  // 如果命令行传入的map_path为空，则使用yaml配置文件中的路径
+  if (map_path_.empty()) {
+    RCLCPP_INFO(get_logger(), "No map_path provided via command line, using path from yaml config");
+  } else {
+    RCLCPP_INFO(get_logger(), "Using map_path from command line: %s", map_path_.c_str());
+  }
+
   get_parameter("set_initial_pose", set_initial_pose_);
   get_parameter("initial_pose_x", initial_pose_x_);
   get_parameter("initial_pose_y", initial_pose_y_);

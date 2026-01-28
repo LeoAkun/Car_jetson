@@ -18,6 +18,15 @@ def generate_launch_description():
         executable='convert',
         output = 'screen' # 日志输出到屏幕
     )
+    
+    # 启动速腾32线雷达
+    start_rslidar = launch.actions.IncludeLaunchDescription(
+        launch.launch_description_sources.PythonLaunchDescriptionSource(os.path.join(
+            get_package_share_directory('rslidar_sdk'),
+            'launch',
+            'start.py'
+        ))
+    )
 
     # 启动imu
     start_imu = launch.actions.IncludeLaunchDescription(
@@ -102,6 +111,7 @@ def generate_launch_description():
         launch.actions.TimerAction(period=1.0, actions=[start_imu]),
         launch.actions.TimerAction(period=2.0, actions=[start_livox]),
         launch.actions.TimerAction(period=2.0, actions=[livox_custom_convert_pointcloud2]),
+        launch.actions.TimerAction(period=2.0, actions=[start_rslidar]),
         launch.actions.TimerAction(period=1.0, actions=[start_car]),
         launch.actions.TimerAction(period=1.0, actions=[start_cmdvel_2_ecu]),
         # launch.actions.TimerAction(period=1.0, actions=[start_alarm]),
@@ -109,6 +119,7 @@ def generate_launch_description():
         # launch.actions.TimerAction(period=1.0, actions=[start_lock]),
         launch.actions.TimerAction(period=1.0, actions=[start_scan_laser]),
         launch.actions.TimerAction(period=1.0, actions=[start_scan_merge])
+        
     ])
 
     return launch.LaunchDescription([

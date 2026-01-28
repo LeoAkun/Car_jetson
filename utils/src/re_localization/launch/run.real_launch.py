@@ -20,6 +20,13 @@ def generate_launch_description():
 
     ld = launch.LaunchDescription()
 
+    # 声明地图路径参数
+    map_path_arg = launch.actions.DeclareLaunchArgument(
+        'map_path',
+        default_value='',
+        description='Path to the PCD map file. If empty, uses the path from yaml config.'
+    )
+
     localization_param_dir = launch.substitutions.LaunchConfiguration(
         'localization_param_dir',
         default=os.path.join(
@@ -27,12 +34,17 @@ def generate_launch_description():
             'param',
             'localization_real.yaml'))
 
+    map_path = launch.substitutions.LaunchConfiguration('map_path')
+
     pcl_localization = launch_ros.actions.LifecycleNode(
         name='pcl_localization',
         namespace='',
         package='re_localization',
         executable='pcl_localization_node',
-        parameters=[localization_param_dir],
+        parameters=[
+            localization_param_dir,
+            {'map_path': map_path}
+        ],
         # remappings=[('/cloud','/livox_Pointcloud2')],
         output='screen')
 
@@ -73,11 +85,12 @@ def generate_launch_description():
     )
 
     # ld.add_action(init_pose_match_node)
+    ld.add_action(map_path_arg)
     ld.add_action(from_unconfigured_to_inactive)
     ld.add_action(from_inactive_to_active)
 
     ld.add_action(pcl_localization)
     # ld.add_action(lidar_tf)
     ld.add_action(to_inactive)
-    
+
     return ld

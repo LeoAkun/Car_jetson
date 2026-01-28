@@ -1,0 +1,44 @@
+# MQTT 任务接收器配置
+mqtt_task_receiver:
+  ros__parameters:
+    # MQTT 代理配置
+    broker_url: "10.33.36.226"
+    port: 1883
+    username: "cloud_server"
+    password: "2024212392"
+    client_id: "robot_nav_001"
+    
+    # MQTT 主题
+    task_topic: "prod/ctrl/vehicle/LS1234567890/task/start"
+    
+    # 连接设置
+    qos: 1
+    reconnect_delay: 5.0
+
+# 状态报告器配置
+status_reporter:
+  ros__parameters:
+    # MQTT 代理配置
+    broker_url: "10.33.36.226"
+    port: 1883
+    username: "cloud_server"
+    password: "2024212392"
+    client_id: "robot_nav_001_status"
+    
+    # MQTT 主题
+    status_topic: "prod/data/vehicle/LS1234567890/vehicle_status"
+    
+    # 心跳配置
+    vin: "LS1234567890"
+    publish_interval: 3.0
+    timeout: 10.0
+    
+    # 状态源主题
+    gps_topic: "/sensing/gnss/pose_with_covariance"
+    battery_topic: "/battery_state"
+    velocity_topic: "/cmd_vel"
+    robot_state_topic: "/robot_state"
+    
+    # 连接设置
+    qos: 1
+    reconnect_delay: 5.0
