@@ -133,5 +133,5 @@ navsat_transform:
     use_odometry_yaw: true
 
     # 是否等待datum设置（false表示使用第一个GPS点作为原点）
-    wait_for_datum: true
+    wait_for_datum: false
     datum: [30.76756700, 103.98388483, 0.0]

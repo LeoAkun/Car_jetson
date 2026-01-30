@@ -36,10 +36,7 @@ def generate_launch_description():
              arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
              parameters=[parameter_file],
              output='screen'
-             ),
-
-        
-        
+             ),   
 
         # Node(
         #     package='robot_state_publisher',
@@ -79,26 +76,6 @@ def generate_launch_description():
             parameters=[parameter_file],
             output='screen'
         ),
-
-        # Node(
-        #     package='robot_localization',
-        #     executable='ekf_node',
-        #     name='ekf_local',
-        #     output='screen',
-        #     parameters=[{
-        #         'frequency': 50.0,
-        #         'two_d_mode': False,
-        #         'publish_tf': False,  # 别发 tf，LIO-SAM 自己管
-        #         'odom0': '/odom',     # LIO 的预积分
-        #         # odom0_config: [X, Y, Z, roll, pitch, yaw, vX, vY, vZ, vroll, vpitch, vyaw, aX, aY, aZ]
-        #         # 融合位置(XYZ)和姿态(roll,pitch,yaw)，不融合速度和加速度
-        #         'odom0_config': [True, True, True, True, True, True, False, False, False, False, False, False, False, False, False],
-        #         'imu0': '/imu',
-        #         # imu0_config: 融合角速度(vroll,vpitch,vyaw)和线加速度(aX,aY,aZ)
-        #         'imu0_config': [False, False, False, False, False, False, False, False, False, True, True, True, True, True, True],
-        #     }],
-        #     remappings=[('odometry/filtered', '/odometry/filtered_local')]
-        # ),
 
         Node(
             package='robot_localization',

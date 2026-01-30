@@ -17,8 +17,8 @@ def generate_launch_description():
         nav2_bringup_dir, 'rviz', 'nav2_default_view.rviz')
     
     # 地图路径 - 默认使用学校室外地图
-    # map_path = "/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/map_room.yaml" # 实验室地图
-    map_path = "/home/akun/workspace/Car_jetson/mapp4.yaml" # 学校室外地图
+    map_path = "/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/map_room.yaml" # 实验室地图
+    # map_path = "/home/akun/workspace/Car_jetson/mapp5.yaml" # 学校室外地图
 
     # nav2配置路径
     nav2_dir = get_package_share_directory('nav2')

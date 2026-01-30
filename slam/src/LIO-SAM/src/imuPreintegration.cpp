@@ -503,7 +503,6 @@ public:
     {
         std::lock_guard<std::mutex> lock(mtx);
 
-        imu_raw->linear_acceleration.z /= 10;
         // 修改源码的部分
         // imu_raw->header.frame_id="imu_link";
         // std::cout << "x_before: " << imu_raw->linear_acceleration.x 
@@ -511,9 +510,10 @@ public:
         //      << " z_before: " << imu_raw->linear_acceleration.z 
         //      << std::endl; 
 
-        imu_raw->linear_acceleration.x*=9.80511;
-        imu_raw->linear_acceleration.y*=9.80511;
-        imu_raw->linear_acceleration.z*=9.80511;
+        // /livox/imu输出单位是g，需要乘以9.8转换为m/s²
+        // imu_raw->linear_acceleration.x*=9.80511;
+        // imu_raw->linear_acceleration.y*=9.80511;
+        // imu_raw->linear_acceleration.z*=9.80511;
 
         // std::cout << " x_after: " << imu_raw->linear_acceleration.x 
         //      << " y_after: " << imu_raw->linear_acceleration.y
