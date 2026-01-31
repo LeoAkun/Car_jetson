@@ -1,131 +1,54 @@
-[INFO] [launch]: All log files can be found below /home/akun/.ros/log/2026-01-31-15-08-09-992205-yunle-Default-string-10814
+[INFO] [launch]: All log files can be found below /home/akun/.ros/log/2026-01-31-17-54-48-175467-yunle-Default-string-110506
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [mqtt_task_receiver-1]: process started with pid [10815]
-[INFO] [status_reporter-2]: process started with pid [10817]
-[INFO] [navigation_manager-3]: process started with pid [10819]
-[INFO] [map_switch_controller-4]: process started with pid [10821]
-[mqtt_task_receiver-1] [0m[INFO] [1769843290.475825466] [mqtt_task_receiver]: 正在连接到MQTT代理 localhost:1883[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843290.478770417] [mqtt_task_receiver]: MQTT任务接收器已初始化[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843290.479274663] [mqtt_task_receiver]: ✅ 成功连接到MQTT代理[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843290.479703800] [mqtt_task_receiver]: 📡 已订阅主题: prod/ctrl/vehicle/LS1234567890/task/start[0m
-[map_switch_controller-4] [0m[INFO] [1769843290.715698185] [map_switch_controller]: 地图切换控制器已初始化[0m
-[status_reporter-2] [0m[INFO] [1769843290.749118275] [status_reporter]: 已订阅 /vehicle_status 话题[0m
-[status_reporter-2] [0m[INFO] [1769843290.751738871] [status_reporter]: 正在连接到MQTT代理 localhost:1883[0m
-[status_reporter-2] [0m[INFO] [1769843290.753076316] [status_reporter]: 成功连接到MQTT代理[0m
-[status_reporter-2] [0m[INFO] [1769843290.753254670] [status_reporter]: 状态报告器已初始化
-[status_reporter-2]   VIN: LS1234567890
-[status_reporter-2]   MQTT Broker: localhost:1883
-[status_reporter-2]   MQTT Topic: prod/data/vehicle/LS1234567890/vehicle_status
-[status_reporter-2]   心跳频率: 3.0秒[0m
-[status_reporter-2] [0m[INFO] [1769843290.753976270] [status_reporter]: 车辆速度为0，开始计时...[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.409055850] [mqtt_task_receiver]: 📨 收到消息，主题: prod/ctrl/vehicle/LS1234567890/task/start[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.410720386] [mqtt_task_receiver]: 📋 收到 3 个航点[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.412649957] [mqtt_task_receiver]: 📊 开始解析 3 个航点...[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.414809114] [mqtt_task_receiver]:   ✅ [1/3] 2教导航点 | 地图:map1 | GPS:(30.763139,103.986821) | SLAM:(40.9,212.0,0.00) | 类型:1[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.416865191] [mqtt_task_receiver]:   ✅ [2/3] 切换点2:1->2 | 地图:map1 | GPS:(30.764783,103.987710) | SLAM:(-132.0,111.0,0.00) | 类型:4[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.418663768] [mqtt_task_receiver]:   ✅ [3/3] 图书馆导航点 | 地图:map2 | GPS:(30.766526,103.986165) | SLAM:(-72.7,236.0,0.00) | 类型:1[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.420335814] [mqtt_task_receiver]: ✅ 解析完成: task_id=task_1769843294, waypoints=3/3, start_map=map1[0m
-[mqtt_task_receiver-1] [0m[INFO] [1769843294.422830779] [mqtt_task_receiver]: 📤 已发布到 /waypoint_list: 3 个航点[0m
-[navigation_manager-3] [0m[INFO] [1769843294.468080860] [navigation_manager]: 收到航点列表: task_id=task_1769843294, total_waypoints=3[0m
-[navigation_manager-3] [0m[INFO] [1769843294.468503467] [navigation_manager]: 开始导航序列，共 3 个航点[0m
-[navigation_manager-3] [0m[INFO] [1769843294.468912143] [navigation_manager]: 正在导航到航点 1/3: type=1, map=map1[0m
-[navigation_manager-3] [Info] 正在读取标定文件: /home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map1/map1.csv
-[navigation_manager-3] [0m[INFO] [1769843297.420096069] [pose_init_node]: 等待 GPS 数据...[0m
-[navigation_manager-3] [0m[INFO] [1769843297.783654444] [pose_init_node]: ✅ GPS中心点: (-17.72, -2.62)[0m
-[navigation_manager-3] [0m[INFO] [1769843297.784348858] [pose_init_node]: 生成搜索网格: 半径 9.0m, 步长 3.0m, 共 37 个位置点[0m
-[navigation_manager-3] [0m[INFO] [1769843297.784753856] [pose_init_node]: 🚀 开始全域搜索 (预计尝试 444 次调用)...[0m
-[navigation_manager-3] [0m[INFO] [1769843297.785213070] [pose_init_node]: --- 搜索点 [1/37]: (-17.72, -2.62) ---[0m
-[navigation_manager-3] [0m[INFO] [1769843298.473575840] [navigation_manager]: 等待重定位完成并发布 map -> odom TF...[0m
-[navigation_manager-3] [0m[INFO] [1769843298.473915620] [navigation_manager]: 等待 map -> odom TF 变换就绪...[0m
-[navigation_manager-3] [0m[INFO] [1769843336.839362510] [pose_init_node]: --- 搜索点 [2/37]: (-20.72, -2.62) ---[0m
-[navigation_manager-3] Traceback (most recent call last):
-[navigation_manager-3]   File "/home/akun/workspace/Car_jetson/nav2/install/nav2_init_pose/lib/python3.10/site-packages/nav2_init_pose/nav2_init_pose.py", line 254, in main
-[navigation_manager-3]     if node.execute_logic():
-[navigation_manager-3]   File "/home/akun/workspace/Car_jetson/nav2/install/nav2_init_pose/lib/python3.10/site-packages/nav2_init_pose/nav2_init_pose.py", line 195, in execute_logic
-[navigation_manager-3]     rclpy.spin_until_future_complete(self, future)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 256, in spin_until_future_complete
-[navigation_manager-3]     executor.spin_until_future_complete(future, timeout_sec)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 312, in spin_until_future_complete
-[navigation_manager-3]     self.spin_once_until_future_complete(future, timeout_sec)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in spin_once_until_future_complete
-[navigation_manager-3]     self._spin_once_impl(timeout_sec)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 762, in _spin_once_impl
-[navigation_manager-3]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 745, in wait_for_ready_callbacks
-[navigation_manager-3]     return next(self._cb_iter)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 646, in _wait_for_ready_callbacks
-[navigation_manager-3]     raise ExternalShutdownException()
-[navigation_manager-3] rclpy.executors.ExternalShutdownException
-[navigation_manager-3] 
-[navigation_manager-3] During handling of the above exception, another exception occurred:
-[navigation_manager-3] 
-[navigation_manager-3] Traceback (most recent call last):
-[navigation_manager-3]   File "/home/akun/workspace/Car_jetson/nav2/install/nav2_init_pose/lib/nav2_init_pose/nav2_init_pose", line 33, in <module>
-[navigation_manager-3]     sys.exit(load_entry_point('nav2-init-pose==0.0.0', 'console_scripts', 'nav2_init_pose')())
-[navigation_manager-3]   File "/home/akun/workspace/Car_jetson/nav2/install/nav2_init_pose/lib/python3.10/site-packages/nav2_init_pose/nav2_init_pose.py", line 263, in main
-[navigation_manager-3]     rclpy.shutdown()
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[navigation_manager-3]     _shutdown(context=context)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[navigation_manager-3]     return context.shutdown()
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[navigation_manager-3]     self.__context.shutdown()
-[navigation_manager-3] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[INFO] [mqtt_task_receiver-1]: process started with pid [110507]
+[INFO] [navigation_manager-2]: process started with pid [110509]
+[INFO] [map_switch_controller-3]: process started with pid [110511]
+[mqtt_task_receiver-1] [0m[INFO] [1769853288.984191764] [mqtt_task_receiver]: 正在连接到MQTT代理 localhost:1883[0m
+[mqtt_task_receiver-1] [0m[INFO] [1769853288.989747251] [mqtt_task_receiver]: MQTT任务接收器已初始化[0m
+[mqtt_task_receiver-1] [0m[INFO] [1769853288.990824986] [mqtt_task_receiver]: ✅ 成功连接到MQTT代理[0m
+[mqtt_task_receiver-1] [0m[INFO] [1769853288.991839610] [mqtt_task_receiver]: 📡 已订阅主题: prod/ctrl/vehicle/LS1234567890/task/start[0m
+[map_switch_controller-3] [0m[INFO] [1769853289.023867903] [map_switch_controller]: 地图切换控制器已初始化[0m
 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
-[mqtt_task_receiver-1] [0m[INFO] [1769843419.699667953] [mqtt_task_receiver]: 正在关闭MQTT连接...[0m
+[mqtt_task_receiver-1] [0m[INFO] [1769853338.449120776] [mqtt_task_receiver]: 正在关闭MQTT连接...[0m
 [mqtt_task_receiver-1] Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:389
-[navigation_manager-3] Traceback (most recent call last):
-[navigation_manager-3]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/navigation_manager", line 33, in <module>
-[navigation_manager-3]     sys.exit(load_entry_point('multi-map-navigation==0.0.0', 'console_scripts', 'navigation_manager')())
-[navigation_manager-3]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/navigation_manager.py", line 488, in main
-[navigation_manager-3]     rclpy.shutdown()
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[navigation_manager-3]     _shutdown(context=context)
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[navigation_manager-3]     return context.shutdown()
-[navigation_manager-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[navigation_manager-3]     self.__context.shutdown()
-[navigation_manager-3] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[map_switch_controller-4] Traceback (most recent call last):
-[map_switch_controller-4]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/map_switch_controller", line 33, in <module>
-[map_switch_controller-4]     sys.exit(load_entry_point('multi-map-navigation==0.0.0', 'console_scripts', 'map_switch_controller')())
-[map_switch_controller-4]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/map_switch_controller.py", line 301, in main
-[map_switch_controller-4]     rclpy.shutdown()
-[map_switch_controller-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[map_switch_controller-4]     _shutdown(context=context)
-[map_switch_controller-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[map_switch_controller-4]     return context.shutdown()
-[map_switch_controller-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[map_switch_controller-4]     self.__context.shutdown()
-[map_switch_controller-4] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[status_reporter-2] Traceback (most recent call last):
-[status_reporter-2]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/status_reporter", line 33, in <module>
-[status_reporter-2]     sys.exit(load_entry_point('multi-map-navigation==0.0.0', 'console_scripts', 'status_reporter')())
-[status_reporter-2]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/status_reporter.py", line 409, in main
-[status_reporter-2]     rclpy.shutdown()
-[status_reporter-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[status_reporter-2]     _shutdown(context=context)
-[status_reporter-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[status_reporter-2]     return context.shutdown()
-[status_reporter-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[status_reporter-2]     self.__context.shutdown()
-[status_reporter-2] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[WARNING] [launch]: user interrupted with ctrl-c (SIGINT) again, ignoring...
+[navigation_manager-2] Traceback (most recent call last):
+[navigation_manager-2]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/navigation_manager", line 33, in <module>
+[navigation_manager-2]     sys.exit(load_entry_point('multi-map-navigation==0.0.0', 'console_scripts', 'navigation_manager')())
+[navigation_manager-2]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/navigation_manager.py", line 493, in main
+[navigation_manager-2]     rclpy.shutdown()
+[navigation_manager-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[navigation_manager-2]     _shutdown(context=context)
+[navigation_manager-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[navigation_manager-2]     return context.shutdown()
+[navigation_manager-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[navigation_manager-2]     self.__context.shutdown()
+[navigation_manager-2] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[map_switch_controller-3] Traceback (most recent call last):
+[map_switch_controller-3]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/map_switch_controller", line 33, in <module>
+[map_switch_controller-3]     sys.exit(load_entry_point('multi-map-navigation==0.0.0', 'console_scripts', 'map_switch_controller')())
+[map_switch_controller-3]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/map_switch_controller.py", line 301, in main
+[map_switch_controller-3]     rclpy.shutdown()
+[map_switch_controller-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[map_switch_controller-3]     _shutdown(context=context)
+[map_switch_controller-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[map_switch_controller-3]     return context.shutdown()
+[map_switch_controller-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[map_switch_controller-3]     self.__context.shutdown()
+[map_switch_controller-3] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[ERROR] [navigation_manager-2]: process has died [pid 110509, exit code 1, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/navigation_manager --ros-args -r __node:=navigation_manager --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml'].
+[ERROR] [map_switch_controller-3]: process has died [pid 110511, exit code 1, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/map_switch_controller --ros-args -r __node:=map_switch_controller --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml'].
+[mqtt_task_receiver-1] [0m[INFO] [1769853339.044545483] [mqtt_task_receiver]: 已正常断开MQTT连接[0m
+[mqtt_task_receiver-1] Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:389
 [mqtt_task_receiver-1] Traceback (most recent call last):
 [mqtt_task_receiver-1]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/mqtt_task_receiver", line 33, in <module>
 [mqtt_task_receiver-1]     sys.exit(load_entry_point('multi-map-navigation==0.0.0', 'console_scripts', 'mqtt_task_receiver')())
-[mqtt_task_receiver-1]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/mqtt_task_receiver.py", line 285, in main
-[mqtt_task_receiver-1]     node.destroy_node()
-[mqtt_task_receiver-1]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/mqtt_task_receiver.py", line 271, in destroy_node
-[mqtt_task_receiver-1]     self.mqtt_client.loop_stop()
-[mqtt_task_receiver-1]   File "/home/akun/.local/lib/python3.10/site-packages/paho/mqtt/client.py", line 2364, in loop_stop
-[mqtt_task_receiver-1]     self._thread.join()
-[mqtt_task_receiver-1]   File "/usr/lib/python3.10/threading.py", line 1096, in join
-[mqtt_task_receiver-1]     self._wait_for_tstate_lock()
-[mqtt_task_receiver-1]   File "/usr/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
-[mqtt_task_receiver-1]     if lock.acquire(block, timeout):
-[mqtt_task_receiver-1] KeyboardInterrupt
-[ERROR] [map_switch_controller-4]: process has died [pid 10821, exit code -2, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/map_switch_controller --ros-args -r __node:=map_switch_controller --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml'].
-[ERROR] [navigation_manager-3]: process has died [pid 10819, exit code -2, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/navigation_manager --ros-args -r __node:=navigation_manager --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml'].
-[ERROR] [status_reporter-2]: process has died [pid 10817, exit code -2, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/status_reporter --ros-args -r __node:=status_reporter --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/mqtt_config.yaml'].
-[ERROR] [mqtt_task_receiver-1]: process has died [pid 10815, exit code -2, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/mqtt_task_receiver --ros-args -r __node:=mqtt_task_receiver --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/mqtt_config.yaml'].
+[mqtt_task_receiver-1]   File "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/python3.10/site-packages/multi_map_navigation/mqtt_task_receiver.py", line 286, in main
+[mqtt_task_receiver-1]     rclpy.shutdown()
+[mqtt_task_receiver-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+[mqtt_task_receiver-1]     _shutdown(context=context)
+[mqtt_task_receiver-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+[mqtt_task_receiver-1]     return context.shutdown()
+[mqtt_task_receiver-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+[mqtt_task_receiver-1]     self.__context.shutdown()
+[mqtt_task_receiver-1] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
+[ERROR] [mqtt_task_receiver-1]: process has died [pid 110507, exit code 1, cmd '/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/mqtt_task_receiver --ros-args -r __node:=mqtt_task_receiver --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/mqtt_config.yaml'].

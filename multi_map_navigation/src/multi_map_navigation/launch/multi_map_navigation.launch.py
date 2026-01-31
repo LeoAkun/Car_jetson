@@ -84,7 +84,7 @@ def generate_launch_description():
         mqtt_config_arg,
         nav_config_arg,
         mqtt_task_receiver_node,
-        status_reporter_node,
+        # status_reporter_node,
         navigation_manager_node,
         map_switch_controller_node,
         # process_manager_node

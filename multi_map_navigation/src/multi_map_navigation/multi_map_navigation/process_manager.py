@@ -64,7 +64,7 @@ class ProcessManager:
                 'ros2', 'launch',
                 're_localization',
                 'run.real_launch.py',
-                f'map_path:={self.map_dir}/{map_name}/{map_name}_clean.pcd'
+                f'map_path:={self.map_dir}/{map_name}/{map_name}_raw.pcd'
             ]
 
             # 启动进程

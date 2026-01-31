@@ -144,12 +144,13 @@ class NavigationManager(Node):
             time.sleep(60)
 
         # 检查这是否是地图切换点
-        if self.is_map_switch_point(waypoint):
-            self.get_logger().info('检测到地图切换点')
-            self.trigger_map_switch(waypoint)
-        else:
-            # 发送导航目标
-            self.send_nav2_goal(waypoint)
+        # if self.is_map_switch_point(waypoint):
+        #     self.get_logger().info('检测到地图切换点')
+        #     self.trigger_map_switch(waypoint)
+        # else:
+        #     # 发送导航目标
+        #     self.send_nav2_goal(waypoint)
+        self.send_nav2_goal(waypoint)
 
     def launch_new_stack(self, map_name: str) -> bool:
         """
@@ -411,20 +412,39 @@ class NavigationManager(Node):
         """Navigation2结果回调"""
         result = future.result().result
 
-        if result:
-            self.get_logger().info('成功到达导航目标')
-            self.on_goal_reached()
+        # 检查导航是否真正成功
+        # status数组包含最终状态，3表示SUCCEEDED
+        if result and len(result.status) > 0:
+            status = result.status[0].status
+            if status == 3:  # action_msgs.msg.GoalStatus.STATUS_SUCCEEDED
+                self.get_logger().info('成功到达导航目标')
+                self.on_goal_reached()
+            else:
+                self.get_logger().error(f'导航目标失败，状态码: {status}')
+                self.abort_navigation()
         else:
-            self.get_logger().error('导航目标失败')
+            self.get_logger().error('导航目标失败: 无有效结果')
             self.abort_navigation()
 
     def on_goal_reached(self):
         """处理成功到达目标"""
+        # 添加防护性检查
+        if self.waypoint_list is None:
+            self.get_logger().warn('航点列表为空，忽略目标到达事件')
+            return
+        if self.current_waypoint_index >= len(self.waypoint_list):
+            self.get_logger().warn(f'航点索引超出范围: {self.current_waypoint_index} >= {len(self.waypoint_list)}')
+            return
+
         waypoint = self.waypoint_list[self.current_waypoint_index]
 
         self.get_logger().info(
             f'到达航点 {self.current_waypoint_index + 1}/{len(self.waypoint_list)}'
         )
+
+        if self.is_map_switch_point(waypoint):
+            self.get_logger().info('检测到地图切换点')
+            self.trigger_map_switch(waypoint)
 
         # 检查这是否是最终航点
         if self.current_waypoint_index == len(self.waypoint_list) - 1:
