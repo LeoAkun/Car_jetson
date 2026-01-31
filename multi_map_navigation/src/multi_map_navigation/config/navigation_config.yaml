@@ -1,53 +1,67 @@
-# 导航配置
-navigation:
-  # 目标容差
-  goal_tolerance: 0.5              # 目标到达容差（米）
-  goal_angle_tolerance: 0.1        # 目标角度容差（弧度）
+# 导航管理器配置
+navigation_manager:
+  ros__parameters:
+    # 目标容差
+    goal_tolerance: 0.5              # 目标到达容差（米）
+    goal_angle_tolerance: 0.1        # 目标角度容差（弧度）
 
-  # 超时设置
-  navigation_timeout: 300.0        # 单个航点导航的最大时间（秒）
-  map_switch_timeout: 30.0         # 地图切换的最大时间（秒）
-  process_shutdown_timeout: 10.0   # 等待进程关闭的最大时间（秒）
+    # 超时设置
+    navigation_timeout: 300.0        # 单个航点导航的最大时间（秒）
 
-  # 重试设置
-  max_navigation_retries: 3        # 导航失败的最大重试次数
-  retry_delay: 5.0                 # 重试之间的延迟（秒）
+    # 重试设置
+    max_navigation_retries: 3        # 导航失败的最大重试次数
+    max_retries: 3                   # 导航失败的最大重试次数（别名）
+    retry_delay: 5.0                 # 重试之间的延迟（秒）
 
-# 启动文件配置
+# 地图切换控制器配置
+map_switch_controller:
+  ros__parameters:
+    # 超时设置
+    map_switch_timeout: 30.0         # 地图切换的最大时间（秒）
+    process_shutdown_timeout: 10.0   # 等待进程关闭的最大时间（秒）
+
+# 进程管理器配置
+process_manager:
+  ros__parameters:
+    # 进程启动设置
+    startup_delay: 2.0               # 启动进程之间的延迟（秒）
+    max_startup_time: 15.0           # 等待进程启动的最大时间（秒）
+    health_check_interval: 1.0       # 进程健康检查间隔（秒）
+    shutdown_timeout: 10.0           # 进程关闭超时时间（秒）
+
+# 启动文件配置（共享配置）
 launch_files:
-  relocalization:
-    package: "re_localization"
-    launch_file: "relocalization.launch.py"
+  ros__parameters:
+    relocalization:
+      package: "re_localization"
+      launch_file: "relocalization.launch.py"
 
-  liosam:
-    package: "lio_sam"
-    launch_file: "run.real_launch.py"
+    liosam:
+      package: "lio_sam"
+      launch_file: "run.real_launch.py"
 
-  navigation2:
-    package: "nav2_bringup"
-    launch_file: "bringup_launch.py"
+    navigation2:
+      package: "nav2_bringup"
+      launch_file: "bringup_launch.py"
 
-# 地图配置
+# 地图配置（共享配置）
 maps:
-  map_directory: "/home/akun/maps"  # 地图文件的基础目录
-  map_file_extension: ".yaml"       # 地图文件扩展名
+  ros__parameters:
+    map_directory: "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map"  # 地图文件的基础目录
+    map_file_extension: ".yaml"       # 地图文件扩展名
 
-# 进程管理
-process_management:
-  startup_delay: 2.0               # 启动进程之间的延迟（秒）
-  health_check_interval: 1.0       # 进程健康检查间隔（秒）
-  max_startup_time: 15.0           # 等待进程启动的最大时间（秒）
-
-# ROS2主题
+# ROS2主题配置（共享配置）
 topics:
-  waypoint_list: "/waypoint_list"
-  robot_state: "/robot_state"
-  trigger_map_switch: "/trigger_map_switch"
-  map_switch_complete: "/map_switch_complete"
-  goal_reached: "/goal_reached"
+  ros__parameters:
+    waypoint_list: "/waypoint_list"
+    robot_state: "/robot_state"
+    trigger_map_switch: "/trigger_map_switch"
+    map_switch_complete: "/map_switch_complete"
+    goal_reached: "/goal_reached"
 
-# 日志
+# 日志配置（共享配置）
 logging:
-  level: "INFO"                    # DEBUG, INFO, WARN, ERROR
-  log_directory: "/home/akun/logs"
-  max_log_size_mb: 100
+  ros__parameters:
+    level: "INFO"                    # DEBUG, INFO, WARN, ERROR
+    log_directory: "/home/akun/logs"
+    max_log_size_mb: 100

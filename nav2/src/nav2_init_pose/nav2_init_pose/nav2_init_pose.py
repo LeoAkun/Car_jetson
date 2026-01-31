@@ -67,12 +67,19 @@ class PoseInitNode(Node):
     def __init__(self):
         super().__init__('pose_init_node')
 
+                
+        self.declare_parameter('map_csv', '')
+        self.map_csv = self.get_parameter('map_csv').value
+
+        self.converter = GpsToMapConverter(self.map_csv)
+        
+
         self.tf_broadcaster = TransformBroadcaster(self)
         self.latest_gps = None
         self.current_transform = None  # 存储当前的变换
 
         # 创建定时器，每100ms发布一次变换
-        self.timer = self.create_timer(0.1, self.publish_transform)
+        self.timer = None
 
         # --- 核心参数配置 ---
         self.fitness_score_threshold = 5.0  # 匹配分数阈值 (越小越好)
@@ -95,8 +102,8 @@ class PoseInitNode(Node):
         )
 
         # 配置文件路径
-        CSV_PATH = '/home/akun/workspace/Car_jetson/nav2/src/nav2_init_pose/record_gps_map2.csv'
-        self.converter = GpsToMapConverter(CSV_PATH)
+        # CSV_PATH = '/home/akun/workspace/Car_jetson/nav2/src/nav2_init_pose/record_gps_map2.csv'
+
 
     def gps_callback(self, msg: NavSatFix):
         self.latest_gps = msg
@@ -202,7 +209,9 @@ class PoseInitNode(Node):
                             # 【优化】如果分数极好 (例如 < 0.5)，可以直接提前退出
                             if score < 0.5:
                                 self.get_logger().info("🔥 分数极佳，提前结束搜索！")
-                                self.broadcast_tf(best_pose_msg)
+                                self.current_transform = best_pose_msg
+                                self.timer = self.create_timer(0.1, self.publish_transform)
+                                # self.broadcast_tf(best_pose_msg)
                                 return True
                 except Exception as e:
                     pass
@@ -210,16 +219,18 @@ class PoseInitNode(Node):
         # 5. 结算
         if best_pose_msg and best_score < self.fitness_score_threshold:
             self.get_logger().info(f"🏆 最终最佳匹配: {best_info} | Score: {best_score:.4f}")
-            self.broadcast_tf(best_pose_msg)
+            self.current_transform = best_pose_msg
+            self.timer = self.create_timer(0.1, self.publish_transform)
+            # self.broadcast_tf(best_pose_msg)
             return True
         else:
             self.get_logger().error(f"❌ 搜索失败。最佳分数 {best_score:.4f} 仍高于阈值 {self.fitness_score_threshold}")
             return False
 
-    def broadcast_tf(self, pose):
-        """保存变换信息，由定时器定期发布"""
-        self.current_transform = pose
-        self.get_logger().info("📡 变换已更新，将持续发布")
+    # def broadcast_tf(self, pose):
+    #     """保存变换信息，由定时器定期发布"""
+    #     self.current_transform = pose
+    #     self.get_logger().info("📡 变换已更新，将持续发布")
 
     def publish_transform(self):
         """定时器回调：持续发布 map->odom 变换"""

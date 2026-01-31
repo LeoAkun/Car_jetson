@@ -26,7 +26,7 @@ def generate_launch_description():
                 {'can2_remote_ip': '192.168.1.10'},
                 {'can2_remote_port': 4002},
                 {'local_ip': '192.168.1.140'}, # CAN盒绑定的IP
-                {'local_port': 8001},
+                {'local_port': 8002},
 
                 # Common
                 {'debug_mode': False},	# True or False

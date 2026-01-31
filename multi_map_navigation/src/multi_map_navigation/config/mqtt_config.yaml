@@ -2,11 +2,11 @@
 mqtt_task_receiver:
   ros__parameters:
     # MQTT 代理配置
-    broker_url: "10.33.36.226"
+    broker_url: "localhost"  # 改为本地代理
     port: 1883
-    username: "cloud_server"
-    password: "2024212392"
-    client_id: "robot_nav_001"
+    username: ""  # 测试时暂时不用认证
+    password: ""
+    client_id: "mqtt_task_receiver_001"  # 修改客户端ID避免冲突
     
     # MQTT 主题
     task_topic: "prod/ctrl/vehicle/LS1234567890/task/start"
@@ -19,26 +19,30 @@ mqtt_task_receiver:
 status_reporter:
   ros__parameters:
     # MQTT 代理配置
-    broker_url: "10.33.36.226"
+    broker_url: "localhost"  # 改为本地代理
     port: 1883
-    username: "cloud_server"
-    password: "2024212392"
-    client_id: "robot_nav_001_status"
-    
+    username: ""  # 测试时暂时不用认证
+    password: ""
+    client_id: "status_reporter_001"  # 修改客户端ID避免冲突
+
     # MQTT 主题
     status_topic: "prod/data/vehicle/LS1234567890/vehicle_status"
-    
+
     # 心跳配置
     vin: "LS1234567890"
     publish_interval: 3.0
     timeout: 10.0
-    
+
     # 状态源主题
     gps_topic: "/sensing/gnss/pose_with_covariance"
     battery_topic: "/battery_state"
     velocity_topic: "/cmd_vel"
     robot_state_topic: "/robot_state"
-    
+
+    # 远程驾驶请求配置
+    remote_driving_url: "https://example.com/api/remote-driving"
+    speed_threshold_time: 1500  # 速度为0的持续时间阈值（秒），默认5分钟
+
     # 连接设置
     qos: 1
     reconnect_delay: 5.0

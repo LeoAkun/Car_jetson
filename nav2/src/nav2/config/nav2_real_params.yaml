@@ -446,7 +446,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 5.0  # 增加代价缩放因子，让障碍物周围代价衰减更慢
-        inflation_radius: 0.55    # 增加膨胀半径，让机器人更倾向于远离障碍物
+        inflation_radius: 0.25    # 增加膨胀半径，让机器人更倾向于远离障碍物
       always_send_full_costmap: True
 
 map_server:

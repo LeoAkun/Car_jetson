@@ -6,32 +6,45 @@
 管理ROS2启动进程的生命周期(重定位、LIO-SAM、Navigation2)
 """
 
-import subprocess, os
+import subprocess
+import os
 import time
 import signal
 import psutil
+import logging
 from typing import Optional, Dict
-import rclpy
-from rclpy.node import Node
+import yaml
 
-class ProcessManager(Node):
+class ProcessManager:
     def __init__(self):
-        super().__init__('process_manager')
+        """
+        初始化进程管理器
 
-        # 声明参数
-        self.declare_parameter('startup_delay', 2.0)
-        self.declare_parameter('shutdown_timeout', 10.0)
-        self.declare_parameter('health_check_interval', 1.0)
+        参数:
+            startup_delay: 进程启动后的等待时间（秒）
+            shutdown_timeout: 进程关闭超时时间（秒）
+        """
 
-        # 获取参数
-        self.startup_delay = self.get_parameter('startup_delay').value
-        self.shutdown_timeout = self.get_parameter('shutdown_timeout').value
-        self.health_check_interval = self.get_parameter('health_check_interval').value
+        with open("/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/navigation_config.yaml") as f:
+            config = yaml.safe_load(f)
+            
+        pm_params = config.get('process_manager', {}).get('ros__parameters', {})
+        self.startup_delay = pm_params.get('startup_delay', 2.0)
+        self.max_startup_time = pm_params.get('max_startup_time', 15.0)
+        self.health_check_interval = pm_params.get('health_check_interval', 1.0)
+        self.shutdown_timeout = pm_params.get('shutdown_timeout', 10.0)
+        
+        map_params = config.get('maps', {}).get('ros__parameters', {})
+        self.map_dir = map_params.get('map_directory', "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map")
+        
 
         # 进程跟踪
         self.processes: Dict[str, subprocess.Popen] = {}
 
-        self.get_logger().info('进程管理器已初始化')
+        # 配置日志
+        self.logger = logging.getLogger(__name__)
+
+        self.logger.info('进程管理器已初始化')
 
     def launch_relocalization(self, map_name: str) -> bool:
         """
@@ -44,23 +57,22 @@ class ProcessManager(Node):
             启动成功返回True，否则返回False
         """
         try:
-            self.get_logger().info(f'正在为地图启动重定位: {map_name}')
+            self.logger.info(f'正在为地图启动重定位: {map_name}')
 
             # 构建启动命令
             cmd = [
                 'ros2', 'launch',
                 're_localization',
                 'run.real_launch.py',
-                f'map_name:={map_name}'
+                f'map_path:={self.map_dir}/{map_name}/{map_name}_clean.pcd'
             ]
 
             # 启动进程
             process = subprocess.Popen(
                 cmd,
-                # stdout=subprocess.PIPE,
-                # stderr=subprocess.PIPE,
-                # preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
-                start_new_session=True # 创建新的进程组
+                start_new_session=True,  # 创建新的进程组
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
             )
 
             self.processes['re_localization'] = process
@@ -70,39 +82,49 @@ class ProcessManager(Node):
 
             # 检查进程是否正在运行
             if self.is_process_running('re_localization'):
-                self.get_logger().info('重定位服务启动成功')
+                self.logger.info('重定位服务启动成功')
                 return True
             else:
-                self.get_logger().error('重定位服务启动失败')
+                self.logger.error('重定位服务启动失败')
                 return False
 
         except Exception as e:
-            self.get_logger().error(f'启动重定位失败: {e}')
+            self.logger.error(f'启动重定位失败: {e}')
             return False
-    
-    def launch_nav2_init_pose(self) -> bool:
+
+    def launch_nav2_init_pose(self, map_name: str) -> bool:
         """
         启动 nav2_init_pose 进程
+
+        参数:
+            map_name: 地图名称（用于获取CSV文件）
 
         返回:
             启动成功返回True，否则返回False
         """
         try:
-
             # 构建启动命令
             cmd = [
                 'ros2', 'run',
                 'nav2_init_pose',
-                'nav2_init_pose'
+                'nav2_init_pose',
+                '--ros-args',
+                '-p', f'map_csv:={self.map_dir}/{map_name}/{map_name}.csv',
+                '--log-level', 'info'  # 确保日志级别足够
             ]
+
+            env = os.environ.copy()
+            env["PYTHONUNBUFFERED"] = "1"                 # 让 print() 立即输出
+            env["RCUTILS_LOGGING_BUFFERED_STREAM"] = "0"  # 让 ROS2 日志立即输出
+            env["RCUTILS_LOGGING_USE_STDOUT"] = "1"       # 强制使用 stdout 而不是 stderr
 
             # 启动进程
             process = subprocess.Popen(
                 cmd,
-                # stdout=subprocess.PIPE,
-                # stderr=subprocess.PIPE,
-                # preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
-                start_new_session=True # 创建新的进程组
+                start_new_session=True,  # 创建新的进程组
+                env=env,            # <--- 注入环境变量
+                stdout=None,        # 继承父进程 stdout (默认行为)
+                stderr=None         # 继承父进程 stderr
             )
 
             self.processes['nav2_init_pose'] = process
@@ -112,16 +134,15 @@ class ProcessManager(Node):
 
             # 检查进程是否正在运行
             if self.is_process_running('nav2_init_pose'):
-                self.get_logger().info('nav2_init_pose启动成功')
+                self.logger.info('nav2_init_pose启动成功')
                 return True
             else:
-                self.get_logger().error('nav2_init_pose启动失败')
+                self.logger.error('nav2_init_pose启动失败')
                 return False
 
         except Exception as e:
-            self.get_logger().error(f'启动nav2_init_pose失败: {e}')
+            self.logger.error(f'启动nav2_init_pose失败: {e}')
             return False
-        pass
 
     def launch_liosam(self) -> bool:
         """
@@ -131,7 +152,7 @@ class ProcessManager(Node):
             启动成功返回True，否则返回False
         """
         try:
-            self.get_logger().info('正在启动LIO-SAM')
+            self.logger.info('正在启动LIO-SAM')
 
             # 构建启动命令
             cmd = [
@@ -143,10 +164,7 @@ class ProcessManager(Node):
             # 启动进程
             process = subprocess.Popen(
                 cmd,
-                # stdout=subprocess.PIPE,
-                # stderr=subprocess.PIPE,
-                # preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
-                start_new_session=True # 创建新的进程组
+                start_new_session=True  # 创建新的进程组
             )
 
             self.processes['liosam'] = process
@@ -156,14 +174,14 @@ class ProcessManager(Node):
 
             # 检查进程是否正在运行
             if self.is_process_running('liosam'):
-                self.get_logger().info('LIO-SAM启动成功')
+                self.logger.info('LIO-SAM启动成功')
                 return True
             else:
-                self.get_logger().error('LIO-SAM启动失败')
+                self.logger.error('LIO-SAM启动失败')
                 return False
 
         except Exception as e:
-            self.get_logger().error(f'启动LIO-SAM失败: {e}')
+            self.logger.error(f'启动LIO-SAM失败: {e}')
             return False
 
     def launch_navigation2(self, map_name: str) -> bool:
@@ -177,23 +195,20 @@ class ProcessManager(Node):
             启动成功返回True，否则返回False
         """
         try:
-            self.get_logger().info(f'正在为地图启动Navigation2: {map_name}')
+            self.logger.info(f'正在为地图启动Navigation2: {map_name}')
 
             # 构建启动命令
             cmd = [
                 'ros2', 'launch',
                 'nav2',
                 'run.real_launch.py',
-                f'map:=/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/{map_name}.yaml'
+                f'map:={self.map_dir}/{map_name}/{map_name}_clean.yaml'
             ]
 
             # 启动进程
             process = subprocess.Popen(
                 cmd,
-                # stdout=subprocess.PIPE,
-                # stderr=subprocess.PIPE,
-                # preexec_fn=lambda: signal.signal(signal.SIGINT, signal.SIG_IGN)
-                start_new_session=True # 创建新的进程组
+                start_new_session=True  # 创建新的进程组
             )
 
             self.processes['navigation2'] = process
@@ -203,14 +218,14 @@ class ProcessManager(Node):
 
             # 检查进程是否正在运行
             if self.is_process_running('navigation2'):
-                self.get_logger().info('Navigation2启动成功')
+                self.logger.info('Navigation2启动成功')
                 return True
             else:
-                self.get_logger().error('Navigation2启动失败')
+                self.logger.error('Navigation2启动失败')
                 return False
 
         except Exception as e:
-            self.get_logger().error(f'启动Navigation2失败: {e}')
+            self.logger.error(f'启动Navigation2失败: {e}')
             return False
 
     def shutdown_process(self, process_name: str) -> bool:
@@ -224,13 +239,13 @@ class ProcessManager(Node):
             关闭成功返回True，否则返回False
         """
         if process_name not in self.processes:
-            self.get_logger().warn(f'未找到进程 {process_name}')
+            self.logger.warning(f'未找到进程 {process_name}')
             return True
 
         process = self.processes[process_name]
 
         try:
-            self.get_logger().info(f'正在关闭进程组: {process_name}')
+            self.logger.info(f'正在关闭进程组: {process_name}')
 
             # 获取进程组ID（PGID）
             pgid = os.getpgid(process.pid)
@@ -242,13 +257,13 @@ class ProcessManager(Node):
             start_time = time.time()
             while time.time() - start_time < self.shutdown_timeout:
                 if process.poll() is not None:
-                    self.get_logger().info(f'{process_name} 及其子进程已关闭')
+                    self.logger.info(f'{process_name} 及其子进程已关闭')
                     del self.processes[process_name]
                     return True
                 time.sleep(0.5)
 
             # 如果仍在运行则强制终止
-            self.get_logger().warn(f'{process_name} 未能优雅终止，正在强制终止')
+            self.logger.warning(f'{process_name} 未能优雅终止，正在强制终止')
             os.killpg(pgid, signal.SIGKILL)
             process.wait()
 
@@ -256,7 +271,7 @@ class ProcessManager(Node):
             return True
 
         except Exception as e:
-            self.get_logger().error(f'关闭 {process_name} 失败: {e}')
+            self.logger.error(f'关闭 {process_name} 失败: {e}')
             return False
 
     def shutdown_all_processes(self) -> bool:
@@ -266,9 +281,9 @@ class ProcessManager(Node):
         返回:
             所有进程关闭成功返回True，否则返回False
         """
-        self.get_logger().info('正在关闭所有进程')
+        self.logger.info('正在关闭所有进程')
 
-        # 按相反顺序关闭: navigation2 -> liosam -> relocalization
+        # 按相反顺序关闭: navigation2 -> liosam -> nav2_init_pose -> re_localization
         shutdown_order = ['navigation2', 'liosam', 'nav2_init_pose', 're_localization']
 
         all_success = True
@@ -321,31 +336,15 @@ class ProcessManager(Node):
         while time.time() - start_time < timeout:
             status = self.get_process_status()
             if not any(status.values()):
-                self.get_logger().info('所有进程已完全关闭')
+                self.logger.info('所有进程已完全关闭')
                 return True
             time.sleep(0.5)
 
-        self.get_logger().warn('等待完全关闭超时')
+        self.logger.warning('等待完全关闭超时')
         return False
 
-    def destroy_node(self):
-        """节点销毁时的清理"""
+    def cleanup(self):
+        """清理资源"""
         self.shutdown_all_processes()
-        super().destroy_node()
 
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = ProcessManager()
-
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
-
-
-if __name__ == '__main__':
-    main()

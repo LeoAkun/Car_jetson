@@ -115,7 +115,7 @@ def generate_launch_description():
         launch.actions.TimerAction(period=1.0, actions=[start_car]),
         launch.actions.TimerAction(period=1.0, actions=[start_cmdvel_2_ecu]),
         # launch.actions.TimerAction(period=1.0, actions=[start_alarm]),
-        launch.actions.TimerAction(period=1.0, actions=[start_gps]),
+        # launch.actions.TimerAction(period=1.0, actions=[start_gps]),
         # launch.actions.TimerAction(period=1.0, actions=[start_lock]),
         launch.actions.TimerAction(period=1.0, actions=[start_scan_laser]),
         launch.actions.TimerAction(period=1.0, actions=[start_scan_merge])

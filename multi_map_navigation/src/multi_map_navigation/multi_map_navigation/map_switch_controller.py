@@ -10,8 +10,11 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Bool
 from multi_map_navigation_msgs.msg import MapSwitchTrigger
-from .process_manager import ProcessManager
-
+from multi_map_navigation.process_manager import ProcessManager
+from tf2_ros import LookupException, ConnectivityException, ExtrapolationException
+from geometry_msgs.msg import TransformStamped
+import rclpy.duration
+import tf2_ros
 
 class MapSwitchController(Node):
     def __init__(self):
@@ -134,7 +137,7 @@ class MapSwitchController(Node):
         返回:
             关闭成功返回True，否则返回False
         """
-        # 关闭顺序: navigation2 -> liosam -> relocalization
+        # 关闭顺序: navigation2 -> liosam -> re_localization
         success = True
 
         if not self.process_manager.shutdown_process('navigation2'):
@@ -149,8 +152,8 @@ class MapSwitchController(Node):
             self.get_logger().error('关闭nav2_init_pose失败')
             success = False
 
-        if not self.process_manager.shutdown_process('relocalization'):
-            self.get_logger().error('关闭relocalization失败')
+        if not self.process_manager.shutdown_process('re_localization'):
+            self.get_logger().error('关闭re_localization失败')
             success = False
 
         return success
@@ -177,25 +180,33 @@ class MapSwitchController(Node):
         返回:
             启动成功返回True，否则返回False
         """
-        # 启动顺序: relocalization -> liosam -> navigation2
+        # 启动顺序: re_localization -> nav2_init_pose -> liosam -> navigation2
         success = True
 
-        # 启动relocalization
+        # 启动re_localization
         if not self.process_manager.launch_relocalization(map_name):
-            self.get_logger().error('启动relocalization失败')
+            self.get_logger().error('启动re_localization失败')
             return False
 
         # 启动nav2_init_pose
         if not self.process_manager.launch_nav2_init_pose(map_name):
             self.get_logger().error('启动nav2_init_pose失败')
-            self.process_manager.shutdown_process('relocalization')
+            self.process_manager.shutdown_process('re_localization')
+            return False
+
+        # 等待tf变换完成
+        self.get_logger().info('等待重定位完成并发布 map -> odom TF...')
+        if not self.wait_for_map_to_base_link_tf(timeout_sec=45.0):  # 可根据实际调整
+            self.get_logger().error('map -> odom TF 长时间未出现，启动失败')
+            self.process_manager.shutdown_process('nav2_init_pose')
+            self.process_manager.shutdown_process('re_localization')
             return False
 
         # 启动liosam
         if not self.process_manager.launch_liosam():
             self.get_logger().error('启动liosam失败')
             self.process_manager.shutdown_process('nav2_init_pose')
-            self.process_manager.shutdown_process('relocalization')
+            self.process_manager.shutdown_process('re_localization')
             return False
 
         # 启动navigation2
@@ -203,10 +214,54 @@ class MapSwitchController(Node):
             self.get_logger().error('启动navigation2失败')
             self.process_manager.shutdown_process('liosam')
             self.process_manager.shutdown_process('nav2_init_pose')
-            self.process_manager.shutdown_process('relocalization')
+            self.process_manager.shutdown_process('re_localization')
             return False
 
         return True
+
+    def wait_for_map_to_odom_link_tf(
+        self,
+        timeout_sec: float = 300.0, # 5分钟
+        check_interval: float = 0.5
+    ) -> bool:
+        """
+        等待 map -> odom TF 变换可用
+        """
+        self.get_logger().info("等待 map -> odom TF 变换就绪...")
+
+        tf_buffer = tf2_ros.Buffer()
+        tf_listener = tf2_ros.TransformListener(tf_buffer, self)
+
+        start_time = self.get_clock().now()
+        deadline = start_time + rclpy.duration.Duration(seconds=timeout_sec)
+
+        while self.get_clock().now() < deadline:
+            rclpy.spin_once(self, timeout_sec=0)
+            try:
+                # 尝试查询最新的变换（time=0 表示 latest）
+                trans: TransformStamped = tf_buffer.lookup_transform(
+                    target_frame="map",
+                    source_frame="odom",
+                    time=rclpy.time.Time(),
+                    timeout=rclpy.duration.Duration(seconds=0.1)  # 小超时避免阻塞
+                )
+                self.get_logger().info(
+                    f"map -> odom TF 已就绪！ "
+                    f"translation: {trans.transform.translation.x:.2f}, {trans.transform.translation.y:.2f}"
+                )
+                return True
+
+            except (LookupException, ConnectivityException, ExtrapolationException):
+                # 正常等待中，不报错
+                self.get_logger().debug("map -> odom TF 尚未可用，继续等待...")
+            
+            except Exception as ex:
+                self.get_logger().warn(f"TF 查询异常: {ex}")
+
+            # 避免 CPU 空转
+            time.sleep(check_interval)
+        self.get_logger().error(f"等待 map -> odom TF 超时 ({timeout_sec}s)")
+        return False
 
     def verify_stack_ready(self) -> bool:
         """
@@ -218,7 +273,7 @@ class MapSwitchController(Node):
         # 检查所有进程是否正在运行
         status = self.process_manager.get_process_status()
 
-        if not status.get('relocalization', False):
+        if not status.get('re_localization', False):
             self.get_logger().error('重定位进程未运行')
             return False
 
@@ -232,12 +287,6 @@ class MapSwitchController(Node):
 
         self.get_logger().info('所有进程已验证并正在运行')
         return True
-
-    def destroy_node(self):
-        """节点销毁时的清理"""
-        self.process_manager.destroy_node()
-        super().destroy_node()
-
 
 def main(args=None):
     rclpy.init(args=args)

@@ -71,14 +71,14 @@ def generate_launch_description():
     )
 
     # 进程管理器节点
-    process_manager_node = Node(
-        package='multi_map_navigation',
-        executable='process_manager',
-        name='process_manager',
-        output='screen',
-        parameters=[LaunchConfiguration('nav_config')],
-        emulate_tty=True
-    )
+    # process_manager_node = Node(
+    #     package='multi_map_navigation',
+    #     executable='process_manager',
+    #     name='process_manager',
+    #     output='screen',
+    #     parameters=[LaunchConfiguration('nav_config')],
+    #     emulate_tty=True
+    # )
 
     return LaunchDescription([
         mqtt_config_arg,
@@ -87,5 +87,5 @@ def generate_launch_description():
         status_reporter_node,
         navigation_manager_node,
         map_switch_controller_node,
-        process_manager_node
+        # process_manager_node
     ])

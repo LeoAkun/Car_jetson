@@ -5,7 +5,7 @@
 
 管理航点导航序列并与地图切换协调
 """
-
+from nav2_simple_commander.robot_navigator import BasicNavigator
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
@@ -13,9 +13,11 @@ from nav2_msgs.action import NavigateToPose
 from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import String, Bool
 from multi_map_navigation_msgs.msg import WaypointList, Waypoint, MapSwitchTrigger
+from multi_map_navigation.process_manager import ProcessManager
 from typing import List, Optional
 import time
-
+import tf2_ros
+from tf2_ros import LookupException, ConnectivityException, ExtrapolationException
 
 class NavigationManager(Node):
     def __init__(self):
@@ -77,7 +79,8 @@ class NavigationManager(Node):
         # 发布初始状态
         self.publish_robot_state('idle')
 
-        self.get_logger().info('导航管理器已初始化')
+        # 进程管理
+        self.process_manager = ProcessManager()
 
     def waypoint_list_callback(self, msg: WaypointList):
         """
@@ -132,8 +135,11 @@ class NavigationManager(Node):
 
         self.get_logger().info(
             f'正在导航到航点 {self.current_waypoint_index + 1}/{len(self.waypoint_list)}: '
-            f'type={waypoint.waypoint_type}, map={waypoint.map_name}'
+            f'type={waypoint.type}, map={waypoint.map_name}'
         )
+
+        # 在导航到第1个点之前，先依次启动
+        self.launch_new_stack(waypoint.map_name)
 
         # 检查这是否是地图切换点
         if self.is_map_switch_point(waypoint):
@@ -142,6 +148,99 @@ class NavigationManager(Node):
         else:
             # 发送导航目标
             self.send_nav2_goal(waypoint)
+
+    def launch_new_stack(self, map_name: str) -> bool:
+        """
+        为指定地图启动新导航堆栈
+
+        参数:
+            map_name: 要启动的地图名称
+
+        返回:
+            启动成功返回True，否则返回False
+        """
+        # 启动顺序: re_localization -> nav2_init_pose -> liosam -> navigation2
+        success = True
+
+        # 启动re_localization
+        if not self.process_manager.launch_relocalization(map_name):
+            self.get_logger().error('启动re_localization失败')
+            return False
+
+        # 启动nav2_init_pose
+        if not self.process_manager.launch_nav2_init_pose(map_name):
+            self.get_logger().error('启动nav2_init_pose失败')
+            self.process_manager.shutdown_process('re_localization')
+            return False
+
+        # 等待tf变换完成
+        self.get_logger().info('等待重定位完成并发布 map -> odom TF...')
+        if not self.wait_for_map_to_odom_link_tf(timeout_sec=300.0):      # 5分钟
+            self.get_logger().error('map -> odom TF 长时间未出现，启动失败')
+            self.process_manager.shutdown_process('nav2_init_pose')
+            self.process_manager.shutdown_process('re_localization')
+            return False
+
+        # 启动liosam
+        if not self.process_manager.launch_liosam():
+            self.get_logger().error('启动liosam失败')
+            self.process_manager.shutdown_process('nav2_init_pose')
+            self.process_manager.shutdown_process('re_localization')
+            return False
+
+        # 启动navigation2
+        if not self.process_manager.launch_navigation2(map_name):
+            self.get_logger().error('启动navigation2失败')
+            self.process_manager.shutdown_process('liosam')
+            self.process_manager.shutdown_process('nav2_init_pose')
+            self.process_manager.shutdown_process('re_localization')
+            return False
+
+        return True
+
+    def wait_for_map_to_odom_link_tf(
+        self,
+        timeout_sec: float = 300.0, # 5分钟
+        check_interval: float = 0.5
+    ) -> bool:
+        """
+        等待 map -> odom TF 变换可用
+        """
+        self.get_logger().info("等待 map -> odom TF 变换就绪...")
+
+        tf_buffer = tf2_ros.Buffer()
+        tf_listener = tf2_ros.TransformListener(tf_buffer, self)
+
+        start_time = self.get_clock().now()
+        deadline = start_time + rclpy.duration.Duration(seconds=timeout_sec)
+
+        while self.get_clock().now() < deadline:
+            rclpy.spin_once(self, timeout_sec=0)
+            try:
+                # 尝试查询最新的变换（time=0 表示 latest）
+                trans: TransformStamped = tf_buffer.lookup_transform(
+                    target_frame="map",
+                    source_frame="odom",
+                    time=rclpy.time.Time(),
+                    timeout=rclpy.duration.Duration(seconds=0.1)  # 小超时避免阻塞
+                )
+                self.get_logger().info(
+                    f"map -> odom TF 已就绪！ "
+                    f"translation: {trans.transform.translation.x:.2f}, {trans.transform.translation.y:.2f}"
+                )
+                return True
+
+            except (LookupException, ConnectivityException, ExtrapolationException):
+                # 正常等待中，不报错
+                self.get_logger().debug("map -> odom TF 尚未可用，继续等待...")
+            
+            except Exception as ex:
+                self.get_logger().warn(f"TF 查询异常: {ex}")
+
+            # 避免 CPU 空转
+            time.sleep(check_interval)
+        self.get_logger().error(f"等待 map -> odom TF 超时 ({timeout_sec}s)")
+        return False
 
     def is_map_switch_point(self, waypoint: Waypoint) -> bool:
         """
@@ -153,7 +252,7 @@ class NavigationManager(Node):
         返回:
             如果航点是地图切换点返回True，否则返回False
         """
-        return waypoint.type == 1
+        return waypoint.type == 4
 
     def trigger_map_switch(self, waypoint: Waypoint):
         """
@@ -238,6 +337,7 @@ class NavigationManager(Node):
         参数:
             waypoint: 目标航点
         """
+
         # 等待动作服务器
         if not self.nav2_client.wait_for_server(timeout_sec=5.0):
             self.get_logger().error('Navigation2动作服务器不可用')
@@ -336,6 +436,9 @@ class NavigationManager(Node):
     def complete_navigation(self):
         """完成导航序列"""
         self.get_logger().info('导航序列成功完成')
+
+        # 如果到达最后一个导航点，则关闭进程
+        self.process_manager.shutdown_all_processes()
 
         # 更新状态
         self.is_navigating = False
