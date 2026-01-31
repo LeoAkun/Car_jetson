@@ -74,7 +74,7 @@ class NavigationManager(Node):
         )
 
         # Navigation2动作客户端
-        self.nav2_client = ActionClient(self, NavigateToPose, 'navigate_to_pose')
+        self.nav2_client = ActionClient(self, NavigateToPose, '/navigate_to_pose')
 
         # 发布初始状态
         self.publish_robot_state('idle')
@@ -138,8 +138,10 @@ class NavigationManager(Node):
             f'type={waypoint.type}, map={waypoint.map_name}'
         )
 
-        # 在导航到第1个点之前，先依次启动
-        self.launch_new_stack(waypoint.map_name)
+        if self.current_waypoint_index == 0:
+            # 在导航到第1个点之前，先依次启动
+            self.launch_new_stack(waypoint.map_name)
+            time.sleep(60)
 
         # 检查这是否是地图切换点
         if self.is_map_switch_point(waypoint):
@@ -275,7 +277,7 @@ class NavigationManager(Node):
 
         switch_pose = PoseStamped()
         switch_pose.header.stamp = self.get_clock().now().to_msg()
-        switch_pose.header.frame_id = waypoint.next_map_name
+        switch_pose.header.frame_id = "map"
         switch_pose.pose.position.x = waypoint.next_x
         switch_pose.pose.position.y = waypoint.next_y
         switch_pose.pose.position.z = 0.0
@@ -353,7 +355,7 @@ class NavigationManager(Node):
         # 构建位姿
         pose = PoseStamped()
         pose.header.stamp = self.get_clock().now().to_msg()
-        pose.header.frame_id = waypoint.map_name
+        pose.header.frame_id = "map"
         pose.pose.position.x = waypoint.x
         pose.pose.position.y = waypoint.y
         pose.pose.position.z = 0.0
