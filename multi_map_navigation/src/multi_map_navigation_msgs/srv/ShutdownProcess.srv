@@ -1,0 +1,5 @@
+# 关闭进程服务
+string process_name  # 要关闭的进程名称: re_localization, nav2_init_pose, liosam, navigation2
+---
+bool success         # 关闭成功返回true，否则返回false
+string message       # 错误或状态消息

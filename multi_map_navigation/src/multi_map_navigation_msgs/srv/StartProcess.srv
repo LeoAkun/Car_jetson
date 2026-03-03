@@ -1,0 +1,6 @@
+# 启动进程服务
+string process_name  # 要启动的进程名称: re_localization, nav2_init_pose, liosam, navigation2
+string map_name      # 地图名称（用于re_localization和navigation2）
+---
+bool success         # 启动成功返回true，否则返回false
+string message       # 错误或状态消息

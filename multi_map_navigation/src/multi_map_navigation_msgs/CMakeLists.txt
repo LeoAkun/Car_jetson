@@ -11,12 +11,15 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-# Generate custom messages
+# Generate custom messages and services
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Waypoint.msg"
   "msg/WaypointList.msg"
   "msg/MapSwitchTrigger.msg"
   "msg/RobotStatus.msg"
+  "srv/StartProcess.srv"
+  "srv/ShutdownProcess.srv"
+  "srv/GetProcessStatus.srv"
   DEPENDENCIES std_msgs geometry_msgs
 )
 

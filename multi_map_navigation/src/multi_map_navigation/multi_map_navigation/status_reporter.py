@@ -17,7 +17,7 @@ from yunle_msgs.msg import Battery, VehicleStatus
 from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
 from std_msgs.msg import String, Int32
 from multi_map_navigation_msgs.msg import RobotStatus
-from multi_map_navigation.process_manager import ProcessManager
+from multi_map_navigation_msgs.srv import ShutdownProcess
 
 # 导入yunle_msgs的VehicleStatus
 try:
@@ -146,6 +146,9 @@ class StatusReporter(Node):
             10.0,
             self.check_vehicle_problem
         )
+
+        # 进程管理服务客户端
+        self.shutdown_process_client = self.create_client(ShutdownProcess, '/process_manager/shutdown_process')
 
         # 创建诊断定时器 - 每30秒打印一次诊断信息
         # self.diagnostic_timer = self.create_timer(
@@ -321,13 +324,28 @@ class StatusReporter(Node):
     def shutdown_all_auto_driving_processes(self):
         """关闭所有自动驾驶进程"""
         try:
-            # 创建进程管理器实例
-            process_manager = ProcessManager()
+            # 等待服务可用
+            if not self.shutdown_process_client.wait_for_service(timeout_sec=5.0):
+                self.get_logger().error('进程管理器服务不可用')
+                return
 
-            # 调用shutdown_all_processes方法
-            success = process_manager.shutdown_all_processes()
+            # 关闭所有进程
+            processes = ['navigation2', 'liosam', 'nav2_init_pose', 're_localization']
+            all_success = True
 
-            if success:
+            for process_name in processes:
+                req = ShutdownProcess.Request()
+                req.process_name = process_name
+                future = self.shutdown_process_client.call_async(req)
+                rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+
+                if future.result() and future.result().success:
+                    self.get_logger().info(f'{process_name} 已关闭')
+                else:
+                    self.get_logger().error(f'{process_name} 关闭失败')
+                    all_success = False
+
+            if all_success:
                 self.get_logger().info('所有自动驾驶进程已成功关闭')
             else:
                 self.get_logger().error('部分自动驾驶进程关闭失败')

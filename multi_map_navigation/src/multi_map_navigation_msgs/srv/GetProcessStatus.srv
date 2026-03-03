@@ -1,0 +1,7 @@
+# 获取进程状态服务
+---
+bool re_localization_running   # 重定位进程是否运行
+bool liosam_running            # LIO-SAM进程是否运行
+bool nav2_init_pose_running    # nav2_init_pose进程是否运行
+bool navigation2_running       # navigation2进程是否运行
+string message                 # 状态消息
