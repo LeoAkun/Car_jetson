@@ -1,339 +1,163 @@
 #!/usr/bin/env python3
 """
-进程管理器
+地图切换控制器
 开发者B - 导航模块
 
-管理ROS2启动进程的生命周期(重定位、LIO-SAM、Navigation2)
+通过协调进程关闭和启动来处理地图切换操作
 """
 
-import subprocess
-import os
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import Bool
+from multi_map_navigation_msgs.msg import MapSwitchTrigger
+from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess, GetProcessStatus
+from tf2_ros import LookupException, ConnectivityException, ExtrapolationException
+from geometry_msgs.msg import TransformStamped
+import rclpy.duration
+import tf2_ros
 import time
-import signal
-import psutil
-import logging
-from typing import Optional, Dict
-import yaml
 
-class ProcessManager:
-    # 单例模式，共享实例
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(ProcessManager, cls).__new__(cls)
-            cls._instance._initialized = False
-        return cls._instance
-
+class MapSwitchController(Node):
     def __init__(self):
+        super().__init__('map_switch_controller')
+
+        # 声明参数
+        self.declare_parameter('map_switch_timeout', 30.0)
+        self.declare_parameter('process_shutdown_timeout', 30.0)
+
+        # 获取参数
+        self.map_switch_timeout = self.get_parameter('map_switch_timeout').value
+        self.process_shutdown_timeout = self.get_parameter('process_shutdown_timeout').value
+
+        # 进程管理服务客户端
+        self.start_process_client = self.create_client(StartProcess, '/process_manager/start_process')
+        self.shutdown_process_client = self.create_client(ShutdownProcess, '/process_manager/shutdown_process')
+        self.get_process_status_client = self.create_client(GetProcessStatus, '/process_manager/get_status')
+
+        # 当前地图跟踪
+        self.current_map = None
+        self.is_switching = False
+
+        # ROS2订阅器用于地图切换触发
+        self.map_switch_sub = self.create_subscription(
+            MapSwitchTrigger,
+            '/trigger_map_switch',
+            self.map_switch_callback,
+            10
+        )
+
+        # ROS2发布器用于地图切换完成
+        self.map_switch_complete_pub = self.create_publisher(
+            Bool,
+            '/map_switch_complete',
+            10
+        )
+
+        self.get_logger().info('地图切换控制器已初始化')
+
+    def map_switch_callback(self, msg: MapSwitchTrigger):
         """
-        初始化进程管理器
+        地图切换触发回调
 
         参数:
-            startup_delay: 进程启动后的等待时间（秒）
-            shutdown_timeout: 进程关闭超时时间（秒）
+            msg: 包含切换信息的MapSwitchTrigger消息
         """
-        if self._initialized:
+        if self.is_switching:
+            self.get_logger().warn('地图切换已在进行中，忽略请求')
             return
-        self._initialized = True
 
-        with open("/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/navigation_config.yaml") as f:
-            config = yaml.safe_load(f)
-            
-        pm_params = config.get('process_manager', {}).get('ros__parameters', {})
-        self.startup_delay = pm_params.get('startup_delay', 2.0)
-        self.max_startup_time = pm_params.get('max_startup_time', 15.0)
-        self.health_check_interval = pm_params.get('health_check_interval', 1.0)
-        self.shutdown_timeout = pm_params.get('shutdown_timeout', 10.0)
-        
-        map_params = config.get('maps', {}).get('ros__parameters', {})
-        self.map_dir = map_params.get('map_directory', "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map")
-        
+        self.get_logger().info(
+            f'触发地图切换: {msg.current_map} -> {msg.next_map}'
+        )
 
-        # 进程跟踪
-        self.processes: Dict[str, subprocess.Popen] = {}
+        # 执行地图切换
+        success = self.execute_map_switch(msg.current_map, msg.next_map)
 
-        # 配置日志
-        self.logger = logging.getLogger(__name__)
+        # 发布完成状态
+        completion_msg = Bool()
+        completion_msg.data = success
+        self.map_switch_complete_pub.publish(completion_msg)
 
-        self.logger.info('进程管理器已初始化')
+        if success:
+            self.get_logger().info('地图切换成功完成')
+        else:
+            self.get_logger().error('地图切换失败')
 
-    def launch_relocalization(self, map_name: str) -> bool:
+    def execute_map_switch(self, current_map: str, next_map: str) -> bool:
         """
-        启动重定位服务进程
+        执行地图切换过程
 
         参数:
-            map_name: 用于重定位的地图名称
+            current_map: 当前地图名称
+            next_map: 下一个地图名称
 
         返回:
-            启动成功返回True，否则返回False
+            切换成功返回True，否则返回False
         """
+        self.is_switching = True
+
         try:
-            self.logger.info(f'正在为地图启动重定位: {map_name}')
-
-            # 构建启动命令
-            cmd = [
-                'ros2', 'launch',
-                're_localization',
-                'run.real_launch.py',
-                f'map_path:={self.map_dir}/{map_name}/{map_name}_raw.pcd'
-            ]
-
-            # 启动进程
-            process = subprocess.Popen(
-                cmd,
-                start_new_session=True,  # 创建新的进程组
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL
-            )
-
-            self.processes['re_localization'] = process
-
-            # 等待启动
-            time.sleep(self.startup_delay)
-
-            # 检查进程是否正在运行
-            if self.is_process_running('re_localization'):
-                self.logger.info('重定位服务启动成功')
-                return True
-            else:
-                self.logger.error('重定位服务启动失败')
+            # 步骤1: 关闭当前堆栈
+            self.get_logger().info('步骤1: 正在关闭当前导航堆栈')
+            if not self.shutdown_current_stack():
+                self.get_logger().error('关闭当前堆栈失败')
+                self.is_switching = False
                 return False
 
-        except Exception as e:
-            self.logger.error(f'启动重定位失败: {e}')
-            return False
+            # TODO 不检测，延迟等待进程关闭不就完了
 
-    def launch_nav2_init_pose(self, map_name: str) -> bool:
-        """
-        启动 nav2_init_pose 进程
+            # # 步骤2: 等待完全关闭
+            # self.get_logger().info('步骤2: 正在等待完全关闭')
+            # if not self.wait_for_clean_shutdown(self.process_shutdown_timeout):
+            #     self.get_logger().warn('完全关闭超时')
+            #     self.is_switching = False
+            #     return False
 
-        参数:
-            map_name: 地图名称（用于获取CSV文件）
-
-        返回:
-            启动成功返回True，否则返回False
-        """
-        try:
-            # 构建启动命令
-            cmd = [
-                'ros2', 'run',
-                'nav2_init_pose',
-                'nav2_init_pose',
-                '--ros-args',
-                '-p', f'map_csv:={self.map_dir}/{map_name}/{map_name}.csv',
-                '--log-level', 'info'  # 确保日志级别足够
-            ]
-
-            env = os.environ.copy()
-            env["PYTHONUNBUFFERED"] = "1"                 # 让 print() 立即输出
-            env["RCUTILS_LOGGING_BUFFERED_STREAM"] = "0"  # 让 ROS2 日志立即输出
-            env["RCUTILS_LOGGING_USE_STDOUT"] = "1"       # 强制使用 stdout 而不是 stderr
-
-            # 启动进程
-            process = subprocess.Popen(
-                cmd,
-                start_new_session=True,  # 创建新的进程组
-                env=env,            # <--- 注入环境变量
-                stdout=None,        # 继承父进程 stdout (默认行为)
-                stderr=None         # 继承父进程 stderr
-            )
-
-            self.processes['nav2_init_pose'] = process
-
-            # 等待启动
-            time.sleep(self.startup_delay)
-
-            # 检查进程是否正在运行
-            if self.is_process_running('nav2_init_pose'):
-                self.logger.info('nav2_init_pose启动成功')
-                return True
-            else:
-                self.logger.error('nav2_init_pose启动失败')
+            # 步骤3: 启动新堆栈
+            self.get_logger().info(f'步骤3: 正在为地图启动新导航堆栈: {next_map}')
+            if not self.launch_new_stack(next_map):
+                self.get_logger().error('启动新堆栈失败')
+                self.is_switching = False
                 return False
 
-        except Exception as e:
-            self.logger.error(f'启动nav2_init_pose失败: {e}')
-            return False
+            # TODO 不验证了
+            # # 步骤4: 验证堆栈已就绪
+            # self.get_logger().info('步骤4: 正在验证新堆栈已就绪')
+            # if not self.verify_stack_ready():
+            #     self.get_logger().error('新堆栈验证失败')
+            #     self.is_switching = False
+            #     return False
 
-    def launch_liosam(self) -> bool:
-        """
-        启动LIO-SAM进程
-
-        返回:
-            启动成功返回True，否则返回False
-        """
-        try:
-            self.logger.info('正在启动LIO-SAM')
-
-            # 构建启动命令
-            cmd = [
-                'ros2', 'launch',
-                'lio_sam',
-                'run.real_launch.py'
-            ]
-
-            # 启动进程
-            process = subprocess.Popen(
-                cmd,
-                start_new_session=True  # 创建新的进程组
-            )
-
-            self.processes['liosam'] = process
-
-            # 等待启动
-            time.sleep(self.startup_delay)
-
-            # 检查进程是否正在运行
-            if self.is_process_running('liosam'):
-                self.logger.info('LIO-SAM启动成功')
-                return True
-            else:
-                self.logger.error('LIO-SAM启动失败')
-                return False
+            # 更新当前地图
+            self.current_map = next_map
+            self.is_switching = False
+            return True
 
         except Exception as e:
-            self.logger.error(f'启动LIO-SAM失败: {e}')
+            self.get_logger().error(f'地图切换期间发生异常: {e}')
+            self.is_switching = False
             return False
 
-    def launch_navigation2(self, map_name: str) -> bool:
+    def shutdown_current_stack(self) -> bool:
         """
-        启动Navigation2进程
-
-        参数:
-            map_name: 用于导航的地图名称
-
-        返回:
-            启动成功返回True，否则返回False
-        """
-        try:
-            self.logger.info(f'正在为地图启动Navigation2: {map_name}')
-
-            # 构建启动命令
-            cmd = [
-                'ros2', 'launch',
-                'nav2',
-                'run.real_launch.py',
-                f'map:={self.map_dir}/{map_name}/{map_name}_clean.yaml'
-            ]
-
-            # 启动进程
-            process = subprocess.Popen(
-                cmd,
-                start_new_session=True  # 创建新的进程组
-            )
-
-            self.processes['navigation2'] = process
-
-            # 等待启动
-            time.sleep(self.startup_delay)
-
-            # 检查进程是否正在运行
-            if self.is_process_running('navigation2'):
-                self.logger.info('Navigation2启动成功')
-                return True
-            else:
-                self.logger.error('Navigation2启动失败')
-                return False
-
-        except Exception as e:
-            self.logger.error(f'启动Navigation2失败: {e}')
-            return False
-
-    def shutdown_process(self, process_name: str) -> bool:
-        """
-        优雅地关闭特定进程
-
-        参数:
-            process_name: 要关闭的进程名称
+        关闭当前导航堆栈
 
         返回:
             关闭成功返回True，否则返回False
         """
-        if process_name not in self.processes:
-            self.logger.warning(f'未找到进程 {process_name}')
-            return True
+        # 关闭顺序: navigation2 -> liosam -> nav2_init_pose -> re_localization
+        success = True
 
-        process = self.processes[process_name]
+        processes = ['navigation2', 'liosam', 'nav2_init_pose', 're_localization']
+        for process_name in processes:
+            req = ShutdownProcess.Request()
+            req.process_name = process_name
+            future = self.shutdown_process_client.call_async(req)
+            # rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
 
-        try:
-            self.logger.info(f'正在关闭进程组: {process_name}')
+        return True
 
-            # 获取进程组ID（PGID）
-            pgid = os.getpgid(process.pid)
-
-            # 向整个进程组发送 SIGTERM
-            os.killpg(pgid, signal.SIGTERM)
-
-            # 等待进程终止
-            start_time = time.time()
-            while time.time() - start_time < self.shutdown_timeout:
-                if process.poll() is not None:
-                    self.logger.info(f'{process_name} 及其子进程已关闭')
-                    del self.processes[process_name]
-                    return True
-                time.sleep(0.5)
-
-            # 如果仍在运行则强制终止
-            self.logger.warning(f'{process_name} 未能优雅终止，正在强制终止')
-            os.killpg(pgid, signal.SIGKILL)
-            process.wait()
-
-            del self.processes[process_name]
-            return True
-
-        except Exception as e:
-            self.logger.error(f'关闭 {process_name} 失败: {e}')
-            return False
-
-    def shutdown_all_processes(self) -> bool:
-        """
-        关闭所有托管进程
-
-        返回:
-            所有进程关闭成功返回True，否则返回False
-        """
-        self.logger.info('正在关闭所有进程')
-
-        # 按相反顺序关闭: navigation2 -> liosam -> nav2_init_pose -> re_localization
-        shutdown_order = ['navigation2', 'liosam', 'nav2_init_pose', 're_localization']
-
-        all_success = True
-        for process_name in shutdown_order:
-            if not self.shutdown_process(process_name):
-                all_success = False
-
-        return all_success
-
-    def is_process_running(self, process_name: str) -> bool:
-        """
-        检查进程是否正在运行
-
-        参数:
-            process_name: 要检查的进程名称
-
-        返回:
-            进程正在运行返回True，否则返回False
-        """
-        if process_name not in self.processes:
-            return False
-
-        process = self.processes[process_name]
-        return process.poll() is None
-
-    def get_process_status(self) -> Dict[str, bool]:
-        """
-        获取所有托管进程的状态
-
-        返回:
-            将进程名称映射到运行状态的字典
-        """
-        return {
-            name: self.is_process_running(name)
-            for name in ['re_localization', 'liosam', 'nav2_init_pose', 'navigation2']
-        }
-
-    def wait_for_clean_shutdown(self, timeout: float = 10.0) -> bool:
+    def wait_for_clean_shutdown(self, timeout: float) -> bool:
         """
         等待所有进程完全关闭
 
@@ -346,17 +170,198 @@ class ProcessManager:
         start_time = time.time()
 
         while time.time() - start_time < timeout:
-            status = self.get_process_status()
-            if not any(status.values()):
-                self.logger.info('所有进程已完全关闭')
-                return True
+            req = GetProcessStatus.Request()
+            future = self.get_process_status_client.call_async(req)
+            rclpy.spin_until_future_complete(self, future, timeout_sec=2.0)
+
+            if future.result() is not None:
+                status = future.result()
+                all_stopped = not any([
+                    status.re_localization_running,
+                    status.liosam_running,
+                    status.nav2_init_pose_running,
+                    status.navigation2_running
+                ])
+                if all_stopped:
+                    self.get_logger().info('所有进程已完全关闭')
+                    return True
+                self.get_logger().warning(f'status: {status}')
             time.sleep(0.5)
 
-        self.logger.warning('等待完全关闭超时')
+        self.get_logger().warning('等待完全关闭超时')
         return False
 
-    def cleanup(self):
-        """清理资源"""
-        self.shutdown_all_processes()
+    def launch_new_stack(self, map_name: str) -> bool:
+        """
+        为指定地图启动新导航堆栈
+
+        参数:
+            map_name: 要启动的地图名称
+
+        返回:
+            启动成功返回True，否则返回False
+        """
+        # 启动顺序: re_localization -> nav2_init_pose -> liosam -> navigation2
+
+        # 启动re_localization
+        req = StartProcess.Request()
+        req.process_name = 're_localization'
+        req.map_name = map_name
+        future = self.start_process_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动re_localization失败')
+            return False
+
+        # 启动nav2_init_pose
+        req = StartProcess.Request()
+        req.process_name = 'nav2_init_pose'
+        req.map_name = map_name
+        future = self.start_process_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动nav2_init_pose失败')
+            self.shutdown_process_by_name('re_localization')
+            return False
+
+        # 等待tf变换完成
+        self.get_logger().info('等待重定位完成并发布 map -> odom TF...')
+        if not self.wait_for_map_to_odom_link_tf(timeout_sec=45.0):  # 可根据实际调整
+            self.get_logger().error('map -> odom TF 长时间未出现，启动失败')
+            self.shutdown_process_by_name('nav2_init_pose')
+            self.shutdown_process_by_name('re_localization')
+            return False
+
+        # 启动liosam
+        req = StartProcess.Request()
+        req.process_name = 'liosam'
+        req.map_name = ''
+        future = self.start_process_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动liosam失败')
+            self.shutdown_process_by_name('nav2_init_pose')
+            self.shutdown_process_by_name('re_localization')
+            return False
+
+        # 启动navigation2
+        req = StartProcess.Request()
+        req.process_name = 'navigation2'
+        req.map_name = map_name
+        future = self.start_process_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动navigation2失败')
+            self.shutdown_process_by_name('liosam')
+            self.shutdown_process_by_name('nav2_init_pose')
+            self.shutdown_process_by_name('re_localization')
+            return False
+
+        return True
+
+    def shutdown_process_by_name(self, process_name: str) -> bool:
+        """通过服务关闭进程"""
+        try:
+            req = ShutdownProcess.Request()
+            req.process_name = process_name
+            future = self.shutdown_process_client.call_async(req)
+            rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+            if future.result() and future.result().success:
+                return True
+            return False
+        except Exception as e:
+            self.get_logger().error(f'关闭进程{process_name}异常: {e}')
+            return False
+
+    def wait_for_map_to_odom_link_tf(
+        self,
+        timeout_sec: float = 300.0, # 5分钟
+        check_interval: float = 0.5
+    ) -> bool:
+        """
+        等待 map -> odom TF 变换可用
+        """
+        self.get_logger().info("等待 map -> odom TF 变换就绪...")
+
+        tf_buffer = tf2_ros.Buffer()
+        tf_listener = tf2_ros.TransformListener(tf_buffer, self)
+
+        start_time = self.get_clock().now()
+        deadline = start_time + rclpy.duration.Duration(seconds=timeout_sec)
+
+        while self.get_clock().now() < deadline:
+            rclpy.spin_once(self, timeout_sec=0)
+            try:
+                # 尝试查询最新的变换（time=0 表示 latest）
+                trans: TransformStamped = tf_buffer.lookup_transform(
+                    target_frame="map",
+                    source_frame="odom",
+                    time=rclpy.time.Time(),
+                    timeout=rclpy.duration.Duration(seconds=0.1)  # 小超时避免阻塞
+                )
+                self.get_logger().info(
+                    f"map -> odom TF 已就绪！ "
+                    f"translation: {trans.transform.translation.x:.2f}, {trans.transform.translation.y:.2f}"
+                )
+                return True
+
+            except (LookupException, ConnectivityException, ExtrapolationException):
+                # 正常等待中，不报错
+                self.get_logger().debug("map -> odom TF 尚未可用，继续等待...")
+            
+            except Exception as ex:
+                self.get_logger().warn(f"TF 查询异常: {ex}")
+
+            # 避免 CPU 空转
+            time.sleep(check_interval)
+        self.get_logger().error(f"等待 map -> odom TF 超时 ({timeout_sec}s)")
+        return False
+
+    def verify_stack_ready(self) -> bool:
+        """
+        验证导航堆栈已就绪
+
+        返回:
+            堆栈就绪返回True，否则返回False
+        """
+        # 检查所有进程是否正在运行
+        req = GetProcessStatus.Request()
+        future = self.get_process_status_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=2.0)
+
+        if not future.result():
+            self.get_logger().error('无法获取进程状态')
+            return False
+
+        status = future.result()
+
+        if not status.re_localization_running:
+            self.get_logger().error('重定位进程未运行')
+            return False
+
+        if not status.liosam_running:
+            self.get_logger().error('LIO-SAM进程未运行')
+            return False
+
+        if not status.navigation2_running:
+            self.get_logger().error('Navigation2进程未运行')
+            return False
+
+        self.get_logger().info('所有进程已验证并正在运行')
+        return True
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = MapSwitchController()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 
+if __name__ == '__main__':
+    main()

@@ -8,6 +8,8 @@
 
 import rclpy
 from rclpy.node import Node
+from rclpy.callback_groups import ReentrantCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
 from std_msgs.msg import Bool
 from multi_map_navigation_msgs.msg import MapSwitchTrigger
 from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess, GetProcessStatus
@@ -29,10 +31,16 @@ class MapSwitchController(Node):
         self.map_switch_timeout = self.get_parameter('map_switch_timeout').value
         self.process_shutdown_timeout = self.get_parameter('process_shutdown_timeout').value
 
+        # 使用 ReentrantCallbackGroup 允许回调内调用服务
+        self.cb_group = ReentrantCallbackGroup()
+
         # 进程管理服务客户端
-        self.start_process_client = self.create_client(StartProcess, '/process_manager/start_process')
-        self.shutdown_process_client = self.create_client(ShutdownProcess, '/process_manager/shutdown_process')
-        self.get_process_status_client = self.create_client(GetProcessStatus, '/process_manager/get_status')
+        self.start_process_client = self.create_client(
+            StartProcess, '/process_manager/start_process', callback_group=self.cb_group)
+        self.shutdown_process_client = self.create_client(
+            ShutdownProcess, '/process_manager/shutdown_process', callback_group=self.cb_group)
+        self.get_process_status_client = self.create_client(
+            GetProcessStatus, '/process_manager/get_status', callback_group=self.cb_group)
 
         # 当前地图跟踪
         self.current_map = None
@@ -43,7 +51,8 @@ class MapSwitchController(Node):
             MapSwitchTrigger,
             '/trigger_map_switch',
             self.map_switch_callback,
-            10
+            10,
+            callback_group=self.cb_group
         )
 
         # ROS2发布器用于地图切换完成
@@ -54,6 +63,13 @@ class MapSwitchController(Node):
         )
 
         self.get_logger().info('地图切换控制器已初始化')
+
+    def _wait_for_future(self, future, timeout_sec: float):
+        """等待 future 完成，由 MultiThreadedExecutor 在其他线程处理回调"""
+        start = time.time()
+        while not future.done() and time.time() - start < timeout_sec:
+            time.sleep(0.05)
+        return future.result()
 
     def map_switch_callback(self, msg: MapSwitchTrigger):
         """
@@ -104,14 +120,12 @@ class MapSwitchController(Node):
                 self.is_switching = False
                 return False
 
-            # TODO 不检测，延迟等待进程关闭不就完了
-
-            # # 步骤2: 等待完全关闭
-            # self.get_logger().info('步骤2: 正在等待完全关闭')
-            # if not self.wait_for_clean_shutdown(self.process_shutdown_timeout):
-            #     self.get_logger().warn('完全关闭超时')
-            #     self.is_switching = False
-            #     return False
+            # 步骤2: 等待完全关闭
+            self.get_logger().info('步骤2: 正在等待完全关闭')
+            if not self.wait_for_clean_shutdown(self.process_shutdown_timeout):
+                self.get_logger().warn('完全关闭超时')
+                self.is_switching = False
+                return False
 
             # 步骤3: 启动新堆栈
             self.get_logger().info(f'步骤3: 正在为地图启动新导航堆栈: {next_map}')
@@ -120,13 +134,12 @@ class MapSwitchController(Node):
                 self.is_switching = False
                 return False
 
-            # TODO 不验证了
-            # # 步骤4: 验证堆栈已就绪
-            # self.get_logger().info('步骤4: 正在验证新堆栈已就绪')
-            # if not self.verify_stack_ready():
-            #     self.get_logger().error('新堆栈验证失败')
-            #     self.is_switching = False
-            #     return False
+            # 步骤4: 验证堆栈已就绪
+            self.get_logger().info('步骤4: 正在验证新堆栈已就绪')
+            if not self.verify_stack_ready():
+                self.get_logger().error('新堆栈验证失败')
+                self.is_switching = False
+                return False
 
             # 更新当前地图
             self.current_map = next_map
@@ -153,7 +166,7 @@ class MapSwitchController(Node):
             req = ShutdownProcess.Request()
             req.process_name = process_name
             future = self.shutdown_process_client.call_async(req)
-            # rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+            self._wait_for_future(future, timeout_sec=5.0)
 
         return True
 
@@ -172,7 +185,7 @@ class MapSwitchController(Node):
         while time.time() - start_time < timeout:
             req = GetProcessStatus.Request()
             future = self.get_process_status_client.call_async(req)
-            rclpy.spin_until_future_complete(self, future, timeout_sec=2.0)
+            self._wait_for_future(future, timeout_sec=2.0)
 
             if future.result() is not None:
                 status = future.result()
@@ -190,7 +203,7 @@ class MapSwitchController(Node):
 
         self.get_logger().warning('等待完全关闭超时')
         return False
-
+    
     def launch_new_stack(self, map_name: str) -> bool:
         """
         为指定地图启动新导航堆栈
@@ -208,7 +221,7 @@ class MapSwitchController(Node):
         req.process_name = 're_localization'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
             self.get_logger().error('启动re_localization失败')
             return False
@@ -218,7 +231,7 @@ class MapSwitchController(Node):
         req.process_name = 'nav2_init_pose'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
             self.get_logger().error('启动nav2_init_pose失败')
             self.shutdown_process_by_name('re_localization')
@@ -237,7 +250,7 @@ class MapSwitchController(Node):
         req.process_name = 'liosam'
         req.map_name = ''
         future = self.start_process_client.call_async(req)
-        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
             self.get_logger().error('启动liosam失败')
             self.shutdown_process_by_name('nav2_init_pose')
@@ -249,7 +262,7 @@ class MapSwitchController(Node):
         req.process_name = 'navigation2'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
+        self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
             self.get_logger().error('启动navigation2失败')
             self.shutdown_process_by_name('liosam')
@@ -265,7 +278,7 @@ class MapSwitchController(Node):
             req = ShutdownProcess.Request()
             req.process_name = process_name
             future = self.shutdown_process_client.call_async(req)
-            rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+            self._wait_for_future(future, timeout_sec=5.0)
             if future.result() and future.result().success:
                 return True
             return False
@@ -290,7 +303,7 @@ class MapSwitchController(Node):
         deadline = start_time + rclpy.duration.Duration(seconds=timeout_sec)
 
         while self.get_clock().now() < deadline:
-            rclpy.spin_once(self, timeout_sec=0)
+            # rclpy.spin_once(self, timeout_sec=0)
             try:
                 # 尝试查询最新的变换（time=0 表示 latest）
                 trans: TransformStamped = tf_buffer.lookup_transform(
@@ -327,7 +340,7 @@ class MapSwitchController(Node):
         # 检查所有进程是否正在运行
         req = GetProcessStatus.Request()
         future = self.get_process_status_client.call_async(req)
-        rclpy.spin_until_future_complete(self, future, timeout_sec=2.0)
+        self._wait_for_future(future, timeout_sec=2.0)
 
         if not future.result():
             self.get_logger().error('无法获取进程状态')
@@ -353,9 +366,11 @@ class MapSwitchController(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = MapSwitchController()
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
 
     try:
-        rclpy.spin(node)
+        executor.spin()
     except KeyboardInterrupt:
         pass
     finally:

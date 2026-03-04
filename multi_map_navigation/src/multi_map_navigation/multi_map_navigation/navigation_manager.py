@@ -88,7 +88,6 @@ class NavigationManager(Node):
         self.get_logger().info('等待进程管理器服务...')
         self.start_process_client.wait_for_service(timeout_sec=10.0)
         self.shutdown_process_client.wait_for_service(timeout_sec=10.0)
-        self.get_process_status_client.wait_for_service(timeout_sec=10.0)
         self.get_logger().info('进程管理器服务已连接')
 
     def waypoint_list_callback(self, msg: WaypointList):
@@ -151,7 +150,7 @@ class NavigationManager(Node):
             # 在导航到第1个点之前，先启动导航堆栈
             self.get_logger().info('首次导航，启动完整导航堆栈...')
             self.launch_new_stack(waypoint.map_name)
-            # 注意：不在这里发送导航目标，而是在堆栈启动完成后的回调中发送
+            # 注意：不在这里发送导航目标，而是在全部启动完成后的回调中发送
             return
 
         # 非首次导航，直接发送导航目标
@@ -170,7 +169,7 @@ class NavigationManager(Node):
         # 启动顺序: re_localization -> nav2_init_pose -> liosam -> navigation2
         self.get_logger().info('开始启动导航堆栈...')
 
-        # 使用异步回调启动各个进程
+        # 使用异步回调，需要依次启动各个进程
         self.start_re_localization_async(map_name)
         return True  # 返回True，实际结果在回调中处理
 
@@ -179,11 +178,14 @@ class NavigationManager(Node):
         try:
             req = ShutdownProcess.Request()
             req.process_name = process_name
+
+            # 异步直接调用，不需要等待返回值
             future = self.shutdown_process_client.call_async(req)
-            rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
-            if future.result() and future.result().success:
-                return True
-            return False
+            # rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+            # if future.result() and future.result().success:
+            #     return True
+            # return False
+            return True
         except Exception as e:
             self.get_logger().error(f'关闭进程{process_name}异常: {e}')
             return False

@@ -30,7 +30,7 @@ class FakeNav2Server(Node):
         feedback.distance_remaining = 5.0
         goal_handle.publish_feedback(feedback)
 
-        time.sleep(3.0)  # 模拟导航耗时
+        time.sleep(60.0)  # 模拟导航耗时
 
         goal_handle.succeed()
         result = NavigateToPose.Result()
