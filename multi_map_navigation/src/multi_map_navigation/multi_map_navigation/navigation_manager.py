@@ -7,6 +7,7 @@
 """
 from nav2_simple_commander.robot_navigator import BasicNavigator
 import rclpy
+from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from nav2_msgs.action import NavigateToPose
@@ -44,6 +45,9 @@ class NavigationManager(Node):
         self.is_map_switching = False
         self.task_id = None
 
+        # 创建可重入回调组，避免服务调用与订阅回调互相阻塞
+        self.service_callback_group = ReentrantCallbackGroup()
+
         # ROS2订阅器用于航点列表
         self.waypoint_list_sub = self.create_subscription(
             WaypointList,
@@ -80,9 +84,15 @@ class NavigationManager(Node):
         # 发布初始状态
         self.publish_robot_state('idle')
 
-        # 进程管理服务客户端
-        self.start_process_client = self.create_client(StartProcess, '/process_manager/start_process')
-        self.shutdown_process_client = self.create_client(ShutdownProcess, '/process_manager/shutdown_process')
+        # 进程管理服务客户端 - 使用可重入回调组
+        self.start_process_client = self.create_client(
+            StartProcess, '/process_manager/start_process',
+            callback_group=self.service_callback_group
+        )
+        self.shutdown_process_client = self.create_client(
+            ShutdownProcess, '/process_manager/shutdown_process',
+            callback_group=self.service_callback_group
+        )
 
         # 等待服务可用
         self.get_logger().info('等待进程管理器服务...')
@@ -149,8 +159,11 @@ class NavigationManager(Node):
         if self.current_waypoint_index == 0:
             # 在导航到第1个点之前，先启动导航堆栈
             self.get_logger().info('首次导航，启动完整导航堆栈...')
-            self.launch_new_stack(waypoint.map_name)
-            # 注意：不在这里发送导航目标，而是在全部启动完成后的回调中发送
+            if self.launch_new_stack(waypoint.map_name):
+                self.send_nav2_goal(waypoint)
+            else:
+                self.get_logger().error('导航堆栈启动失败，中止导航')
+                self.abort_navigation()
             return
 
         # 非首次导航，直接发送导航目标
@@ -167,178 +180,83 @@ class NavigationManager(Node):
             启动成功返回True，否则返回False
         """
         # 启动顺序: re_localization -> nav2_init_pose -> liosam -> navigation2
-        self.get_logger().info('开始启动导航堆栈...')
 
-        # 使用异步回调，需要依次启动各个进程
-        self.start_re_localization_async(map_name)
-        return True  # 返回True，实际结果在回调中处理
-
-    def shutdown_process_service(self, process_name: str) -> bool:
-        """通过服务关闭进程"""
-        try:
-            req = ShutdownProcess.Request()
-            req.process_name = process_name
-
-            # 异步直接调用，不需要等待返回值
-            future = self.shutdown_process_client.call_async(req)
-            # rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
-            # if future.result() and future.result().success:
-            #     return True
-            # return False
-            return True
-        except Exception as e:
-            self.get_logger().error(f'关闭进程{process_name}异常: {e}')
-            return False
-
-    def start_re_localization_async(self, map_name: str):
-        """异步启动re_localization"""
+        # 启动re_localization
         req = StartProcess.Request()
         req.process_name = 're_localization'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        future.add_done_callback(lambda f: self.re_localization_callback(f, map_name))
+        self._wait_for_future(future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动re_localization失败')
+            return False
 
-    def re_localization_callback(self, future, map_name: str):
-        """re_localization启动回调"""
-        try:
-            response = future.result()
-            if response.success:
-                self.get_logger().info(f'✅ re_localization启动成功: {response.message}')
-                # 继续启动nav2_init_pose
-                self.start_nav2_init_pose_async(map_name)
-            else:
-                self.get_logger().error(f'❌ re_localization启动失败: {response.message}')
-                self.abort_navigation()
-        except Exception as e:
-            self.get_logger().error(f'❌ re_localization服务调用异常: {e}')
-            self.abort_navigation()
-
-    def start_nav2_init_pose_async(self, map_name: str):
-        """异步启动nav2_init_pose"""
+        # 启动nav2_init_pose
         req = StartProcess.Request()
         req.process_name = 'nav2_init_pose'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        future.add_done_callback(lambda f: self.nav2_init_pose_callback(f, map_name))
+        self._wait_for_future(future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动nav2_init_pose失败')
+            self.shutdown_process_by_name('re_localization')
+            return False
 
-    def nav2_init_pose_callback(self, future, map_name: str):
-        """nav2_init_pose启动回调"""
-        try:
-            response = future.result()
-            if response.success:
-                self.get_logger().info(f'✅ nav2_init_pose启动成功')
-                # 等待TF变换
-                self.get_logger().info('⏳ 等待重定位完成并发布 map -> odom TF...')
-                self.wait_for_map_to_odom_link_tf_async(timeout_sec=300.0)
-            else:
-                self.get_logger().error(f'❌ nav2_init_pose启动失败: {response.message}')
-                self.shutdown_process_service('re_localization')
-                self.abort_navigation()
-        except Exception as e:
-            self.get_logger().error(f'❌ nav2_init_pose服务调用异常: {e}')
-            self.shutdown_process_service('re_localization')
-            self.abort_navigation()
+        # 等待tf变换完成
+        self.get_logger().info('等待重定位完成并发布 map -> odom TF...')
+        if not self.wait_for_map_to_odom_link_tf(timeout_sec=600.0):  # 可根据实际调整
+            self.get_logger().error('map -> odom TF 长时间未出现，启动失败')
+            self.shutdown_process_by_name('nav2_init_pose')
+            self.shutdown_process_by_name('re_localization')
+            return False
 
-    def wait_for_map_to_odom_link_tf_async(self, timeout_sec: float = 300.0):
-        """异步等待 map -> odom TF 变换"""
-        import threading
-
-        def check_tf():
-            tf_buffer = tf2_ros.Buffer()
-            tf_listener = tf2_ros.TransformListener(tf_buffer, self)
-
-            start_time = self.get_clock().now()
-            deadline = start_time + rclpy.duration.Duration(seconds=timeout_sec)
-
-            while self.get_clock().now() < deadline:
-                try:
-                    trans = tf_buffer.lookup_transform(
-                        target_frame="map",
-                        source_frame="odom",
-                        time=rclpy.time.Time(),
-                        timeout=rclpy.duration.Duration(seconds=0.1)
-                    )
-                    self.get_logger().info(
-                        f"✅ map -> odom TF 已就绪！ "
-                        f"translation: ({trans.transform.translation.x:.2f}, {trans.transform.translation.y:.2f})"
-                    )
-                    # TF就绪，继续启动liosam
-                    self.start_liosam_async()
-                    return
-                except (LookupException, ConnectivityException, ExtrapolationException):
-                    time.sleep(0.5)
-                except Exception as ex:
-                    self.get_logger().warn(f"TF 查询异常: {ex}")
-                    time.sleep(0.5)
-
-            self.get_logger().error(f"❌ 等待 map -> odom TF 超时 ({timeout_sec}s)")
-            self.shutdown_process_service('nav2_init_pose')
-            self.shutdown_process_service('re_localization')
-            self.abort_navigation()
-
-        thread = threading.Thread(target=check_tf, daemon=True)
-        thread.start()
-
-    def start_liosam_async(self):
-        """异步启动liosam"""
+        # 启动liosam
         req = StartProcess.Request()
         req.process_name = 'liosam'
         req.map_name = ''
         future = self.start_process_client.call_async(req)
-        future.add_done_callback(self.liosam_callback)
+        self._wait_for_future(future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动liosam失败')
+            self.shutdown_process_by_name('nav2_init_pose')
+            self.shutdown_process_by_name('re_localization')
+            return False
 
-    def liosam_callback(self, future):
-        """liosam启动回调"""
-        try:
-            response = future.result()
-            if response.success:
-                self.get_logger().info(f'✅ LIO-SAM启动成功')
-                # 获取当前地图并继续启动navigation2
-                if self.current_waypoint_index < len(self.waypoint_list):
-                    waypoint = self.waypoint_list[self.current_waypoint_index]
-                    self.start_navigation2_async(waypoint.map_name)
-            else:
-                self.get_logger().error(f'❌ LIO-SAM启动失败: {response.message}')
-                self.shutdown_process_service('nav2_init_pose')
-                self.shutdown_process_service('re_localization')
-                self.abort_navigation()
-        except Exception as e:
-            self.get_logger().error(f'❌ LIO-SAM服务调用异常: {e}')
-            self.shutdown_process_service('nav2_init_pose')
-            self.shutdown_process_service('re_localization')
-            self.abort_navigation()
-
-    def start_navigation2_async(self, map_name: str):
-        """异步启动navigation2"""
+        # 启动navigation2
         req = StartProcess.Request()
         req.process_name = 'navigation2'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        future.add_done_callback(lambda f: self.navigation2_callback(f, map_name))
+        self._wait_for_future(future, timeout_sec=10.0)
+        if not future.result() or not future.result().success:
+            self.get_logger().error('启动navigation2失败')
+            self.shutdown_process_by_name('liosam')
+            self.shutdown_process_by_name('nav2_init_pose')
+            self.shutdown_process_by_name('re_localization')
+            return False
 
-    def navigation2_callback(self, future, map_name: str):
-        """navigation2启动回调"""
+        return True
+    
+    def shutdown_process_by_name(self, process_name: str) -> bool:
+        """通过服务关闭进程"""
         try:
-            response = future.result()
-            if response.success:
-                self.get_logger().info(f'✅ Navigation2启动成功')
-                self.get_logger().info('🎉 导航堆栈启动完成，开始导航到目标点')
-                # 导航堆栈启动完成，发送导航目标
-                if self.waypoint_list and self.current_waypoint_index < len(self.waypoint_list):
-                    waypoint = self.waypoint_list[self.current_waypoint_index]
-                    self.send_nav2_goal(waypoint)
-            else:
-                self.get_logger().error(f'❌ Navigation2启动失败: {response.message}')
-                self.shutdown_process_service('liosam')
-                self.shutdown_process_service('nav2_init_pose')
-                self.shutdown_process_service('re_localization')
-                self.abort_navigation()
+            req = ShutdownProcess.Request()
+            req.process_name = process_name
+            future = self.shutdown_process_client.call_async(req)
+            self._wait_for_future(future, timeout_sec=5.0)
+            if future.result() and future.result().success:
+                return True
+            return False
         except Exception as e:
-            self.get_logger().error(f'❌ Navigation2服务调用异常: {e}')
-            self.shutdown_process_service('liosam')
-            self.shutdown_process_service('nav2_init_pose')
-            self.shutdown_process_service('re_localization')
-            self.abort_navigation()
+            self.get_logger().error(f'关闭进程{process_name}异常: {e}')
+            return False
+
+    def _wait_for_future(self, future, timeout_sec: float):
+        """等待 future 完成，由 MultiThreadedExecutor 在其他线程处理回调"""
+        start = time.time()
+        while not future.done() and time.time() - start < timeout_sec:
+            time.sleep(0.05)
+        return future.result()
 
     def wait_for_map_to_odom_link_tf(
         self,
@@ -346,9 +264,42 @@ class NavigationManager(Node):
         check_interval: float = 0.5
     ) -> bool:
         """
-        等待 map -> odom TF 变换可用 (已弃用，使用wait_for_map_to_odom_link_tf_async)
+        等待 map -> odom TF 变换可用
         """
-        self.get_logger().warning("wait_for_map_to_odom_link_tf已弃用，使用异步版本")
+        self.get_logger().info("等待 map -> odom TF 变换就绪...")
+
+        tf_buffer = tf2_ros.Buffer()
+        tf_listener = tf2_ros.TransformListener(tf_buffer, self)
+
+        start_time = self.get_clock().now()
+        deadline = start_time + rclpy.duration.Duration(seconds=timeout_sec)
+
+        while self.get_clock().now() < deadline:
+            # rclpy.spin_once(self, timeout_sec=0)
+            try:
+                # 尝试查询最新的变换（time=0 表示 latest）
+                trans: TransformStamped = tf_buffer.lookup_transform(
+                    target_frame="map",
+                    source_frame="odom",
+                    time=rclpy.time.Time(),
+                    timeout=rclpy.duration.Duration(seconds=0.1)  # 小超时避免阻塞
+                )
+                self.get_logger().info(
+                    f"map -> odom TF 已就绪！ "
+                    f"translation: {trans.transform.translation.x:.2f}, {trans.transform.translation.y:.2f}"
+                )
+                return True
+
+            except (LookupException, ConnectivityException, ExtrapolationException):
+                # 正常等待中，不报错
+                self.get_logger().debug("map -> odom TF 尚未可用，继续等待...")
+            
+            except Exception as ex:
+                self.get_logger().warn(f"TF 查询异常: {ex}")
+
+            # 避免 CPU 空转
+            time.sleep(check_interval)
+        self.get_logger().error(f"等待 map -> odom TF 超时 ({timeout_sec}s)")
         return False
 
     def is_map_switch_point(self, waypoint: Waypoint) -> bool:
@@ -568,14 +519,6 @@ class NavigationManager(Node):
 
     def on_goal_reached(self):
         """处理成功到达目标"""
-        # 添加防护性检查
-        # if self.waypoint_list is None:
-        #     self.get_logger().warn('航点列表为空，忽略目标到达事件')
-        #     return
-        # if self.current_waypoint_index >= len(self.waypoint_list):
-        #     self.get_logger().warn(f'航点索引超出范围: {self.current_waypoint_index} >= {len(self.waypoint_list)}')
-        #     return
-
         waypoint = self.waypoint_list[self.current_waypoint_index]
 
         self.get_logger().info(
@@ -635,7 +578,7 @@ class NavigationManager(Node):
         """通过服务关闭所有进程"""
         processes = ['navigation2', 'liosam', 'nav2_init_pose', 're_localization']
         for process_name in processes:
-            self.shutdown_process_service(process_name)
+            self.shutdown_process_by_name(process_name)
 
     def abort_navigation(self):
         """中止导航序列"""
@@ -666,8 +609,10 @@ def main(args=None):
     rclpy.init(args=args)
     node = NavigationManager()
 
+    executor = rclpy.executors.MultiThreadedExecutor()
+    executor.add_node(node)
     try:
-        rclpy.spin(node)
+        executor.spin()
     except KeyboardInterrupt:
         pass
     finally:

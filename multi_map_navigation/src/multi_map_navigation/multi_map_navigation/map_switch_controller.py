@@ -239,7 +239,7 @@ class MapSwitchController(Node):
 
         # 等待tf变换完成
         self.get_logger().info('等待重定位完成并发布 map -> odom TF...')
-        if not self.wait_for_map_to_odom_link_tf(timeout_sec=45.0):  # 可根据实际调整
+        if not self.wait_for_map_to_odom_link_tf(timeout_sec=600.0):  # 可根据实际调整
             self.get_logger().error('map -> odom TF 长时间未出现，启动失败')
             self.shutdown_process_by_name('nav2_init_pose')
             self.shutdown_process_by_name('re_localization')
