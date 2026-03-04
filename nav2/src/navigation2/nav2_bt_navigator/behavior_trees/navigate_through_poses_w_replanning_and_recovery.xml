@@ -30,7 +30,7 @@
           </Sequence>
           <!-- <Spin spin_dist="1.57"/>  Ackermann车 取消原地旋转 -->
           <Wait wait_duration="5"/>
-          <BackUp backup_dist="0.15" backup_speed="0.24"/>
+          <BackUp backup_dist="0.50" backup_speed="0.24"/>
         </RoundRobin>
       </ReactiveFallback>
     </RecoveryNode>

@@ -6,7 +6,7 @@
 -->
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-    <RecoveryNode number_of_retries="30" name="NavigateRecovery">
+    <RecoveryNode number_of_retries="300" name="NavigateRecovery">
       <PipelineSequence name="NavigateWithReplanning">
         <RateController hz="1.0">
           <RecoveryNode number_of_retries="1" name="ComputePathToPose">
@@ -28,7 +28,7 @@
           </Sequence>
           <!-- <Spin spin_dist="1.57"/>   Ackermann车 取消原地旋转-->
           <Wait wait_duration="5"/>
-          <BackUp backup_dist="0.15" backup_speed="0.24"/>
+          <BackUp backup_dist="0.30" backup_speed="0.24"/>
         </RoundRobin>
       </ReactiveFallback>
     </RecoveryNode>

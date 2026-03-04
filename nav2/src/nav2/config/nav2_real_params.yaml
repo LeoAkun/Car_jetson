@@ -458,8 +458,8 @@ global_costmap:
         map_subscribe_transient_local: True # 订阅持久化的地图话题
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 5.0  # 增加代价缩放因子，让障碍物周围代价衰减更慢
-        inflation_radius: 0.25    # 增加膨胀半径，让机器人更倾向于远离障碍物
+        cost_scaling_factor: 5.0  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
+        inflation_radius: 0.55    # 增加膨胀半径，让机器人更倾向于远离障碍物
       always_send_full_costmap: True
 
 map_server:
@@ -478,6 +478,7 @@ map_saver:
     occupied_thresh_default: 0.65
     map_subscribe_transient_local: True
 
+# TODO 尝试使用smac_planner
 planner_server:
   ros__parameters:
     expected_planner_frequency: 20.0
