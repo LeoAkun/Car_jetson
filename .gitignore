@@ -3,9 +3,9 @@ rosbag2_*/
 **/install/
 **/log/
 *dataset/
-__pycache__/
+**/__pycache__/
 bag/
-cache/
-.vscode/
+**/cache/
+**/.vscode/
 .git
 *.pcd
