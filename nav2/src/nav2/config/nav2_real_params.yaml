@@ -196,7 +196,7 @@ controller_server:
     #  stateful: True
     general_goal_checker:
       stateful: True
-      plugin: "nav2_controller::SimpleGoalChecker"
+      plugin: "nav2_controller::SimpleGoalChecker" 
       xy_goal_tolerance: 0.5
       yaw_goal_tolerance: 0.5
       
