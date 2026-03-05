@@ -7,5 +7,6 @@ rosbag2_*/
 bag/
 **/cache/
 **/.vscode/
+*.log
 .git
 *.pcd
