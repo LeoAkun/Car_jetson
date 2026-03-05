@@ -197,8 +197,8 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.25
-      yaw_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.5
+      yaw_goal_tolerance: 0.5
       
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController"
@@ -210,7 +210,7 @@ controller_server:
       regenerate_noises: false
 
       # 运动参数
-      vx_std: 0.5
+      vx_std: 1.5
       vy_std: 0.3
       wz_std: 0.4 # 轨迹广度，减少角速度采样范围，避免生成过多转向轨迹
       vx_max: 3.0 # 最大x速度
@@ -225,7 +225,7 @@ controller_server:
 
       # 算法参数
       iteration_count: 1 # 迭代次数
-      prune_distance: 3.0 # 跟踪的路径长度，跟踪眼前的3m的路长
+      prune_distance: 6.0 # 跟踪的路径长度，跟踪眼前的3m的路长
       transform_tolerance: 0.5  # 增加到0.5秒，与代价地图保持一致
       temperature: 0.3
       gamma: 0.015
@@ -244,7 +244,7 @@ controller_server:
 
       # 阿克曼模型参数
       AckermannConstraints:
-        min_turning_r: 0.9 # 转弯半径
+        min_turning_r: 0.4 # 转弯半径
       critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic"] # 评判模型
       
       # 动力学约束评判
@@ -458,8 +458,8 @@ global_costmap:
         map_subscribe_transient_local: True # 订阅持久化的地图话题
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 5.0  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
-        inflation_radius: 0.55    # 增加膨胀半径，让机器人更倾向于远离障碍物
+        cost_scaling_factor: 1.5  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
+        inflation_radius: 3.0    # 增加膨胀半径，让机器人更倾向于远离障碍物
       always_send_full_costmap: True
 
 map_server:
@@ -478,17 +478,71 @@ map_saver:
     occupied_thresh_default: 0.65
     map_subscribe_transient_local: True
 
-# TODO 尝试使用smac_planner
+# TODO 尝试改为smac_planner
+# planner_server:
+#   ros__parameters:
+#     expected_planner_frequency: 20.0
+#     use_sim_time: False
+#     planner_plugins: ["GridBased"]
+#     GridBased:
+#       plugin: "nav2_navfn_planner/NavfnPlanner"
+#       tolerance: 0.5
+#       use_astar: false
+#       allow_unknown: true
+
 planner_server:
   ros__parameters:
-    expected_planner_frequency: 20.0
-    use_sim_time: False
     planner_plugins: ["GridBased"]
+
     GridBased:
-      plugin: "nav2_navfn_planner/NavfnPlanner"
-      tolerance: 0.5
-      use_astar: false
-      allow_unknown: true
+      plugin: "nav2_smac_planner/SmacPlannerHybrid"
+
+      # 基础参数
+      tolerance: 0.5                      # 到达目标点的容差（米），如果无法精确到达目标，在此范围内算成功
+      downsample_costmap: false           # 是否降采样代价地图，开启可加速规划但降低精度
+      downsampling_factor: 1              # 降采样倍数，如设2则 5cm 分辨率变 10cm
+      allow_unknown: false                # 否允许穿越未知区域
+      
+      # 搜索限制
+      max_iterations: 1000000             # 最大搜索迭代次数，超过则规划失败，-1 表示不限制
+      max_on_approach_iterations: 1000    # 进入容差范围后，最多再迭代多少次尝试到达精确目标
+      terminal_checking_interval: 5000     # 每隔多少次迭代检查一次目标是否被取消或超时
+      max_planning_time: 5.0              # 规划+平滑的最大总时间（秒），超时自动停止   
+
+      # 运动模型（对 Ackermann 车最重要）
+      motion_model_for_search: "REEDS_SHEPP"    # 运动模型。DUBIN = 只能前进不能倒车，REEDS_SHEPP = 可前进+倒车。Ackermann 车用 DUBIN 或 REEDS_SHEPP
+      minimum_turning_radius: 0.40        # 最小转弯半径（米），必须匹配你车的实际最小转弯半径，规划出的路径曲率不会超过此限制
+      angle_quantization_bins: 64         # 角度离散化数量，360°分成64份=每份5.625°。越大搜索越精细但越慢 
+
+      # 代价/惩罚参数（影响路径偏好）
+      cost_travel_multiplier: 3.0         # 2D启发式代价乘数，越大越倾向走代价低的区域（走中间），0=忽略障碍物代价
+      cost_penalty: 3.0                   # 居中关键参数！ 障碍物动态规划启发式中的代价惩罚。值越大，路径越走道路中间。推荐 1.3~3.5
+      non_straight_penalty: 1.30          # 非直线运动的惩罚，>1 表示倾向走直线。越大路径越直但可能绕路
+      change_penalty: 0.0                 # 前进/后退方向切换的惩罚，0=不惩罚。DUBIN 模型下无意义（本来就不倒车）
+      reverse_penalty: 2.1                # 倒车的惩罚，>1 表示尽量不倒车。仅 REEDS_SHEPP 模型有效
+      retrospective_penalty: 0.025        # 偏好后期转向而非提前转向，节省搜索时间。0~1.0 之间
+      rotation_penalty: 5.0               # 原地旋转惩罚，仅 Lattice 模型有效，Ackermann 车不适用
+
+      # 解析扩展（Analytic Expansion），搜索过程中，当接近目标时会尝试用 Dubins/Reeds-Shepp 曲线直接连接到目标：
+      analytic_expansion_ratio: 3.5       # 当搜索距离/剩余距离 > 此比例时，尝试解析连接。越大越少尝试
+      analytic_expansion_max_length: 3.0    # F 解析扩展最大长度（米），防止生成过长的不安全捷径。建议 ≥ 4~5 倍最小转弯半径
+      analytic_expansion_max_cost: 200   # 解析扩展路径上单个格子的最大允许代价，超过则认为扩展无效
+      analytic_expansion_max_cost_override: false # 接近目标时是否允许突破上面的代价限制。false=严格遵守
+      
+      # 缓存/调试     
+      lookup_table_size: 20.0             # Dubins/Reeds-Shepp 距离查找表缓存大小（米），越大预计算越多，启动慢但规划快
+      cache_obstacle_heuristic: True      # 缓存障碍物启发式。相同目标点重规划时加速40倍，代价地图变化不大时建议开启
+      allow_reverse_expansion: False      # 仅 Lattice：是否在搜索中扩展倒车动作
+      smooth_path: True                   # 是否对规划路径做平滑  
+      debug_visualizations: False         # 发布搜索扩展可视化，严重影响性能，调试完务必关闭
+
+      # 平滑器参数
+      smoother:
+        max_iterations: 1000  # 平滑最大迭代次数
+        w_smooth: 0.3         # 平滑权重，越大路径越光滑但可能偏离原始路径
+        w_data: 0.2           # 数据保持权重，越大路径越贴近原始规划路径
+        tolerance: 1.0e-10    # 平滑收敛阈值
+        do_refinement: true               # 是否递归运行3次平滑来细化结果
 
 smoother_server:
   ros__parameters:
