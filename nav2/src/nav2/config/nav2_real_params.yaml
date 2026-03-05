@@ -368,7 +368,8 @@ local_costmap:
         enabled: True
         observation_sources: scan
         scan:
-          topic: /laser/scan_merge_laser
+          # topic: /laser/scan_merge_laser
+          topic: /laser/scan_merge_laser_filtered
           max_obstacle_height: 10.0
           min_obstacle_height: -5.0
           clearing: True
@@ -440,7 +441,8 @@ global_costmap:
         observation_sources: scan
         max_obstacle_height: 2.0
         scan:
-          topic: /laser/scan_merge_laser
+          # topic: /laser/scan_merge_laser
+          topic: /laser/scan_merge_laser_filtered
           clearing: True
           marking: True
           data_type: "LaserScan"
@@ -458,7 +460,7 @@ global_costmap:
         map_subscribe_transient_local: True # 订阅持久化的地图话题
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 1.5  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
+        cost_scaling_factor: 5.0  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
         inflation_radius: 3.0    # 增加膨胀半径，让机器人更倾向于远离障碍物
       always_send_full_costmap: True
 
@@ -478,7 +480,6 @@ map_saver:
     occupied_thresh_default: 0.65
     map_subscribe_transient_local: True
 
-# TODO 尝试改为smac_planner
 # planner_server:
 #   ros__parameters:
 #     expected_planner_frequency: 20.0

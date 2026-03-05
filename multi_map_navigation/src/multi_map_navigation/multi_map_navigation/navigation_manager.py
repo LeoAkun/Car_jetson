@@ -435,9 +435,9 @@ class NavigationManager(Node):
         """
 
         self.get_logger().info('⏳ 等待 Navigation2 完全激活...')
-        time.sleep(5.0)  # 给足够时间让 Nav2 完成配置
+        time.sleep(50.0)  # 给足够时间让 Nav2 完成配置
         # 等待动作服务器
-        if not self.nav2_client.wait_for_server(timeout_sec=15.0):
+        if not self.nav2_client.wait_for_server(timeout_sec=50.0):
             self.get_logger().error('Navigation2动作服务器不可用')
             self.abort_navigation()
             return
