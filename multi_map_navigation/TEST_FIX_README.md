@@ -12,7 +12,7 @@
 ### 2. 空值防护检查 (navigation_manager.py:429-437)
 **问题**: 直接访问 `waypoint_list[self.current_waypoint_index]` 没有检查是否为 None
 
-**修复**: 添加空值和索引范围检查 
+**修复**: 添加空值和索引范围检查
 
 **效果**: 即使出现异常情况也不会崩溃，会给出警告日志
 
