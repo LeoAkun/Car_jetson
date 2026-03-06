@@ -188,6 +188,11 @@ controller_server:
     controller_frequency: 30.0
     goal_checker_plugins: ["general_goal_checker"] # "precise_goal_checker"
     controller_plugins: ["FollowPath"]
+    progress_checker_plugin: "progress_checker"
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.3  # 降低要求（默认0.5），慢速掉头也算有进展
+      movement_time_allowance: 20.0   # 增加耐心（默认10.0），给掉头更多时间
     # Goal checker parameters
     #precise_goal_checker:
     #  plugin: "nav2_controller::SimpleGoalChecker"
@@ -267,24 +272,24 @@ controller_server:
       PreferForwardCritic: # 鼓励机器人前向移动
         enabled: true
         cost_power: 1
-        cost_weight: 1.0  # 降低权重，允许倒车（原来是5.0）
+        cost_weight: 0.5  # 进一步降低，允许 REEDS_SHEPP 掉头时倒车
         threshold_to_consider: 0.5
       # 障碍评判
       ObstaclesCritic:
         enabled: true
         cost_power: 1
-        repulsion_weight: 0.9 # 与障碍物代价成正比
-        critical_weight: 20.0
+        repulsion_weight: 0.5  # 降低排斥权重（原0.9），减少障碍物旁的速度压制
+        critical_weight: 10.0  # 降低（原20.0），只在真正危险时才大幅减速
         consider_footprint: false
         collision_cost: 10000.0
-        collision_margin_distance: 0.1 # 与障碍物之间的最窄距离
+        collision_margin_distance: 0.05  # 缩小碰撞边距（原0.1），让车更敢贴近障碍物
         near_goal_distance: 0.5
-        inflation_radius: 0.55 # 膨胀半径，与膨胀层相同
-        cost_scaling_factor: 5.0 # 膨胀衰减因子，与膨胀层相同
+        inflation_radius: 0.55
+        cost_scaling_factor: 5.0
       CostCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 5.0
+        cost_weight: 3.0  # 降低（原5.0），减少高代价区域对速度的压制
         critical_cost: 300.0
         consider_footprint: true
         collision_cost: 500000.0
@@ -324,7 +329,7 @@ controller_server:
         offset_from_furthest: 4
         threshold_to_consider: 0.5
         max_angle_to_furthest: 1.0
-        mode: 0
+        mode: 2  # 0=只考虑前进 2=根据路径段方向自动判断前进/倒车
       # 速度死区约束
       # VelocityDeadbandCritic:
       #   enabled: true
@@ -368,17 +373,18 @@ local_costmap:
         enabled: True
         observation_sources: scan
         scan:
-          # topic: /laser/scan_merge_laser
-          topic: /laser/scan_merge_laser_filtered
+          topic: /laser/scan_merge_laser
+          # topic: /laser/scan_merge_laser_filtered
           max_obstacle_height: 10.0
           min_obstacle_height: -5.0
           clearing: True
           marking: True
           data_type: "LaserScan"
-          raytrace_max_range: 3.0
+          raytrace_max_range: 8.0   # 必须 >= obstacle_max_range，否则远处标记的障碍物无法被清除
           raytrace_min_range: 0.0
           obstacle_max_range: 7.0  # 降低到7m，确保在局部地图范围内
           obstacle_min_range: 0.1
+          inf_is_valid: true  # 让 inf 的激光束也发射清除射线，防止噪点无法被清除
           # TF 容差设置 - 关键！
           tf_tolerance: 0.5  # 与 transform_tolerance 保持一致
       inflation_layer:
@@ -441,8 +447,8 @@ global_costmap:
         observation_sources: scan
         max_obstacle_height: 2.0
         scan:
-          # topic: /laser/scan_merge_laser
-          topic: /laser/scan_merge_laser_filtered
+          topic: /laser/scan_merge_laser
+          # topic: /laser/scan_merge_laser_filtered
           clearing: True
           marking: True
           data_type: "LaserScan"
@@ -460,8 +466,8 @@ global_costmap:
         map_subscribe_transient_local: True # 订阅持久化的地图话题
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 5.0  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
-        inflation_radius: 3.0    # 增加膨胀半径，让机器人更倾向于远离障碍物
+        cost_scaling_factor: 1.5  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
+        inflation_radius: 2.0    # 增加膨胀半径，让机器人更倾向于远离障碍物
       always_send_full_costmap: True
 
 map_server:
