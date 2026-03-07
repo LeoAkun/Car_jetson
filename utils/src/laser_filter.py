@@ -13,7 +13,7 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from sensor_msgs.msg import LaserScan
 
 # 过滤阈值：距离传感器小于此值的点会被删除
-MIN_DIST_TO_SENSOR = 0.07  # 1cm
+MIN_DIST_TO_SENSOR = 0.5  # 1cm
 
 # 两个激光雷达在 laser_link 坐标系下的安装位置 (来自 params.yaml)
 SENSOR_POSITIONS = [
