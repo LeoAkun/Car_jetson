@@ -6,7 +6,7 @@
     ndt_step_size: 0.1
     ndt_num_threads: 4
     transform_epsilon: 0.01
-    voxel_leaf_size: 0.3 # pcd下采样数
+    voxel_leaf_size: 0.6 # pcd下采样数
     scan_max_range: 100.0
     scan_min_range: 1.0
     scan_period: 0.1

@@ -82,15 +82,15 @@ class PoseInitNode(Node):
         self.timer = None
 
         # --- 核心参数配置 ---
-        self.fitness_score_threshold = 5.0  # 匹配分数阈值 (越小越好)
+        self.fitness_score_threshold = 1.0  # 匹配分数阈值 (越小越好)
         
         # 搜索范围设置
-        self.search_radius = 9.0           # 搜索半径 (米)
-        self.search_step_dist = 3.0         # 搜索步长 (米) -> 生成网格点
+        self.search_radius = 3.0           # 搜索半径 (米)
+        self.search_step_dist = 1.0         # 搜索步长 (米) -> 生成网格点
         
         # 角度搜索设置
         self.angle_step = 30                # 角度步长 (度)
-        self.trials_per_pose = 3            # 每个位置/角度尝试次数 (为节省时间，建议设为1)
+        self.trials_per_pose = 1            # 每个位置/角度尝试次数 (为节省时间，建议设为1)
 
         # 客户端与订阅
         self.re_localization_client = self.create_client(ReLocalization, '/re_localization')
@@ -207,7 +207,7 @@ class PoseInitNode(Node):
                             self.get_logger().info(f"✨ 发现更佳点: {best_info} | Score: {score:.4f}")
                             
                             # 【优化】如果分数极好 (例如 < 0.5)，可以直接提前退出
-                            if score < 0.5:
+                            if score < self.fitness_score_threshold:
                                 self.get_logger().info("🔥 分数极佳，提前结束搜索！")
                                 self.current_transform = best_pose_msg
                                 self.timer = self.create_timer(0.1, self.publish_transform)
@@ -217,14 +217,14 @@ class PoseInitNode(Node):
                     pass
 
         # 5. 结算
-        if best_pose_msg and best_score < self.fitness_score_threshold:
+        if best_pose_msg and best_score < 5.0:
             self.get_logger().info(f"🏆 最终最佳匹配: {best_info} | Score: {best_score:.4f}")
             self.current_transform = best_pose_msg
             self.timer = self.create_timer(0.1, self.publish_transform)
             # self.broadcast_tf(best_pose_msg)
             return True
         else:
-            self.get_logger().error(f"❌ 搜索失败。最佳分数 {best_score:.4f} 仍高于阈值 {self.fitness_score_threshold}")
+            self.get_logger().error(f"❌ 搜索失败。最佳分数 {best_score:.4f} 仍高于阈值 {5.0}")
             return False
 
     # def broadcast_tf(self, pose):
@@ -244,6 +244,7 @@ class PoseInitNode(Node):
             t.transform.translation.z = 0.0
             t.transform.rotation = self.current_transform.orientation
             self.tf_broadcaster.sendTransform(t)
+            
 
 def main(args=None):
     rclpy.init(args=args)
