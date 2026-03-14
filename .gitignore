@@ -9,4 +9,4 @@ bag/
 **/.vscode/
 *.log
 .git
-*.pcd
+./*.pcd
