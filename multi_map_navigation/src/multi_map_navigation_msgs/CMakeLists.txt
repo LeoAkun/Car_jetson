@@ -17,9 +17,12 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/WaypointList.msg"
   "msg/MapSwitchTrigger.msg"
   "msg/RobotStatus.msg"
+  "msg/Edge.msg"
+  "msg/StartEndGraph.msg"
   "srv/StartProcess.srv"
   "srv/ShutdownProcess.srv"
   "srv/GetProcessStatus.srv"
+  "srv/PubNewPath.srv"
   DEPENDENCIES std_msgs geometry_msgs
 )
 

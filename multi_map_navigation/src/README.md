@@ -20,71 +20,120 @@
 ### 模块概览
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    MQTT代理                                 │
-└─────────────────┬───────────────────────────┬───────────────┘
-                  │                                         │
-         (航点任务)                                      (状态心跳)
-                  │                                         │
-                  ▼                                         ▲
-┌─────────────────────────────┐                    ┌──────────────────────────┐
-│  通信模块 (A)               │                     │  通信模块 (A)            │
-│  - mqtt_task_receiver       │                    │  - status_reporter       │
-└─────────────┬───────────────┘                    └──────────▲───────────────┘
-              │                                        │                    │
-              │ /waypoint_list                         │ /robot_state       │
-              │                                        │                    │/sensing/gnss/pose_with_covariance
-              ▼                                        │                    │/battery_status
-┌─────────────────────────────────────────────────────────────┐             │/vehicle_status
-│           导航模块 (B)                                      │              │
-│  ┌──────────────────────────────────────────────────────┐  │              │
-│  │  navigation_manager                                   │  │             │
-│  │  - 航点排序                                          │  │               │
-│  │  - Nav2目标发送                                      │  │               │
-│  │  - 地图切换检测                                      │  │               │
-│  └────────────┬─────────────────────────────────────────┘  │              │
-│               │ /trigger_map_switch                         │             │
-│               ▼                                             │             │
-│  ┌──────────────────────────────────────────────────────┐  │              │
-│  │  map_switch_controller                                │  │             │
-│  │  - 协调地图切换                                      │  │               │
-│  │  - 进程关闭/启动                                     │  │               │
-│  └────────────┬─────────────────────────────────────────┘  │              │ 
-│               │                                             │             │
-│               ▼                                             │             │
-│  ┌──────────────────────────────────────────────────────┐  │              │
-│  │  process_manager                                      │  │             │
-│  │  - 启动/关闭 re_localization                         │  │               │
-│  │  - 启动/关闭 lio_sam                                 │  │               │
-│  │  - 启动/关闭 navigation2                             │  │               │
-│  └──────────────────────────────────────────────────────┘  │              │
-└─────────────────────────────────────────────────────────────┘             │
+                        ┌───────────────────┐
+                        │     MQTT 代理      │
+                        └──┬─────────────▲──┘
+                           │             │
+            订阅 .../task/start    发布 .../vehicle_status
+                           │             │
+┌──────────────────────────┼─────────────┼───────────────────────────────────┐
+│  multi_map_navigation    │             │                                   │
+│                          ▼             │                                   │
+│  ┌────────────────────────┐   ┌───────┴──────────────┐  /sensing/gnss/... │
+│  │  mqtt_task_receiver    │   │  status_reporter     │◄ /battery_status   │
+│  │  (MQTT → ROS2)         │   │  (ROS2 → MQTT)       │◄ /vehicle_status   │
+│  └──────────┬─────────────┘   └──────────▲───────────┘                    │
+│             │                            │                                │
+│             │ /waypoint_list             │ /robot_state                   │
+│             ▼                            │                                │
+│  ┌───────────────────────────────────────┴──────────────────────┐         │
+│  │  navigation_manager                                          │         │
+│  │  - 接收航点列表，按序导航                                     │         │
+│  │  - 航点类型: 1=普通  2=红绿灯  3=充电  4=地图切换             │         │
+│  │  - Nav2 动作客户端 (/navigate_to_pose)                       │         │
+│  │  - 首次导航时通过 srv 启动完整导航堆栈                        │         │
+│  └──────┬──────────────────────────────────▲─────────────────────┘         │
+│         │ /trigger_map_switch              │ /map_switch_complete          │
+│         ▼                                  │                              │
+│  ┌─────────────────────────────────────────┴───────────────────┐          │
+│  │  map_switch_controller                                      │          │
+│  │  4步流程: 关闭堆栈 → 等待清理 → 启动新堆栈 → 验证就绪       │          │
+│  └──────────────────────┬──────────────────────────────────────┘          │
+│                         │ srv 调用 (navigation_manager 也直接调用)         │
+│                         ▼                                                 │
+│  ┌─────────────────────────────────────────────────────────────┐          │
+│  │  process_manager                                            │          │
+│  │  srv: start_process / shutdown_process / get_status         │          │
+│  └──────────────────────┬──────────────────────────────────────┘          │
+│                         │ subprocess 启动/关闭                             │
+└─────────────────────────┼─────────────────────────────────────────────────┘
+                          ▼
+            ┌──────────────────────────────────┐
+            │        外部 ROS2 进程              │
+            │                                  │
+            │  启动: re_localization            │
+            │     → nav2_init_pose             │
+            │     → (等待 map→odom TF)         │
+            │     → lio_sam                    │
+            │     → navigation2                │
+            │                                  │
+            │  关闭: navigation2 → lio_sam     │
+            │     → nav2_init_pose             │
+            │     → re_localization            │
+            └──────────────────────────────────┘
 ```
+
+### 节点间通信
+
+| 来源 | 目标 | 通道 | 类型 |
+|------|------|------|------|
+| mqtt_task_receiver | navigation_manager | `/waypoint_list` | Topic (WaypointList) |
+| navigation_manager | status_reporter | `/robot_state` | Topic (String) |
+| navigation_manager | map_switch_controller | `/trigger_map_switch` | Topic (MapSwitchTrigger) |
+| map_switch_controller | navigation_manager | `/map_switch_complete` | Topic (Bool) |
+| navigation_manager | Nav2 | `/navigate_to_pose` | Action (NavigateToPose) |
+| navigation_manager | process_manager | `start_process` / `shutdown_process` | Service |
+| map_switch_controller | process_manager | `start_process` / `shutdown_process` / `get_status` | Service |
+| 传感器 | status_reporter | `/sensing/gnss/...`, `/battery_status`, `/vehicle_status` | Topic |
 
 ## 项目结构
 
 ```
-multi_map_navigation/
-├── src/
-│   ├── communication/              # 开发者A
-│   │   ├── mqtt_task_receiver.py   # 从MQTT接收任务
-│   │   └── status_reporter.py      # 向MQTT报告状态
-│   ├── navigation/                 # 开发者B
-│   │   ├── navigation_manager.py   # 管理航点导航
-│   │   ├── map_switch_controller.py # 处理地图切换
-│   │   └── process_manager.py      # 管理ROS2进程
-│   └── main.py                     # 主入口
-├── msg/
-│   ├── Waypoint.msg                # 单个航点定义
-│   ├── WaypointList.msg            # 航点列表
-│   └── MapSwitchTrigger.msg        # 地图切换触发
-├── config/
-│   ├── mqtt_config.yaml            # MQTT配置
-│   └── navigation_config.yaml      # 导航配置
-├── launch/
-│   └── multi_map_navigation.launch.py
-├── CMakeLists.txt
-├── package.xml
+src/
+├── multi_map_navigation/                  # 主功能包 (ament_python)
+│   ├── multi_map_navigation/              # Python 模块
+│   │   ├── __init__.py
+│   │   ├── navigation_manager.py          # 导航管理器（航点导航、地图切换检测）
+│   │   ├── map_switch_controller.py       # 地图切换控制器（协调切换流程）
+│   │   ├── process_manager.py             # 进程管理器（管理导航堆栈生命周期）
+│   │   ├── mqtt_task_receiver.py          # MQTT 任务接收（解析航点JSON）
+│   │   └── status_reporter.py             # 状态上报（聚合状态发送至MQTT）
+│   ├── config/
+│   │   ├── navigation_config.yaml         # 导航参数配置
+│   │   └── mqtt_config.yaml               # MQTT 连接配置
+│   ├── launch/
+│   │   └── multi_map_navigation.launch.py # 启动所有节点
+│   ├── test/                              # 测试文件
+│   │   ├── test_navigation_manager.py
+│   │   ├── test_map_switch_controller.py
+│   │   ├── test_copyright.py
+│   │   ├── test_flake8.py
+│   │   └── test_pep257.py
+│   ├── resource/
+│   ├── setup.py                           # 入口点定义
+│   ├── setup.cfg
+│   └── package.xml
+├── multi_map_navigation_msgs/             # 消息/服务定义包 (ament_cmake)
+│   ├── msg/
+│   │   ├── Waypoint.msg                   # 单个航点定义
+│   │   ├── WaypointList.msg               # 航点列表（含任务元数据）
+│   │   ├── MapSwitchTrigger.msg           # 地图切换触发
+│   │   └── RobotStatus.msg                # 机器人综合状态（用于MQTT上报）
+│   ├── srv/
+│   │   ├── StartProcess.srv               # 启动导航进程
+│   │   ├── ShutdownProcess.srv            # 关闭导航进程
+│   │   └── GetProcessStatus.srv           # 查询所有进程状态
+│   ├── CMakeLists.txt
+│   └── package.xml
+├── map/                                   # 地图数据
+│   ├── map1/
+│   │   ├── map1_clean.pgm                 # 栅格地图
+│   │   ├── map1_clean.yaml                # 地图元数据
+│   │   └── map1.csv                       # GPS航点数据
+│   └── map2/
+│       ├── map2_clean.pgm
+│       ├── map2_clean.yaml
+│       └── map2.csv
 └── README.md
 ```
 
@@ -113,7 +162,7 @@ sudo apt install ros-humble-nav2-bringup ros-humble-navigation2
 
 ```bash
 cd ~/workspace/Car_jetson
-colcon build --packages-select multi_map_navigation
+colcon build --packages-select multi_map_navigation_msgs multi_map_navigation
 source install/setup.bash
 ```
 
@@ -161,14 +210,14 @@ ros2 launch multi_map_navigation multi_map_navigation.launch.py
 ### 启动单个节点
 
 ```bash
-# 通信模块（开发者A）
-ros2 run multi_map_navigation mqtt_task_receiver.py
-ros2 run multi_map_navigation status_reporter.py
+# 通信模块
+ros2 run multi_map_navigation mqtt_task_receiver
+ros2 run multi_map_navigation status_reporter
 
-# 导航模块（开发者B）
-ros2 run multi_map_navigation navigation_manager.py
-ros2 run multi_map_navigation map_switch_controller.py
-ros2 run multi_map_navigation process_manager.py
+# 导航模块
+ros2 run multi_map_navigation navigation_manager
+ros2 run multi_map_navigation map_switch_controller
+ros2 run multi_map_navigation process_manager
 ```
 
 ## MQTT消息格式
@@ -191,7 +240,7 @@ ros2 run multi_map_navigation process_manager.py
     "yaw": 0.0,
     "id": 1,
     "map_name": "map1",
-    "type": 0
+    "type": 1
   },
   {
     "name": "switch_point",
@@ -206,7 +255,7 @@ ros2 run multi_map_navigation process_manager.py
     "next_x": 0.5,
     "next_y": 0.5,
     "next_yaw": 0.0,
-    "type": 1
+    "type": 4
   },
   {
     "name": "point3",
@@ -217,7 +266,7 @@ ros2 run multi_map_navigation process_manager.py
     "yaw": 0.0,
     "id": 3,
     "map_name": "map2",
-    "type": 0
+    "type": 1
   }
 ]
 ```
@@ -236,7 +285,7 @@ ros2 run multi_map_navigation process_manager.py
       "yaw": 0.0,
       "id": 1,
       "map_name": "map1",
-      "type": 0
+      "type": 1
     },
     {
       "name": "switch_point",
@@ -251,7 +300,7 @@ ros2 run multi_map_navigation process_manager.py
       "next_x": 0.5,
       "next_y": 0.5,
       "next_yaw": 0.0,
-      "type": 1
+      "type": 4
     }
   ]
 }
@@ -266,36 +315,69 @@ ros2 run multi_map_navigation process_manager.py
 - `yaw`: 当前地图坐标系下的偏航角（弧度）
 - `id`: 航点唯一标识符
 - `map_name`: 当前地图名称
-- `type`: 航点类型（0=正常导航点, 1=地图切换点）
-- `next_map_name`: 下一张地图名称（仅type=1时需要）
-- `next_x`: 当前点在下一张地图坐标系下的X坐标（仅type=1时需要）
-- `next_y`: 当前点在下一张地图坐标系下的Y坐标（仅type=1时需要）
-- `next_yaw`: 当前点在下一张地图坐标系下的偏航角（仅type=1时需要）
+- `type`: 航点类型（1=普通导航点, 2=红绿灯, 3=充电桩, 4=地图切换点）
+- `next_map_name`: 下一张地图名称（仅type=4时需要）
+- `next_x`: 当前点在下一张地图坐标系下的X坐标（仅type=4时需要）
+- `next_y`: 当前点在下一张地图坐标系下的Y坐标（仅type=4时需要）
+- `next_yaw`: 当前点在下一张地图坐标系下的偏航角（仅type=4时需要）
 
 ### 状态消息（发送）
 
-主题: `robot/status`
+主题: `prod/data/vehicle/{vin}/vehicle_status`
 
 ```json
 {
-  "gps": {
-    "latitude": 34.052235,
-    "longitude": -118.243683,
-    "altitude": 100.0
-  },
-  "battery": {
-    "percentage": 85.5,
-    "voltage": 24.5,
-    "current": 2.3
-  },
-  "velocity": {
-    "linear": 0.5,
-    "angular": 0.1
-  },
-  "state": "running",
-  "timestamp": 1706428800
+  "vin": "LS1234567890",
+  "task_status": 1,
+  "gps_lng": 116.397428,
+  "gps_lat": 39.90923,
+  "gps_alt": 100.0,
+  "cur_speed": 0.5,
+  "battery_capacity": 85.5
 }
 ```
+
+## 自定义消息与服务定义
+
+### 消息 (msg/)
+
+**Waypoint.msg** - 单个航点
+- 基本信息: `name`, `id`, `map_name`
+- GPS坐标: `lng`, `lat`
+- 地图坐标: `x`, `y`, `yaw`
+- 航点类型: `type`（1=普通导航点, 2=红绿灯, 3=充电桩, 4=地图切换点）
+- 地图切换信息（type=4时）: `next_map_name`, `next_x`, `next_y`, `next_yaw`
+- 附加参数: `tolerance`
+
+**WaypointList.msg** - 航点列表
+- `header` (std_msgs/Header)
+- `waypoints` (Waypoint[])
+- 任务元数据: `task_id`, `total_waypoints`, `start_map_name`
+
+**MapSwitchTrigger.msg** - 地图切换触发
+- `current_map_name`, `next_map_name`
+- `switch_pose` (geometry_msgs/PoseStamped)
+- `current_waypoint_id`, `next_waypoint_id`
+
+**RobotStatus.msg** - 机器人综合状态
+- `header`, `vin`
+- `task_status` (int32)
+- GPS: `gps_lng`, `gps_lat`, `gps_alt`
+- 车辆: `cur_speed`, `battery_capacity`
+
+### 服务 (srv/)
+
+**StartProcess.srv** - 启动导航进程
+- 请求: `process_name`, `map_name`
+- 响应: `success` (bool), `message` (string)
+- 支持进程: `re_localization`, `nav2_init_pose`, `liosam`, `navigation2`
+
+**ShutdownProcess.srv** - 关闭导航进程
+- 请求: `process_name`
+- 响应: `success`, `message`
+
+**GetProcessStatus.srv** - 查询进程状态
+- 响应: `re_localization_running`, `liosam_running`, `nav2_init_pose_running`, `navigation2_running`, `message`
 
 ## 开发工作流
 
@@ -344,10 +426,11 @@ ros2 topic echo /robot_state
 
 ### 订阅的主题
 
-- `/gps/fix` (sensor_msgs/NavSatFix) - GPS数据
-- `/battery_state` (sensor_msgs/BatteryState) - 电池状态
-- `/cmd_vel` (geometry_msgs/Twist) - 速度命令
-- `/goal_reached` (来自Nav2动作) - 导航目标状态
+- `/sensing/gnss/pose_with_covariance` - GPS数据
+- `/battery_status` - 电池状态
+- `/vehicle_status` - 车辆状态
+- `/waypoint_list` (multi_map_navigation_msgs/WaypointList) - 航点任务列表
+- `/map_switch_complete` (std_msgs/Bool) - 地图切换完成状态
 
 ## 故障排除
 
@@ -380,7 +463,7 @@ ros2 topic echo /trigger_map_switch
 ros2 topic echo /map_switch_complete
 
 # 检查进程管理器日志
-ros2 run multi_map_navigation process_manager.py
+ros2 run multi_map_navigation process_manager
 ```
 
 ## 测试
@@ -416,6 +499,8 @@ colcon test-result --verbose
 2. 单机器人支持（多机器人需要扩展）
 3. 地图文件必须预加载到机器人上
 4. 地图切换期间无动态障碍物避让
+5. 红绿灯检测（type=2）和充电桩对接（type=3）尚未实现
+6. 进程启动顺序固定：re_localization → nav2_init_pose → liosam → navigation2
 
 ## 未来增强
 

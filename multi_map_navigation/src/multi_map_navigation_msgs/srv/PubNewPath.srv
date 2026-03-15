@@ -1,0 +1,6 @@
+# 发布一条新的路径服务
+string path_name # 当前走的路径名称，如path1, path2, path3,...
+Waypoint[] points  # 在当前path中，已经走过的点
+---
+bool success         # 关闭成功返回true，否则返回false
+string message       # 错误或状态消息
