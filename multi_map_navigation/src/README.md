@@ -10,6 +10,7 @@
 
 - **MQTT通信**: 通过MQTT接收导航任务并发布机器人状态
 - **多地图导航**: 在不同地图的航点之间导航
+- **图路径规划**: 基于NetworkX的多路径规划，支持导航失败时自动切换备用路径
 - **动态地图切换**: 在导航过程中自动切换地图
 - **进程管理**: 管理导航堆栈组件的生命周期
 - **实时状态报告**: 基于心跳的状态更新（GPS、电池、速度、状态）
@@ -33,14 +34,26 @@
 │  │  mqtt_task_receiver    │   │  status_reporter     │◄ /battery_status   │
 │  │  (MQTT → ROS2)         │   │  (ROS2 → MQTT)       │◄ /vehicle_status   │
 │  └──────────┬─────────────┘   └──────────▲───────────┘                    │
-│             │                            │                                │
-│             │ /waypoint_list             │ /robot_state                   │
-│             ▼                            │                                │
+│             │ /waypoint_list             │                                │
+│             │                            │ /robot_state                   │
+│  ┌──────────┼────────────────────┐       │                                │
+│  │          │  /start_end_graph  │       │                                │
+│  │          ▼                    │       │                                │
+│  │  ┌────────────────────────┐   │       │                                │
+│  │  │  route_planner         │   │       │                                │
+│  │  │  - NetworkX 图路径规划  │   │       │                                │
+│  │  │  - 多条备用路径计算     │   │       │                                │
+│  │  │  - srv: pub_new_path   │   │       │                                │
+│  │  └──────────┬─────────────┘   │       │                                │
+│  │             │ /waypoint_list   │       │                                │
+│  └─────────────┼─────────────────┘       │                                │
+│                ▼                         │                                │
 │  ┌───────────────────────────────────────┴──────────────────────┐         │
 │  │  navigation_manager                                          │         │
 │  │  - 接收航点列表，按序导航                                     │         │
 │  │  - 航点类型: 1=普通  2=红绿灯  3=充电  4=地图切换             │         │
 │  │  - Nav2 动作客户端 (/navigate_to_pose)                       │         │
+│  │  - 导航失败时调用 route_planner 获取备用路径                   │         │
 │  │  - 首次导航时通过 srv 启动完整导航堆栈                        │         │
 │  └──────┬──────────────────────────────────▲─────────────────────┘         │
 │         │ /trigger_map_switch              │ /map_switch_complete          │
@@ -78,6 +91,9 @@
 | 来源 | 目标 | 通道 | 类型 |
 |------|------|------|------|
 | mqtt_task_receiver | navigation_manager | `/waypoint_list` | Topic (WaypointList) |
+| route_planner | navigation_manager | `/waypoint_list` | Topic (WaypointList) |
+| 外部（MQTT等） | route_planner | `/start_end_graph` | Topic (StartEndGraph) |
+| navigation_manager | route_planner | `/route_planner/pub_new_path` | Service (PubNewPath) |
 | navigation_manager | status_reporter | `/robot_state` | Topic (String) |
 | navigation_manager | map_switch_controller | `/trigger_map_switch` | Topic (MapSwitchTrigger) |
 | map_switch_controller | navigation_manager | `/map_switch_complete` | Topic (Bool) |
@@ -97,7 +113,8 @@ src/
 │   │   ├── map_switch_controller.py       # 地图切换控制器（协调切换流程）
 │   │   ├── process_manager.py             # 进程管理器（管理导航堆栈生命周期）
 │   │   ├── mqtt_task_receiver.py          # MQTT 任务接收（解析航点JSON）
-│   │   └── status_reporter.py             # 状态上报（聚合状态发送至MQTT）
+│   │   ├── status_reporter.py             # 状态上报（聚合状态发送至MQTT）
+│   │   └── route_planner.py              # 图路径规划（NetworkX多路径规划与备用路径切换）
 │   ├── config/
 │   │   ├── navigation_config.yaml         # 导航参数配置
 │   │   └── mqtt_config.yaml               # MQTT 连接配置
@@ -106,6 +123,7 @@ src/
 │   ├── test/                              # 测试文件
 │   │   ├── test_navigation_manager.py
 │   │   ├── test_map_switch_controller.py
+│   │   ├── test_route_planner.py
 │   │   ├── test_copyright.py
 │   │   ├── test_flake8.py
 │   │   └── test_pep257.py
@@ -118,14 +136,18 @@ src/
 │   │   ├── Waypoint.msg                   # 单个航点定义
 │   │   ├── WaypointList.msg               # 航点列表（含任务元数据）
 │   │   ├── MapSwitchTrigger.msg           # 地图切换触发
-│   │   └── RobotStatus.msg                # 机器人综合状态（用于MQTT上报）
+│   │   ├── RobotStatus.msg                # 机器人综合状态（用于MQTT上报）
+│   │   ├── Edge.msg                       # 图的边（起止节点ID + 权重）
+│   │   └── StartEndGraph.msg              # 图结构（起止点 + 节点列表 + 边列表）
 │   ├── srv/
 │   │   ├── StartProcess.srv               # 启动导航进程
 │   │   ├── ShutdownProcess.srv            # 关闭导航进程
-│   │   └── GetProcessStatus.srv           # 查询所有进程状态
+│   │   ├── GetProcessStatus.srv           # 查询所有进程状态
+│   │   └── PubNewPath.srv                 # 请求发布备用路径
 │   ├── CMakeLists.txt
 │   └── package.xml
 ├── map/                                   # 地图数据
+│   ├── map_network.yaml                   # 地图网络图结构定义
 │   ├── map1/
 │   │   ├── map1_clean.pgm                 # 栅格地图
 │   │   ├── map1_clean.yaml                # 地图元数据
@@ -218,6 +240,9 @@ ros2 run multi_map_navigation status_reporter
 ros2 run multi_map_navigation navigation_manager
 ros2 run multi_map_navigation map_switch_controller
 ros2 run multi_map_navigation process_manager
+
+# 路径规划模块
+ros2 run multi_map_navigation route_planner
 ```
 
 ## MQTT消息格式
@@ -352,7 +377,7 @@ ros2 run multi_map_navigation process_manager
 **WaypointList.msg** - 航点列表
 - `header` (std_msgs/Header)
 - `waypoints` (Waypoint[])
-- 任务元数据: `task_id`, `total_waypoints`, `start_map_name`
+- 任务元数据: `task_id`, `path`（路径名称，如path1/path2）, `total_waypoints`, `start_map_name`, `total_path`（路径总数）
 
 **MapSwitchTrigger.msg** - 地图切换触发
 - `current_map_name`, `next_map_name`
@@ -364,6 +389,18 @@ ros2 run multi_map_navigation process_manager
 - `task_status` (int32)
 - GPS: `gps_lng`, `gps_lat`, `gps_alt`
 - 车辆: `cur_speed`, `battery_capacity`
+
+**Edge.msg** - 图的边
+- `start_node_id` (int32): 起始节点ID
+- `end_node_id` (int32): 结束节点ID
+- `weight` (float32): 边权重/距离
+
+**StartEndGraph.msg** - 图结构（MQTT下发给route_planner）
+- `header` (std_msgs/Header)
+- `start` (Waypoint): 起始点
+- `end` (Waypoint): 目标点
+- `nodes` (Waypoint[]): 图的所有节点
+- `edges` (Edge[]): 图的所有边
 
 ### 服务 (srv/)
 
@@ -378,6 +415,10 @@ ros2 run multi_map_navigation process_manager
 
 **GetProcessStatus.srv** - 查询进程状态
 - 响应: `re_localization_running`, `liosam_running`, `nav2_init_pose_running`, `navigation2_running`, `message`
+
+**PubNewPath.srv** - 请求发布备用路径（导航失败时由navigation_manager调用）
+- 请求: `path_name`（当前路径名称，如path1）, `points` (Waypoint[]，已走过的航点)
+- 响应: `success` (bool), `message` (string)
 
 ## 开发工作流
 
@@ -419,17 +460,18 @@ ros2 topic echo /robot_state
 
 ### 发布的主题
 
-- `/waypoint_list` (multi_map_navigation/WaypointList) - 航点任务列表
+- `/waypoint_list` (multi_map_navigation_msgs/WaypointList) - 航点任务列表（mqtt_task_receiver 或 route_planner 发布）
 - `/robot_state` (std_msgs/String) - 机器人状态（idle/running）
-- `/trigger_map_switch` (multi_map_navigation/MapSwitchTrigger) - 地图切换触发
+- `/trigger_map_switch` (multi_map_navigation_msgs/MapSwitchTrigger) - 地图切换触发
 - `/map_switch_complete` (std_msgs/Bool) - 地图切换完成状态
 
 ### 订阅的主题
 
+- `/start_end_graph` (multi_map_navigation_msgs/StartEndGraph) - 图结构（route_planner 订阅）
 - `/sensing/gnss/pose_with_covariance` - GPS数据
 - `/battery_status` - 电池状态
 - `/vehicle_status` - 车辆状态
-- `/waypoint_list` (multi_map_navigation_msgs/WaypointList) - 航点任务列表
+- `/waypoint_list` (multi_map_navigation_msgs/WaypointList) - 航点任务列表（navigation_manager 订阅）
 - `/map_switch_complete` (std_msgs/Bool) - 地图切换完成状态
 
 ## 故障排除
@@ -495,12 +537,12 @@ colcon test-result --verbose
 
 ## 已知限制
 
-1. 仅支持顺序航点导航（无并行路径）
-2. 单机器人支持（多机器人需要扩展）
-3. 地图文件必须预加载到机器人上
-4. 地图切换期间无动态障碍物避让
-5. 红绿灯检测（type=2）和充电桩对接（type=3）尚未实现
-6. 进程启动顺序固定：re_localization → nav2_init_pose → liosam → navigation2
+1. 单机器人支持（多机器人需要扩展）
+2. 地图文件必须预加载到机器人上
+3. 地图切换期间无动态障碍物避让
+4. 红绿灯检测（type=2）和充电桩对接（type=3）尚未实现
+5. 进程启动顺序固定：re_localization → nav2_init_pose → liosam → navigation2
+6. route_planner 尚未注册到 setup.py 的 entry_points 中
 
 ## 未来增强
 
