@@ -34,7 +34,7 @@
 │  │  mqtt_task_receiver    │   │  status_reporter     │◄ /battery_status   │
 │  │  (MQTT → ROS2)         │   │  (ROS2 → MQTT)       │◄ /vehicle_status   │
 │  └──────────┬─────────────┘   └──────────▲───────────┘                    │
-│             │ /waypoint_list             │                                │
+│             │ /StartEndGraph             │                                │
 │             │                            │ /robot_state                   │
 │  ┌──────────┼────────────────────┐       │                                │
 │  │          │  /start_end_graph  │       │                                │

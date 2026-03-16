@@ -72,57 +72,57 @@ class TestGraphPublisher(Node):
         e1 = Edge()
         e1.start_node_id = 0
         e1.end_node_id = 1
-        e1.weight = 2.0
+        e1.weight = 1.0
 
         # 边2: 2教送货点 -> map1路过点1 (权重 2.5)
         e2 = Edge()
         e2.start_node_id = 1
         e2.end_node_id = 2
-        e2.weight = 2.5
+        e2.weight = 1.0
 
         # 边3: 2教送货点 -> map1路过点2 (权重 2.5)
         e3 = Edge()
         e3.start_node_id = 1
         e3.end_node_id = 3
-        e3.weight = 2.5
+        e3.weight = 1.0
 
 
         # 边4: map1路过点1 -> 地图切换点 (权重 2.5)
         e4 = Edge()
         e4.start_node_id = 2
         e4.end_node_id = 4
-        e4.weight = 2.5
+        e4.weight = 1.0
 
         
         # 边5: map1路过点2 -> 地图切换点 (权重 2.5)
         e5 = Edge()
         e5.start_node_id = 3
         e5.end_node_id = 4
-        e5.weight = 2.5
+        e5.weight = 2.0
 
         # 边6: 地图切换点 -> map2路过点1 (这是一条捷径，权重 5.0)
         e6 = Edge()
         e6.start_node_id = 4
         e6.end_node_id = 5
-        e6.weight = 5.0
+        e6.weight = 1.0
 
         # 边7: 地图切换点 -> map2路过点2 (这是一条捷径，权重 5.0)
         e7 = Edge()
         e7.start_node_id = 4
         e7.end_node_id = 6
-        e7.weight = 5.0
+        e7.weight = 1.0
 
         # 边8: map2路过点1 -> end (这是一条捷径，权重 4.0)
         e8 = Edge()
         e8.start_node_id = 5
         e8.end_node_id = 7
-        e8.weight = 4.0
+        e8.weight = 1.0
 
         # 边9: map2路过点2 -> end (这是一条捷径，权重 4.0)
         e9 = Edge()
         e9.start_node_id = 6
         e9.end_node_id = 7
-        e9.weight = 4.0
+        e9.weight = 1.0
 
         msg.edges = [e1, e2, e3, e4, e5, e6, e7, e8, e9]
 
@@ -132,26 +132,43 @@ class TestGraphPublisher(Node):
 
     def call_service(self):
         req = PubNewPath.Request()
-            
+        
+        # ... (构造 waypoints 的代码保持不变)
         p_start = self.create_waypoint(name = "start", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
         p_a = self.create_waypoint(name = "2教送货点", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
         p_b = self.create_waypoint(name = "map1路过点1", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
-        p_c = self.create_waypoint(name = "map1路过点2", id_int = 3, x = 2.0, y = 3.0,  map_name="map1", w_type=1)
         p_d = self.create_waypoint(name = "地图切换点", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
         p_e = self.create_waypoint(name = "map2路过点1", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        p_f = self.create_waypoint(name = "map2路过点2", id_int = 6, x = 2.0, y = 3.0,  map_name="map2", w_type=1)
-        p_end = self.create_waypoint(name = "end", id_int = 7, x = 3.0, y = 4.0,  map_name="map2", w_type=1)
-        points = [p_start, p_a, p_b, p_d, p_e, p_e]
         
+        # p_start = self.create_waypoint(name = "start", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
+        # p_a = self.create_waypoint(name = "2教送货点", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
+        # p_b = self.create_waypoint(name = "map1路过点1", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
+        # p_d = self.create_waypoint(name = "地图切换点", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
+        # p_e = self.create_waypoint(name = "map2路过点1", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
+        
+        points = [p_start, p_a, p_b, p_d, p_e]
         req.path_name = "path1"
-        req.points =  points
+        req.points = points
+        
+        self.get_logger().info(f'正在请求切换路径，当前路径: {req.path_name}')
+        
+        # 异步调用
         future = self.pub_new_path_client.call_async(req)
-        timeout_sec=10.0
+        
+        # --- 修改部分：使用 rclpy.spin_until_future_complete ---
+        # 这允许 ROS 2 在等待结果的同时处理后台数据
+        rclpy.spin_until_future_complete(self, future, timeout_sec=10.0)
 
-        start = time.time()
-        print("等待服务完成")
-        while not future.done() and time.time() - start < timeout_sec:
-            time.sleep(0.05)
+        if future.done():
+            try:
+                response = future.result()
+                self.get_logger().info('--- 服务调用成功 ---')
+                self.get_logger().info(f'是否成功: {response.success}')
+                self.get_logger().info(f'反馈消息: {response.message}')
+            except Exception as e:
+                self.get_logger().error(f'服务调用产生异常: {e}')
+        else:
+            self.get_logger().error('服务调用超时！')
             
 def main(args=None):
     rclpy.init(args=args)
@@ -159,7 +176,7 @@ def main(args=None):
     try:
         node.publish_once()
         time.sleep(5)
-        node.call_service()
+        # node.call_service()
     except KeyboardInterrupt:
         pass
     finally:

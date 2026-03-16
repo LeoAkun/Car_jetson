@@ -18,7 +18,7 @@ class FakeNav2Server(Node):
             self,
             NavigateToPose,
             'navigate_to_pose',
-            self.execute_callback
+            self.execute_callback_abort
         )
         self.get_logger().info("假 Nav2 action server 已启动，任何 goal 都会在3秒后成功返回")
 
@@ -35,8 +35,22 @@ class FakeNav2Server(Node):
         goal_handle.succeed()
         result = NavigateToPose.Result()
         return result
+    
+    #模拟返回终止
+    def execute_callback_abort(self, goal_handle):
+        self.get_logger().info(f"收到目标：{goal_handle.request.pose.pose.position.x:.2f}, "
+                               f"{goal_handle.request.pose.pose.position.y:.2f}")
 
+        feedback = NavigateToPose.Feedback()
+        feedback.distance_remaining = 5.0
+        goal_handle.publish_feedback(feedback)
 
+        time.sleep(3.0)  # 模拟导航耗时
+
+        goal_handle.abort()
+        result = NavigateToPose.Result()
+        return result
+    
 def main():
     rclpy.init()
     node = FakeNav2Server()

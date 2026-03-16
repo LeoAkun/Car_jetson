@@ -47,7 +47,6 @@ class NavigationManager(Node):
         self.current_goal_handle = None
         self.current_path = None
         self.total_path = None
-        self.attemp_num = 1 # 尝试路径次数
 
         # 创建可重入回调组，避免服务调用与订阅回调互相阻塞
         self.service_callback_group = ReentrantCallbackGroup()
@@ -608,15 +607,6 @@ class NavigationManager(Node):
         """中止导航序列"""
         self.get_logger().warn('导航序列已中止, 正在尝试规划新路径......')
 
-        # 如果多次导航都失败，则关闭所有进程
-        if self.attemp_num > self.total_path:
-            
-            self.get_logger().warn('所有路径均失败，关闭所有导航进程...')
-            # 关闭所有进程
-            self.shutdown_all_processes_service()
-            self.publish_robot_state('idle')
-            return False
-
         # 更新状态
         # self.is_navigating = False
  
@@ -633,10 +623,11 @@ class NavigationManager(Node):
         if not future.result() or not future.result().success:
             self.get_logger().error('发布新路径失败，关闭所有进程...')
 
+            self.publish_robot_state('idle')
+            
             # 关闭所有进程
             self.shutdown_all_processes_service()
             return False
-        self.attemp_num += 1
 
         # 重置导航状态
         self.waypoint_list = None
