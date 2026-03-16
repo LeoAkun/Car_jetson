@@ -12,6 +12,7 @@ class RoutePlannerNode(Node):
         super().__init__('route_planner')
         self.G = None
         self.path_nodes = {} # 所有路径
+        self.points = None # 已探索过的航点
 
         # 创建订阅者: 订阅mqtt的起始点与图结构的
         self.start_end_graph_sub = self.create_subscription(
@@ -46,7 +47,8 @@ class RoutePlannerNode(Node):
         
         self.start_node_name = msg.start.name
         self.end_node_name = msg.end.name
-
+        
+        # TODO 当遇到两个地图切换点时，拓扑图上只保留一个，另一个是单独的节点没有任何边
         for node in msg.nodes:
             id_to_name[node.id] = node.name
             node_attrs= {
@@ -65,7 +67,7 @@ class RoutePlannerNode(Node):
                         "next_yaw": node.next_yaw,
                         "tolerance": node.tolerance,
                     }
-            
+            # 如果 id 一样，则不添加 switch12_12, switch12_21
             nodes.append((node.name, node_attrs))
         
         for edge in msg.edges:
@@ -85,141 +87,7 @@ class RoutePlannerNode(Node):
         # 3. 发布第1条路径话题
         # self.pub_waypoint_list(path="path1", switch_count=0, latest_switch_node=None)
         self.pub_waypoint_list(self.path_nodes["path1"], path_name="path1")
-    
-    def compute_path(self, source: str, target: str, weigth: str):
-        '''
-        function: 计算最短路径，并保存为对象属性。
-        param:    @source: 起点
-                  @target: 终点
-                  @weight: 权重字符串
-        '''
-        
-        # 使用 shortest_simple_paths规划路径，它会自动按 weight 从小到大排序
-        paths = nx.shortest_simple_paths(self.G, source=source, target=target, weight=weigth)
-        idx = 0
-        # 遍历所有的路径
-        for path in paths:
-            length = nx.path_weight(self.G, path, weight="weight")
-            # print(f"长度: {length:.3f} | 路径: {path}")
 
-            # 为当前路径创建一个键，并初始化为空列表
-            path_key = f"path{idx + 1}" 
-            self.path_nodes[path_key] = []
-
-            # 填充节点信息
-            for node in path:
-                # print(f"  node: {node}, loc:{self.G.nodes[node]['lng']}, lat:{self.G.nodes[node]['lat']}")
-                # 将节点加入到对应的路径列表中
-                self.path_nodes[path_key].append(node)
-            idx += 1
-    
-    def find_inf_path(self, path_nodes_dict: dict, weight: str) -> dict:
-        '''
-        function: 找到长度为无穷的路径名
-        param:    
-        '''
-        inf_path_nodes_dict = {}
-        for path_name, node_name_list in path_nodes_dict.items():
-            length = nx.path_weight(self.G, node_name_list, weight)
-            if length == math.inf:
-                inf_path_nodes_dict[path_name] = node_name_list
-        return inf_path_nodes_dict
-    
-    def pub_waypoint_list_copy(self, path: str, switch_count, latest_switch_node):
-        '''
-        下发话题，开始导航
-        param: @path: 路径名称
-               @switch_count: 经过的地图切换点数量
-               @latest_switch_node: 经过的最后一个切换点
-            
-        '''
-
-        # 获取原始路径的所有节点名称
-        full_path_nodes = self.path_nodes[path]
-
-        # 根据判断是否经过地图切换点，处理路径截断
-        if switch_count > 0 and latest_switch_node in full_path_nodes:
-            # 找到最新切换点在当前路径中的索引位置
-            start_index = full_path_nodes.index(latest_switch_node)
-            # 截取从该点开始到结束的路径
-            active_nodes = full_path_nodes[start_index:]
-            # self.get_logger().info(f"路径 {path} 已截断，从切换点 {latest_switch_node} 开始执行剩余部分")
-            print(f"路径 {path} 已截断，从切换点 {latest_switch_node} 开始执行剩余部分")
-        else:
-            # 添加返回航点
-            return_path_nodes = self.path_nodes[path][switch_count:0]
-
-            # 如果没过切换点，或者切换点不在新路径中，则回到起点从头开始
-            active_nodes = return_path_nodes + full_path_nodes
-
-        # 填充waypoint_list路径消息
-        waypoint_list_msg = WaypointList()
-        waypoint_list_msg.header = Header()
-        waypoint_list_msg.header.stamp = self.get_clock().now().to_msg()
-        waypoint_list_msg.header.frame_id = 'map'
-
-        # 生成任务ID
-        waypoint_list_msg.task_id = f'task_{self.get_clock().now().to_msg().sec}'
-        waypoint_list_msg.path = path # 路线名称
-
-        for node_name in active_nodes:
-            
-            # 填充waypoint航点消息
-            waypoint = self.fill_waypoint_msg_from_name(node_name)
-            
-            # 将填充好的航点加入列表
-            waypoint_list_msg.waypoints.append(waypoint)
-        
-        waypoint_list_msg.total_waypoints = len(active_nodes) # 路点数量
-        waypoint_list_msg.start_map_name = waypoint_list_msg.waypoints[0].map_name # 起始地图名称
-        waypoint_list_msg.total_path = len(self.path_nodes) # 路线数量
-
-        self.waypoint_list_pub.publish(waypoint_list_msg)
-        # self.get_logger().info(f"共{waypoint_list_msg.total_path}条路径，已发布路径{path}，包含 {waypoint_list_msg.total_waypoints} 个航点")
-        print(f"共{waypoint_list_msg.total_path}条路径，已发布{path}，包含 {waypoint_list_msg.total_waypoints} 个航点")
-    
-    def pub_new_path_callback_copy(self, request, response):
-        self.visited_paths.append(request.path_name)
-        self.points = request.points
-
-        # 计算剩余的路径
-        remaining_keys = set(self.path_nodes.keys()) - set(self.visited_paths)
-        
-        # 如果所有路径都尝试过
-        if len(list(remaining_keys)) == 0:
-            response.success = False
-            response.message = f'所有路径均尝试失败'
-        
-        # 如果还有其他备用路径
-        else:
-        
-            # 提取已走过路径中所有的地图切换点
-            switched_nodes = [p for p in self.points if p in self.G and self.G.nodes[p]['type'] == 4]
-
-            # 获取经过的切换点数量
-            switch_count = len(switched_nodes)
-
-            # 获取最后一个（即最新的）切换点名称
-            latest_switch_node = switched_nodes[-1] if switched_nodes else None
-
-            # 如果到达过地图切换点，则以地图切换点为起点，使用下一条路径
-            if switch_count > 0:
-                self.get_logger().info(f"当前已过第 {switch_count} 个地图切换点，最新切换点为: {latest_switch_node}")
-                
-                # 逻辑：以最新的地图切换点为起点，重新计算到终点的路径
-                self.pub_waypoint_list(list(remaining_keys)[0], switch_count, latest_switch_node)
-            
-            # 如果还未到达过地图切换点，则先回到起点，使用下一条路径
-            else:
-
-                self.pub_waypoint_list(list(remaining_keys)[0], switch_count, latest_switch_node)
-            
-            response.success = True
-            response.message = f'已发布{list(remaining_keys)[0]}路径'
-
-        print(f"服务调用成功，返回:{response}")
-        return response
-    
     def pub_waypoint_list(self, node_list: list[str], path_name: str):
         '''
         function: 发布路点序列话题
@@ -240,9 +108,9 @@ class RoutePlannerNode(Node):
         请求接收回调
         '''        
 
-        # 保存已走过的点
+        # 保存上次导航已走过的点
         points = request.points
-        
+
         # 获取当前路径
         current_path_name = request.path_name
         current_full_path_nodes_list = self.path_nodes[current_path_name]
@@ -261,18 +129,22 @@ class RoutePlannerNode(Node):
         if len(remaining_path_name_list) == 0:
             response.success = False
             response.message = f'所有路径均尝试失败'
+            self.points = None
             return response
         
         # 寻找备用路径，这个路径需要包含至少一个已经走过的点
-        for node_name in [point.name for point in points]:
-            idx = 0
-            if node_name in self.path_nodes[remaining_path_name_list[idx]]:
-                new_path_name = remaining_path_name_list[idx]
-                break
+        if self.points is None:    
+            self.points = points[:-2]
+        for node_name in [point.name for point in self.points][::-1]:
+            for path_name in remaining_path_name_list
+                if node_name in self.path_nodes[path_name]:
+                    new_path_name = path_name
+                    break
+        
         new_full_path_nodes_list = self.path_nodes[new_path_name]
         
         # 提取已走过的点中，所有的地图切换点
-        switched_nodes_name_list = [p.name for p in points if p.name in self.G and self.G.nodes[p.name]['type'] == 4]
+        switched_nodes_name_list = [p.name for p in self.points if p.name in self.G and self.G.nodes[p.name]['type'] == 4]
 
         # 获取经过的切换点数量
         switch_count = len(switched_nodes_name_list)
@@ -287,11 +159,11 @@ class RoutePlannerNode(Node):
             start_node_name = points[-1].name
 
             # 找与备用新路径的最近交点
-            common_nodes_name_list = [p.name for p in points if p.name in self.path_nodes[new_path_name]]
+            common_nodes_name_list = [p.name for p in self.points if p.name in self.path_nodes[new_path_name]]
             common_nodes_name = common_nodes_name_list[-1]
 
             # 计算返回从“断路点”到“交点”的路径航点
-            node_name_list = [node.name for node in points]
+            node_name_list = [node.name for node in self.points]
             return_path_nodes_list = self.compute_node_list_from_start_end(start_node_name, common_nodes_name, node_name_list)
 
             # 计算新路径剩余航点
@@ -311,7 +183,7 @@ class RoutePlannerNode(Node):
             start_node_name = points[-1].name
             
             # 找与备用路径的交点
-            common_nodes_name_list = [p.name for p in points if p.name in self.path_nodes[new_path_name]]
+            common_nodes_name_list = [p.name for p in self.points if p.name in self.path_nodes[new_path_name]]
             common_nodes_name = common_nodes_name_list[-1]
 
             # 计算返回从“断路点”到“交点”的路径航点
@@ -328,7 +200,30 @@ class RoutePlannerNode(Node):
             response.message = f'已发布{new_path_name}路径，未经过地图切换点，先回到公共点 {common_nodes_name} , 然后执行剩余部分'
             print(f'已发布{new_path_name}路径，未经过地图切换点，先回到公共点 {common_nodes_name}, 然后执行剩余部分')
         # 发布话题
+
+        # 如果路径点内有地图切换点，需要判断地图切换的方向！ TODO
+        for p in active_nodes_list:
+            # 找到所有的地图切换点
+            if p in self.G and self.G.nodes[p]['type'] == 4:
+                # 前一个点存在, 则切换点的地图为上一个点的地图
+                if active_nodes_list.index(p) > 0:
+
+                    # 只交换属性，不交换节点名字，fill_waypoint赋值的属性的为交换后的。
+                    attr12 = G.nodes['switch12_12'].copy()
+                    attr21 = G.nodes['switch12_21'].copy()
+                    G.nodes['switch12_12'].update(attr21)
+                    G.nodes['switch12_21'].update(attr12)
+
+                # 如果前一个点不存在，则切换点的地图为机器人当前使用的地图
+                else :
+                    p
+
+        switched_nodes_name_list = [p.name for p in active_nodes_list if p.name in self.G and self.G.nodes[p.name]['type'] == 4]
+
         self.pub_waypoint_list(active_nodes_list, new_path_name)
+
+        # 更新已走过的点
+        self.points = self.points[:self.points.index(node_name) + 1] # 切片左闭右开
 
         response.success = True
         print(f"服务调用成功，返回:{response}")
@@ -443,6 +338,45 @@ class RoutePlannerNode(Node):
         waypoint_list_msg.total_path = len(self.path_nodes) 
         return waypoint_list_msg
 
+    def compute_path(self, source: str, target: str, weigth: str):
+        '''
+        function: 计算最短路径，并保存为对象属性。
+        param:    @source: 起点
+                  @target: 终点
+                  @weight: 权重字符串
+        '''
+        
+        # 使用 shortest_simple_paths规划路径，它会自动按 weight 从小到大排序
+        paths = nx.shortest_simple_paths(self.G, source=source, target=target, weight=weigth)
+        idx = 0
+        # 遍历所有的路径
+        for path in paths:
+            length = nx.path_weight(self.G, path, weight="weight")
+            # print(f"长度: {length:.3f} | 路径: {path}")
+
+            # 为当前路径创建一个键，并初始化为空列表
+            path_key = f"path{idx + 1}" 
+            self.path_nodes[path_key] = []
+
+            # 填充节点信息
+            for node in path:
+                # print(f"  node: {node}, loc:{self.G.nodes[node]['lng']}, lat:{self.G.nodes[node]['lat']}")
+                # 将节点加入到对应的路径列表中
+                self.path_nodes[path_key].append(node)
+            idx += 1
+    
+    def find_inf_path(self, path_nodes_dict: dict, weight: str) -> dict:
+        '''
+        function: 找到长度为无穷的路径名
+        param:    
+        '''
+        inf_path_nodes_dict = {}
+        for path_name, node_name_list in path_nodes_dict.items():
+            length = nx.path_weight(self.G, node_name_list, weight)
+            if length == math.inf:
+                inf_path_nodes_dict[path_name] = node_name_list
+        return inf_path_nodes_dict
+    
 def main(args=None):
     rclpy.init(args=args)
     node = RoutePlannerNode()
