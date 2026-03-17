@@ -10,3 +10,4 @@ bag/
 *.log
 .git
 *.pcd
+*test*
