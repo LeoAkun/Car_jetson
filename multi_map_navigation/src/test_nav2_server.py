@@ -40,7 +40,7 @@ class FakeNav2Server(Node):
     def execute_callback_abort(self, goal_handle):
         self.get_logger().info(f"收到目标：{goal_handle.request.pose.pose.position.x:.2f}, "
                                f"{goal_handle.request.pose.pose.position.y:.2f}")
-
+        self.get_logger().info("将返回终止")
         feedback = NavigateToPose.Feedback()
         feedback.distance_remaining = 5.0
         goal_handle.publish_feedback(feedback)

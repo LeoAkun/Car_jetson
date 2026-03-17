@@ -43,110 +43,147 @@ class TestGraphPublisher(Node):
             wp.next_yaw = next_yaw
         return wp
 
-    def publish_once(self):
+    def publish_once_1(self):
         msg = StartEndGraph()
         msg.header = Header()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.header.frame_id = "map"
 
         # 1. 构造节点 (Nodes)
-        # 我们模拟一个简单的 Y 字型图
-        p_start = self.create_waypoint(name = "start", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        p_a = self.create_waypoint(name = "2教送货点", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
-        p_b = self.create_waypoint(name = "map1路过点1", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
-        p_c = self.create_waypoint(name = "map1路过点2", id_int = 3, x = 2.0, y = 3.0,  map_name="map1", w_type=1)
-        p_d = self.create_waypoint(name = "地图切换点", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
-        p_e = self.create_waypoint(name = "map2路过点1", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        p_f = self.create_waypoint(name = "map2路过点2", id_int = 6, x = 2.0, y = 3.0,  map_name="map2", w_type=1)
-        p_end = self.create_waypoint(name = "end", id_int = 7, x = 3.0, y = 4.0,  map_name="map2", w_type=1)
-
+        self.A = self.create_waypoint(name = "A", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
+        self.B1 = self.create_waypoint(name = "B1", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
+        self.B2 = self.create_waypoint(name = "B2", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
+        self.M = self.create_waypoint(name = "M", id_int = 3, x = 2.0, y = 3.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
+        self.C1 = self.create_waypoint(name = "C1", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4)
+        self.C2 = self.create_waypoint(name = "C2", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
+        self.D = self.create_waypoint(name = "D", id_int = 6, x = 2.0, y = 3.0,  map_name="map2", w_type=1)
         
-        msg.nodes = [p_start, p_a, p_b, p_c, p_d, p_e, p_f, p_end]
+        msg.nodes = [self.A, self.B1, self.B2, self.M, self.C1, self.C2, self.D]
 
         # 2. 设置任务的起点和终点
-        msg.start = p_start
-        msg.end = p_end
+        msg.start = self.A
+        msg.end = self.D
 
         # 3. 构造边 (Edges)
-        # 边1: start -> 2教送货点 (权重 2.0)
-        e1 = Edge()
-        e1.start_node_id = 0
-        e1.end_node_id = 1
-        e1.weight = 1.0
+        e_A_B1 = Edge()
+        e_A_B1.start_node_id = 0
+        e_A_B1.end_node_id = 1
+        e_A_B1.weight = 1.0
 
-        # 边2: 2教送货点 -> map1路过点1 (权重 2.5)
-        e2 = Edge()
-        e2.start_node_id = 1
-        e2.end_node_id = 2
-        e2.weight = 1.0
+        e_A_B2 = Edge()
+        e_A_B2.start_node_id = 0
+        e_A_B2.end_node_id = 2
+        e_A_B2.weight = 1.0
 
-        # 边3: 2教送货点 -> map1路过点2 (权重 2.5)
-        e3 = Edge()
-        e3.start_node_id = 1
-        e3.end_node_id = 3
-        e3.weight = 1.0
+        e_B1_M = Edge()
+        e_B1_M.start_node_id = 1
+        e_B1_M.end_node_id = 3
+        e_B1_M.weight = 1.0
 
+        e_B2_M = Edge()
+        e_B2_M.start_node_id = 2
+        e_B2_M.end_node_id = 3
+        e_B2_M.weight = 1.0
 
-        # 边4: map1路过点1 -> 地图切换点 (权重 2.5)
-        e4 = Edge()
-        e4.start_node_id = 2
-        e4.end_node_id = 4
-        e4.weight = 1.0
+        e_M_C1 = Edge()
+        e_M_C1.start_node_id = 3
+        e_M_C1.end_node_id = 4
+        e_M_C1.weight = 1.0
 
-        
-        # 边5: map1路过点2 -> 地图切换点 (权重 2.5)
-        e5 = Edge()
-        e5.start_node_id = 3
-        e5.end_node_id = 4
-        e5.weight = 2.0
+        e_M_C2 = Edge()
+        e_M_C2.start_node_id = 3
+        e_M_C2.end_node_id = 5
+        e_M_C2.weight = 1.0
 
-        # 边6: 地图切换点 -> map2路过点1 (这是一条捷径，权重 5.0)
-        e6 = Edge()
-        e6.start_node_id = 4
-        e6.end_node_id = 5
-        e6.weight = 1.0
+        e_C1_D = Edge()
+        e_C1_D.start_node_id = 4
+        e_C1_D.end_node_id = 6
+        e_C1_D.weight = 1.0
 
-        # 边7: 地图切换点 -> map2路过点2 (这是一条捷径，权重 5.0)
-        e7 = Edge()
-        e7.start_node_id = 4
-        e7.end_node_id = 6
-        e7.weight = 1.0
+        e_C2_D = Edge()
+        e_C2_D.start_node_id = 5
+        e_C2_D.end_node_id = 6
+        e_C2_D.weight = 1.0
 
-        # 边8: map2路过点1 -> end (这是一条捷径，权重 4.0)
-        e8 = Edge()
-        e8.start_node_id = 5
-        e8.end_node_id = 7
-        e8.weight = 1.0
-
-        # 边9: map2路过点2 -> end (这是一条捷径，权重 4.0)
-        e9 = Edge()
-        e9.start_node_id = 6
-        e9.end_node_id = 7
-        e9.weight = 1.0
-
-        msg.edges = [e1, e2, e3, e4, e5, e6, e7, e8, e9]
+        msg.edges = [e_A_B1, e_A_B2, e_B1_M, e_B2_M, e_M_C1, e_M_C2, e_C1_D, e_C2_D]
 
         # 4. 执行发布
         self.publisher_.publish(msg)
         self.get_logger().info('成功发布 StartEndGraph 消息！')
 
-    def call_service(self):
+
+    def publish_once_2(self):
+        msg = StartEndGraph()
+        msg.header = Header()
+        msg.header.stamp = self.get_clock().now().to_msg()
+        msg.header.frame_id = "map"
+
+        # 1. 构造节点 (Nodes)
+        self.A = self.create_waypoint(name = "A", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
+        self.B1 = self.create_waypoint(name = "B1", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
+        self.B2 = self.create_waypoint(name = "B2", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
+        self.M = self.create_waypoint(name = "M", id_int = 3, x = 2.0, y = 3.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
+        self.C1 = self.create_waypoint(name = "C1", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4)
+        self.C2 = self.create_waypoint(name = "C2", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
+        self.D = self.create_waypoint(name = "D", id_int = 6, x = 2.0, y = 3.0,  map_name="map2", w_type=1)
+        
+        msg.nodes = [self.A, self.B1, self.B2, self.M, self.C1, self.C2, self.D]
+
+        # 2. 设置任务的起点和终点
+        msg.start = self.A
+        msg.end = self.D
+
+        # 3. 构造边 (Edges)
+        e_A_B1 = Edge()
+        e_A_B1.start_node_id = 0
+        e_A_B1.end_node_id = 1
+        e_A_B1.weight = 1.0
+
+        e_A_B2 = Edge()
+        e_A_B2.start_node_id = 0
+        e_A_B2.end_node_id = 2
+        e_A_B2.weight = 1.0
+
+        e_B1_M = Edge()
+        e_B1_M.start_node_id = 1
+        e_B1_M.end_node_id = 3
+        e_B1_M.weight = 1.0
+
+        e_B2_M = Edge()
+        e_B2_M.start_node_id = 2
+        e_B2_M.end_node_id = 3
+        e_B2_M.weight = 1.0
+
+        e_M_C1 = Edge()
+        e_M_C1.start_node_id = 3
+        e_M_C1.end_node_id = 4
+        e_M_C1.weight = 1.0
+
+        e_M_C2 = Edge()
+        e_M_C2.start_node_id = 3
+        e_M_C2.end_node_id = 5
+        e_M_C2.weight = 1.0
+
+        e_C1_D = Edge()
+        e_C1_D.start_node_id = 4
+        e_C1_D.end_node_id = 6
+        e_C1_D.weight = 1.0
+
+        e_C2_D = Edge()
+        e_C2_D.start_node_id = 5
+        e_C2_D.end_node_id = 6
+        e_C2_D.weight = 1.0
+
+        msg.edges = [e_A_B1, e_A_B2, e_B1_M, e_B2_M, e_M_C1, e_M_C2, e_C1_D, e_C2_D]
+
+        # 4. 执行发布
+        self.publisher_.publish(msg)
+        self.get_logger().info('成功发布 StartEndGraph 消息！')
+
+    def call_service(self, point_list):
         req = PubNewPath.Request()
         
-        # ... (构造 waypoints 的代码保持不变)
-        p_start = self.create_waypoint(name = "start", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        p_a = self.create_waypoint(name = "2教送货点", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
-        p_b = self.create_waypoint(name = "map1路过点1", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
-        p_d = self.create_waypoint(name = "地图切换点", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
-        p_e = self.create_waypoint(name = "map2路过点1", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        
-        # p_start = self.create_waypoint(name = "start", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        # p_a = self.create_waypoint(name = "2教送货点", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
-        # p_b = self.create_waypoint(name = "map1路过点1", id_int = 2, x = 2.0, y = 2.0,  map_name="map1", w_type=1)
-        # p_d = self.create_waypoint(name = "地图切换点", id_int = 4, x = 2.0, y = 4.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
-        # p_e = self.create_waypoint(name = "map2路过点1", id_int = 5, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        
-        points = [p_start, p_a, p_b, p_d, p_e]
+        points = point_list
         req.path_name = "path1"
         req.points = points
         
@@ -174,9 +211,11 @@ def main(args=None):
     rclpy.init(args=args)
     node = TestGraphPublisher()
     try:
-        node.publish_once()
+        node.publish_once_2()
         time.sleep(5)
-        # node.call_service()
+        node.call_service([node.A, node.B1])
+        time.sleep(5)
+        node.call_service([node.B1, node.A, node.B2,node.M])
     except KeyboardInterrupt:
         pass
     finally:

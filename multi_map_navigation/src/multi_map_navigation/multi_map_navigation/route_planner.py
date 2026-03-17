@@ -48,7 +48,6 @@ class RoutePlannerNode(Node):
         self.start_node_name = msg.start.name
         self.end_node_name = msg.end.name
         
-        # TODO 当遇到两个地图切换点时，拓扑图上只保留一个，另一个是单独的节点没有任何边
         for node in msg.nodes:
             id_to_name[node.id] = node.name
             node_attrs= {
@@ -82,7 +81,7 @@ class RoutePlannerNode(Node):
         
         # 2.计算最短路径
         self.compute_path(self.start_node_name, self.end_node_name, "weight")
-        print(self.path_nodes)
+        print(f"[DEBG] 所有路径: {self.path_nodes}")
 
         # 3. 发布第1条路径话题
         # self.pub_waypoint_list(path="path1", switch_count=0, latest_switch_node=None)
@@ -99,9 +98,9 @@ class RoutePlannerNode(Node):
 
         # 发布
         self.waypoint_list_pub.publish(waypoint_list_msg)
-        print(f"发布一条路径:{node_list}")
-        print(f"共{waypoint_list_msg.total_path}条路径，已发布路径{path_name}，包含 {waypoint_list_msg.total_waypoints} 个航点")
-        print("---------***************-----------")
+        print(f"[DEBG] 发布一条路径:{node_list}")
+        print(f"[DEBG] 共{waypoint_list_msg.total_path}条路径，已发布路径{path_name}，包含 {waypoint_list_msg.total_waypoints} 个航点")
+        print("[DEBG] ---------***************-----------")
             
     def pub_new_path_callback(self, request, response):
         '''
@@ -112,151 +111,31 @@ class RoutePlannerNode(Node):
         points = request.points
 
         # 获取当前路径
-        current_path_name = request.path_name
-        current_full_path_nodes_list = self.path_nodes[current_path_name]
+        current_full_path_nodes_list = self.path_nodes["path1"]
 
-        # 更新G节点地图，将边的权重设置为无穷，并重新规划路径 TODO 是否需要上报
+        # 更新G节点地图，删除边，并重新规划路径 TODO 是否需要上报
         node1 = points[-1]
-        node2 =  current_full_path_nodes_list[current_full_path_nodes_list.index(node1) + 1]
-        self.G[node1.name][node2.name]['weight'] = math.inf
-        # self.G.remove_edge(node1.name, node2.name)
-        inf_path_dict = self.find_inf_path(self.path_nodes, 'weight')
+        node2_name =  current_full_path_nodes_list[current_full_path_nodes_list.index(node1.name) + 1]
+        # self.G[node1.name][node2_name]['weight'] = math.inf
+        self.G.remove_edge(node1.name, node2_name)
         
-        # 计算剩余的路径: 去除掉长度为无穷的路径
-        remaining_path_name_list = list(set(self.path_nodes.keys()) - set(inf_path_dict.keys()))
-
-        # 如果所有路径都尝试过
-        if len(remaining_path_name_list) == 0:
+        # 以当前路径为起点，重新规划路径
+        ret = self.compute_path(node1.name, self.end_node_name, "weight")
+        if(ret == False):
             response.success = False
             response.message = f'所有路径均尝试失败'
-            self.points = None
+            self.path_nodes = {}
             return response
+
+        # 如果路径点内有地图切换点，需要更新节点对应的属性
+        self.update_graph_switch_node_from_list(self.path_nodes["path1"], self.G.nodes[node1.name]["map_name"])
         
-        # 寻找备用路径，这个路径需要包含至少一个已经走过的点
-        if self.points is None:    
-            self.points = points[:-2]
-        for node_name in [point.name for point in self.points][::-1]:
-            for path_name in remaining_path_name_list
-                if node_name in self.path_nodes[path_name]:
-                    new_path_name = path_name
-                    break
-        
-        new_full_path_nodes_list = self.path_nodes[new_path_name]
-        
-        # 提取已走过的点中，所有的地图切换点
-        switched_nodes_name_list = [p.name for p in self.points if p.name in self.G and self.G.nodes[p.name]['type'] == 4]
-
-        # 获取经过的切换点数量
-        switch_count = len(switched_nodes_name_list)
-
-        # 获取最后一个（即最新的）切换点名称
-        latest_switch_node_name = switched_nodes_name_list[-1] if switched_nodes_name_list else None
-
-        # 如果已经走过地图切换点， 逻辑相同? TODO
-        if switch_count > 0 and latest_switch_node_name in current_full_path_nodes_list:
-            
-            # 断路点
-            start_node_name = points[-1].name
-
-            # 找与备用新路径的最近交点
-            common_nodes_name_list = [p.name for p in self.points if p.name in self.path_nodes[new_path_name]]
-            common_nodes_name = common_nodes_name_list[-1]
-
-            # 计算返回从“断路点”到“交点”的路径航点
-            node_name_list = [node.name for node in self.points]
-            return_path_nodes_list = self.compute_node_list_from_start_end(start_node_name, common_nodes_name, node_name_list)
-
-            # 计算新路径剩余航点
-            idx_common_nodes_name_in_new = new_full_path_nodes_list.index(common_nodes_name)
-            remain_path_nodes_list = new_full_path_nodes_list[idx_common_nodes_name_in_new + 1:]
-
-            # 从该地图切换点开始
-            active_nodes_list = return_path_nodes_list + remain_path_nodes_list
-
-            # self.get_logger().info(f"路径 {path} 已截断，从切换点 {latest_switch_node} 开始执行剩余部分")
-            response.message = f'已发布{new_path_name}路径，经过地图切换点，先回到切换点 {latest_switch_node_name}, 然后执行剩余部分'
-            print(f'已发布{new_path_name}路径，经过地图切换点，先回到切换点 {latest_switch_node_name}, 然后执行剩余部分')
-
-        # 如果没有走过地图切换点
-        else:
-            # 断路点 
-            start_node_name = points[-1].name
-            
-            # 找与备用路径的交点
-            common_nodes_name_list = [p.name for p in self.points if p.name in self.path_nodes[new_path_name]]
-            common_nodes_name = common_nodes_name_list[-1]
-
-            # 计算返回从“断路点”到“交点”的路径航点
-            node_name_list = [node.name for node in points]
-            return_path_nodes_list = self.compute_node_list_from_start_end(start_node_name, common_nodes_name, node_name_list)
-
-            # 计算新路径剩余航点
-            idx_common_nodes_name_in_new = new_full_path_nodes_list.index(common_nodes_name)
-            remain_path_nodes_list = new_full_path_nodes_list[idx_common_nodes_name_in_new + 1:]
-
-            # 如果没过切换点，或者切换点不在新路径中，则回到起点从头开始
-            active_nodes_list = return_path_nodes_list + remain_path_nodes_list
-
-            response.message = f'已发布{new_path_name}路径，未经过地图切换点，先回到公共点 {common_nodes_name} , 然后执行剩余部分'
-            print(f'已发布{new_path_name}路径，未经过地图切换点，先回到公共点 {common_nodes_name}, 然后执行剩余部分')
-        # 发布话题
-
-        # 如果路径点内有地图切换点，需要判断地图切换的方向！ TODO
-        for p in active_nodes_list:
-            # 找到所有的地图切换点
-            if p in self.G and self.G.nodes[p]['type'] == 4:
-                # 前一个点存在, 则切换点的地图为上一个点的地图
-                if active_nodes_list.index(p) > 0:
-
-                    # 只交换属性，不交换节点名字，fill_waypoint赋值的属性的为交换后的。
-                    attr12 = G.nodes['switch12_12'].copy()
-                    attr21 = G.nodes['switch12_21'].copy()
-                    G.nodes['switch12_12'].update(attr21)
-                    G.nodes['switch12_21'].update(attr12)
-
-                # 如果前一个点不存在，则切换点的地图为机器人当前使用的地图
-                else :
-                    p
-
-        switched_nodes_name_list = [p.name for p in active_nodes_list if p.name in self.G and self.G.nodes[p.name]['type'] == 4]
-
-        self.pub_waypoint_list(active_nodes_list, new_path_name)
-
-        # 更新已走过的点
-        self.points = self.points[:self.points.index(node_name) + 1] # 切片左闭右开
-
+        print(f"[DEBG] 地图切换点属性:{self.G.nodes['M']}")
+        self.pub_waypoint_list(self.path_nodes["path1"], "path1")
+        response.message = f'路径已下发'
         response.success = True
-        print(f"服务调用成功，返回:{response}")
+        print(f"[DEBG] 服务调用成功，返回:{response}")
         return response
-    
-    def compute_node_list_from_start_end(self, start_node_name: str, end_node_name: str, path_nodes_list: list[str]) -> list[str]: 
-        """
-        function: 在指定路径中截取起始点到终点之间的节点序列。支持正向截取和反向回溯。
-        param:    @start_node_name: 起始路点名
-                  @end_node_name: 终点路点名
-                  @path_nodes_list: 待查询的路点列表
-        return:   路点序列
-        """
-        # 1. 获取该路径名称对应的完整节点列表
-        full_nodes_name_list = path_nodes_list
-        
-        if start_node_name not in full_nodes_name_list or end_node_name not in full_nodes_name_list:
-            self.get_logger().warn(f"节点 {start_node_name} 或 {end_node_name} 不在路径中")
-            return []
-
-        # 2. 找到两个节点在列表中的索引位置
-        idx_start = full_nodes_name_list.index(start_node_name)
-        idx_end = full_nodes_name_list.index(end_node_name)
-
-        # 3. 根据索引顺序截取
-        if idx_start <= idx_end:
-            # 正向截取：比如从 B(idx=1) 到 D(idx=3) -> [B, C, D]
-            # Python 切片是左闭右开，所以要 +1
-            return full_nodes_name_list[idx_start : idx_end + 1]
-        else:
-            # 反向回溯：比如从 D(idx=3) 到 B(idx=1) -> [D, C, B]
-            # 先切出 [B, C, D]，然后使用 [::-1] 反转
-            return full_nodes_name_list[idx_end : idx_start + 1][::-1]
 
     def fill_waypoint_msg_from_name(self, node_name: str):
         '''
@@ -338,21 +217,25 @@ class RoutePlannerNode(Node):
         waypoint_list_msg.total_path = len(self.path_nodes) 
         return waypoint_list_msg
 
-    def compute_path(self, source: str, target: str, weigth: str):
+    def compute_path(self, source: str, target: str, weigth: str) -> bool :
         '''
         function: 计算最短路径，并保存为对象属性。
         param:    @source: 起点
                   @target: 终点
                   @weight: 权重字符串
+        return: 返回失败则表示无路可走
         '''
-        
+        if nx.has_path(self.G,source=source, target=target):
         # 使用 shortest_simple_paths规划路径，它会自动按 weight 从小到大排序
-        paths = nx.shortest_simple_paths(self.G, source=source, target=target, weight=weigth)
+            paths = nx.shortest_simple_paths(self.G, source=source, target=target, weight=weigth)
+        else:
+            return False
+
         idx = 0
         # 遍历所有的路径
         for path in paths:
             length = nx.path_weight(self.G, path, weight="weight")
-            # print(f"长度: {length:.3f} | 路径: {path}")
+            # print(f"[DEBG] 长度: {length:.3f} | 路径: {path}")
 
             # 为当前路径创建一个键，并初始化为空列表
             path_key = f"path{idx + 1}" 
@@ -360,27 +243,49 @@ class RoutePlannerNode(Node):
 
             # 填充节点信息
             for node in path:
-                # print(f"  node: {node}, loc:{self.G.nodes[node]['lng']}, lat:{self.G.nodes[node]['lat']}")
+                # print(f"[DEBG] node: {node}, loc:{self.G.nodes[node]['lng']}, lat:{self.G.nodes[node]['lat']}")
                 # 将节点加入到对应的路径列表中
                 self.path_nodes[path_key].append(node)
             idx += 1
+        return True
     
-    def find_inf_path(self, path_nodes_dict: dict, weight: str) -> dict:
+    def update_graph_switch_node_from_list(self, active_nodes_list:list[str], current_map: str):
         '''
-        function: 找到长度为无穷的路径名
-        param:    
+        function: 遍历节点列表，更新地图切换节点的属性
+        param :   @activate_node_list: 节点列表
+        return: 更新后的列表
         '''
-        inf_path_nodes_dict = {}
-        for path_name, node_name_list in path_nodes_dict.items():
-            length = nx.path_weight(self.G, node_name_list, weight)
-            if length == math.inf:
-                inf_path_nodes_dict[path_name] = node_name_list
-        return inf_path_nodes_dict
-    
+        for node in active_nodes_list:
+            # 找到地图切换点
+            if node in self.G and self.G.nodes[node]['type'] == 4:
+
+                # 如果这个地图切换点再列表第一个位置，根据机器人当前地图位置判断地图切换点的属性
+                if active_nodes_list.index(node) == 0:
+                    # 如果机器人当前所使用地图与地图切换点的地图不同，则表示需要交换属性
+                    if self.G.nodes[node]["map_name"] != current_map :
+                        self.G.nodes["map_name"], self.G.nodes["next_map_name"] = self.G.nodes["next_map_name"], self.G.nodes["map_name"]
+                        self.G.nodes["x"], self.G.nodes["next_x"] = self.G.nodes["next_x"], self.G.nodes["x"]
+                        self.G.nodes["y"], self.G.nodes["next_y"] = self.G.nodes["next_y"], self.G.nodes["y"]
+                        self.G.nodes["yaw"], self.G.nodes["next_yaw"] = self.G.nodes["next_yaw"], self.G.nodes["yaw"]
+                    else:
+                        pass
+
+                # 如果地图切换点不在列表第一个位置
+                else :
+
+                    # 如果这个地图切换点与上一个节点的地图名不同，则表示需要交换属性
+                    node_past = active_nodes_list[active_nodes_list.index(node) - 1]
+                    if self.G.nodes[node]["map_name"] != self.G.nodes[node_past]["map_name"]:
+                        self.G.nodes[node]["map_name"], self.G.nodes[node]["next_map_name"] = self.G.nodes["next_map_name"], self.G.nodes["map_name"]
+                        self.G.nodes[node]["x"], self.G.nodes[node]["next_x"] = self.G.nodes["next_x"], self.G.nodes["x"]
+                        self.G.nodes[node]["y"], self.G.nodes[node]["next_y"] = self.G.nodes["next_y"], self.G.nodes["y"]
+                        self.G.nodes[node]["yaw"], self.G.nodes[node]["next_yaw"] = self.G.nodes["next_yaw"], self.G.nodes["yaw"]
+                    else:
+                        pass
+
 def main(args=None):
     rclpy.init(args=args)
     node = RoutePlannerNode()
-
     executor = rclpy.executors.MultiThreadedExecutor()
     executor.add_node(node)
     try:
@@ -390,7 +295,6 @@ def main(args=None):
     finally:
         node.destroy_node()
         rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

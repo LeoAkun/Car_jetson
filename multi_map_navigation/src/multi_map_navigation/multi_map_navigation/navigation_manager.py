@@ -45,13 +45,16 @@ class NavigationManager(Node):
         self.is_map_switching = False
         self.task_id = None
         self.current_goal_handle = None
-        self.current_path = None
         self.total_path = None
+
+        # 尝试重试次数
+        self.attempt_count = 0
 
         # 创建可重入回调组，避免服务调用与订阅回调互相阻塞
         self.service_callback_group = ReentrantCallbackGroup()
 
         # ROS2订阅器用于航点列表
+        # 添加后缀test订阅测试话题
         self.waypoint_list_sub = self.create_subscription(
             WaypointList,
             '/waypoint_list',
@@ -98,6 +101,7 @@ class NavigationManager(Node):
         )
 
         # 发布路径的客户端
+        # 添加后缀test接入测试服务接口
         self.pub_new_path_client = self.create_client(
             PubNewPath, '/route_planner/pub_new_path',
             callback_group=self.service_callback_group
@@ -138,7 +142,6 @@ class NavigationManager(Node):
         self.task_id = msg.task_id
         self.current_waypoint_index = 0
         self.current_map = msg.start_map_name
-        self.current_path = msg.path
         self.total_path = msg.total_path
 
         # 开始导航序列
@@ -182,7 +185,8 @@ class NavigationManager(Node):
                 self.send_nav2_goal(waypoint)
             else:
                 self.get_logger().error('导航堆栈启动失败，中止导航')
-                self.abort_navigation()
+                # TODO:应该是重新启动，而不是下发备用路线 
+                self.abort_navigation(reason = 2)
             return
 
         # 非第一条路线的第一个点首次导航，直接发送导航目标
@@ -443,7 +447,7 @@ class NavigationManager(Node):
             self.navigate_to_next_waypoint()
         else:
             self.get_logger().error('地图切换失败，中止导航')
-            self.abort_navigation()
+            self.abort_navigation(reason = 2)
 
     def send_nav2_goal(self, waypoint: Waypoint):
         """
@@ -458,7 +462,7 @@ class NavigationManager(Node):
         # 等待动作服务器
         if not self.nav2_client.wait_for_server(timeout_sec=50.0):
             self.get_logger().error('Navigation2动作服务器不可用')
-            self.abort_navigation()
+            self.abort_navigation(reason = 2)
             return
 
         # 创建目标消息
@@ -505,7 +509,7 @@ class NavigationManager(Node):
 
         if not goal_handle.accepted:
             self.get_logger().error('导航目标被拒绝')
-            self.abort_navigation()
+            self.abort_navigation(reason = 2)
             return
 
         self.get_logger().info('导航目标已接受')
@@ -536,10 +540,10 @@ class NavigationManager(Node):
             self.on_goal_reached()
         elif result_wrapper.status == 5:
             self.get_logger().info('导航目标被切换 (CANCELED)')
-            self.cancle_navigation()
+            self.abort_navigation(reason = 2)
         else:
             self.get_logger().error(f'导航目标失败，状态码: {result_wrapper.status}')
-            self.abort_navigation()
+            self.abort_navigation(reason = 1)
 
     def on_goal_reached(self):
         """处理成功到达目标"""
@@ -585,9 +589,6 @@ class NavigationManager(Node):
                 # TODO
                 pass
     
-    def cancle_navigation(self):
-        pass
-
     def complete_navigation(self):
         """完成导航序列"""
         self.get_logger().info('导航序列成功完成')
@@ -601,34 +602,57 @@ class NavigationManager(Node):
 
         # 重置导航状态
         self.waypoint_list = None
-        self.current_waypoint_index = 0
 
-    def abort_navigation(self):
-        """中止导航序列"""
+    def abort_navigation(self, reason):
+        """
+        中止导航序列
+        0 - 主动取消（不需要处理）
+        1 - 导航路径失败（请求备用路线）
+        2 - 系统故障（重试/关闭进程）
+        """
         self.get_logger().warn('导航序列已中止, 正在尝试规划新路径......')
 
         # 更新状态
         # self.is_navigating = False
  
         # 调用服务重新下发导航任务
-        req = PubNewPath.Request()
-        req.path_name = self.current_path
-        points = []
-        for idx in range(self.current_waypoint_index):
-            points.append(self.waypoint_list[idx])
-            
-        req.points =  points
-        future = self.pub_new_path_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
-            self.get_logger().error('发布新路径失败，关闭所有进程...')
+        if reason == 0:
+            # 主动取消，不处理
+            self.get_logger().info('导航目标已被主动取消，忽略')
+            return
 
-            self.publish_robot_state('idle')
-            
-            # 关闭所有进程
-            self.shutdown_all_processes_service()
-            return False
+        elif reason == 1:
+            # 导航失败 → 请求备用路线
+            self.get_logger().warn('导航路径失败，正在请求备用路线...')
+            req = PubNewPath.Request()
+            points = []
+            for idx in range(self.current_waypoint_index):
+                points.append(self.waypoint_list[idx])
+            req.points =  points
+            future = self.pub_new_path_client.call_async(req)
+            self._wait_for_future(future, timeout_sec=10.0)
+            if not future.result() or not future.result().success:
+                self.get_logger().error('发布新路径失败，关闭所有进程, 等待远程驾驶连接...')
+                self.publish_robot_state('idle')
+                self.shutdown_all_processes_service()
+                return False
 
+        elif reason == 2:
+            # 系统故障 → 重试启动，重试失败则关闭 TODO
+            if self.attempt_count < self.max_retries:
+                self.get_logger().warn(f'系统故障，尝试重启, 尝试次数{self.attempt_count}/{self.max_retries}')
+                self.publish_robot_state('running')
+
+                # 关闭重启，继续导航
+                self.shutdown_all_processes_service()
+                self.launch_new_stack(self.waypoint_list[self.current_waypoint_index].map_name)
+                self.navigate_to_next_waypoint()
+                self.attempt_count  += 1
+            else: 
+                self.get_logger().warn(f'系统故障, 达到最大尝试次数, 等待远程驾驶连接')
+                self.shutdown_all_processes_service()
+                self.attempt_count = 0
+        
         # 重置导航状态
         self.waypoint_list = None
         self.current_waypoint_index = 0

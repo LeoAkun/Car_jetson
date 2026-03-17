@@ -6,28 +6,51 @@ import math
 G = nx.Graph()
 
 nodes = [
-    ("A", {"loc": 103.01, "lat": 30.01}),
-    ("B", {"loc": 103.02, "lat": 30.02}),
-    ("switch12_12", {"map": "map1", "next_map": "map2"}),
-    ("switch12_21", {"map": "map2", "next_map": "map1"})
-
+    ("start", {"loc": 103.01, "lat": 30.01}),
+    ("B1", {"loc": 103.02, "lat": 30.02}),
+    ("C1", {"loc": 103.03, "lat": 30.03}),
+    ("end", {"loc": 103.04, "lat": 30.04}),
+    ("B2", {"loc": 103.05, "lat": 30.05}),
+    ("C2", {"loc": 103.06, "lat": 30.06}),
 ]
 
-edges = [
-    ("A", "B",{"weight": 0.2}),
-    ("B", "switch12_12",{"weight": 0.3}),
-]
+# edges = [
+#     ("start", "B1",{"weight": math.inf}),
+#     ("B1", "C1",{"weight": 0.3}),
+#     ("C1", "end",{"weight": 0.2}),
+#     ("start", "B2",{"weight": 0.3}),
+#     ("B2", "C2",{"weight": 0.1}),
+#     ("C2", "end",{"weight": 0.1}),
+# ]
 
 path_nodes={}
+# {"path1":
+#  [
+#      node1,
+#      node2,
+#      ...
+#  ],
+#  "path2":
+#  [
+#     node1,
+#     node3,
+#     ...
+#  ]
+#  }
 
 # 添加节点
 G.add_nodes_from(nodes)
 
 # 添加边
-G.add_edges_from(edges)
+# G.add_edges_from(edges)
 
 # 使用 shortest_simple_paths规划路径，它会自动按 weight 从小到大排序
-paths = nx.shortest_simple_paths(G, source="A", target="switch12_12", weight='weight')
+if nx.has_path(G,source="start", target="end"):
+    paths = nx.shortest_simple_paths(G, source="start", target="end", weight='weight')
+    print(paths)
+else:
+    print("无路可走，返回")
+    
 idx = 0
 # 遍历所有的路径
 for idx, path in enumerate(paths):
@@ -45,16 +68,5 @@ for idx, path in enumerate(paths):
         path_nodes[path_key].append(node)
 print(f"路径: {path_nodes}")
 
-# 绘制网络图
 nx.draw(G, with_labels=True, node_color='skyblue', node_size=700, edge_color='k')
-# plt.show()
-
-plt.savefig("network_graph.png", dpi=150, bbox_inches='tight')
-
-# 交换属性
-attr12 = G.nodes['switch12_12'].copy()
-attr21 = G.nodes['switch12_21'].copy()
-G.nodes['switch12_12'].update(attr21)
-G.nodes['switch12_21'].update(attr12)
-
-print(f"switch12_12属性: {G.nodes['switch12_12']}")
+plt.show()
