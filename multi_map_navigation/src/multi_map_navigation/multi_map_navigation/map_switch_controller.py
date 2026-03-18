@@ -140,10 +140,16 @@ class MapSwitchController(Node):
                 self.get_logger().error('新堆栈验证失败')
                 self.is_switching = False
                 return False
+            self.get_logger().info('新堆栈启动成功')
 
             # 更新当前地图
             self.current_map = next_map
             self.is_switching = False
+
+            # 等待navigation2全部加载完成
+            self.get_logger().info('等待navigation2组件全部加载完成...')
+            time.sleep(50.0)
+            self.get_logger().info('navigation2组件加载完成')
             return True
 
         except Exception as e:

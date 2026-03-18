@@ -317,7 +317,6 @@ class ProcessManagerNode(Node):
         process = self.processes[process_name]
         return process.poll() is None
 
-
 def main(args=None):
     rclpy.init(args=args)
     node = ProcessManagerNode()
@@ -337,7 +336,6 @@ def main(args=None):
             node.shutdown_process(process_name)
         node.destroy_node()
         rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()

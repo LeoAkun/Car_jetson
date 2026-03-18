@@ -14,7 +14,7 @@ from nav2_msgs.action import NavigateToPose
 from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import String, Bool
 from multi_map_navigation_msgs.msg import WaypointList, Waypoint, MapSwitchTrigger
-from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess, PubNewPath
+from multi_map_navigation_msgs.srv import GetProcessStatus, StartProcess, ShutdownProcess, PubNewPath
 from typing import List, Optional
 import time
 import threading
@@ -38,17 +38,16 @@ class NavigationManager(Node):
         self.retry_delay = self.get_parameter('retry_delay').value
 
         # 导航状态
+        self.state_lock = threading.RLock() # 可重入锁，防止同线程嵌套调用死锁
+
         self.waypoint_list: Optional[List[Waypoint]] = None
-        self.current_waypoint_index = 0
+        self.current_waypoint_index = 0 # 表示要导航去的点
         self.current_map = None
         self.is_navigating = False
         self.is_map_switching = False
         self.task_id = None
         self.current_goal_handle = None
         self.total_path = None
-
-        # 尝试重试次数
-        self.attempt_count = 0
 
         # 创建可重入回调组，避免服务调用与订阅回调互相阻塞
         self.service_callback_group = ReentrantCallbackGroup()
@@ -57,7 +56,8 @@ class NavigationManager(Node):
         # 添加后缀test订阅测试话题
         self.waypoint_list_sub = self.create_subscription(
             WaypointList,
-            '/waypoint_list',
+            # '/waypoint_list',
+            '/test/waypoint_list',
             self.waypoint_list_callback,
             10
         )
@@ -92,28 +92,47 @@ class NavigationManager(Node):
 
         # 进程管理服务客户端 - 使用可重入回调组
         self.start_process_client = self.create_client(
-            StartProcess, '/process_manager/start_process',
+            StartProcess, 
+            # '/process_manager/start_process',
+            '/test/process_manager/start_process',
             callback_group=self.service_callback_group
         )
         self.shutdown_process_client = self.create_client(
-            ShutdownProcess, '/process_manager/shutdown_process',
+            ShutdownProcess, 
+            # '/process_manager/shutdown_process',
+            '/test/process_manager/shutdown_process',
+            callback_group=self.service_callback_group
+        )
+        self.get_process_status_client = self.create_client(
+            GetProcessStatus,
+            # '/process_manager/get_status',
+            '/test/process_manager/get_status',
             callback_group=self.service_callback_group
         )
 
         # 发布路径的客户端
         # 添加后缀test接入测试服务接口
         self.pub_new_path_client = self.create_client(
-            PubNewPath, '/route_planner/pub_new_path',
+            PubNewPath, 
+            # /route_planner/pub_new_path',
+            '/test/route_planner/pub_new_path',
             callback_group=self.service_callback_group
         )
 
         # 等待服务可用
-        self.get_logger().info('等待进程管理器服务...')
-        self.start_process_client.wait_for_service(timeout_sec=10.0)
-        self.shutdown_process_client.wait_for_service(timeout_sec=10.0)
-        self.get_logger().info('进程管理器服务已连接')
+        self.get_logger().info('等待启动进程服务...')
+        while self.start_process_client.wait_for_service(timeout_sec=10.0) == False:
+            pass
+        self.get_logger().info('启动进程服务已连接')
+
+        self.get_logger().info('等待关闭进程服务...')
+        while self.shutdown_process_client.wait_for_service(timeout_sec=10.0) == False:
+            pass
+        self.get_logger().info('关闭进程服务已连接')
+        
         self.get_logger().info('等待路径服务...')
-        self.pub_new_path_client.wait_for_service(timeout_sec=10.0)
+        while self.pub_new_path_client.wait_for_service(timeout_sec=10.0) == False:
+            pass
         self.get_logger().info('发布路径服务已连接')
 
     def waypoint_list_callback(self, msg: WaypointList):
@@ -123,42 +142,47 @@ class NavigationManager(Node):
         参数:
             msg: 包含导航航点的WaypointList消息
         """
-        # if self.is_navigating:
-        #     self.get_logger().warn('已在导航中，忽略新航点列表')
-        #     return
 
-        # 取消上条路径的navgation2导航任务
-        if self.current_goal_handle is not None:
-            self.current_goal_handle.cancel_goal_async()
+        # 判断是否还在运行中
+        with self.state_lock:
+            if self.is_navigating:
+                self.get_logger().warn('已在导航中，忽略新航点列表')
+                return
+            # 存储航点列表
+            self.waypoint_list = msg.waypoints
+            self.task_id = msg.task_id
+            self.current_waypoint_index = 0
+            self.current_map = msg.start_map_name
+            self.total_path = msg.total_path
+            self.is_navigating = True
 
-        # 打印日志
+            # 取消上条路径的navgation2导航任务
+            # if self.current_goal_handle is not None:
+            #     self.current_goal_handle.cancel_goal_async()
+
+            # 打印日志
         self.get_logger().info(
             f'收到航点列表: task_id={msg.task_id}, '
+            f'航点列表: waypoint_list{self.waypoint_list}'
             f'total_waypoints={msg.total_waypoints}'
         )
-
-        # 存储航点列表
-        self.waypoint_list = msg.waypoints
-        self.task_id = msg.task_id
-        self.current_waypoint_index = 0
-        self.current_map = msg.start_map_name
-        self.total_path = msg.total_path
 
         # 开始导航序列
         self.start_navigation_sequence()
 
     def start_navigation_sequence(self):
         """从第一个航点开始导航序列"""
-        if not self.waypoint_list or len(self.waypoint_list) == 0:
+        with self.state_lock:
+            waypoint_list = self.waypoint_list
+
+        if not waypoint_list or len(waypoint_list) == 0:
             self.get_logger().error('没有航点可导航')
             return
 
         self.get_logger().info(
-            f'开始导航序列，共 {len(self.waypoint_list)} 个航点'
+            f'开始导航序列，共 {len(waypoint_list)} 个航点'
         )
 
-        # 更新状态
-        # self.is_navigating = True
         self.publish_robot_state('running')
 
         # 导航到第一个航点
@@ -166,31 +190,39 @@ class NavigationManager(Node):
 
     def navigate_to_next_waypoint(self):
         """导航到序列中的下一个航点"""
-        if not self.waypoint_list or self.current_waypoint_index >= len(self.waypoint_list):
+        with self.state_lock:
+            waypoint_list = self.waypoint_list
+            current_waypoint_index = self.current_waypoint_index
+
+        if not waypoint_list or current_waypoint_index >= len(waypoint_list):
             self.get_logger().info('所有航点已完成')
             self.complete_navigation()
             return
-
-        waypoint = self.waypoint_list[self.current_waypoint_index]
+            
+        waypoint = waypoint_list[self.current_waypoint_index]
 
         self.get_logger().info(
-            f'正在导航到航点 {self.current_waypoint_index + 1}/{len(self.waypoint_list)}: '
+            f'正在导航到航点 {current_waypoint_index + 1}/{len(waypoint_list)}: '
             f'type={waypoint.type}, map={waypoint.map_name}'
         )
 
-        # 在导航到第1个点之前，先启动导航堆栈, 查看之前是否进行过导航,来判断是否需要启动所有进程
-        if self.current_waypoint_index == 0 and self.current_goal_handle is None:
+        # 如果进程是全部启动，则直接发送目标
+        process_status_dict = self.get_process_status()
+        if all(process_status_dict.values()):
+            self.send_nav2_goal(waypoint)
+        # 如果进程还未启动，则启动进程
+        else:
             self.get_logger().info('首次导航，启动完整导航堆栈...')
-            if self.launch_new_stack(waypoint.map_name):
+            if self.launch_new_stack(waypoint.map_name):                
                 self.send_nav2_goal(waypoint)
             else:
                 self.get_logger().error('导航堆栈启动失败，中止导航')
-                # TODO:应该是重新启动，而不是下发备用路线 
-                self.abort_navigation(reason = 2)
-            return
-
-        # 非第一条路线的第一个点首次导航，直接发送导航目标
-        self.send_nav2_goal(waypoint)
+                # 重启失败
+                if self.abort_navigation(reason = 2) == False:
+                    self.get_logger().error('系统故障，等待远程驾驶连接...')
+                # 重启成功，继续导航
+                else:
+                    self.navigate_to_next_waypoint()
 
     def launch_new_stack(self, map_name: str) -> bool:
         """
@@ -213,6 +245,7 @@ class NavigationManager(Node):
         if not future.result() or not future.result().success:
             self.get_logger().error('启动re_localization失败')
             return False
+        self.get_logger().info('启动re_localization成功')
 
         # 启动nav2_init_pose
         req = StartProcess.Request()
@@ -222,16 +255,16 @@ class NavigationManager(Node):
         self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
             self.get_logger().error('启动nav2_init_pose失败')
-            self.shutdown_process_by_name('re_localization')
             return False
+        self.get_logger().info('启动nav2_init_pose成功')
 
         # 等待tf变换完成
         self.get_logger().info('等待重定位完成并发布 map -> odom TF...')
         if not self.wait_for_map_to_odom_link_tf(timeout_sec=600.0):  # 可根据实际调整
             self.get_logger().error('map -> odom TF 长时间未出现，启动失败')
-            self.shutdown_process_by_name('nav2_init_pose')
-            self.shutdown_process_by_name('re_localization')
+            
             return False
+        self.get_logger().info('检测到已发布map -> odom TF...')
 
         # 启动liosam
         req = StartProcess.Request()
@@ -241,9 +274,8 @@ class NavigationManager(Node):
         self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
             self.get_logger().error('启动liosam失败')
-            self.shutdown_process_by_name('nav2_init_pose')
-            self.shutdown_process_by_name('re_localization')
             return False
+        self.get_logger().info('启动liosam成功')
 
         # 启动navigation2
         req = StartProcess.Request()
@@ -252,28 +284,14 @@ class NavigationManager(Node):
         future = self.start_process_client.call_async(req)
         self._wait_for_future(future, timeout_sec=10.0)
         if not future.result() or not future.result().success:
-            self.get_logger().error('启动navigation2失败')
-            self.shutdown_process_by_name('liosam')
-            self.shutdown_process_by_name('nav2_init_pose')
-            self.shutdown_process_by_name('re_localization')
+            self.get_logger().error('启动navigation2失败')   
             return False
 
+        self.get_logger().info('等待navigaion2全部加载完成')
+        time.sleep(50.0)
+        self.get_logger().info('navigaion2全部加载完成')
         return True
     
-    def shutdown_process_by_name(self, process_name: str) -> bool:
-        """通过服务关闭进程"""
-        try:
-            req = ShutdownProcess.Request()
-            req.process_name = process_name
-            future = self.shutdown_process_client.call_async(req)
-            self._wait_for_future(future, timeout_sec=5.0)
-            if future.result() and future.result().success:
-                return True
-            return False
-        except Exception as e:
-            self.get_logger().error(f'关闭进程{process_name}异常: {e}')
-            return False
-
     def _wait_for_future(self, future, timeout_sec: float):
         """等待 future 完成，由 MultiThreadedExecutor 在其他线程处理回调"""
         start = time.time()
@@ -281,11 +299,7 @@ class NavigationManager(Node):
             time.sleep(0.05)
         return future.result()
 
-    def wait_for_map_to_odom_link_tf(
-        self,
-        timeout_sec: float = 300.0, # 5分钟
-        check_interval: float = 0.5
-    ) -> bool:
+    def wait_for_map_to_odom_link_tf(self, timeout_sec: float = 300.0, check_interval: float = 0.5) -> bool:
         """
         等待 map -> odom TF 变换可用
         """
@@ -380,12 +394,16 @@ class NavigationManager(Node):
         参数:
             waypoint: 地图切换航点
         """
-        self.is_map_switching = True
+        with state_lock:
+            self.is_map_switching = True
+            current_map = self.current_map
+            current_waypoint_index = self.current_waypoint_index
+            waypoint_list = self.waypoint_list
 
         # 创建地图切换触发消息
         trigger_msg = MapSwitchTrigger()
         trigger_msg.header.stamp = self.get_clock().now().to_msg()
-        trigger_msg.current_map = self.current_map
+        trigger_msg.current_map = current_map
         trigger_msg.next_map = waypoint.next_map_name
 
         # 创建切换位姿（使用当前点在下一张地图坐标系下的坐标）
@@ -410,8 +428,8 @@ class NavigationManager(Node):
         trigger_msg.current_waypoint_id = waypoint.id
 
         # 如果可用，获取下一个航点ID
-        if self.current_waypoint_index + 1 < len(self.waypoint_list):
-            trigger_msg.next_waypoint_id = self.waypoint_list[self.current_waypoint_index + 1].id
+        if current_waypoint_index + 1 < len(waypoint_list):
+            trigger_msg.next_waypoint_id = waypoint_list[current_waypoint_index + 1].id
         else:
             trigger_msg.next_waypoint_id = -1
 
@@ -429,25 +447,39 @@ class NavigationManager(Node):
         参数:
             msg: 指示成功/失败的Bool消息
         """
-        if not self.is_map_switching:
+        with self.state_lock:
+            is_map_switching = self.is_map_switching
+
+        if not is_map_switching:
             return
 
-        self.is_map_switching = False
+        with self.state_lock:
+            current_waypoint_index = self.current_waypoint_index
+            waypoint_list = self.waypoint_list
 
         if msg.data:
             self.get_logger().info('地图切换成功完成')
 
             # 更新当前地图
-            if self.current_waypoint_index < len(self.waypoint_list):
-                waypoint = self.waypoint_list[self.current_waypoint_index]
-                self.current_map = waypoint.next_map_name
+            if current_waypoint_index < len(waypoint_list):
+                waypoint = waypoint_list[current_waypoint_index]
+                with self.state_lock:
+                    self.current_map = waypoint.next_map_name
 
             # 移动到下一个航点
-            self.current_waypoint_index += 1
+            with self.state_lock:
+                self.current_waypoint_index += 1
             self.navigate_to_next_waypoint()
+            with self.state_lock:
+                self.is_map_switching = False
         else:
             self.get_logger().error('地图切换失败，中止导航')
-            self.abort_navigation(reason = 2)
+            # 重启失败，等待远程驾驶
+            if self.abort_navigation(reason = 2) == False:
+                self.get_logger().error('系统故障，等待远程驾驶连接...')
+            # 重启成功，重新切换地图
+            else:
+                self.on_goal_reached()
 
     def send_nav2_goal(self, waypoint: Waypoint):
         """
@@ -457,14 +489,16 @@ class NavigationManager(Node):
             waypoint: 目标航点
         """
 
-        self.get_logger().info('⏳ 等待 Navigation2 完全激活...')
-        time.sleep(50.0)  # 给足够时间让 Nav2 完成配置
         # 等待动作服务器
         if not self.nav2_client.wait_for_server(timeout_sec=50.0):
             self.get_logger().error('Navigation2动作服务器不可用')
-            self.abort_navigation(reason = 2)
-            return
-
+            # 重启失败
+            if self.abort_navigation(reason = 2) == False:
+                self.get_logger().error('系统故障，等待远程驾驶连接...')
+            # 重启成功,重新发送目标点
+            else:
+                self.navigate_to_next_waypoint()
+            
         # 创建目标消息
         from geometry_msgs.msg import PoseStamped
         from tf_transformations import quaternion_from_euler
@@ -509,12 +543,16 @@ class NavigationManager(Node):
 
         if not goal_handle.accepted:
             self.get_logger().error('导航目标被拒绝')
-            self.abort_navigation(reason = 2)
-            return
+            # 重启失败
+            if self.abort_navigation(reason = 2) == False:
+                self.get_logger().error('系统故障，等待远程驾驶连接...')
+            # 重启成功,重新发送目标点
+            else:
+                self.navigate_to_next_waypoint()
 
         self.get_logger().info('导航目标已接受')
-
-        self.current_goal_handle = goal_handle
+        with self.state_lock:
+            self.current_goal_handle = goal_handle
 
         # 等待结果
         result_future = goal_handle.get_result_async()
@@ -540,21 +578,25 @@ class NavigationManager(Node):
             self.on_goal_reached()
         elif result_wrapper.status == 5:
             self.get_logger().info('导航目标被切换 (CANCELED)')
-            self.abort_navigation(reason = 2)
+            self.abort_navigation(reason = 0)
         else:
             self.get_logger().error(f'导航目标失败，状态码: {result_wrapper.status}')
             self.abort_navigation(reason = 1)
 
     def on_goal_reached(self):
         """处理成功到达目标"""
-        waypoint = self.waypoint_list[self.current_waypoint_index]
+        with self.state_lock:
+            waypoint_list = self.waypoint_list
+            current_waypoint_index = self.current_waypoint_index
+            current_map = self.current_map
 
+        waypoint = waypoint_list[current_waypoint_index]
         self.get_logger().info(
-            f'到达航点 {self.current_waypoint_index + 1}/{len(self.waypoint_list)}'
+            f'到达航点 {current_waypoint_index + 1}/{len(waypoint_list)}'
         )
         
         # 检查这是否为最终航点
-        if self.current_waypoint_index == len(self.waypoint_list) - 1:
+        if current_waypoint_index == len(waypoint_list) - 1:
             self.get_logger().info('到达最终航点')
             self.complete_navigation()
         else:
@@ -562,24 +604,36 @@ class NavigationManager(Node):
             # 如果是地图切换点
             if self.is_map_switch_point(waypoint):
                 self.get_logger().info('检测为地图切换点')
-                self.current_waypoint_index += 1
-                self.trigger_map_switch(waypoint)
+                
+                # 如果当前地图和地图切换点下一个点的地图不一样，则需要切换地图
+                if current_map != waypoint_list[current_waypoint_index + 1].map_name:
+                    # 在回调中修改 self.current_waypoint_index
+                    self.trigger_map_switch(waypoint)
+                # 如果当前地图和地图切换点下一个点的地图一样，则不需要切换地图
+                else:
+                    with self.state_lock:
+                        self.current_waypoint_index += 1
+                    self.navigate_to_next_waypoint()
 
             # 如果为普通路点
             elif self.is_common_point(waypoint):            
                 self.get_logger().info('检测为普通导航点')
-                self.current_waypoint_index += 1
+                with self.state_lock:
+                    self.current_waypoint_index += 1
                 self.navigate_to_next_waypoint()
 
             elif self.is_trafficlight_point(waypoint):
                 self.get_logger().info('检测为红绿灯点')
-                self.current_waypoint_index += 1
+                with self.state_lock:
+                    self.current_waypoint_index += 1
+                
                 # TODO 停车，检测红绿灯，如果是绿灯则走，如果是红灯黄灯则停
                 pass
 
             elif self.is_charge_point(waypoint):
                 self.get_logger().info('检测为充电点')
-                self.current_waypoint_index += 1
+                with self.state_lock:
+                    self.current_waypoint_index += 1
 
                 # TODO 对准充电桩停车
                 pass
@@ -591,71 +645,95 @@ class NavigationManager(Node):
     
     def complete_navigation(self):
         """完成导航序列"""
-        self.get_logger().info('导航序列成功完成')
+        self.get_logger().info('导航结束，关闭所有进程')
 
         # 关闭所有进程
         self.shutdown_all_processes_service()
 
         # 更新状态
-        # self.is_navigating = False
+        with self.state_lock:
+            self.is_navigating = False
+            self.is_map_switching = False
+            self.waypoint_list = None
+            self.current_waypoint_index = 0
+            self.current_goal_handle = None
         self.publish_robot_state('idle')
 
         # 重置导航状态
-        self.waypoint_list = None
-
-    def abort_navigation(self, reason):
+        
+    def abort_navigation(self, reason)->bool:
         """
         中止导航序列
         0 - 主动取消（不需要处理）
         1 - 导航路径失败（请求备用路线）
-        2 - 系统故障（重试/关闭进程）
+        2 - 系统故障（重启进程进程）
         """
         self.get_logger().warn('导航序列已中止, 正在尝试规划新路径......')
-
-        # 更新状态
-        # self.is_navigating = False
+        with self.state_lock:
+            current_waypoint_index = self.current_waypoint_index
+            waypoint_list = self.waypoint_list
  
         # 调用服务重新下发导航任务
         if reason == 0:
             # 主动取消，不处理
             self.get_logger().info('导航目标已被主动取消，忽略')
-            return
+            return True
 
         elif reason == 1:
             # 导航失败 → 请求备用路线
             self.get_logger().warn('导航路径失败，正在请求备用路线...')
+            with self.state_lock:
+                self.is_navigating = False
             req = PubNewPath.Request()
             points = []
-            for idx in range(self.current_waypoint_index):
-                points.append(self.waypoint_list[idx])
+            for idx in range(current_waypoint_index):
+                points.append(waypoint_list[idx])
             req.points =  points
             future = self.pub_new_path_client.call_async(req)
             self._wait_for_future(future, timeout_sec=10.0)
             if not future.result() or not future.result().success:
-                self.get_logger().error('发布新路径失败，关闭所有进程, 等待远程驾驶连接...')
-                self.publish_robot_state('idle')
-                self.shutdown_all_processes_service()
+                self.get_logger().error('发布新路径失败')
+                self.complete_navigation()
                 return False
+            return True
 
         elif reason == 2:
-            # 系统故障 → 重试启动，重试失败则关闭 TODO
-            if self.attempt_count < self.max_retries:
-                self.get_logger().warn(f'系统故障，尝试重启, 尝试次数{self.attempt_count}/{self.max_retries}')
-                self.publish_robot_state('running')
-
-                # 关闭重启，继续导航
+            # 系统故障 → 尝试重启
+            attempt_count = 0
+            self.shutdown_all_processes_service()
+            while self.launch_new_stack(waypoint_list[current_waypoint_index].map_name) == False:
                 self.shutdown_all_processes_service()
-                self.launch_new_stack(self.waypoint_list[self.current_waypoint_index].map_name)
-                self.navigate_to_next_waypoint()
-                self.attempt_count  += 1
-            else: 
-                self.get_logger().warn(f'系统故障, 达到最大尝试次数, 等待远程驾驶连接')
-                self.shutdown_all_processes_service()
-                self.attempt_count = 0
+                attempt_count  += 1
+                self.get_logger().warn(f'系统故障，尝试重启, 尝试次数{attempt_count}/{self.max_retries}')
+                if attempt_count >= self.max_retries:
+                    self.get_logger().error(f'系统故障, 达到最大重启尝试次数')
+                    self.complete_navigation()
+                    return False
+            return  True
         
-        # 重置导航状态
-        self.waypoint_list = None
-        self.current_waypoint_index = 0
+    def get_process_status(self) -> dict:
+        req = GetProcessStatus.Request()
+        future = self.get_process_status_client.call_async(req)
+        self._wait_for_future(future, timeout_sec=5.0)
+        res =  future.result()
+        return {"re_localization": res.re_localization_running,
+                "liosam":res.liosam_running,
+                "nav2_init_pose": res.nav2_init_pose_running,
+                "navigation2": res.navigation2_running}
+        
+    def shutdown_process_by_name(self, process_name: str) -> bool:
+        """通过服务名关闭进程"""
+        try:
+            req = ShutdownProcess.Request()
+            req.process_name = process_name
+            future = self.shutdown_process_client.call_async(req)
+            self._wait_for_future(future, timeout_sec=5.0)
+            if future.result() and future.result().success:
+                return True
+            return False
+        except Exception as e:
+            self.get_logger().error(f'关闭进程{process_name}异常: {e}')
+            return False
 
     def shutdown_all_processes_service(self):
         """通过服务关闭所有进程"""
@@ -674,7 +752,6 @@ class NavigationManager(Node):
         msg.data = state
         self.robot_state_pub.publish(msg)
         self.get_logger().debug(f'机器人状态: {state}')
-
 
 def main(args=None):
     rclpy.init(args=args)
