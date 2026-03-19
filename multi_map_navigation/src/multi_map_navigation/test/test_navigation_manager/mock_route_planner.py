@@ -30,8 +30,8 @@ class MockRoutePlannerNode(Node):
 
     def mock_pub_new_path_callback(self, request, response):
         """模拟 pub_new_path 服务调用"""
-        self.get_logger().info("[MOCK] 收到 pub_new_path 请求")
-        self.get_logger().info(f"[MOCK] 已走过的点数: {len(request.points)}")
+        print("[DEBG] 收到 pub_new_path 请求")
+        print(f"[DEBG] 收到的request已走过的点: {request.points}")
 
         # 发布新路径
         # 填充waypoint_list路径消息
@@ -63,7 +63,7 @@ class MockRoutePlannerNode(Node):
         
         # 路线数量
         waypoint_list_msg.total_path = 1 
-        print(f'msg: {waypoint_list_msg}')
+        print(f'[DEBG] 发送waypointlist: {waypoint_list_msg}')
         self.publisher_.publish(waypoint_list_msg)
         self.get_logger().info(f'已发布包含航点列表')
 
@@ -96,7 +96,6 @@ class MockRoutePlannerNode(Node):
             wp.next_y = next_y
             wp.next_yaw = next_yaw
         return wp
-
 
 def main(args=None):
     rclpy.init(args=args)

@@ -61,6 +61,7 @@ class ProcessManagerNode(Node):
         )
 
         self.get_logger().info('进程管理器节点已初始化')
+        self.count = 0
 
     def start_process_callback(self, request, response):
         """
@@ -156,6 +157,10 @@ class ProcessManagerNode(Node):
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL
             )
+            # if self.count < 2:
+            #     self.count += 1
+            #     return False
+            # self.count = 0 
 
             self.processes['re_localization'] = process
             time.sleep(self.startup_delay)
@@ -193,7 +198,6 @@ class ProcessManagerNode(Node):
 
             self.processes['nav2_init_pose'] = process
             time.sleep(self.startup_delay)
-
             if self.is_process_running('nav2_init_pose'):
                 self.get_logger().info('nav2_init_pose启动成功')
                 return True

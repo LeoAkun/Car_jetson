@@ -19,7 +19,7 @@ class TestGraphPublisher(Node):
         self.pub_new_path_client.wait_for_service(timeout_sec=10.0)
         self.get_logger().info('发布路径服务已连接')
 
-    def create_waypoint(self, name, id_int, x, y, map_name="map1", w_type=1, next_map_name="map2", next_x=0.0, next_y=0.0, next_yaw=0.0):
+    def create_waypoint(self, name, id_int, x, y, map_name="map1", w_type=1, next_map_name="map2", next_x=0.0, next_y=0.0, next_yaw=0.0, lng=0.0, lat=0.0):
         """快速构造 Waypoint 消息的辅助函数"""
         wp = Waypoint()
         wp.name = name
@@ -30,6 +30,8 @@ class TestGraphPublisher(Node):
         wp.yaw = 0.0
         wp.type = w_type  # 1=正常, 4=地图切换
         wp.tolerance = 0.5
+        wp.lng=lng
+        wp.lat=lat
         if w_type == 1:
             # 即使不用的字段也初始化一下，避免某些版本的 ROS 报错
             wp.next_map_name = ""
@@ -119,21 +121,23 @@ class TestGraphPublisher(Node):
         msg.header.frame_id = "map"
 
         # 1. 构造节点 (Nodes)
-        self.A1 = self.create_waypoint(name = "A1", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        self.A2 = self.create_waypoint(name = "A2", id_int = 1, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        self.A3 = self.create_waypoint(name = "A3", id_int = 2, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        self.A4 = self.create_waypoint(name = "A4", id_int = 3, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        self.M1 = self.create_waypoint(name = "M1", id_int = 4, x = 2.0, y = 3.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
-        self.B1 = self.create_waypoint(name = "B1", id_int = 5, x = 1.0, y = 2.0,  map_name="map2", w_type=1)
-        self.B2 = self.create_waypoint(name = "B2", id_int = 6, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        self.M2 = self.create_waypoint(name = "M2", id_int = 7, x = 4.0, y = 5.0,  map_name="map1", w_type=4, next_map_name="map3", next_x=0.0, next_yaw=0.0)
-        self.C1 = self.create_waypoint(name = "C1", id_int = 8, x = 2.0, y = 4.0,  map_name="map3", w_type=1)
-        self.C2 = self.create_waypoint(name = "C2", id_int = 9, x = 2.0, y = 2.0,  map_name="map3", w_type=1)
-        self.C3 = self.create_waypoint(name = "C3", id_int = 10, x = 2.0, y = 2.0,  map_name="map3", w_type=1)
+        self.A1 = self.create_waypoint(name = "A1", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1, lng=1.0, lat=4.0)
+        self.A2 = self.create_waypoint(name = "A2", id_int = 1, x = 0.0, y = 0.0, map_name="map1", w_type=1, lng=2.0, lat=5.0)
+        self.A3 = self.create_waypoint(name = "A3", id_int = 2, x = 0.0, y = 0.0, map_name="map1", w_type=1, lng=4.0, lat=5.0)
+        self.A4 = self.create_waypoint(name = "A4", id_int = 3, x = 0.0, y = 0.0, map_name="map1", w_type=1, lng=3.0, lat=4.0)
+        self.M1 = self.create_waypoint(name = "M1", id_int = 4, x = 2.0, y = 3.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0, lng=5.0, lat=4.0)
+        self.B1 = self.create_waypoint(name = "B1", id_int = 5, x = 1.0, y = 2.0,  map_name="map2", w_type=1, lng=6.0, lat=5.0)
+        self.B2 = self.create_waypoint(name = "B2", id_int = 6, x = 2.0, y = 2.0,  map_name="map2", w_type=1, lng=7.0, lat=5.0)
+        self.M2 = self.create_waypoint(name = "M2", id_int = 7, x = 4.0, y = 5.0,  map_name="map1", w_type=4, next_map_name="map3", next_x=0.0, next_yaw=0.0, lng=5.0, lat=3.0)
+        self.C1 = self.create_waypoint(name = "C1", id_int = 8, x = 2.0, y = 4.0,  map_name="map3", w_type=1, lng=6.0, lat=1.0)
+        self.C2 = self.create_waypoint(name = "C2", id_int = 9, x = 2.0, y = 2.0,  map_name="map3", w_type=1, lng=7.0, lat=2.0)
+        self.C3 = self.create_waypoint(name = "C3", id_int = 10, x = 2.0, y = 2.0,  map_name="map3", w_type=1, lng=7.0, lat=1.0)
         
         msg.nodes = [self.A1, self.A2, self.A3, self.A4, self.B1, self.B2, self.M1, self.M2,self.C1, self.C2, self.C3]
 
         # 2. 设置任务的起点和终点
+        # msg.start = self.A1
+        # msg.end = self.C3
         msg.start = self.C3
         msg.end = self.A1
 
@@ -269,7 +273,8 @@ def main(args=None):
     try:
         node.publish_once_2()
         time.sleep(2)
-        node.call_service([node.C3, node.C2])
+        # node.call_service([node.C3, node.C2])
+        #node.call_service([node.A1, node.A4])
         # time.sleep(5)
         # node.call_service([node.A4, node.M1])
     except KeyboardInterrupt:

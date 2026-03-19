@@ -3,10 +3,10 @@ from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from multi_map_navigation_msgs.msg import Waypoint, WaypointList, StartEndGraph
 from multi_map_navigation_msgs.srv import PubNewPath
-from std_msgs.msg import Header
+from std_msgs.msg import Header, String
 import networkx as nx
 import matplotlib.pyplot as plt
-import math
+import math, time
 import threading
 from shapely.geometry import Point, MultiPoint
 from sensor_msgs.msg import NavSatFix
@@ -20,6 +20,9 @@ class RoutePlannerNode(Node):
         self.points = None # 已探索过的航点
         self.latest_gps = None # gps数据
         self.gps_lock = threading.Lock()
+
+        self.is_running = False # 机器人状态
+        self.state_lock = threading.Lock()
 
         self.graph_cb_group = MutuallyExclusiveCallbackGroup()
         self.gps_cb_group = MutuallyExclusiveCallbackGroup()
@@ -43,6 +46,13 @@ class RoutePlannerNode(Node):
             callback_group=self.gps_cb_group
         )
 
+        # 创建订阅者，订阅机器人状态
+        self.robot_state_sub = self.create_subscription(
+            String,
+            '/robot_state',
+            self.robot_state_callback,
+            10
+        )
         # 创建发布者: 发布计算后的路径点
         self.waypoint_list_pub = self.create_publisher(
             WaypointList,
@@ -50,6 +60,7 @@ class RoutePlannerNode(Node):
             '/test/waypoint_list',
             10
         )
+
         # 创建服务端: 发布一条新路径
         self.pub_new_path_srv = self.create_service(
             PubNewPath,
@@ -58,11 +69,28 @@ class RoutePlannerNode(Node):
             callback_group=self.srv_cb_group
         )
     
+    def robot_state_callback(self, msg: String):
+        """机器人任务状态回调 - 接收String类型，转换为int32存储"""
+        # msg.data 是字符串: "idle" 或 "running"
+        
+        if msg.data == "idle":
+            with self.state_lock:
+                self.is_running = False
+        else:
+            with self.state_lock:
+                self.is_running = True
+            
     def gps_callback(self, msg: NavSatFix):
         with self.gps_lock:
             self.latest_gps = msg
 
     def start_end_graph_callback(self, msg: StartEndGraph):
+        with self.state_lock:
+            is_running = self.is_running
+        
+        if is_running == True: 
+            self.get_logger().warn(f"机器人正在运行中, 无法规划路径")
+            return
 
         # 1.创建一个空的无向图
         self.G = nx.Graph()
@@ -110,7 +138,8 @@ class RoutePlannerNode(Node):
         self.compute_path(self.start_node_name, self.end_node_name, "weight")
         print(f"[DEBG] 所有路径: {self.path_nodes}")
 
-        # 3.根据GPS判断机器人初始地图位置
+        # 3.根据GPS判断机器人初始地图位置 
+        # TODO 判断经纬度正负
         current_map_name = None
         all_maps = set(attrs.get('map_name') for node, attrs in self.G.nodes(data=True) if attrs.get('map_name'))
         max_attempts = 5
@@ -122,17 +151,18 @@ class RoutePlannerNode(Node):
             # 如果还没收到GPS信号，直接等下一轮
             if self.latest_gps is None:
                 rclpy.spin_once(self, timeout_sec=1.0)
-                self.get_logger().warn(f"[WARN] 尚未收到 GPS 数据，等待重试 ({attempt + 1}/{max_attempts})...")
+                self.get_logger().warn(f"尚未收到 GPS 数据，等待重试 ({attempt + 1}/{max_attempts})...")
                 continue
 
-            lat = current_gps.latitude
             lon = current_gps.longitude
+            lat = current_gps.latitude
 
+            print(f"[DEBG] 机器人当前经纬度({lon},{lat})")
             # 遍历检查是否在某个地图内
             for map_name in all_maps:
-                if self.is_robot_in_map_by_polygon(map_name, lat, lon):
+                if self.is_robot_in_map_by_polygon(map_name, lon, lat):
                     current_map_name = map_name
-                    self.get_logger().info(f"[INFO] 成功定位！机器人当前位于地图多边形内: {current_map_name}")
+                    self.get_logger().info(f"成功定位！机器人当前位于地图多边形内: {current_map_name}")
                     break  # 跳出内层循环 (all_maps 循环)
             
             # 如果已经找到了，就直接跳出外层的重试循环
@@ -141,13 +171,14 @@ class RoutePlannerNode(Node):
             
             # 如果没找到，打印提示并稍微等一下再试（最后一次不用等）
             if attempt < max_attempts - 1:
-                self.get_logger().info(f"[INFO] 定位不在任何已知地图内，坐标({lat:.5f}, {lon:.5f})，稍后重试 ({attempt + 1}/{max_attempts})...")
+                self.get_logger().warn(f"定位不在任何已知地图内，坐标({lon:.5f}, {lat:.5f})，稍后重试 ({attempt + 1}/{max_attempts})...")
                 time.sleep(1.0) # 等待 1 秒，让 GPS 有时间刷新一下漂移
 
         # 5次都尝试完了，还是没找到默认降级为起点地图。 TODO 上报
         if current_map_name is None:
             current_map_name = self.G.nodes[self.start_node_name]['map_name']
-            self.get_logger().warn(f"[WARN] 5次尝试均失败, 默认降级为起点地图: {current_map_name}。")
+            self.get_logger().warn(f"5次尝试均失败, 默认降级为起点地图: {current_map_name}。")
+            return
 
         # 4.更新路径中地图切换点属性
         self.update_graph_switch_node_from_list(self.path_nodes["path1"], current_map_name)
@@ -347,8 +378,6 @@ class RoutePlannerNode(Node):
 
                 # 如果地图切换点不在列表第一个位置
                 else :
-
-                    
                     node_past = active_nodes_list[active_nodes_list.index(node) - 1]
                     print(f"[DEBG] 上一个路点: {node_past}, 上一个路点的地图名: {self.G.nodes[node_past]['map_name']}, 地图切换点的地图名:{self.G.nodes[node]['map_name']}")
                     # 如果这个地图切换点与上一个节点的地图名不同，则表示需要交换属性
@@ -361,28 +390,31 @@ class RoutePlannerNode(Node):
                     else:
                         pass
 
-    def is_robot_in_map_by_polygon(self, target_map_name: str, robot_lat: float, robot_lon: float) -> bool:
+    def is_robot_in_map_by_polygon(self, target_map_name: str, robot_lon: float, robot_lat: float) -> bool:
         """
         function: 判断经纬度是否在指定地图内
         param: @ target_map_name: 地图名称
-               @ robot_lat, robot_lon: 经纬度
+               @ robot_lon: 经度
+               @ robot_lat: 纬度
         """
         # 1. 收集目标地图所有节点的坐标
         map_points = []
         for node_name, attrs in self.G.nodes(data=True):
-            if attrs.get('map_name') == target_map_name:
+            if attrs.get('map_name') == target_map_name or attrs.get('next_map_name') == target_map_name:
                 # 注意 shapely 通常按 (经度/X, 纬度/Y) 排列
                 map_points.append((attrs.get('lng', 0.0), attrs.get('lat', 0.0)))
-                
+        
+        # print(f"[DEBG] map_name: {target_map_name}, map_points:{map_points}")
         if len(map_points) < 3:
             # 点太少构不成面，退化为判断是否在点附近（省略实现）
-            self.get_logger().warn(f"地图 {target_map_name} 节点少于3个，无法构建多边形")
+            self.get_logger().warn(f"地图 {target_map_name} 节点少于3个, 无法构建多边形")
             return False
 
         # 2. 构建包含这些点的外包围多边形 (凸包)
         # MultiPoint 会把所有点变成一个几何集合，.convex_hull 会自动用“橡皮筋”把它们的最外围连起来
         map_polygon = MultiPoint(map_points).convex_hull
-        
+        # print(f"[DEBG] map_polygon:{map_polygon}, robot_lng, robot_lat:{robot_lon, robot_lat}")
+
         # 3. 扩大一点边界 (加个缓冲)，防止机器人在边界线上产生误判
         # 注意：经纬度下的 0.0001 度大概相当于 10 米左右
         map_polygon_with_buffer = map_polygon.buffer(0.0001) 

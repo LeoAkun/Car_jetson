@@ -56,14 +56,19 @@ class WaypointListPublisher(Node):
         waypoint_list_msg.path = "path1" # 路线名称
         
         # 填充waypoint航点消息
-        A = self.create_waypoint(name = "A", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
-        B1 = self.create_waypoint(name = "B1", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1) 
-        B2 = self.create_waypoint(name = "B2", id_int = 1, x = 1.0, y = 2.0,  map_name="map1", w_type=1)
-        M = self.create_waypoint(name = "M", id_int = 2, x = 2.0, y = 3.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
-        C1 = self.create_waypoint(name = "C1", id_int = 3, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        C2 = self.create_waypoint(name = "C2", id_int = 3, x = 2.0, y = 2.0,  map_name="map2", w_type=1)
-        D = self.create_waypoint(name = "D", id_int = 4, x = 2.0, y = 3.0,  map_name="map2", w_type=1)
-        waypoints = [A, B1, M, C1, D]
+        A1 = self.create_waypoint(name = "A1", id_int = 0, x = 0.0, y = 0.0, map_name="map1", w_type=1)
+        A2 = self.create_waypoint(name = "A2", id_int = 1, x = 0.0, y = 1.0, map_name="map1", w_type=1) 
+        A3 = self.create_waypoint(name = "A3", id_int = 2, x = 1.0, y = 0.0, map_name="map1", w_type=1)
+        M3 = self.create_waypoint(name = "M3", id_int = 3, x = 0.0, y = 0.0,  map_name="map3 ", w_type=4, next_map_name="map1", next_x= 1.0, next_yaw=1.0)
+        C1 = self.create_waypoint(name = "C1", id_int = 4, x = 0.0, y = 1.0,  map_name="map3", w_type=1)
+        C2 = self.create_waypoint(name = "C2", id_int = 5, x = 1.0, y = 0.0,  map_name="map3", w_type=1)
+        M1 = self.create_waypoint(name = "M1", id_int = 6, x = 1.0, y = 2.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=0.0)
+        M2 = self.create_waypoint(name = "M2", id_int = 7, x = 2.0, y = 1.0,  map_name="map1", w_type=4, next_map_name="map2", next_x=0.0, next_yaw=1.0)
+        B1 = self.create_waypoint(name = "B1", id_int = 8, x = 1.0, y = 1.0, map_name="map2", w_type=1)
+        B2 = self.create_waypoint(name = "B2", id_int = 9, x = 1.0, y = 2.0, map_name="map2", w_type=1)
+        B3 = self.create_waypoint(name = "B3", id_int = 10, x = 2.0, y = 0.0, map_name="map2", w_type=1)
+        B4 = self.create_waypoint(name = "B4", id_int = 11, x = 2.0, y = 2.0, map_name="map2", w_type=1)
+        waypoints = [C1, M3, A2, M1, B2]
         
         waypoint_list_msg.waypoints = waypoints
 

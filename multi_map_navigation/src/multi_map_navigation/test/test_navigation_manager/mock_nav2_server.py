@@ -8,7 +8,7 @@ from rclpy.action import ActionServer
 from rclpy.node import Node
 from nav2_msgs.action import NavigateToPose
 import time
-
+from rclpy.action.server import GoalResponse
 
 class FakeNav2Server(Node):
     def __init__(self):
@@ -17,7 +17,8 @@ class FakeNav2Server(Node):
             self,
             NavigateToPose,
             'navigate_to_pose',
-            self.test_execute_callback
+            self.test_execute_callback,
+            goal_callback=self.goal_callback
         )
         self.count = 0
         self.get_logger().info("假 Nav2 action server 已启动，第一次成功，第二次失败")
@@ -51,6 +52,17 @@ class FakeNav2Server(Node):
         result = NavigateToPose.Result()
         return result
     
+    def goal_callback(self, goal_request):
+        """
+        在这里决定是接受 (ACCEPT) 还是拒绝 (REJECT) 目标
+        """
+
+        # self.get_logger().warn("⚠️ 模拟触发：拒绝该导航目标 (REJECT)！")
+        # return GoalResponse.REJECT
+               
+        self.get_logger().info("✅ 接受该目标 (ACCEPT)")
+        return GoalResponse.ACCEPT
+        pass
     #模拟先成功，后失败
     def test_execute_callback(self, goal_handle):
         self.get_logger().info(f"收到目标：{goal_handle.request.pose.pose.position.x:.2f}, "
@@ -61,13 +73,15 @@ class FakeNav2Server(Node):
         goal_handle.publish_feedback(feedback)
 
         time.sleep(2.0)  # 模拟导航耗时
-        if self.count == 2: # 第三个点失败
+        if self.count == 2 or self.count == 0 or self.count == 4: # 第三个点失败
             goal_handle.abort()
 
         else:
             goal_handle.succeed()
         
         self.count += 1
+
+        # goal_handle.succeed()
 
         result = NavigateToPose.Result()
         return result
