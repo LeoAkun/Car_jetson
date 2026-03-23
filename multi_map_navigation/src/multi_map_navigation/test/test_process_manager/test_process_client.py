@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 """
-测试进程管理器服务接口（启动/关闭/查询状态）
-
-用一个最小ROS2客户端节点直接调用：
-1) /process_manager/start_process
-2) /process_manager/shutdown_process
-3) /process_manager/get_status
+进程管理器服务测试客户端
 """
 
 import sys
@@ -13,74 +8,126 @@ import time
 
 import rclpy
 from rclpy.node import Node
+from sensor_msgs.msg import NavSatFix, NavSatStatus
+from std_msgs.msg import Header
 
 from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess, GetProcessStatus
 
 
-def _running_field_name(process_name: str) -> str:
-    # 对应 GetProcessStatus.srv 返回字段名
-    mapping = {
+PROCESSES = ["re_localization", "nav2_init_pose", "liosam", "navigation2"]
+
+
+def _status_field(process_name: str) -> str:
+    return {
         "re_localization": "re_localization_running",
         "liosam": "liosam_running",
         "nav2_init_pose": "nav2_init_pose_running",
         "navigation2": "navigation2_running",
-    }
-    return mapping[process_name]
+    }[process_name]
 
 
-def _wait_for_running(node: Node, status_client, process_name: str, want_running: bool, timeout_sec: float) -> bool:
-    end_time = time.time() + timeout_sec
-    req = GetProcessStatus.Request()
-    field = _running_field_name(process_name)
-
-    while time.time() < end_time:
-        future = status_client.call_async(req)
-        completed = rclpy.spin_until_future_complete(node, future, timeout_sec=5.0)
-        if not completed:
-            continue
-
-        res = future.result()
-        if res is not None and getattr(res, field) == want_running:
-            return True
-        time.sleep(0.5)
-    return False
-
-
-def _call_service(node: Node, client, request, timeout_sec: float):
+def _call(node: Node, client, request, timeout_sec: float):
     future = client.call_async(request)
-    completed = rclpy.spin_until_future_complete(node, future, timeout_sec=timeout_sec)
-    if not completed:
-        return None
-    return future.result()
+    rclpy.spin_until_future_complete(node, future, timeout_sec=timeout_sec)
+    return future.result() if future.done() else None
 
 
 def main():
     rclpy.init(args=None)
     node = Node("test_process_client")
+    double_start_requested = "--double-start" in sys.argv[1:]
+    shutdown_status_only = "--shutdown-status-only" in sys.argv[1:]
+    status_only = "--status-only" in sys.argv[1:]
+    double_start_delay_ms = 0
+    for arg in sys.argv[1:]:
+        if arg.startswith("--double-start-delay-ms="):
+            try:
+                double_start_delay_ms = max(0, int(arg.split("=", 1)[1]))
+            except ValueError:
+                pass
 
+    # 创建三个客户端
     start_client = node.create_client(StartProcess, "/process_manager/start_process")
     shutdown_client = node.create_client(ShutdownProcess, "/process_manager/shutdown_process")
     status_client = node.create_client(GetProcessStatus, "/process_manager/get_status")
 
-    for client, name in (
+    for client in (
         (start_client, "start_process"),
         (shutdown_client, "shutdown_process"),
         (status_client, "get_status"),
     ):
-        while not client.wait_for_service(timeout_sec=1.0):
-            node.get_logger().info(f"等待服务可用: {name}")
+        while not client[0].wait_for_service(timeout_sec=1.0):
+            pass
 
-    shutdown_requested = "--shutdown" in sys.argv[1:]
-
-    # 默认用 map1；也可以用命令行覆盖：python3 .../test_process_client.py map2 [--shutdown]
+    # 默认用 map1
     map_name = "map1"
     for arg in sys.argv[1:]:
         if not arg.startswith("--"):
             map_name = arg
             break
-    node.get_logger().info(f"测试使用地图: {map_name}")
 
-    # 先启动所有堆栈进程
+    if not shutdown_status_only:
+        # 启动 nav2_init_pose 前持续给GPS，避免其卡在“等待 GPS 数据”
+        gps_pub = node.create_publisher(NavSatFix, "/sensing/gnss/pose_with_covariance", 10)
+
+        def publish_fake_gps():
+            msg = NavSatFix()
+            msg.header = Header()
+            msg.header.stamp = node.get_clock().now().to_msg()
+            msg.header.frame_id = "gps_link"
+            msg.status.status = NavSatStatus.STATUS_FIX
+            msg.status.service = NavSatStatus.SERVICE_GPS
+            msg.longitude = 7.0
+            msg.latitude = 1.0
+            msg.altitude = 10.0
+            msg.position_covariance = [
+                0.01, 0.0, 0.0,
+                0.0, 0.01, 0.0,
+                0.0, 0.0, 0.01,
+            ]
+            msg.position_covariance_type = NavSatFix.COVARIANCE_TYPE_DIAGONAL_KNOWN
+            gps_pub.publish(msg)
+
+        node.create_timer(1.0, publish_fake_gps)
+
+    node.get_logger().info(
+        "mode="
+        + ("status-only" if status_only else "shutdown-status-only" if shutdown_status_only else "start")
+        + (", double-start" if double_start_requested else "")
+        + (f", delay={double_start_delay_ms}ms" if double_start_requested else "")
+    )
+
+    if status_only:
+        # 单独测试 get_status 服务
+        res = _call(node, status_client, GetProcessStatus.Request(), timeout_sec=10.0)
+        node.get_logger().info(
+            f"status: {None if res is None else {'re_localization': res.re_localization_running, 'nav2_init_pose': res.nav2_init_pose_running, 'liosam': res.liosam_running, 'navigation2': res.navigation2_running}}"
+        )
+        node.destroy_node()
+        rclpy.shutdown()
+        return
+
+    if shutdown_status_only:
+        # 单独测试 shutdown + get_status（关闭前/后各查一次）
+        before = _call(node, status_client, GetProcessStatus.Request(), timeout_sec=10.0)
+        shutdown_summary = []
+        for process_name in PROCESSES:
+            req = ShutdownProcess.Request()
+            req.process_name = process_name
+            res = _call(node, shutdown_client, req, timeout_sec=20.0)
+            shutdown_summary.append(
+                f"{process_name}:{False if res is None else bool(res.success)}"
+            )
+        after = _call(node, status_client, GetProcessStatus.Request(), timeout_sec=10.0)
+        node.get_logger().info(
+            f"shutdown summary: {'; '.join(shutdown_summary)} | "
+            f"before={None if before is None else {'re_localization': before.re_localization_running, 'nav2_init_pose': before.nav2_init_pose_running, 'liosam': before.liosam_running, 'navigation2': before.navigation2_running}} | "
+            f"after={None if after is None else {'re_localization': after.re_localization_running, 'nav2_init_pose': after.nav2_init_pose_running, 'liosam': after.liosam_running, 'navigation2': after.navigation2_running}}"
+        )
+        node.destroy_node()
+        rclpy.shutdown()
+        return
+
     start_plan = [
         ("re_localization", map_name),
         ("nav2_init_pose", map_name),
@@ -88,62 +135,58 @@ def main():
         ("navigation2", map_name),
     ]
 
+    start_summary = []
     running_list = []
+
     for process_name, req_map in start_plan:
-        node.get_logger().info(f"请求启动: {process_name}")
-
-        req = StartProcess.Request()
-        req.process_name = process_name
-        req.map_name = req_map
-
-        res = _call_service(node, start_client, req, timeout_sec=15.0)
-        if res is None:
-            node.get_logger().error(f"启动服务未返回: {process_name}")
-            continue
-
-        node.get_logger().info(f"启动结果: success={res.success}, message={res.message}")
-        if not res.success:
-            continue
-
-        # 通过查询状态确认“进程管理器认为它仍在运行”
-        if _wait_for_running(node, status_client, process_name, True, timeout_sec=120.0):
-            running_list.append(process_name)
-            node.get_logger().info(f"状态确认：{process_name} 正在运行")
+        if double_start_requested:
+            # 双启动测试：先发第一次，再按配置延时后发第二次
+            req1 = StartProcess.Request()
+            req1.process_name = process_name
+            req1.map_name = req_map
+            req2 = StartProcess.Request()
+            req2.process_name = process_name
+            req2.map_name = req_map
+            future1 = start_client.call_async(req1)
+            if double_start_delay_ms > 0:
+                time.sleep(double_start_delay_ms / 1000.0)
+            future2 = start_client.call_async(req2)
+            rclpy.spin_until_future_complete(node, future1, timeout_sec=20.0)
+            rclpy.spin_until_future_complete(node, future2, timeout_sec=20.0)
+            res1 = future1.result() if future1.done() else None
+            res2 = future2.result() if future2.done() else None
+            first_ok = (res1 is not None and bool(res1.success))
+            second_ok = (res2 is not None and bool(res2.success))
+            start_summary.append(f"{process_name}[1st={first_ok};2nd={second_ok}]")
+            if not first_ok:
+                continue
         else:
-            node.get_logger().error(f"状态确认失败：{process_name} 未在限定时间内进入运行状态")
-
-    # 打印一次完整状态
-    node.get_logger().info("查询当前进程状态...")
-    status_res = _call_service(node, status_client, GetProcessStatus.Request(), timeout_sec=10.0)
-    if status_res is not None:
-        node.get_logger().info(
-            "status: "
-            f"re_localization={status_res.re_localization_running}, "
-            f"liosam={status_res.liosam_running}, "
-            f"nav2_init_pose={status_res.nav2_init_pose_running}, "
-            f"navigation2={status_res.navigation2_running}"
-        )
-
-    if shutdown_requested:
-        # 再关闭所有“确认正在运行”的进程
-        node.get_logger().info("请求关闭进程（按反向顺序）...")
-        for process_name in reversed(running_list):
-            node.get_logger().info(f"请求关闭: {process_name}")
-
-            req = ShutdownProcess.Request()
+            # 普通单次启动
+            req = StartProcess.Request()
             req.process_name = process_name
-            res = _call_service(node, shutdown_client, req, timeout_sec=15.0)
-            if res is None:
-                node.get_logger().error(f"关闭服务未返回: {process_name}")
+            req.map_name = req_map
+            res = _call(node, start_client, req, timeout_sec=15.0)
+            ok = (res is not None and bool(res.success))
+            start_summary.append(f"{process_name}[{ok}]")
+            if not ok:
                 continue
 
-            node.get_logger().info(f"关闭结果: success={res.success}, message={res.message}")
+        end_time = time.time() + 120.0
+        field = _status_field(process_name)
+        # 轮询状态服务，确认进程真的进入运行态
+        while time.time() < end_time:
+            status_res = _call(node, status_client, GetProcessStatus.Request(), timeout_sec=5.0)
+            if status_res is not None and getattr(status_res, field):
+                running_list.append(process_name)
+                break
+            time.sleep(0.5)
 
-            _wait_for_running(node, status_client, process_name, False, timeout_sec=60.0)
-    else:
-        node.get_logger().info("未请求关闭进程：进程将保持运行。")
-
-    node.get_logger().info("测试结束。")
+    final_status = _call(node, status_client, GetProcessStatus.Request(), timeout_sec=10.0)
+    node.get_logger().info(
+        f"start summary: {'; '.join(start_summary)} | "
+        f"running={running_list if running_list else []} | "
+        f"status={None if final_status is None else {'re_localization': final_status.re_localization_running, 'nav2_init_pose': final_status.nav2_init_pose_running, 'liosam': final_status.liosam_running, 'navigation2': final_status.navigation2_running}}"
+    )
     node.destroy_node()
     rclpy.shutdown()
 

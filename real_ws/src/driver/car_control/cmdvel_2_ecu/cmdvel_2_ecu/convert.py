@@ -14,7 +14,7 @@ class CmdVelToEcu(Node):
 
         self.declare_parameter('L', 0.5)
         self.declare_parameter('MAX_STEER_DEG', 20.0)
-        self.declare_parameter('LOW_SPEED_THRESH', 0.08)
+        self.declare_parameter('LOW_SPEED_THRESH', 0.3)
         self.declare_parameter('OMEGA_DEADZONE', 0.20)
         self.declare_parameter('OMEGA_FULL_STEER', 1.20)
         self.declare_parameter('rear_wheel_flag', True)
@@ -51,9 +51,11 @@ class CmdVelToEcu(Node):
 
         # 角速度
         omega =  - msg.angular.z
-
-        # 如果是原地打方向
+        # self.get_logger().warn(f"[TEST] v: {v}, seself.LOW_SPEED_THRESH: {self.LOW_SPEED_THRESH}")
+        # 如果速度太低则认为是原地打方向
         if abs(v) <= self.LOW_SPEED_THRESH:
+            v = 0
+            ecu_msg.motor = math.fabs(v)
             if abs(omega) < self.OMEGA_DEADZONE:
                 steer_deg = 0.0
             else:
@@ -66,7 +68,8 @@ class CmdVelToEcu(Node):
         ecu_msg.steer = max(-self.MAX_STEER_DEG, min(steer_deg, self.MAX_STEER_DEG))
 
         # 其他 flag
-        if abs(v) == 0:
+        epsilon = 1e-6
+        if abs(v) < epsilon:
             ecu_msg.brake = True
         else :
             ecu_msg.brake = False
