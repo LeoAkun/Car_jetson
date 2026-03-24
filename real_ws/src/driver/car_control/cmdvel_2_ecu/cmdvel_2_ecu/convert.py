@@ -52,9 +52,14 @@ class CmdVelToEcu(Node):
         # 角速度
         omega =  - msg.angular.z
         # self.get_logger().warn(f"[TEST] v: {v}, seself.LOW_SPEED_THRESH: {self.LOW_SPEED_THRESH}")
-        # 如果速度太低则认为是原地打方向
+        
+        # 低速限幅
         if abs(v) <= self.LOW_SPEED_THRESH:
-            v = 0
+            v = self.LOW_SPEED_THRESH
+        
+        # 如果速度太低则认为是原地打方向
+        if abs(v) <= 1e-6:
+            v = 0.0
             ecu_msg.motor = math.fabs(v)
             if abs(omega) < self.OMEGA_DEADZONE:
                 steer_deg = 0.0

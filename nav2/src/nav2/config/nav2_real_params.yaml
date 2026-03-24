@@ -210,8 +210,9 @@ controller_server:
       
       # 处理三点式掉头的尖点部分
       enforce_path_inversion: True
-      # inversion_xy_tolerance: 0.4     # <--- 新增：告诉MPPI，距离尖点0.4米内就可以踩刹车换倒挡了
-      # inversion_yaw_tolerance: 0.78
+      inversion_xy_tolerance: 0.2
+      inversion_yaw_tolerance: 0.75
+
 
       # 基本参数
       motion_model: "Ackermann" # 运动模型 "DiffDrive" "Omni" "Ackermann"
@@ -222,7 +223,7 @@ controller_server:
       # 运动参数
       vx_std: 1.5
       vy_std: 0.3
-      wz_std: 0.4 # 轨迹广度，减少角速度采样范围，避免生成过多转向轨迹
+      wz_std: 0.5 # 轨迹广度，减少角速度采样范围，避免生成过多转向轨迹
       vx_max: 3.0 # 最大x速度
       vx_min: -3.0 # 最小x速度
       vy_max: 0.0 # 最大y方向速度，全向底盘
@@ -239,7 +240,7 @@ controller_server:
       transform_tolerance: 0.5  # 增加到0.5秒，与代价地图保持一致
       temperature: 0.3
       gamma: 0.015
-      time_steps: 100 # 时间步数
+      time_steps: 56 # 时间步数
       model_dt: 0.05 # 轨迹中两个采样点时间间隔 time_steps * model_dt < 局部代价地图的宽高
       batch_size: 2000 # 候选轨迹数量
       
@@ -255,7 +256,8 @@ controller_server:
       # 阿克曼模型参数
       AckermannConstraints:
         min_turning_r: 0.4 # 转弯半径
-      critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic", "VelocityDeadbandCritic"] # 评判模型
+      # critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic", "VelocityDeadbandCritic"] # 评判模型
+      critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic"] # 评判模型
       
       # 动力学约束评判
       ConstraintCritic:
@@ -324,7 +326,7 @@ controller_server:
       PathFollowCritic:
         enabled: true
         cost_power: 1
-        cost_weight: 3.0  # 降低权重（原5.0）,配合PathAlign减少震荡
+        cost_weight: 5.0  # 降低权重（原5.0）,配合PathAlign减少震荡
         offset_from_furthest: 5
         threshold_to_consider: 1.4
       PathAngleCritic:
@@ -336,11 +338,11 @@ controller_server:
         max_angle_to_furthest: 1.0
         mode: 2  # 0=只考虑前进 2=根据路径段方向自动判断前进/倒车
       # 速度死区约束
-      VelocityDeadbandCritic:
-        enabled: true
-        cost_power: 1
-        cost_weight: 35.0
-        deadband_velocities: [0.3, 0.0, 0.20]
+      # VelocityDeadbandCritic:
+      #   enabled: false
+      #   cost_power: 1
+      #   cost_weight: 2.0
+      #   deadband_velocities: [0.3, 0.0, 0.20]
       # TwirlingCritic:
       #   enabled: true
       #   twirling_cost_power: 1
@@ -622,5 +624,6 @@ velocity_smoother:
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "odom"
     odom_duration: 0.1
-    deadband_velocity: [0.3, 0.0, 0.20]
+    # deadband_velocity: [0.3, 0.0, 0.20]
+    deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
