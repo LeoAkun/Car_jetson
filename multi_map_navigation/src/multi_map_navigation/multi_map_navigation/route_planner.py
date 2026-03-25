@@ -138,47 +138,50 @@ class RoutePlannerNode(Node):
         self.compute_path(self.start_node_name, self.end_node_name, "weight")
         print(f"[DEBG] 所有路径: {self.path_nodes}")
 
-        # 3.根据GPS判断机器人初始地图位置 
-        # TODO 判断经纬度正负
-        current_map_name = None
-        all_maps = set(attrs.get('map_name') for node, attrs in self.G.nodes(data=True) if attrs.get('map_name'))
-        max_attempts = 5
-        for attempt in range(max_attempts):
-            # 每次尝试都重新获取一下最新的 GPS 数据
-            with self.gps_lock:
-                current_gps = self.latest_gps
+        # # 3.根据GPS判断机器人初始地图位置 
+        # # TODO 判断经纬度正负
+        # current_map_name = None
+        # all_maps = set(attrs.get('map_name') for node, attrs in self.G.nodes(data=True) if attrs.get('map_name'))
+        # max_attempts = 5
+        # for attempt in range(max_attempts):
+        #     # 每次尝试都重新获取一下最新的 GPS 数据
+        #     with self.gps_lock:
+        #         current_gps = self.latest_gps
             
-            # 如果还没收到GPS信号，直接等下一轮
-            if self.latest_gps is None:
-                rclpy.spin_once(self, timeout_sec=1.0)
-                self.get_logger().warn(f"尚未收到 GPS 数据，等待重试 ({attempt + 1}/{max_attempts})...")
-                continue
+        #     # 如果还没收到GPS信号，直接等下一轮
+        #     if self.latest_gps is None:
+        #         rclpy.spin_once(self, timeout_sec=1.0)
+        #         self.get_logger().warn(f"尚未收到 GPS 数据，等待重试 ({attempt + 1}/{max_attempts})...")
+        #         continue
 
-            lon = current_gps.longitude
-            lat = current_gps.latitude
+        #     lon = current_gps.longitude
+        #     lat = current_gps.latitude
 
-            print(f"[DEBG] 机器人当前经纬度({lon},{lat})")
-            # 遍历检查是否在某个地图内
-            for map_name in all_maps:
-                if self.is_robot_in_map_by_polygon(map_name, lon, lat):
-                    current_map_name = map_name
-                    self.get_logger().info(f"成功定位！机器人当前位于地图多边形内: {current_map_name}")
-                    break  # 跳出内层循环 (all_maps 循环)
+        #     print(f"[DEBG] 机器人当前经纬度({lon},{lat})")
+        #     # 遍历检查是否在某个地图内
+        #     for map_name in all_maps:
+        #         if self.is_robot_in_map_by_polygon(map_name, lon, lat):
+        #             current_map_name = map_name
+        #             self.get_logger().info(f"成功定位！机器人当前位于地图多边形内: {current_map_name}")
+        #             break  # 跳出内层循环 (all_maps 循环)
             
-            # 如果已经找到了，就直接跳出外层的重试循环
-            if current_map_name is not None:
-                break
+        #     # 如果已经找到了，就直接跳出外层的重试循环
+        #     if current_map_name is not None:
+        #         break
             
-            # 如果没找到，打印提示并稍微等一下再试（最后一次不用等）
-            if attempt < max_attempts - 1:
-                self.get_logger().warn(f"定位不在任何已知地图内，坐标({lon:.5f}, {lat:.5f})，稍后重试 ({attempt + 1}/{max_attempts})...")
-                time.sleep(1.0) # 等待 1 秒，让 GPS 有时间刷新一下漂移
+        #     # 如果没找到，打印提示并稍微等一下再试（最后一次不用等）
+        #     if attempt < max_attempts - 1:
+        #         self.get_logger().warn(f"定位不在任何已知地图内，坐标({lon:.5f}, {lat:.5f})，稍后重试 ({attempt + 1}/{max_attempts})...")
+        #         time.sleep(1.0) # 等待 1 秒，让 GPS 有时间刷新一下漂移
 
-        # 5次都尝试完了，还是没找到默认降级为起点地图。 TODO 上报
-        if current_map_name is None:
-            current_map_name = self.G.nodes[self.start_node_name]['map_name']
-            self.get_logger().warn(f"5次尝试均失败, 默认降级为起点地图: {current_map_name}。")
-            return
+        # # 5次都尝试完了，还是没找到默认降级为起点地图。 TODO 上报
+        # if current_map_name is None:
+        #     current_map_name = self.G.nodes[self.start_node_name]['map_name']
+        #     self.get_logger().warn(f"5次尝试均失败, 默认降级为起点地图: {current_map_name}。")
+        #     return
+
+        # 3.以第一个起始点所属地图为机器人当前所属地图
+        current_map_name = self.G.nodes[self.path_nodes["path1"][0]]["map_name"]
 
         # 4.更新路径中地图切换点属性
         self.update_graph_switch_node_from_list(self.path_nodes["path1"], current_map_name)
@@ -232,7 +235,7 @@ class RoutePlannerNode(Node):
             self.path_nodes = {}
             return response
 
-        # 如果路径点内有地图切换点，需要更新节点对应的属性 TODO 判断机器人所属地图
+        # 如果路径点内有地图切换点，需要更新节点对应的属性
         current_map_name  =  self.G.nodes[node2_name]['map_name']
         self.update_graph_switch_node_from_list(self.path_nodes["path1"], current_map_name)
         
@@ -365,7 +368,7 @@ class RoutePlannerNode(Node):
             # 找到地图切换点
             if node in self.G and self.G.nodes[node]['type'] == 4:
 
-                # 如果这个地图切换点再列表第一个位置，根据机器人当前地图位置判断地图切换点的属性
+                # 如果这个地图切换点在列表第一个位置，根据机器人当前地图位置判断地图切换点的属性
                 if active_nodes_list.index(node) == 0:
                     # 如果机器人当前所使用地图与地图切换点的地图不同，则表示需要交换属性
                     if self.G.nodes[node]["map_name"] != current_map :

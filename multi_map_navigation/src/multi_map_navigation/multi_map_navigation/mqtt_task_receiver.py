@@ -556,8 +556,8 @@ class MQTTTaskReceiver(Node):
         try:
             edge_msg = EdgeMsg()
 
-            edge_msg.start_node_id = int(edge_data.get('node_a', 0))
-            edge_msg.end_node_id = int(edge_data.get('node_b', 0))
+            edge_msg.start_node_id = int(edge_data.get('from_id', 0))
+            edge_msg.end_node_id = int(edge_data.get('to_id', 0))
             edge_msg.weight = float(edge_data.get('weight', 1.0))
 
             # 检查边是否可用
