@@ -56,8 +56,8 @@ class RoutePlannerNode(Node):
         # 创建发布者: 发布计算后的路径点
         self.waypoint_list_pub = self.create_publisher(
             WaypointList,
-            # '/waypoint_list',
-            '/test/waypoint_list',
+            '/waypoint_list',
+            # '/test/waypoint_list',
             10
         )
 
@@ -68,6 +68,7 @@ class RoutePlannerNode(Node):
             self.pub_new_path_callback,
             callback_group=self.srv_cb_group
         )
+        self.get_logger().info('route_planner节点已初始化')
     
     def robot_state_callback(self, msg: String):
         """机器人任务状态回调 - 接收String类型，转换为int32存储"""
@@ -181,7 +182,7 @@ class RoutePlannerNode(Node):
         #     return
 
         # 3.以第一个起始点所属地图为机器人当前所属地图
-        current_map_name = self.G.nodes[self.path_nodes["path1"][0]]["map_name"]
+        current_map_name = self.G.nodes[self.start_node_name]["map_name"]
 
         # 4.更新路径中地图切换点属性
         self.update_graph_switch_node_from_list(self.path_nodes["path1"], current_map_name)
@@ -214,9 +215,14 @@ class RoutePlannerNode(Node):
         '''
         请求接收回调
         '''        
-
+        print(f"[DEBG] 服务调用callback")
         # 保存上次导航已走过的点
         points = request.points
+        if len(points) == 0:
+            response.message = f'points路线为空'
+            response.success = False
+            print(f"[DEBG] 服务调用成功，返回:{response}")
+            return response
 
         # 获取当前路径
         current_full_path_nodes_list = self.path_nodes["path1"]

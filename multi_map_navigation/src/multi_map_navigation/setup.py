@@ -30,6 +30,7 @@ setup(
         'console_scripts': [
             'mqtt_task_receiver = multi_map_navigation.mqtt_task_receiver:main',
             'status_reporter = multi_map_navigation.status_reporter:main',
+            'route_planner = multi_map_navigation.route_planner:main',
             'navigation_manager = multi_map_navigation.navigation_manager:main',
             'map_switch_controller = multi_map_navigation.map_switch_controller:main',
             'process_manager = multi_map_navigation.process_manager:main',

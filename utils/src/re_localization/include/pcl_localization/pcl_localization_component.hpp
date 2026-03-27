@@ -139,4 +139,9 @@ void handleLocalizationService(
   LidarUndistortion lidar_undistortion_;
 
   std::string lidar_topic_;
+
+  // ====================== 新增成员变量 ======================
+  pcl::PointCloud<pcl::PointXYZI>::Ptr first_cloud_{nullptr};
+  bool has_first_cloud_{false};
+  std::mutex cloud_mutex_;                     // 保护点云
 };

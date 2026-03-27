@@ -82,15 +82,17 @@ class PoseInitNode(Node):
         self.timer = None
 
         # --- 核心参数配置 ---
-        self.fitness_score_threshold = 1.0  # 匹配分数阈值 (越小越好)
-        
-        # 搜索范围设置
-        self.search_radius = 3.0           # 搜索半径 (米)
-        self.search_step_dist = 1.0         # 搜索步长 (米) -> 生成网格点
-        
+        self.fitness_score_threshold = 0.1 # 匹配分数阈值 (越小越好)
+
+        # 启发式搜索设置
+        self.initial_step = 2.0             # 初始搜索步长 (米)
+        self.min_step = 0.3                 # 最小搜索步长 (米)
+        self.step_reduction = 0.5           # 步长缩减因子
+        self.max_iterations = 50            # 最大迭代次数
+
         # 角度搜索设置
         self.angle_step = 30                # 角度步长 (度)
-        self.trials_per_pose = 1            # 每个位置/角度尝试次数 (为节省时间，建议设为1)
+        self.angle_fine_step = 15           # 精细角度步长 (度)
 
         # 客户端与订阅
         self.re_localization_client = self.create_client(ReLocalization, '/re_localization')
@@ -115,33 +117,42 @@ class PoseInitNode(Node):
         w, x, y, z = euler.euler2quat(roll, pitch, yaw, axes='sxyz')
         return [x, y, z, w]
 
-    def generate_search_grid(self, center_x, center_y):
-        """
-        生成以 center_x, center_y 为中心的网格搜索点
-        """
-        # 生成偏移量 [-10, -6, -2, 2, 6, 10]
-        offsets = np.arange(-self.search_radius, self.search_radius + 0.1, self.search_step_dist)
-        
-        # 始终包含 (0,0) 中心点
-        if 0.0 not in offsets:
-            offsets = np.append(offsets, 0.0)
-        
-        points = []
-        for dx in offsets:
-            for dy in offsets:
-                # 可以选择只搜索圆形区域内的点，减少计算量
-                if math.sqrt(dx**2 + dy**2) <= self.search_radius * 1.2: 
-                    points.append((center_x + dx, center_y + dy))
-        
-        # 将中心点放到列表第一个，优先搜索
-        points.sort(key=lambda p: (p[0]-center_x)**2 + (p[1]-center_y)**2)
-        
-        self.get_logger().info(f"生成搜索网格: 半径 {self.search_radius}m, 步长 {self.search_step_dist}m, 共 {len(points)} 个位置点")
-        return points
+    def find_best_angle(self, x, y, angle_step):
+        """在给定位置找到最佳角度"""
+        best_score = float('inf')
+        best_angle = 0
+        best_pose = None
+
+        request = ReLocalization.Request()
+        for yaw in range(0, 360, angle_step):
+            q = self.euler_to_quaternion(0, 0, yaw)
+            request.initial_pose.header.frame_id = "map"
+            request.initial_pose.header.stamp = self.get_clock().now().to_msg()
+            request.initial_pose.pose.pose.position.x = float(x)
+            request.initial_pose.pose.pose.position.y = float(y)
+            request.initial_pose.pose.pose.position.z = 0.0
+            request.initial_pose.pose.pose.orientation.x = q[0]
+            request.initial_pose.pose.pose.orientation.y = q[1]
+            request.initial_pose.pose.pose.orientation.z = q[2]
+            request.initial_pose.pose.pose.orientation.w = q[3]
+
+            future = self.re_localization_client.call_async(request)
+            rclpy.spin_until_future_complete(self, future)
+
+            try:
+                resp = future.result()
+                if resp.success and resp.fitness_score < best_score:
+                    best_score = resp.fitness_score
+                    best_angle = yaw
+                    best_pose = resp.pose.pose.pose
+            except:
+                pass
+
+        return best_score, best_angle, best_pose
 
     def execute_logic(self):
-        """主执行逻辑"""
-        
+        """主执行逻辑 - 启发式搜索"""
+
         # 1. 等待服务
         while not self.re_localization_client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('等待 /re_localization 服务...')
@@ -151,80 +162,67 @@ class PoseInitNode(Node):
         self.get_logger().info('等待 GPS 数据...')
         while self.latest_gps is None:
             rclpy.spin_once(self, timeout_sec=0.1)
-        
+
         lat = self.latest_gps.latitude
         lon = self.latest_gps.longitude
-        center_x, center_y = self.converter.gps_to_map(lat, lon)
-        self.get_logger().info(f"✅ GPS中心点: ({center_x:.2f}, {center_y:.2f})")
+        current_x, current_y = self.converter.gps_to_map(lat, lon)
+        self.get_logger().info(f"✅ GPS起始点: ({current_x:.2f}, {current_y:.2f})")
 
-        # 3. 准备搜索变量
-        best_score = float('inf')
-        best_pose_msg = None
-        best_info = ""
+        # 3. 启发式搜索
+        step_size = self.initial_step
+        best_score, best_angle, best_pose = self.find_best_angle(current_x, current_y, self.angle_step)
+        self.get_logger().info(f"🚀 起始点 fitness: {best_score:.4f}, 角度: {best_angle}°")
 
-        # 生成网格点
-        search_points = self.generate_search_grid(center_x, center_y)
-        total_steps = len(search_points) * (360 // self.angle_step)
-        current_step = 0
+        iteration = 0
+        while iteration < self.max_iterations and step_size >= self.min_step:
+            iteration += 1
+            improved = False
 
-        self.get_logger().info(f"🚀 开始全域搜索 (预计尝试 {total_steps} 次调用)...")
+            # 搜索8个方向
+            directions = [(1,0), (-1,0), (0,1), (0,-1), (1,1), (-1,1), (1,-1), (-1,-1)]
 
-        # 4. 双层循环：位置 -> 角度
-        request = ReLocalization.Request()
-        
-        for pt_idx, (px, py) in enumerate(search_points):
-            self.get_logger().info(f"--- 搜索点 [{pt_idx+1}/{len(search_points)}]: ({px:.2f}, {py:.2f}) ---")
-            
-            for yaw in range(0, 360, self.angle_step):
-                current_step += 1
-                q = self.euler_to_quaternion(0, 0, yaw)
+            for dx, dy in directions:
+                test_x = current_x + dx * step_size
+                test_y = current_y + dy * step_size
 
-                # 填充请求
-                request.initial_pose.header.frame_id = "map"
-                request.initial_pose.header.stamp = self.get_clock().now().to_msg()
-                request.initial_pose.pose.pose.position.x = float(px)
-                request.initial_pose.pose.pose.position.y = float(py)
-                request.initial_pose.pose.pose.position.z = 0.0
-                request.initial_pose.pose.pose.orientation.x = q[0]
-                request.initial_pose.pose.pose.orientation.y = q[1]
-                request.initial_pose.pose.pose.orientation.z = q[2]
-                request.initial_pose.pose.pose.orientation.w = q[3]
+                score, angle, pose = self.find_best_angle(test_x, test_y, self.angle_step)
 
-                # 调用服务
-                future = self.re_localization_client.call_async(request)
-                rclpy.spin_until_future_complete(self, future)
-                
-                try:
-                    resp = future.result()
-                    if resp.success:
-                        score = resp.fitness_score
-                        self.get_logger().info(f"位置({px:.1f},{py:.1f}) 角度{yaw:3d}° → score = {score:.4f}")
-                        # 如果找到更好的结果
-                        if score < best_score:
-                            best_score = score
-                            best_pose_msg = resp.pose.pose.pose
-                            best_info = f"位置({px:.1f}, {py:.1f}), 角度 {yaw}°"
-                            self.get_logger().info(f"✨ 发现更佳点: {best_info} | Score: {score:.4f}")
-                            
-                            # 【优化】如果分数极好 (例如 < 0.5)，可以直接提前退出
-                            if score < self.fitness_score_threshold:
-                                self.get_logger().info("🔥 分数极佳，提前结束搜索！")
-                                self.current_transform = best_pose_msg
-                                self.timer = self.create_timer(0.1, self.publish_transform)
-                                # self.broadcast_tf(best_pose_msg)
-                                return True
-                except Exception as e:
-                    pass
+                if score < best_score:
+                    self.get_logger().info(f"✨ 迭代{iteration}: ({test_x:.2f},{test_y:.2f}) fitness={score:.4f} 角度={angle}° (改进 {best_score-score:.4f})")
+                    best_score = score
+                    best_angle = angle
+                    best_pose = pose
+                    current_x, current_y = test_x, test_y
+                    improved = True
+
+                    if best_score < self.fitness_score_threshold:
+                        self.get_logger().info("🔥 达到阈值，提前结束！")
+                        self.current_transform = best_pose
+                        self.timer = self.create_timer(0.1, self.publish_transform)
+                        return True
+                    break
+
+            if not improved:
+                step_size *= self.step_reduction
+                self.get_logger().info(f"🔄 未改进，缩小步长至 {step_size:.2f}m")
+
+        # 4. 精细角度搜索
+        if best_pose:
+            self.get_logger().info(f"🎯 精细角度搜索...")
+            final_score, final_angle, final_pose = self.find_best_angle(current_x, current_y, self.angle_fine_step)
+            if final_score < best_score:
+                best_score = final_score
+                best_pose = final_pose
+                best_angle = final_angle
 
         # 5. 结算
-        if best_pose_msg and best_score < 5.0:
-            self.get_logger().info(f"🏆 最终最佳匹配: {best_info} | Score: {best_score:.4f}")
-            self.current_transform = best_pose_msg
+        if best_pose and best_score < 10.0:
+            self.get_logger().info(f"🏆 最终结果: ({current_x:.2f},{current_y:.2f}) 角度={best_angle}° fitness={best_score:.4f}")
+            self.current_transform = best_pose
             self.timer = self.create_timer(0.1, self.publish_transform)
-            # self.broadcast_tf(best_pose_msg)
             return True
         else:
-            self.get_logger().error(f"❌ 搜索失败。最佳分数 {best_score:.4f} 仍高于阈值 {5.0}")
+            self.get_logger().error(f"❌ 搜索失败 fitness={best_score:.4f}")
             return False
 
     # def broadcast_tf(self, pose):

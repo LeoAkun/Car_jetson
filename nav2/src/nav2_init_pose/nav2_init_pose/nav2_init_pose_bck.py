@@ -33,6 +33,9 @@ class PoseInitNode(Node):
         # 客户端与订阅
         self.re_localization_client = self.create_client(ReLocalization, '/re_localization')
 
+        print(f"[DEBG] 延迟...")
+        time.sleep(5)
+
     def euler_to_quaternion(self, roll_deg, pitch_deg, yaw_deg):
         roll = math.radians(roll_deg)
         pitch = math.radians(pitch_deg)
@@ -53,9 +56,9 @@ class PoseInitNode(Node):
         best_pose_msg = None
         best_info = ""
 
-        # 4. 双层循环：位置 -> 角度
+        # 4. 仅角度
         request = ReLocalization.Request()
-        
+        init_x, init_y = -148.56,493.92
 
         for yaw in range(0, 360, self.angle_step):
             
@@ -63,8 +66,8 @@ class PoseInitNode(Node):
             # 填充请求
             request.initial_pose.header.frame_id = "map"
             request.initial_pose.header.stamp = self.get_clock().now().to_msg()
-            request.initial_pose.pose.pose.position.x = 0.0
-            request.initial_pose.pose.pose.position.y = 0.0
+            request.initial_pose.pose.pose.position.x = init_x
+            request.initial_pose.pose.pose.position.y = init_y
             request.initial_pose.pose.pose.position.z = 0.0
             request.initial_pose.pose.pose.orientation.x = q[0]
             request.initial_pose.pose.pose.orientation.y = q[1]
@@ -79,7 +82,7 @@ class PoseInitNode(Node):
                 resp = future.result()
                 if resp.success:
                     score = resp.fitness_score
-                    self.get_logger().info(f"位置({px:.1f},{py:.1f}) 角度{yaw:3d}° → score = {score:.4f}")
+                    self.get_logger().info(f"位置({init_x:.1f},{init_y:.1f}) 角度{yaw:3d}° → score = {score:.4f}")
                     # 如果找到更好的结果
                     if score < best_score:
                         best_score = score
@@ -94,7 +97,6 @@ class PoseInitNode(Node):
                             return True
             except Exception as e:
                 pass
-
 
     def broadcast_tf(self, pose):
         """保存变换信息，由定时器定期发布"""
@@ -120,11 +122,12 @@ def main(args=None):
     
     try:
         # 使用 execute_logic 接管流程
-        if node.execute_logic():
-            # 成功后保持节点存活以维护 TF
-            print("[System] 初始化成功，系统挂起以保持 TF 广播...")
-            while rclpy.ok():
-                rclpy.spin_once(node, timeout_sec=1.0)
+        for i in range(3):
+            if node.execute_logic():
+                # 成功后保持节点存活以维护 TF
+                print("[System] 初始化成功，系统挂起以保持 TF 广播...")
+                while rclpy.ok():
+                    rclpy.spin_once(node, timeout_sec=1.0)
     except KeyboardInterrupt:
         pass
     finally:

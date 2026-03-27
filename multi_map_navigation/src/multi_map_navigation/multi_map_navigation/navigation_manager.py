@@ -56,8 +56,8 @@ class NavigationManager(Node):
         # 添加后缀test订阅测试话题
         self.waypoint_list_sub = self.create_subscription(
             WaypointList,
-            # '/waypoint_list',
-            '/test/waypoint_list',
+            '/waypoint_list',
+            # '/test/waypoint_list',
             self.waypoint_list_callback,
             10
         )
@@ -65,8 +65,8 @@ class NavigationManager(Node):
         # ROS2订阅器用于地图切换完成
         self.map_switch_complete_sub = self.create_subscription(
             Bool,
-            # '/map_switch_complete',
-            '/test/map_switch_complete',
+            '/map_switch_complete',
+            # '/test/map_switch_complete',
             self.map_switch_complete_callback,
             10
         )
@@ -81,8 +81,8 @@ class NavigationManager(Node):
         # ROS2发布器用于地图切换触发
         self.map_switch_trigger_pub = self.create_publisher(
             MapSwitchTrigger,
-            # '/trigger_map_switch',
-            '/test/trigger_map_switch',
+            '/trigger_map_switch',
+            # '/test/trigger_map_switch',
             10
         )
 
@@ -95,20 +95,20 @@ class NavigationManager(Node):
         # 进程管理服务客户端 - 使用可重入回调组
         self.start_process_client = self.create_client(
             StartProcess, 
-            # '/process_manager/start_process',
-            '/test/process_manager/start_process',
+            '/process_manager/start_process',
+            # '/test/process_manager/start_process',
             callback_group=self.service_callback_group
         )
         self.shutdown_process_client = self.create_client(
             ShutdownProcess, 
-            # '/process_manager/shutdown_process',
-            '/test/process_manager/shutdown_process',
+            '/process_manager/shutdown_process',
+            # '/test/process_manager/shutdown_process',
             callback_group=self.service_callback_group
         )
         self.get_process_status_client = self.create_client(
             GetProcessStatus,
-            # '/process_manager/get_status',
-            '/test/process_manager/get_status',
+            '/process_manager/get_status',
+            # '/test/process_manager/get_status',
             callback_group=self.service_callback_group
         )
 
@@ -116,8 +116,8 @@ class NavigationManager(Node):
         # 添加后缀test接入测试服务接口
         self.pub_new_path_client = self.create_client(
             PubNewPath, 
-            # /route_planner/pub_new_path',
-            '/test/route_planner/pub_new_path',
+            '/route_planner/pub_new_path',
+            # '/test/route_planner/pub_new_path',
             callback_group=self.service_callback_group
         )
 

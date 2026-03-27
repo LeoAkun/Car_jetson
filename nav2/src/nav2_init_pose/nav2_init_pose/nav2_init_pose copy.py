@@ -75,12 +75,8 @@ class PoseInitNode(Node):
         
 
         self.tf_broadcaster = TransformBroadcaster(self)
+        self.latest_gps = None
         self.current_transform = None  # 存储当前的变换
-
-        # GPS采样均值相关
-        self.gps_sample_count = 10
-        self.gps_map_samples = []  # 存储每次gps_to_map的结果
-        self.gps_center = None     # 采样完成后存储均值 (center_x, center_y)
 
         # 创建定时器，每100ms发布一次变换
         self.timer = None
@@ -110,19 +106,7 @@ class PoseInitNode(Node):
 
 
     def gps_callback(self, msg: NavSatFix):
-        if self.gps_center is not None:
-            return
-        lat = msg.latitude
-        lon = msg.longitude
-        mx, my = self.converter.gps_to_map(lat, lon)
-        self.gps_map_samples.append((mx, my))
-        count = len(self.gps_map_samples)
-        self.get_logger().info(f"GPS采样 [{count}/{self.gps_sample_count}]: lat={lat:.7f}, lon={lon:.7f} -> map({mx:.2f}, {my:.2f})")
-        if count >= self.gps_sample_count:
-            center_x = sum(s[0] for s in self.gps_map_samples) / count
-            center_y = sum(s[1] for s in self.gps_map_samples) / count
-            self.gps_center = (center_x, center_y)
-            self.get_logger().info(f"GPS均值中心点 ({count}次): ({center_x:.2f}, {center_y:.2f})")
+        self.latest_gps = msg
 
     def euler_to_quaternion(self, roll_deg, pitch_deg, yaw_deg):
         roll = math.radians(roll_deg)
@@ -163,13 +147,15 @@ class PoseInitNode(Node):
             self.get_logger().info('等待 /re_localization 服务...')
             rclpy.spin_once(self, timeout_sec=0.1)
 
-        # 2. 等待 GPS 采样完成（10次均值）
-        self.get_logger().info('等待 GPS 采样完成...')
-        while self.gps_center is None:
+        # 2. 等待 GPS
+        self.get_logger().info('等待 GPS 数据...')
+        while self.latest_gps is None:
             rclpy.spin_once(self, timeout_sec=0.1)
-
-        center_x, center_y = self.gps_center
-        self.get_logger().info(f"✅ GPS均值中心点: ({center_x:.2f}, {center_y:.2f})")
+        
+        lat = self.latest_gps.latitude
+        lon = self.latest_gps.longitude
+        center_x, center_y = self.converter.gps_to_map(lat, lon)
+        self.get_logger().info(f"✅ GPS中心点: ({center_x:.2f}, {center_y:.2f})")
 
         # 3. 准备搜索变量
         best_score = float('inf')
@@ -231,14 +217,14 @@ class PoseInitNode(Node):
                     pass
 
         # 5. 结算
-        if best_pose_msg and best_score < 5.0:
+        if best_pose_msg and best_score < 10.0:
             self.get_logger().info(f"🏆 最终最佳匹配: {best_info} | Score: {best_score:.4f}")
             self.current_transform = best_pose_msg
             self.timer = self.create_timer(0.1, self.publish_transform)
             # self.broadcast_tf(best_pose_msg)
             return True
         else:
-            self.get_logger().error(f"❌ 搜索失败。最佳分数 {best_score:.4f} 仍高于阈值 {5.0}")
+            self.get_logger().error(f"❌ 搜索失败。最佳分数 {best_score:.4f} 仍高于阈值 {10.0}")
             return False
 
     # def broadcast_tf(self, pose):
@@ -269,7 +255,8 @@ def main(args=None):
         if node.execute_logic():
             # 成功后保持节点存活以维护 TF
             print("[System] 初始化成功，系统挂起以保持 TF 广播...")
-            rclpy.spin(node)
+            while rclpy.ok():
+                rclpy.spin_once(node, timeout_sec=1.0)
     except KeyboardInterrupt:
         pass
     finally:

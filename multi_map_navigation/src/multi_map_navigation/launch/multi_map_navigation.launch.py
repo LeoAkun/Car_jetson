@@ -50,6 +50,15 @@ def generate_launch_description():
         emulate_tty=True
     )
 
+    # route_planner节点
+    route_planner_node = Node(
+        package='multi_map_navigation',
+        executable='route_planner',
+        name='route_planner',
+        output='screen',
+        emulate_tty=True
+    )
+
     # 导航管理器节点
     navigation_manager_node = Node(
         package='multi_map_navigation',
@@ -83,9 +92,11 @@ def generate_launch_description():
     return LaunchDescription([
         mqtt_config_arg,
         nav_config_arg,
-        process_manager_node,  # 进程管理器必须最先启动
-        mqtt_task_receiver_node,
-        status_reporter_node,
+        process_manager_node,
+        # mqtt_task_receiver_node,
+        # status_reporter_node,
+        route_planner_node,
         navigation_manager_node,
         map_switch_controller_node,
+        
     ])

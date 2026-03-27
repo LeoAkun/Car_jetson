@@ -212,60 +212,50 @@ void PCLLocalization::handleLocalizationService(
   
   RCLCPP_INFO(get_logger(), "initialPoseReceived end");
 
-  // 获取点云：第一次调用时等待新帧并缓存，后续调用复用缓存
+  // 获取点云
+  sensor_msgs::msg::PointCloud2 cloud_msg;
+  auto temp_node = std::make_shared<rclcpp::Node>("temp_wait_node");
+  bool got_msg = rclcpp::wait_for_message<sensor_msgs::msg::PointCloud2>(
+  cloud_msg,
+  temp_node,
+  lidar_topic_,
+  std::chrono::seconds(3));
+
+  if (!got_msg) {
+    RCLCPP_WARN(this->get_logger(), "⚠️ 3秒内未接收到点云消息");
+    response->success = false;
+    return;
+  }
+
+  RCLCPP_INFO(this->get_logger(), "✅ 收到点云，开始匹配...");
+  
+  // 开始匹配
   std::cout << "map_recieved : " << map_recieved_ <<  "initialpose_recieved : " << initialpose_recieved_ << std::endl;
   if (!map_recieved_ || !initialpose_recieved_) {return;}
   RCLCPP_INFO(get_logger(), "cloudReceived");
+  pcl::PointCloud<pcl::PointXYZI>::Ptr cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>);
+  pcl::fromROSMsg(cloud_msg, *cloud_ptr);
 
-  pcl::PointCloud<pcl::PointXYZI>::Ptr filtered_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>());
-
-  {
-    std::lock_guard<std::mutex> lock(cloud_mutex_);
-    if (!has_first_cloud_) {
-      sensor_msgs::msg::PointCloud2 cloud_msg;
-      auto temp_node = std::make_shared<rclcpp::Node>("temp_wait_node");
-      bool got_msg = rclcpp::wait_for_message<sensor_msgs::msg::PointCloud2>(
-        cloud_msg,
-        temp_node,
-        lidar_topic_,
-        std::chrono::seconds(3));
-
-      if (!got_msg) {
-        RCLCPP_WARN(this->get_logger(), "⚠️ 3秒内未接收到点云消息");
-        response->success = false;
-        return;
-      }
-
-      pcl::PointCloud<pcl::PointXYZI>::Ptr cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>);
-      pcl::fromROSMsg(cloud_msg, *cloud_ptr);
-
-      if (use_imu_) {
-        double received_time = cloud_msg.header.stamp.sec +
-          cloud_msg.header.stamp.nanosec * 1e-9;
-        lidar_undistortion_.adjustDistortion(cloud_ptr, received_time);
-      }
-
-      pcl::PointCloud<pcl::PointXYZI>::Ptr tmp_filtered(new pcl::PointCloud<pcl::PointXYZI>());
-      voxel_grid_filter_.setInputCloud(cloud_ptr);
-      voxel_grid_filter_.filter(*tmp_filtered);
-
-      // 距离过滤后缓存
-      first_cloud_.reset(new pcl::PointCloud<pcl::PointXYZI>());
-      for (const auto & p : tmp_filtered->points) {
-        double r = sqrt(pow(p.x, 2.0) + pow(p.y, 2.0));
-        if (scan_min_range_ < r && r < scan_max_range_) {
-          first_cloud_->push_back(p);
-        }
-      }
-      has_first_cloud_ = true;
-      RCLCPP_INFO(this->get_logger(), "✅ 首次获取点云并缓存，开始匹配...");
-    } else {
-      RCLCPP_INFO(this->get_logger(), "✅ 使用缓存点云，开始匹配...");
-    }
-    *filtered_cloud_ptr = *first_cloud_;
+  if (use_imu_) {
+    double received_time = cloud_msg.header.stamp.sec +
+      cloud_msg.header.stamp.nanosec * 1e-9;
+    lidar_undistortion_.adjustDistortion(cloud_ptr, received_time);
   }
+ 
+  pcl::PointCloud<pcl::PointXYZI>::Ptr filtered_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>());
+  voxel_grid_filter_.setInputCloud(cloud_ptr);
+  voxel_grid_filter_.filter(*filtered_cloud_ptr);
 
-  registration_->setInputSource(filtered_cloud_ptr);
+  double r;
+  pcl::PointCloud<pcl::PointXYZI> tmp;
+  for (const auto & p : filtered_cloud_ptr->points) {
+    r = sqrt(pow(p.x, 2.0) + pow(p.y, 2.0));
+    if (scan_min_range_ < r && r < scan_max_range_) {
+      tmp.push_back(p);
+    }
+  }
+  pcl::PointCloud<pcl::PointXYZI>::Ptr tmp_ptr(new pcl::PointCloud<pcl::PointXYZI>(tmp));
+  registration_->setInputSource(tmp_ptr);
 
   Eigen::Affine3d affine;
   tf2::fromMsg(corrent_pose_with_cov_stamped_ptr_->pose.pose, affine);
@@ -279,48 +269,21 @@ void PCLLocalization::handleLocalizationService(
   rclcpp::Time time_align_end = system_clock.now();
 
   bool has_converged = registration_->hasConverged();
+  double fitness_score = registration_->getFitnessScore();
   if (!has_converged) {
     RCLCPP_WARN(get_logger(), "The registration didn't converge.");
     return;
   }
-
-  Eigen::Matrix4f final_transformation = registration_->getFinalTransformation();
-
-  // 计算内点率 (Inlier Ratio)
-  pcl::PointCloud<pcl::PointXYZI>::Ptr transformed_cloud(new pcl::PointCloud<pcl::PointXYZI>);
-  pcl::transformPointCloud(*filtered_cloud_ptr, *transformed_cloud, final_transformation);
-
-  int inlier_count = 0;
-  double max_dist_sqr = 0.5 * 0.5;
-  pcl::search::KdTree<pcl::PointXYZI>::Ptr target_kdtree = registration_->getSearchMethodTarget();
-
-  if (target_kdtree && transformed_cloud->size() > 0) {
-    std::vector<int> nn_indices(1);
-    std::vector<float> nn_sqr_dists(1);
-    for (size_t i = 0; i < transformed_cloud->size(); ++i) {
-      if (target_kdtree->nearestKSearch(transformed_cloud->points[i], 1, nn_indices, nn_sqr_dists) > 0) {
-        if (nn_sqr_dists[0] < max_dist_sqr) {
-          inlier_count++;
-        }
-      }
-    }
-  }
-
-  double inlier_ratio = (transformed_cloud->size() > 0) ?
-    (double)inlier_count / transformed_cloud->size() : 0.0;
-  double fitness_score = 1.0 - inlier_ratio;
-
-  RCLCPP_INFO(get_logger(), "Inlier: %d/%zu (%.1f%%), Score: %.4f",
-    inlier_count, transformed_cloud->size(), inlier_ratio * 100.0, fitness_score);
-
   if (fitness_score > score_threshold_) {
     RCLCPP_WARN(get_logger(), "The fitness score is over %lf.", score_threshold_);
   }
+
+  Eigen::Matrix4f final_transformation = registration_->getFinalTransformation();
   Eigen::Matrix3d rot_mat = final_transformation.block<3, 3>(0, 0).cast<double>();
   Eigen::Quaterniond quat_eig(rot_mat);
   geometry_msgs::msg::Quaternion quat_msg = tf2::toMsg(quat_eig);
 
-  corrent_pose_with_cov_stamped_ptr_->header.stamp = system_clock.now();
+  corrent_pose_with_cov_stamped_ptr_->header.stamp = cloud_msg.header.stamp;
   corrent_pose_with_cov_stamped_ptr_->header.frame_id = global_frame_id_;
   corrent_pose_with_cov_stamped_ptr_->pose.pose.position.x = static_cast<double>(final_transformation(0, 3));
   corrent_pose_with_cov_stamped_ptr_->pose.pose.position.y = static_cast<double>(final_transformation(1, 3));
