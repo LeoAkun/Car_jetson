@@ -211,8 +211,8 @@ class StatusReporter(Node):
         self.get_logger().debug(f'速度变化: {self.last_speed} -> {msg.cur_speed}')
         self.last_speed = msg.cur_speed
 
-        # 检测速度是否为0
-        is_zero_speed = (msg.cur_speed == 0.0)
+        # 检测速度是否为0（使用小阈值避免浮点精度问题）
+        is_zero_speed = (abs(msg.cur_speed) < 0.1)
 
         if is_zero_speed:
             # 速度为0
@@ -393,12 +393,12 @@ class StatusReporter(Node):
 
             if result.rc == mqtt.MQTT_ERR_SUCCESS:
                 task_status_str = 'running' if mqtt_payload['task_status'] == 1 else 'idle'
-                self.get_logger().debug(
-                    f'已发布状态到 {self.status_topic}:\n'
-                    f'  VIN: {mqtt_payload["vin"]}\n'
-                    f'  任务状态: {task_status_str} ({mqtt_payload["task_status"]})\n'
-                    f'  位置: ({mqtt_payload["gps_lng"]:.6f}, {mqtt_payload["gps_lat"]:.6f})\n'
-                    f'  速度: {mqtt_payload["cur_speed"]:.2f} km/h\n'
+                self.get_logger().info(
+                    f'已发布状态到 {self.status_topic}:'
+                    f'  VIN: {mqtt_payload["vin"]}'
+                    f'  任务状态: {task_status_str} ({mqtt_payload["task_status"]})'
+                    f'  位置: ({mqtt_payload["gps_lng"]:.6f}, {mqtt_payload["gps_lat"]:.6f})'
+                    f'  速度: {mqtt_payload["cur_speed"]:.2f} km/h'
                     f'  电量: {mqtt_payload["battery_capacity"]:.1f}%'
                 )
             else:
