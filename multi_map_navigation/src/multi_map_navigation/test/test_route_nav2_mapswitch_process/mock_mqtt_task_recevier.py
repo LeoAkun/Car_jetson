@@ -61,8 +61,8 @@ class TestGraphPublisher(Node):
         msg.nodes = [self.start, self.N1, self.N2, self.N3, self.end]
 
         # 2. 设置任务的起点和终点
-        msg.start = self.N1
-        msg.end = self.start
+        msg.start = self.start
+        msg.end = self.end
 
         # 3. 构造边 (Edges)
         e1 = self.create_edge(start_node_id=0 , end_node_id=1, weight=5.3)

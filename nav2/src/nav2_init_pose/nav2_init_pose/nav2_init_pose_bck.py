@@ -1,3 +1,4 @@
+# 给定init_x 和init_y 计算分数
 import rclpy
 import math
 import os

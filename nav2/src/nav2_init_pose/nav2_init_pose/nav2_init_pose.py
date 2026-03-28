@@ -82,17 +82,24 @@ class PoseInitNode(Node):
         self.timer = None
 
         # --- 核心参数配置 ---
-        self.fitness_score_threshold = 0.1 # 匹配分数阈值 (越小越好)
+        self.fitness_score_threshold = 0.05 # 匹配分数阈值 (越小越好)
 
-        # 启发式搜索设置
-        self.initial_step = 2.0             # 初始搜索步长 (米)
-        self.min_step = 0.3                 # 最小搜索步长 (米)
-        self.step_reduction = 0.5           # 步长缩减因子
-        self.max_iterations = 50            # 最大迭代次数
+        # 粒子群优化（PSO）设置
+        self.pso_particles = 30         # 粒子数量
+        self.pso_iterations = 6        # PSO迭代轮数
+        self.pso_search_radius = 10.0   # 搜索半径 (米，以GPS点为中心)
+        self.pso_w = 0.7                # 惯性权重
+        self.pso_c1 = 1.5               # 认知系数（向自身历史最优靠拢）
+        self.pso_c2 = 1.5               # 社会系数（向全局最优靠拢）
+        self.pso_angle_step = 30        # PSO阶段粗角度步长 (度)
 
-        # 角度搜索设置
-        self.angle_step = 30                # 角度步长 (度)
-        self.angle_fine_step = 15           # 精细角度步长 (度)
+        # 精细爬山设置（PSO收敛后使用）
+        self.initial_step = 1.0         # 初始搜索步长 (米)
+        self.min_step = 0.2             # 最小搜索步长 (米)
+        self.step_reduction = 0.5       # 步长缩减因子
+        self.max_iterations = 30        # 爬山最大迭代次数
+        self.angle_step = 15            # 爬山角度步长 (度)
+        self.angle_fine_step = 15       # 精细角度步长 (度)
 
         # 客户端与订阅
         self.re_localization_client = self.create_client(ReLocalization, '/re_localization')
@@ -150,8 +157,129 @@ class PoseInitNode(Node):
 
         return best_score, best_angle, best_pose
 
+    def pso_search(self, center_x, center_y):
+        """粒子群优化搜索全局最优位置，避免局部最优"""
+        n = self.pso_particles
+        r = self.pso_search_radius
+        w = self.pso_w
+        c1 = self.pso_c1
+        c2 = self.pso_c2
+
+        # 初始化粒子位置（在搜索范围内均匀随机分布）
+        np.random.seed(42)
+        pos = np.random.uniform(-r, r, (n, 2)) + np.array([center_x, center_y])
+        vel = np.random.uniform(-1.0, 1.0, (n, 2))
+
+        pbest_pos = pos.copy()
+        pbest_score = np.full(n, float('inf'))
+        gbest_pos = pos[0].copy()
+        gbest_score = float('inf')
+        gbest_angle = 0
+        gbest_pose = None
+
+        # 评估初始粒子
+        self.get_logger().info(f"🌀 PSO初始化: {n}个粒子，搜索半径={r}m")
+        for i in range(n):
+            score, angle, pose = self.find_best_angle(pos[i, 0], pos[i, 1], self.pso_angle_step)
+            pbest_score[i] = score
+            if score < gbest_score:
+                gbest_score = score
+                gbest_pos = pos[i].copy()
+                gbest_angle = angle
+                gbest_pose = pose
+            self.get_logger().info(f"  粒子[{i+1}/{n}] ({pos[i,0]:.1f},{pos[i,1]:.1f}) score={score:.4f}")
+            if gbest_score < self.fitness_score_threshold:
+                self.get_logger().info("🔥 PSO初始化已达阈值，提前结束")
+                return gbest_score, gbest_pos[0], gbest_pos[1], gbest_angle, gbest_pose
+
+        # PSO迭代
+        for iteration in range(self.pso_iterations):
+            r1 = np.random.random((n, 2))
+            r2 = np.random.random((n, 2))
+            vel = (w * vel
+                   + c1 * r1 * (pbest_pos - pos)
+                   + c2 * r2 * (gbest_pos - pos))
+            # 限制速度防止粒子飞出边界
+            vel = np.clip(vel, -r * 0.3, r * 0.3)
+            pos = pos + vel
+            # 边界约束（反弹）
+            lo = np.array([center_x - r, center_y - r])
+            hi = np.array([center_x + r, center_y + r])
+            mask_lo = pos < lo
+            mask_hi = pos > hi
+            vel[mask_lo] *= -0.5
+            vel[mask_hi] *= -0.5
+            pos = np.clip(pos, lo, hi)
+
+            improved = False
+            for i in range(n):
+                score, angle, pose = self.find_best_angle(pos[i, 0], pos[i, 1], self.pso_angle_step)
+                if score < pbest_score[i]:
+                    pbest_score[i] = score
+                    pbest_pos[i] = pos[i].copy()
+                if score < gbest_score:
+                    gbest_score = score
+                    gbest_pos = pos[i].copy()
+                    gbest_angle = angle
+                    gbest_pose = pose
+                    improved = True
+
+            self.get_logger().info(
+                f"  PSO迭代[{iteration+1}/{self.pso_iterations}] gbest=({gbest_pos[0]:.2f},{gbest_pos[1]:.2f}) "
+                f"score={gbest_score:.4f}{'  ✨改进' if improved else ''}")
+
+            if gbest_score < self.fitness_score_threshold:
+                self.get_logger().info("🔥 PSO已达阈值，提前结束")
+                break
+
+        self.get_logger().info(f"✅ PSO完成: 最优点({gbest_pos[0]:.2f},{gbest_pos[1]:.2f}) score={gbest_score:.4f} angle={gbest_angle}°")
+        return gbest_score, gbest_pos[0], gbest_pos[1], gbest_angle, gbest_pose
+
+    def hill_climb(self, start_x, start_y, start_score, start_angle, start_pose):
+        """从PSO最优点出发做精细爬山（best-improvement），返回 (score, x, y, angle, pose)"""
+        current_x, current_y = start_x, start_y
+        best_score = start_score
+        best_angle = start_angle
+        best_pose = start_pose
+        step_size = self.initial_step
+        directions = [(1,0), (-1,0), (0,1), (0,-1), (1,1), (-1,1), (1,-1), (-1,-1)]
+
+        for iteration in range(self.max_iterations):
+            if step_size < self.min_step:
+                break
+            best_nb_score = best_score
+            best_nb_x, best_nb_y = current_x, current_y
+            best_nb_angle, best_nb_pose = best_angle, best_pose
+
+            for dx, dy in directions:
+                test_x = current_x + dx * step_size
+                test_y = current_y + dy * step_size
+                score, angle, pose = self.find_best_angle(test_x, test_y, self.angle_step)
+                if score < best_nb_score:
+                    best_nb_score = score
+                    best_nb_x, best_nb_y = test_x, test_y
+                    best_nb_angle, best_nb_pose = angle, pose
+
+            if best_nb_score < best_score:
+                best_score = best_nb_score
+                best_angle = best_nb_angle
+                best_pose = best_nb_pose
+                current_x, current_y = best_nb_x, best_nb_y
+                self.get_logger().info(f"    爬山迭代{iteration+1}: ({current_x:.2f},{current_y:.2f}) score={best_score:.4f}")
+                if best_score < self.fitness_score_threshold:
+                    break
+            else:
+                step_size *= self.step_reduction
+
+        # 精细角度搜索
+        fine_score, fine_angle, fine_pose = self.find_best_angle(current_x, current_y, self.angle_fine_step)
+        if fine_score < best_score:
+            best_score, best_angle, best_pose = fine_score, fine_angle, fine_pose
+
+        return best_score, current_x, current_y, best_angle, best_pose
+
     def execute_logic(self):
-        """主执行逻辑 - 启发式搜索"""
+        """主执行逻辑 - PSO全局搜索 + 精细爬山"""
 
         # 1. 等待服务
         while not self.re_localization_client.wait_for_service(timeout_sec=1.0):
@@ -165,64 +293,35 @@ class PoseInitNode(Node):
 
         lat = self.latest_gps.latitude
         lon = self.latest_gps.longitude
-        current_x, current_y = self.converter.gps_to_map(lat, lon)
-        self.get_logger().info(f"✅ GPS起始点: ({current_x:.2f}, {current_y:.2f})")
+        gps_x, gps_y = self.converter.gps_to_map(lat, lon)
+        self.get_logger().info(f"✅ GPS起始点: ({gps_x:.2f}, {gps_y:.2f})")
 
-        # 3. 启发式搜索
-        step_size = self.initial_step
-        best_score, best_angle, best_pose = self.find_best_angle(current_x, current_y, self.angle_step)
-        self.get_logger().info(f"🚀 起始点 fitness: {best_score:.4f}, 角度: {best_angle}°")
+        # 3. PSO全局搜索
+        pso_score, pso_x, pso_y, pso_angle, pso_pose = self.pso_search(gps_x, gps_y)
 
-        iteration = 0
-        while iteration < self.max_iterations and step_size >= self.min_step:
-            iteration += 1
-            improved = False
+        if pso_pose is None:
+            self.get_logger().error("❌ PSO搜索无有效结果")
+            return False
 
-            # 搜索8个方向
-            directions = [(1,0), (-1,0), (0,1), (0,-1), (1,1), (-1,1), (1,-1), (-1,-1)]
+        if pso_score < self.fitness_score_threshold:
+            self.get_logger().info(f"🔥 PSO已达阈值，直接采用: ({pso_x:.2f},{pso_y:.2f}) score={pso_score:.4f}")
+            self.current_transform = pso_pose
+            self.timer = self.create_timer(0.1, self.publish_transform)
+            return True
 
-            for dx, dy in directions:
-                test_x = current_x + dx * step_size
-                test_y = current_y + dy * step_size
-
-                score, angle, pose = self.find_best_angle(test_x, test_y, self.angle_step)
-
-                if score < best_score:
-                    self.get_logger().info(f"✨ 迭代{iteration}: ({test_x:.2f},{test_y:.2f}) fitness={score:.4f} 角度={angle}° (改进 {best_score-score:.4f})")
-                    best_score = score
-                    best_angle = angle
-                    best_pose = pose
-                    current_x, current_y = test_x, test_y
-                    improved = True
-
-                    if best_score < self.fitness_score_threshold:
-                        self.get_logger().info("🔥 达到阈值，提前结束！")
-                        self.current_transform = best_pose
-                        self.timer = self.create_timer(0.1, self.publish_transform)
-                        return True
-                    break
-
-            if not improved:
-                step_size *= self.step_reduction
-                self.get_logger().info(f"🔄 未改进，缩小步长至 {step_size:.2f}m")
-
-        # 4. 精细角度搜索
-        if best_pose:
-            self.get_logger().info(f"🎯 精细角度搜索...")
-            final_score, final_angle, final_pose = self.find_best_angle(current_x, current_y, self.angle_fine_step)
-            if final_score < best_score:
-                best_score = final_score
-                best_pose = final_pose
-                best_angle = final_angle
+        # 4. 精细爬山（从PSO最优点出发）
+        self.get_logger().info(f"🏃 从PSO最优点({pso_x:.2f},{pso_y:.2f})开始精细爬山...")
+        final_score, final_x, final_y, final_angle, final_pose = \
+            self.hill_climb(pso_x, pso_y, pso_score, pso_angle, pso_pose)
 
         # 5. 结算
-        if best_pose and best_score < 10.0:
-            self.get_logger().info(f"🏆 最终结果: ({current_x:.2f},{current_y:.2f}) 角度={best_angle}° fitness={best_score:.4f}")
-            self.current_transform = best_pose
+        if final_pose and final_score < 10.0:
+            self.get_logger().info(f"🏆 最终结果: ({final_x:.2f},{final_y:.2f}) 角度={final_angle}° fitness={final_score:.4f}")
+            self.current_transform = final_pose
             self.timer = self.create_timer(0.1, self.publish_transform)
             return True
         else:
-            self.get_logger().error(f"❌ 搜索失败 fitness={best_score:.4f}")
+            self.get_logger().error(f"❌ 搜索失败 fitness={final_score:.4f}")
             return False
 
     # def broadcast_tf(self, pose):

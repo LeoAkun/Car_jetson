@@ -291,7 +291,7 @@ void PCLLocalization::handleLocalizationService(
   pcl::transformPointCloud(*filtered_cloud_ptr, *transformed_cloud, final_transformation);
 
   int inlier_count = 0;
-  double max_dist_sqr = 0.5 * 0.5;
+  double max_dist_sqr = 1.2 * 1.2;
   pcl::search::KdTree<pcl::PointXYZI>::Ptr target_kdtree = registration_->getSearchMethodTarget();
 
   if (target_kdtree && transformed_cloud->size() > 0) {

@@ -1,0 +1,1 @@
+python3 visualize_score_map.py --center_x -105.0 --center_y 284.0 --radius 15.0 --step 1.0 --angle_step 30
