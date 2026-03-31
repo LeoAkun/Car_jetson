@@ -189,7 +189,7 @@ protected:
 				float duration = (scan_begin - scan_end).seconds();
 
 				num_readings = scan_vec.size();
-				scan.header.stamp = this->now();  // 用发布时刻而非扫描开始时刻，避免UDP积压导致时间戳过旧
+				scan.header.stamp = scan_begin;
 				scan.header.frame_id = frame_id;
 				scan.angle_min = DEG2RAD(-180 + angle_offset);
 				scan.angle_max = DEG2RAD(180 + angle_offset);

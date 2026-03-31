@@ -17,6 +17,7 @@ class CmdVelToEcu(Node):
         self.declare_parameter('L', 0.5)
         self.declare_parameter('MAX_STEER_DEG', 20.0)
         self.declare_parameter('LOW_SPEED_THRESH', 0.3)
+        self.declare_parameter('STOP_THRESH', 0.05)
         self.declare_parameter('OMEGA_DEADZONE', 0.20)
         self.declare_parameter('OMEGA_FULL_STEER', 1.20)
         self.declare_parameter('rear_wheel_flag', True)
@@ -25,6 +26,7 @@ class CmdVelToEcu(Node):
         self.L = self.get_parameter('L').value
         self.MAX_STEER_DEG = self.get_parameter('MAX_STEER_DEG').value
         self.LOW_SPEED_THRESH = self.get_parameter('LOW_SPEED_THRESH').value
+        self.STOP_THRESH = self.get_parameter('STOP_THRESH').value
         self.OMEGA_DEADZONE = self.get_parameter('OMEGA_DEADZONE').value
         self.OMEGA_FULL_STEER = self.get_parameter('OMEGA_FULL_STEER').value
         self.rear_wheel_flag = self.get_parameter('rear_wheel_flag').value
@@ -53,12 +55,11 @@ class CmdVelToEcu(Node):
             ecu_msg.shift = Ecu.SHIFT_N
 
         # ====================== 低速限幅（保留正负号） ======================
-        if epsilon < abs(v) <= self.LOW_SPEED_THRESH:
-            v = self.LOW_SPEED_THRESH if v > 0 else -self.LOW_SPEED_THRESH
-
-        # 速度接近0时强制归零
-        if abs(v) <= epsilon:
+        if abs(v) <= self.STOP_THRESH:
+            # 速度极小（接近停止指令），强制归零，不补偿死区
             v = 0.0
+        elif abs(v) <= self.LOW_SPEED_THRESH:
+            v = self.LOW_SPEED_THRESH if v > 0 else -self.LOW_SPEED_THRESH
 
         # 设置电机输出
         ecu_msg.motor = abs(v)

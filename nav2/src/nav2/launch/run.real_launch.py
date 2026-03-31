@@ -89,12 +89,12 @@ def generate_launch_description():
                 'params_file': nav2_param_path}.items(),
         ),
         # launch_ros.actions.Node(
-        #     package='rviz2',
-        #     executable='rviz2',
-        #     name='rviz2',
-        #     arguments=['-d', rviz_config_dir],
-        #     parameters=[{'use_sim_time': use_sim_time}],
-        #     output='screen'),
+         #   package='rviz2',
+         #   executable='rviz2',
+         #   name='rviz2',
+         #   arguments=['-d', rviz_config_dir],
+         #   parameters=[{'use_sim_time': use_sim_time}],
+         #   output='screen'),
         voxel_pub,
 
         

@@ -216,7 +216,7 @@ controller_server:
 
       # 基本参数
       motion_model: "Ackermann" # 运动模型 "DiffDrive" "Omni" "Ackermann"
-      visualize: true # 是否开启轨迹可视化
+      visualize: false # 是否开启轨迹可视化
       reset_period: 1.0 # (only in Humble)
       regenerate_noises: false
 
@@ -285,11 +285,11 @@ controller_server:
       ObstaclesCritic:
         enabled: true
         cost_power: 1
-        repulsion_weight: 0.5  # 降低排斥权重（原0.9），减少障碍物旁的速度压制
-        critical_weight: 10.0  # 降低（原20.0），只在真正危险时才大幅减速
-        consider_footprint: false
+        repulsion_weight: 0.9  # 降低排斥权重（原0.9），减少障碍物旁的速度压制
+        critical_weight: 12.0  # 降低（原20.0），只在真正危险时才大幅减速
+        consider_footprint: true
         collision_cost: 10000.0
-        collision_margin_distance: 0.05  # 缩小碰撞边距（原0.1），让车更敢贴近障碍物
+        collision_margin_distance: 0.3  # 缩小碰撞边距（原0.1），让车更敢贴近障碍物
         near_goal_distance: 0.5
         inflation_radius: 0.55
         cost_scaling_factor: 5.0
@@ -353,8 +353,8 @@ local_costmap:
     ros__parameters:
 
       # 基础设置
-      update_frequency: 10.0 # 更新频率 (Hz) - 提高到10Hz以更快处理激光雷达数据
-      publish_frequency: 5.0 # 发布频率 (Hz) - 提高到5Hz
+      update_frequency: 20.0 # 更新频率 (Hz) - 提高到20Hz以更快处理激光雷达数据
+      publish_frequency: 20.0 # 发布频率 (Hz) - 与更新频率一致，减少额外延迟
       global_frame: odom
       robot_base_frame: base_link
       use_sim_time: False
@@ -363,10 +363,10 @@ local_costmap:
       footprint: "[[-0.27, -0.43], [-0.27, 0.43], [0.27, 0.43], [0.27, -0.43]]" # 机器人形状
 
       # Transform 设置 - 解决时间戳问题
-      transform_tolerance: 0.5 # 降低到0.5秒，提高实时性
+      transform_tolerance: 0.5 # 必须足够大，否则激光消息因TF缓存查不到而被丢弃，导致代价地图失效
 
-      # Message Filter 设置 - 增加队列大小防止消息丢失
-      message_filter_queue_size: 50 # 降低队列大小，配合更高的更新频率
+      # Message Filter 设置 - 减少队列大小防止处理堆积的旧消息
+      message_filter_queue_size: 5 # 小队列，只处理最新数据
 
       # 滚动窗口设置 - 局部代价地图的关键特性
       rolling_window: true

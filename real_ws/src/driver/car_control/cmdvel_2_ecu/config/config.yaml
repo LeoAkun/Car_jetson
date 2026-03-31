@@ -1,7 +1,8 @@
 /cmdvel_to_ecu:  # 节点名
   ros__parameters:
     L: 0.5  # 轴距（米）
-    LOW_SPEED_THRESH: 0.8 # 低于这个速度认为是停车
+    LOW_SPEED_THRESH: 0.8 # 死区补偿下限，低于此速度但高于STOP_THRESH时提升到该值
+    STOP_THRESH: 0.05 # 低于此速度认为是停车指令，直接归零不补偿死区
     OMEGA_DEADZONE: 0.020 # 低于这个角度认为打轮角度是0
     MAX_STEER_DEG: 30.0 # 舵机最大能打的转向角度
     OMEGA_FULL_STEER: 5.0 # 停车时推满摇杆对应的角速度 -> 5.0即对应最大转向角度, 或者说敏感度，数值越小越敏感

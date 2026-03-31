@@ -216,7 +216,7 @@ controller_server:
 
       # 基本参数
       motion_model: "Ackermann" # 运动模型 "DiffDrive" "Omni" "Ackermann"
-      visualize: true # 是否开启轨迹可视化
+      visualize: false # 是否开启轨迹可视化
       reset_period: 1.0 # (only in Humble)
       regenerate_noises: false
 
@@ -538,8 +538,8 @@ planner_server:
       rotation_penalty: 5.0               # 原地旋转惩罚，仅 Lattice 模型有效，Ackermann 车不适用
 
       # 解析扩展（Analytic Expansion），搜索过程中，当接近目标时会尝试用 Dubins/Reeds-Shepp 曲线直接连接到目标：
-      analytic_expansion_ratio: 3.5       # 当已走距离/剩余距离 > 此比例时，尝试解析连接。越大越少尝试
-      analytic_expansion_max_length: 3.0    # 解析扩展最大长度（米），防止生成过长的不安全捷径。建议 ≥ 4~5 倍最小转弯半径
+      analytic_expansion_ratio: 5.0       # 当已走距离/剩余距离 > 此比例时，尝试解析连接。越大越少尝试
+      analytic_expansion_max_length: 2.0    # 解析扩展最大长度（米），防止生成过长的不安全捷径。建议 ≥ 4~5 倍最小转弯半径
       analytic_expansion_max_cost: 200   # 解析扩展路径上单个格子的最大允许代价，超过则认为扩展无效
       analytic_expansion_max_cost_override: false # 接近目标时是否允许突破上面的代价限制。false=严格遵守
       
