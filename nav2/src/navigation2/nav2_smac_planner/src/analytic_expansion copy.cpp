@@ -126,18 +126,10 @@ typename AnalyticExpansion<NodeT>::AnalyticExpansionNodes AnalyticExpansion<Node
     node->motion_table.state_space), s(node->motion_table.state_space);
   from[0] = node->pose.x;
   from[1] = node->pose.y;
-  double from_angle = node->motion_table.getAngleFromBin(node->pose.theta);
-  from[2] = from_angle - 2.0 * M_PI * std::floor(from_angle / (2.0 * M_PI));
+  from[2] = node->motion_table.getAngleFromBin(node->pose.theta);
   to[0] = goal->pose.x;
   to[1] = goal->pose.y;
-  double to_angle = node->motion_table.getAngleFromBin(goal->pose.theta);
-  to[2] = to_angle - 2.0 * M_PI * std::floor(to_angle / (2.0 * M_PI));
-
-  // Clamp angles away from [0, 2pi) boundaries to avoid OMPL Dubins floating point
-  // assertion failures (dubinsLSL assertion in DubinsStateSpace.cpp)
-  static const double kDubinsAngleEps = 1e-6;
-  from[2] = std::max(kDubinsAngleEps, std::min(2.0 * M_PI - kDubinsAngleEps, from[2]));
-  to[2] = std::max(kDubinsAngleEps, std::min(2.0 * M_PI - kDubinsAngleEps, to[2]));
+  to[2] = node->motion_table.getAngleFromBin(goal->pose.theta);
 
   float d = node->motion_table.state_space->distance(from(), to());
 
@@ -146,11 +138,6 @@ typename AnalyticExpansion<NodeT>::AnalyticExpansionNodes AnalyticExpansion<Node
   // close before the analytic expansion brings it home. This should never be smaller than
   // 4-5x the minimum turning radius being used, or planning times will begin to spike.
   if (d > _search_info.analytic_expansion_max_length) {
-    return AnalyticExpansionNodes();
-  }
-
-  // Guard against degenerate near-zero distance that can trigger OMPL Dubins assertions
-  if (d < 1e-6) {
     return AnalyticExpansionNodes();
   }
 
