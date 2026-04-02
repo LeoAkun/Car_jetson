@@ -332,9 +332,6 @@ ObstacleLayer::laserScanCallback(
   sensor_msgs::msg::LaserScan::ConstSharedPtr message,
   const std::shared_ptr<nav2_costmap_2d::ObservationBuffer> & buffer)
 {
-  RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
-    "--> [Debug] 成功接收到激光雷达数据! 坐标系: %s, 点数: %zu", 
-    message->header.frame_id.c_str(), message->ranges.size());
     
   // project the laser into a point cloud
   sensor_msgs::msg::PointCloud2 cloud;
@@ -343,9 +340,7 @@ ObstacleLayer::laserScanCallback(
   // project the scan into a point cloud
   try {
     projector_.transformLaserScanToPointCloud(message->header.frame_id, *message, cloud, *tf_);
-    // 【调试插桩 2】：确认 TF 转换成功
-    RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
-      "--> [Debug] TF 转换成功，点云已生成。");
+
   } catch (tf2::TransformException & ex) {
     RCLCPP_WARN(
       logger_,
@@ -375,6 +370,12 @@ ObstacleLayer::laserScanValidInfCallback(
   sensor_msgs::msg::LaserScan::ConstSharedPtr raw_message,
   const std::shared_ptr<nav2_costmap_2d::ObservationBuffer> & buffer)
 {
+  // ==【调试插桩1】
+  RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+    "--> [Debug ValidInf] 局部地图收到数据! 坐标系: %s, 点数: %zu", 
+    raw_message->header.frame_id.c_str(), raw_message->ranges.size());
+  // ====
+
   // 1：深拷贝原始数据
   // Filter positive infinities ("Inf"s) to max_range.
   float epsilon = 0.0001;  // a tenth of a millimeter
@@ -397,6 +398,12 @@ ObstacleLayer::laserScanValidInfCallback(
   try {
     // 使用 TF 和修改后的 message 将 2D 激光转换为 3D 点云
     projector_.transformLaserScanToPointCloud(message.header.frame_id, message, cloud, *tf_);
+
+    // === 【调试插桩】 ===
+    RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+      "--> [Debug ValidInf] 局部地图 TF 转换成功。");
+    // ===
+
   } catch (tf2::TransformException & ex) {
     RCLCPP_WARN(
       logger_,
@@ -457,6 +464,12 @@ ObstacleLayer::updateBounds(
   // update the global current status
   current_ = current;
 
+  // 【调试插桩 3 - 准备变量】
+  int total_points = 0;
+  int dropped_by_height = 0;
+  int dropped_by_dist = 0;
+  int marked_points = 0;
+  
   // 清理点云
   // raytrace freespace
   for (unsigned int i = 0; i < clearing_observations.size(); ++i) {
@@ -505,6 +518,7 @@ ObstacleLayer::updateBounds(
       // if the point is far enough away... we won't consider it
       if (sq_dist >= sq_obstacle_max_range) {
         RCLCPP_DEBUG(logger_, "The point is too far away");
+        dropped_by_dist++; // 【调试插桩：在这里加上距离丢弃计数】
         continue;
       }
 
@@ -518,14 +532,33 @@ ObstacleLayer::updateBounds(
       unsigned int mx, my;
       if (!worldToMap(px, py, mx, my)) {
         RCLCPP_DEBUG(logger_, "Computing map coords failed");
+        dropped_by_dist++; // 【调试插桩：在这里加上距离丢弃计数】
         continue;
       }
 
       unsigned int index = getIndex(mx, my);
       costmap_[index] = LETHAL_OBSTACLE;
+      marked_points++; // 【调试插桩：成功走到最后，标记点数+1】
       touch(px, py, min_x, min_y, max_x, max_y);
     }
   }
+  
+  // 【调试插桩 4 - 打印过滤结果】 请加在这个位置（循环结束，updateFootprint之前）
+  // =====================================================================
+  // 【新代码：无论有没有点，都强制打印当前状态！】
+  RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+    "--> [Debug Bounds] 执行中! clearing_obs(清理包): %zu | marking_obs(标记包): %zu", 
+    clearing_observations.size(), observations.size());
+
+  if (total_points > 0) {
+    RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+      "    |- [点数统计] 总点数: %d | 高度丢弃: %d | 距离丢弃: %d | 最终标记: %d", 
+      total_points, dropped_by_height, dropped_by_dist, marked_points);
+  } else {
+    RCLCPP_WARN_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+      "    |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。");
+  }
+  // =====================================================================
 
   updateFootprint(robot_x, robot_y, robot_yaw, min_x, min_y, max_x, max_y);
 }

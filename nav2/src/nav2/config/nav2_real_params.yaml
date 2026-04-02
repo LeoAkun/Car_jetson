@@ -374,12 +374,13 @@ local_costmap:
       height: 15 # 地图高度 (m) - 增加到15m
 
       # plugins: ["obstacle_layer", "voxel_layer", "inflation_layer"]
-      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      # plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      plugins: ["obstacle_layer", "inflation_layer"]
       
       # 下面新增一个空的 static_layer 配置（必须有）
-      static_layer:
-        plugin: "nav2_costmap_2d::StaticLayer"
-        map_subscribe_transient_local: True
+      # static_layer:
+      #   plugin: "nav2_costmap_2d::StaticLayer"
+      #   map_subscribe_transient_local: True
 
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"

@@ -257,10 +257,27 @@ class ProcessManagerNode(Node):
                 f'map:={self.map_dir}/{map_name}/{map_name}_clean.yaml'
             ]
 
+            # 【调试插桩】
+            # ==========================================
+            # 【新增逻辑】：创建一个专属的日志文件来捕捉 Nav2 的输出
+            log_file_path = "/home/akun/workspace/Car_jetson/multi_map_navigation/nav2.log"
+            self.nav2_log_file = open(log_file_path, 'w')
+            self.get_logger().info(f'Nav2 的详细调试日志将保存在: {log_file_path}')
+            # 使用 stdbuf 强制关闭 Linux 缓冲，保证日志实时写入文件
+            # 如果不加 stdbuf，ROS 2 的日志可能会憋在内存里迟迟不写入文件
+            stdbuf_cmd = ['stdbuf', '-o0', '-e0'] + cmd
             process = subprocess.Popen(
-                cmd,
-                start_new_session=True
+                stdbuf_cmd,               # 使用去缓冲的命令
+                start_new_session=True,
+                stdout=self.nav2_log_file, # 标准输出重定向到文件
+                stderr=subprocess.STDOUT   # 错误输出合并到标准输出，一起存入文件
             )
+            # ==========================================
+
+            # process = subprocess.Popen(
+            #     cmd,
+            #     start_new_session=True
+            # )
 
             self.processes['navigation2'] = process
             time.sleep(self.startup_delay)
