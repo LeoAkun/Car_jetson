@@ -109,14 +109,14 @@ def generate_launch_description():
     # 依次启动
     action_group = launch.actions.GroupAction([
         launch.actions.TimerAction(period=1.0, actions=[start_imu]),
-        launch.actions.TimerAction(period=2.0, actions=[start_livox]),
+        # launch.actions.TimerAction(period=2.0, actions=[start_livox]),
         launch.actions.TimerAction(period=2.0, actions=[livox_custom_convert_pointcloud2]),
         launch.actions.TimerAction(period=2.0, actions=[start_rslidar]),
         launch.actions.TimerAction(period=1.0, actions=[start_car]),
         launch.actions.TimerAction(period=1.0, actions=[start_cmdvel_2_ecu]),
-        # launch.actions.TimerAction(period=1.0, actions=[start_alarm]),
+        launch.actions.TimerAction(period=1.0, actions=[start_alarm]),
         launch.actions.TimerAction(period=1.0, actions=[start_gps]),
-        # launch.actions.TimerAction(period=1.0, actions=[start_lock]),
+        launch.actions.TimerAction(period=1.0, actions=[start_lock]),
         launch.actions.TimerAction(period=1.0, actions=[start_scan_laser]),
         launch.actions.TimerAction(period=1.0, actions=[start_scan_merge])
         
