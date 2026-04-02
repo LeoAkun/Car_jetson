@@ -227,12 +227,14 @@ void ObstacleLayer::onInitialize()
           rclcpp_lifecycle::LifecycleNode>>(node, topic, custom_qos_profile, sub_opt);
       sub->unsubscribe();
 
+      // 没有直接使用普通的 ROS 订阅者，需要等待有效tf变换矩阵
       auto filter = std::make_shared<tf2_ros::MessageFilter<sensor_msgs::msg::LaserScan>>(
         *sub, *tf_, global_frame_, 50,
         node->get_node_logging_interface(),
         node->get_node_clock_interface(),
         tf2::durationFromSec(transform_tolerance));
 
+      // inf_is_valid = true
       if (inf_is_valid) {
         filter->registerCallback(
           std::bind(
@@ -323,11 +325,17 @@ ObstacleLayer::dynamicParametersCallback(
   return result;
 }
 
+// 1.将极坐标下的 2D 激光数组（角度 + 距离）转换为笛卡尔坐标系下的 3D 点云（XYZ）。
+// 2.利用刚才等到的 TF 变换，把这些点直接转换到 global_frame_（代价地图坐标系）下。
 void
 ObstacleLayer::laserScanCallback(
   sensor_msgs::msg::LaserScan::ConstSharedPtr message,
   const std::shared_ptr<nav2_costmap_2d::ObservationBuffer> & buffer)
 {
+  RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+    "--> [Debug] 成功接收到激光雷达数据! 坐标系: %s, 点数: %zu", 
+    message->header.frame_id.c_str(), message->ranges.size());
+    
   // project the laser into a point cloud
   sensor_msgs::msg::PointCloud2 cloud;
   cloud.header = message->header;
@@ -335,6 +343,9 @@ ObstacleLayer::laserScanCallback(
   // project the scan into a point cloud
   try {
     projector_.transformLaserScanToPointCloud(message->header.frame_id, *message, cloud, *tf_);
+    // 【调试插桩 2】：确认 TF 转换成功
+    RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+      "--> [Debug] TF 转换成功，点云已生成。");
   } catch (tf2::TransformException & ex) {
     RCLCPP_WARN(
       logger_,
@@ -357,14 +368,19 @@ ObstacleLayer::laserScanCallback(
   buffer->unlock();
 }
 
+// 1.将极坐标下的 2D 激光数组（角度 + 距离）转换为笛卡尔坐标系下的 3D 点云（XYZ）。
+// 2.利用刚才等到的 TF 变换，把这些点直接转换到 global_frame_（代价地图坐标系）下。
 void
 ObstacleLayer::laserScanValidInfCallback(
   sensor_msgs::msg::LaserScan::ConstSharedPtr raw_message,
   const std::shared_ptr<nav2_costmap_2d::ObservationBuffer> & buffer)
 {
+  // 1：深拷贝原始数据
   // Filter positive infinities ("Inf"s) to max_range.
   float epsilon = 0.0001;  // a tenth of a millimeter
   sensor_msgs::msg::LaserScan message = *raw_message;
+
+  // 2：遍历并修正测距数组,如果该数值不是有限值 (即无穷大或 NaN)，并且大于 0 (排除负无穷),将其强行修改为：雷达声明的最大有效量程减去 0.0001
   for (size_t i = 0; i < message.ranges.size(); i++) {
     float range = message.ranges[i];
     if (!std::isfinite(range) && range > 0) {
@@ -372,12 +388,14 @@ ObstacleLayer::laserScanValidInfCallback(
     }
   }
 
+  // 3：准备转换为点云
   // project the laser into a point cloud
   sensor_msgs::msg::PointCloud2 cloud;
   cloud.header = message.header;
 
   // project the scan into a point cloud
   try {
+    // 使用 TF 和修改后的 message 将 2D 激光转换为 3D 点云
     projector_.transformLaserScanToPointCloud(message.header.frame_id, message, cloud, *tf_);
   } catch (tf2::TransformException & ex) {
     RCLCPP_WARN(
@@ -394,6 +412,7 @@ ObstacleLayer::laserScanValidInfCallback(
     return;
   }
 
+  // 4：存入观测缓冲区
   // buffer the point cloud
   buffer->lock();
   buffer->bufferCloud(cloud);
@@ -411,6 +430,7 @@ ObstacleLayer::pointCloud2Callback(
   buffer->unlock();
 }
 
+// 更新网格
 void
 ObstacleLayer::updateBounds(
   double robot_x, double robot_y, double robot_yaw, double * min_x,
@@ -437,11 +457,13 @@ ObstacleLayer::updateBounds(
   // update the global current status
   current_ = current;
 
+  // 清理点云
   // raytrace freespace
   for (unsigned int i = 0; i < clearing_observations.size(); ++i) {
     raytraceFreespace(clearing_observations[i], min_x, min_y, max_x, max_y);
   }
 
+  // 标记致命障碍物
   // place the new obstacles into a priority queue... each with a priority of zero to begin with
   for (std::vector<Observation>::const_iterator it = observations.begin();
     it != observations.end(); ++it)
@@ -463,12 +485,14 @@ ObstacleLayer::updateBounds(
       // if the obstacle is too low, we won't add it
       if (pz < min_obstacle_height_) {
         RCLCPP_DEBUG(logger_, "The point is too low");
+        dropped_by_height++; // 【调试插桩】
         continue;
       }
 
       // if the obstacle is too high or too far away from the robot we won't add it
       if (pz > max_obstacle_height_) {
         RCLCPP_DEBUG(logger_, "The point is too high");
+        dropped_by_height++; // 【调试插桩】
         continue;
       }
 
@@ -521,6 +545,7 @@ ObstacleLayer::updateFootprint(
   }
 }
 
+// 叠加代价地图
 void
 ObstacleLayer::updateCosts(
   nav2_costmap_2d::Costmap2D & master_grid, int min_i, int min_j,

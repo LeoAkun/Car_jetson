@@ -227,8 +227,6 @@ class NavigationManager(Node):
         # 如果进程是全部启动，则直接发送目标
         process_status_dict = self.get_process_status()
         if all(process_status_dict.values()):
-            # 等待局部代价地图重建，避免到达航点后立即发送新目标导致障碍物消失
-            # time.sleep(1.0)
             self.send_nav2_goal(waypoint)
         # 如果进程还未启动，则启动进程
         else:
@@ -687,7 +685,7 @@ class NavigationManager(Node):
                 self.get_logger().info('检测为普通导航点')
                 with self.state_lock:
                     self.current_waypoint_index += 1
-                time.sleep(6.0)
+                time.sleep(1.5)
                 self.navigate_to_next_waypoint()
 
             elif self.is_trafficlight_point(waypoint):

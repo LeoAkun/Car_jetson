@@ -363,10 +363,10 @@ local_costmap:
       footprint: "[[-0.27, -0.43], [-0.27, 0.43], [0.27, 0.43], [0.27, -0.43]]" # 机器人形状
 
       # Transform 设置 - 解决时间戳问题
-      transform_tolerance: 0.5 # 必须足够大，否则激光消息因TF缓存查不到而被丢弃，导致代价地图失效
+      transform_tolerance: 1.0 # 必须足够大，否则激光消息因TF缓存查不到而被丢弃，导致代价地图失效
 
       # Message Filter 设置 - 减少队列大小防止处理堆积的旧消息
-      message_filter_queue_size: 5 # 小队列，只处理最新数据
+      message_filter_queue_size: 50 # 小队列，只处理最新数据
 
       # 滚动窗口设置 - 局部代价地图的关键特性
       rolling_window: true
@@ -374,7 +374,13 @@ local_costmap:
       height: 15 # 地图高度 (m) - 增加到15m
 
       # plugins: ["obstacle_layer", "voxel_layer", "inflation_layer"]
-      plugins: ["obstacle_layer", "inflation_layer"]
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      
+      # 下面新增一个空的 static_layer 配置（必须有）
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
