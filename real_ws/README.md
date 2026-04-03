@@ -223,3 +223,10 @@ rviz2
 - [ROS 2 官方文档](https://docs.ros.org/en/humble/)
 - [Livox SDK2 文档](https://github.com/Livox-SDK/Livox-SDK2)
 - [速腾雷达驱动](https://github.com/RoboSense-LiDAR/rslidar_sdk)
+
+# 九、开机自启传感器
+```
+sudo systemctl kill robot-service.service
+sudo systemctl stop robot-service.service
+# 插拔Imu重启launch_real
+```
