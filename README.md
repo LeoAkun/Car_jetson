@@ -1,5 +1,5 @@
 # 目录结构
-① ./multi_map_navigation : 工程项目总启动文件e
+① ./multi_map_navigation : 工程项目总启动文件
 ② ./nav2 : 包含navigation2导航的所有内容
 ③ ./sumulation_ws : 包含仿真的内容
 ④ slam : 包含SLAM的所有内容
