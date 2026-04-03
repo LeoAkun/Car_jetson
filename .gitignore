@@ -9,7 +9,4 @@ bag/
 **/.vscode/
 *.log
 .git
-utils/src/pcd_filter/map_clean/*.pcd
-slam/src/pcd_global/real/*.pcd
-slam/src/pcd_global/sim/*.pcd
-slam/src/pcd_global/test/*.pcd
+*.pcd
