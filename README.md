@@ -31,3 +31,19 @@ ros2 launch multi_map_navigation multi_map_navigation
 |map-->odom|由重定位nav2_init_pose发布, 计算机器人在地图的哪个位置启动|
 |odom-->base_link|由slam发布, slam计算相对启动位置移动的距离|
 |base_link-->传感器_link|由驱动发布, 各传感器与base_link的位置关系|
+
+# 六、传感器相关
+## 1.传感器说明
+- 1.单线雷达：连接到交换机， 192.168.1.12  192.168.1.13
+- 2.CAN盒：连接到交换机 192.168.1.10
+- 3.多线雷达：连接到主机 
+- 4.jetson计算板：连接到交换机 192.168.1.150  192.168.1.160 用户:jetson 密码:yahboom
+- 5.路由器：连接到交换机
+- 6.主机: 连接到交换机
+- 7.GPS、IMU、拓展坞等：通过usb连接到主机
+## 2.开机自启服务
+- 关闭开机自启传感器服务
+```
+sudo systemctl kill robot-service.service
+sudo systemctl stop robot-service.service
+```

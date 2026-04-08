@@ -43,7 +43,7 @@ colcon build
 
 # 三、目录结构
 
-```
+```raw
 real_ws/
 ├── src/                          # 源代码目录
 │   ├── driver/                   # 硬件驱动包
@@ -216,7 +216,7 @@ rviz2
 # 七、维护者
 
 - 维护者：akun
-- 邮箱：2370344139@qq.com
+- 邮箱：
 
 # 八、相关链接
 
@@ -225,7 +225,7 @@ rviz2
 - [速腾雷达驱动](https://github.com/RoboSense-LiDAR/rslidar_sdk)
 
 # 九、开机自启传感器
-```
+```raw
 sudo systemctl kill robot-service.service
 sudo systemctl stop robot-service.service
 # 插拔Imu重启launch_real
