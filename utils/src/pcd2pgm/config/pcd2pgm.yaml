@@ -1,6 +1,6 @@
 pcd2pgm:
   ros__parameters:
-    pcd_file: /home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map1/map1_clean.pcd
+    pcd_file: /home/akun/workspace/Car_jetson/slam/src/pcd_global/test/GlobalMap.pcd
     odom_to_lidar_odom: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     # odom_to_lidar_odom: [-0.16, 0.0, -0.18, -0.523599, 0.0, -1.5707963]
     flag_pass_through: false # 如果设置成false，保留在thre_z_max和thre_z_min之间的点（带通）。如果设置成true，则保留大于thre_z_max和小于thre_z_min的点（带阻）。

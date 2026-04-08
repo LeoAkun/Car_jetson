@@ -1,6 +1,7 @@
 # 一、目录结构
 - ① ./multi_map_navigation : 工程项目总启动文件
 - ② ./nav2 : 包含navigation2导航的所有内容
+- ③ ./real_ws: 包含传感器底盘驱动 
 - ③ ./sumulation_ws : 包含仿真的内容
 - ④ slam : 包含SLAM的所有内容
 - ⑤ URDF_ws ： 仿真机器人的模型文件
@@ -43,7 +44,7 @@ ros2 launch multi_map_navigation multi_map_navigation
 - 7.GPS、IMU、拓展坞等：通过usb连接到主机
 ## 2.开机自启服务
 - 关闭开机自启传感器服务
-```
+```raw
 sudo systemctl kill robot-service.service
 sudo systemctl stop robot-service.service
 ```
