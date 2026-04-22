@@ -18,12 +18,13 @@ class RoutePlannerNode(Node):
         self.G = None
         self.path_nodes = {} # 所有路径
         self.points = None # 已探索过的航点
-        self.latest_gps = None # gps数据
-        self.gps_lock = threading.Lock()
+        self.latest_gps = None # 最新gps数据 
+        self.gps_lock = threading.Lock()# 互斥锁，防止多线程同时访问gps数据
 
         self.is_running = False # 机器人状态
         self.state_lock = threading.Lock()
 
+        # 创建3个回调组，同一组内的回调不能同时执行，避免服务调用与订阅回调互相阻塞
         self.graph_cb_group = MutuallyExclusiveCallbackGroup()
         self.gps_cb_group = MutuallyExclusiveCallbackGroup()
         self.srv_cb_group = MutuallyExclusiveCallbackGroup()
@@ -93,8 +94,9 @@ class RoutePlannerNode(Node):
             self.get_logger().warn(f"机器人正在运行中, 无法规划路径")
             return
 
-        # 1.创建一个空的无向图
+        # 1.创建最终图对象，一个空的无向图
         self.G = nx.Graph()
+        # 节点id映射到节点名字
         id_to_name = {}
         nodes = []
         node_attrs = {}
@@ -103,7 +105,7 @@ class RoutePlannerNode(Node):
         
         self.start_node_name = msg.start.name
         self.end_node_name = msg.end.name
-        
+        # 把StartEndGraph消息中的节点信息添加到图中
         for node in msg.nodes:
             id_to_name[node.id] = node.name
             node_attrs= {
@@ -221,13 +223,14 @@ class RoutePlannerNode(Node):
         if len(points) == 0:
             response.message = f'points路线为空'
             response.success = False
-            print(f"[DEBG] 服务调用成功，返回:{response}")
+            print(f"[DEBG] 服务调用失败，返回:{response}")
             return response
 
-        # 获取当前路径
+        # 获取当前路径，path1 作为实际执行路径
         current_full_path_nodes_list = self.path_nodes["path1"]
 
         # 更新G节点地图，删除边，并重新规划路径 TODO 是否需要上报
+        # 删除已走过的点与下一个点之间的边
         node1 = points[-1]
         node2_name =  current_full_path_nodes_list[current_full_path_nodes_list.index(node1.name) + 1]
         # self.G[node1.name][node2_name]['weight'] = math.inf
@@ -341,6 +344,7 @@ class RoutePlannerNode(Node):
         '''
         if nx.has_path(self.G,source=source, target=target):
         # 使用 shortest_simple_paths规划路径，它会自动按 weight 从小到大排序
+        # 生成多条候选路径
             paths = nx.shortest_simple_paths(self.G, source=source, target=target, weight=weigth)
         else:
             return False

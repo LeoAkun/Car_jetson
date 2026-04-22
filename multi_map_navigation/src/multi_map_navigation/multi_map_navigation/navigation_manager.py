@@ -40,13 +40,13 @@ class NavigationManager(Node):
         # 导航状态
         self.state_lock = threading.RLock() # 可重入锁，防止同线程嵌套调用死锁
 
-        self.waypoint_list: Optional[List[Waypoint]] = None
-        self.current_waypoint_index = 0 # 表示要导航去的点
+        self.waypoint_list: Optional[List[Waypoint]] = None # 当前任务的航点列表
+        self.current_waypoint_index = 0 # 当前要去的航点下标
         self.current_map = None
         self.is_navigating = False
         self.is_map_switching = False
         self.task_id = None
-        self.current_goal_handle = None
+        self.current_goal_handle = None # 当前发给 Nav2 的目标句柄
         self.total_path = None
 
         # 创建可重入回调组，避免服务调用与订阅回调互相阻塞
