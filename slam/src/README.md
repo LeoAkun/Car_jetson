@@ -4,7 +4,7 @@
 - LIO-SAM：Liosam算法
 - pcd_global: 建图完成后的pcd地图文件
 # 三、建图
-## (1)
+## (1)打开liosam启动文件的注释
 - 把/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/launch/run.real_launch.py文件下的下面的代码，打开注释
 ```python
         Node(
