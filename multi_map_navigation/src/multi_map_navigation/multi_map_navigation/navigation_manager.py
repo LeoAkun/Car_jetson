@@ -148,8 +148,9 @@ class NavigationManager(Node):
         test: 测试通过，可以正常接收
         """
 
-        # 判断是否还在运行中
+        # 加锁，防止多线程同时改变同一个状态变量，读完自动解锁
         with self.state_lock:
+            # 判断是否还在运行中
             if self.is_navigating:
                 self.get_logger().warn('已在导航中，忽略新航点列表')
                 return
@@ -569,12 +570,13 @@ class NavigationManager(Node):
         
         self.publish_robot_state("running")
 
-        # 发送目标
+        # 发送目标，目标被nav2接受后才触发反馈进度回调
         send_goal_future = self.nav2_client.send_goal_async(
             goal_msg,
             feedback_callback=self.nav2_feedback_callback
         )
         # print("[TEST] send_nav2_goal")
+        # 发出目标后，等待nav2决定接受或拒绝这个目标
         send_goal_future.add_done_callback(self.nav2_goal_response_callback)
 
     def nav2_goal_response_callback(self, future):
@@ -633,7 +635,7 @@ class NavigationManager(Node):
             self.on_goal_reached()
         elif result_wrapper.status == 5:
             # print("[TEST] 测试通过")
-            self.get_logger().info('导航目标被切换 (CANCELED)')
+            self.get_logger().info('导航目标被取消 (CANCELED)')
             self.abort_navigation(reason = 0)
         else:
             # print("[TEST] 测试通过")
@@ -738,7 +740,7 @@ class NavigationManager(Node):
         function: 中止导航序列, 根据不同原因进行不同的处理
         param: @reason: 0: 主动取消（不需要处理）
                         1: 导航路径失败（请求备用路线）
-                        2: 系统故障（重启进程进程）
+                        2: 系统故障（重启进程）
         ---------
         test: 测试通过
         """
@@ -783,6 +785,7 @@ class NavigationManager(Node):
             self.get_logger().warn('系统故障，尝试重启')
             attempt_count = 0
             self.shutdown_all_processes_service()
+            # 用当前正在执行的航点所属地图，启动导航堆栈，失败，就一直重试启动，直到成功
             while self.launch_new_stack(waypoint_list[current_waypoint_index].map_name) == False:
                 self.shutdown_all_processes_service()
                 attempt_count  += 1     
