@@ -25,7 +25,7 @@ pcd2pgm:
 
 ```
 
-1. 启动文件里会读取参数文件并启动 `pcd2pgm_node`：
+2. 启动文件里会读取参数文件并启动 `pcd2pgm_node`：
 
 ```bash
 ros2 launch pcd2pgm pcd2pgm_launch.py
@@ -33,7 +33,7 @@ ros2 launch pcd2pgm pcd2pgm_launch.py
 ros2 launch pcd2pgm pcd2pgm_launch.py params_file:=/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/config/pcd2pgm.yaml
 ```
 
-1. 另开一个终端保存成 `.pgm`
+3. 另开一个终端保存成 `.pgm`
 
 因为这个节点会发布 `map`话题，所以再开一个终端执行：
 

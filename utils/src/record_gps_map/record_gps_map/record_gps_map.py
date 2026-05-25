@@ -28,6 +28,7 @@ class GpsMapLogger(Node):
 
         # 保存最新的 GPS 消息
         self.latest_gps = None
+        self.last_tf_skip_log_time = self.get_clock().now()
 
         # CSV 文件路径
         self.csv_file = '/home/akun/workspace/Car_jetson/utils/src/record_gps_map/record_gps_map.csv'
@@ -85,12 +86,19 @@ class GpsMapLogger(Node):
                 f"Map: x={map_x:.3f}, y={map_y:.3f}    "
                 f"[时间差 {diff_ms:+.1f} ms] 已保存")
 
-        except ExtrapolationException:
-            self.get_logger().debug_throttle(5.0, "GPS 时间在tf之后，跳过本次记录")
-        except (LookupException, ConnectivityException):
-            pass
+        except ExtrapolationException as e:
+            self.log_tf_skip_throttled(f"GPS 时间超出当前 TF 缓存范围，跳过本次记录: {e}")
+        except (LookupException, ConnectivityException) as e:
+            self.log_tf_skip_throttled(f"暂时无法获取 map -> base_link TF，跳过本次记录: {e}")
         except Exception as e:
             self.get_logger().error(f"记录异常: {e}")
+
+    def log_tf_skip_throttled(self, message: str):
+        """ROS2 Humble 的 Python logger 没有 *_throttle 方法，这里手动限频打印。"""
+        now = self.get_clock().now()
+        if (now - self.last_tf_skip_log_time) >= Duration(seconds=5.0):
+            self.get_logger().debug(message)
+            self.last_tf_skip_log_time = now
 
     def save_to_csv(self, lat: float, lon: float, map_x: float, map_y: float):
         """追加写入一行数据"""

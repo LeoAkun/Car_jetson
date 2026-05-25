@@ -1,7 +1,7 @@
 image: map3_clean.pgm
 mode: trinary
 resolution: 0.1
-origin: [-338, -96, 0]
+origin: [-97.6, -505, 0]
 negate: 0
 occupied_thresh: 0.65
 free_thresh: 0.25
