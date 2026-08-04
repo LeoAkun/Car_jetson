@@ -14,6 +14,8 @@
 
 #include <ompl/base/ScopedState.h>
 #include <ompl/base/spaces/DubinsStateSpace.h>
+#include <algorithm>
+#include <cmath>
 #include <vector>
 #include <memory>
 #include "nav2_smac_planner/smoother.hpp"
@@ -327,16 +329,57 @@ void Smoother::findBoundaryExpansion(
   BoundaryExpansion & expansion,
   const nav2_costmap_2d::Costmap2D * costmap)
 {
-  static ompl::base::ScopedState<> from(state_space_), to(state_space_), s(state_space_);
+  expansion.pts.clear();
+  expansion.expansion_path_length = 0.0;
+
+  const double start_yaw = tf2::getYaw(start.orientation);
+  const double end_yaw = tf2::getYaw(end.orientation);
+  if (!state_space_ || !costmap || !std::isfinite(min_turning_rad_) ||
+    min_turning_rad_ <= 0.0 || !std::isfinite(start.position.x) ||
+    !std::isfinite(start.position.y) || !std::isfinite(end.position.x) ||
+    !std::isfinite(end.position.y) || !std::isfinite(start_yaw) ||
+    !std::isfinite(end_yaw) || expansion.path_end_idx <= 0.0 ||
+    expansion.original_path_length <= 0.0)
+  {
+    expansion.in_collision = true;
+    return;
+  }
+
+  // OMPL's Humble Dubins implementation asserts for some numerically degenerate
+  // poses around the 0 / 2pi boundary. Keep each call's state local and normalize
+  // angles before entering OMPL so a bad boundary candidate cannot abort Nav2.
+  constexpr double kPositionEps = 1e-9;
+  const auto normalize_dubins_angle = [](const double angle) {
+      constexpr double kDubinsAngleEps = 1e-6;
+      double normalized = std::fmod(angle, 2.0 * M_PI);
+      if (normalized < 0.0) {
+        normalized += 2.0 * M_PI;
+      }
+      return std::clamp(normalized, kDubinsAngleEps, 2.0 * M_PI - kDubinsAngleEps);
+    };
+
+  if (std::hypot(
+      end.position.x - start.position.x,
+      end.position.y - start.position.y) < kPositionEps)
+  {
+    expansion.in_collision = true;
+    return;
+  }
+
+  ompl::base::ScopedState<> from(state_space_), to(state_space_), s(state_space_);
 
   from[0] = start.position.x;
   from[1] = start.position.y;
-  from[2] = tf2::getYaw(start.orientation);
+  from[2] = normalize_dubins_angle(start_yaw);
   to[0] = end.position.x;
   to[1] = end.position.y;
-  to[2] = tf2::getYaw(end.orientation);
+  to[2] = normalize_dubins_angle(end_yaw);
 
   double d = state_space_->distance(from(), to());
+  if (!std::isfinite(d) || d <= 0.0) {
+    expansion.in_collision = true;
+    return;
+  }
   // If this path is too long compared to the original, then this is probably
   // a loop-de-loop, treat as invalid as to not deviate too far from the original path.
   // 2.0 selected from prinicipled choice of boundary test points
@@ -357,6 +400,14 @@ void Smoother::findBoundaryExpansion(
   for (double i = 0; i <= expansion.path_end_idx; i++) {
     state_space_->interpolate(from(), to(), i / expansion.path_end_idx, s());
     reals = s.reals();
+    if (reals.size() < 3 || !std::isfinite(reals[0]) ||
+      !std::isfinite(reals[1]) || !std::isfinite(reals[2]))
+    {
+      expansion.in_collision = true;
+      expansion.pts.clear();
+      expansion.expansion_path_length = 0.0;
+      return;
+    }
     // Make sure in range [0, 2PI)
     theta = (reals[2] < 0.0) ? (reals[2] + 2.0 * M_PI) : reals[2];
     theta = (theta > 2.0 * M_PI) ? (theta - 2.0 * M_PI) : theta;
@@ -365,7 +416,12 @@ void Smoother::findBoundaryExpansion(
 
     // Check for collision
     unsigned int mx, my;
-    costmap->worldToMap(x, y, mx, my);
+    if (!costmap->worldToMap(x, y, mx, my)) {
+      expansion.in_collision = true;
+      expansion.pts.clear();
+      expansion.expansion_path_length = 0.0;
+      return;
+    }
     if (static_cast<float>(costmap->getCost(mx, my)) >= INSCRIBED) {
       expansion.in_collision = true;
     }

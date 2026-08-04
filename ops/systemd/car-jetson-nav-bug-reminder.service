@@ -1,0 +1,8 @@
+[Unit]
+Description=Remind operator to fix Car Jetson navigation bug NAV-001
+Documentation=file:///home/akun/workspace/Car_jetson/KNOWN_ISSUES.md
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/notify-send --urgency=critical --app-name=Car_Jetson "NAV-001 navigation crash" "Fix the Nav2 Dubins smoother assertion and child-process health monitoring. See KNOWN_ISSUES.md."
+ExecStart=/usr/bin/logger -t car-jetson-reminder "NAV-001 reminder: fix the Nav2 Dubins smoother assertion and child-process health monitoring."

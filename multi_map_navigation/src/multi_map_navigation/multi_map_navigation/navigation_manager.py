@@ -11,7 +11,7 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from nav2_msgs.action import NavigateToPose
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, Twist
 from std_msgs.msg import String, Bool
 from multi_map_navigation_msgs.msg import WaypointList, Waypoint, MapSwitchTrigger
 from multi_map_navigation_msgs.srv import GetProcessStatus, StartProcess, ShutdownProcess, PubNewPath
@@ -48,6 +48,7 @@ class NavigationManager(Node):
         self.task_id = None
         self.current_goal_handle = None # 当前发给 Nav2 的目标句柄
         self.total_path = None
+        self.stack_fault_active = False
 
         # 创建可重入回调组，避免服务调用与订阅回调互相阻塞
         self.service_callback_group = ReentrantCallbackGroup()
@@ -71,6 +72,13 @@ class NavigationManager(Node):
             10
         )
 
+        self.process_fault_sub = self.create_subscription(
+            String,
+            '/process_manager/fault',
+            self.process_fault_callback,
+            10
+        )
+
         # ROS2发布器用于机器人状态
         self.robot_state_pub = self.create_publisher(
             String,
@@ -83,6 +91,12 @@ class NavigationManager(Node):
             MapSwitchTrigger,
             '/trigger_map_switch',
             # '/test/trigger_map_switch',
+            10
+        )
+
+        self.emergency_cmd_vel_pub = self.create_publisher(
+            Twist,
+            '/cmd_vel',
             10
         )
 
@@ -161,6 +175,7 @@ class NavigationManager(Node):
             self.current_map = msg.start_map_name
             self.total_path = msg.total_path
             self.is_navigating = True
+            self.stack_fault_active = False
             self.publish_robot_state('running')
             # 取消上条路径的navgation2导航任务
             # if self.current_goal_handle is not None:
@@ -264,8 +279,8 @@ class NavigationManager(Node):
         req.process_name = 're_localization'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=10.0)
+        if not response or not response.success:
             self.get_logger().error('启动re_localization失败')
             return False
         self.get_logger().info('启动re_localization成功')
@@ -275,8 +290,8 @@ class NavigationManager(Node):
         req.process_name = 'nav2_init_pose'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=10.0)
+        if not response or not response.success:
             self.get_logger().error('启动nav2_init_pose失败')
             return False
         self.get_logger().info('启动nav2_init_pose成功')
@@ -294,8 +309,8 @@ class NavigationManager(Node):
         req.process_name = 'liosam'
         req.map_name = ''
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=75.0)
+        if not response or not response.success:
             self.get_logger().error('启动liosam失败')
             return False
         self.get_logger().info('启动liosam成功')
@@ -305,14 +320,12 @@ class NavigationManager(Node):
         req.process_name = 'navigation2'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=75.0)
+        if not response or not response.success:
             self.get_logger().error('启动navigation2失败')   
             return False
 
-        self.get_logger().info('等待navigaion2全部加载完成')
-        time.sleep(50.0)
-        self.get_logger().info('navigaion2全部加载完成')
+        self.get_logger().info('Navigation2关键节点和生命周期状态均已就绪')
         return True
     
     def _wait_for_future(self, future, timeout_sec: float):
@@ -320,7 +333,7 @@ class NavigationManager(Node):
         start = time.time()
         while not future.done() and time.time() - start < timeout_sec:
             time.sleep(0.05)
-        return future.result()
+        return future.result() if future.done() else None
 
     def wait_for_map_to_odom_link_tf(self, timeout_sec: float = 300.0, check_interval: float = 0.5) -> bool:
         """
@@ -623,6 +636,11 @@ class NavigationManager(Node):
         -----------
         test: 测试通过
         """
+        with self.state_lock:
+            if self.stack_fault_active:
+                self.get_logger().warning('导航栈已故障，忽略随后到达的Nav2结果')
+                return
+
         # Get the result wrapper
         result_wrapper = future.result()
         self.publish_robot_state("running")
@@ -733,7 +751,48 @@ class NavigationManager(Node):
             self.waypoint_list = None
             self.current_waypoint_index = 0
             self.current_goal_handle = None
+            self.stack_fault_active = False
         self.publish_robot_state("idle")
+
+    def process_fault_callback(self, msg: String):
+        """Fail the active task deterministically when a required stack node dies."""
+        with self.state_lock:
+            if not self.is_navigating or self.stack_fault_active:
+                return
+            self.stack_fault_active = True
+            goal_handle = self.current_goal_handle
+
+        self.get_logger().error(f'检测到导航栈故障: {msg.data}')
+        self.publish_robot_state('fault')
+
+        if goal_handle is not None:
+            try:
+                goal_handle.cancel_goal_async()
+            except Exception as exc:
+                self.get_logger().warning(f'取消Nav2目标失败: {exc}')
+
+        stop = Twist()
+        for _ in range(3):
+            self.emergency_cmd_vel_pub.publish(stop)
+
+        # Service calls wait for responses, so clean up on a worker instead of
+        # blocking the ROS subscription callback that received the fault.
+        threading.Thread(
+            target=self._cleanup_failed_stack,
+            args=(msg.data,),
+            daemon=True
+        ).start()
+
+    def _cleanup_failed_stack(self, reason: str):
+        self.shutdown_all_processes_service()
+        with self.state_lock:
+            self.is_navigating = False
+            self.is_map_switching = False
+            self.current_goal_handle = None
+            self.waypoint_list = None
+            self.current_waypoint_index = 0
+        self.get_logger().error(f'导航任务因栈故障终止，等待新任务: {reason}')
+        self.publish_robot_state('fault')
         
     def abort_navigation(self, reason)->bool:
         """
@@ -864,7 +923,8 @@ def main(args=None):
         pass
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

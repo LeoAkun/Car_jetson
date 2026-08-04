@@ -17,20 +17,23 @@ class CmdVelToEcu(Node):
         self.declare_parameter('L', 0.5)
         self.declare_parameter('MAX_STEER_DEG', 20.0)
         self.declare_parameter('LOW_SPEED_THRESH', 0.3)
-        self.declare_parameter('STOP_THRESH', 0.05)
+        self.declare_parameter('Vel_Offeset', 0.05)
         self.declare_parameter('OMEGA_DEADZONE', 0.20)
         self.declare_parameter('OMEGA_FULL_STEER', 1.20)
         self.declare_parameter('rear_wheel_flag', True)
+        self.declare_parameter('STOP_THRESH', 0.02)
+        
+        self.declare_parameter('Vel_RATE', 1.2)
 
         # 读取参数
         self.L = self.get_parameter('L').value
         self.MAX_STEER_DEG = self.get_parameter('MAX_STEER_DEG').value
         self.LOW_SPEED_THRESH = self.get_parameter('LOW_SPEED_THRESH').value
-        self.STOP_THRESH = self.get_parameter('STOP_THRESH').value
+        self.Vel_Offeset = self.get_parameter('Vel_Offeset').value
         self.OMEGA_DEADZONE = self.get_parameter('OMEGA_DEADZONE').value
         self.OMEGA_FULL_STEER = self.get_parameter('OMEGA_FULL_STEER').value
         self.rear_wheel_flag = self.get_parameter('rear_wheel_flag').value
-        
+        self.STOP_THRESH = self.get_parameter('STOP_THRESH').value
         self.get_logger().info("/cmd_vel → /ecu 节点已启动")
 
     def cmdvel_2_ecu(self, msg: Twist) -> Ecu:
@@ -43,7 +46,14 @@ class CmdVelToEcu(Node):
         ecu_msg.header.frame_id = "base_link"
 
         # 获取速度与角速度
-        v = msg.linear.x
+        if msg.linear.x >= self.STOP_THRESH:
+            if msg.linear.x > 0:
+                v = msg.linear.x + self.Vel_Offeset
+            else:
+                v = msg.linear.x - self.Vel_Offeset
+        else:
+            v = msg.linear.x
+
         omega = -msg.angular.z
 
         # ====================== 档位处理 ======================

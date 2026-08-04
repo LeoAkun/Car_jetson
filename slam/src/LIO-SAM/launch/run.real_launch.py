@@ -2,6 +2,7 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
+from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.actions import Node
 
@@ -10,6 +11,7 @@ def generate_launch_description():
 
     share_dir = get_package_share_directory('lio_sam')
     parameter_file = LaunchConfiguration('params_file')
+    use_rviz = LaunchConfiguration('use_rviz')
 
     # 机器人tf变换路径
     # xacro_path = os.path.join(share_dir, 'config', 'robot.urdf.xacro') # 数据集修改，在rviz中加载liosam默认的小车模型
@@ -25,18 +27,24 @@ def generate_launch_description():
             share_dir, 'config', 'params_rslidar.yaml'),
         description='FPath to the ROS2 parameters file to use.')
 
+    rviz_declare = DeclareLaunchArgument(
+        'use_rviz',
+        default_value='false',
+        description='Start RViz for LIO-SAM visualization')
+
     # print("urdf_file_name : {}".format(xacro_path))
 
     return LaunchDescription([
         params_declare,
+        rviz_declare,
         # 注释掉静态TF，让LIO-SAM在GPS融合时动态管理map->odom变换
-        # Node(
-        #      package='tf2_ros',
-        #      executable='static_transform_publisher',
-        #      arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
-        #      parameters=[parameter_file],
-        #      output='screen'
-        #      ),   
+         Node(
+              package='tf2_ros',
+              executable='static_transform_publisher',
+              arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
+              parameters=[parameter_file],
+              output='screen'
+              ),   
 
         # Node(
         #     package='robot_state_publisher',
@@ -111,6 +119,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             arguments=['-d', rviz_config_file],
+            condition=IfCondition(use_rviz),
             output='screen'
         )
     ])

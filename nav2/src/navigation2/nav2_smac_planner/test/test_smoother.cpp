@@ -50,7 +50,59 @@ public:
   {
     return findDirectionalPathSegments(path);
   }
+
+  BoundaryExpansion findBoundaryExpansionWrapper(
+    const geometry_msgs::msg::Pose & start,
+    const geometry_msgs::msg::Pose & end,
+    const nav2_costmap_2d::Costmap2D * costmap,
+    const double original_path_length = 1.0)
+  {
+    BoundaryExpansion expansion;
+    expansion.path_end_idx = 10.0;
+    expansion.original_path_length = original_path_length;
+    findBoundaryExpansion(start, end, expansion, costmap);
+    return expansion;
+  }
 };
+
+TEST(SmootherTest, test_dubins_boundary_expansion_guards)
+{
+  auto node = std::make_shared<rclcpp_lifecycle::LifecycleNode>("SmacSmootherGuardTest");
+  nav2_smac_planner::SmootherParams params;
+  params.get(node, "test");
+  SmootherWrapper smoother(params);
+  smoother.initialize(0.4);
+
+  nav2_costmap_2d::Costmap2D costmap(200, 200, 0.05, -5.0, -5.0, 0);
+  geometry_msgs::msg::Pose start;
+  geometry_msgs::msg::Pose end;
+  start.orientation = nav2_util::geometry_utils::orientationAroundZAxis(0.0);
+  end.orientation = nav2_util::geometry_utils::orientationAroundZAxis(2.0 * M_PI);
+  start.position.x = 0.0;
+  start.position.y = 0.0;
+  end.position.x = 1.0;
+  end.position.y = 0.0;
+
+  // Repeated boundary-angle calls previously reached an assertion in OMPL's dubinsLSL().
+  for (unsigned int i = 0; i != 1000; ++i) {
+    const auto expansion = smoother.findBoundaryExpansionWrapper(start, end, &costmap);
+    EXPECT_FALSE(expansion.in_collision);
+    EXPECT_FALSE(expansion.pts.empty());
+    EXPECT_TRUE(std::isfinite(expansion.expansion_path_length));
+  }
+
+  // Invalid and degenerate candidates must be rejected without entering OMPL.
+  auto invalid = start;
+  invalid.position.x = std::numeric_limits<double>::quiet_NaN();
+  EXPECT_TRUE(smoother.findBoundaryExpansionWrapper(invalid, end, &costmap).in_collision);
+
+  end.position = start.position;
+  EXPECT_TRUE(smoother.findBoundaryExpansionWrapper(start, end, &costmap).in_collision);
+
+  end.position.x = 100.0;
+  end.position.y = 100.0;
+  EXPECT_TRUE(smoother.findBoundaryExpansionWrapper(start, end, &costmap, 100.0).in_collision);
+}
 
 TEST(SmootherTest, test_full_smoother)
 {

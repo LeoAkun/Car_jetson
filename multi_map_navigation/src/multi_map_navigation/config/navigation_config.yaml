@@ -25,8 +25,10 @@ process_manager:
   ros__parameters:
     # 进程启动设置
     startup_delay: 2.0               # 启动进程之间的延迟（秒）
-    max_startup_time: 15.0           # 等待进程启动的最大时间（秒）
+    max_startup_time: 60.0           # Nav2首次加载规划启发式可能需要约30秒
     health_check_interval: 1.0       # 进程健康检查间隔（秒）
+    health_failure_threshold: 3      # 连续失败次数，避免DDS短暂抖动触发误报
+    lifecycle_query_timeout: 1.0     # 查询全部Nav2生命周期状态的最长等待时间
     shutdown_timeout: 10.0           # 进程关闭超时时间（秒）
 
 # 启动文件配置（共享配置）

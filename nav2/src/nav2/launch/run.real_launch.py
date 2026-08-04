@@ -4,6 +4,7 @@ import launch_ros
 from ament_index_python.packages import get_package_share_directory
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import RegisterEventHandler
+from launch.conditions import IfCondition
 from launch.event_handlers import OnShutdown
 from launch.actions import TimerAction
 from launch.actions import ExecuteProcess # 导入 ExecuteProcess
@@ -17,7 +18,8 @@ def generate_launch_description():
         nav2_bringup_dir, 'rviz', 'nav2_default_view.rviz')
     
     # 地图路径 - 默认使用学校室外地图
-    map_path = "/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/map_room.yaml" # 实验室地图
+    # map_path = "/home/akun/workspace/Car_jetson/utils/src/pcd2pgm/pgm/real/map_room.yaml" # 实验室地图
+    map_path = "/home/akun/Desktop/K8.yaml"
     # map_path = "/home/akun/workspace/Car_jetson/mapp5.yaml" # 学校室外地图
 
     # nav2配置路径
@@ -31,6 +33,7 @@ def generate_launch_description():
         'map', default=map_path)
     nav2_param_path = launch.substitutions.LaunchConfiguration(
         'params_file', default=params_dir)
+    use_rviz = launch.substitutions.LaunchConfiguration('use_rviz')
 
     # 三维点云转laserscan
     pointcloud2d_to_laser = launch_ros.actions.Node(
@@ -76,6 +79,8 @@ def generate_launch_description():
                                              description='Full path to map file to load'),
         launch.actions.DeclareLaunchArgument('params_file', default_value=nav2_param_path,
                                              description='Full path to param file to load'),
+        launch.actions.DeclareLaunchArgument('use_rviz', default_value='false',
+                                             description='Start RViz for Nav2 visualization'),
 
         launch.actions.IncludeLaunchDescription(
             # PythonLaunchDescriptionSource(
@@ -94,6 +99,7 @@ def generate_launch_description():
            name='rviz2',
            arguments=['-d', rviz_config_dir],
            parameters=[{'use_sim_time': use_sim_time}],
+           condition=IfCondition(use_rviz),
            output='screen'),
         voxel_pub,
 

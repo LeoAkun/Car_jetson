@@ -69,7 +69,7 @@ class MapSwitchController(Node):
         start = time.time()
         while not future.done() and time.time() - start < timeout_sec:
             time.sleep(0.05)
-        return future.result()
+        return future.result() if future.done() else None
 
     def map_switch_callback(self, msg: MapSwitchTrigger):
         """
@@ -146,10 +146,7 @@ class MapSwitchController(Node):
             self.current_map = next_map
             self.is_switching = False
 
-            # 等待navigation2全部加载完成
-            self.get_logger().info('等待navigation2组件全部加载完成...')
-            time.sleep(50.0)
-            self.get_logger().info('navigation2组件加载完成')
+            self.get_logger().info('Navigation2关键节点和生命周期状态均已就绪')
             return True
 
         except Exception as e:
@@ -227,8 +224,8 @@ class MapSwitchController(Node):
         req.process_name = 're_localization'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=10.0)
+        if not response or not response.success:
             self.get_logger().error('启动re_localization失败')
             return False
 
@@ -237,8 +234,8 @@ class MapSwitchController(Node):
         req.process_name = 'nav2_init_pose'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=10.0)
+        if not response or not response.success:
             self.get_logger().error('启动nav2_init_pose失败')
             self.shutdown_process_by_name('re_localization')
             return False
@@ -256,8 +253,8 @@ class MapSwitchController(Node):
         req.process_name = 'liosam'
         req.map_name = ''
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=75.0)
+        if not response or not response.success:
             self.get_logger().error('启动liosam失败')
             self.shutdown_process_by_name('nav2_init_pose')
             self.shutdown_process_by_name('re_localization')
@@ -268,8 +265,8 @@ class MapSwitchController(Node):
         req.process_name = 'navigation2'
         req.map_name = map_name
         future = self.start_process_client.call_async(req)
-        self._wait_for_future(future, timeout_sec=10.0)
-        if not future.result() or not future.result().success:
+        response = self._wait_for_future(future, timeout_sec=75.0)
+        if not response or not response.success:
             self.get_logger().error('启动navigation2失败')
             self.shutdown_process_by_name('liosam')
             self.shutdown_process_by_name('nav2_init_pose')
@@ -381,7 +378,8 @@ def main(args=None):
         pass
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

@@ -255,7 +255,7 @@ controller_server:
 
       # 阿克曼模型参数
       AckermannConstraints:
-        min_turning_r: 0.4 # 转弯半径
+        min_turning_r: 0.5 # 转弯半径
       # critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic", "VelocityDeadbandCritic"] # 评判模型
       critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic"] # 评判模型
       
@@ -481,7 +481,7 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 1.5  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
-        inflation_radius: 2.0    # 增加膨胀半径，让机器人更倾向于远离障碍物
+        inflation_radius: 0.3    # 增加膨胀半径，让机器人更倾向于远离障碍物
       always_send_full_costmap: True
 
 map_server:

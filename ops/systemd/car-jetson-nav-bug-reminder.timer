@@ -1,0 +1,11 @@
+[Unit]
+Description=One-time reminder for Car Jetson navigation bug NAV-001
+
+[Timer]
+OnCalendar=2026-07-24 09:00:00 Asia/Shanghai
+Persistent=true
+AccuracySec=1min
+Unit=car-jetson-nav-bug-reminder.service
+
+[Install]
+WantedBy=timers.target
