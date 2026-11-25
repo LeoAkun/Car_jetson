@@ -1,0 +1,934 @@
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:05:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:06:25 admin1-Default-string kernel: usb 1-5: USB disconnect, device number 7
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:07:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5004 ms
+10月 26 16:07:06 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:15:14 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)^C0000001/00002000r, (Receiver ID)rst)rror status/mask=00000001/000
+akun@admin1-Default-string:~/workspace$ sudo journalctl -k -b --since "20 minutes ago" --no-pager | tee /home/akun/car-host-step9.MgehLL/imu-usb-kernel-2026-10-26.log
+10月 26 15:56:45 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:56:45 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:56:45 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:56:45 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:57:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:57:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:57:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:57:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:57:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:58:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:24 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:24 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:25 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:26 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:26 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:27 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:27 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:27 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:27 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:28 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:28 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:29 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:29 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:30 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:30 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:31 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:31 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:35 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:35 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:36 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:36 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:37 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 15:58:37 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 15:58:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:58:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:58:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:58:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5001 ms
+10月 26 15:59:06 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 15:59:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 15:59:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 15:59:10 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:10 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:10 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:10 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:17 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:17 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:17 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:17 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:19 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 15:59:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 15:59:50 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5018 ms
+10月 26 15:59:50 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 15:59:50 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 15:59:50 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:00:36 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5555 ms
+10月 26 16:00:36 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:00:36 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:00:36 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:00:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:01 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:01 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:01 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:01 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:06 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:06 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:06 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:06 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:09 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:09 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:09 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:09 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:10 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:10 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:10 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:10 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:17 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:17 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:17 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:17 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:20 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:20 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:20 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:20 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:21 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5240 ms
+10月 26 16:01:21 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:01:21 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:01:21 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:41 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:41 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:41 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:41 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:54 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:54 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:54 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:54 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:01:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:01:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:01:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:01:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:00 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:00 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:00 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:00 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:01 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:01 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:01 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:01 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:48 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:48 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:48 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:48 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:08 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:31 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:31 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:31 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:31 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:50 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:50 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:51 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:03:51 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:03:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:04:09 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:04:09 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:04:23 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:04:23 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:04:23 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:04:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:04:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:04:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:04:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:04:48 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:04:48 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:04:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:12 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:13 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:05:20 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:05:43 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:06:25 admin1-Default-string kernel: usb 1-5: USB disconnect, device number 7
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:06:29 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:07:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5004 ms
+10月 26 16:07:06 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:07:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:07:06 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:07:50 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:07:50 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:07:51 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5371 ms
+10月 26 16:07:51 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:07:51 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:07:51 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:08:02 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:08:02 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:08:14 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:14 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:14 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:14 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: new full-speed USB device number 16 using xhci_hcd
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: New USB device found, idVendor=10c4, idProduct=ea60, bcdDevice= 1.00
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: Product: CP2102 USB to UART Bridge Controller
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: Manufacturer: Silicon Labs
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: SerialNumber: 0001
+10月 26 16:08:18 admin1-Default-string kernel: cp210x 1-5:1.0: cp210x converter detected
+10月 26 16:08:18 admin1-Default-string kernel: usb 1-5: cp210x converter now attached to ttyUSB2
+10月 26 16:08:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:26 admin1-Default-string kernel: usb 1-5: usbfs: interface 0 claimed by cp210x while 'brltty' sets config #1
+10月 26 16:08:26 admin1-Default-string kernel: cp210x ttyUSB2: cp210x converter now disconnected from ttyUSB2
+10月 26 16:08:26 admin1-Default-string kernel: cp210x 1-5:1.0: device disconnected
+10月 26 16:08:30 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:30 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:30 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:30 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:33 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:33 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:33 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:33 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:35 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5001 ms
+10月 26 16:08:35 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:08:35 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:08:35 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:08:35 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:08:35 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:36 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:37 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:37 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:37 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:37 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:41 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:41 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:41 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:41 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:42 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:08:42 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:46 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:47 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:48 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:48 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:48 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:48 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:54 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:08:57 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:08 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:08 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:08 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:08 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:18 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:18 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:18 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:18 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:21 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5001 ms
+10月 26 16:09:21 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:09:21 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:09:21 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:09:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:22 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:22 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:22 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:22 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:24 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:24 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:24 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:24 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:30 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:30 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:30 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:30 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:32 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:32 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:32 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:32 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:38 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:45 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:45 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:45 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:45 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:53 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:53 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:09:56 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:04 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:10:04 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:10:06 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:06 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:06 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:06 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:07 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:09 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:09 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:09 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:09 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:11 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:16 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:16 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:16 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:16 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:23 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:23 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:23 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:23 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:25 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:25 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:25 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:25 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:34 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:34 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:34 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:34 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:38 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:38 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:38 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:38 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:39 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:39 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:10:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:11:06 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:11:06 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:11:06 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:11:06 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:11:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:11:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:11:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:11:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:11:48 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:11:48 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:11:48 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:11:48 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:11:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:11:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:11:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:11:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:05 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:13 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:13 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:13 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:13 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:18 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:12:18 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:12:20 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:20 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:20 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:20 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:21 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:21 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:24 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:24 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:24 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:24 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:26 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:26 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:26 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:26 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:12:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:12:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:12:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:12:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:13:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:13:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:13:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:13:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:13:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:14:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:14:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:14:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:14:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:15:08 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5796 ms
+10月 26 16:15:08 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:15:08 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:15:08 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:15:14 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:15:14 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:15:14 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:15:14 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:15:51 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5458 ms
+10月 26 16:15:51 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+10月 26 16:15:51 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:15:51 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+10月 26 16:16:12 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:16:12 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+10月 26 16:16:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:16:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:16:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:16:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:16:17 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+10月 26 16:16:17 admin1-Default-string kernel: pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+10月 26 16:16:17 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+10月 26 16:16:17 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+10月 26 16:16:18 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+10月 26 16:16:18 admin1-Default-string kernel: wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults@\home\akun\.cursor\projects\home-akun-workspace\terminals\1.txt:154-1046 @\home\akun\.cursor\projects\home-akun-workspace\terminals\1.txt:140-1046 

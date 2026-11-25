@@ -1,0 +1,21 @@
+{
+  "time_beijing": "2026-11-07T16:21:17.611039+08:00",
+  "result": "interrupted_by_repeated_unexpected_host_reboot",
+  "route": {
+    "map": "3b2mus",
+    "waypoints": [
+      113,
+      106,
+      107
+    ]
+  },
+  "boot_sequence": [
+    "271a95a2-06a6-4728-8955-9195feec0b76",
+    "7a56ea4e-c01f-4c9e-be99-4775707dd7f3",
+    "ca32f49f-62a3-4e77-aee9-af55c9ac556a"
+  ],
+  "nav2_observed": false,
+  "automatic_redispatch": "stopped_after_second_reboot",
+  "post_reboot_monitor_pid": 4475,
+  "note": "rosbag recorder started only after second reboot; it is not a record of either pre-reboot navigation attempt"
+}

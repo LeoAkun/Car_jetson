@@ -1,6 +1,11 @@
 #include "utility.hpp"
 #include "lio_sam/msg/cloud_info.hpp"
 #include "lio_sam/srv/save_map.hpp"
+#include <multi_map_navigation_msgs/msg/lio_correction_event.hpp>
+#include <std_msgs/msg/string.hpp>
+#include <cstdlib>
+#include <limits>
+#include <sstream>
 #include <gtsam/geometry/Rot3.h>
 #include <gtsam/geometry/Pose3.h>
 #include <gtsam/slam/PriorFactor.h>
@@ -71,6 +76,9 @@ public:
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubRecentKeyFrame;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubCloudRegisteredRaw;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pubLoopConstraintEdge;
+    rclcpp::Publisher<multi_map_navigation_msgs::msg::LioCorrectionEvent>::SharedPtr
+        pubRawCorrectionEvent;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pubLocalizationFault;
 
     rclcpp::Service<lio_sam::srv::SaveMap>::SharedPtr srvSaveMap;
     rclcpp::Subscription<lio_sam::msg::CloudInfo>::SharedPtr subCloud;
@@ -127,6 +135,7 @@ public:
 
     std::mutex mtx;
     std::mutex mtxLoopInfo;
+    std::mutex diagnosticMutex;
 
     bool isDegenerate = false;
     Eigen::Matrix<float, 6, 6> matP;
@@ -136,35 +145,99 @@ public:
     int laserCloudCornerLastDSNum = 0;
     int laserCloudSurfLastDSNum = 0;
 
-    bool aLoopIsClosed = false;
+    enum CorrectionSourceMask : uint8_t
+    {
+        CORRECTION_NONE = 0,
+        CORRECTION_LOOP = 1 << 0,
+        CORRECTION_GPS = 1 << 1,
+    };
+    uint8_t correctionSourceMask = CORRECTION_NONE;
     map<int, int> loopIndexContainer; // from new to old
     vector<pair<int, int>> loopIndexQueue;
     vector<gtsam::Pose3> loopPoseQueue;
-    vector<gtsam::noiseModel::Diagonal::shared_ptr> loopNoiseQueue;
+    vector<gtsam::SharedNoiseModel> loopNoiseQueue;
+    vector<double> loopScoreQueue;
+    vector<double> loopOverlapQueue;
+    map<int, int> lastAcceptedLoopForHistoryKey;
     deque<std_msgs::msg::Float64MultiArray> loopInfoVec;
 
     nav_msgs::msg::Path globalPath;
 
     Eigen::Affine3f transPointAssociateToMap;
     Eigen::Affine3f incrementalOdometryAffineFront;
-    Eigen::Affine3f incrementalOdometryAffineBack;
 
-    std::unique_ptr<tf2_ros::TransformBroadcaster> br;
-    std::shared_ptr<tf2_ros::Buffer> tfBuffer; // 用于重新发布odom->base_link
+    struct CorrectionDiagnostic
+    {
+        uint8_t source =
+            multi_map_navigation_msgs::msg::LioCorrectionEvent::SOURCE_UNKNOWN;
+        geometry_msgs::msg::Pose predicted;
+        geometry_msgs::msg::Pose optimized;
+        double sourceScore = std::numeric_limits<double>::quiet_NaN();
+        bool degenerate = false;
+        bool accepted = false;
+        bool optimizedByGraph = false;
+        std::string reason;
+    };
+
+    std::vector<CorrectionDiagnostic> pendingCorrectionDiagnostics;
+    geometry_msgs::msg::Pose lastIncrementalPose;
+    std::string lioInstanceId;
+    uint64_t lioGeneration = 0;
+    int scanOptimizationIterations = 0;
+    double scanOptimizationScore = std::numeric_limits<double>::quiet_NaN();
+    int consecutiveScanRejects = 0;
+    int consecutiveDegenerateScans = 0;
+    bool scanFaultLatched = false;
+
+    struct GpsCandidate
+    {
+        double stamp = 0.0;
+        double x = 0.0;
+        double y = 0.0;
+        double z = 0.0;
+        double varianceX = 0.0;
+        double varianceY = 0.0;
+        double varianceZ = 0.0;
+    };
+    std::deque<GpsCandidate> consistentGpsCandidates;
+    bool hasLastAcceptedGps = false;
+    PointType lastAcceptedGpsPoint;
+
     mapOptimization(const rclcpp::NodeOptions & options) : ParamServer("lio_sam_mapOptimization", options)
     {
         ISAM2Params parameters;
         parameters.relinearizeThreshold = 0.1;
         parameters.relinearizeSkip = 1;
         isam = new ISAM2(parameters);
-        tfBuffer = std::make_shared<tf2_ros::Buffer>(get_clock()); // 用于重新发布odom->base_link
         pubKeyPoses = create_publisher<sensor_msgs::msg::PointCloud2>("lio_sam/mapping/trajectory", 1); // 发布位姿(轨迹)
         pubLaserCloudSurround = create_publisher<sensor_msgs::msg::PointCloud2>("lio_sam/mapping/map_global", 1); // 发布全局地图
         pubLaserOdometryGlobal = create_publisher<nav_msgs::msg::Odometry>("lio_sam/mapping/odometry", qos); // 发布激光里程计
         pubLaserOdometryIncremental = create_publisher<nav_msgs::msg::Odometry>(
             "lio_sam/mapping/odometry_incremental", qos);
+        pubRawCorrectionEvent =
+            create_publisher<multi_map_navigation_msgs::msg::LioCorrectionEvent>(
+                "lio_sam/mapping/correction_event", rclcpp::QoS(100).reliable());
+        pubLocalizationFault = create_publisher<std_msgs::msg::String>(
+            "lio_sam/localization_fault", rclcpp::QoS(10).reliable());
         pubPath = create_publisher<nav_msgs::msg::Path>("lio_sam/mapping/path", 1);
-        br = std::make_unique<tf2_ros::TransformBroadcaster>(this);
+
+        const char * instanceId = std::getenv("LIO_SAM_INSTANCE_ID");
+        const char * generation = std::getenv("LIO_SAM_GENERATION");
+        if (instanceId != nullptr)
+            lioInstanceId = instanceId;
+        if (generation != nullptr)
+        {
+            try
+            {
+                lioGeneration = std::stoull(generation);
+            }
+            catch (const std::exception & error)
+            {
+                RCLCPP_ERROR(
+                    get_logger(), "Invalid LIO_SAM_GENERATION '%s': %s",
+                    generation, error.what());
+            }
+        }
 
         subCloud = create_subscription<lio_sam::msg::CloudInfo>(
             "lio_sam/feature/cloud_info", qos,
@@ -250,6 +323,7 @@ public:
         downSizeFilterSurroundingKeyPoses.setLeafSize(surroundingKeyframeDensity, surroundingKeyframeDensity, surroundingKeyframeDensity); // for surrounding key poses of scan-to-map optimization
         
         allocateMemory();
+        lastIncrementalPose.orientation.w = 1.0;
     }
 
     void allocateMemory()
@@ -295,6 +369,78 @@ public:
         matP.setZero();
     }
 
+    geometry_msgs::msg::Pose affineToPose(const Eigen::Affine3f & affine) const
+    {
+        float x, y, z, roll, pitch, yaw;
+        pcl::getTranslationAndEulerAngles(
+            affine, x, y, z, roll, pitch, yaw);
+        geometry_msgs::msg::Pose pose;
+        pose.position.x = x;
+        pose.position.y = y;
+        pose.position.z = z;
+        tf2::Quaternion quaternion;
+        quaternion.setRPY(roll, pitch, yaw);
+        pose.orientation = tf2::toMsg(quaternion);
+        return pose;
+    }
+
+    Eigen::Affine3f poseToAffine(const geometry_msgs::msg::Pose & pose) const
+    {
+        tf2::Transform transform;
+        tf2::fromMsg(pose, transform);
+        return tf2::transformToEigen(tf2::toMsg(transform)).cast<float>();
+    }
+
+    static double normalizeAngle(double angle)
+    {
+        return std::atan2(std::sin(angle), std::cos(angle));
+    }
+
+    void publishRawCorrectionDiagnostic(
+        const CorrectionDiagnostic & diagnostic,
+        const builtin_interfaces::msg::Time & stamp)
+    {
+        multi_map_navigation_msgs::msg::LioCorrectionEvent event;
+        event.header.stamp = stamp;
+        event.header.frame_id = mappingFrame;
+        event.instance_id = lioInstanceId;
+        event.generation = lioGeneration;
+        // mapOptimization identifies the source. IMU preintegration assigns the
+        // epoch only after optimization and repropagation complete successfully.
+        event.correction_epoch = 0;
+        event.source = diagnostic.source;
+        event.predicted_pose_at_stamp = diagnostic.predicted;
+        event.optimized_pose_at_stamp = diagnostic.optimized;
+        {
+            std::lock_guard<std::mutex> lock(diagnosticMutex);
+            event.incremental_pose_at_stamp = lastIncrementalPose;
+        }
+
+        const Eigen::Affine3f predicted = poseToAffine(diagnostic.predicted);
+        const Eigen::Affine3f optimized = poseToAffine(diagnostic.optimized);
+        const Eigen::Affine3f residual = predicted.inverse() * optimized;
+        const Eigen::Vector3f translation = residual.translation();
+        event.translation_residual = translation.norm();
+        float x, y, z, roll, pitch, yaw;
+        pcl::getTranslationAndEulerAngles(
+            residual, x, y, z, roll, pitch, yaw);
+        event.yaw_residual = normalizeAngle(yaw);
+        event.source_score = diagnostic.sourceScore;
+        event.arrival_delay_sec =
+            (now() - rclcpp::Time(stamp)).seconds();
+        event.degenerate = diagnostic.degenerate;
+        event.accepted = diagnostic.accepted;
+        event.reason = diagnostic.reason;
+        pubRawCorrectionEvent->publish(event);
+    }
+
+    void publishPendingCorrectionDiagnostics()
+    {
+        for (const auto & diagnostic : pendingCorrectionDiagnostics)
+            publishRawCorrectionDiagnostic(diagnostic, timeLaserInfoStamp);
+        pendingCorrectionDiagnostics.clear();
+    }
+
     // 接收到点云特征图后，自动执行回调
     void laserCloudInfoHandler(const lio_sam::msg::CloudInfo::SharedPtr msgIn)
     {
@@ -320,6 +466,10 @@ public:
                 2.后续帧，用Imu里程计计算两帧之间的增量位姿变换，作用于前一帧的位姿，得到当前位姿
             */
             updateInitialGuess();
+            const geometry_msgs::msg::Pose scanPredictedPose =
+                affineToPose(trans2Affine3f(transformTobeMapped));
+            const Eigen::Affine3f scanPredictedAffine =
+                trans2Affine3f(transformTobeMapped);
 
             // 提取局部角点、平面点云集合，加入局部map
             extractSurroundingKeyFrames();
@@ -330,14 +480,93 @@ public:
             // 优化当前帧的位姿
             scan2MapOptimization();
 
+            const Eigen::Affine3f scanAttemptedAffine =
+                trans2Affine3f(transformTobeMapped);
+            const Eigen::Affine3f scanCorrection =
+                scanPredictedAffine.inverse() * scanAttemptedAffine;
+            const double scanCorrectionTranslation =
+                scanCorrection.translation().norm();
+            const double scanCorrectionRotation = Eigen::AngleAxisf(
+                scanCorrection.rotation()).angle();
+            const bool scanHadFeatures =
+                scanOptimizationIterations > 0 &&
+                laserCloudCornerLastDSNum > edgeFeatureMinValidNum &&
+                laserCloudSurfLastDSNum > surfFeatureMinValidNum;
+            const bool scanCorrectionFinite =
+                std::isfinite(scanCorrectionTranslation) &&
+                std::isfinite(scanCorrectionRotation) &&
+                scanAttemptedAffine.matrix().allFinite();
+            const bool scanCorrectionWithinGate = scanCorrectionFinite &&
+                scanCorrectionTranslation <= scanToMapMaxCorrectionTranslation &&
+                scanCorrectionRotation <= scanToMapMaxCorrectionRotation;
+            const bool scanAccepted = scanHadFeatures && scanCorrectionWithinGate;
+            if (scanHadFeatures && !scanCorrectionWithinGate)
+            {
+                pcl::getTranslationAndEulerAngles(
+                    scanPredictedAffine,
+                    transformTobeMapped[3], transformTobeMapped[4],
+                    transformTobeMapped[5], transformTobeMapped[0],
+                    transformTobeMapped[1], transformTobeMapped[2]);
+            }
+
+            CorrectionDiagnostic scanDiagnostic;
+            scanDiagnostic.source =
+                multi_map_navigation_msgs::msg::LioCorrectionEvent::SOURCE_SCAN_TO_MAP;
+            scanDiagnostic.predicted = scanPredictedPose;
+            scanDiagnostic.optimized = affineToPose(scanAttemptedAffine);
+            scanDiagnostic.sourceScore = scanOptimizationScore;
+            scanDiagnostic.degenerate = isDegenerate;
+            scanDiagnostic.accepted = scanAccepted;
+            std::ostringstream scanReason;
+            scanReason << (scanDiagnostic.accepted ? "scan-to-map optimized" :
+                           (scanHadFeatures ? "scan-to-map correction rejected" :
+                            "scan-to-map skipped"))
+                       << "; corner_features=" << laserCloudCornerLastDSNum
+                       << "; surface_features=" << laserCloudSurfLastDSNum
+                       << "; selected_features=" << laserCloudOri->size()
+                       << "; iterations=" << scanOptimizationIterations
+                       << "; correction_translation="
+                       << scanCorrectionTranslation
+                       << "; correction_rotation=" << scanCorrectionRotation
+                       << "; translation_limit="
+                       << scanToMapMaxCorrectionTranslation
+                       << "; rotation_limit="
+                       << scanToMapMaxCorrectionRotation;
+            scanDiagnostic.reason = scanReason.str();
+            pendingCorrectionDiagnostics.push_back(scanDiagnostic);
+
+            consecutiveScanRejects = scanDiagnostic.accepted ? 0 :
+                consecutiveScanRejects + 1;
+            consecutiveDegenerateScans = scanDiagnostic.degenerate ?
+                consecutiveDegenerateScans + 1 : 0;
+            if (!scanFaultLatched &&
+                (consecutiveScanRejects >= 3 ||
+                 consecutiveDegenerateScans >= 3))
+            {
+                scanFaultLatched = true;
+                std_msgs::msg::String fault;
+                fault.data =
+                    "LIO_SCAN_TO_MAP_UNRELIABLE: consecutive_rejects=" +
+                    std::to_string(consecutiveScanRejects) +
+                    "; consecutive_degenerate=" +
+                    std::to_string(consecutiveDegenerateScans);
+                pubLocalizationFault->publish(fault);
+                RCLCPP_ERROR(get_logger(), "%s", fault.data.c_str());
+            }
+
             // 设置当前帧为关键帧，并执行因子图优化
             saveKeyFramesAndFactor();
 
             // 更新因子图
             correctPoses();
 
-            // 发布激光里程计->lidar_link变换
-            publishOdometry();
+            // The IMU consumes the scan increment, excluding rejected matches
+            // and pose changes from the keyframe graph.
+            publishOdometry(scanAccepted ? scanAttemptedAffine : scanPredictedAffine);
+
+            // Publish after odometry construction so incremental_pose_at_stamp
+            // is the exact mapping incremental pose consumed by IMU preintegration.
+            publishPendingCorrectionDiagnostics();
 
             publishFrames();
         }
@@ -499,7 +728,7 @@ public:
         downSizeFilterGlobalMapKeyFrames.setLeafSize(globalMapVisualizationLeafSize, globalMapVisualizationLeafSize, globalMapVisualizationLeafSize); // for global map visualization
         downSizeFilterGlobalMapKeyFrames.setInputCloud(globalMapKeyFrames);
         downSizeFilterGlobalMapKeyFrames.filter(*globalMapKeyFramesDS);
-        publishCloud(pubLaserCloudSurround, globalMapKeyFramesDS, timeLaserInfoStamp, odometryFrame);
+        publishCloud(pubLaserCloudSurround, globalMapKeyFramesDS, timeLaserInfoStamp, mappingFrame);
     }
 
 
@@ -558,6 +787,33 @@ public:
             if (detectLoopClosureDistance(&loopKeyCur, &loopKeyPre) == false)
                 return;
 
+        const builtin_interfaces::msg::Time loopStamp = rclcpp::Time(
+            static_cast<int64_t>(
+                copy_cloudKeyPoses6D->points[loopKeyCur].time * 1e9));
+        CorrectionDiagnostic loopDiagnostic;
+        loopDiagnostic.source =
+            multi_map_navigation_msgs::msg::LioCorrectionEvent::SOURCE_LOOP;
+        loopDiagnostic.predicted = affineToPose(
+            pclPointToAffine3f(copy_cloudKeyPoses6D->points[loopKeyCur]));
+        loopDiagnostic.optimized = loopDiagnostic.predicted;
+
+        const auto repeatedHistory =
+            lastAcceptedLoopForHistoryKey.find(loopKeyPre);
+        if (repeatedHistory != lastAcceptedLoopForHistoryKey.end() &&
+            loopKeyCur - repeatedHistory->second < historyKeyframeSearchNum)
+        {
+            std::ostringstream reason;
+            reason << "loop rejected: repeated equivalent history constraint; "
+                   << "current_key=" << loopKeyCur
+                   << "; previous_key=" << loopKeyPre
+                   << "; last_current_key=" << repeatedHistory->second
+                   << "; minimum_key_separation="
+                   << historyKeyframeSearchNum;
+            loopDiagnostic.reason = reason.str();
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
+
         // extract cloud
         pcl::PointCloud<PointType>::Ptr cureKeyframeCloud(new pcl::PointCloud<PointType>());
         pcl::PointCloud<PointType>::Ptr prevKeyframeCloud(new pcl::PointCloud<PointType>());
@@ -565,14 +821,24 @@ public:
             loopFindNearKeyframes(cureKeyframeCloud, loopKeyCur, 0);
             loopFindNearKeyframes(prevKeyframeCloud, loopKeyPre, historyKeyframeSearchNum);
             if (cureKeyframeCloud->size() < 300 || prevKeyframeCloud->size() < 1000)
+            {
+                std::ostringstream reason;
+                reason << "loop rejected: insufficient points; current_key="
+                       << loopKeyCur << "; previous_key=" << loopKeyPre
+                       << "; source_points=" << cureKeyframeCloud->size()
+                       << "; target_points=" << prevKeyframeCloud->size();
+                loopDiagnostic.reason = reason.str();
+                publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
                 return;
+            }
             if (pubHistoryKeyFrames->get_subscription_count() != 0)
-                publishCloud(pubHistoryKeyFrames, prevKeyframeCloud, timeLaserInfoStamp, odometryFrame);
+                publishCloud(pubHistoryKeyFrames, prevKeyframeCloud, timeLaserInfoStamp, mappingFrame);
         }
 
         // ICP Settings
         static pcl::IterativeClosestPoint<PointType, PointType> icp;
-        icp.setMaxCorrespondenceDistance(historyKeyframeSearchRadius*2);
+        icp.setMaxCorrespondenceDistance(
+            loopClosureMaxCorrespondenceDistance);
         icp.setMaximumIterations(100);
         icp.setTransformationEpsilon(1e-6);
         icp.setEuclideanFitnessEpsilon(1e-6);
@@ -584,21 +850,145 @@ public:
         pcl::PointCloud<PointType>::Ptr unused_result(new pcl::PointCloud<PointType>());
         icp.align(*unused_result);
 
-        if (icp.hasConverged() == false || icp.getFitnessScore() > historyKeyframeFitnessScore)
+        loopDiagnostic.sourceScore = icp.getFitnessScore();
+        size_t overlapCount = 0;
+        pcl::KdTreeFLANN<PointType> overlapTree;
+        overlapTree.setInputCloud(prevKeyframeCloud);
+        std::vector<int> overlapIndices(1);
+        std::vector<float> overlapDistances(1);
+        for (const auto & point : unused_result->points)
+        {
+            if (overlapTree.nearestKSearch(
+                    point, 1, overlapIndices, overlapDistances) > 0 &&
+                overlapDistances.front() <=
+                    loopClosureMaxCorrespondenceDistance *
+                    loopClosureMaxCorrespondenceDistance)
+            {
+                ++overlapCount;
+            }
+        }
+        const double overlapRatio = unused_result->empty() ? 0.0 :
+            static_cast<double>(overlapCount) /
+            static_cast<double>(unused_result->size());
+        if (icp.hasConverged() == false ||
+            !std::isfinite(icp.getFitnessScore()) ||
+            icp.getFitnessScore() > historyKeyframeFitnessScore ||
+            overlapRatio < loopClosureMinOverlap)
+        {
+            std::ostringstream reason;
+            reason << "loop rejected: "
+                   << (!icp.hasConverged() ? "ICP did not converge" :
+                       (overlapRatio < loopClosureMinOverlap ?
+                        "overlap threshold" : "fitness threshold"))
+                   << "; current_key=" << loopKeyCur
+                   << "; previous_key=" << loopKeyPre
+                   << "; fitness=" << icp.getFitnessScore()
+                   << "; overlap_2m=" << overlapRatio
+                   << "; fitness_threshold=" << historyKeyframeFitnessScore
+                   << "; overlap_threshold=" << loopClosureMinOverlap;
+            loopDiagnostic.reason = reason.str();
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
             return;
+        }
+
+        const Eigen::Matrix4f primaryCorrection = icp.getFinalTransformation();
+        if (!primaryCorrection.allFinite() ||
+            std::abs(primaryCorrection.block<3, 3>(0, 0).determinant() - 1.0f) >
+                0.05f)
+        {
+            loopDiagnostic.reason =
+                "loop rejected: non-finite or invalid rigid correction";
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
+        const double primaryTranslation =
+            primaryCorrection.block<3, 1>(0, 3).norm();
+        const double primaryRotation = Eigen::AngleAxisf(
+            primaryCorrection.block<3, 3>(0, 0)).angle();
+        if (primaryTranslation > 0.30 ||
+            primaryRotation > 5.0 * M_PI / 180.0)
+        {
+            std::ostringstream reason;
+            reason << "loop rejected: online correction exceeds hard gate; "
+                   << "translation=" << primaryTranslation
+                   << "; rotation=" << primaryRotation;
+            loopDiagnostic.reason = reason.str();
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
+
+        if (loopKeyCur < 1)
+        {
+            loopDiagnostic.reason =
+                "loop rejected: no independent neighboring keyframe";
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
+        pcl::PointCloud<PointType>::Ptr independentCurrentCloud(
+            new pcl::PointCloud<PointType>());
+        loopFindNearKeyframes(
+            independentCurrentCloud, loopKeyCur - 1, 0);
+        if (independentCurrentCloud->size() < 300)
+        {
+            loopDiagnostic.reason =
+                "loop rejected: independent validation cloud has insufficient points";
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
+
+        pcl::IterativeClosestPoint<PointType, PointType> validationIcp;
+        validationIcp.setMaxCorrespondenceDistance(
+            loopClosureMaxCorrespondenceDistance);
+        validationIcp.setMaximumIterations(100);
+        validationIcp.setTransformationEpsilon(1e-6);
+        validationIcp.setEuclideanFitnessEpsilon(1e-6);
+        validationIcp.setRANSACIterations(0);
+        validationIcp.setInputSource(independentCurrentCloud);
+        validationIcp.setInputTarget(prevKeyframeCloud);
+        pcl::PointCloud<PointType> validationResult;
+        validationIcp.align(validationResult);
+        const Eigen::Matrix4f validationCorrection =
+            validationIcp.getFinalTransformation();
+        if (!validationIcp.hasConverged() ||
+            !std::isfinite(validationIcp.getFitnessScore()) ||
+            validationIcp.getFitnessScore() > historyKeyframeFitnessScore ||
+            !validationCorrection.allFinite())
+        {
+            loopDiagnostic.reason =
+                "loop rejected: independent validation did not converge";
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
+        const Eigen::Matrix4f validationDifference =
+            primaryCorrection.inverse() * validationCorrection;
+        const double validationTranslation =
+            validationDifference.block<3, 1>(0, 3).norm();
+        const double validationRotation = Eigen::AngleAxisf(
+            validationDifference.block<3, 3>(0, 0)).angle();
+        if (validationTranslation > 0.20 ||
+            validationRotation > 2.0 * M_PI / 180.0)
+        {
+            std::ostringstream reason;
+            reason << "loop rejected: independent validation disagrees; "
+                   << "translation_difference=" << validationTranslation
+                   << "; rotation_difference=" << validationRotation;
+            loopDiagnostic.reason = reason.str();
+            publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
+            return;
+        }
 
         // publish corrected cloud
         if (pubIcpKeyFrames->get_subscription_count() != 0)
         {
             pcl::PointCloud<PointType>::Ptr closed_cloud(new pcl::PointCloud<PointType>());
             pcl::transformPointCloud(*cureKeyframeCloud, *closed_cloud, icp.getFinalTransformation());
-            publishCloud(pubIcpKeyFrames, closed_cloud, timeLaserInfoStamp, odometryFrame);
+            publishCloud(pubIcpKeyFrames, closed_cloud, timeLaserInfoStamp, mappingFrame);
         }
 
         // Get pose transformation
         float x, y, z, roll, pitch, yaw;
         Eigen::Affine3f correctionLidarFrame;
-        correctionLidarFrame = icp.getFinalTransformation();
+        correctionLidarFrame = primaryCorrection;
         // transform from world origin to wrong pose
         Eigen::Affine3f tWrong = pclPointToAffine3f(copy_cloudKeyPoses6D->points[loopKeyCur]);
         // transform from world origin to corrected pose
@@ -606,20 +996,46 @@ public:
         pcl::getTranslationAndEulerAngles (tCorrect, x, y, z, roll, pitch, yaw);
         gtsam::Pose3 poseFrom = Pose3(Rot3::RzRyRx(roll, pitch, yaw), Point3(x, y, z));
         gtsam::Pose3 poseTo = pclPointTogtsamPose3(copy_cloudKeyPoses6D->points[loopKeyPre]);
-        gtsam::Vector Vector6(6);
         float noiseScore = icp.getFitnessScore();
-        Vector6 << noiseScore, noiseScore, noiseScore, noiseScore, noiseScore, noiseScore;
-        noiseModel::Diagonal::shared_ptr constraintNoise = noiseModel::Diagonal::Variances(Vector6);
+        const double translationVariance = std::max(1e-3,
+            static_cast<double>(noiseScore));
+        const double rotationVariance = std::max(
+            std::pow(0.5 * M_PI / 180.0, 2),
+            std::min(std::pow(5.0 * M_PI / 180.0, 2),
+                static_cast<double>(noiseScore) * 0.01));
+        const gtsam::Vector6 variances = (gtsam::Vector6() <<
+            rotationVariance, rotationVariance, rotationVariance,
+            translationVariance, translationVariance,
+            translationVariance).finished();
+        const auto baseNoise = noiseModel::Diagonal::Variances(variances);
+        const gtsam::SharedNoiseModel constraintNoise =
+            noiseModel::Robust::Create(
+                noiseModel::mEstimator::Huber::Create(1.345), baseNoise);
 
         // Add pose constraint
         mtx.lock();
         loopIndexQueue.push_back(make_pair(loopKeyCur, loopKeyPre));
         loopPoseQueue.push_back(poseFrom.between(poseTo));
         loopNoiseQueue.push_back(constraintNoise);
+        loopScoreQueue.push_back(noiseScore);
+        loopOverlapQueue.push_back(overlapRatio);
         mtx.unlock();
+
+        loopDiagnostic.accepted = false;
+        loopDiagnostic.optimized = affineToPose(tCorrect);
+        std::ostringstream acceptedReason;
+        acceptedReason << "loop candidate passed ICP and is pending graph update; current_key=" << loopKeyCur
+                       << "; previous_key=" << loopKeyPre
+                       << "; fitness=" << noiseScore
+                       << "; overlap_2m=" << overlapRatio
+                       << "; source_points=" << cureKeyframeCloud->size()
+                       << "; target_points=" << prevKeyframeCloud->size();
+        loopDiagnostic.reason = acceptedReason.str();
+        publishRawCorrectionDiagnostic(loopDiagnostic, loopStamp);
 
         // add loop constriant
         loopIndexContainer[loopKeyCur] = loopKeyPre;
+        lastAcceptedLoopForHistoryKey[loopKeyPre] = loopKeyCur;
     }
 
     bool detectLoopClosureDistance(int *latestID, int *closestID)
@@ -743,7 +1159,7 @@ public:
         visualization_msgs::msg::MarkerArray markerArray;
         // loop nodes
         visualization_msgs::msg::Marker markerNode;
-        markerNode.header.frame_id = odometryFrame;
+        markerNode.header.frame_id = mappingFrame;
         markerNode.header.stamp = timeLaserInfoStamp;
         markerNode.action = visualization_msgs::msg::Marker::ADD;
         markerNode.type = visualization_msgs::msg::Marker::SPHERE_LIST;
@@ -755,7 +1171,7 @@ public:
         markerNode.color.a = 1;
         // loop edges
         visualization_msgs::msg::Marker markerEdge;
-        markerEdge.header.frame_id = odometryFrame;
+        markerEdge.header.frame_id = mappingFrame;
         markerEdge.header.stamp = timeLaserInfoStamp;
         markerEdge.action = visualization_msgs::msg::Marker::ADD;
         markerEdge.type = visualization_msgs::msg::Marker::LINE_LIST;
@@ -1300,6 +1716,9 @@ public:
 
     void scan2MapOptimization()
     {
+        scanOptimizationIterations = 0;
+        scanOptimizationScore = std::numeric_limits<double>::quiet_NaN();
+        isDegenerate = false;
         if (cloudKeyPoses3D->points.empty())
             return;
 
@@ -1310,6 +1729,7 @@ public:
 
             for (int iterCount = 0; iterCount < 30; iterCount++)
             {
+                scanOptimizationIterations = iterCount + 1;
                 laserCloudOri->clear();
                 coeffSel->clear();
                 
@@ -1321,6 +1741,15 @@ public:
 
                 // 加入局部地图
                 combineOptimizationCoeffs();
+
+                if (!coeffSel->empty())
+                {
+                    double absoluteResidualSum = 0.0;
+                    for (const auto & coefficient : coeffSel->points)
+                        absoluteResidualSum += std::abs(coefficient.intensity);
+                    scanOptimizationScore =
+                        absoluteResidualSum / static_cast<double>(coeffSel->size());
+                }
 
                 // 位姿估计
                 if (LMOptimization(iterCount) == true)
@@ -1362,8 +1791,6 @@ public:
         transformTobeMapped[0] = constraintTransformation(transformTobeMapped[0], rotation_tollerance);
         transformTobeMapped[1] = constraintTransformation(transformTobeMapped[1], rotation_tollerance);
         transformTobeMapped[5] = constraintTransformation(transformTobeMapped[5], z_tollerance);
-
-        incrementalOdometryAffineBack = trans2Affine3f(transformTobeMapped);
     }
 
     float constraintTransformation(float value, float limit)
@@ -1421,6 +1848,12 @@ public:
 
     void addGPSFactor()
     {
+        if (!useGpsFactor)
+        {
+            gpsQueue.clear();
+            consistentGpsCandidates.clear();
+            return;
+        }
         if (gpsQueue.empty())
             return;
 
@@ -1436,9 +1869,6 @@ public:
         // pose covariance small, no need to correct
         if (poseCovariance(3,3) < poseCovThreshold && poseCovariance(4,4) < poseCovThreshold)
             return;
-
-        // last gps position
-        static PointType lastGPSPoint;
 
         while (!gpsQueue.empty())
         {
@@ -1457,15 +1887,48 @@ public:
                 nav_msgs::msg::Odometry thisGPS = gpsQueue.front();
                 gpsQueue.pop_front();
 
+                CorrectionDiagnostic gpsDiagnostic;
+                gpsDiagnostic.source =
+                    multi_map_navigation_msgs::msg::LioCorrectionEvent::SOURCE_GPS;
+                gpsDiagnostic.predicted =
+                    affineToPose(trans2Affine3f(transformTobeMapped));
+                gpsDiagnostic.optimized = gpsDiagnostic.predicted;
+
                 // GPS too noisy, skip
                 float noise_x = thisGPS.pose.covariance[0];
                 float noise_y = thisGPS.pose.covariance[7];
                 float noise_z = thisGPS.pose.covariance[14];
                 if (noise_x > gpsCovThreshold || noise_y > gpsCovThreshold)
+                {
+                    std::ostringstream reason;
+                    reason << "GPS rejected: covariance threshold; covariance_x="
+                           << noise_x << "; covariance_y=" << noise_y
+                           << "; threshold=" << gpsCovThreshold;
+                    gpsDiagnostic.reason = reason.str();
+                    pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
                     continue;
+                }
                 float gps_x = thisGPS.pose.pose.position.x;
                 float gps_y = thisGPS.pose.pose.position.y;
                 float gps_z = thisGPS.pose.pose.position.z;
+                const double innovationX =
+                    static_cast<double>(gps_x - transformTobeMapped[3]);
+                const double innovationY =
+                    static_cast<double>(gps_y - transformTobeMapped[4]);
+                gpsDiagnostic.sourceScore = std::hypot(
+                    innovationX, innovationY);
+                if (!std::isfinite(gpsDiagnostic.sourceScore) ||
+                    gpsDiagnostic.sourceScore > 5.0)
+                {
+                    consistentGpsCandidates.clear();
+                    std::ostringstream reason;
+                    reason << "GPS rejected: absolute innovation hard gate; "
+                           << "innovation_xy=" << gpsDiagnostic.sourceScore
+                           << "; threshold=5.0";
+                    gpsDiagnostic.reason = reason.str();
+                    pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
+                    continue;
+                }
                 if (!useGpsElevation)
                 {
                     gps_z = transformTobeMapped[5];
@@ -1474,17 +1937,83 @@ public:
 
                 // GPS not properly initialized (0,0,0)
                 if (abs(gps_x) < 1e-6 && abs(gps_y) < 1e-6)
+                {
+                    gpsDiagnostic.reason = "GPS rejected: zero position";
+                    pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
                     continue;
+                }
+
+                const double innovationVarianceX = std::max(
+                    0.01, static_cast<double>(noise_x) +
+                    std::max(0.0, poseCovariance(3, 3)));
+                const double innovationVarianceY = std::max(
+                    0.01, static_cast<double>(noise_y) +
+                    std::max(0.0, poseCovariance(4, 4)));
+                const double mahalanobisSquared =
+                    innovationX * innovationX / innovationVarianceX +
+                    innovationY * innovationY / innovationVarianceY;
+                if (!std::isfinite(mahalanobisSquared) ||
+                    mahalanobisSquared > 9.21)
+                {
+                    consistentGpsCandidates.clear();
+                    std::ostringstream reason;
+                    reason << "GPS rejected: Mahalanobis innovation gate; "
+                           << "innovation_xy=" << gpsDiagnostic.sourceScore
+                           << "; mahalanobis_squared=" << mahalanobisSquared
+                           << "; threshold=9.21";
+                    gpsDiagnostic.reason = reason.str();
+                    pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
+                    continue;
+                }
+
+                const double gpsStamp = stamp2Sec(thisGPS.header.stamp);
+                if (!consistentGpsCandidates.empty())
+                {
+                    const auto & previous = consistentGpsCandidates.back();
+                    const double sampleDistance = std::hypot(
+                        static_cast<double>(gps_x) - previous.x,
+                        static_cast<double>(gps_y) - previous.y);
+                    if (gpsStamp <= previous.stamp ||
+                        gpsStamp - previous.stamp > 2.0 ||
+                        sampleDistance > 2.0)
+                    {
+                        consistentGpsCandidates.clear();
+                    }
+                }
+                consistentGpsCandidates.push_back(GpsCandidate{
+                    gpsStamp, gps_x, gps_y, gps_z,
+                    noise_x, noise_y, noise_z});
+                while (consistentGpsCandidates.size() > 3)
+                    consistentGpsCandidates.pop_front();
+                if (consistentGpsCandidates.size() < 3)
+                {
+                    std::ostringstream reason;
+                    reason << "GPS pending: consistent fresh samples="
+                           << consistentGpsCandidates.size() << "/3"
+                           << "; mahalanobis_squared=" << mahalanobisSquared;
+                    gpsDiagnostic.reason = reason.str();
+                    pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
+                    continue;
+                }
 
                 // Add GPS every a few meters
                 PointType curGPSPoint;
                 curGPSPoint.x = gps_x;
                 curGPSPoint.y = gps_y;
                 curGPSPoint.z = gps_z;
-                if (pointDistance(curGPSPoint, lastGPSPoint) < 5.0)
+                if (hasLastAcceptedGps &&
+                    pointDistance(curGPSPoint, lastAcceptedGpsPoint) < 5.0)
+                {
+                    gpsDiagnostic.reason =
+                        "GPS rejected: less than 5 m from last accepted sample";
+                    pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
                     continue;
+                }
                 else
-                    lastGPSPoint = curGPSPoint;
+                {
+                    lastAcceptedGpsPoint = curGPSPoint;
+                    hasLastAcceptedGps = true;
+                }
 
                 gtsam::Vector Vector3(3);
                 Vector3 << max(noise_x, 1.0f), max(noise_y, 1.0f), max(noise_z, 1.0f);
@@ -1492,7 +2021,18 @@ public:
                 gtsam::GPSFactor gps_factor(cloudKeyPoses3D->size(), gtsam::Point3(gps_x, gps_y, gps_z), gps_noise);
                 gtSAMgraph.add(gps_factor);
 
-                aLoopIsClosed = true;
+                gpsDiagnostic.accepted = true;
+                gpsDiagnostic.optimizedByGraph = true;
+                std::ostringstream reason;
+                reason << "GPS factor accepted; innovation_xy="
+                       << gpsDiagnostic.sourceScore
+                       << "; covariance_x=" << noise_x
+                       << "; covariance_y=" << noise_y
+                       << "; covariance_z=" << noise_z;
+                gpsDiagnostic.reason = reason.str();
+                pendingCorrectionDiagnostics.push_back(gpsDiagnostic);
+                correctionSourceMask |= CORRECTION_GPS;
+                consistentGpsCandidates.clear();
                 break;
             }
         }
@@ -1508,14 +2048,33 @@ public:
             int indexFrom = loopIndexQueue[i].first;
             int indexTo = loopIndexQueue[i].second;
             gtsam::Pose3 poseBetween = loopPoseQueue[i];
-            gtsam::noiseModel::Diagonal::shared_ptr noiseBetween = loopNoiseQueue[i];
+            gtsam::SharedNoiseModel noiseBetween = loopNoiseQueue[i];
             gtSAMgraph.add(BetweenFactor<Pose3>(indexFrom, indexTo, poseBetween, noiseBetween));
+
+            CorrectionDiagnostic loopDiagnostic;
+            loopDiagnostic.source =
+                multi_map_navigation_msgs::msg::LioCorrectionEvent::SOURCE_LOOP;
+            loopDiagnostic.predicted =
+                affineToPose(trans2Affine3f(transformTobeMapped));
+            loopDiagnostic.optimized = loopDiagnostic.predicted;
+            loopDiagnostic.sourceScore = loopScoreQueue[i];
+            loopDiagnostic.accepted = true;
+            loopDiagnostic.optimizedByGraph = true;
+            std::ostringstream reason;
+            reason << "loop factor accepted; current_key=" << indexFrom
+                   << "; previous_key=" << indexTo
+                   << "; icp_fitness=" << loopScoreQueue[i]
+                   << "; overlap_2m=" << loopOverlapQueue[i];
+            loopDiagnostic.reason = reason.str();
+            pendingCorrectionDiagnostics.push_back(loopDiagnostic);
         }
 
         loopIndexQueue.clear();
         loopPoseQueue.clear();
         loopNoiseQueue.clear();
-        aLoopIsClosed = true;
+        loopScoreQueue.clear();
+        loopOverlapQueue.clear();
+        correctionSourceMask |= CORRECTION_LOOP;
     }
 
     void saveKeyFramesAndFactor()
@@ -1539,7 +2098,7 @@ public:
         isam->update(gtSAMgraph, initialEstimate);
         isam->update();
 
-        if (aLoopIsClosed == true)
+        if (correctionSourceMask != CORRECTION_NONE)
         {
             isam->update();
             isam->update();
@@ -1558,6 +2117,20 @@ public:
 
         isamCurrentEstimate = isam->calculateEstimate();
         latestEstimate = isamCurrentEstimate.at<Pose3>(isamCurrentEstimate.size()-1);
+
+        const geometry_msgs::msg::Pose graphOptimizedPose = affineToPose(
+            pcl::getTransformation(
+                latestEstimate.translation().x(),
+                latestEstimate.translation().y(),
+                latestEstimate.translation().z(),
+                latestEstimate.rotation().roll(),
+                latestEstimate.rotation().pitch(),
+                latestEstimate.rotation().yaw()));
+        for (auto & diagnostic : pendingCorrectionDiagnostics)
+        {
+            if (diagnostic.optimizedByGraph)
+                diagnostic.optimized = graphOptimizedPose;
+        }
         // cout << "****************************************************" << endl;
         // isamCurrentEstimate.print("Current estimate: ");
 
@@ -1609,7 +2182,7 @@ public:
         if (cloudKeyPoses3D->points.empty())
             return;
 
-        if (aLoopIsClosed == true)
+        if (correctionSourceMask != CORRECTION_NONE)
         {
             // clear map cache
             laserCloudMapContainer.clear();
@@ -1633,7 +2206,7 @@ public:
                 updatePath(cloudKeyPoses6D->points[i]);
             }
 
-            aLoopIsClosed = false;
+            correctionSourceMask = CORRECTION_NONE;
         }
     }
 
@@ -1641,7 +2214,7 @@ public:
     {
         geometry_msgs::msg::PoseStamped pose_stamped;
         pose_stamped.header.stamp = rclcpp::Time(pose_in.time * 1e9);
-        pose_stamped.header.frame_id = odometryFrame;
+        pose_stamped.header.frame_id = mappingFrame;
         pose_stamped.pose.position.x = pose_in.x;
         pose_stamped.pose.position.y = pose_in.y;
         pose_stamped.pose.position.z = pose_in.z;
@@ -1655,13 +2228,13 @@ public:
         globalPath.poses.push_back(pose_stamped);
     }
 
-    void publishOdometry()
+    void publishOdometry(const Eigen::Affine3f & scanPoseForIncrementalOdometry)
     {
         // Publish odometry for ROS (global)
         nav_msgs::msg::Odometry laserOdometryROS;
         laserOdometryROS.header.stamp = timeLaserInfoStamp;
-        laserOdometryROS.header.frame_id = odometryFrame; // odom坐标系名称
-        laserOdometryROS.child_frame_id = "odom_mapping";
+        laserOdometryROS.header.frame_id = mappingFrame;
+        laserOdometryROS.child_frame_id = "lio_map_mapping";
         laserOdometryROS.pose.pose.position.x = transformTobeMapped[3]; // transformTobeMapped是优化后的位姿
         laserOdometryROS.pose.pose.position.y = transformTobeMapped[4];
         laserOdometryROS.pose.pose.position.z = transformTobeMapped[5];
@@ -1672,17 +2245,6 @@ public:
         laserOdometryROS.pose.pose.orientation = quat_msg;
         pubLaserOdometryGlobal->publish(laserOdometryROS);
 
-        // Publish TF
-        quat_tf.setRPY(transformTobeMapped[0], transformTobeMapped[1], transformTobeMapped[2]);
-        tf2::Transform t_odom_to_lidar = tf2::Transform(quat_tf, tf2::Vector3(transformTobeMapped[3], transformTobeMapped[4], transformTobeMapped[5]));
-        tf2::TimePoint time_point = tf2_ros::fromRclcpp(timeLaserInfoStamp);
-        tf2::Stamped<tf2::Transform> temp_odom_to_lidar(t_odom_to_lidar, time_point, odometryFrame);
-        geometry_msgs::msg::TransformStamped trans_odom_to_lidar;
-        tf2::convert(temp_odom_to_lidar, trans_odom_to_lidar);
-        trans_odom_to_lidar.child_frame_id = "lidar_link";
-        // trans_odom_to_lidar.child_frame_id = "base_link";       
-        br->sendTransform(trans_odom_to_lidar);
-        
         // Publish odometry for ROS (incremental)
         static bool lastIncreOdomPubFlag = false;
         static nav_msgs::msg::Odometry laserOdomIncremental; // incremental odometry msg
@@ -1693,7 +2255,8 @@ public:
             laserOdomIncremental = laserOdometryROS;
             increOdomAffine = trans2Affine3f(transformTobeMapped);
         } else {
-            Eigen::Affine3f affineIncre = incrementalOdometryAffineFront.inverse() * incrementalOdometryAffineBack;
+            const Eigen::Affine3f affineIncre =
+                incrementalOdometryAffineFront.inverse() * scanPoseForIncrementalOdometry;
             increOdomAffine = increOdomAffine * affineIncre;
             float x, y, z, roll, pitch, yaw;
             pcl::getTranslationAndEulerAngles (increOdomAffine, x, y, z, roll, pitch, yaw);
@@ -1720,8 +2283,8 @@ public:
                 }
             }
             laserOdomIncremental.header.stamp = timeLaserInfoStamp;
-            laserOdomIncremental.header.frame_id = odometryFrame;
-            laserOdomIncremental.child_frame_id = "odom_mapping";
+            laserOdomIncremental.header.frame_id = mappingFrame;
+            laserOdomIncremental.child_frame_id = "lio_map_mapping";
             laserOdomIncremental.pose.pose.position.x = x;
             laserOdomIncremental.pose.pose.position.y = y;
             laserOdomIncremental.pose.pose.position.z = z;
@@ -1736,6 +2299,10 @@ public:
                 laserOdomIncremental.pose.covariance[0] = 0;
         }
         pubLaserOdometryIncremental->publish(laserOdomIncremental);
+        {
+            std::lock_guard<std::mutex> lock(diagnosticMutex);
+            lastIncrementalPose = laserOdomIncremental.pose.pose;
+        }
     }
 
     void publishFrames()
@@ -1743,9 +2310,9 @@ public:
         if (cloudKeyPoses3D->points.empty())
             return;
         // 发布运动轨迹 publish key poses
-        publishCloud(pubKeyPoses, cloudKeyPoses3D, timeLaserInfoStamp, odometryFrame);
+        publishCloud(pubKeyPoses, cloudKeyPoses3D, timeLaserInfoStamp, mappingFrame);
         // 发布关键帧 Publish surrounding key frames
-        publishCloud(pubRecentKeyFrames, laserCloudSurfFromMapDS, timeLaserInfoStamp, odometryFrame);
+        publishCloud(pubRecentKeyFrames, laserCloudSurfFromMapDS, timeLaserInfoStamp, mappingFrame);
         // publish registered key frame
         if (pubRecentKeyFrame->get_subscription_count() != 0)
         {
@@ -1753,7 +2320,7 @@ public:
             PointTypePose thisPose6D = trans2PointTypePose(transformTobeMapped);
             *cloudOut += *transformPointCloud(laserCloudCornerLastDS,  &thisPose6D);
             *cloudOut += *transformPointCloud(laserCloudSurfLastDS,    &thisPose6D);
-            publishCloud(pubRecentKeyFrame, cloudOut, timeLaserInfoStamp, odometryFrame);
+            publishCloud(pubRecentKeyFrame, cloudOut, timeLaserInfoStamp, mappingFrame);
         }
         // publish registered high-res raw cloud
         if (pubCloudRegisteredRaw->get_subscription_count() != 0)
@@ -1762,13 +2329,13 @@ public:
             pcl::fromROSMsg(cloudInfo.cloud_deskewed, *cloudOut);
             PointTypePose thisPose6D = trans2PointTypePose(transformTobeMapped);
             *cloudOut = *transformPointCloud(cloudOut,  &thisPose6D);
-            publishCloud(pubCloudRegisteredRaw, cloudOut, timeLaserInfoStamp, odometryFrame);
+            publishCloud(pubCloudRegisteredRaw, cloudOut, timeLaserInfoStamp, mappingFrame);
         }
         // publish path
         if (pubPath->get_subscription_count() != 0)
         {
             globalPath.header.stamp = timeLaserInfoStamp;
-            globalPath.header.frame_id = odometryFrame;
+            globalPath.header.frame_id = mappingFrame;
             pubPath->publish(globalPath);
         }
     }

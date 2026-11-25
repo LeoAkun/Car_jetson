@@ -1,0 +1,14 @@
+[
+  {
+    "name": "scan-no-data",
+    "exit": 0,
+    "stop_seconds": 0.3646411359998183,
+    "forced": false
+  },
+  {
+    "name": "rslidar-no-data",
+    "exit": 0,
+    "stop_seconds": 0.8156859279999935,
+    "forced": false
+  }
+]

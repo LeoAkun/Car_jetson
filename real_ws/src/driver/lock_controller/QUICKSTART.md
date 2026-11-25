@@ -39,6 +39,15 @@ ros2 launch lock_controller lock_controller.launch.py
 
 ## 常用命令
 
+### 自动开门与串口恢复
+
+```bash
+ros2 run lock_controller open_door_recover.py
+```
+
+脚本会在开锁失败时依次重启门锁节点、检查稳定 USB 路径，并只重绑门锁所在的
+`1-1.4` USB 接口后重试。深度恢复需要 sudo 权限；在终端运行时脚本会按需提示。
+
 ### 打开锁
 
 ```bash

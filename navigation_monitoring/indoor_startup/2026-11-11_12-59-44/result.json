@@ -1,0 +1,1572 @@
+{
+  "started": "2026-11-11T12:59:44.867405+08:00",
+  "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_12-59-44",
+  "passed": false,
+  "mode": "live_imu_live_lidar_no_goal",
+  "domain": 88,
+  "limitations": [
+    "artificial empty map and map->odom",
+    "3D LiDAR projected to test scan, not front/rear laser chain",
+    "no GPS/relocalization/task/vehicle motion validation",
+    "small map and no RViz differ from production startup load"
+  ],
+  "source_sha256": {
+    "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml": "19b598b6e6e1f1e18c152b8b022ffe83138c735aaf8d93f8b2b67005b100baf6",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a"
+  },
+  "error": "KeyboardInterrupt: ",
+  "ended": "2026-11-11T13:01:14.604286+08:00",
+  "duration_sec": 89.73688958100001,
+  "observations": {
+    "timestamp_utc": "2026-11-11T05:01:14.605457+00:00",
+    "elapsed_sec": 89.71269830400001,
+    "phase": "nav2_start",
+    "ros_time_ns": 1794373274604303103,
+    "thresholds": {
+      "imu_gap_sec": 0.2,
+      "tf_max_age_sec": 2.0
+    },
+    "topics": {
+      "/imu": {
+        "count": 8660,
+        "arrival_hz": 100.03679252718698,
+        "last_arrival_age_sec": 0.005641191000222534,
+        "last_header_stamp_ns": 1794373274959415973,
+        "last_header_age_sec": -0.35511287,
+        "counters": {
+          "quaternion_nonfinite_count": 0,
+          "quaternion_norm_nonfinite_count": 0,
+          "quaternion_zero_norm_count": 0,
+          "quaternion_norm_outside_0_9_to_1_1_count": 0,
+          "acceleration_nonfinite_count": 0,
+          "angular_velocity_nonfinite_count": 0
+        },
+        "latest": {
+          "quaternion_norm": 0.9999999807378647,
+          "acceleration_norm": 9.806384656207468,
+          "angular_velocity_norm": 0.0027678136234151954,
+          "orientation_declared_unavailable": false,
+          "frame_id": "imu_link"
+        },
+        "arrival_intervals": {
+          "count": 8659,
+          "sum_sec": 86.55815306799991,
+          "min_sec": 0.0007796309998866491,
+          "max_sec": 0.024310564999950657,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009996322100473486
+        },
+        "header_intervals": {
+          "count": 8659,
+          "sum_sec": 86.9200000000074,
+          "min_sec": 0.009916,
+          "max_sec": 0.34,
+          "nonpositive_count": 0,
+          "gap_count": 1,
+          "last_gap_sec": 0.34,
+          "mean_sec": 0.010038110636332994
+        },
+        "interval_arrival_hz": 99.3503033417249,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/rslidar_Pointcloud2": {
+        "count": 743,
+        "arrival_hz": 8.537338644354838,
+        "last_arrival_age_sec": 0.09509457700005441,
+        "last_header_stamp_ns": 1794373274392700672,
+        "last_header_age_sec": 0.211602431,
+        "counters": {},
+        "latest": {
+          "points": 57600,
+          "frame_id": "rslidar"
+        },
+        "arrival_intervals": {
+          "count": 742,
+          "sum_sec": 86.91233075200012,
+          "min_sec": 0.08788000399999873,
+          "max_sec": 0.7081886780001696,
+          "nonpositive_count": 0,
+          "gap_count": 49,
+          "last_gap_sec": 0.2092881189998934,
+          "mean_sec": 0.11713252122911066
+        },
+        "header_intervals": {
+          "count": 742,
+          "sum_sec": 86.81627225900017,
+          "min_sec": 0.09922409,
+          "max_sec": 0.700467825,
+          "nonpositive_count": 0,
+          "gap_count": 42,
+          "last_gap_sec": 0.200055123,
+          "mean_sec": 0.117003062343666
+        },
+        "interval_arrival_hz": 8.455344965253182,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/laser/scan_merge_laser": {
+        "count": 765,
+        "arrival_hz": 8.790144346653667,
+        "last_arrival_age_sec": 0.08981238000001213,
+        "last_header_stamp_ns": 1794373274392700672,
+        "last_header_age_sec": 0.211602431,
+        "counters": {},
+        "latest": {
+          "ranges": 720,
+          "frame_id": "base_link"
+        },
+        "arrival_intervals": {
+          "count": 764,
+          "sum_sec": 86.91552378100005,
+          "min_sec": 0.08426187500003834,
+          "max_sec": 0.7069943890001014,
+          "nonpositive_count": 0,
+          "gap_count": 48,
+          "last_gap_sec": 0.2997525250000308,
+          "mean_sec": 0.1137637745824608
+        },
+        "header_intervals": {
+          "count": 764,
+          "sum_sec": 86.81627225900016,
+          "min_sec": 0.09922409,
+          "max_sec": 0.700467825,
+          "nonpositive_count": 0,
+          "gap_count": 40,
+          "last_gap_sec": 0.300363064,
+          "mean_sec": 0.11363386421335099
+        },
+        "interval_arrival_hz": 8.455344965253182,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/lio_sam/mapping/odometry": {
+        "count": 135,
+        "arrival_hz": 2.0549772183584594,
+        "last_arrival_age_sec": 0.06116975800000546,
+        "last_header_stamp_ns": 1794373274192899704,
+        "last_header_age_sec": 0.411403399,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": -0.004644888918846846,
+          "y": -0.006913477089256048,
+          "z": 0.005973478779196739,
+          "frame_id": "odom",
+          "child_frame_id": "odom_mapping"
+        },
+        "arrival_intervals": {
+          "count": 134,
+          "sum_sec": 65.20753554000021,
+          "min_sec": 0.07757603699997162,
+          "max_sec": 2.6815440069999568,
+          "nonpositive_count": 0,
+          "gap_count": 85,
+          "last_gap_sec": 0.5985429229999681,
+          "mean_sec": 0.4866233995522404
+        },
+        "header_intervals": {
+          "count": 134,
+          "sum_sec": 65.20085000999997,
+          "min_sec": 0.099351883,
+          "max_sec": 2.499752044,
+          "nonpositive_count": 0,
+          "gap_count": 89,
+          "last_gap_sec": 0.600032091,
+          "mean_sec": 0.4865735075373132
+        },
+        "interval_arrival_hz": 4.227672482626591,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/lio_sam/mapping/odometry_incremental": {
+        "count": 135,
+        "arrival_hz": 2.0549881601894757,
+        "last_arrival_age_sec": 0.060986021000189794,
+        "last_header_stamp_ns": 1794373274192899704,
+        "last_header_age_sec": 0.411403399,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": -0.004644887521862984,
+          "y": -0.0069134850054979324,
+          "z": 0.005973478313535452,
+          "frame_id": "odom",
+          "child_frame_id": "odom_mapping"
+        },
+        "arrival_intervals": {
+          "count": 134,
+          "sum_sec": 65.20718834099989,
+          "min_sec": 0.07820501200012586,
+          "max_sec": 2.681538862000025,
+          "nonpositive_count": 0,
+          "gap_count": 85,
+          "last_gap_sec": 0.5995495460001621,
+          "mean_sec": 0.48662080851492456
+        },
+        "header_intervals": {
+          "count": 134,
+          "sum_sec": 65.20085000999997,
+          "min_sec": 0.099351883,
+          "max_sec": 2.499752044,
+          "nonpositive_count": 0,
+          "gap_count": 89,
+          "last_gap_sec": 0.600032091,
+          "mean_sec": 0.4865735075373132
+        },
+        "interval_arrival_hz": 4.227672482626591,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/odom": {
+        "count": 6515,
+        "arrival_hz": 99.99906116171574,
+        "last_arrival_age_sec": 0.00433261000011953,
+        "last_header_stamp_ns": 1794373274959415973,
+        "last_header_age_sec": -0.35511287,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": -0.002238381107870458,
+          "y": -0.010100863223109519,
+          "z": 0.005235294431868952,
+          "frame_id": "odom",
+          "child_frame_id": "odom_imu"
+        },
+        "arrival_intervals": {
+          "count": 6514,
+          "sum_sec": 65.14061156499997,
+          "min_sec": 0.00046357700011867564,
+          "max_sec": 0.023098154000081195,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.010000093884709852
+        },
+        "header_intervals": {
+          "count": 6514,
+          "sum_sec": 65.13999999999646,
+          "min_sec": 0.009916,
+          "max_sec": 0.010043,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009999999999999457
+        },
+        "interval_arrival_hz": 99.3503033417249,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/odom_incremental": {
+        "count": 6515,
+        "arrival_hz": 99.99882862901154,
+        "last_arrival_age_sec": 0.004063999000209151,
+        "last_header_stamp_ns": 1794373274959415973,
+        "last_header_age_sec": -0.35511287,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": -0.0038574933650607412,
+          "y": 0.0010206116533081218,
+          "z": -0.019141654542887354,
+          "frame_id": "odom",
+          "child_frame_id": "odom_imu"
+        },
+        "arrival_intervals": {
+          "count": 6514,
+          "sum_sec": 65.14076303999991,
+          "min_sec": 0.002900022999938301,
+          "max_sec": 0.01534339199997703,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.010000117138470972
+        },
+        "header_intervals": {
+          "count": 6514,
+          "sum_sec": 65.13999999999646,
+          "min_sec": 0.009916,
+          "max_sec": 0.010043,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009999999999999457
+        },
+        "interval_arrival_hz": 101.46413958303819,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/lio_sam/imu_preintegration_ready": {
+        "count": 2,
+        "arrival_hz": 0.3001744378796363,
+        "last_arrival_age_sec": 64.18148989200017,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {
+          "false_count": 1,
+          "true_count": 1
+        },
+        "latest": {
+          "ready": true
+        },
+        "arrival_intervals": {
+          "count": 1,
+          "sum_sec": 3.331396261000009,
+          "min_sec": 3.331396261000009,
+          "max_sec": 3.331396261000009,
+          "nonpositive_count": 0,
+          "gap_count": 1,
+          "last_gap_sec": 3.331396261000009,
+          "mean_sec": 3.331396261000009
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/map": {
+        "count": 1,
+        "arrival_hz": null,
+        "last_arrival_age_sec": 61.81907358400008,
+        "last_header_stamp_ns": 1794373212204836737,
+        "last_header_age_sec": 62.399466366,
+        "counters": {},
+        "latest": {
+          "width": 400,
+          "height": 400,
+          "resolution": 0.10000000149011612,
+          "frame_id": "map"
+        },
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/global_costmap/costmap": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/local_costmap/costmap": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/indoor_startup/cmd_vel": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/indoor_startup/cmd_vel_nav": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/indoor_startup/cmd_vel_smoothed": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/navigate_to_pose/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/navigate_through_poses/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/follow_waypoints/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/follow_path/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/spin/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/backup/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      },
+      "/drive_on_heading/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count_error": "Error in rcl_count_publishers: rcl node's context is invalid, at ./src/rcl/node.c:428"
+      }
+    },
+    "phases": {
+      "sensor_baseline": {
+        "first_start_elapsed_sec": 0.0,
+        "entries": 1,
+        "duration_sec": 22.093337392999956,
+        "topics": {
+          "/rslidar_Pointcloud2": {
+            "count": 191,
+            "arrival_hz": 9.841763638860025,
+            "last_arrival_age_sec": 67.70194239200009,
+            "last_header_stamp_ns": 1794373206792439699,
+            "last_header_age_sec": 67.811863404,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 190,
+              "sum_sec": 19.30548293700008,
+              "min_sec": 0.08834200000001147,
+              "max_sec": 0.20932129300013003,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.2000024050000775,
+              "mean_sec": 0.10160780493157937
+            },
+            "header_intervals": {
+              "count": 190,
+              "sum_sec": 19.216011285999993,
+              "min_sec": 0.099350929,
+              "max_sec": 0.200400829,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.200400829,
+              "mean_sec": 0.10113690150526312
+            }
+          },
+          "/laser/scan_merge_laser": {
+            "count": 187,
+            "arrival_hz": 9.633100875905791,
+            "last_arrival_age_sec": 67.69691176100014,
+            "last_header_stamp_ns": 1794373206792439699,
+            "last_header_age_sec": 67.811863404,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 186,
+              "sum_sec": 19.30842439999992,
+              "min_sec": 0.08615378500007864,
+              "max_sec": 0.21273347399983322,
+              "nonpositive_count": 0,
+              "gap_count": 3,
+              "last_gap_sec": 0.20054772299999968,
+              "mean_sec": 0.10380873333333292
+            },
+            "header_intervals": {
+              "count": 186,
+              "sum_sec": 19.216011285999993,
+              "min_sec": 0.099350929,
+              "max_sec": 0.200508832,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.200400829,
+              "mean_sec": 0.10331188863440857
+            }
+          },
+          "/imu": {
+            "count": 1898,
+            "arrival_hz": 100.16254996902789,
+            "last_arrival_age_sec": 67.62457994600004,
+            "last_header_stamp_ns": 1794373207339415973,
+            "last_header_age_sec": 67.26488713,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 0,
+              "quaternion_norm_outside_0_9_to_1_1_count": 0,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 0.9999999762283063,
+              "acceleration_norm": 9.837198189457013,
+              "angular_velocity_norm": 0.0011961763866698918,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 1897,
+              "sum_sec": 18.939214313000093,
+              "min_sec": 0.0007796309998866491,
+              "max_sec": 0.024310564999950657,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00998377138270959
+            },
+            "header_intervals": {
+              "count": 1897,
+              "sum_sec": 19.300000000000217,
+              "min_sec": 0.009916,
+              "max_sec": 0.34,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.34,
+              "mean_sec": 0.010173958882446082
+            }
+          }
+        }
+      },
+      "lio_start": {
+        "first_start_elapsed_sec": 22.093337392999956,
+        "entries": 1,
+        "duration_sec": 4.068423985999971,
+        "topics": {
+          "/imu": {
+            "count": 407,
+            "arrival_hz": 100.10051849980086,
+            "last_arrival_age_sec": 63.55460180800014,
+            "last_header_stamp_ns": 1794373211409496973,
+            "last_header_age_sec": 63.19480613,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 0,
+              "quaternion_norm_outside_0_9_to_1_1_count": 0,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 1.0000001021995117,
+              "acceleration_norm": 9.74823986170216,
+              "angular_velocity_norm": 0.0019269311931572955,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 407,
+              "sum_sec": 4.069978137999897,
+              "min_sec": 0.004315757999847847,
+              "max_sec": 0.0157848119999926,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999994628501203
+            },
+            "header_intervals": {
+              "count": 407,
+              "sum_sec": 4.070080999999958,
+              "min_sec": 0.009926,
+              "max_sec": 0.010044,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010000199017198915
+            }
+          },
+          "/rslidar_Pointcloud2": {
+            "count": 36,
+            "arrival_hz": 8.752546222915136,
+            "last_arrival_age_sec": 63.60441922100017,
+            "last_header_stamp_ns": 1794373210892049789,
+            "last_header_age_sec": 63.712253314,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 36,
+              "sum_sec": 4.097523170999921,
+              "min_sec": 0.09025283500000114,
+              "max_sec": 0.2003312020001431,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.2003312020001431,
+              "mean_sec": 0.11382008808333113
+            },
+            "header_intervals": {
+              "count": 36,
+              "sum_sec": 4.09961009,
+              "min_sec": 0.099425077,
+              "max_sec": 0.20009017,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.20009017,
+              "mean_sec": 0.11387805805555555
+            }
+          },
+          "/laser/scan_merge_laser": {
+            "count": 35,
+            "arrival_hz": 8.503143416549118,
+            "last_arrival_age_sec": 63.60130619700021,
+            "last_header_stamp_ns": 1794373210892049789,
+            "last_header_age_sec": 63.712253314,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 35,
+              "sum_sec": 4.095605563999925,
+              "min_sec": 0.08426187500003834,
+              "max_sec": 0.20388928900001702,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.20388928900001702,
+              "mean_sec": 0.11701730182856929
+            },
+            "header_intervals": {
+              "count": 35,
+              "sum_sec": 4.09961009,
+              "min_sec": 0.099425077,
+              "max_sec": 0.20009017,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.20009017,
+              "mean_sec": 0.11713171685714285
+            }
+          },
+          "/lio_sam/imu_preintegration_ready": {
+            "count": 2,
+            "arrival_hz": 0.3001744378796363,
+            "last_arrival_age_sec": 64.18148989200017,
+            "last_header_stamp_ns": null,
+            "last_header_age_sec": null,
+            "counters": {
+              "false_count": 1,
+              "true_count": 1
+            },
+            "latest": {
+              "ready": true
+            },
+            "arrival_intervals": {
+              "count": 1,
+              "sum_sec": 3.331396261000009,
+              "min_sec": 3.331396261000009,
+              "max_sec": 3.331396261000009,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 3.331396261000009,
+              "mean_sec": 3.331396261000009
+            },
+            "header_intervals": {
+              "count": 0,
+              "sum_sec": 0.0,
+              "min_sec": null,
+              "max_sec": null,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": null
+            }
+          },
+          "/lio_sam/mapping/odometry": {
+            "count": 5,
+            "arrival_hz": 2.6868820290562914,
+            "last_arrival_age_sec": 63.77999088600018,
+            "last_header_stamp_ns": 1794373210492192745,
+            "last_header_age_sec": 64.112110358,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.00264732982032001,
+              "y": -0.004378541838377714,
+              "z": 0.010625859722495079,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 4,
+              "sum_sec": 1.4887144120000357,
+              "min_sec": 0.07757603699997162,
+              "max_sec": 0.8896972840000217,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.402506983999956,
+              "mean_sec": 0.37217860300000893
+            },
+            "header_intervals": {
+              "count": 4,
+              "sum_sec": 1.500143051,
+              "min_sec": 0.099501849,
+              "max_sec": 0.799977064,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.500518083,
+              "mean_sec": 0.37503576275
+            }
+          },
+          "/lio_sam/mapping/odometry_incremental": {
+            "count": 5,
+            "arrival_hz": 2.6858884475847433,
+            "last_arrival_age_sec": 63.77890923500013,
+            "last_header_stamp_ns": 1794373210492192745,
+            "last_header_age_sec": 64.112110358,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.0026473295874893665,
+              "y": -0.0043785423040390015,
+              "z": 0.010625859722495079,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 4,
+              "sum_sec": 1.4892651269999533,
+              "min_sec": 0.07820501200012586,
+              "max_sec": 0.8892551279998315,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.4032577840000613,
+              "mean_sec": 0.3723162817499883
+            },
+            "header_intervals": {
+              "count": 4,
+              "sum_sec": 1.500143051,
+              "min_sec": 0.099501849,
+              "max_sec": 0.799977064,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.500518083,
+              "mean_sec": 0.37503576275
+            }
+          },
+          "/odom": {
+            "count": 159,
+            "arrival_hz": 99.85765638688184,
+            "last_arrival_age_sec": 63.56269194000015,
+            "last_header_stamp_ns": 1794373211399454973,
+            "last_header_age_sec": 63.20484813,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 0.0388198844241653,
+              "y": 0.024696356901484,
+              "z": -0.042380277800585654,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 158,
+              "sum_sec": 1.5822522349999417,
+              "min_sec": 0.0017257289998724445,
+              "max_sec": 0.021019134999960443,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010014254651898365
+            },
+            "header_intervals": {
+              "count": 158,
+              "sum_sec": 1.580039000000001,
+              "min_sec": 0.009991,
+              "max_sec": 0.010039,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010000246835443045
+            }
+          },
+          "/odom_incremental": {
+            "count": 159,
+            "arrival_hz": 99.83395193767106,
+            "last_arrival_age_sec": 63.5621991160001,
+            "last_header_stamp_ns": 1794373211399454973,
+            "last_header_age_sec": 63.20484813,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.0047294991852367425,
+              "y": -0.007732495077709915,
+              "z": 0.008297978647511445,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 158,
+              "sum_sec": 1.5826279230000182,
+              "min_sec": 0.004400702999873829,
+              "max_sec": 0.01329461800014542,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010016632424050749
+            },
+            "header_intervals": {
+              "count": 158,
+              "sum_sec": 1.580039000000001,
+              "min_sec": 0.009991,
+              "max_sec": 0.010039,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010000246835443045
+            }
+          }
+        }
+      },
+      "nav2_start": {
+        "first_start_elapsed_sec": 26.161761378999927,
+        "entries": 1,
+        "duration_sec": 63.55093692500009,
+        "topics": {
+          "/odom": {
+            "count": 6356,
+            "arrival_hz": 100.00971167006054,
+            "last_arrival_age_sec": 0.00433261000011953,
+            "last_header_stamp_ns": 1794373274959415973,
+            "last_header_age_sec": -0.35511287,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.002238381107870458,
+              "y": -0.010100863223109519,
+              "z": 0.005235294431868952,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 6356,
+              "sum_sec": 63.55835933000003,
+              "min_sec": 0.00046357700011867564,
+              "max_sec": 0.023098154000081195,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999741870673384
+            },
+            "header_intervals": {
+              "count": 6356,
+              "sum_sec": 63.55996099999596,
+              "min_sec": 0.009916,
+              "max_sec": 0.010043,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999993864064815
+            }
+          },
+          "/odom_incremental": {
+            "count": 6356,
+            "arrival_hz": 100.01014347883684,
+            "last_arrival_age_sec": 0.004063999000209151,
+            "last_header_stamp_ns": 1794373274959415973,
+            "last_header_age_sec": -0.35511287,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.0038574933650607412,
+              "y": 0.0010206116533081218,
+              "z": -0.019141654542887354,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 6356,
+              "sum_sec": 63.55813511699989,
+              "min_sec": 0.002900022999938301,
+              "max_sec": 0.01534339199997703,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999970659487097
+            },
+            "header_intervals": {
+              "count": 6356,
+              "sum_sec": 63.55996099999596,
+              "min_sec": 0.009916,
+              "max_sec": 0.010043,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999993864064815
+            }
+          },
+          "/imu": {
+            "count": 6355,
+            "arrival_hz": 100.00101460425093,
+            "last_arrival_age_sec": 0.005641191000222534,
+            "last_header_stamp_ns": 1794373274959415973,
+            "last_header_age_sec": -0.35511287,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 0,
+              "quaternion_norm_outside_0_9_to_1_1_count": 0,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 0.9999999807378647,
+              "acceleration_norm": 9.806384656207468,
+              "angular_velocity_norm": 0.0027678136234151954,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 6355,
+              "sum_sec": 63.54896061699992,
+              "min_sec": 0.005587771000136854,
+              "max_sec": 0.014140992999955415,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999983644642013
+            },
+            "header_intervals": {
+              "count": 6355,
+              "sum_sec": 63.54991899999596,
+              "min_sec": 0.009916,
+              "max_sec": 0.010043,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999998725412997
+            }
+          },
+          "/lio_sam/mapping/odometry": {
+            "count": 130,
+            "arrival_hz": 2.0435701768472394,
+            "last_arrival_age_sec": 0.06116975800000546,
+            "last_header_stamp_ns": 1794373274192899704,
+            "last_header_age_sec": 0.411403399,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.004644888918846846,
+              "y": -0.006913477089256048,
+              "z": 0.005973478779196739,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 130,
+              "sum_sec": 63.71882112800017,
+              "min_sec": 0.0844919310000023,
+              "max_sec": 2.6815440069999568,
+              "nonpositive_count": 0,
+              "gap_count": 83,
+              "last_gap_sec": 0.5985429229999681,
+              "mean_sec": 0.4901447779076936
+            },
+            "header_intervals": {
+              "count": 130,
+              "sum_sec": 63.70070695899996,
+              "min_sec": 0.099351883,
+              "max_sec": 2.499752044,
+              "nonpositive_count": 0,
+              "gap_count": 87,
+              "last_gap_sec": 0.600032091,
+              "mean_sec": 0.49000543814615355
+            }
+          },
+          "/lio_sam/mapping/odometry_incremental": {
+            "count": 130,
+            "arrival_hz": 2.0435728561448037,
+            "last_arrival_age_sec": 0.060986021000189794,
+            "last_header_stamp_ns": 1794373274192899704,
+            "last_header_age_sec": 0.411403399,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.004644887521862984,
+              "y": -0.0069134850054979324,
+              "z": 0.005973478313535452,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 130,
+              "sum_sec": 63.71792321399994,
+              "min_sec": 0.084850003000156,
+              "max_sec": 2.681538862000025,
+              "nonpositive_count": 0,
+              "gap_count": 83,
+              "last_gap_sec": 0.5995495460001621,
+              "mean_sec": 0.4901378708769226
+            },
+            "header_intervals": {
+              "count": 130,
+              "sum_sec": 63.70070695899996,
+              "min_sec": 0.099351883,
+              "max_sec": 2.499752044,
+              "nonpositive_count": 0,
+              "gap_count": 87,
+              "last_gap_sec": 0.600032091,
+              "mean_sec": 0.49000543814615355
+            }
+          },
+          "/rslidar_Pointcloud2": {
+            "count": 516,
+            "arrival_hz": 8.200488607066232,
+            "last_arrival_age_sec": 0.09509457700005441,
+            "last_header_stamp_ns": 1794373274392700672,
+            "last_header_age_sec": 0.211602431,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 516,
+              "sum_sec": 63.50932464400012,
+              "min_sec": 0.08788000399999873,
+              "max_sec": 0.7081886780001696,
+              "nonpositive_count": 0,
+              "gap_count": 46,
+              "last_gap_sec": 0.2092881189998934,
+              "mean_sec": 0.12308008651938007
+            },
+            "header_intervals": {
+              "count": 516,
+              "sum_sec": 63.500650882999935,
+              "min_sec": 0.09922409,
+              "max_sec": 0.700467825,
+              "nonpositive_count": 0,
+              "gap_count": 40,
+              "last_gap_sec": 0.200055123,
+              "mean_sec": 0.12306327690503863
+            }
+          },
+          "/laser/scan_merge_laser": {
+            "count": 543,
+            "arrival_hz": 8.62995493852086,
+            "last_arrival_age_sec": 0.08981238000001213,
+            "last_header_stamp_ns": 1794373274392700672,
+            "last_header_age_sec": 0.211602431,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 543,
+              "sum_sec": 63.5114938170002,
+              "min_sec": 0.08462659799988614,
+              "max_sec": 0.7069943890001014,
+              "nonpositive_count": 0,
+              "gap_count": 44,
+              "last_gap_sec": 0.2997525250000308,
+              "mean_sec": 0.11696407701105009
+            },
+            "header_intervals": {
+              "count": 543,
+              "sum_sec": 63.500650882999956,
+              "min_sec": 0.09922409,
+              "max_sec": 0.700467825,
+              "nonpositive_count": 0,
+              "gap_count": 37,
+              "last_gap_sec": 0.300363064,
+              "mean_sec": 0.11694410844014724
+            }
+          },
+          "/map": {
+            "count": 1,
+            "arrival_hz": null,
+            "last_arrival_age_sec": 61.81907358400008,
+            "last_header_stamp_ns": 1794373212204836737,
+            "last_header_age_sec": 62.399466366,
+            "counters": {},
+            "latest": {
+              "width": 400,
+              "height": 400,
+              "resolution": 0.10000000149011612,
+              "frame_id": "map"
+            },
+            "arrival_intervals": {
+              "count": 0,
+              "sum_sec": 0.0,
+              "min_sec": null,
+              "max_sec": null,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": null
+            },
+            "header_intervals": {
+              "count": 0,
+              "sum_sec": 0.0,
+              "min_sec": null,
+              "max_sec": null,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": null
+            }
+          }
+        }
+      }
+    },
+    "imu_preintegration": {
+      "ready": true,
+      "ever_ready": true,
+      "transitions": 1,
+      "ready_to_not_ready_count": 0,
+      "last_transition_age_sec": 64.18148989200017
+    },
+    "tf": {
+      "map->odom": {
+        "available": true,
+        "expected_static": true,
+        "fresh": true,
+        "header_age_sec": 1794373274.6043031,
+        "finite": true,
+        "quaternion_norm": 1.0
+      },
+      "odom->base_link": {
+        "available": true,
+        "expected_static": false,
+        "fresh": true,
+        "header_age_sec": -0.35511287,
+        "finite": true,
+        "quaternion_norm": 1.0
+      },
+      "map->base_link": {
+        "available": true,
+        "expected_static": false,
+        "fresh": true,
+        "header_age_sec": -0.35511287,
+        "finite": true,
+        "quaternion_norm": 1.0
+      }
+    }
+  },
+  "nav2_lifecycle": {
+    "map_server": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 1976.915590693
+    },
+    "controller_server": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.915732193
+    },
+    "smoother_server": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.915848532
+    },
+    "planner_server": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.915965707
+    },
+    "behavior_server": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.916084501
+    },
+    "bt_navigator": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.916193416
+    },
+    "waypoint_follower": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.916308663
+    },
+    "velocity_smoother": {
+      "id": 1,
+      "label": "unconfigured",
+      "queried_at": 1976.916412825
+    }
+  },
+  "cleanup": [
+    {
+      "label": "nav2",
+      "pid": 10124,
+      "returncode": -15
+    },
+    {
+      "label": "lio_mapOptimization",
+      "pid": 10001,
+      "returncode": 0
+    },
+    {
+      "label": "lio_featureExtraction",
+      "pid": 10000,
+      "returncode": 0
+    },
+    {
+      "label": "lio_imageProjection",
+      "pid": 9999,
+      "returncode": 0
+    },
+    {
+      "label": "lio_imuPreintegration",
+      "pid": 9998,
+      "returncode": 0
+    },
+    {
+      "label": "pointcloud_scan",
+      "pid": 9892,
+      "returncode": 0
+    },
+    {
+      "label": "lidar_converter",
+      "pid": 9891,
+      "returncode": 0
+    },
+    {
+      "label": "lidar",
+      "pid": 9890,
+      "returncode": 0
+    },
+    {
+      "label": "imu",
+      "pid": 9889,
+      "returncode": 0
+    }
+  ],
+  "finished_cleanup": "2026-11-11T13:01:21.378784+08:00"
+}

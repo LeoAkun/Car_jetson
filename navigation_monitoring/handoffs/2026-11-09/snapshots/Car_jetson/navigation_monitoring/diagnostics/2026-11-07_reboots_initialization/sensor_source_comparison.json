@@ -1,0 +1,169 @@
+{
+  "scope": "Source text comparison only; excludes .git, pycache and thirdparty directories. Does not establish build or runtime provenance.",
+  "sensor_root": "/home/akun/workspace/sensor/real_ws/src",
+  "current_root": "/home/akun/workspace/Car_jetson/real_ws/src",
+  "counts": {
+    "old_text_files": 384,
+    "common_text_files": 374,
+    "identical_text_files": 343,
+    "different_text_files": 31,
+    "only_old_text_files": 10
+  },
+  "changed": [
+    {
+      "path": "driver/lock_controller/launch/lock_controller.launch.py",
+      "sensor_sha256": "1df4b141d5ffdd671b2af8986a429d5b43158d8ef0cab9ecd6bc6de546fe4ac7",
+      "Car_jetson_sha256": "c47bf10d7f323b76ee61bac273d74063a1a4f880445f5a6571676a2ba199f848"
+    },
+    {
+      "path": "driver/lock_controller/config/lock_controller.yaml",
+      "sensor_sha256": "78386c9bdd2df943333516b9d26e2e85728df188dc2efd8269f5330142b21d32",
+      "Car_jetson_sha256": "9c2b606ca2375a7d74f5ba2baae33669385a8b5a0ff2a68190ad274a17b4f150"
+    },
+    {
+      "path": "driver/lidar/convert_laser/package.xml",
+      "sensor_sha256": "7bad940e87bdbffa0e8b6b4d2a842d919a3dbcc9b43400291d618695fb6d4016",
+      "Car_jetson_sha256": "0f54e8fd45ed069ead5e34adf9159c9189e7569b2b360d7b1650fcad212cf959"
+    },
+    {
+      "path": "driver/car_control/cmdvel_2_ecu/setup.py",
+      "sensor_sha256": "d8c0bfe54b54254c0d06a28afa6b29bfd132686bed4e3a48f3ae63a84cee14e2",
+      "Car_jetson_sha256": "a1aeaf72c19c0f45038b3a825b30e8cff8c883937fe3e8666a8294edcd5e23ac"
+    },
+    {
+      "path": "driver/car_control/cmdvel_2_ecu/package.xml",
+      "sensor_sha256": "56d0d737cf8757d3743fc2a68693bff64e2a18df115708984bcce0a725748178",
+      "Car_jetson_sha256": "642751c6a97e2f830f62dd5e766e4a33c90c2e77cc32f9b97af245305a630a27"
+    },
+    {
+      "path": "driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "sensor_sha256": "37df99a27d5af6623c094b95807b1e406b81c643118bcd658e7ffb651c391bbd",
+      "Car_jetson_sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574"
+    },
+    {
+      "path": "driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert copy.py",
+      "sensor_sha256": "8f086c92581fc0844f78e7302f471a5b2378dac8a1f190511fcf1084ad9382f0",
+      "Car_jetson_sha256": "ac1aa24a785bd45c7590c89174906a8bf0f5ae4f6f6d77edc0a866197ea66d9c"
+    },
+    {
+      "path": "driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "sensor_sha256": "15282bb2402500b849c0458c4f185b96739eb11a876f5933b6b3f2cd1db2d940",
+      "Car_jetson_sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f"
+    },
+    {
+      "path": "driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py",
+      "sensor_sha256": "38057356a47bc93de9efb96c605beb95b9708cbd378c06ed4cec8cbb6e84d5d4",
+      "Car_jetson_sha256": "809dbeb1c35b3ca1faf577380e243cc8a33f319709d413035ac854e6f655b3c3"
+    },
+    {
+      "path": "driver/car_control/chassis_driver/chassis_driver/include/usb2can_core.h",
+      "sensor_sha256": "094506b5317851121bb3950a5a35cbf7a738eebb760b3e37c3e4c53ff0a5194b",
+      "Car_jetson_sha256": "817d6ef6a155a273b8810965006dea2b34061748544d6572a4e5f5340f90347c"
+    },
+    {
+      "path": "driver/car_control/chassis_driver/chassis_driver/src/usb2can_core.cpp",
+      "sensor_sha256": "d0397a96355e238f4ae778c604fb276450dc3e28140b259b5a0ad713c36cc74e",
+      "Car_jetson_sha256": "ebd7db8d9690e110cdf414251c5f4bf8b1e70fe03485fb4620291e89261e9197"
+    },
+    {
+      "path": "driver/scan_laser/ros2_laser_scan_merger/config/params.yaml",
+      "sensor_sha256": "9ef7d4c3b7b88c71fe68c10856eecfd9308c72571883ae9780ac67d1835a287d",
+      "Car_jetson_sha256": "d86132970c9d6ed86aaea7cdcf7951e5d8885594922ce157bacc4b9d164643ac"
+    },
+    {
+      "path": "driver/scan_laser/ros2_laser_scan_merger/src/main.cpp",
+      "sensor_sha256": "68404ab7768d0f6caefe247e436be0a871d8a8b3692263b0edf8dd679b972b7d",
+      "Car_jetson_sha256": "d9cf4ae6ffcf5b4f35aa6d975bc80563acfd9e52869b27667b7795ead6250e9c"
+    },
+    {
+      "path": "driver/scan_laser/Lakibeam_ROS2_Driver-main/package.xml",
+      "sensor_sha256": "8ce6fcf3ef0f096a02308879d16b45b4ff0f173b6fee4670b24f3a7c6009fe1b",
+      "Car_jetson_sha256": "fe04b070812398955f229b53220fdea0d77c35a41579cd439f643d466d9b78d9"
+    },
+    {
+      "path": "driver/scan_laser/Lakibeam_ROS2_Driver-main/launch/lakibeam1_scan_dual_lidar.launch.py",
+      "sensor_sha256": "f9f4ea7e7c9bee59316686cf6119242a99fdc1fba9e8572d69fbdf5f16d07082",
+      "Car_jetson_sha256": "686983d5cb2dcad84ade8e1904a3532cee4992bd25c3f9316b946120aa9039ce"
+    },
+    {
+      "path": "driver/scan_laser/Lakibeam_ROS2_Driver-main/src/lakibeam1_scan.cpp",
+      "sensor_sha256": "8031d599a8d4db62fd78c403e523351cb258cb15abfbc34fa6034b347db47bc1",
+      "Car_jetson_sha256": "cb1f0e009a5af7241017f057d46bbda8013d0588ab198f15f0a40f0ba1403707"
+    },
+    {
+      "path": "driver/gps/launch/gnss_converter.launch.py",
+      "sensor_sha256": "a195999e15b8bd47ce9966b8460b4ba88e830f02dd99497e8587450524593e22",
+      "Car_jetson_sha256": "a9cf04dbf027a25abf31cd16e2648190bc44d279a8eaca08b5b88718e602660f"
+    },
+    {
+      "path": "driver/gps/config/gnss_converter.yaml",
+      "sensor_sha256": "950c480414c1e9081924af4ac12ee9ec4406989f89ab2fa8bc9c089a02c49816",
+      "Car_jetson_sha256": "aa27853bf45b3928596cc42cbc090e74ab9c248ea8de7561077999309fef5cc7"
+    },
+    {
+      "path": "driver/gps/src/gnss_converter_node.cpp",
+      "sensor_sha256": "6a5ee08fae3ba6450f54ea3cc618208153e687687f1978b46cd78c62d495c98b",
+      "Car_jetson_sha256": "21df77df9ff4549ec54f78bfa11f73cc4a08010cfd03d53889b9e4f94ffbceb6"
+    },
+    {
+      "path": "driver/alarm_controller/alarm_controller/config/alarm_controller.yaml",
+      "sensor_sha256": "0b532a4cc7679de128df82521298113bbc2f2854eb366fa1f5b063a548b84051",
+      "Car_jetson_sha256": "0147c977f8d39eb40175cfde97142b24ccb70552c17c5218141713f9ffa35077"
+    },
+    {
+      "path": "driver/alarm_controller/alarm_controller/alarm_controller/alarm_controller.py",
+      "sensor_sha256": "b899e87b385a7af114da9236b0bb8ae07de1fe348d8e5b15f2ad038e46f34a41",
+      "Car_jetson_sha256": "2c9ebd8fbf3f6e0cc93a2366e00bcdf36c86b7eca8431826db67ce8ba3168830"
+    },
+    {
+      "path": "driver/rslidar/rslidar_sdk/node/rslidar_sdk_node.cpp",
+      "sensor_sha256": "b5ead0564d96588449a82056e7f225faf88e9c51db4187d6648bc16eb135c2a3",
+      "Car_jetson_sha256": "4a2c779095171855a3dc6508fff86b9f3cbd53f6acf929a2744c6e113da290eb"
+    },
+    {
+      "path": "driver/rslidar/rslidar_sdk/src/rs_driver/cmake/rs_driverConfig.cmake",
+      "sensor_sha256": "ec4f36bad0d26ab92f4dc7f664e52e8397153f6c7ac3ce329fcea0c63bec75fe",
+      "Car_jetson_sha256": "7da46e698329fca9fc7331f272525d211e3ad7c13efdd9ecfdc3cfe9a5ee0c7f"
+    },
+    {
+      "path": "driver/rslidar/rslidar_sdk/src/rs_driver/src/rs_driver/driver/decoder/decoder_RSHELIOS.hpp",
+      "sensor_sha256": "5f867025a351c9ef424f9f4e158ee79f8ea7f5a7383123e422ac048997761453",
+      "Car_jetson_sha256": "43ba4a937630e95f3d1938b46ad3214ab05431ae0e6e36cd7fba0f90e50d2a70"
+    },
+    {
+      "path": "driver/rslidar/rslidar_sdk/src/source/source_driver.hpp",
+      "sensor_sha256": "299898b52eaff3a87e7aec63a52e6a83d4344b752cec902228e14b16ea3e46b9",
+      "Car_jetson_sha256": "19f51dabb48de64210e21e5807594fc6d2cc884aa4e20031fcfd4bb737de2dea"
+    },
+    {
+      "path": "driver/imu/fdilink_ahrs_ROS2/launch/ahrs_driver.launch.py",
+      "sensor_sha256": "e64fb0ab664b701f6c68040c38f7edd2e8b1707b9df349ae28e4bc5670d6290c",
+      "Car_jetson_sha256": "d9ced2ba055f677e6fcfcba1251cc0cee898b79be52dd7e380c0cae277606287"
+    },
+    {
+      "path": "driver/imu/fdilink_ahrs_ROS2/include/ahrs_driver.h",
+      "sensor_sha256": "a1d01cbc5274a9dbdf045231689152014a8846b55633d51b42ff7b56e82c0931",
+      "Car_jetson_sha256": "888273525b32033dba6ebf26db0f38d4696f4dee9eb819e735b180a66a5883ac"
+    },
+    {
+      "path": "driver/imu/fdilink_ahrs_ROS2/src/ahrs_driver.cpp",
+      "sensor_sha256": "a2166d73653bb6bc210dab051f4c579309b34c5b5b40ef21f67842ac64ee0fd5",
+      "Car_jetson_sha256": "bcee310898c47fe58717fe60222bfce52342c3fd09592d77fa77e60aace5fc27"
+    },
+    {
+      "path": "driver/imu/fdilink_ahrs_ROS2/scripts/reset_wheeltec_imu_usb.sh",
+      "sensor_sha256": "4e5bdde7fede8944e99182b188cba0d50dcc3f6db0ee3104be5e812d656917dd",
+      "Car_jetson_sha256": "20fd92a9bbf74d9e0a1ab49268381d624ca1f284ed6c09277c85fa02192cecaa"
+    },
+    {
+      "path": "launch_real/package.xml",
+      "sensor_sha256": "4b60e22713ca1b214540f5ad98fa11530b69611567a680c863c6e9c60de59404",
+      "Car_jetson_sha256": "350134a9cfca826b763f3ce4f10793866aa2edf08f5548d564f734fc6051c5d8"
+    },
+    {
+      "path": "launch_real/launch/run.launch.py",
+      "sensor_sha256": "8185e8cb5a4bd3b97ce36c88fd098e80a669f9b6cda0ed6eb3ed891d14c6bb8d",
+      "Car_jetson_sha256": "f9d3180a47787490255453e564ce79c25ab4747408d3ba1059f74f16152b2de3"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "RUNNING",
+  "started_at": "2026-10-08T16:28:21+08:00",
+  "boot_id": "e3637b87-3853-4752-9665-ea1638e21dd4",
+  "duration_s": 86400,
+  "interval_s": 1.0,
+  "label": "post_1538_crash_idle_watch_24h",
+  "last_sample_at": "2026-10-08T17:01:20.669+08:00",
+  "last_elapsed_s": 1979.2,
+  "last_package_c": 35.0,
+  "last_cpu_busy_pct": 2.1,
+  "last_mem_available_kib": 29669152,
+  "samples": 1880
+}

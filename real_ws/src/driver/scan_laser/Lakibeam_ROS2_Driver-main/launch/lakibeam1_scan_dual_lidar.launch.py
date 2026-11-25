@@ -59,7 +59,16 @@ from launch_ros.actions import Node
 import launch_ros
 
 def generate_launch_description():
-    frame_id = LaunchConfiguration('frame_id')
+    front_frame_id = LaunchConfiguration('front_frame_id')
+    rear_frame_id = LaunchConfiguration('rear_frame_id')
+    front_x = LaunchConfiguration('front_x')
+    front_y = LaunchConfiguration('front_y')
+    front_z = LaunchConfiguration('front_z')
+    front_yaw = LaunchConfiguration('front_yaw')
+    rear_x = LaunchConfiguration('rear_x')
+    rear_y = LaunchConfiguration('rear_y')
+    rear_z = LaunchConfiguration('rear_z')
+    rear_yaw = LaunchConfiguration('rear_yaw')
     output_topic0 = LaunchConfiguration('output_topic0')
     output_topic1 = LaunchConfiguration('output_topic1')
     inverted = LaunchConfiguration('inverted')
@@ -85,10 +94,24 @@ def generate_launch_description():
     # angle_offset = LaunchConfiguration('angle_offset',default='0')
     
 
-    declare_frame_id_cmd = DeclareLaunchArgument(
-    'frame_id',
-    default_value='laser',
+    declare_front_frame_id_cmd = DeclareLaunchArgument(
+    'front_frame_id',
+    default_value='front_laser',
     )
+    declare_rear_frame_id_cmd = DeclareLaunchArgument(
+    'rear_frame_id',
+    default_value='rear_laser',
+    )
+    declare_front_x_cmd = DeclareLaunchArgument('front_x', default_value='0.43')
+    declare_front_y_cmd = DeclareLaunchArgument('front_y', default_value='0.28')
+    declare_front_z_cmd = DeclareLaunchArgument('front_z', default_value='0.15')
+    declare_front_yaw_cmd = DeclareLaunchArgument(
+        'front_yaw', default_value='0.7853981633974483')
+    declare_rear_x_cmd = DeclareLaunchArgument('rear_x', default_value='-0.43')
+    declare_rear_y_cmd = DeclareLaunchArgument('rear_y', default_value='-0.28')
+    declare_rear_z_cmd = DeclareLaunchArgument('rear_z', default_value='0.15')
+    declare_rear_yaw_cmd = DeclareLaunchArgument(
+        'rear_yaw', default_value='3.9269908169872414')
     declare_output_topic0_cmd = DeclareLaunchArgument(
     'output_topic0',
     default_value='laser/scan_front',
@@ -99,7 +122,9 @@ def generate_launch_description():
     )
     declare_inverted_cmd = DeclareLaunchArgument(
     'inverted',
-    default_value='false',
+    # Both installed sensors need reversed beam order; verified from overlapping
+    # point clouds and the dock position on 2026-10-30.
+    default_value='true',
     )
     declare_hostip_cmd = DeclareLaunchArgument(
     'hostip',
@@ -151,7 +176,7 @@ def generate_launch_description():
         name='richbeam_lidar_node0',
         executable='lakibeam1_scan_node',
         parameters=[{
-            'frame_id':frame_id,
+            'frame_id':front_frame_id,
             'output_topic':output_topic0,
             'inverted':inverted,
             'hostip':hostip,
@@ -165,13 +190,35 @@ def generate_launch_description():
         name='richbeam_lidar_node1',
         executable='lakibeam1_scan_node',
         parameters=[{
-            'frame_id':frame_id,
+            'frame_id':rear_frame_id,
             'output_topic':output_topic1,
             'inverted':inverted,
             'hostip':hostip,
             'port':port_back,
             'angle_offset':angle_offset
         }],
+        output='screen'
+    )
+    front_laser_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_front_laser_publisher',
+        arguments=[
+            '--x', front_x, '--y', front_y, '--z', front_z,
+            '--roll', '0.0', '--pitch', '0.0', '--yaw', front_yaw,
+            '--frame-id', 'base_link', '--child-frame-id', front_frame_id
+        ],
+        output='screen'
+    )
+    rear_laser_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_rear_laser_publisher',
+        arguments=[
+            '--x', rear_x, '--y', rear_y, '--z', rear_z,
+            '--roll', '0.0', '--pitch', '0.0', '--yaw', rear_yaw,
+            '--frame-id', 'base_link', '--child-frame-id', rear_frame_id
+        ],
         output='screen'
     )
     lakibeam1_pcd_dir = get_package_share_directory('lakibeam1')
@@ -185,32 +232,18 @@ def generate_launch_description():
     #         parameters=[{'use_sim_time': use_sim_time}],
     #         output='screen')
 
-    # front_tf2 = launch_ros.actions.Node(
-    #         package='tf2_ros',
-    #         executable='static_transform_publisher',
-    #         name='static_transform_publisher',
-    #         arguments=[
-    #             '--x', '0.44', '--y', '0.28', '--z', '-0.6',
-    #             '--qx', '0', '--qy', '0', '--qz', '0', '--qw', '1',
-    #             '--frame-id', 'base_link', '--child-frame-id', 'gnss_link'
-    #         ]
-    #     )
-    
-    # back_tf2 = launch_ros.actions.Node(
-    #         package='tf2_ros',
-    #         executable='static_transform_publisher',
-    #         name='static_transform_publisher',
-    #         arguments=[
-    #             '--x', '-0.44', '--y', '-0.28', '--z', '-0.6',
-    #             '--qx', '0', '--qy', '0', '--qz', '0', '--qw', '1',
-    #             '--frame-id', 'base_link', '--child-frame-id', 'gnss_link'
-    #         ]
-    #     ),
-    
-    
     ld = LaunchDescription()
 
-    ld.add_action(declare_frame_id_cmd)
+    ld.add_action(declare_front_frame_id_cmd)
+    ld.add_action(declare_rear_frame_id_cmd)
+    ld.add_action(declare_front_x_cmd)
+    ld.add_action(declare_front_y_cmd)
+    ld.add_action(declare_front_z_cmd)
+    ld.add_action(declare_front_yaw_cmd)
+    ld.add_action(declare_rear_x_cmd)
+    ld.add_action(declare_rear_y_cmd)
+    ld.add_action(declare_rear_z_cmd)
+    ld.add_action(declare_rear_yaw_cmd)
     ld.add_action(declare_output_topic0_cmd)
     ld.add_action(declare_output_topic1_cmd)
     ld.add_action(declare_inverted_cmd)
@@ -226,6 +259,7 @@ def generate_launch_description():
     ld.add_action(declare_sensorip_cmd)
     ld.add_action(richbeam_lidar_node0)
     ld.add_action(richbeam_lidar_node1)
+    ld.add_action(front_laser_tf)
+    ld.add_action(rear_laser_tf)
     # ld.add_action(rviz_node)
-    # ld.add_action(front_tf2)
     return ld

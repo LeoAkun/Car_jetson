@@ -1,0 +1,6 @@
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp2s0           UP             192.168.1.140/24 
+enp3s0           DOWN           
+enp4s0           DOWN           
+eno1             UP             fe80::9280:dec9:4656:5ed0/64 
+wlx90de800ed399  UP             192.168.3.23/24 fe80::4af8:f1cb:ccbc:63eb/64 

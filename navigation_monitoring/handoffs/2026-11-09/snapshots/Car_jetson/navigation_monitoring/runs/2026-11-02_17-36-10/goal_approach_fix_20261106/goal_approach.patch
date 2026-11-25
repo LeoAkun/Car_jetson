@@ -1,0 +1,13 @@
+--- before/nav2/src/nav2/config/nav2_real_params.yaml
++++ after/nav2/src/nav2/config/nav2_real_params.yaml
+@@ -279,7 +279,9 @@
+         enabled: true
+         cost_power: 1
+         cost_weight: 5.0
+-        threshold_to_consider: 0.8
++        # 本地GoalCritic在此距离内启用，PathFollow在1.4m内退出。
++        # 保留0.2m重叠，避免临近局部路径末端时两项同时停用。
++        threshold_to_consider: 1.6
+       # 目标角度评判
+       GoalAngleCritic:
+         enabled: true

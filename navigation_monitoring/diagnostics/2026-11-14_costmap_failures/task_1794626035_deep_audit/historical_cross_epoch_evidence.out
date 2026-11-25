@@ -1,0 +1,111 @@
+Historical TransformFusion cross-epoch corroboration
+bag: /home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag
+topics:
+  /lio_sam/mapping/odometry: 5167 messages
+  /lio_sam/mapping/odometry_incremental: 5167 messages
+  /odom_incremental: 128056 messages
+  /odom: 128055 messages
+  bag span: 10:23:56.946517 .. 10:45:17.922247 (Asia/Shanghai)
+checked-out source revision (not binary provenance): 0dba9db0fe0a598392b780695692048484662bcb
+imuPreintegration.cpp sha256 (current checkout): 0bacc9a7d37b5fe2cfb94b37e38fa991d70784472e89127df3ec7575b9356deb
+current source worktree status: M slam/src/LIO-SAM/src/imuPreintegration.cpp
+
+TransformFusion algebra replay: 128052 header-matched /odom samples; median residual=1.027e-14 m, max residual=1.463e-01 m
+Residual near machine precision means the recorded /odom stream is consistent with the source formula; it does not by itself identify which queue sample was produced before or after correction.
+
+Largest historical /odom jumps (threshold 0.40 m in <50 ms):
+
+[1] /odom bag=10:37:57.674052 header=10:37:57.673383
+  /odom step=1.231977904 m in 9.996 ms
+    before=(138.18075921240342, -2.0822515233937917, 0.8740932169375134)
+    after =(138.533830866883, -0.9019507296938951, 0.8744705851355645)
+  /odom_incremental bag=10:37:57.674025 bag-after-odom=-0.027 ms
+    step from previous incremental=0.665441176 m
+    before=(138.0501189881895, -2.2195716040762163, 0.8750759746959319)
+    after =(138.25722493738317, -1.587180044477609, 0.8760598141763029)
+  latest mapping correction bag=10:37:57.665359 (8.692 ms before /odom), header=10:37:57.245210
+    pose=(138.35414123535156, -1.4411647319793701, 0.8572919368743895)
+    step from previous mapping=0.302295604 m
+  matching IMU-preintegration correction (/lio_sam/mapping/odometry_incremental) bag=10:37:57.665429, header=10:37:57.245210, arrival delta from mapping anchor=0.069 ms
+  replayed queue state after latest mapping arrival: before=362, popped=320, after=42, front_header=10:37:57.253398
+    front bag receipt=10:37:57.253900; front receipt to current incremental=420.124 ms
+    recorder-order bracket: front=10:37:57.253900 < correction=10:37:57.665429 < back=10:37:57.674025; front was 411.528 ms before correction and back was 8.596 ms after
+  algebra replay residual at this /odom=2.991e-14 m; queue length at output=43
+  anchor check using same retained front/back: current mapping anchor residual=2.991e-14 m; previous mapping anchor residual=0.372004 m
+
+[2] /odom bag=10:36:12.359890 header=10:36:12.358484
+  /odom step=0.705241098 m in 10.018 ms
+    before=(120.35188295730654, -1.9633642528619126, -0.24544846605007428)
+    after =(119.9601258772522, -2.549786793247591, -0.24673907178121715)
+  /odom_incremental bag=10:36:12.359861 bag-after-odom=-0.029 ms
+    step from previous incremental=0.389238172 m
+    before=(120.35402430379764, -1.856094858048122, -0.24717292218377165)
+    after =(120.14582305079598, -2.184969594737327, -0.24787024881881609)
+  latest mapping correction bag=10:36:12.358061 (1.829 ms before /odom), header=10:36:11.948939
+    pose=(120.17436981201172, -2.300618886947632, -0.20606528222560883)
+    step from previous mapping=0.561343211 m
+  matching IMU-preintegration correction (/lio_sam/mapping/odometry_incremental) bag=10:36:12.358070, header=10:36:11.948939, arrival delta from mapping anchor=0.009 ms
+  replayed queue state after latest mapping arrival: before=240, popped=200, after=40, front_header=10:36:11.958590
+    front bag receipt=10:36:11.958884; front receipt to current incremental=400.977 ms
+    recorder-order bracket: front=10:36:11.958884 < correction=10:36:12.358070 < back=10:36:12.359861; front was 399.186 ms before correction and back was 1.791 ms after
+  algebra replay residual at this /odom=1.438e-14 m; queue length at output=41
+  anchor check using same retained front/back: current mapping anchor residual=1.438e-14 m; previous mapping anchor residual=0.645792 m
+
+[3] /odom bag=10:32:49.943182 header=10:32:49.942817
+  /odom step=0.585522631 m in 11.442 ms
+    before=(89.27024285108982, -1.842671140837565, -0.0887153299841133)
+    after =(89.71140572577009, -1.4576879344442943, -0.08352483524870513)
+  /odom_incremental bag=10:32:49.943148 bag-after-odom=-0.035 ms
+    step from previous incremental=0.251440940 m
+    before=(89.34194175056503, -1.8173739306744225, -0.08334971760830612)
+    after =(89.5187486020571, -1.6385950629190715, -0.08291621024424584)
+  latest mapping correction bag=10:32:49.940035 (3.148 ms before /odom), header=10:32:49.437340
+    pose=(89.54796600341797, -1.575194001197815, -0.07997555285692216)
+    step from previous mapping=0.963986843 m
+  matching IMU-preintegration correction (/lio_sam/mapping/odometry_incremental) bag=10:32:49.940077, header=10:32:49.437340, arrival delta from mapping anchor=0.042 ms
+  replayed queue state after latest mapping arrival: before=360, popped=310, after=50, front_header=10:32:49.441349
+    front bag receipt=10:32:49.441793; front receipt to current incremental=501.355 ms
+    recorder-order bracket: front=10:32:49.441793 < correction=10:32:49.940077 < back=10:32:49.943148; front was 498.283 ms before correction and back was 3.071 ms after
+  algebra replay residual at this /odom=2.665e-15 m; queue length at output=51
+  anchor check using same retained front/back: current mapping anchor residual=2.665e-15 m; previous mapping anchor residual=0.987916 m
+
+[4] /odom bag=10:32:59.443584 header=10:32:59.433210
+  /odom step=0.445519970 m in 9.888 ms
+    before=(90.9753439579031, -2.0190408336410686, -0.56280195767051)
+    after =(90.58793700264563, -2.2390496844147685, -0.5623775892891022)
+  /odom_incremental bag=10:32:59.433441 bag-after-odom=-10.144 ms
+    step from previous incremental=0.319579510 m
+    before=(91.12253906983277, -1.9706405119155066, -0.562480335302324)
+    after =(90.83640537869015, -2.1129731284490956, -0.5622410048327998)
+  latest mapping correction bag=10:32:59.430392 (13.192 ms before /odom), header=10:32:58.739606
+    pose=(90.75320434570312, -2.1325018405914307, -0.5462666153907776)
+    step from previous mapping=0.142558839 m
+  matching IMU-preintegration correction (/lio_sam/mapping/odometry_incremental) bag=10:32:59.430451, header=10:32:58.739606, arrival delta from mapping anchor=0.059 ms
+  replayed queue state after latest mapping arrival: before=279, popped=210, after=69, front_header=10:32:58.743324
+    front bag receipt=10:32:58.743801; front receipt to current incremental=689.640 ms
+    recorder-order bracket: front=10:32:58.743801 < correction=10:32:59.430451 < back=10:32:59.433441; front was 686.650 ms before correction and back was 2.990 ms after
+  algebra replay residual at this /odom=2.043e-14 m; queue length at output=70
+  anchor check using same retained front/back: current mapping anchor residual=2.043e-14 m; previous mapping anchor residual=0.126208 m
+
+[5] /odom bag=10:37:10.156042 header=10:37:10.155463
+  /odom step=0.433412959 m in 10.061 ms
+    before=(127.03336911446605, -2.193454393173267, 0.46567806557191754)
+    after =(127.27712283307164, -1.8350817974113693, 0.4653108929545116)
+  /odom_incremental bag=10:37:10.155883 bag-after-odom=-0.159 ms
+    step from previous incremental=0.250476803 m
+    before=(126.93221694434285, -2.276546679121918, 0.46662511407437224)
+    after =(127.07299318699472, -2.0693736153903135, 0.46654727164834536)
+  latest mapping correction bag=10:37:10.152098 (3.944 ms before /odom), header=10:37:09.746608
+    pose=(127.16571807861328, -1.9956778287887573, 0.4653304219245912)
+    step from previous mapping=0.002699076 m
+  matching IMU-preintegration correction (/lio_sam/mapping/odometry_incremental) bag=10:37:10.152162, header=10:37:09.746608, arrival delta from mapping anchor=0.064 ms
+  replayed queue state after latest mapping arrival: before=270, popped=230, after=40, front_header=10:37:09.755589
+    front bag receipt=10:37:09.756314; front receipt to current incremental=399.570 ms
+    recorder-order bracket: front=10:37:09.756314 < correction=10:37:10.152162 < back=10:37:10.155883; front was 395.849 ms before correction and back was 3.721 ms after
+  algebra replay residual at this /odom=1.444e-14 m; queue length at output=41
+  anchor check using same retained front/back: current mapping anchor residual=1.444e-14 m; previous mapping anchor residual=0.002694 m
+
+Interpretation and limits:
+- The historical bag directly records a discontinuous /odom_incremental step immediately after a mapping correction and shows the matching /odom step. The replay reproduces /odom from the TransformFusion formula; the selected large-jump events have machine-precision residuals. The larger all-sample maximum residual is retained because recorder arrival order is not exact callback ordering.
+- The source queue is pruned only by header stamp <= latest mapping header; queue entries newer than that anchor remain. The selected events directly bracket a retained front receipt before the mapping correction and a back receipt after it. Calling these samples old/new epochs is still an inference because the messages have no epoch tag and recorder order is not executor callback order.
+- This is same-system historical corroboration, not a frame-by-frame observation of the 11:13 failure: that bag omitted /odom_incremental, and the historical binary may differ from the current uncommitted checkout. Recorder arrival order is not exact executor scheduling.

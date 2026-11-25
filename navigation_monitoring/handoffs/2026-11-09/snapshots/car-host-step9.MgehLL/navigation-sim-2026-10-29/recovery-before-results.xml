@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="8.776" timestamp="2026-10-29T12:12:26.033921" hostname="admin1-Default-string"><testcase classname="test_route_recovery_integration" name="test_failed_edge_alternate_route_is_actually_executed" time="8.138"><failure message="AssertionError: Alternate route did not complete: calls=[(0.0, 0.0), (1.0, 0.0)], states=['idle', 'running', 'running', 'running', 'running', 'running', 'running', 'running'], manager_active=True">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7ed4c195dfc0&gt;
+
+    def test_failed_edge_alternate_route_is_actually_executed(monkeypatch):
+        assert os.environ['ROS_DOMAIN_ID'] == '87'
+        assert os.environ['ROS_LOCALHOST_ONLY'] == '1'
+        original_sleep = time.sleep
+        monkeypatch.setattr(time, 'sleep', lambda seconds: original_sleep(.01 if seconds == 6. else seconds))
+        rclpy.init(args=['--ros-args', '-r', 'cmd_vel:=/offline/recovery_cmd'])
+        host = Node('offline_recovery_action_and_services')
+        services = ProcessServiceStubs(host)
+        services.running = dict.fromkeys(services.running, True)
+        calls, states, exceptions = [], [], []
+    
+        def execute(handle):
+            p = handle.request.pose.pose.position
+            calls.append((p.x, p.y))
+            if (p.x, p.y) == (1., 0.):
+                handle.abort()
+            else:
+                handle.succeed()
+            return NavigateToPose.Result()
+    
+        action = ActionServer(host, NavigateToPose, '/navigate_to_pose', execute,
+                              callback_group=ReentrantCallbackGroup())
+        host.create_subscription(String, '/robot_state', lambda m: states.append(m.data), 10)
+        publisher = host.create_publisher(StartEndGraph, '/start_end_graph', 10)
+        planner = RoutePlannerNode()
+        manager = NavigationManager()
+        executor = MultiThreadedExecutor(num_threads=8)
+        nodes = [host, planner, manager]
+        for node in nodes:
+            executor.add_node(node)
+    
+        def spin():
+            try:
+                executor.spin()
+            except Exception as exc:
+                exceptions.append(exc)
+    
+        thread = threading.Thread(target=spin, daemon=True)
+        thread.start()
+    
+        def wait(predicate, timeout=8.):
+            deadline = time.monotonic() + timeout
+            while time.monotonic() &lt; deadline:
+                assert not exceptions, exceptions
+                if predicate():
+                    return
+                original_sleep(.02)
+            raise AssertionError(f'Alternate route did not complete: calls={calls}, states={states}, '
+                                 f'manager_active={manager.is_navigating}')
+    
+        try:
+            wait(lambda: publisher.get_subscription_count() and planner.waypoint_list_pub.get_subscription_count())
+            message = StartEndGraph()
+            for index, (name, x, y) in enumerate([('A', 0., 0.), ('B', 1., 0.), ('C', 0., 1.), ('D', 2., 0.)]):
+                waypoint = Waypoint()
+                waypoint.name, waypoint.id = name, index + 1
+                waypoint.map_name, waypoint.type = 'offline_map', 1
+                waypoint.x, waypoint.y = x, y
+                message.nodes.append(waypoint)
+            message.start, message.end = message.nodes[0], message.nodes[3]
+            for start, end, weight in [(1, 2, 1.), (2, 4, 1.), (1, 3, 2.), (3, 4, 2.)]:
+                edge = Edge()
+                edge.start_node_id, edge.end_node_id, edge.weight = start, end, weight
+                message.edges.append(edge)
+            publisher.publish(message)
+&gt;           wait(lambda: len(calls) &gt;= 5 and states[-1] == 'idle' and not manager.is_navigating)
+
+test_route_recovery_integration.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+predicate = &lt;function test_failed_edge_alternate_route_is_actually_executed.&lt;locals&gt;.&lt;lambda&gt; at 0x7ed4b909cd30&gt;
+timeout = 8.0
+
+    def wait(predicate, timeout=8.):
+        deadline = time.monotonic() + timeout
+        while time.monotonic() &lt; deadline:
+            assert not exceptions, exceptions
+            if predicate():
+                return
+            original_sleep(.02)
+&gt;       raise AssertionError(f'Alternate route did not complete: calls={calls}, states={states}, '
+                             f'manager_active={manager.is_navigating}')
+E       AssertionError: Alternate route did not complete: calls=[(0.0, 0.0), (1.0, 0.0)], states=['idle', 'running', 'running', 'running', 'running', 'running', 'running', 'running'], manager_active=True
+
+test_route_recovery_integration.py:70: AssertionError</failure></testcase></testsuite></testsuites>

@@ -413,9 +413,10 @@ void ControllerServer::computeControl()
       }
 
       if (!loop_rate.sleep()) {
-        RCLCPP_WARN(
-          get_logger(), "Control loop missed its desired rate of %.4fHz",
-          controller_frequency_);
+      RCLCPP_WARN_THROTTLE(
+        get_logger(), *get_clock(), 5000,
+        "Control loop missed its desired rate of %.4fHz",
+        controller_frequency_);
       }
     }
   } catch (nav2_core::PlannerException & e) {

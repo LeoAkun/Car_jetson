@@ -1,0 +1,209 @@
+{
+  "source_root": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation",
+  "observations": [
+    {
+      "observation": "faulted_map_completion",
+      "confirmed": true,
+      "details": {
+        "states": [
+          "running"
+        ],
+        "waypoint_index_after_fault": 1
+      }
+    },
+    {
+      "observation": "late_map_completion",
+      "confirmed": true,
+      "details": {
+        "old_completion_advances_current_task": true
+      }
+    },
+    {
+      "observation": "map_worker_survives_task_fault",
+      "confirmed": true,
+      "details": {
+        "launches_after_task_fault": [
+          [
+            "map2",
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "observation": "concurrent_map_requests",
+      "confirmed": true,
+      "details": {
+        "overlapping_switches": [
+          "map2",
+          "map3"
+        ]
+      }
+    },
+    {
+      "observation": "docking_fault_has_no_recovery_entry",
+      "confirmed": true,
+      "details": {
+        "hold": true,
+        "new_task_started": false,
+        "retry_allowed": false,
+        "release_allowed": false
+      }
+    },
+    {
+      "observation": "canceled_goal_stays_running",
+      "confirmed": true,
+      "details": {
+        "is_navigating": true,
+        "active_goal": null,
+        "next_action_scheduled": false
+      }
+    },
+    {
+      "observation": "unsupported_waypoint_stalls",
+      "confirmed": true,
+      "details": [
+        {
+          "type": 0,
+          "index": 0,
+          "is_navigating": true,
+          "next_action_scheduled": false
+        },
+        {
+          "type": 2,
+          "index": 1,
+          "is_navigating": true,
+          "next_action_scheduled": false
+        }
+      ]
+    },
+    {
+      "observation": "graph_replacement_precedes_state_delivery",
+      "confirmed": true,
+      "details": {
+        "planner_route": [
+          "A",
+          "C",
+          "D"
+        ],
+        "executing_route": [
+          "A",
+          "B",
+          "D"
+        ]
+      }
+    },
+    {
+      "observation": "invalid_edge_reference_escapes_callback",
+      "confirmed": true,
+      "details": {
+        "uncaught_exception": "KeyError",
+        "missing_node_id": 999
+      }
+    },
+    {
+      "observation": "mqtt_accepts_invalid_values",
+      "confirmed": true,
+      "details": {
+        "nan_coordinate_accepted": true,
+        "missing_type_becomes": 0,
+        "negative_edge_weight_accepted": -1.0
+      }
+    },
+    {
+      "observation": "invalid_weight_escapes_dijkstra",
+      "confirmed": true,
+      "details": {
+        "uncaught_exception": "ValueError",
+        "message": "('Contradictory paths found:', 'negative weights?')"
+      }
+    },
+    {
+      "observation": "two_adjacent_map_switches",
+      "confirmed": true,
+      "details": {
+        "second_switch_expected_approach_map": "map2",
+        "second_switch_actual_approach_map": "map3"
+      }
+    },
+    {
+      "observation": "startup_overwrites_tracked_process",
+      "confirmed": true,
+      "details": {
+        "previous_pid": 111,
+        "tracked_pid_now": 222,
+        "old_process_shutdown_requested": false
+      }
+    },
+    {
+      "observation": "root_exit_does_not_prove_children_exit",
+      "confirmed": true,
+      "details": {
+        "signals": [
+          15
+        ],
+        "reports_success_after_root_exit_without_child_verification": true
+      }
+    },
+    {
+      "observation": "shutdown_service_errors_ignored",
+      "confirmed": true,
+      "details": {
+        "reported_success": true,
+        "failed_shutdown_calls": [
+          "navigation2",
+          "liosam",
+          "nav2_init_pose",
+          "re_localization"
+        ]
+      }
+    },
+    {
+      "observation": "idle_parking_triggers_immediate_takeover",
+      "confirmed": true,
+      "details": {
+        "remote_driving_request_immediately_after_task_start": true
+      }
+    },
+    {
+      "observation": "failed_takeover_disables_retries",
+      "confirmed": true,
+      "details": {
+        "attempt_count": 1,
+        "request_sent_latched_after_failure": true
+      }
+    },
+    {
+      "observation": "timeout_parameters_not_read",
+      "confirmed": true,
+      "details": {
+        "navigation_timeout": {
+          "reads_after_assignment": []
+        },
+        "map_switch_timeout": {
+          "reads_after_assignment": []
+        }
+      }
+    },
+    {
+      "observation": "paused_ros_clock_prevents_tf_timeout",
+      "confirmed": true,
+      "details": [
+        {
+          "class": "NavigationManager",
+          "attempts_before_harness_stop": 8,
+          "ros_clock_seconds": 0,
+          "declared_timeout_seconds": 1e-06
+        },
+        {
+          "class": "MapSwitchController",
+          "attempts_before_harness_stop": 8,
+          "ros_clock_seconds": 0,
+          "declared_timeout_seconds": 1e-06
+        }
+      ]
+    }
+  ],
+  "confirmed_count": 19,
+  "vehicle_nodes_started": false
+}

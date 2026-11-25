@@ -1,0 +1,65 @@
+# Network and IMU serial verified on admin1-Default-string, 2026-10-30.
+# Vehicle model/weight remain the existing profile; mounting geometry needs measurement.
+standalone_rear_lidar:
+  ros__parameters:
+    # Rear sensor .13 streams to host .140 on the sensor bridge (UDP 2369).
+    hostip: 192.168.1.140
+    port: '2369'
+    sensorip: 192.168.1.13
+    # 2026-10-30 static replay: reversing the beam order puts the dock-sized
+    # return at P0's predicted position and aligns overlapping front/rear scans.
+    # This corrects scan handedness; it does not change the mounting yaw.
+    inverted: true
+    angle_offset: 0
+
+standalone_imu:
+  ros__parameters:
+    # Verified CP2102 device; live FDILink frames received at 921600 baud.
+    serial_port_: /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0
+    serial_baud_: 921600
+    no_data_reconnect_ms_: 5000
+    reset_on_open_: true
+    device_type_: 1
+    imu_topic: /imu
+    imu_frame_id_: imu_link
+    if_debug_: false
+
+standalone_chassis:
+  ros__parameters:
+    canbus_type: 1
+    main_can_id: 2
+    debug_can_id: 1
+    # 192.168.1.140 lives on br-sensors, not the old enp3s0 interface.
+    can_eth_card: br-sensors
+    can1_remote_ip: 192.168.1.10
+    can1_remote_port: 4001
+    can2_remote_ip: 192.168.1.10
+    can2_remote_port: 4002
+    local_ip: 192.168.1.140
+    local_port: 8002
+    debug_mode: false
+    show_sending_msg: false
+    car_type: JD03
+    vehicle_weight: 30.0
+    # Only 0x168 signed front wheel feedback; reject stale cached wheel speeds.
+    use_front_wheel_feedback: true
+    front_wheel_feedback_timeout: 0.15
+
+docking_feedback_odometry:
+  ros__parameters:
+    imu_topic: /imu
+    imu_frame: imu_link
+    # Driver device_type_=1 already publishes ROS-axis angular velocity.
+    imu_yaw_rate_sign: 1.0
+    feedback_timeout: 0.15
+    # Keep the historical parameter name; enabling it now selects the signed
+    # wheel source throughout the test, including nonzero main speed during
+    # neutral/brake coasting. Stale or invalid wheel feedback still stops.
+    zero_speed_wheel_fallback: true
+
+standalone_docking:
+  ros__parameters:
+    startup_timeout: 30.0
+    action_timeout: 0.0  # Disable the overall docking deadline, including client watchdog.
+    sensor_timeout: 0.20
+    stable_duration: 0.50

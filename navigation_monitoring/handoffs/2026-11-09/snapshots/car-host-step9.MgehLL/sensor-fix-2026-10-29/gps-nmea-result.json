@@ -1,0 +1,92 @@
+{
+  "device": "/dev/ttyS8",
+  "baud": 115200,
+  "seconds": 10,
+  "bytes": 3690,
+  "valid_nmea": 120,
+  "invalid_nmea": 0,
+  "gga": [
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99"
+    }
+  ],
+  "rmc": [
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    },
+    {
+      "status": "V"
+    }
+  ]
+}

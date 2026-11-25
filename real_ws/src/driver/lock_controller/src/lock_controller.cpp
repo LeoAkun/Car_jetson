@@ -1,6 +1,8 @@
 #include "lock_controller/lock_controller.hpp"
 #include <chrono>
 #include <cstring>
+#include <iomanip>
+#include <sstream>
 
 namespace lock_controller
 {
@@ -11,10 +13,14 @@ LockController::LockController() : Node("lock_controller")
   this->declare_parameter<std::string>("serial_port", "/dev/ttyUSB3");
   this->declare_parameter<int>("baud_rate", 9600);
   this->declare_parameter<int>("board_address", 1);
+  this->declare_parameter<int>("response_timeout_ms", 800);
+  this->declare_parameter<bool>("debug", false);
 
   // 获取参数
   this->get_parameter("serial_port", serial_port_);
   this->get_parameter("baud_rate", baud_rate_);
+  this->get_parameter("response_timeout_ms", response_timeout_ms_);
+  this->get_parameter("debug", debug_);
   int board_addr;
   this->get_parameter("board_address", board_addr);
   default_board_address_ = static_cast<uint8_t>(board_addr);
@@ -23,6 +29,8 @@ LockController::LockController() : Node("lock_controller")
   RCLCPP_INFO(this->get_logger(), "Serial port: %s", serial_port_.c_str());
   RCLCPP_INFO(this->get_logger(), "Baud rate: %d", baud_rate_);
   RCLCPP_INFO(this->get_logger(), "Board address: %d", default_board_address_);
+  RCLCPP_INFO(this->get_logger(), "Response timeout: %d ms", response_timeout_ms_);
+  RCLCPP_INFO(this->get_logger(), "Debug: %s", debug_ ? "true" : "false");
 
   // 初始化串口
   if (!initSerial()) {
@@ -125,8 +133,29 @@ uint8_t LockController::calculateChecksum(const std::vector<uint8_t>& data)
   return checksum;
 }
 
-bool LockController::sendCommand(const std::vector<uint8_t>& command, std::vector<uint8_t>& response, int timeout_ms)
+std::string LockController::bytesToHex(const std::vector<uint8_t>& data)
 {
+  std::ostringstream oss;
+  oss << std::hex << std::setfill('0');
+  for (size_t i = 0; i < data.size(); ++i) {
+    if (i > 0) {
+      oss << ' ';
+    }
+    oss << std::setw(2) << static_cast<int>(data[i]);
+  }
+  return oss.str();
+}
+
+bool LockController::sendCommand(
+  const std::vector<uint8_t>& command,
+  std::vector<uint8_t>& response,
+  int timeout_ms,
+  bool require_response)
+{
+  if (debug_) {
+    RCLCPP_INFO(this->get_logger(), "TX: %s", bytesToHex(command).c_str());
+  }
+
   // 发送命令
   ssize_t written = write(serial_fd_, command.data(), command.size());
   if (written != static_cast<ssize_t>(command.size())) {
@@ -143,8 +172,19 @@ bool LockController::sendCommand(const std::vector<uint8_t>& command, std::vecto
     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time).count();
 
     if (elapsed > timeout_ms) {
-      RCLCPP_WARN(this->get_logger(), "Timeout waiting for response");
-      return false;
+      if (require_response) {
+        RCLCPP_WARN(this->get_logger(), "Timeout waiting for response");
+        if (debug_) {
+          RCLCPP_WARN(this->get_logger(), "RX before timeout: %s", bytesToHex(response).c_str());
+        }
+        return false;
+      }
+
+      RCLCPP_WARN(this->get_logger(), "Command sent, but no response received");
+      if (debug_) {
+        RCLCPP_WARN(this->get_logger(), "RX before timeout: %s", bytesToHex(response).c_str());
+      }
+      return true;
     }
 
     uint8_t buffer[256];
@@ -152,6 +192,10 @@ bool LockController::sendCommand(const std::vector<uint8_t>& command, std::vecto
 
     if (n > 0) {
       response.insert(response.end(), buffer, buffer + n);
+      if (debug_) {
+        std::vector<uint8_t> chunk(buffer, buffer + n);
+        RCLCPP_INFO(this->get_logger(), "RX chunk: %s", bytesToHex(chunk).c_str());
+      }
 
       // 检查是否收到完整响应 (至少5个字节)
       if (response.size() >= 5) {
@@ -310,9 +354,13 @@ void LockController::unlockCallback(
   auto cmd = buildUnlockCommand(request->board_address, request->lock_address);
   std::vector<uint8_t> resp;
 
-  if (sendCommand(cmd, resp)) {
+  if (sendCommand(cmd, resp, response_timeout_ms_, false)) {
     bool is_locked;
-    if (parseUnlockResponse(resp, is_locked)) {
+    if (resp.empty()) {
+      response->success = true;
+      response->message = "Unlock command sent, no response received";
+      RCLCPP_WARN(this->get_logger(), "%s", response->message.c_str());
+    } else if (parseUnlockResponse(resp, is_locked)) {
       response->success = true;
       response->message = is_locked ? "Lock still locked (may be feedback type)" : "Lock opened successfully";
 
@@ -348,7 +396,7 @@ void LockController::queryStatusCallback(
     auto cmd = buildQueryAllCommand(request->board_address);
     std::vector<uint8_t> resp;
 
-    if (sendCommand(cmd, resp)) {
+    if (sendCommand(cmd, resp, response_timeout_ms_)) {
       std::vector<bool> lock_states;
       if (parseQueryAllResponse(resp, lock_states)) {
         response->success = true;
@@ -375,7 +423,7 @@ void LockController::queryStatusCallback(
     auto cmd = buildQueryCommand(request->board_address, request->lock_address);
     std::vector<uint8_t> resp;
 
-    if (sendCommand(cmd, resp)) {
+    if (sendCommand(cmd, resp, response_timeout_ms_)) {
       bool is_locked;
       if (parseQueryResponse(resp, is_locked)) {
         response->success = true;
@@ -411,9 +459,9 @@ void LockController::unlockMultipleCallback(
   auto cmd = buildUnlockMultipleCommand(request->board_address, request->lock_mask);
   std::vector<uint8_t> resp;
 
-  if (sendCommand(cmd, resp, 300)) {
+  if (sendCommand(cmd, resp, response_timeout_ms_, false)) {
     response->success = true;
-    response->message = "Multiple unlock command sent successfully";
+    response->message = resp.empty() ? "Multiple unlock command sent, no response received" : "Multiple unlock command sent successfully";
     RCLCPP_INFO(this->get_logger(), "Multiple unlock successful");
   } else {
     response->success = false;
@@ -432,9 +480,15 @@ void LockController::longPowerControlCallback(
   auto cmd = buildLongPowerCommand(request->board_address, request->lock_address, request->enable);
   std::vector<uint8_t> resp;
 
-  if (sendCommand(cmd, resp)) {
+  if (sendCommand(cmd, resp, response_timeout_ms_, false)) {
     response->success = true;
-    response->message = request->enable ? "Long power enabled" : "Long power disabled";
+    if (resp.empty()) {
+      response->message = request->enable ?
+        "Long power command sent, no response received" :
+        "Long power off command sent, no response received";
+    } else {
+      response->message = request->enable ? "Long power enabled" : "Long power disabled";
+    }
     RCLCPP_INFO(this->get_logger(), "Long power control successful");
   } else {
     response->success = false;

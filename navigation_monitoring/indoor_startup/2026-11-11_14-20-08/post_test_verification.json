@@ -1,0 +1,61 @@
+{
+  "time": "2026-11-11T14:24:44.833648+08:00",
+  "remaining_test_or_hardware_processes": [],
+  "boot_id": "d53fafeb-91ac-4ceb-8254-8bb737042ac6",
+  "same_boot": true,
+  "source_sha256_after": {
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/src/ahrs_driver.cpp": "661cee6cb32f6ccd88cdcc7014e39cd33414300d37f7ad5b7d8525fcd09244b8",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/include/ahrs_driver.h": "26ad37dca670ddd93aa7a06c06d332f8a162c9d0c2af7f4db4951d3bd805a15d",
+    "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml": "19b598b6e6e1f1e18c152b8b022ffe83138c735aaf8d93f8b2b67005b100baf6",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/src/imuPreintegration.cpp": "0bacc9a7d37b5fe2cfb94b37e38fa991d70784472e89127df3ec7575b9356deb"
+  },
+  "production_files_unchanged_during_run": true,
+  "cleanup": [
+    {
+      "label": "nav2",
+      "pid": 13409,
+      "returncode": -15
+    },
+    {
+      "label": "lio_mapOptimization",
+      "pid": 13270,
+      "returncode": 0
+    },
+    {
+      "label": "lio_featureExtraction",
+      "pid": 13269,
+      "returncode": 0
+    },
+    {
+      "label": "lio_imageProjection",
+      "pid": 13268,
+      "returncode": 0
+    },
+    {
+      "label": "lio_imuPreintegration",
+      "pid": 13267,
+      "returncode": 0
+    },
+    {
+      "label": "pointcloud_scan",
+      "pid": 13204,
+      "returncode": 0
+    },
+    {
+      "label": "lidar_converter",
+      "pid": 13203,
+      "returncode": 0
+    },
+    {
+      "label": "lidar",
+      "pid": 13202,
+      "returncode": 0
+    },
+    {
+      "label": "imu",
+      "pid": 13201,
+      "returncode": 0
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+[submodule "src/detect_interface"]
+	path = src/detect_interface
+	url = https://gitee.com/bugrequiem/detect_interfaces.git
+[submodule "src/object_detect"]
+	path = src/object_detect
+	url = https://gitee.com/bugrequiem/object_detect.git

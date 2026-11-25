@@ -1,0 +1,49 @@
+{
+  "map": {
+    "width_cells": 7404,
+    "height_cells": 8579,
+    "resolution_m": 0.1,
+    "origin": [
+      -395.0,
+      -148.0
+    ],
+    "extent_m": [
+      -395.0,
+      345.4000000000001,
+      -148.0,
+      709.9000000000001
+    ]
+  },
+  "task": {
+    "received_at": "2026-11-18T11:53:23.300+08:00",
+    "goal_accepted_at": "2026-11-18T11:54:10.011+08:00",
+    "first_lethal_at": "2026-11-18T11:54:41.670+08:00",
+    "waypoint_ids": [
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "start_pose": {
+    "x": -207.79113163353202,
+    "y": 80.17999577550893,
+    "yaw_deg": 78.62197309795442,
+    "static_map_center_clearance_m": 3.511409973215888
+  },
+  "first_goal": {
+    "x": -113.0,
+    "y": 189.0,
+    "bearing_from_start_deg": 48.94146841755484,
+    "bearing_relative_to_vehicle_deg": -29.680504680399586
+  },
+  "first_lethal_pose": {
+    "x": -204.50057228484093,
+    "y": 90.1445064178366,
+    "yaw_deg": 66.80776455627692,
+    "straight_line_displacement_from_start_m": 10.49377211341659,
+    "static_map_center_clearance_m": 3.1622776601683795
+  },
+  "first_plan_points": 822
+}

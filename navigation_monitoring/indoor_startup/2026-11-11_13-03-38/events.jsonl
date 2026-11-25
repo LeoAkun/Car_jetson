@@ -1,0 +1,3 @@
+{"time": "2026-11-11T13:03:38.321827+08:00", "event": "test_created", "phase": "initializing", "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_13-03-38", "domain": 88}
+{"time": "2026-11-11T13:03:40.339740+08:00", "event": "test_error", "phase": "initializing", "error": "RuntimeError: Test domain already occupied: [('_ros2cli_daemon_88_7f70e8fbba744e7d97813a9e72aed102', '/')]"}
+{"time": "2026-11-11T13:03:40.343416+08:00", "event": "test_finished", "phase": "initializing", "passed": false, "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_13-03-38", "error": "RuntimeError: Test domain already occupied: [('_ros2cli_daemon_88_7f70e8fbba744e7d97813a9e72aed102', '/')]"}

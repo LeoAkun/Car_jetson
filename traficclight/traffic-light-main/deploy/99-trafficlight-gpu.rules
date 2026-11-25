@@ -1,0 +1,14 @@
+# JetPack 6 GPU access for trafficlight without granting access to UVC cameras.
+# Keep the vendor owner/group/mode and add a per-user ACL after node creation.
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvmap", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvhost-as-gpu", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvhost-ctrl-gpu", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvhost-gpu", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvhost-tsg-gpu", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvhost-power-gpu", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvgpu/igpu0/as", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvgpu/igpu0/channel", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvgpu/igpu0/ctrl", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvgpu/igpu0/tsg", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", ENV{DEVNAME}=="/dev/nvgpu/igpu0/power", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"
+ACTION=="add|change", SUBSYSTEM=="drm", KERNEL=="renderD*", RUN+="/usr/bin/setfacl -m u:trafficlight:rw- $env{DEVNAME}"

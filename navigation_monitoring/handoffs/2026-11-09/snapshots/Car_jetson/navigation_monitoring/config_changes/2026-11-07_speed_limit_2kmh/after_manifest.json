@@ -1,0 +1,41 @@
+{
+  "time_beijing": "2026-11-07T17:27:20.670330+08:00",
+  "files": [
+    {
+      "path": "nav2/src/nav2/config/nav2_real_params.yaml",
+      "sha256": "be205cda306c21f70500093fbd20975ea0cedd924f13404357d4b190ffa89a8b"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml",
+      "sha256": "314516428c528fceddb740ea8ab8a425012edd35e39eb38120268d7896bd74b6"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py",
+      "sha256": "5a2542ee03149bad8b26b0361213a3be173b5b4f74e5c60b54717ee33a359b1f"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/README.md",
+      "sha256": "f3565d0452ec93f27a31c9b09962433a76a3445ff79795b9197cd4a5234a9c1d"
+    },
+    {
+      "path": "real_ws/install/cmdvel_2_ecu/lib/python3.10/site-packages/cmdvel_2_ecu/convert.py",
+      "sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574"
+    },
+    {
+      "path": "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml",
+      "sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f"
+    },
+    {
+      "path": "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/docking_config.yaml",
+      "sha256": "314516428c528fceddb740ea8ab8a425012edd35e39eb38120268d7896bd74b6"
+    }
+  ]
+}

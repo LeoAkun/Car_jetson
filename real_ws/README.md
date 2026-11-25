@@ -116,6 +116,69 @@ ros2 launch launch_real run.launch.py
 ros2 launch livox_ros_driver2 msg_MID360_launch.py
 ```
 
+### 前向 RealSense D435i 深度相机
+
+当前实车使用序列号 `117322074703` 的 D435i。驱动默认只开启
+`848x480@30` 的 Z16 深度流，关闭彩色、红外、IMU 和点云流。
+
+系统级安装需要：
+
+```bash
+sudo apt install ros-humble-realsense2-camera ros-humble-realsense2-description
+```
+
+本机在无法使用 sudo 的情况下，将同版本驱动安装到了
+`/home/akun/.local/realsense_ros`。独立测试命令为：
+
+```bash
+source /opt/ros/humble/setup.bash
+source /home/akun/workspace/Car_jetson/real_ws/install/setup.bash
+source /home/akun/.local/realsense_ros/setup.bash
+ros2 launch launch_real realsense.launch.py
+```
+
+深度检测使用以下话题：
+
+```text
+/camera/front_depth_camera/depth/image_rect_raw
+/camera/front_depth_camera/depth/camera_info
+```
+
+### 可选坑道检测
+
+坑道检测默认关闭，不会改变现有底盘、传感器或 Nav2 行为。当前阶段只发布
+检测结果和 RViz 标记，尚未把结果写入导航代价地图。
+
+需要测试时，在现有传感器服务运行的情况下单独启动：
+
+```bash
+source /opt/ros/humble/setup.bash
+source /home/akun/workspace/sensor/real_ws/install/setup.bash
+ros2 launch launch_real pothole_detection.launch.py
+```
+
+按 `Ctrl-C` 即可关闭。也可以在手动启动完整传感器 launch 时打开开关：
+
+```bash
+ros2 launch launch_real run.launch.py enable_pothole_detection:=true
+```
+
+默认的相机外参为：
+
+```text
+base_link -> front_depth_camera_link
+xyz: (0.470, -0.010, 0.005) m
+rpy: (0, 0.261799, 0) rad
+```
+
+主要输出：
+
+```text
+/potholes
+/pothole_detections
+/pothole_markers
+```
+
 ### 速腾激光雷达
 ```bash
 ros2 launch rslidar_sdk start.py

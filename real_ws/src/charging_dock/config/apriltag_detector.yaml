@@ -1,0 +1,29 @@
+/**:
+  ros__parameters:
+    # Replace these development values with the measured Stage 1 tag data.
+    family: 36h11
+    size: 0.16
+    max_hamming: 0
+    tag:
+      ids: [0]
+      frames: [dock_tag_0]
+      sizes: [0.16]
+
+    image_transport: raw
+    qos_profile: sensor_data
+    detector:
+      threads: 4
+      decimate: 1.0
+      blur: 0.0
+      refine: true
+      sharpening: 0.25
+      debug: false
+    pose_estimation_method: pnp
+
+    min_decision_margin: 0.0
+    max_data_age_sec: 0.20
+    future_tolerance_sec: 0.05
+    tf_lookup_timeout_sec: 0.05
+    statistics_period_sec: 10.0
+    detections_topic: /apriltag/detections
+    observations_topic: /charging_dock/tag_observations

@@ -1,0 +1,15 @@
+std_msgs/Header header
+string family
+int32 tag_id
+float32 tag_size_m
+int32 hamming
+float32 goodness
+float32 decision_margin
+geometry_msgs/Point32 centre
+geometry_msgs/Point32[4] corners
+float64[9] homography
+string tag_frame
+geometry_msgs/Pose pose
+bool pose_valid
+builtin_interfaces/Duration data_age
+bool data_fresh

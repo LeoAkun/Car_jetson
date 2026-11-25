@@ -1,0 +1,878 @@
+[
+  {
+    "bag_timestamp_ns": 1793858913034211193,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5887601375579834,
+      "longitudinal_error": 0.47323474287986755,
+      "lateral_error": 0.003998931497335434,
+      "yaw_error": -0.007957730442285538,
+      "quality": 0.9225524067878723
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913070419385,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5887601375579834,
+      "longitudinal_error": 0.47323474287986755,
+      "lateral_error": 0.003998931497335434,
+      "yaw_error": -0.007937009446322918,
+      "quality": 0.8703551888465881
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913109558475,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5887601375579834,
+      "longitudinal_error": 0.47323474287986755,
+      "lateral_error": 0.003998931497335434,
+      "yaw_error": -0.00798105914145708,
+      "quality": 0.8669028878211975
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913168507374,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5887730121612549,
+      "longitudinal_error": 0.47324755787849426,
+      "lateral_error": 0.003998829051852226,
+      "yaw_error": -0.007992983795702457,
+      "quality": 0.87261563539505
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913197460881,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.588823676109314,
+      "longitudinal_error": 0.47329825162887573,
+      "lateral_error": 0.003998424857854843,
+      "yaw_error": -0.00797787494957447,
+      "quality": 0.9303893446922302
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913224647195,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5888299942016602,
+      "longitudinal_error": 0.47329193353652954,
+      "lateral_error": 0.003998476080596447,
+      "yaw_error": -0.008111841976642609,
+      "quality": 0.9312115907669067
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913277556529,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5888551473617554,
+      "longitudinal_error": 0.47331702709198,
+      "lateral_error": 0.003998270723968744,
+      "yaw_error": -0.008197289891541004,
+      "quality": 0.9267967343330383
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913319939226,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5889948606491089,
+      "longitudinal_error": 0.47345682978630066,
+      "lateral_error": 0.003997128456830978,
+      "yaw_error": -0.008107013069093227,
+      "quality": 0.9284250140190125
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913360040105,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5891151428222656,
+      "longitudinal_error": 0.473577082157135,
+      "lateral_error": 0.003996151965111494,
+      "yaw_error": -0.0081178555265069,
+      "quality": 0.9318176507949829
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913400193126,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.589217185974121,
+      "longitudinal_error": 0.4736790955066681,
+      "lateral_error": 0.003995328675955534,
+      "yaw_error": -0.008054649457335472,
+      "quality": 0.9294217228889465
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913436325474,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.589356780052185,
+      "longitudinal_error": 0.4738186299800873,
+      "lateral_error": 0.003994205966591835,
+      "yaw_error": -0.00804290920495987,
+      "quality": 0.9329225420951843
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913476914382,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5895153284072876,
+      "longitudinal_error": 0.4739771783351898,
+      "lateral_error": 0.003992925863713026,
+      "yaw_error": -0.008089509792625904,
+      "quality": 0.9289155602455139
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913517075018,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.589693307876587,
+      "longitudinal_error": 0.4741552472114563,
+      "lateral_error": 0.003991473466157913,
+      "yaw_error": -0.008240333758294582,
+      "quality": 0.9242125749588013
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913561109357,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5898520946502686,
+      "longitudinal_error": 0.47431397438049316,
+      "lateral_error": 0.003990155644714832,
+      "yaw_error": -0.008348274044692516,
+      "quality": 0.9135720133781433
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913601074890,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5899409055709839,
+      "longitudinal_error": 0.4744027853012085,
+      "lateral_error": 0.003989416174590588,
+      "yaw_error": -0.008210508152842522,
+      "quality": 0.9180724024772644
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913627434262,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5899853706359863,
+      "longitudinal_error": 0.47435837984085083,
+      "lateral_error": 0.003989777993410826,
+      "yaw_error": -0.008100111037492752,
+      "quality": 0.9094530940055847
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913667489393,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5900427103042603,
+      "longitudinal_error": 0.4743010401725769,
+      "lateral_error": 0.0039902436546981335,
+      "yaw_error": -0.008142931386828423,
+      "quality": 0.920139729976654
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913706228064,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5901954174041748,
+      "longitudinal_error": 0.47414833307266235,
+      "lateral_error": 0.003991491626948118,
+      "yaw_error": -0.008175685070455074,
+      "quality": 0.9142125248908997
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913752588787,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5904232263565063,
+      "longitudinal_error": 0.47392046451568604,
+      "lateral_error": 0.0039933426305651665,
+      "yaw_error": -0.008075843565165997,
+      "quality": 0.9221146106719971
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913792848137,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5906898975372314,
+      "longitudinal_error": 0.4736538827419281,
+      "lateral_error": 0.003995481412857771,
+      "yaw_error": -0.007975880987942219,
+      "quality": 0.9156931042671204
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913836541468,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5909950733184814,
+      "longitudinal_error": 0.47334861755371094,
+      "lateral_error": 0.003997917287051678,
+      "yaw_error": -0.007987547665834427,
+      "quality": 0.8891149163246155
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913866189008,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591261386871338,
+      "longitudinal_error": 0.47308236360549927,
+      "lateral_error": 0.0040000383742153645,
+      "yaw_error": -0.007940994575619698,
+      "quality": 0.8858733773231506
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913906216373,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5914905071258545,
+      "longitudinal_error": 0.47285324335098267,
+      "lateral_error": 0.0040018511936068535,
+      "yaw_error": -0.007882361300289631,
+      "quality": 0.9039822220802307
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913946471335,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5915857553482056,
+      "longitudinal_error": 0.47275805473327637,
+      "lateral_error": 0.0040026018396019936,
+      "yaw_error": -0.007899351418018341,
+      "quality": 0.9205854535102844
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858913990848080,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5916621685028076,
+      "longitudinal_error": 0.47268158197402954,
+      "lateral_error": 0.004003208130598068,
+      "yaw_error": -0.007953890599310398,
+      "quality": 0.907140851020813
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914037638321,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917414426803589,
+      "longitudinal_error": 0.47260233759880066,
+      "lateral_error": 0.004003838635981083,
+      "yaw_error": -0.007954839617013931,
+      "quality": 0.9073164463043213
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914067476167,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.007940540090203285,
+      "quality": 0.9077391624450684
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914106374743,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.00801669992506504,
+      "quality": 0.9135434627532959
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914146637956,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008017745800316334,
+      "quality": 0.9025012254714966
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914197797527,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008013908751308918,
+      "quality": 0.9035117626190186
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914229985762,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008010254241526127,
+      "quality": 0.9030293226242065
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914271611248,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008017169311642647,
+      "quality": 0.9033068418502808
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914306157365,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008033765479922295,
+      "quality": 0.9105604290962219
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914348269652,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.00800308771431446,
+      "quality": 0.9072680473327637
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914386266761,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.00800957903265953,
+      "quality": 0.897250235080719
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914431535916,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008020776323974133,
+      "quality": 0.9091372489929199
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914470951814,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5917598009109497,
+      "longitudinal_error": 0.47258397936820984,
+      "lateral_error": 0.00400398438796401,
+      "yaw_error": -0.008011353202164173,
+      "quality": 0.9091391563415527
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914509881106,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591797947883606,
+      "longitudinal_error": 0.4725458025932312,
+      "lateral_error": 0.004004290793091059,
+      "yaw_error": -0.008033477701246738,
+      "quality": 0.9075286984443665
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914546148120,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5918359756469727,
+      "longitudinal_error": 0.4725077450275421,
+      "lateral_error": 0.004004597198218107,
+      "yaw_error": -0.00805620662868023,
+      "quality": 0.9100443720817566
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914592683917,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5918551683425903,
+      "longitudinal_error": 0.4724886417388916,
+      "lateral_error": 0.004004751332104206,
+      "yaw_error": -0.008078466169536114,
+      "quality": 0.9122841954231262
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914631733839,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008095445111393929,
+      "quality": 0.9083074927330017
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914677782162,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008123678155243397,
+      "quality": 0.9146823883056641
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914711208653,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008130568079650402,
+      "quality": 0.9182935953140259
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914746488332,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008163366466760635,
+      "quality": 0.9128663539886475
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914788706178,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008191070519387722,
+      "quality": 0.913550615310669
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914829026123,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008187486790120602,
+      "quality": 0.918803870677948
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914879004192,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008178189396858215,
+      "quality": 0.9039009213447571
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914913323283,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008168538101017475,
+      "quality": 0.9039890766143799
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914951346547,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.00815893616527319,
+      "quality": 0.9148594737052917
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858914986454035,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591874122619629,
+      "longitudinal_error": 0.47246959805488586,
+      "lateral_error": 0.004004905000329018,
+      "yaw_error": -0.008160003460943699,
+      "quality": 0.9081652760505676
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915025601542,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919123888015747,
+      "longitudinal_error": 0.4724314212799072,
+      "lateral_error": 0.0040052165277302265,
+      "yaw_error": -0.008155125193297863,
+      "quality": 0.8909671902656555
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915073496228,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919568538665771,
+      "longitudinal_error": 0.4723868668079376,
+      "lateral_error": 0.0040055797435343266,
+      "yaw_error": -0.00813480094075203,
+      "quality": 0.9010815024375916
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915111094992,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.591982364654541,
+      "longitudinal_error": 0.4723614454269409,
+      "lateral_error": 0.004005786497145891,
+      "yaw_error": -0.008151568472385406,
+      "quality": 0.9039445519447327
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915151417929,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008163731545209885,
+      "quality": 0.9224967956542969
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915190372017,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008159635588526726,
+      "quality": 0.9116054177284241
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915226795692,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008171425200998783,
+      "quality": 0.9230968356132507
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915267467202,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008151376619935036,
+      "quality": 0.9115080237388611
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915311525807,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008173982612788677,
+      "quality": 0.9250856637954712
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915353426028,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008158707059919834,
+      "quality": 0.9355483055114746
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915390756129,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.00815426092594862,
+      "quality": 0.9289353489875793
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915427089948,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008139741607010365,
+      "quality": 0.9161413908004761
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915466641201,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008124873042106628,
+      "quality": 0.9139565229415894
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915510724299,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008115102536976337,
+      "quality": 0.9250237345695496
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915551693172,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008132577873766422,
+      "quality": 0.9126827120780945
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915590751440,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008175798691809177,
+      "quality": 0.914682149887085
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915626617926,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5919886827468872,
+      "longitudinal_error": 0.47235509753227234,
+      "lateral_error": 0.00400583865121007,
+      "yaw_error": -0.008187389001250267,
+      "quality": 0.9086447954177856
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915665764954,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.592026710510254,
+      "longitudinal_error": 0.47231701016426086,
+      "lateral_error": 0.004006149712949991,
+      "yaw_error": -0.008161865174770355,
+      "quality": 0.9142643809318542
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915706467663,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5920649766921997,
+      "longitudinal_error": 0.4722788333892822,
+      "lateral_error": 0.004006460774689913,
+      "yaw_error": -0.008141297847032547,
+      "quality": 0.9087002277374268
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915750759805,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5920649766921997,
+      "longitudinal_error": 0.4722788333892822,
+      "lateral_error": 0.004006460774689913,
+      "yaw_error": -0.008121325634419918,
+      "quality": 0.9121333360671997
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915790928250,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5920649766921997,
+      "longitudinal_error": 0.4722788333892822,
+      "lateral_error": 0.004006460774689913,
+      "yaw_error": -0.008128111250698566,
+      "quality": 0.9174121618270874
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915830631232,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5920649766921997,
+      "longitudinal_error": 0.4722788333892822,
+      "lateral_error": 0.004006460774689913,
+      "yaw_error": -0.008129098452627659,
+      "quality": 0.9138617515563965
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915865873013,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.5920840501785278,
+      "longitudinal_error": 0.4722597599029541,
+      "lateral_error": 0.004006616305559874,
+      "yaw_error": -0.008162254467606544,
+      "quality": 0.9222990274429321
+    }
+  },
+  {
+    "bag_timestamp_ns": 1793858915906051586,
+    "feedback": {
+      "state": "LOCKED_FINAL_APPROACH",
+      "reason": "locked_target_confirmed",
+      "traveled_distance": 1.592103123664856,
+      "longitudinal_error": 0.4722406566143036,
+      "lateral_error": 0.004006772302091122,
+      "yaw_error": -0.00817388016730547,
+      "quality": 0.922177791595459
+    }
+  }
+]

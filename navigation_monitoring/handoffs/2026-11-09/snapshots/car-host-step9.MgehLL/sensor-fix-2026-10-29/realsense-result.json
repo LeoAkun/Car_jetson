@@ -1,0 +1,34 @@
+{
+  "frame_count": 530,
+  "camera_info_count": 529,
+  "exit_code": 0,
+  "received_hz": 30.00561283802614,
+  "nonmonotonic_stamps": 0,
+  "valid_fraction_min": 0.5523044418238994,
+  "first": {
+    "received": 2055.751023722,
+    "stamp": 1793245418.9050326,
+    "frame": "front_depth_camera_depth_optical_frame",
+    "width": 848,
+    "height": 480,
+    "encoding": "16UC1",
+    "valid_fraction": 0.5523044418238994,
+    "median_depth_raw": 1044.0
+  },
+  "last": {
+    "received": 2073.381058571,
+    "stamp": 1793245436.5441568,
+    "frame": "front_depth_camera_depth_optical_frame",
+    "width": 848,
+    "height": 480,
+    "encoding": "16UC1",
+    "valid_fraction": 0.7724425117924528,
+    "median_depth_raw": 1015.0
+  },
+  "camera_info": {
+    "width": 848,
+    "height": 480,
+    "fx": 419.4635925292969,
+    "fy": 419.4635925292969
+  }
+}

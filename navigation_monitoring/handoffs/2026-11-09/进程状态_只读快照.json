@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-11-09T17:43:42.828772+08:00",
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7",
+  "matched_processes": [
+    {
+      "pid": 1530,
+      "ppid": 1326,
+      "pgid": 1530,
+      "comm": "python3",
+      "args": "/usr/bin/python3 /home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py --duration 86400 --interval 1 --label nav_field_test"
+    },
+    {
+      "pid": 20451,
+      "ppid": 1,
+      "pgid": 20451,
+      "comm": "ros2",
+      "args": "/usr/bin/python3 /opt/ros/humble/bin/ros2 run multi_map_navigation status_reporter --ros-args --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml"
+    },
+    {
+      "pid": 20452,
+      "ppid": 20451,
+      "pgid": 20451,
+      "comm": "status_reporter",
+      "args": "/usr/bin/python3 /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/status_reporter --ros-args --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml"
+    }
+  ],
+  "note": "仅记录相关进程；未启动/停止任何进程，PID只适用于此时间快照。"
+}

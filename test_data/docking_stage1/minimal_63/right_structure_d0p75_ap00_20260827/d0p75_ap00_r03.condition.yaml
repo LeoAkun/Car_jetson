@@ -1,0 +1,30 @@
+condition_name: d0p75_ap00_r03
+recorded_at: '2026-08-27T16:50:23.456993+08:00'
+operator: akun
+distance_m: 0.75
+expected_range_m: 0.491
+expected_range_source: observed_radial_range_for_segment_selection
+dock_angle_deg: 0
+lateral_offset_m: 0.0
+roi_center_deg: 81.0
+roi_min_deg: 72.0
+roi_max_deg: 90.0
+target_structure: dock_front_right_near_protrusion
+excluded_structure: adjacent_0.88m_structure_and_transitions
+plane_normal_distance_m: 0.395
+distance_metric_note: analyzer_distance_is_roi_radial_range_median; plane_normal_distance_is_fitted_line_normal_distance; expected_plane_normal_distance_m_pending_manual_measurement
+duration_sec: 15.0
+repeat: 3
+scan_topic: /laser/scan_back
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: right-side dock structure; 0deg approximate; formal repeat 3; exclude adjacent
+  0.88m structure

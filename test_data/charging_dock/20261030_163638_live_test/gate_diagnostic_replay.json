@@ -1,0 +1,167 @@
+{
+  "production": {
+    "reasons": {
+      "warming_up": 53,
+      "no_complete_face_in_gate": 13
+    },
+    "last_samples": [
+      {
+        "t": 14.085547741997289,
+        "reason": "warming_up",
+        "x": -2.417610120114923
+      },
+      {
+        "t": 14.286858171995846,
+        "reason": "warming_up",
+        "x": -2.4091498556141246
+      },
+      {
+        "t": 14.488399613997899,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 14.689394212997286,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 14.890839186991798,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 15.093881812994368,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 15.294203790996107,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 15.496007319990895,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 15.696388200987712,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 15.897871946988744,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 16.099115627992433,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 16.3006152559974,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 16.50146859099914,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 16.70301622299303,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      },
+      {
+        "t": 16.904478353986633,
+        "reason": "no_complete_face_in_gate",
+        "x": null
+      }
+    ]
+  },
+  "diagnostic_wider_gate_offline_only": {
+    "reasons": {
+      "warming_up": 66
+    },
+    "last_samples": [
+      {
+        "t": 14.085547741997289,
+        "reason": "warming_up",
+        "x": -2.417610120114923
+      },
+      {
+        "t": 14.286858171995846,
+        "reason": "warming_up",
+        "x": -2.4091498556141246
+      },
+      {
+        "t": 14.488399613997899,
+        "reason": "warming_up",
+        "x": -2.402252871200899
+      },
+      {
+        "t": 14.689394212997286,
+        "reason": "warming_up",
+        "x": -2.391579481130667
+      },
+      {
+        "t": 14.890839186991798,
+        "reason": "warming_up",
+        "x": -2.3910653641097053
+      },
+      {
+        "t": 15.093881812994368,
+        "reason": "warming_up",
+        "x": -2.3936724109684646
+      },
+      {
+        "t": 15.294203790996107,
+        "reason": "warming_up",
+        "x": -2.3939262814122295
+      },
+      {
+        "t": 15.496007319990895,
+        "reason": "warming_up",
+        "x": -2.3941809650107877
+      },
+      {
+        "t": 15.696388200987712,
+        "reason": "warming_up",
+        "x": -2.3915029345433947
+      },
+      {
+        "t": 15.897871946988744,
+        "reason": "warming_up",
+        "x": -2.3927133610201725
+      },
+      {
+        "t": 16.099115627992433,
+        "reason": "warming_up",
+        "x": -2.3933387788140466
+      },
+      {
+        "t": 16.3006152559974,
+        "reason": "warming_up",
+        "x": -2.393156399963405
+      },
+      {
+        "t": 16.50146859099914,
+        "reason": "warming_up",
+        "x": -2.392459893572253
+      },
+      {
+        "t": 16.70301622299303,
+        "reason": "warming_up",
+        "x": -2.3923501519385426
+      },
+      {
+        "t": 16.904478353986633,
+        "reason": "warming_up",
+        "x": -2.394001324385042
+      }
+    ]
+  }
+}

@@ -3,6 +3,9 @@
 
 std_msgs/Header header             # 时间戳
 
+# 唯一事务标识，用于关联触发、取消和完成结果
+string transaction_id
+
 # 地图信息
 string current_map                 # 当前地图名称
 string next_map                    # 要切换到的下一个地图名称

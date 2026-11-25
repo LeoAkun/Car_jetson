@@ -40,6 +40,7 @@
 
     imuGravity: 9.80511
     imuRPYWeight: 0.02
+    imuMaxGapSec: 0.2                       # 0 disables positive-gap resynchronization
 
     extrinsicTrans:  [ 0.0,  0.0,  0.02] # 雷达到车体的坐标变换
     # extrinsicRot:    [-1.0,  0.0,  0.0,

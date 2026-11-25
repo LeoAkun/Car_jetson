@@ -1,0 +1,1 @@
+测试route_planner模块、map_switch_controller模块、navigation_manager模块、process_manager模块

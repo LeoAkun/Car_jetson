@@ -1,0 +1,124 @@
+时间：2026-11-09T17:42:37.826977+08:00
+这是交接时全部工作区状态，含用户及其他聊天修改，不等于本聊天修改清单。未执行restore/reset/checkout。
+
+ M CHARGING_DOCK_DEVELOPMENT_PLANA.md
+ D K8_point1.txt
+ D K8_point2.txt
+ D K8_start.py
+ M KNOWN_ISSUES.md
+ M TRAFFIC_LIGHT_NAVIGATION_INTEGRATION_PLAN.md
+ M URDF_ws/src/robot/CMakeLists.txt
+ M multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml
+ M multi_map_navigation/src/multi_map_navigation/config/navigation_config.yaml
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/mqtt_task_receiver.py
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/process_manager.py
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/route_planner.py
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/status_reporter.py
+ M multi_map_navigation/src/multi_map_navigation/package.xml
+ M multi_map_navigation/src/multi_map_navigation/test/test_mqtt_task_receiver/test_mqtt_publish_task_graph.py
+ M multi_map_navigation/src/multi_map_navigation/test/test_process_health.py
+ M nav2/src/nav2/config/nav2_real_params.yaml
+ M nav2/src/nav2/launch/run.real_launch.py
+ M nav2/src/nav2_init_pose/nav2_init_pose/nav2_init_pose.py
+ M nav2/src/navigation2/nav2_collision_monitor/package.xml
+ M nav2/src/navigation2/nav2_controller/src/controller_server.cpp
+ M nav2/src/navigation2/nav2_costmap_2d/plugins/obstacle_layer.cpp
+ M nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/optimizer.hpp
+ M nav2/src/navigation2/nav2_mppi_controller/src/controller.cpp
+ M nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp
+ M nav2/src/navigation2/nav2_mppi_controller/test/CMakeLists.txt
+ M nav2/src/navigation2/nav2_mppi_controller/test/optimizer_unit_tests.cpp
+ M real_ws/README.md
+ M real_ws/src/driver/alarm_controller/alarm_controller/alarm_controller/alarm_controller.py
+ M real_ws/src/driver/alarm_controller/alarm_controller/setup.py
+ M real_ws/src/driver/car_control/chassis_driver/chassis_driver/include/usb2can_core.h
+ M real_ws/src/driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py
+ M real_ws/src/driver/car_control/chassis_driver/chassis_driver/src/usb2can_core.cpp
+ M "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert copy.py"
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/package.xml
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/setup.py
+ M real_ws/src/driver/gps/config/gnss_converter.yaml
+ M real_ws/src/driver/gps/launch/gnss_converter.launch.py
+ M real_ws/src/driver/gps/src/gnss_converter_node.cpp
+ M real_ws/src/driver/imu/fdilink_ahrs_ROS2/CMakeLists.txt
+ M real_ws/src/driver/imu/fdilink_ahrs_ROS2/include/ahrs_driver.h
+ M real_ws/src/driver/imu/fdilink_ahrs_ROS2/launch/ahrs_driver.launch.py
+ M real_ws/src/driver/imu/fdilink_ahrs_ROS2/package.xml
+ M real_ws/src/driver/imu/fdilink_ahrs_ROS2/src/ahrs_driver.cpp
+ M real_ws/src/driver/lidar/convert_laser/package.xml
+ M real_ws/src/driver/lock_controller/CMakeLists.txt
+ M real_ws/src/driver/lock_controller/QUICKSTART.md
+ M real_ws/src/driver/lock_controller/config/lock_controller.yaml
+ M real_ws/src/driver/lock_controller/include/lock_controller/lock_controller.hpp
+ M real_ws/src/driver/lock_controller/package.xml
+ M real_ws/src/driver/lock_controller/src/lock_controller.cpp
+ M real_ws/src/driver/rslidar/rslidar_sdk/node/rslidar_sdk_node.cpp
+ M real_ws/src/driver/rslidar/rslidar_sdk/src/rs_driver/src/rs_driver/driver/decoder/decoder_RSHELIOS.hpp
+ M real_ws/src/driver/rslidar/rslidar_sdk/src/source/source_driver.hpp
+ M real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/launch/lakibeam1_scan_dual_lidar.launch.py
+ M real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/package.xml
+ M real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/src/lakibeam1_scan.cpp
+ M real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml
+ M real_ws/src/driver/scan_laser/ros2_laser_scan_merger/src/main.cpp
+ M real_ws/src/launch_real/launch/run.launch.py
+ M real_ws/src/launch_real/package.xml
+ M real_ws/src/launch_real/setup.py
+ M "slam/src/LIO-SAM/config/params_rslidar copy.yaml"
+ M slam/src/LIO-SAM/config/params_rslidar.yaml
+ M slam/src/LIO-SAM/launch/run.real_launch.py
+ M traficclight/traffic-light-main/utils/model/base.py
+ M utils/src/pcd2pgm/config/pcd2pgm.yaml
+ M utils/src/re_localization/include/pcl_localization/pcl_localization_component.hpp
+ M utils/src/re_localization/launch/run.real_launch.py
+ M utils/src/re_localization/param/localization_real.yaml
+ M utils/src/re_localization/src/pcl_localization_component.cpp
+?? FIXED_TRAJECTORY_LIDAR_DOCKING_PLAN.md
+?? LIDAR_RELATIVE_DOCKING_CODE_REVIEW_2026-10-16.md
+?? LIDAR_RELATIVE_DOCKING_IMPLEMENTATION.md
+?? TRAFFIC_LIGHT_CAMERA_RELAY_PROBE_2026-09-28.md
+?? TRAFFIC_LIGHT_P1_STABILITY_2026-10-29.md
+?? TRAFFIC_LIGHT_P2_RUNTIME_2026-10-29.md
+?? TRAFFIC_LIGHT_P3_BUILD_2026-10-29.md
+?? TRAFFIC_LIGHT_P3_MODEL_REVIEW_2026-10-29.md
+?? TRAFFIC_LIGHT_P3_WEIGHTS_CHECK_2026-10-29.md
+?? TRAFFIC_LIGHT_P4_OBSERVER_2026-10-29.md
+?? multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml.bak.2026-11-09_002238_286380
+?? multi_map_navigation/src/multi_map_navigation/multi_map_navigation/charging_navigation.py
+?? multi_map_navigation/src/multi_map_navigation/test/test_charging_navigation.py
+?? multi_map_navigation/src/multi_map_navigation/test/test_navigation_recovery.py
+?? nav2/src/nav2/config/charging_nav_to_pose.xml
+?? nav2/src/nav2/config/general_nav_through_poses.xml
+?? nav2/src/nav2/config/general_nav_to_pose.xml
+?? nav2/src/navigation2/nav2_mppi_controller/test/optimizer_retry_regression_test.cpp
+?? navigation_monitoring/
+?? navigation_tools/
+?? open_door.sh
+?? real_ws/src/charging_dock/
+?? real_ws/src/charging_dock_msgs/
+?? real_ws/src/charging_dock_standalone/
+?? real_ws/src/driver/alarm_controller/alarm_controller/config/
+?? real_ws/src/driver/camera/calibration/
+?? real_ws/src/driver/car_control/cmdvel_2_ecu/README.md
+?? real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml
+?? real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py
+?? real_ws/src/driver/config_manager/
+?? real_ws/src/driver/imu/fdilink_ahrs_ROS2/scripts/
+?? real_ws/src/driver/imu/fdilink_ahrs_ROS2/systemd/
+?? real_ws/src/driver/lock_controller/scripts/open_door_recover.py
+?? real_ws/src/launch_real/launch/pothole_detection.launch.py
+?? real_ws/src/launch_real/launch/realsense.launch.py
+?? real_ws/src/perception/
+?? test_data/
+?? thermal_testing/
+?? traficclight/traffic-light-main/DEEP_LEARNING_AND_TRAFFIC_LIGHT_DEPLOYMENT_GUIDE_ZH.md
+?? traficclight/traffic-light-main/deploy/
+?? traficclight/traffic-light-main/models/rebuilt/
+?? traficclight/traffic-light-main/requirements.lock
+?? traficclight/traffic-light-main/scripts/
+?? traficclight/traffic-light-main/tests/
+?? traficclight/traffic-light-main/traffic_light_detector/
+?? traficclight/traffic-models-master/
+?? "\345\257\274\350\210\252\351\227\256\351\242\230\346\226\260\350\201\212\345\244\251\344\272\244\346\216\245_2026-08-06.md"

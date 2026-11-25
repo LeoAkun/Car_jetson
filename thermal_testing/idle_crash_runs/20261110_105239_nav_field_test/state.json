@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETE",
+  "started_at": "2026-11-10T10:52:39+08:00",
+  "boot_id": "3bc95af4-21c3-458d-acda-61a57fc277dd",
+  "duration_s": 86400,
+  "interval_s": 1.0,
+  "label": "nav_field_test",
+  "last_sample_at": "2026-11-11T10:52:39.996+08:00",
+  "last_elapsed_s": 86400.0,
+  "last_package_c": 35.0,
+  "last_cpu_busy_pct": 7.0,
+  "last_mem_available_kib": 30128400,
+  "samples": 83123,
+  "reason": "duration elapsed",
+  "finished_at": "2026-11-11T10:52:40+08:00",
+  "boot_id_at_finish": "3bc95af4-21c3-458d-acda-61a57fc277dd"
+}

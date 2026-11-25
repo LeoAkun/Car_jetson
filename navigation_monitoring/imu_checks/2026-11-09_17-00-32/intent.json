@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-11-09T17:00:32.166541+08:00",
+  "scope": "IMU driver only; no navigation, LIO, chassis or motion command publishers",
+  "pid": 26786,
+  "pgid": 26786,
+  "command": [
+    "ros2",
+    "launch",
+    "fdilink_ahrs",
+    "ahrs_driver.launch.py"
+  ]
+}

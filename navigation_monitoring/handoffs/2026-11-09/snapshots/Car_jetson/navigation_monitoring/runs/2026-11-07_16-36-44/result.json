@@ -1,0 +1,39 @@
+{
+  "route": {
+    "map": "3b2mus",
+    "waypoints": [
+      113,
+      106,
+      107
+    ]
+  },
+  "task_id": "task_1794040604",
+  "result": "initialization_failed_before_nav2",
+  "cause_reported": "PSO returned no valid result, all scores inf; nav2_init_pose exited with code 0",
+  "terminal": {
+    "time": "2026-11-07T16:37:06.434+08:00",
+    "event": "monitor_terminal",
+    "kind": "fault",
+    "task_id": null,
+    "fault": "nav2_init_pose: launch process exited with code 0",
+    "protective_abort": false,
+    "vehicle": {
+      "speed_kmh": 0.0,
+      "steer_deg": 0.135,
+      "drive_mode": 1,
+      "is_autodrive": true
+    },
+    "goal_statuses": []
+  },
+  "latest_vehicle": {
+    "speed_kmh": 0.0,
+    "steer_deg": 0.135,
+    "drive_mode": 1,
+    "is_autodrive": true
+  },
+  "current_boot_id": "ca32f49f-62a3-4e77-aee9-af55c9ac556a",
+  "reboot_observed": false,
+  "nav2_observed": false,
+  "sensor_precheck": "skipped_per_user_instruction",
+  "automatic_redispatch": false
+}

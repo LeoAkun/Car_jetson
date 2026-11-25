@@ -1,0 +1,38 @@
+[
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp",
+    "sha256": "9b73f5528b9577e35b193a2cae052461710534b74a2d04e14e507c396321ff65"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/optimizer.hpp",
+    "sha256": "2967e80bc25baed772202d16e52a5790aa3897a3c8622d8955c663bd7d205db7"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/src/critic_manager.cpp",
+    "sha256": "88eec3c5bfa491c383bc6ad84cb9f383d636ad75196df1963d775ee986aa90a6"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/test/optimizer_unit_tests.cpp",
+    "sha256": "400332dba6e3193549760f8969aa6e77a633d2e2424a73240b9df87cd88ddc93"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/test/CMakeLists.txt",
+    "sha256": "571ba69f6870d819c889b82da23495288bdaee4947f0c96fa71a2edeb7b5e529"
+  },
+  {
+    "path": "nav2/install/nav2_mppi_controller/lib/libmppi_controller.so",
+    "sha256": "6a490cc879090ff254f26cf584228bab7a89f406e065ef23a4479fa51e515ae4"
+  },
+  {
+    "path": "nav2/install/nav2_mppi_controller/lib/libmppi_critics.so",
+    "sha256": "4dbce02f48fb8f09e445c06217d3f02fa1ca09bb74f6ac34f18c6f5c58a91db0"
+  },
+  {
+    "path": "nav2/src/nav2/config/nav2_real_params.yaml",
+    "sha256": "d172f3d66a6c995f5ad850ffaedf2b7dc4743e008024460570994c489d9b11d7"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/test/optimizer_retry_regression_test.cpp",
+    "sha256": "cd54f85048a886b74c43430ee450c9acbef50af67d7db96a623cb2758bbf7fbe"
+  }
+]

@@ -1,0 +1,5 @@
+write:
+  pragmas:
+    - journal_mode = WAL
+    - synchronous = NORMAL
+    - busy_timeout = 5000

@@ -115,9 +115,9 @@ public:
     EXPECT_EQ(generated_trajectories_.x, xt::zeros<float>({1000, 50}));
   }
 
-  bool fallbackWrapper(bool fail)
+  bool fallbackWrapper(bool fail, size_t & retry_attempts)
   {
-    return fallback(fail);
+    return fallback(fail, retry_attempts);
   }
 
   void testPrepare(
@@ -339,10 +339,11 @@ TEST(OptimizerTests, FallbackTests)
   // Test fallback logic, also tests getting set param retry_attempt_limit
   // Because retry set to 2, it should attempt soft resets 2x before throwing exception
   // for hard reset
-  EXPECT_FALSE(optimizer_tester.fallbackWrapper(false));
-  EXPECT_TRUE(optimizer_tester.fallbackWrapper(true));
-  EXPECT_TRUE(optimizer_tester.fallbackWrapper(true));
-  EXPECT_THROW(optimizer_tester.fallbackWrapper(true), std::runtime_error);
+  size_t retry_attempts = 0;
+  EXPECT_FALSE(optimizer_tester.fallbackWrapper(false, retry_attempts));
+  EXPECT_TRUE(optimizer_tester.fallbackWrapper(true, retry_attempts));
+  EXPECT_TRUE(optimizer_tester.fallbackWrapper(true, retry_attempts));
+  EXPECT_THROW(optimizer_tester.fallbackWrapper(true, retry_attempts), std::runtime_error);
 }
 
 TEST(OptimizerTests, PrepareTests)

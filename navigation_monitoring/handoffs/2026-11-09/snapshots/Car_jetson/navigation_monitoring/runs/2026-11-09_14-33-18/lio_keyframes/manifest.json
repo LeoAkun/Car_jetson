@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "source": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/test/trajectory.pcd",
+      "saved_as": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/lio_keyframes/trajectory.pcd",
+      "sha256": "d21462fb2ffecd077e7a2397b87ed4165b9fe9435b7f405f99033a58456d83cd",
+      "source_mtime": "2026-11-09T14:42:11.243287+08:00",
+      "bytes": 11082
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/test/transformations.pcd",
+      "saved_as": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/lio_keyframes/transformations.pcd",
+      "sha256": "14759608b105a3f4f523e58e9f6bfab487a827514a066aba2cd1680906fc3777",
+      "source_mtime": "2026-11-09T14:42:11.246287+08:00",
+      "bytes": 26565
+    }
+  ],
+  "limits": "Saved LIO keyframe poses, not raw lidar points or independent ground truth. ASCII time values have limited printed precision."
+}

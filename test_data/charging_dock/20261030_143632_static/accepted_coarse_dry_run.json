@@ -1,0 +1,12 @@
+{
+  "states": [
+    "READY reason=sensors_and_target_valid"
+  ],
+  "counts": {
+    "velocity": 201,
+    "ecu": 200,
+    "state": 80
+  },
+  "observations": [],
+  "nonzero_commands": []
+}

@@ -8,6 +8,7 @@ from launch.conditions import IfCondition
 from launch.event_handlers import OnShutdown
 from launch.actions import TimerAction
 from launch.actions import ExecuteProcess # 导入 ExecuteProcess
+from nav2_common.launch import RewrittenYaml
 
 def generate_launch_description():
     # 获取与拼接默认路径
@@ -34,6 +35,17 @@ def generate_launch_description():
     nav2_param_path = launch.substitutions.LaunchConfiguration(
         'params_file', default=params_dir)
     use_rviz = launch.substitutions.LaunchConfiguration('use_rviz')
+    log_level = launch.substitutions.LaunchConfiguration('log_level')
+    configured_params = RewrittenYaml(
+        source_file=nav2_param_path,
+        root_key='',
+        param_rewrites={
+            'default_nav_to_pose_bt_xml': os.path.join(
+                nav2_dir, 'config', 'general_nav_to_pose.xml'),
+            'default_nav_through_poses_bt_xml': os.path.join(
+                nav2_dir, 'config', 'general_nav_through_poses.xml'),
+        },
+        convert_types=True)
 
     # 三维点云转laserscan
     pointcloud2d_to_laser = launch_ros.actions.Node(
@@ -79,8 +91,10 @@ def generate_launch_description():
                                              description='Full path to map file to load'),
         launch.actions.DeclareLaunchArgument('params_file', default_value=nav2_param_path,
                                              description='Full path to param file to load'),
-        launch.actions.DeclareLaunchArgument('use_rviz', default_value='false',
+        launch.actions.DeclareLaunchArgument('use_rviz', default_value='true',
                                              description='Start RViz for Nav2 visualization'),
+        launch.actions.DeclareLaunchArgument('log_level', default_value='warn',
+                                             description='Nav2 logging level'),
 
         launch.actions.IncludeLaunchDescription(
             # PythonLaunchDescriptionSource(
@@ -91,7 +105,8 @@ def generate_launch_description():
             launch_arguments={
                 'map': map_yaml_path,
                 'use_sim_time': use_sim_time,
-                'params_file': nav2_param_path}.items(),
+                'params_file': configured_params,
+                'log_level': log_level}.items(),
         ),
         launch_ros.actions.Node(
            package='rviz2',

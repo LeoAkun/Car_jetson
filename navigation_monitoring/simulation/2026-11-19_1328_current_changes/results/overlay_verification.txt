@@ -1,0 +1,89 @@
+Package prefixes:
+multi_map_navigation_msgs /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install
+multi_map_navigation /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install
+lio_sam /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install
+re_localization /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install
+nav2_init_pose /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install
+Interfaces:
+uint8 STATE_WAITING=0
+uint8 STATE_SMALL_ACCEPTED=1
+uint8 STATE_MEDIUM_REQUIRES_RELOCALIZATION=2
+uint8 STATE_LARGE_REJECTED=3
+uint8 STATE_CONTINUITY_FAULT=4
+
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+string instance_id
+uint64 generation
+uint64 correction_epoch
+geometry_msgs/Transform lio_map_to_odom_target
+	Vector3 translation
+		float64 x
+		float64 y
+		float64 z
+	Quaternion rotation
+		float64 x 0
+		float64 y 0
+		float64 z 0
+		float64 w 1
+float64 translation_residual
+float64 yaw_residual
+uint8 state
+bool accepted
+string reason
+std_msgs/Header header
+	builtin_interfaces/Time stamp
+		int32 sec
+		uint32 nanosec
+	string frame_id
+string instance_id
+uint64 generation
+uint64 correction_epoch
+nav_msgs/Odometry odometry
+	std_msgs/Header header
+		builtin_interfaces/Time stamp
+			int32 sec
+			uint32 nanosec
+		string frame_id
+	string child_frame_id
+	geometry_msgs/PoseWithCovariance pose
+		Pose pose
+			Point position
+				float64 x
+				float64 y
+				float64 z
+			Quaternion orientation
+				float64 x 0
+				float64 y 0
+				float64 z 0
+				float64 w 1
+		float64[36] covariance
+	geometry_msgs/TwistWithCovariance twist
+		Twist twist
+			Vector3  linear
+				float64 x
+				float64 y
+				float64 z
+			Vector3  angular
+				float64 x
+				float64 y
+				float64 z
+		float64[36] covariance
+Executables:
+lio_sam lio_sam_featureExtraction
+lio_sam lio_sam_imageProjection
+lio_sam lio_sam_imuPreintegration
+lio_sam lio_sam_mapOptimization
+multi_map_navigation map_odom_authority
+multi_map_navigation map_switch_controller
+multi_map_navigation mqtt_raw_monitor
+multi_map_navigation mqtt_task_receiver
+multi_map_navigation navigation_manager
+multi_map_navigation process_manager
+multi_map_navigation route_planner
+multi_map_navigation status_reporter
+25c806e713f807af4e38b1521773b58ccd581501d457eb1dcd7f888a31ed8683  /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install/lib/lio_sam/lio_sam_imuPreintegration
+133a1030c1bde9755829a3d1416343b9663fb04c36d01a9ba11b2957a5614afd  /home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/install/lib/lio_sam/lio_sam_mapOptimization

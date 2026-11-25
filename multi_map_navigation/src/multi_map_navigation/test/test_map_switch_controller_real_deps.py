@@ -15,12 +15,17 @@ import unittest
 
 import rclpy
 from geometry_msgs.msg import TransformStamped
-from multi_map_navigation_msgs.msg import MapSwitchTrigger
+from multi_map_navigation_msgs.msg import (
+    LocalizationResult,
+    LocalizationSession,
+    MapSwitchResult,
+    MapSwitchTrigger,
+)
 from multi_map_navigation_msgs.srv import GetProcessStatus, ShutdownProcess, StartProcess
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
-from std_msgs.msg import Bool
+from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from tf2_ros import TransformBroadcaster
 
 
@@ -42,6 +47,17 @@ class MockProcessManager(Node):
         self.start_calls = []
         self.status_calls = 0
         self.start_requests = []
+        self.session_id = 'real-deps-session'
+        self.session_start_ns = 0
+        self.active_map = ''
+
+        latched_qos = QoSProfile(depth=1)
+        latched_qos.reliability = ReliabilityPolicy.RELIABLE
+        latched_qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
+        self.session_pub = self.create_publisher(
+            LocalizationSession, '/localization_session', latched_qos)
+        self.result_pub = self.create_publisher(
+            LocalizationResult, '/localization_result', latched_qos)
 
         self.create_service(
             ShutdownProcess,
@@ -85,6 +101,30 @@ class MockProcessManager(Node):
 
         response.success = True
         response.message = f'{process_name} start ok'
+        if process_name == 're_localization':
+            self.session_start_ns = self.get_clock().now().nanoseconds
+            self.active_map = request.map_name
+            response.instance_id = self.session_id
+            response.active_map = request.map_name
+            response.session_start_ns = self.session_start_ns
+            session = LocalizationSession()
+            session.session_id = self.session_id
+            session.map_id = request.map_name
+            session.session_start_ns = self.session_start_ns
+            session.active = True
+            self.session_pub.publish(session)
+        elif process_name == 'nav2_init_pose':
+            response.instance_id = self.session_id
+            response.active_map = request.map_name
+            response.session_start_ns = self.session_start_ns
+            result = LocalizationResult()
+            result.session_id = self.session_id
+            result.map_id = request.map_name
+            result.success = True
+            result.fitness_score = 0.01
+            result.pose.orientation.w = 1.0
+            result.cloud_stamp = self.get_clock().now().to_msg()
+            self.result_pub.publish(result)
         return response
 
     def handle_status(self, request, response):
@@ -95,6 +135,15 @@ class MockProcessManager(Node):
         response.nav2_init_pose_running = self.running['nav2_init_pose']
         response.navigation2_running = self.running['navigation2']
         response.message = 'ok'
+        running_values = tuple(self.running.values())
+        response.stack_state = (
+            'RUNNING' if all(running_values)
+            else 'STOPPED' if not any(running_values) else 'PARTIAL')
+        response.active_map = self.active_map if all(running_values) else ''
+        response.localization_session_id = (
+            self.session_id if all(running_values) else '')
+        response.session_start_ns = (
+            self.session_start_ns if all(running_values) else 0)
         return response
 
 
@@ -139,14 +188,20 @@ class TriggerAndResultListener(Node):
         self.result_event = threading.Event()
 
         self.trigger_pub = self.create_publisher(MapSwitchTrigger, '/trigger_map_switch', 10)
-        self.complete_sub = self.create_subscription(Bool, '/map_switch_complete', self.on_complete, 10)
+        self.complete_sub = self.create_subscription(
+            MapSwitchResult,
+            '/map_switch_complete',
+            self.on_complete,
+            10,
+        )
 
-    def on_complete(self, msg: Bool):
-        self.result = msg.data
+    def on_complete(self, msg: MapSwitchResult):
+        self.result = msg.success
         self.result_event.set()
 
     def send_trigger(self, current_map: str, next_map: str):
         msg = MapSwitchTrigger()
+        msg.transaction_id = 'real-deps-map-switch'
         msg.current_map = current_map
         msg.next_map = next_map
         msg.current_waypoint_id = 1

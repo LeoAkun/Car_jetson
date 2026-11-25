@@ -1,0 +1,290 @@
+{
+  "duration_seconds": 40,
+  "topics": {
+    "/tf_static": {
+      "message_count": 5,
+      "received_hz": 1.660411385708452,
+      "zero_stamps": 0,
+      "nonmonotonic_stamps": 1,
+      "first": {
+        "received": 1487.318321466,
+        "stamp": 1793244850.4885905,
+        "parent": "base_link",
+        "child": "laser_link",
+        "translation": [
+          0.0,
+          0.0,
+          0.6
+        ]
+      },
+      "last": {
+        "received": 1489.727363005,
+        "stamp": 1793244850.878462,
+        "parent": "front_depth_camera_depth_frame",
+        "child": "front_depth_camera_depth_optical_frame",
+        "translation": [
+          0.0,
+          -0.0,
+          -0.0
+        ]
+      }
+    },
+    "/imu": {
+      "message_count": 3948,
+      "received_hz": 100.02638086696437,
+      "zero_stamps": 0,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1487.425547966,
+        "stamp": 1793244850.6023474,
+        "frame": "imu_link",
+        "accel_norm": 9.786828668614913
+      },
+      "last": {
+        "received": 1526.885138184,
+        "stamp": 1793244890.0616744,
+        "frame": "imu_link",
+        "accel_norm": 9.784422684052899
+      }
+    },
+    "/laser/scan_merge": {
+      "message_count": 1171,
+      "received_hz": 29.689688472058616,
+      "zero_stamps": 1,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1487.450917123,
+        "stamp": 0.0,
+        "frame": "laser_link",
+        "points": 1026,
+        "fields": [
+          "x",
+          "y",
+          "z",
+          "rgb"
+        ]
+      },
+      "last": {
+        "received": 1526.858538429,
+        "stamp": 1793244890.0162342,
+        "frame": "laser_link",
+        "points": 1956,
+        "fields": [
+          "x",
+          "y",
+          "z",
+          "rgb"
+        ]
+      },
+      "point_count_range": [
+        1026,
+        1961
+      ]
+    },
+    "/laser/scan_merge_laser": {
+      "message_count": 1171,
+      "received_hz": 29.689929526496933,
+      "zero_stamps": 1,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1487.451471986,
+        "stamp": 0.0,
+        "frame": "laser_link",
+        "points": 722,
+        "valid": 393,
+        "scan_time": 0.33329999446868896
+      },
+      "last": {
+        "received": 1526.858773339,
+        "stamp": 1793244890.0162342,
+        "frame": "laser_link",
+        "points": 722,
+        "valid": 655,
+        "scan_time": 0.33329999446868896
+      },
+      "point_count_range": [
+        722,
+        722
+      ]
+    },
+    "/laser/scan_back": {
+      "message_count": 1173,
+      "received_hz": 29.802427263596243,
+      "zero_stamps": 0,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1487.547788655,
+        "stamp": 1793244850.7230928,
+        "frame": "rear_laser",
+        "points": 1440,
+        "valid": 927,
+        "scan_time": 0.033665433526039124
+      },
+      "last": {
+        "received": 1526.87344457,
+        "stamp": 1793244890.0500004,
+        "frame": "rear_laser",
+        "points": 1440,
+        "valid": 930,
+        "scan_time": 0.03376489505171776
+      },
+      "point_count_range": [
+        1440,
+        1440
+      ]
+    },
+    "/laser/scan_front": {
+      "message_count": 1168,
+      "received_hz": 29.69047362285481,
+      "zero_stamps": 0,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1487.551235416,
+        "stamp": 1793244850.728239,
+        "frame": "front_laser",
+        "points": 1440,
+        "valid": 1024,
+        "scan_time": 0.03362605720758438
+      },
+      "last": {
+        "received": 1526.856772095,
+        "stamp": 1793244890.0332031,
+        "frame": "front_laser",
+        "points": 1440,
+        "valid": 1029,
+        "scan_time": 0.033829085528850555
+      },
+      "point_count_range": [
+        1440,
+        1440
+      ]
+    },
+    "/rslidar_points": {
+      "message_count": 386,
+      "received_hz": 10.00114891224454,
+      "zero_stamps": 0,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1488.318103518,
+        "stamp": 1793244851.4072063,
+        "frame": "rslidar",
+        "points": 45632,
+        "fields": [
+          "x",
+          "y",
+          "z",
+          "intensity",
+          "ring",
+          "timestamp"
+        ],
+        "ring_range": [
+          0,
+          31
+        ]
+      },
+      "last": {
+        "received": 1526.813680714,
+        "stamp": 1793244889.8848968,
+        "frame": "rslidar",
+        "points": 57600,
+        "fields": [
+          "x",
+          "y",
+          "z",
+          "intensity",
+          "ring",
+          "timestamp"
+        ],
+        "ring_range": [
+          0,
+          31
+        ]
+      },
+      "point_count_range": [
+        45632,
+        57600
+      ]
+    },
+    "/rslidar_Pointcloud2": {
+      "message_count": 386,
+      "received_hz": 10.001202688264888,
+      "zero_stamps": 0,
+      "nonmonotonic_stamps": 0,
+      "first": {
+        "received": 1488.321074064,
+        "stamp": 1793244851.4072063,
+        "frame": "rslidar",
+        "points": 45632,
+        "fields": [
+          "x",
+          "y",
+          "z",
+          "intensity",
+          "ring",
+          "time"
+        ],
+        "ring_range": [
+          0,
+          31
+        ]
+      },
+      "last": {
+        "received": 1526.816444271,
+        "stamp": 1793244889.8848968,
+        "frame": "rslidar",
+        "points": 57600,
+        "fields": [
+          "x",
+          "y",
+          "z",
+          "intensity",
+          "ring",
+          "time"
+        ],
+        "ring_range": [
+          0,
+          31
+        ]
+      },
+      "point_count_range": [
+        45632,
+        57600
+      ]
+    }
+  },
+  "launches": {
+    "integrated-lidar": {
+      "exit": 0
+    },
+    "integrated-realsense": {
+      "exit": 0
+    },
+    "integrated-rear-camera": {
+      "exit": 0
+    },
+    "integrated-scan-merge": {
+      "exit": 0
+    },
+    "integrated-gps": {
+      "exit": 0
+    }
+  },
+  "extra_uvc_cameras": [
+    {
+      "device": "/dev/video8",
+      "exit": 0
+    },
+    {
+      "device": "/dev/video10",
+      "exit": 0
+    },
+    {
+      "device": "/dev/video12",
+      "exit": 0
+    },
+    {
+      "device": "/dev/video14",
+      "exit": 0
+    }
+  ]
+}

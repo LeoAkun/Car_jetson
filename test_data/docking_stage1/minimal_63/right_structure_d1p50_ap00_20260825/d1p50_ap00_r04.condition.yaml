@@ -1,0 +1,39 @@
+condition_name: d1p50_ap00_r04
+recorded_at: '2026-08-25T15:48:53.619032+08:00'
+operator: akun
+distance_m: 1.5
+expected_range_m: 1.189
+expected_range_source: observed_radial_range_for_segment_selection
+expected_plane_normal_distance_m: 1.15
+plane_normal_distance_m: 1.15
+measurement_reference: rear_laser_scan_origin_to_target_plane_perpendicular_foot
+measured_dock_normal_angle_deg: 0.0
+angle_measurement_source: external_visual_estimate
+angle_measurement_quality: approximate_not_instrument_measured
+angle_sign_convention: positive_when_vehicle_rear_points_right
+vehicle_rear_deflection: nominal_zero
+dock_angle_deg: 0
+lateral_offset_m: 0.0
+roi_center_deg: 59.5
+roi_min_deg: 54.0
+roi_max_deg: 65.0
+duration_sec: 15.0
+repeat: 4
+scan_topic: /laser/scan_back
+distance_metric_note: analyzer_distance_is_roi_radial_range_median; manual_value_is_plane_normal_distance; target_is_vehicle_right_dock_face
+target_structure: dock_front_right_flat_face
+excluded_structure: near_structure_central_protrusion_and_side_wall_transition
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: replacement for R01 scan-gap failure; base_link-to-dock nominal=1.5m; vehicle angle
+  visually estimated at 0deg; vehicle-right dock flat face; excludes left-side plane, near
+  structure, central protrusion and side-wall transition; plane-normal distance manually
+  measured approximately 1.15m; radial selection range approximately 1.189m; static vehicle

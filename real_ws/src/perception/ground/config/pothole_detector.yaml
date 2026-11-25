@@ -1,0 +1,134 @@
+height_map_pothole_detector:
+  ros__parameters:
+    use_sim_time: false
+
+    # Inputs and frames.
+    depth_topic: /camera/front_depth_camera/depth/image_rect_raw
+    camera_info_topic: /camera/front_depth_camera/depth/camera_info
+    camera_frame: front_depth_camera_depth_optical_frame
+    base_frame: base_link
+    tf_timeout: 0.2
+
+    # Detector outputs.
+    pothole_topic: /potholes
+    marker_topic: /pothole_markers
+    height_diff_image_topic: /height_map/depth_diff_image
+    pothole_mask_image_topic: /height_map/pothole_mask
+    pothole_candidate_mask_image_topic: /height_map/pothole_candidate_mask
+    pit_bottom_mask_image_topic: /height_map/pit_bottom_mask
+    negative_edge_mask_image_topic: /height_map/negative_edge_mask
+    unknown_hole_mask_image_topic: /height_map/unknown_hole_mask
+    ground_like_mask_image_topic: /height_map/ground_like_mask
+    pothole_rejection_debug_image_topic: /height_map/pothole_rejection_debug
+    pothole_detections_topic: /pothole_detections
+    publish_pothole_polygon: true
+    publish_markers: true
+    publish_debug_images: false
+    debug_view: false
+    log_detections: false
+
+    # Local ROI in base_link. x is forward, y is left, z is up.
+    x_min: 0.50
+    x_max: 4.00
+    y_min: -1.50
+    y_max: 1.50
+    z_min: -1.20
+    z_max: -0.35
+    auto_roi_from_camera: true
+    roi_ground_z: -0.670
+    # Calibrate on the actual upper road surface, not on a lower floor.
+    ground_reference_enabled: true
+    ground_reference_z: -0.670
+    ground_reference_tolerance: 0.030
+    ground_max_slope: 0.35
+    roi_margin: 0.05
+    roi_min_span: 0.25
+
+    # 2.5 cm cells, stride 2, and 3.5 cm trigger leave margin for a 5 cm pit.
+    # 20/30 cm square pits are primary test targets; 15 cm is a boundary test.
+    # 8 cm pits and detection distance require real-camera acceptance.
+    # Depth and height-map detector tuning.
+    resolution: 0.025
+    min_depth: 0.1
+    max_depth: 5.0
+    depth_scale: 0.001
+    min_valid_depth_ratio: 0.10
+    min_valid_cell_ratio: 0.02
+    min_valid_cells: 20
+    low_threshold: 0.035
+    min_cell_points: 2
+    min_area_cells: 6
+    max_area_cells: 12000
+    confidence_full_area_cells: 48
+    step: 2
+    cell_height_percentile: 35.0
+    ground_fit_max_iterations: 40
+    ground_fit_distance_threshold: 0.012
+    ground_fit_min_inlier_ratio: 0.45
+    ground_candidate_percentile: 70.0
+    ground_candidate_min_cells: 20
+    ground_fallback_percentile: 75.0
+    max_pothole_depth: 0.45
+    min_mean_drop: 0.025
+    max_pit_cell_height_spread: 0.04
+
+    # Keep negative-edge detection visible for debugging, but do not feed it
+    # into /potholes or /pothole_detections unless include_edges_in_output is true.
+    ground_contact_threshold: 0.020
+    edge_drop_threshold: 0.04
+    detect_negative_edges: true
+    include_edges_in_output: false
+    edge_component_confidence_scale: 0.6
+    min_edge_component_cells: 3
+    min_edge_component_ratio: 0.28
+    detect_unknown_holes: false
+    unknown_hole_kernel_cells: 5
+    unknown_hole_min_ground_neighbors: 5
+    unknown_hole_border_margin_cells: 2
+    min_component_pit_cells: 3
+    reject_border_components: true
+    reject_near_border: false
+    component_border_margin_cells: 1
+    side_border_confidence_scale: 0.7
+    ground_ring_width_cells: 2
+    min_ground_ring_cells: 4
+    min_ground_ring_ratio: 0.15
+    min_raw_mask_area_cells: 3
+    mask_dilation_cells: 0
+    morph_kernel_cells: 3
+    morph_open_iterations: 0
+    morph_close_iterations: 1
+    random_seed: -1
+    auto_roi_smoothing_alpha: 0.35
+    max_roi_delta_per_frame: 0.10
+    debug_log_period: 60
+
+    # Upper-edge evidence uses raw rays, independently of grid/z cropping.
+    # Missing returns are suspected hazards with unknown drop, never safe ground.
+    dropoff_enabled: true
+    dropoff_topic: /dropoff_detections
+    dropoff_marker_topic: /dropoff_markers
+    status_topic: /pothole_status
+    depth_timeout: 0.5
+    dropoff_min_drop: 0.04
+    dropoff_min_width: 0.12
+    dropoff_support_pixels: 3
+    dropoff_gap_pixels: 2
+    dropoff_confirmation_frames: 3
+    dropoff_max_range: 2.5
+    dropoff_border_pixels: 8
+    dropoff_min_valid_ratio: 0.01
+    dropoff_plane_tolerance: 0.020
+
+    # Current-frame validated detections. Navigation does not consume this
+    # topic until a separately tested costmap integration is enabled.
+    publish_pothole_detections: true
+    virtual_obstacle_height: 0.08
+    cloud_z_mode: ground
+    cloud_z_value: 0.0
+    publish_detection_metrics: true
+    cloud_cell_stride: 1
+    max_cloud_points: 20000
+    tf_cache_enabled: true
+    tf_cache_max_age: 0.0
+    camera_frame_check_enabled: true

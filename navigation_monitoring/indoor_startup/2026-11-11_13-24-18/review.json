@@ -1,0 +1,1117 @@
+{
+  "generated": "2026-11-11T13:31:00.790698+08:00",
+  "scope": {
+    "read_only_runtime_inspection": true,
+    "ros_subscriptions_created": false,
+    "goals_or_controls_sent": false,
+    "hardware_processes_started_or_stopped": false,
+    "only_new_report_files_written": true
+  },
+  "run_directory": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_13-24-18",
+  "result": {
+    "program_passed": true,
+    "error": null,
+    "started": "2026-11-11T13:24:18.688158+08:00",
+    "ended": "2026-11-11T13:27:59.898092+08:00",
+    "finished_cleanup": "2026-11-11T13:28:08.976070+08:00",
+    "duration_sec": 221.20995076999998,
+    "interpretation": "The startup and idle lifecycle check completed, but position stability is not established: estimated position changed by approximately 2.32 m and physical motion is unknown."
+  },
+  "timeline": [
+    {
+      "time": "2026-11-11T13:24:20.793986+08:00",
+      "event": "phase_started",
+      "phase": "sensor_baseline"
+    },
+    {
+      "time": "2026-11-11T13:24:40.811173+08:00",
+      "event": "phase_started",
+      "phase": "lio_start"
+    },
+    {
+      "time": "2026-11-11T13:24:43.869552+08:00",
+      "event": "condition_met",
+      "phase": "lio_start",
+      "description": "real LIO ready and odom->base_link fresh"
+    },
+    {
+      "time": "2026-11-11T13:24:43.869674+08:00",
+      "event": "phase_started",
+      "phase": "nav2_start"
+    },
+    {
+      "time": "2026-11-11T13:24:59.889760+08:00",
+      "event": "condition_met",
+      "phase": "nav2_start",
+      "description": "all eight Nav2 lifecycle nodes active"
+    },
+    {
+      "time": "2026-11-11T13:24:59.889889+08:00",
+      "event": "nav2_active",
+      "phase": "nav2_start"
+    },
+    {
+      "time": "2026-11-11T13:24:59.889995+08:00",
+      "event": "phase_started",
+      "phase": "hold"
+    },
+    {
+      "time": "2026-11-11T13:28:08.978003+08:00",
+      "event": "test_finished",
+      "phase": "hold",
+      "passed": true,
+      "error": null
+    }
+  ],
+  "hold_checks": {
+    "duration_sec": 180.00812227799997,
+    "observation_samples": 180,
+    "nav2_state_failures": [],
+    "nav2_state_query_stale": [],
+    "ready_false_samples": [],
+    "ready_to_not_ready_count": 0,
+    "tf_not_fresh_samples": [],
+    "max_observed_arrival_age_sec": {
+      "/imu": 0.006815436000124464,
+      "/rslidar_Pointcloud2": 0.30519146500000716,
+      "/lio_sam/mapping/odometry": 2.4905285959998764,
+      "/odom": 0.020007046000046103,
+      "/global_costmap/costmap": 1.1919890089998262,
+      "/local_costmap/costmap": 0.09788188599986825
+    }
+  },
+  "imu": {
+    "recorded_samples": 21842,
+    "cumulative": {
+      "count": 21843,
+      "arrival_hz": 100.02320347588726,
+      "last_arrival_age_sec": 0.005557744999805436,
+      "last_header_stamp_ns": 1794374880252182400,
+      "last_header_age_sec": -0.354060395,
+      "counters": {
+        "quaternion_nonfinite_count": 0,
+        "quaternion_norm_nonfinite_count": 0,
+        "quaternion_zero_norm_count": 1,
+        "quaternion_norm_outside_0_9_to_1_1_count": 2,
+        "acceleration_nonfinite_count": 0,
+        "angular_velocity_nonfinite_count": 0
+      },
+      "latest": {
+        "quaternion_norm": 1.0000000840024805,
+        "acceleration_norm": 9.816976823200205,
+        "angular_velocity_norm": 0.0017262295354129786,
+        "orientation_declared_unavailable": false,
+        "frame_id": "imu_link"
+      },
+      "arrival_intervals": {
+        "count": 21842,
+        "sum_sec": 218.36933072500005,
+        "min_sec": 0.001380382999741414,
+        "max_sec": 0.015478360000088287,
+        "nonpositive_count": 0,
+        "gap_count": 0,
+        "last_gap_sec": null,
+        "mean_sec": 0.009997680190687669
+      },
+      "header_intervals": {
+        "count": 21842,
+        "sum_sec": 218.72999999994724,
+        "min_sec": 0.009916,
+        "max_sec": 0.32,
+        "nonpositive_count": 0,
+        "gap_count": 1,
+        "last_gap_sec": 0.32,
+        "mean_sec": 0.010014192839481148
+      },
+      "interval_arrival_hz": 0.0,
+      "publisher_count": 1
+    },
+    "hold": {
+      "count": 18001,
+      "arrival_hz": 100.0015681779248,
+      "last_arrival_age_sec": 0.005557744999805436,
+      "last_header_stamp_ns": 1794374880252182400,
+      "last_header_age_sec": -0.354060395,
+      "counters": {
+        "quaternion_nonfinite_count": 0,
+        "quaternion_norm_nonfinite_count": 0,
+        "quaternion_zero_norm_count": 0,
+        "quaternion_norm_outside_0_9_to_1_1_count": 0,
+        "acceleration_nonfinite_count": 0,
+        "angular_velocity_nonfinite_count": 0
+      },
+      "latest": {
+        "quaternion_norm": 1.0000000840024805,
+        "acceleration_norm": 9.816976823200205,
+        "angular_velocity_norm": 0.0017262295354129786,
+        "orientation_declared_unavailable": false,
+        "frame_id": "imu_link"
+      },
+      "arrival_intervals": {
+        "count": 18001,
+        "sum_sec": 180.00694345800002,
+        "min_sec": 0.00715903399986928,
+        "max_sec": 0.012836741000228358,
+        "nonpositive_count": 0,
+        "gap_count": 0,
+        "last_gap_sec": null,
+        "mean_sec": 0.00999983020154436
+      },
+      "header_intervals": {
+        "count": 18001,
+        "sum_sec": 180.0099999999817,
+        "min_sec": 0.009916,
+        "max_sec": 0.010044,
+        "nonpositive_count": 0,
+        "gap_count": 0,
+        "last_gap_sec": null,
+        "mean_sec": 0.009999999999998982
+      }
+    },
+    "raw_orientation_anomalies": [
+      {
+        "line": 1,
+        "phase": "sensor_baseline",
+        "received_time": "2026-11-11T13:24:21.523678+08:00",
+        "q": [
+          -4.60285935228583e-35,
+          -4.421517044202251e-41,
+          2.818433071554455e-51,
+          4.421517044202252e-41
+        ],
+        "norm": 4.6028593522900777e-35,
+        "interpretation": "near-zero norm (threshold < 1e-6)"
+      },
+      {
+        "line": 6,
+        "phase": "sensor_baseline",
+        "received_time": "2026-11-11T13:24:21.531150+08:00",
+        "q": [
+          3.427547390689916e+30,
+          -2.2415529068370513e+20,
+          2.2415487093021108e+20,
+          -3.6607302768932825e+36
+        ],
+        "norm": 3.660730276894887e+36,
+        "interpretation": "very large norm"
+      }
+    ],
+    "raw_timestamp_anomalies": [
+      {
+        "line": 6,
+        "phase": "sensor_baseline",
+        "received_time": "2026-11-11T13:24:21.531150+08:00",
+        "header_delta_sec": 0.32,
+        "arrival_delta_sec": 0.001390256
+      }
+    ],
+    "hold_header_age_sec": {
+      "min": -0.360008384,
+      "max": -0.352195755,
+      "median": -0.3569495415
+    },
+    "limitations": [
+      "A near-zero norm is not the same as an all-zero quaternion.",
+      "Invalid startup orientations and one CRC error precede LIO startup; they were not observed during hold.",
+      "The device timestamp leads host time by approximately 0.35 s; the startup header jump had no corresponding arrival pause."
+    ]
+  },
+  "estimated_position": {
+    "/lio_sam/mapping/odometry": {
+      "first_observation": {
+        "time": "2026-11-11T13:24:42.867798+08:00",
+        "count": 1,
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "first_hold_observation": {
+        "time": "2026-11-11T13:24:59.897609+08:00",
+        "position": {
+          "x": 1.9808106422424316,
+          "y": 0.7668465971946716,
+          "z": 0.0622902475297451
+        }
+      },
+      "final_position": {
+        "x": 2.142324924468994,
+        "y": 0.8780883550643921,
+        "z": 0.07783231139183044
+      },
+      "first_to_final": {
+        "dx": 2.142324924468994,
+        "dy": 0.8780883550643921,
+        "dz": 0.07783231139183044,
+        "xy_m": 2.315295929530558,
+        "xyz_m": 2.3166037878751227
+      },
+      "first_hold_to_final": {
+        "dx": 0.1615142822265625,
+        "dy": 0.11124175786972046,
+        "dz": 0.015542063862085342,
+        "xy_m": 0.19611627178056185,
+        "xyz_m": 0.19673115616546438
+      },
+      "position_extrema": {
+        "x": {
+          "min": -0.008145760744810104,
+          "max": 2.166288375854492
+        },
+        "y": {
+          "min": -0.006905827205628157,
+          "max": 0.9029451012611389
+        },
+        "z": {
+          "min": -0.05960646644234657,
+          "max": 0.09004902094602585
+        }
+      },
+      "largest_adjacent_observation_position_changes": [
+        {
+          "from_time": "2026-11-11T13:24:55.896172+08:00",
+          "to_time": "2026-11-11T13:24:56.896311+08:00",
+          "from_position": {
+            "x": -0.008145760744810104,
+            "y": -0.006905827205628157,
+            "z": 0.007956808432936668
+          },
+          "to_position": {
+            "x": 1.7613381147384644,
+            "y": 0.5773282647132874,
+            "z": -0.05960646644234657
+          },
+          "delta": {
+            "dx": 1.7694838754832745,
+            "dy": 0.5842340919189155,
+            "dz": -0.06756327487528324,
+            "xy_m": 1.863438397091685,
+            "xyz_m": 1.8646628263220943
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:24:57.896961+08:00",
+          "to_time": "2026-11-11T13:24:58.897822+08:00",
+          "from_position": {
+            "x": 1.7613381147384644,
+            "y": 0.5773282647132874,
+            "z": -0.05960646644234657
+          },
+          "to_position": {
+            "x": 2.1631407737731934,
+            "y": 0.8734864592552185,
+            "z": 0.09004902094602585
+          },
+          "delta": {
+            "dx": 0.401802659034729,
+            "dy": 0.29615819454193115,
+            "dz": 0.14965548738837242,
+            "xy_m": 0.4991543378572554,
+            "xyz_m": 0.5211063403060515
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:25:00.898257+08:00",
+          "to_time": "2026-11-11T13:25:01.898493+08:00",
+          "from_position": {
+            "x": 2.163799524307251,
+            "y": 0.8710982203483582,
+            "z": 0.08645525574684143
+          },
+          "to_position": {
+            "x": 1.7857069969177246,
+            "y": 0.6333307027816772,
+            "z": -0.03799029067158699
+          },
+          "delta": {
+            "dx": -0.37809252738952637,
+            "dy": -0.2377675175666809,
+            "dz": -0.12444554641842842,
+            "xy_m": 0.44664006949401847,
+            "xyz_m": 0.46365293668972146
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:25:04.906412+08:00",
+          "to_time": "2026-11-11T13:25:05.906908+08:00",
+          "from_position": {
+            "x": 1.7874691486358643,
+            "y": 0.6335577964782715,
+            "z": -0.03666023537516594
+          },
+          "to_position": {
+            "x": 2.0240447521209717,
+            "y": 0.7751739621162415,
+            "z": 0.016975760459899902
+          },
+          "delta": {
+            "dx": 0.23657560348510742,
+            "dy": 0.14161616563796997,
+            "dz": 0.05363599583506584,
+            "xy_m": 0.2757229670055502,
+            "xyz_m": 0.2808913928613031
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:24:58.897822+08:00",
+          "to_time": "2026-11-11T13:24:59.897609+08:00",
+          "from_position": {
+            "x": 2.1631407737731934,
+            "y": 0.8734864592552185,
+            "z": 0.09004902094602585
+          },
+          "to_position": {
+            "x": 1.9808106422424316,
+            "y": 0.7668465971946716,
+            "z": 0.0622902475297451
+          },
+          "delta": {
+            "dx": -0.18233013153076172,
+            "dy": -0.10663986206054688,
+            "dz": -0.027758773416280746,
+            "xy_m": 0.21122579635148103,
+            "xyz_m": 0.21304198305942834
+          }
+        }
+      ],
+      "timeline_15s": [
+        {
+          "time": "2026-11-11T13:24:42.867798+08:00",
+          "phase": "lio_start",
+          "elapsed_sec": 24.154216249,
+          "count": 1,
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "last_arrival_age_sec": 0.26325763200020447
+        },
+        {
+          "time": "2026-11-11T13:24:57.896961+08:00",
+          "phase": "nav2_start",
+          "elapsed_sec": 39.18379645699997,
+          "count": 7,
+          "position": {
+            "x": 1.7613381147384644,
+            "y": 0.5773282647132874,
+            "z": -0.05960646644234657
+          },
+          "last_arrival_age_sec": 1.4956411460002528
+        },
+        {
+          "time": "2026-11-11T13:25:12.917659+08:00",
+          "phase": "hold",
+          "elapsed_sec": 54.20352383199997,
+          "count": 51,
+          "position": {
+            "x": 1.9808459281921387,
+            "y": 0.7655943632125854,
+            "z": 0.02418379858136177
+          },
+          "last_arrival_age_sec": 0.40559558600034507
+        },
+        {
+          "time": "2026-11-11T13:25:27.938198+08:00",
+          "phase": "hold",
+          "elapsed_sec": 69.22481929899959,
+          "count": 97,
+          "position": {
+            "x": 1.7960282564163208,
+            "y": 0.6648948788642883,
+            "z": -0.012092034332454205
+          },
+          "last_arrival_age_sec": 0.21863301399980628
+        },
+        {
+          "time": "2026-11-11T13:25:42.956927+08:00",
+          "phase": "hold",
+          "elapsed_sec": 84.24285706899991,
+          "count": 136,
+          "position": {
+            "x": 1.795096755027771,
+            "y": 0.6601553559303284,
+            "z": -0.01402546837925911
+          },
+          "last_arrival_age_sec": 0.4410896210001738
+        },
+        {
+          "time": "2026-11-11T13:25:57.977138+08:00",
+          "phase": "hold",
+          "elapsed_sec": 99.26307528399957,
+          "count": 174,
+          "position": {
+            "x": 1.7910149097442627,
+            "y": 0.6612837314605713,
+            "z": -0.016503430902957916
+          },
+          "last_arrival_age_sec": 0.35613892699984717
+        },
+        {
+          "time": "2026-11-11T13:26:13.005996+08:00",
+          "phase": "hold",
+          "elapsed_sec": 114.29203002099985,
+          "count": 209,
+          "position": {
+            "x": 1.7915412187576294,
+            "y": 0.6616666913032532,
+            "z": -0.011119379661977291
+          },
+          "last_arrival_age_sec": 0.9929633169999761
+        },
+        {
+          "time": "2026-11-11T13:26:28.027447+08:00",
+          "phase": "hold",
+          "elapsed_sec": 129.31355227899985,
+          "count": 249,
+          "position": {
+            "x": 1.7940804958343506,
+            "y": 0.6600844264030457,
+            "z": -0.01864006742835045
+          },
+          "last_arrival_age_sec": 0.09550966799997695
+        },
+        {
+          "time": "2026-11-11T13:26:43.055873+08:00",
+          "phase": "hold",
+          "elapsed_sec": 144.342392734,
+          "count": 298,
+          "position": {
+            "x": 1.7898002862930298,
+            "y": 0.6588108539581299,
+            "z": -0.01841653324663639
+          },
+          "last_arrival_age_sec": 0.04319211700021697
+        },
+        {
+          "time": "2026-11-11T13:26:58.067839+08:00",
+          "phase": "hold",
+          "elapsed_sec": 159.35413655799994,
+          "count": 327,
+          "position": {
+            "x": 1.961014747619629,
+            "y": 0.7495774626731873,
+            "z": 0.011314064264297485
+          },
+          "last_arrival_age_sec": 1.2582923170002687
+        },
+        {
+          "time": "2026-11-11T13:27:13.085224+08:00",
+          "phase": "hold",
+          "elapsed_sec": 174.37137697399976,
+          "count": 363,
+          "position": {
+            "x": 2.1415719985961914,
+            "y": 0.8825445771217346,
+            "z": 0.06004716455936432
+          },
+          "last_arrival_age_sec": 0.07132142499995098
+        },
+        {
+          "time": "2026-11-11T13:27:28.104957+08:00",
+          "phase": "hold",
+          "elapsed_sec": 189.39095162499962,
+          "count": 401,
+          "position": {
+            "x": 2.1526994705200195,
+            "y": 0.8808683753013611,
+            "z": 0.07253853231668472
+          },
+          "last_arrival_age_sec": 0.5833576089999042
+        },
+        {
+          "time": "2026-11-11T13:27:43.125300+08:00",
+          "phase": "hold",
+          "elapsed_sec": 204.41123076299982,
+          "count": 444,
+          "position": {
+            "x": 2.1418893337249756,
+            "y": 0.8783221244812012,
+            "z": 0.07966314256191254
+          },
+          "last_arrival_age_sec": 0.20494531600024857
+        },
+        {
+          "time": "2026-11-11T13:27:58.164871+08:00",
+          "phase": "hold",
+          "elapsed_sec": 219.4506751869999,
+          "count": 484,
+          "position": {
+            "x": 2.1475577354431152,
+            "y": 0.8809530735015869,
+            "z": 0.07818809896707535
+          },
+          "last_arrival_age_sec": 0.14312082000014925
+        },
+        {
+          "time": "2026-11-11T13:27:59.164867+08:00",
+          "phase": "hold",
+          "elapsed_sec": 220.45100529399997,
+          "count": 487,
+          "position": {
+            "x": 2.143028497695923,
+            "y": 0.8819425702095032,
+            "z": 0.08081214874982834
+          },
+          "last_arrival_age_sec": 0.15214842700015652
+        }
+      ],
+      "sampling_limitation": "Positions are observer snapshots at approximately 1 Hz; deltas are estimated position changes, not physical ground truth or a complete path."
+    },
+    "/odom": {
+      "first_observation": {
+        "time": "2026-11-11T13:24:43.868112+08:00",
+        "count": 95,
+        "position": {
+          "x": 0.0007290570785154537,
+          "y": -0.007980241191209641,
+          "z": -0.0073640008924014694
+        }
+      },
+      "first_hold_observation": {
+        "time": "2026-11-11T13:24:59.897609+08:00",
+        "position": {
+          "x": 2.0501281036924386,
+          "y": 0.8658179128575735,
+          "z": 0.01881172044359633
+        }
+      },
+      "final_position": {
+        "x": 2.1440664736182695,
+        "y": 0.87612929045961,
+        "z": 0.07863759177523807
+      },
+      "first_to_final": {
+        "dx": 2.143337416539754,
+        "dy": 0.8841095316508196,
+        "dz": 0.08600159266763954,
+        "xy_m": 2.3185221467769375,
+        "xyz_m": 2.320116639101687
+      },
+      "first_hold_to_final": {
+        "dx": 0.09393836992583093,
+        "dy": 0.010311377602036487,
+        "dz": 0.059825871331641745,
+        "xy_m": 0.09450260235768133,
+        "xyz_m": 0.1118475602459177
+      },
+      "position_extrema": {
+        "x": {
+          "min": 0.0007290570785154537,
+          "max": 2.572369719094345
+        },
+        "y": {
+          "min": -0.007980241191209641,
+          "max": 1.1750480602047164
+        },
+        "z": {
+          "min": -0.7666824483680176,
+          "max": 0.4973194227210058
+        }
+      },
+      "largest_adjacent_observation_position_changes": [
+        {
+          "from_time": "2026-11-11T13:24:57.896961+08:00",
+          "to_time": "2026-11-11T13:24:58.897822+08:00",
+          "from_position": {
+            "x": 2.402565483644555,
+            "y": 1.1750480602047164,
+            "z": 0.44012457303518954
+          },
+          "to_position": {
+            "x": 1.7187710100569924,
+            "y": 0.8837809975471277,
+            "z": 0.32302460844428427
+          },
+          "delta": {
+            "dx": -0.6837944735875627,
+            "dy": -0.2912670626575887,
+            "dz": -0.11709996459090527,
+            "xy_m": 0.743243825334642,
+            "xyz_m": 0.7524119786428596
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:24:55.896172+08:00",
+          "to_time": "2026-11-11T13:24:56.896311+08:00",
+          "from_position": {
+            "x": 2.1289813454320905,
+            "y": 0.41590202142611776,
+            "z": -0.7666824483680176
+          },
+          "to_position": {
+            "x": 2.003039880998863,
+            "y": 1.0024510754732268,
+            "z": 0.4973194227210058
+          },
+          "delta": {
+            "dx": -0.1259414644332275,
+            "dy": 0.586549054047109,
+            "dz": 1.2640018710890235,
+            "xy_m": 0.599917532055152,
+            "xyz_m": 1.3991432290454386
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:25:14.917618+08:00",
+          "to_time": "2026-11-11T13:25:15.918000+08:00",
+          "from_position": {
+            "x": 1.320612755887143,
+            "y": 0.3873230711479417,
+            "z": -0.06824939480638426
+          },
+          "to_position": {
+            "x": 1.8368241992444323,
+            "y": 0.6862492852686679,
+            "z": -0.02352325775773127
+          },
+          "delta": {
+            "dx": 0.5162114433572893,
+            "dy": 0.29892621412072623,
+            "dz": 0.044726137048652984,
+            "xy_m": 0.5965158302522794,
+            "xyz_m": 0.598190239870947
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:25:13.917697+08:00",
+          "to_time": "2026-11-11T13:25:14.917618+08:00",
+          "from_position": {
+            "x": 1.8206475834005056,
+            "y": 0.6624301952056179,
+            "z": -0.03626122655102861
+          },
+          "to_position": {
+            "x": 1.320612755887143,
+            "y": 0.3873230711479417,
+            "z": -0.06824939480638426
+          },
+          "delta": {
+            "dx": -0.5000348275133626,
+            "dy": -0.2751071240576762,
+            "dz": -0.031988168255355644,
+            "xy_m": 0.5707177572439848,
+            "xyz_m": 0.5716135069624727
+          }
+        },
+        {
+          "from_time": "2026-11-11T13:25:05.906908+08:00",
+          "to_time": "2026-11-11T13:25:06.906998+08:00",
+          "from_position": {
+            "x": 2.1154768296652455,
+            "y": 0.832821048762667,
+            "z": 0.013898126369729783
+          },
+          "to_position": {
+            "x": 2.572369719094345,
+            "y": 1.167958173792869,
+            "z": 0.12375080280240136
+          },
+          "delta": {
+            "dx": 0.45689288942909956,
+            "dy": 0.335137125030202,
+            "dz": 0.10985267643267158,
+            "xy_m": 0.5666286305724241,
+            "xyz_m": 0.5771790151277174
+          }
+        }
+      ],
+      "timeline_15s": [
+        {
+          "time": "2026-11-11T13:24:43.868112+08:00",
+          "phase": "lio_start",
+          "elapsed_sec": 25.154365652999786,
+          "count": 95,
+          "position": {
+            "x": 0.0007290570785154537,
+            "y": -0.007980241191209641,
+            "z": -0.0073640008924014694
+          },
+          "last_arrival_age_sec": 0.00859244299999773
+        },
+        {
+          "time": "2026-11-11T13:24:58.897822+08:00",
+          "phase": "nav2_start",
+          "elapsed_sec": 40.18449994799994,
+          "count": 1599,
+          "position": {
+            "x": 1.7187710100569924,
+            "y": 0.8837809975471277,
+            "z": 0.32302460844428427
+          },
+          "last_arrival_age_sec": 8.56910000948119e-05
+        },
+        {
+          "time": "2026-11-11T13:25:13.917697+08:00",
+          "phase": "hold",
+          "elapsed_sec": 55.20354260399972,
+          "count": 3100,
+          "position": {
+            "x": 1.8206475834005056,
+            "y": 0.6624301952056179,
+            "z": -0.03626122655102861
+          },
+          "last_arrival_age_sec": 0.008238473999881535
+        },
+        {
+          "time": "2026-11-11T13:25:28.939184+08:00",
+          "phase": "hold",
+          "elapsed_sec": 70.22500143499974,
+          "count": 4603,
+          "position": {
+            "x": 1.8143558560009578,
+            "y": 0.6691712843040841,
+            "z": 0.006405525224351071
+          },
+          "last_arrival_age_sec": 0.00011012899994966574
+        },
+        {
+          "time": "2026-11-11T13:25:43.956963+08:00",
+          "phase": "hold",
+          "elapsed_sec": 85.2429090759997,
+          "count": 6104,
+          "position": {
+            "x": 1.7932561058965404,
+            "y": 0.6652602303930952,
+            "z": -0.015202965849111301
+          },
+          "last_arrival_age_sec": 0.007946193999941897
+        },
+        {
+          "time": "2026-11-11T13:25:58.985067+08:00",
+          "phase": "hold",
+          "elapsed_sec": 100.2720876999997,
+          "count": 7607,
+          "position": {
+            "x": 1.7848447757689718,
+            "y": 0.6561060194414887,
+            "z": -0.01812478004403263
+          },
+          "last_arrival_age_sec": 0.009450526999899012
+        },
+        {
+          "time": "2026-11-11T13:26:14.005186+08:00",
+          "phase": "hold",
+          "elapsed_sec": 115.29231013699973,
+          "count": 9110,
+          "position": {
+            "x": 1.7901764231717416,
+            "y": 0.656003450434545,
+            "z": -0.013476625499934261
+          },
+          "last_arrival_age_sec": 4.9326999942422844e-05
+        },
+        {
+          "time": "2026-11-11T13:26:29.027348+08:00",
+          "phase": "hold",
+          "elapsed_sec": 130.31379400099968,
+          "count": 10612,
+          "position": {
+            "x": 1.7788300822149294,
+            "y": 0.6619659840727048,
+            "z": -0.021086120468472327
+          },
+          "last_arrival_age_sec": 0.0001000279999061604
+        },
+        {
+          "time": "2026-11-11T13:26:44.056382+08:00",
+          "phase": "hold",
+          "elapsed_sec": 145.3429485419997,
+          "count": 12115,
+          "position": {
+            "x": 1.7890875603274163,
+            "y": 0.6795528783006289,
+            "z": -0.022483512154949942
+          },
+          "last_arrival_age_sec": 9.230499972545658e-05
+        },
+        {
+          "time": "2026-11-11T13:26:59.075676+08:00",
+          "phase": "hold",
+          "elapsed_sec": 160.36155563899956,
+          "count": 13616,
+          "position": {
+            "x": 2.0317441814542714,
+            "y": 0.827996641682991,
+            "z": 0.015495879822913533
+          },
+          "last_arrival_age_sec": 0.008538310999938403
+        },
+        {
+          "time": "2026-11-11T13:27:14.085400+08:00",
+          "phase": "hold",
+          "elapsed_sec": 175.3715063159998,
+          "count": 15117,
+          "position": {
+            "x": 2.1573011697862645,
+            "y": 0.9040728032143214,
+            "z": 0.07573165681816826
+          },
+          "last_arrival_age_sec": 0.00862437800014959
+        },
+        {
+          "time": "2026-11-11T13:27:29.104971+08:00",
+          "phase": "hold",
+          "elapsed_sec": 190.39097469699982,
+          "count": 16619,
+          "position": {
+            "x": 2.174594977321086,
+            "y": 0.8932105081433768,
+            "z": 0.11927572897105296
+          },
+          "last_arrival_age_sec": 0.009488770000189106
+        },
+        {
+          "time": "2026-11-11T13:27:44.133611+08:00",
+          "phase": "hold",
+          "elapsed_sec": 205.42030548999992,
+          "count": 18121,
+          "position": {
+            "x": 2.1430311687235606,
+            "y": 0.8781319827056222,
+            "z": 0.078956492837626
+          },
+          "last_arrival_age_sec": 0.01976355800024976
+        },
+        {
+          "time": "2026-11-11T13:27:59.164867+08:00",
+          "phase": "hold",
+          "elapsed_sec": 220.45100529399997,
+          "count": 19625,
+          "position": {
+            "x": 2.1428563873665225,
+            "y": 0.8786704586665154,
+            "z": 0.07903905732839016
+          },
+          "last_arrival_age_sec": 0.009426547000202845
+        }
+      ],
+      "sampling_limitation": "Positions are observer snapshots at approximately 1 Hz; deltas are estimated position changes, not physical ground truth or a complete path."
+    }
+  },
+  "motion_observation": {
+    "/indoor_startup/cmd_vel": {
+      "count": 0,
+      "counters": {}
+    },
+    "/indoor_startup/cmd_vel_nav": {
+      "count": 0,
+      "counters": {}
+    },
+    "/indoor_startup/cmd_vel_smoothed": {
+      "count": 0,
+      "counters": {}
+    },
+    "/navigate_to_pose/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/navigate_through_poses/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/follow_waypoints/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/follow_path/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/spin/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/backup/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/drive_on_heading/_action/status": {
+      "count": 0,
+      "counters": {}
+    }
+  },
+  "logs": {
+    "imu.log": {
+      "line_count": 5,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [
+        {
+          "line": 3,
+          "text": "[WARN] [1794374661.524846584] [ahrs_bringup]: check crc16 failed (ahrs), total_crc_errors=1"
+        }
+      ],
+      "runtime_warning_count": 2,
+      "known_point_count_warning_count": 0
+    },
+    "lidar.log": {
+      "line_count": 70,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    },
+    "lidar_converter.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    },
+    "lio_featureExtraction.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    },
+    "lio_imageProjection.log": {
+      "line_count": 6,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    },
+    "lio_imuPreintegration.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    },
+    "lio_mapOptimization.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    },
+    "nav2.log": {
+      "line_count": 472,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [
+        {
+          "line": 148,
+          "text": "[component_container_isolated-1] [INFO] [1794374684.817148367] [controller_server]: Optimizer reset"
+        },
+        {
+          "line": 199,
+          "text": "[component_container_isolated-1] [INFO] [1794374697.903820032] [controller_server]: Optimizer reset"
+        }
+      ],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 180,
+      "known_point_count_warning_count": 178
+    },
+    "pointcloud_scan.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failure": [],
+      "runtime_reset_or_gtsam_lines": [],
+      "crc_failure_lines": [],
+      "runtime_warning_count": 0,
+      "known_point_count_warning_count": 0
+    }
+  },
+  "cleanup": {
+    "program_record": [
+      {
+        "label": "nav2",
+        "pid": 12273,
+        "returncode": -15
+      },
+      {
+        "label": "lio_mapOptimization",
+        "pid": 12148,
+        "returncode": 0
+      },
+      {
+        "label": "lio_featureExtraction",
+        "pid": 12147,
+        "returncode": 0
+      },
+      {
+        "label": "lio_imageProjection",
+        "pid": 12146,
+        "returncode": 0
+      },
+      {
+        "label": "lio_imuPreintegration",
+        "pid": 12145,
+        "returncode": 0
+      },
+      {
+        "label": "pointcloud_scan",
+        "pid": 12087,
+        "returncode": 0
+      },
+      {
+        "label": "lidar_converter",
+        "pid": 12086,
+        "returncode": 0
+      },
+      {
+        "label": "lidar",
+        "pid": 12085,
+        "returncode": 0
+      },
+      {
+        "label": "imu",
+        "pid": 12084,
+        "returncode": 0
+      }
+    ],
+    "independent_process_group_inspection_time": "2026-11-11T13:31:00.791243+08:00",
+    "owned_process_groups": {
+      "12084": "imu",
+      "12085": "lidar",
+      "12086": "lidar_converter",
+      "12087": "pointcloud_scan",
+      "12145": "lio_imuPreintegration",
+      "12146": "lio_imageProjection",
+      "12147": "lio_featureExtraction",
+      "12148": "lio_mapOptimization",
+      "12273": "nav2"
+    },
+    "surviving_members": [],
+    "interpretation": "No surviving member of a test-owned process group was found."
+  },
+  "findings": [
+    {
+      "severity": "follow_up",
+      "finding": "Estimated mapping XY position changed by 2.3153 m; /odom changed by 2.3185 m. Physical immobility is unverified, so neither stable localization nor definite drift can be concluded."
+    },
+    {
+      "severity": "follow_up",
+      "finding": "The IMU driver published two invalid startup orientations (near-zero and very large norm), logged one AHRS CRC failure, and produced one startup header interval of 0.32 s."
+    },
+    {
+      "severity": "follow_up",
+      "finding": "IMU and odom timestamps lead host time by approximately 0.35 s."
+    },
+    {
+      "severity": "observation",
+      "finding": "No hold ready fall, Nav2 lifecycle downgrade, TF freshness failure, runtime ERROR/FATAL, LIO reset/GTSAM exception, heartbeat failure, observed velocity message, or action-status message."
+    },
+    {
+      "severity": "existing_diagnostic_defect",
+      "finding": "The existing obstacle_layer.cpp total_points variable is initialized to 0 and never incremented, so its valid-point-zero warning is not reliable. No code was changed by this review."
+    }
+  ]
+}

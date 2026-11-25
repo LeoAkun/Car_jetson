@@ -1,0 +1,21 @@
+uint8 SOURCE_UNKNOWN=0
+uint8 SOURCE_SCAN_TO_MAP=1
+uint8 SOURCE_LOOP=2
+uint8 SOURCE_GPS=3
+uint8 SOURCE_RESET=4
+
+std_msgs/Header header
+string instance_id
+uint64 generation
+uint64 correction_epoch
+uint8 source
+geometry_msgs/Pose predicted_pose_at_stamp
+geometry_msgs/Pose optimized_pose_at_stamp
+geometry_msgs/Pose incremental_pose_at_stamp
+float64 translation_residual
+float64 yaw_residual
+float64 source_score
+float64 arrival_delay_sec
+bool degenerate
+bool accepted
+string reason

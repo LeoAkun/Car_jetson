@@ -1,0 +1,8 @@
+{
+  "ca_file": "/etc/traffic-light/tls/ca.crt",
+  "cert_file": "/etc/traffic-light/tls/controller.crt",
+  "key_file": "/etc/traffic-light/tls/controller.key",
+  "server_name": "traffic-light.service",
+  "expected_peer_role": "service",
+  "handshake_timeout_s": 3.0
+}

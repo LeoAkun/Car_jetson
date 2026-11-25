@@ -1,7 +1,7 @@
 /**:
   ros__parameters:
     registration_method: NDT_OMP # NDT , NDT_OMP , GICP , GICP_OMP
-    score_threshold: 2.0 # 匹配质量阈值，值越小要求匹配质量越高
+    score_threshold: 0.05 # 服务端记录阈值；最终硬拒绝由上层结果门禁执行
     transform_epsilon: 0.01 # 收敛判断阈值，当两次迭代的变换矩阵差异小于此值时停止。值越小，迭代次数越多，精度越高
 
     # NDT专用参数
@@ -18,7 +18,7 @@
     # 地图相关参数
     use_pcd_map: true # 是否使用PCD文件作为地图，true = 从文件加载，false = 订阅ROS话题
     # map_path: /home/akun/workspace/Car_jetson/cloudGlobal_clean.pcd # 实验室地图
-    map_path: /home/akun/workspace/Car_jetson/GlobalMap3.pcd  # 室外地图
+    map_path: /home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap3.pcd  # 恢复后的原室外地图
     use_odom: false # 是否使用里程计/IMU辅助定位。true = 用里程计预测位姿，减少匹配搜索范围
     use_imu: false
     enable_debug: true # 是否输出调试信息

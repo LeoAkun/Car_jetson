@@ -1,0 +1,3 @@
+# Confirmed by physical occlusion on 2026-10-29. Keep this USB port fixed.
+# All five UVC cameras share a serial number, so match port, VID/PID and index.
+SUBSYSTEM=="video4linux", KERNEL=="video*", ATTR{index}=="0", ENV{ID_VENDOR_ID}=="1bcf", ENV{ID_MODEL_ID}=="0001", ENV{ID_PATH}=="pci-0000:00:14.0-usb-0:4.1:1.0", SYMLINK+="front_traffic_camera"

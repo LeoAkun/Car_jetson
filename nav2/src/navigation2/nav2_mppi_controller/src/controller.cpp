@@ -142,7 +142,7 @@ geometry_msgs::msg::TwistStamped MPPIController::computeVelocityCommands(
 
   geometry_msgs::msg::TwistStamped cmd =
     optimizer_.evalControl(robot_pose, robot_speed, transformed_plan, goal_checker); // 计算速度
-    RCLCPP_INFO(logger_, "cmd_vel: linear.x=%.3f, linear.y=%.3f, angular.z=%.3f",                                                                            
+    RCLCPP_DEBUG(logger_, "cmd_vel: linear.x=%.3f, linear.y=%.3f, angular.z=%.3f",
               cmd.twist.linear.x, cmd.twist.linear.y, cmd.twist.angular.z);
               
 #ifdef BENCHMARK_TESTING

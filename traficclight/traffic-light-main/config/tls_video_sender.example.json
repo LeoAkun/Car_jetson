@@ -1,0 +1,8 @@
+{
+  "ca_file": "/etc/traffic-light/tls/ca.crt",
+  "cert_file": "/etc/traffic-light/tls/video-sender.crt",
+  "key_file": "/etc/traffic-light/tls/video-sender.key",
+  "server_name": "traffic-light.service",
+  "expected_peer_role": "service",
+  "handshake_timeout_s": 3.0
+}

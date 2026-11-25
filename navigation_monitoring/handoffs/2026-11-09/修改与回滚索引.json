@@ -1,0 +1,578 @@
+{
+  "read_only_inventory": true,
+  "primary_workspace": "/home/akun/workspace/Car_jetson",
+  "legacy_evidence_root": "/home/akun/car-host-step9.MgehLL",
+  "sensor_reference_root": "/home/akun/workspace/sensor/real_ws",
+  "items": [
+    {
+      "id": "brltty",
+      "status": "已永久部署，并于交接盘点再次只读确认masked",
+      "summary": "brltty.service及brltty-udev.service永久mask并停止，包未卸载；当时导致cp210x接口丢失。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/disable-brltty-permanently-2026-10-26.log",
+        "/home/akun/car-host-step9.MgehLL/接车后方案.md"
+      ],
+      "files": [
+        "/etc/systemd/system/brltty.service",
+        "/etc/systemd/system/brltty-udev.service",
+        "/home/akun/car-host-step9.MgehLL/repair-imu-usb.bash"
+      ],
+      "rollback": "sudo systemctl unmask brltty-udev.service brltty.service；仅记录，不执行",
+      "source_paths": [
+        "/etc/systemd/system/brltty.service",
+        "/etc/systemd/system/brltty-udev.service",
+        "/home/akun/car-host-step9.MgehLL/repair-imu-usb.bash"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/disable-brltty-permanently-2026-10-26.log",
+        "/home/akun/car-host-step9.MgehLL/接车后方案.md"
+      ]
+    },
+    {
+      "id": "gps_port",
+      "status": "已修复并构建安装",
+      "summary": "配置/驱动默认/单项launch/总launch统一ttyS8、115200。室内NMEA校验通过不等于有效fix；Nov2室外12星有效fix通过。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/gps-nmea-result.json",
+        "/home/akun/car-host-step9.MgehLL/static-localization-2026-11-02/实车静止定位验收.md"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps",
+        "/home/akun/workspace/Car_jetson/real_ws/src/launch_real/launch/run.launch.py"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps",
+        "/home/akun/workspace/Car_jetson/real_ws/src/launch_real/launch/run.launch.py"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/gps-nmea-result.json",
+        "/home/akun/car-host-step9.MgehLL/static-localization-2026-11-02/实车静止定位验收.md"
+      ]
+    },
+    {
+      "id": "network",
+      "status": "已保存永久配置；本次盘点仍活跃",
+      "summary": "br-sensors=192.168.1.140/24，eno1及enp4s0桥接，无传感器默认网关；Wi-Fi保留192.168.3.23/24。eno1接前后单线交换机，enp4s0接RSHELIOS；底盘can_eth_card=br-sensors。enp2s0暂不用。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/network-config.log",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/bridge-udp-result.json",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md"
+      ],
+      "files": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/configure-sensor-bridge.bash",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py"
+      ],
+      "rollback": "configure-sensor-bridge.bash --rollback；仅记录，不执行",
+      "source_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/configure-sensor-bridge.bash",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/network-config.log",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/bridge-udp-result.json",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md"
+      ]
+    },
+    {
+      "id": "rslidar_timestamp_stop",
+      "status": "已修复构建安装并实测",
+      "summary": "RSHELIOS首点时间初始化；ROS信号退出和joinable防重复join；无数据退出0约0.816秒。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/stop-result.json"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/node/rslidar_sdk_node.cpp",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/src/source/source_driver.hpp",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/src/rs_driver/src/rs_driver/driver/decoder/decoder_RSHELIOS.hpp"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/node/rslidar_sdk_node.cpp",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/src/source/source_driver.hpp",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/src/rs_driver/src/rs_driver/driver/decoder/decoder_RSHELIOS.hpp"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/stop-result.json"
+      ]
+    },
+    {
+      "id": "lakibeam_stop",
+      "status": "已修复构建安装并实测",
+      "summary": "200ms接收超时、检查socket/长度/退出状态并释放；无数据退出0约0.365秒。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/stop-result.json"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/src/lakibeam1_scan.cpp"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/src/lakibeam1_scan.cpp"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/stop-result.json"
+      ]
+    },
+    {
+      "id": "scan_merge",
+      "status": "已修复构建安装并联测",
+      "summary": "等待启用输入都收到再发布，时间戳跟随触发扫描，scan_time从0.3333改0.0333333333秒；仍是最新两路拼接，非硬件同步/运动补偿。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/integrated-result.json"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/src/main.cpp",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/src/main.cpp",
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/integrated-result.json"
+      ]
+    },
+    {
+      "id": "rear_camera",
+      "status": "默认入口修复，未创建rear_camera别名",
+      "summary": "默认用/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1:1.0-video-index0并os.path.realpath；rear/AprilTag默认入口30Hz通过。/dev/rear_camera当前不存在符合此设计；USB物理口需保持。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/rear_camera.launch.py",
+        "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/apriltag_docking.launch.py"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/rear_camera.launch.py",
+        "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/apriltag_docking.launch.py"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md"
+      ]
+    },
+    {
+      "id": "extrinsic_11cm",
+      "status": "按用户确认修正并安装",
+      "summary": "LIO-SAM params_rslidar.yaml及copy由-0.15m变-0.11m；只确认高度，其他外参/硬件同步未验收。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/extrinsic-height-check.json",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml",
+        "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar copy.yaml"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml",
+        "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar copy.yaml"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/extrinsic-height-check.json",
+        "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md"
+      ]
+    },
+    {
+      "id": "navigation_fallback_route",
+      "status": "已修复部署，27项隔离验收通过",
+      "summary": "等待备用路线期间接受匹配当前起终点的路线，清除等待状态；隔离模拟有真实Nav2但合成定位/替身进程服务，非实车动力学验证。",
+      "evidence": [
+        "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/导航模拟验收结果.md",
+        "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/summary.json"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/导航模拟验收结果.md",
+        "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/summary.json"
+      ]
+    },
+    {
+      "id": "navigation_async_and_dijkstra",
+      "status": "报告明确已源码修复与构建安装",
+      "summary": "10月30日递归恢复改定时有限预算；任务/目标代次隔离旧回调；清理期拒新任务；路径改Dijkstra单路，失败清旧结果。相关71项源码及安装测试通过。后续审计的切图请求关联/并发/取消和未生效总超时等仍未修。",
+      "evidence": [
+        "/home/akun/workspace/navigation_code_audit_2026-10-30.md",
+        "/home/akun/workspace/navigation_followup_audit_2026-10-30.md"
+      ],
+      "files": [
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py",
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/route_planner.py"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py",
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/route_planner.py"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/workspace/navigation_code_audit_2026-10-30.md",
+        "/home/akun/workspace/navigation_followup_audit_2026-10-30.md"
+      ]
+    },
+    {
+      "id": "speed_units",
+      "status": "11月6日已修复构建安装，后被2kmh上限更新",
+      "summary": "Twist.linear.x为m/s，Ecu.motor乘3.6为km/h；SI速度算转角，不把电机偏置混入；最终限幅、停车先判及充电独立0.10m/s。54项离线安装测试通过。原报告3kmh历史值现已变2kmh。保留0.8kmh最低补偿。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/pytest_installed.xml"
+      ],
+      "backup": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/before",
+      "patch": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/speed_units.patch",
+      "source_paths": [],
+      "backup_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/before"
+      ],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/pytest_installed.xml"
+      ]
+    },
+    {
+      "id": "goal_critic_handoff",
+      "status": "11月6日已部署单参数修改",
+      "summary": "GoalCritic threshold 0.8→1.6m，PathFollow仍1.4m，消除交接空档；42项原生检查通过。未修改SimpleGoalChecker位置0.5m/yaw6.28，也未要求到点停稳。不能把此项当作Nov9衔接偏左已修。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/critic_validation.json"
+      ],
+      "backup": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/before",
+      "patch": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/goal_approach.patch",
+      "source_paths": [],
+      "backup_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/before"
+      ],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/critic_validation.json"
+      ]
+    },
+    {
+      "id": "mppi_retry",
+      "status": "11月6日已修复构建安装",
+      "summary": "reset清失败标志/缓存；失败批次不更新控制；每evalControl独立重试计数，保留动态限速。安装23专项+12Optimizer+2CriticManager通过。候选全碰撞仍可合法失败。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/installation_validation.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/installed_regression_result.json"
+      ],
+      "backup": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/before",
+      "patch": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/mppi_retry.patch",
+      "source_paths": [],
+      "backup_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/before"
+      ],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/installation_validation.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/installed_regression_result.json"
+      ]
+    },
+    {
+      "id": "speed_limit_2kmh",
+      "status": "11月7日已修复构建安装，当前配置核实相同",
+      "summary": "MPPI/smoother/转换器两YAML及默认目标±2/3.6m/s，补偿后也限幅；54项安装测试通过。Nov9第一轮上限生效。手动遥控/直发ecu不在此目标限制内。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/installation_validation.json"
+      ],
+      "backup": "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/before",
+      "patch": "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/speed_limit_2kmh.patch",
+      "source_paths": [],
+      "backup_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/before"
+      ],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/installation_validation.json"
+      ]
+    },
+    {
+      "id": "status_topic_nov9",
+      "status": "已改源配置/代码并重启手工状态上报进程",
+      "summary": "状态topic从旧prod/data/vehicle/...改robot/LS1234567890/up/ack；默认topic由vin生成并允许覆盖。订阅真实broker两条QoS1消息间隔3.004秒；task订阅保持robot/LS1234567890/down/cmd。状态上报可独立留存，不等于导航运行；零字段可能为缺输入默认值。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/validation.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/broker_delivery_probe.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/lifecycle.json"
+      ],
+      "backup": "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/backup",
+      "files": [
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/status_reporter.py",
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/status_reporter.py",
+        "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml"
+      ],
+      "backup_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/backup"
+      ],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/validation.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/broker_delivery_probe.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/lifecycle.json"
+      ]
+    },
+    {
+      "id": "init_quality_threshold",
+      "status": "当前源码及安装0.05；具体变更授权/时间需回查会话",
+      "summary": "nav2_init_pose早停和最终接受fitness<0.05，旧Nov2报告final<10已过时；定位服务score_threshold仍2.0。已核当前安装与源码相同。",
+      "files": [
+        "/home/akun/workspace/Car_jetson/nav2/src/nav2_init_pose/nav2_init_pose/nav2_init_pose.py",
+        "/home/akun/workspace/Car_jetson/utils/src/re_localization/param/localization_real.yaml"
+      ],
+      "source_paths": [
+        "/home/akun/workspace/Car_jetson/nav2/src/nav2_init_pose/nav2_init_pose/nav2_init_pose.py",
+        "/home/akun/workspace/Car_jetson/utils/src/re_localization/param/localization_real.yaml"
+      ],
+      "backup_paths": [],
+      "validation_paths": []
+    },
+    {
+      "id": "reboot_monitor",
+      "status": "独立用户服务已部署且当前active；根因未修",
+      "summary": "carjetson-navigation-watch.service以1秒采样，Restart=always仅重启监控进程，非整机/导航恢复。11月7日两次异常新boot16:16:07和16:19:30；16:58人工关机、17:04室内排除。RxErr为线索未定因，现驱动使用Car_jetson而非sensor。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/REBOOT_AUDIT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/SENSOR_REBOOT_REVIEW.md"
+      ],
+      "files": [
+        "/home/akun/.config/systemd/user/carjetson-navigation-watch.service",
+        "/home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py"
+      ],
+      "source_paths": [
+        "/home/akun/.config/systemd/user/carjetson-navigation-watch.service",
+        "/home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py"
+      ],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/REBOOT_AUDIT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/SENSOR_REBOOT_REVIEW.md"
+      ]
+    },
+    {
+      "id": "audited_unfixed",
+      "status": "仅审计未修，用户Nov9明确先不修偏左问题",
+      "summary": "odom.twist坐标系错误；global障碍层负高度过滤；到106未停稳/近20度偏航衔接；转向滞后/低速补偿模型；车体轮廓不一致；误报警total_points=0；初始化生命周期就绪检查；IMU预积分初态/积分检查/异常恢复；传感器队列/串口风险。",
+      "evidence": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/DEVIATION_FINDINGS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/DEVIATION_FINDINGS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/imu_checks/2026-11-09_17-00-32/RESULT.md"
+      ],
+      "source_paths": [],
+      "backup_paths": [],
+      "validation_paths": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/DEVIATION_FINDINGS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/DEVIATION_FINDINGS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/imu_checks/2026-11-09_17-00-32/RESULT.md"
+      ]
+    }
+  ],
+  "source_installed_checks": [
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/launch_real/launch/run.launch.py",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/launch_real/share/launch_real/launch/run.launch.py",
+      "source_sha256": "f9d3180a47787490255453e564ce79c25ab4747408d3ba1059f74f16152b2de3",
+      "installed_sha256": "f9d3180a47787490255453e564ce79c25ab4747408d3ba1059f74f16152b2de3",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/src/launch_real/launch/run.launch.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps/config/gnss_converter.yaml",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/gnss_converter/share/gnss_converter/config/gnss_converter.yaml",
+      "source_sha256": "aa27853bf45b3928596cc42cbc090e74ab9c248ea8de7561077999309fef5cc7",
+      "installed_sha256": "aa27853bf45b3928596cc42cbc090e74ab9c248ea8de7561077999309fef5cc7",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps/config/gnss_converter.yaml"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps/launch/gnss_converter.launch.py",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/gnss_converter/share/gnss_converter/launch/gnss_converter.launch.py",
+      "source_sha256": "a9cf04dbf027a25abf31cd16e2648190bc44d279a8eaca08b5b88718e602660f",
+      "installed_sha256": "a9cf04dbf027a25abf31cd16e2648190bc44d279a8eaca08b5b88718e602660f",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps/launch/gnss_converter.launch.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/rear_camera.launch.py",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/charging_dock/share/charging_dock/launch/rear_camera.launch.py",
+      "source_sha256": "743fc3a7730b8027ea6daf5f00fd339425150e326ea48dc9463939cfe9bd02e5",
+      "installed_sha256": "743fc3a7730b8027ea6daf5f00fd339425150e326ea48dc9463939cfe9bd02e5",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/install/charging_dock/share/charging_dock/launch/rear_camera.launch.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/apriltag_docking.launch.py",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/charging_dock/share/charging_dock/launch/apriltag_docking.launch.py",
+      "source_sha256": "5d63575d0fc42f321b99b74e79a09b79c06f919cf0d00300ce196118692acb29",
+      "installed_sha256": "5d63575d0fc42f321b99b74e79a09b79c06f919cf0d00300ce196118692acb29",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/install/charging_dock/share/charging_dock/launch/apriltag_docking.launch.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/lib/python3.10/site-packages/cmdvel_2_ecu/convert.py",
+      "source_sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574",
+      "installed_sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/lib/python3.10/site-packages/cmdvel_2_ecu/convert.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml",
+      "source_sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f",
+      "installed_sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml",
+      "installed": "/home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/docking_config.yaml",
+      "source_sha256": "314516428c528fceddb740ea8ab8a425012edd35e39eb38120268d7896bd74b6",
+      "installed_sha256": "314516428c528fceddb740ea8ab8a425012edd35e39eb38120268d7896bd74b6",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/docking_config.yaml"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml",
+      "installed": "/home/akun/workspace/Car_jetson/nav2/install/nav2/share/nav2/config/nav2_real_params.yaml",
+      "source_sha256": "be205cda306c21f70500093fbd20975ea0cedd924f13404357d4b190ffa89a8b",
+      "installed_sha256": "be205cda306c21f70500093fbd20975ea0cedd924f13404357d4b190ffa89a8b",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml",
+      "installed": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/share/lio_sam/config/params_rslidar.yaml",
+      "source_sha256": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a",
+      "installed_sha256": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/share/lio_sam/config/params_rslidar.yaml"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/nav2/src/nav2_init_pose/nav2_init_pose/nav2_init_pose.py",
+      "installed": "/home/akun/workspace/Car_jetson/nav2/install/nav2_init_pose/lib/python3.10/site-packages/nav2_init_pose/nav2_init_pose.py",
+      "source_sha256": "b4178cbf89ee9d5145582d9174002b7ad3ac6968e71c3ff9e8ee68e2b3625bd8",
+      "installed_sha256": "b4178cbf89ee9d5145582d9174002b7ad3ac6968e71c3ff9e8ee68e2b3625bd8",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/nav2/install/nav2_init_pose/lib/python3.10/site-packages/nav2_init_pose/nav2_init_pose.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/status_reporter.py",
+      "installed": "/home/akun/workspace/Car_jetson/multi_map_navigation/build/multi_map_navigation/multi_map_navigation/status_reporter.py",
+      "source_sha256": "8a323f350077a04260c8e2a79dcb7801139a159e18d3afdbb46596b86ba06f30",
+      "installed_sha256": "8a323f350077a04260c8e2a79dcb7801139a159e18d3afdbb46596b86ba06f30",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/status_reporter.py"
+    },
+    {
+      "source": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml",
+      "installed": "/home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/mqtt_config.yaml",
+      "source_sha256": "5727e075c35a233969ae048ad5a49e5e4c4ff9c0047929d59b7c511641d8ea9c",
+      "installed_sha256": "5727e075c35a233969ae048ad5a49e5e4c4ff9c0047929d59b7c511641d8ea9c",
+      "equal": true,
+      "installed_resolved": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml"
+    }
+  ],
+  "notes": [
+    "长聊天已有大量未提交改动；git status不能代表本聊天全部由助手修改。不要git restore/reset或用旧整份yaml覆盖。",
+    "sensor/real_ws为旧参考副本，正常运行明确用Car_jetson五workspace install，不混source同名包。",
+    "安装Python multi_map_navigation为egg-link到build，build模块再链接源码；Python改动需新进程生效。",
+    "IMU ELF为普通文件，源码修改不能证明已编入；见SENSOR_RUNTIME_AUDIT.md；速腾/单线安装ELF链接build。",
+    "mqtt_config.yaml及其备份含凭据，交接不要把账号密码贴入文档/聊天；文件留本地按需读取。",
+    "Oct29早期传感器修复未发现完整before源码备份，保留报告/构建日志；Nov6/7改动有before/manifest/patch。",
+    "文中日志时间按原始文件北京时间保留，不等于客户端时区。"
+  ],
+  "source_paths": [
+    "/etc/systemd/system/brltty.service",
+    "/etc/systemd/system/brltty-udev.service",
+    "/home/akun/car-host-step9.MgehLL/repair-imu-usb.bash",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/gps",
+    "/home/akun/workspace/Car_jetson/real_ws/src/launch_real/launch/run.launch.py",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/configure-sensor-bridge.bash",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/node/rslidar_sdk_node.cpp",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/src/source/source_driver.hpp",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/rslidar/rslidar_sdk/src/rs_driver/src/rs_driver/driver/decoder/decoder_RSHELIOS.hpp",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/src/lakibeam1_scan.cpp",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/src/main.cpp",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml",
+    "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/rear_camera.launch.py",
+    "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/launch/apriltag_docking.launch.py",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar copy.yaml",
+    "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py",
+    "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/route_planner.py",
+    "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/multi_map_navigation/status_reporter.py",
+    "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml",
+    "/home/akun/workspace/Car_jetson/nav2/src/nav2_init_pose/nav2_init_pose/nav2_init_pose.py",
+    "/home/akun/workspace/Car_jetson/utils/src/re_localization/param/localization_real.yaml",
+    "/home/akun/.config/systemd/user/carjetson-navigation-watch.service",
+    "/home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py"
+  ],
+  "backup_paths": [
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/before",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/before",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/before",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/before",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/backup"
+  ],
+  "validation_paths": [
+    "/home/akun/car-host-step9.MgehLL/disable-brltty-permanently-2026-10-26.log",
+    "/home/akun/car-host-step9.MgehLL/接车后方案.md",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/gps-nmea-result.json",
+    "/home/akun/car-host-step9.MgehLL/static-localization-2026-11-02/实车静止定位验收.md",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/network-config.log",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/bridge-udp-result.json",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/stop-result.json",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/integrated-result.json",
+    "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/extrinsic-height-check.json",
+    "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/导航模拟验收结果.md",
+    "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/summary.json",
+    "/home/akun/workspace/navigation_code_audit_2026-10-30.md",
+    "/home/akun/workspace/navigation_followup_audit_2026-10-30.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/RESULT.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/pytest_installed.xml",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/RESULT.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/critic_validation.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/RESULT.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/installation_validation.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/installed_regression_result.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/RESULT.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/installation_validation.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/validation.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/broker_delivery_probe.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/lifecycle.json",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/RESULT.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/REBOOT_AUDIT.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/SENSOR_REBOOT_REVIEW.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/DEVIATION_FINDINGS.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/DEVIATION_FINDINGS.md",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/imu_checks/2026-11-09_17-00-32/RESULT.md"
+  ]
+}

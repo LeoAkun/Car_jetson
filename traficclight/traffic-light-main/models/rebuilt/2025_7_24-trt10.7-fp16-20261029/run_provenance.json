@@ -1,0 +1,5 @@
+{
+  "export_build_script_sha256": "99723f38a02dda9846aa1a2288a200731e6c4e6b2480c0634aa99b976fd69bdd",
+  "verify_script_sha256": "377a55e139e108d906178168a401906e6ed75c249d0e949c6aaeb4378b5c2f36",
+  "note": "verification helpers added after export/build; exact export/build script preserved in logs/build_script_export_build.py"
+}

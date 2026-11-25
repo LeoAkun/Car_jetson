@@ -1,0 +1,302 @@
+{
+  "original": {
+    "current_production": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.05,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.025,
+        "residual": 0.03,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.34906585,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "no_complete_face_in_gate": 90
+      }
+    },
+    "previous_strict_plane": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.025,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.006,
+        "residual": 0.008,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "no_complete_face_in_gate": 90
+      }
+    },
+    "diagnostic_compound": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.05,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.025,
+        "residual": 0.03,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "no_complete_face_in_gate": 90
+      }
+    },
+    "diagnostic_central_patch": {
+      "config": {
+        "width": 0.11,
+        "width_tolerance": 0.025,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.006,
+        "residual": 0.008,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "no_complete_face_in_gate": 90
+      }
+    }
+  },
+  "original_reversed_offline": {
+    "current_production": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.05,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.025,
+        "residual": 0.03,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.34906585,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "warming_up": 5,
+        "ok": 85
+      },
+      "median_x_y_yaw_width_rms_quality": [
+        -2.536956015596453,
+        -0.011081262791903385,
+        0.01717075144770057,
+        0.22869489105400198,
+        0.014627644773808228,
+        0.512411840873059
+      ]
+    },
+    "previous_strict_plane": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.025,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.006,
+        "residual": 0.008,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "no_complete_face_in_gate": 90
+      }
+    },
+    "diagnostic_compound": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.05,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.025,
+        "residual": 0.03,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "warming_up": 5,
+        "ok": 85
+      },
+      "median_x_y_yaw_width_rms_quality": [
+        -2.536956015596453,
+        -0.011081262791903385,
+        0.01717075144770057,
+        0.22869489105400198,
+        0.014627644773808228,
+        0.512411840873059
+      ]
+    },
+    "diagnostic_central_patch": {
+      "config": {
+        "width": 0.11,
+        "width_tolerance": 0.025,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.006,
+        "residual": 0.008,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "warming_up": 5,
+        "ok": 85
+      },
+      "median_x_y_yaw_width_rms_quality": [
+        -2.5241771993656075,
+        -0.013264970395280795,
+        0.00431677688802732,
+        0.11153220810094049,
+        0.001940515842162242,
+        0.7574355197297198
+      ]
+    }
+  },
+  "corrected_driver_live": {
+    "current_production": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.05,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.025,
+        "residual": 0.03,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.34906585,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "warming_up": 4,
+        "ok": 86
+      },
+      "median_x_y_yaw_width_rms_quality": [
+        -2.536391813171901,
+        -0.016007308415755143,
+        -0.008654752580382754,
+        0.21686607886066261,
+        0.012209977320217367,
+        0.5930007559927545
+      ]
+    },
+    "previous_strict_plane": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.025,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.006,
+        "residual": 0.008,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "no_complete_face_in_gate": 90
+      }
+    },
+    "diagnostic_compound": {
+      "config": {
+        "width": 0.25,
+        "width_tolerance": 0.05,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.025,
+        "residual": 0.03,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "warming_up": 4,
+        "ok": 86
+      },
+      "median_x_y_yaw_width_rms_quality": [
+        -2.536391813171901,
+        -0.016007308415755143,
+        -0.008654752580382754,
+        0.21686607886066261,
+        0.012209977320217367,
+        0.5930007559927545
+      ]
+    },
+    "diagnostic_central_patch": {
+      "config": {
+        "width": 0.11,
+        "width_tolerance": 0.025,
+        "min_points": 6,
+        "segment_jump": 0.08,
+        "edge_depth": 0.006,
+        "residual": 0.008,
+        "min_range": 0.06,
+        "position_gate": 0.35,
+        "depth_gate": 0.15,
+        "angle_gate": 0.3490658503988659,
+        "stable_frames": 5,
+        "timeout": 0.2,
+        "filter_alpha": 0.5
+      },
+      "reasons": {
+        "warming_up": 4,
+        "ok": 86
+      },
+      "median_x_y_yaw_width_rms_quality": [
+        -2.524973680922866,
+        -0.01791882152117099,
+        -0.005864142947568682,
+        0.10191311741954663,
+        0.001962021378110115,
+        0.749852902023275
+      ]
+    }
+  }
+}

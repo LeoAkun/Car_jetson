@@ -1,0 +1,17 @@
+uint8 STATE_WAITING=0
+uint8 STATE_SMALL_ACCEPTED=1
+uint8 STATE_MEDIUM_REQUIRES_RELOCALIZATION=2
+uint8 STATE_LARGE_REJECTED=3
+uint8 STATE_CONTINUITY_FAULT=4
+uint8 STATE_MEDIUM_QUARANTINED=5
+
+std_msgs/Header header
+string instance_id
+uint64 generation
+uint64 correction_epoch
+geometry_msgs/Transform lio_map_to_odom_target
+float64 translation_residual
+float64 yaw_residual
+uint8 state
+bool accepted
+string reason

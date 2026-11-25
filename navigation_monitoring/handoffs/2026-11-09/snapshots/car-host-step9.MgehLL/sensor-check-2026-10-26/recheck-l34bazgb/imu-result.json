@@ -1,0 +1,19 @@
+{
+  "sample_count": 1970,
+  "launch_exit": 0,
+  "received_hz": 100.00236274246046,
+  "frames": [
+    "imu_link"
+  ],
+  "all_finite": true,
+  "zero_stamps": 0,
+  "nonmonotonic_stamps": 0,
+  "quaternion_norm_range": [
+    0.9999999419389849,
+    1.000000125292019
+  ],
+  "acceleration_norm_range": [
+    9.66017905620616,
+    9.936521208116213
+  ]
+}

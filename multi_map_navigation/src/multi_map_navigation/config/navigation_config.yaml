@@ -12,12 +12,20 @@ navigation_manager:
     max_navigation_retries: 3        # 导航失败的最大重试次数
     max_retries: 3                   # 导航失败的最大重试次数（别名）
     retry_delay: 5.0                 # 重试之间的延迟（秒）
+    map_directory: "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map"
+    docking_dry_run: true            # 实车闭环验收前仅做预检
+    docking_require_charging: false  # 本阶段以几何对准、实测停车为完成条件
+    docking_timeout: 0.0             # 0 禁用对接总时限；正值可显式限制总时长（秒）
+
+map_odom_authority:
+  ros__parameters:
+    map_directory: "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map"
 
 # 地图切换控制器配置
 map_switch_controller:
   ros__parameters:
     # 超时设置
-    map_switch_timeout: 30.0         # 地图切换的最大时间（秒）
+    map_switch_timeout: 300.0        # 整次地图切换的最大时间（秒）
     process_shutdown_timeout: 10.0   # 等待进程关闭的最大时间（秒）
 
 # 进程管理器配置
@@ -25,9 +33,14 @@ process_manager:
   ros__parameters:
     # 进程启动设置
     startup_delay: 2.0               # 启动进程之间的延迟（秒）
-    max_startup_time: 60.0           # Nav2首次加载规划启发式可能需要约30秒
+    max_startup_time: 60.0           # 重定位、LIO-SAM等进程的启动上限（秒）
+    nav2_max_startup_time: 150.0      # Nav2大地图组件加载和生命周期激活上限（秒）
     health_check_interval: 1.0       # 进程健康检查间隔（秒）
     health_failure_threshold: 3      # 连续失败次数，避免DDS短暂抖动触发误报
+    liosam_recovery_grace_sec: 5.0   # 预积分曾就绪后短暂重同步的等待窗口（秒）
+    liosam_stable_correction_count: 10  # 连续可靠扫描修正达到此数量后才允许启动Nav2
+    liosam_stable_translation_m: 0.05   # 稳定扫描修正的平移上限（米）
+    liosam_stable_yaw_deg: 1.0          # 稳定扫描修正的偏航上限（度）
     lifecycle_query_timeout: 1.0     # 查询全部Nav2生命周期状态的最长等待时间
     shutdown_timeout: 10.0           # 进程关闭超时时间（秒）
 

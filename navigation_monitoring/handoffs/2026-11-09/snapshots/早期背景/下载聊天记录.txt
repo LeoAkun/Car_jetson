@@ -1,0 +1,2895 @@
+# 现在想把整个工作区迁移到另外一台主机上那么内容,还有本机运行小车自动巡航系统的环境有哪些，以及需要本地存储的内容，给我…
+
+> 现在想把整个工作区迁移到另外一台主机上那么内容,还有本机运行小车自动巡航系统的环境有哪些，以及需要本地存储的内容，给我列举出来  ,具体我该怎么去给迁移所有代码以及跑车数据这些，保证能在新机子上运行
+
+<details><summary>6 previous messages</summary>
+
+> 我会先核查工作区里的代码、启动脚本、依赖配置和跑车数据，整理迁移清单，并给出新主机的恢复与验证步骤。涉及本机环境时，我会区分项目中已记录的配置和需要现场确认的部分。
+>
+> <details><summary>Explored 12 files, 2 lists, ran 6 commands</summary>
+>
+> - Ran `for p in /AGENTS.md /home/AGENTS.md /home/akun/AGENTS.md /home/akun/workspace/AGENTS.md; do if [ -f "$p" ]; then printf '\n%s\n' "$p"; sed -n '1,240p' "$p"; fi; done`
+>
+> - Ran `pwd && rg --files -g 'AGENTS.md' -g 'README*' -g 'requirements*.txt' -g 'pyproject.toml' -g 'environment*.yml' -g 'environment*.yaml' -g 'Dockerfile*' -g '*compose*.yml' -g '*compose*.yaml' -g '*.service' -g '*.sh' -g 'setup.py' -g 'package.xml' -g 'CMakeLists.txt' -g '*.launch' -g '*.launch.py' -g '*.yaml' -g '*.yml' -g '*.toml' -g '*.json' -g '.gitignore' -g '.gitmodules' -g 'Makefile' -g '*.md' -g '!node_modules' -g '!venv' -g '!.venv' -g '!build' -g '!install' -g '!log'`
+>
+> - Ran `git status --short && git remote -v && git submodule status && du -h --max-depth=1 . && ls -la`
+>
+> <details><summary>Explored 7 files, 2 lists</summary>
+>
+> - Listed files
+> - Read `./README.md`
+> - Read `./real_ws/README.md`
+> - Read `./navigation_tools/start_navigation.sh`
+> - Read `./multi_map_navigation/src/README.md`
+> - Read `./multi_map_navigation/src/map/README.md`
+> - Read `./multi_map_navigation/src/start_all.sh`
+> - Read `./.gitignore`
+> - Listed files in `slam`
+>
+> </details>
+>
+> - Ran `uname -a && cat /etc/os-release && if [ -f /etc/nv_tegra_release ]; then cat /etc/nv_tegra_release; fi && lscpu && df -hT / /home/akun/workspace/Car_jetson && ls /opt/ros && python3 --version && for c in ros2 colcon cmake gcc g++ nvcc nvidia-smi rs-enumerate-devices ip; do command -v "$c" || true; done`
+>
+> <details><summary>Explored 9 files</summary>
+>
+> - Read `./README.md`
+> - Read `./real_ws/README.md`
+> - Read `./navigation_tools/start_navigation.sh`
+> - Read `./.gitignore`
+> - Read `./real_ws/src/launch_real/launch/run.launch.py`
+> - Read `./nav2/src/nav2/launch/run.real_launch.py`
+> - Read `./slam/src/LIO-SAM/launch/run.real_launch.py`
+> - Read `./multi_map_navigation/src/multi_map_navigation/launch/multi_map_navigation.launch.py`
+> - Read `./multi_map_navigation/src/multi_map_navigation/config/navigation_config.yaml`
+>
+> </details>
+>
+> - Ran `rg -n 'source|ROS_|RMW_|CYCLONE|FASTRTPS|PATH|LD_LIBRARY|PYTHONPATH|can[0-9]|slcan|realsense|Livox|gtsam|conda|venv' /home/akun/.bashrc /home/akun/.profile /home/akun/.bash_aliases /etc/environment /etc/profile.d /etc/systemd/system /home/akun/.config/systemd/user -g '!*.wants/**' -g '!*.target.wants/**' -g '!*.pem' -g '!*.key' 2>/dev/null; dpkg-query -W -f='${Package}\t${Version}\n' 'ros-humble-*' 'libpcl*' 'libopencv*' 'libgtsam*' '*realsense*' 'python3-colcon*' 'python3-rosdep*' 'can-utils' 'libpcap*' 'libeigen3*' 'libboost*' 'libyaml-cpp*' 'libusb*' 2>/dev/null`
+>
+> - Ran `du -h --max-depth=2 bag test_data multi_map_navigation/src/map slam real_ws utils URDF_ws nav2 traficclight /home/akun/.local/realsense_ros /home/akun/.ros /usr/local/lib /usr/local/include 2>/dev/null; rg --files --hidden -g '*.pt' -g '*.pth' -g '*.onnx' -g '*.engine' -g '*.weights' -g '*.pcd' -g '*.csv' -g '*.db3' -g '*.mcap' -g '*.bag' -g '*.pgm' -g 'metadata.yaml' -g '!build' -g '!install' -g '!.git' -g '!test_data/**' -g '!navigation_monitoring/**' -g '!bag/**' -g '!nav2/src/navigation2/**'`
+>
+> </details>
+>
+> 已确认两个迁移时容易漏掉的点：当前主机是 Ubuntu 22.04 的 x86_64 工控机；项目中有大量未提交的修改，而且 `.gitignore` 排除了跑车 bag 和 PCD 地图，所以仅从 GitHub 拉取会丢内容。我还发现了工作区外的 RealSense 驱动，以及独立的传感器部署目录，正在核查实际启动服务使用哪一份代码。
+>
+> <details><summary>Explored 7 files, 2 searches, 2 lists, ran 10 commands</summary>
+>
+> <details><summary>Explored 4 files, a search</summary>
+>
+> - Read `./nav2/src/nav2/launch/run.real_launch.py`
+> - Read `./slam/src/LIO-SAM/launch/run.real_launch.py`
+> - Read `./multi_map_navigation/src/multi_map_navigation/config/navigation_config.yaml`
+> - Read `./multi_map_navigation/src/multi_map_navigation/launch/multi_map_navigation.launch.py`
+> - Searched for `workspace|setup.bash|map_dir|maps_dir|csv|\.pcd|\.yaml|localhost|192\.168|port|broker` in `process_manager.py`
+>
+> </details>
+>
+> - Ran `du -sh multi_map_navigation/src/map/* slam/src/pcd_global/* bag/* test_data/* navigation_monitoring/* real_ws/src traficclight/*; rg --files /home/akun/workspace/sensor -g '*.sh' -g '*.service' -g 'README*' -g '*.rules' -g '!build' -g '!install' -g '!log'; rg --files --hidden /home/akun/workspace/Car_jetson /home/akun/workspace/sensor -g 'AGENTS.md' -g '!.git' -g '!build' -g '!install' -g '!log' || true; ls -la /home/akun/.colcon /home/akun/.ros/rosdep /etc/ros/rosdep/sources.list.d 2>/dev/null`
+>
+> - Ran `dpkg-query -W -f='${Package}\t${Version}\n' 'ros-humble-desktop' 'ros-humble-ros-base' 'ros-humble-rmw-*' 'ros-humble-realsense*' 'libpcl-dev' 'libopencv-dev' 'libgtsam*' 'python3-colcon-common-extensions' 'python3-rosdep*' 'can-utils' 'libpcap-dev' 'libeigen3-dev' 'libboost-dev' 'libyaml-cpp-dev' 'libusb-1.0-0-dev' 'cmake' 'g++' 'libomp-dev' 'python3-opencv' 2>/dev/null; ldconfig -p | rg -i 'gtsam|livox|realsense|nvinfer|cuda|open3d|pcl_common'; ls -la /usr/local/lib /usr/local/include /home/akun/.local /home/akun/workspace; python3 -m pip list --format=freeze 2>/dev/null | rg -i '^(numpy|scipy|networkx|paho|pyserial|serial|opencv|open3d|torch|torchvision|ultralytics|onnx|tensorrt|pyyaml|flask|pandas|pyrealsense|apriltag|pupil|transforms|pip|setuptools|matplotlib|pyproj|utm|requests|pytest|cv-bridge)'`
+>
+> - Ran `sed -n '1,230p' /home/akun/.bashrc; sed -n '1,150p' /home/akun/.profile; systemctl cat robot-service.service reset-wheeltec-imu.service carjetson-idle-monitor.service 2>/dev/null; systemctl list-unit-files --no-pager | rg -i 'robot|car|imu|sensor|camera|traffic|can|mqtt'; ls -l /etc/udev/rules.d /etc/netplan /etc/systemd/system; du -sh /home/akun/workspace/* /home/akun/.local/realsense_ros /home/akun/.ros /usr/local/lib /usr/local/include 2>/dev/null`
+>
+> <details><summary>Explored 3 files, a search, 2 lists</summary>
+>
+> - Searched for `/home/akun/(Desktop|Documents|Downloads|workspace/sensor)|/home/jetson|/dev/(tty|serial|rear)|192\.168\.|[0-9]{4}.*[0-9]{4}` in `launch_real`
+> - Listed files in `Desktop`
+> - Listed files in `Desktop`
+> - Read `./traficclight/traffic-light-main/Environment.md`
+> - Read `./traficclight/traffic-light-main/scripts/self_check.py`
+> - Read `./TRAFFIC_LIGHT_CAMERA_RELAY_PROBE_2026-09-28.md`
+>
+> </details>
+>
+> - Ran `sed -n '1,240p' /home/akun/start_robot_service.sh; ls -l /home/akun/*.sh /usr/local/sbin/reset-wheeltec-imu-usb; sed -n '1,150p' /usr/local/sbin/reset-wheeltec-imu-usb; systemctl show robot-service.service -p ActiveState -p SubState -p MainPID -p ExecStart -p Environment -p FragmentPath; ip -brief address; ip route; nmcli -f NAME,UUID,TYPE,DEVICE connection show; id; free -h; printenv | rg '^(ROS_|RMW_|AMENT_PREFIX_PATH=|CMAKE_PREFIX_PATH=|COLCON_PREFIX_PATH=|PYTHONPATH=|LD_LIBRARY_PATH=|CYCLONEDDS_URI=|FASTRTPS_DEFAULT_PROFILES_FILE=|FASTDDS_DEFAULT_PROFILES_FILE=)'`
+>
+> - Ran `diff -qr /home/akun/workspace/Car_jetson/real_ws/src /home/akun/workspace/sensor/real_ws/src | head -70; sed -n '1,170p' /home/akun/.local/realsense_ros/setup.bash; sed -n '1,180p' real_ws/src/driver/lidar/livox_ros_driver2/src/livox_ros_driver2/CMakeLists.txt; sed -n '1,120p' slam/src/LIO-SAM/CMakeLists.txt; sed -n '1,130p' slam/src/LIO-SAM/package.xml; sed -n '1,130p' utils/src/re_localization/CMakeLists.txt; sed -n '1,100p' multi_map_navigation/src/multi_map_navigation/package.xml; sed -n '1,120p' multi_map_navigation/src/multi_map_navigation/setup.py`
+>
+> - Ran `rg --files /home/akun/workspace/Car_jetson/bag /home/akun/workspace/Car_jetson/test_data /home/akun/Desktop -g 'metadata.yaml' -g '*.yaml' -g '*.csv' -g '*.pcd' -g '*.pgm' -g '!**/audit/**' -g '!**/minimal_63/**' -g '!**/docking_stage2/**' -g '!**/docking_stage1/**' | head -90; ls -la /home/akun/.config/systemd/user /home/akun/.config/autostart /etc/NetworkManager/system-connections /etc/cron.d 2>/dev/null; crontab -l 2>/dev/null | sed -E 's/(password|passwd|token|secret|api_key)=[^[:space:]]+/\1=<redacted>/Ig'; du -sh URDF_ws/src simulation_ws/src slam/src nav2/src utils/src multi_map_navigation/src /home/akun/.local/lib/python3.10 /home/akun/.cache 2>/dev/null; rg --files real_ws/src/driver/camera -g '*.yaml' -g '*.yml' -g '*.json' -g '*.npz' -g '*.npy'; git ls-files traficclight/traffic-light-main/models traficclight/trafficlight_detect-master/models multi_map_navigation/src/map | head -50`
+>
+> - Ran `du -sh /home/akun/Desktop /home/akun/Desktop/* 2>/dev/null; sed -n '1,80p' /home/akun/Desktop/K8.yaml; sed -n '1,95p' real_ws/src/driver/lidar/livox_ros_driver2/src/livox_ros_driver2/config/MID360_config.json; sed -n '1,110p' real_ws/src/driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py; sed -n '1,80p' real_ws/src/driver/gps/config/gnss_converter.yaml; sed -n '1,100p' real_ws/src/driver/imu/fdilink_ahrs_ROS2/launch/ahrs_driver.launch.py; sed -n '1,65p' real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/launch/lakibeam1_scan_dual_lidar.launch.py; sed -n '1,65p' real_ws/src/driver/rslidar/rslidar_sdk/config/config.yaml; sed -n '1,90p' real_ws/src/driver/lidar/Livox-SDK2/CMakeLists.txt`
+>
+> - Ran `ls -ld /etc/udev/rules.d; sudo -n ls -l /etc/udev/rules.d 2>&1; ls -l real_ws/log/latest_build slam/log/latest_build nav2/log/latest_build utils/log/latest_build multi_map_navigation/log/latest_build; rg -n 'Command:|--cmake|CMAKE_BUILD_TYPE|--packages' real_ws/log/latest_build/logger_all.log slam/log/latest_build/logger_all.log nav2/log/latest_build/logger_all.log utils/log/latest_build/logger_all.log multi_map_navigation/log/latest_build/logger_all.log | head -28; lsusb; ls -l /dev/wheeltec* /dev/serial/by-id /dev/serial/by-path /dev/rear_camera 2>/dev/null; rg -n 'livox_sdk2|LIVOX_LIDAR_SDK|find_path|find_library|find_package' real_ws/src/driver/lidar/livox_ros_driver2/src/livox_ros_driver2/CMakeLists.txt`
+>
+> - Ran `diff -qr /home/akun/workspace/Car_jetson/real_ws/src /home/akun/workspace/sensor/real_ws/src | head -45; sed -n '1,130p' TRAFFIC_LIGHT_CAMERA_RELAY_PROBE_2026-09-28.md; sed -n '1,140p' traficclight/traffic-light-main/Environment.md; sed -n '1,110p' TRAFFIC_LIGHT_P0_BASELINE_2026-09-22.md`
+>
+> - Ran `rg -n '/home/akun|savePCD|extrinsic|imuTopic|pointCloudTopic|gpsTopic' slam/src/LIO-SAM/config/params_real.yaml utils/src/re_localization/param/* utils/src/record_gps_map/record_gps_map/record_gps_map.py nav2/src/nav2_init_pose/* -g '!*.csv' -g '!*.pyc' -g '!build/**' -g '!install/**' -g '!log/**'; sed -E '/(username|password|token|secret|key|certificate|cert|url|uri)/Id' multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml | head -85; rg -n '^import |^from ' multi_map_navigation/src/multi_map_navigation/multi_map_navigation/*.py real_ws/src/driver/config_manager/config_web.py real_ws/src/charging_dock/charging_dock/*.py real_ws/src/perception/ground/ground/*.py utils/src/pcd_filter/pcd_filter/pcd_filter.py utils/src/record_gps_map/record_gps_map/record_gps_map.py -g '!**/*copy*' | cut -d: -f3- | sort -u; python3 -m pip list --format=freeze 2>/dev/null | rg -i '^(shapely|psutil|pupil-apriltags|pyrealsense|tensorrt|torch|ultralytics|onnx|onnxruntime|pyudev)'`
+>
+> </details>
+>
+> 当前自启脚本默认使用 `Car_jetson/real_ws`，`workspace/sensor/real_ws` 是旧版回退目录，两份都应保留。另外，桌面还有约 4.2 GB 的地图和录包，其中 `K8.yaml/K8.pgm` 被 Nav2 的默认启动配置引用。迁移方案会覆盖这些目录、系统服务和设备配置，并明确新机需要重新编译及验车的步骤。
+>
+> <details><summary>Explored 4 files, 6 searches, a list, ran 4 commands</summary>
+>
+> <details><summary>Explored 3 files, 2 searches</summary>
+>
+> - Searched for `initial_state|map_network|\.csv|waypoint_catalog|map1|map2|start_navigation` in `WAYPOINTS.md`
+> - Read `./multi_map_navigation/src/multi_map_navigation/multi_map_navigation/process_manager.py`
+> - Read `./real_ws/src/charging_dock/launch/rear_camera.launch.py`
+> - Read `./navigation_monitoring/README.md`
+> - Searched for `^    (password|username|broker_url|port|client_id|vin|.*topic):` in `mqtt_config.yaml`
+>
+> </details>
+>
+> - Ran `colcon --log-base /dev/null list --base-paths real_ws/src; colcon --log-base /dev/null list --base-paths slam/src utils/src nav2/src/nav2 nav2/src/nav2_init_pose multi_map_navigation/src URDF_ws/src simulation_ws/src; rg -n '(depend.*(lio_sam|re_localization|livox|yunle|multi_map|nav2|global_route|ndt_omp|serial))' utils/src -g 'package.xml'; sed -n '1,95p' real_ws/src/driver/car_control/chassis_driver/CMakeLists.txt; sed -n '1,100p' real_ws/src/driver/car_control/chassis_driver/chassis_driver/CMakeLists.txt; rg -n 'link|library|\.so|ARCH|x86|aarch|usb2can|controlcan' real_ws/src/driver/car_control/chassis_driver -g 'CMakeLists.txt' -g '*.cmake'`
+>
+> - Ran `python3 -m pip check; apt-cache policy libgtsam-dev libgtsam-unstable-dev; sed -n '1,120p' /home/akun/.local/realsense_ros/setup.bash; ls -lh /home/akun/Desktop | head -30; ls -l /home/akun/.local/realsense_ros; rg --files /home/akun/.local/realsense_ros -g '*.deb' -g 'README*' -g '*package.xml' -g '!*.so*' | head -12; sed -n '240,280p' real_ws/src/driver/lidar/livox_ros_driver2/src/livox_ros_driver2/CMakeLists.txt; sed -n '1,100p' real_ws/src/driver/lidar/Livox-SDK2/sdk_core/CMakeLists.txt`
+>
+> <details><summary>Explored a file, 4 searches, a list</summary>
+>
+> - Listed files in `bag`
+> - Searched for `rosbag2_bagfile_information|storage_identifier|relative_file_paths|name:|type:` in `metadata.yaml`
+> - Read `./slam/src/LIO-SAM/launch/run.real_launch.py`
+> - Searched for `output_topic|hostip|port|192\.168` in `lakibeam1_scan_dual_lidar.launch.py`
+> - Searched for `lib.*so|libs|RPATH|CONTROLCAN` in `CMakeLists.txt`
+> - Searched for `<(version|name)>` in `package.xml`
+>
+> </details>
+>
+> - Ran `for ws in real_ws slam utils nav2 multi_map_navigation URDF_ws simulation_ws; do printf '%s\n' "$ws"; comm -23 <(find "$ws/install" -path '*/share/ament_index/resource_index/packages/*' -type f -printf '%f\n' 2>/dev/null | sort -u) <(colcon --log-base /dev/null list --base-paths "$ws/src" --names-only 2>/dev/null | sort -u); done; sed -n '1,55p' nav2/src/nav2_init_pose/nav2_init_pose/nav2_init_pose.py; rg -n 'global_route_msg|global_graph_planner|map_manager|cmd_vel_smooth' real_ws/src slam/src/LIO-SAM utils/src nav2/src/nav2 nav2/src/nav2_init_pose simulation_ws/src multi_map_navigation/src/multi_map_navigation -g '*.py' -g 'package.xml' -g '*.yaml' -g '!**/*copy*' -g '!test/**' -g '!build/**' -g '!install/**' -g '!log/**' | head -28; find utils/install/global_route_msg utils/install/global_graph_planner utils/install/map_manager -maxdepth 2 -type l -printf '%p -> %l\n' 2>/dev/null | head -18`
+>
+> - Ran `rg -n 'params_file|params_rslidar|params_real|launch_lio|liosam' multi_map_navigation/src/multi_map_navigation/multi_map_navigation/process_manager.py | head -24; rg -n 'pointCloudTopic|imuTopic|savePCDDirectory|extrinsic' slam/src/LIO-SAM/config/params_rslidar.yaml; git log --all -3 --oneline -- utils/src/global_route_msg utils/src/global_graph_planner utils/src/map_manager; ls -l utils/install/global_route_msg/share/global_route_msg utils/install/global_graph_planner/lib/global_graph_planner utils/install/map_manager/lib/map_manager 2>/dev/null; rg -n '^import |^from ' utils/install/global_graph_planner/lib/python3.10/site-packages/global_graph_planner/*.py utils/install/map_manager/lib/python3.10/site-packages/map_manager/*.py 2>/dev/null | head -12; ls -la /home/akun/Downloads | head -14; rg --files --no-ignore real_ws/src/driver/car_control/chassis_driver/chassis_driver/lib -g '*.so' -g '*.a'`
+>
+> </details>
+</details>
+
+我已经检查了当前工作区和本机配置。你这套系统迁移需要带走 **代码、地图与跑车数据、工作区外的驱动、系统配置，以及依赖版本记录**。只复制源码或从 GitHub 拉取，无法完整恢复现在的小车运行环境。
+
+下面按实际查到的内容列举，再给出迁移步骤。命令默认新机也是 **x86_64、Ubuntu 22.04，并使用 `akun` 用户**；换成 Jetson/ARM 时，需要额外适配。
+
+本机当前环境如下：
+
+| 项目 | 当前情况 |
+|---|---|
+| 操作系统 | Ubuntu 22.04.5 LTS |
+| 架构、处理器 | x86_64，Intel i7-8700，6 核 12 线程 |
+| 内存 | 约 32 GB |
+| ROS | ROS 2 Humble，安装在 `/opt/ros/humble` |
+| ROS 通信 | 已安装 Fast DDS；当前 `ROS_LOCALHOST_ONLY=0` |
+| Python | 3.10.12 |
+| 编译工具 | GCC/G++ 11，CMake 3.22.1，colcon |
+| SLAM/点云依赖 | GTSAM 4.1.1、PCL 1.12.1、Eigen 3.4、Boost 1.74 |
+| 其他 C++ 依赖 | OpenCV 4.5.4、yaml-cpp、libpcap、libusb |
+| Livox SDK2 | 库安装在 `/usr/local/lib`，头文件在 `/usr/local/include`；源码在项目内 |
+| RealSense ROS 驱动 | 4.58.2，用户级安装在 `/home/akun/.local/realsense_ros` |
+| 用户权限 | `akun` 属于 `dialout`、`sudo` 组 |
+
+主要 Python 依赖包括：`numpy 1.26.4`、`scipy 1.11.4`、`networkx 3.4.2`、`paho-mqtt 2.1.0`、`pyserial 3.5`、`shapely 2.1.2`、`open3d 0.17.0`、`transforms3d 0.4.2`、`psutil`、`PyYAML`、`matplotlib`、`requests` 等。
+
+这里有一个已确认的环境问题：当前 pip 安装的 `opencv-python 4.12.0.88` 要求 NumPy ≥2，而本机是 NumPy 1.26.4。新机恢复时应解决这组版本冲突，并通过 `pip check`，不要把全部 `pip freeze` 当作安装脚本直接执行；其中也包含通过 apt 安装的 ROS Python 包。
+
+需要迁移的工作区内容如下。表内容量是当前粗略占用，部分目录包含编译产物。
+
+| 内容 | 实际位置 | 用途及迁移要求 |
+|---|---|---|
+| 整个主工作区，约 30 GB | [Car_jetson](.) | 完整备份，包含隐藏文件、`.git`、未提交及未跟踪文件 |
+| 传感器、底盘、门锁、报警、相机、泊车代码 | [real_ws](./real_ws) | 必须迁移；实车驱动入口 |
+| 多地图导航及业务代码 | [multi_map_navigation](./multi_map_navigation) | 必须迁移，含 MQTT 接入、任务规划、切图和进程管理 |
+| 修改过的 Nav2 | [nav2](./nav2) | 必须保留本地源码；官方 Nav2 安装包不能替代你的修改 |
+| LIO-SAM 及历史点云 | [slam](./slam) | 必须迁移；其中历史实车点云约 5 GB |
+| 重定位、地图转换、GPS 标定工具 | [utils](./utils) | 必须迁移 |
+| 导航地图，约 3 GB | [map](./multi_map_navigation/src/map) | 包含 `map1`、`map2`、`map3`、`3b2mus`、`test_map` |
+| 跑车录包，约 18 GB | [bag](./bag) | 完整保存每个录包目录，包括 `metadata.yaml` 和所有 `.db3` 分片 |
+| 泊车测试数据，约 776 MB | [test_data](./test_data) | 保留采集数据、条件配置及分析结果 |
+| 航点和派单工具 | [navigation_tools](./navigation_tools) | 保留 `waypoint_catalog.yaml`、启动与派单脚本 |
+| 导航、温度及故障记录 | [navigation_monitoring](./navigation_monitoring)、[thermal_testing](./thermal_testing) | 用于历史对照和新机验收，应归档 |
+| 模型与仿真 | [URDF_ws](./URDF_ws)、[simulation_ws](./simulation_ws) | 整个工作区迁移时一并保留 |
+| 红绿灯代码和模型 | [traficclight](./traficclight) | 保存代码、`.engine`、`.pt`、配置和部署记录 |
+
+每张导航地图要成套保存，例如：
+
+```text
+map1_raw.pcd        重定位使用的原始点云
+map1_clean.pcd      处理后的点云
+map1_clean.pgm      Nav2 栅格地图
+map1_clean.yaml     栅格地图分辨率、原点等参数
+map1.csv            GPS 与地图坐标的标定数据
+```
+
+这些文件不是可以随意重新生成的缓存。丢掉 CSV、地图原点或标定参数，即使节点能启动，定位和导航也可能不正确。
+
+项目的 [.gitignore](./.gitignore) 排除了 `bag/`、`*.pcd`、`build/`、`install/` 等内容，而且现在还有大量未提交修改和未跟踪代码。因此，GitHub 只能作为代码版本管理的一部分，完整迁移必须另外做文件备份。
+
+工作区外，还需要保存这些内容：
+
+| 内容 | 位置 | 恢复时的处理 |
+|---|---|---|
+| 旧版传感器回退工作区，约 489 MB | [sensor](~/workspace/sensor) | 与当前 `real_ws` 有差异，单独保留 |
+| 桌面地图和录包，约 4.2 GB | [Desktop](~/Desktop) | 有 `K8.yaml/K8.pgm/K8.pcd`、GPS CSV、其他点云和录包 |
+| RealSense 用户级驱动，约 135 MB | [realsense_ros](~/.local/realsense_ros) | 同架构同系统可恢复；ARM 必须重新安装对应版本 |
+| 开机启动脚本 | [start_robot_service.sh](~/start_robot_service.sh) | 必须迁移，检查内部绝对路径 |
+| 传感器自启服务 | [robot-service.service](/etc/systemd/system/robot-service.service) | 恢复后重新注册 systemd |
+| IMU 开机 USB 重置服务及脚本 | [reset-wheeltec-imu.service](/etc/systemd/system/reset-wheeltec-imu.service)、[reset-wheeltec-imu-usb](/usr/local/sbin/reset-wheeltec-imu-usb) | 保存设备识别规则，并在新机验证 |
+| USB、串口、相机规则 | `/etc/udev/rules.d/` | 保存 Wheeltec、门锁控制器、后摄像头等规则 |
+| 网络连接配置 | `/etc/NetworkManager/system-connections/`、`/etc/netplan/` | 作为参考备份；新机按网卡名称及 MAC 地址调整 |
+| 软件源 | `/etc/apt/sources.list.d/` | 尤其保留 GTSAM、ROS 软件源记录 |
+| Shell 环境配置 | [.bashrc](~/.bashrc)、[.profile](~/.profile) | 参考其中 ROS `source` 配置，恢复编译后再配置 |
+| 历史 ROS 日志，约 2.7 GB | [.ros](~/.ros) | 建议归档，运行不依赖历史日志 |
+| 用户安装的 Python 包，约 2 GB | `/home/akun/.local/lib/python3.10/` | 备份留底；新机优先按版本重新安装 |
+
+当前自启脚本默认启动：
+
+```text
+/home/akun/workspace/Car_jetson/real_ws
+```
+
+只有主工作区不可用时，才回退到：
+
+```text
+/home/akun/workspace/sensor/real_ws
+```
+
+另外发现 `utils/install` 中还有 `global_route_msg`、`global_graph_planner`、`map_manager` 三个历史包，但当前 `utils/src` 已没有对应源码。完整备份要保留旧 `install`；若需要恢复这些历史功能，应从 `.git` 历史找回源码后编译。
+
+实际迁移建议按下面的顺序做。
+
+1. 在旧机制作完整备份和环境记录。
+
+   先让车辆停稳，结束导航、录包和持续写日志的监测程序，再归档，避免数据仍在变化。以下操作是供你执行的迁移命令，我本次没有停止现有服务。
+
+   ```bash
+   umask 077
+   MIGRATION_DIR=/home/akun/car_migration_20261012
+   mkdir -p "$MIGRATION_DIR"
+
+   dpkg-query -W -f='${Package}\t${Version}\n' \
+     > "$MIGRATION_DIR/apt-packages.tsv"
+   python3 -m pip freeze > "$MIGRATION_DIR/pip-freeze.txt"
+
+   git -C /home/akun/workspace/Car_jetson rev-parse HEAD \
+     > "$MIGRATION_DIR/git-head.txt"
+   git -C /home/akun/workspace/Car_jetson status --short \
+     > "$MIGRATION_DIR/git-status.txt"
+   git -C /home/akun/workspace/Car_jetson diff HEAD --binary \
+     > "$MIGRATION_DIR/local-changes.patch"
+
+   ip address > "$MIGRATION_DIR/ip-address.txt"
+   ip route > "$MIGRATION_DIR/ip-route.txt"
+
+   tar -cpf "$MIGRATION_DIR/user-projects.tar" -C /home/akun \
+     workspace/Car_jetson \
+     workspace/sensor \
+     Desktop \
+     .local/realsense_ros \
+     .local/lib/python3.10 \
+     .ros \
+     .config/systemd/user \
+     start_robot_service.sh \
+     .bashrc \
+     .profile
+
+   sudo tar -cpf - -C / \
+     etc/systemd/system/robot-service.service \
+     etc/systemd/system/reset-wheeltec-imu.service \
+     etc/systemd/system/carjetson-idle-monitor.service \
+     usr/local/sbin/reset-wheeltec-imu-usb \
+     etc/udev/rules.d \
+     etc/NetworkManager/system-connections \
+     etc/netplan \
+     etc/apt/sources.list.d \
+     usr/local/include/livox_lidar_api.h \
+     usr/local/include/livox_lidar_cfg.h \
+     usr/local/include/livox_lidar_def.h \
+     usr/local/lib/liblivox_lidar_sdk_shared.so \
+     usr/local/lib/liblivox_lidar_sdk_static.a \
+     > "$MIGRATION_DIR/system-config.tar"
+
+   cd "$MIGRATION_DIR"
+   sha256sum user-projects.tar system-config.tar > SHA256SUMS
+   ```
+
+   这里的 tar 会包含隐藏文件及被 Git 忽略的数据。完整备份大致需要 **40 GB 左右**，建议另存一份到 128 GB 或更大的移动硬盘；若硬盘使用 FAT32，这种大归档文件无法存放，应使用 ext4、exFAT 等支持大文件的文件系统。
+
+2. 传到新机并检查完整性。
+
+   新机先准备好 `akun` 用户及备份目录，然后在旧机执行：
+
+   ```bash
+   rsync -aH --partial --info=progress2 \
+     /home/akun/car_migration_20261012/ \
+     akun@新机IP:/home/akun/car_migration_20261012/
+   ```
+
+   在新机检查：
+
+   ```bash
+   cd /home/akun/car_migration_20261012
+   sha256sum -c SHA256SUMS
+   ```
+
+   两个归档都必须显示 `OK`。保留这份归档，作为迁移前的完整原件。
+
+3. 在新机恢复源码和数据，重新安装依赖。
+
+   建议保留原用户名、目录路径，减少代码中绝对路径带来的问题。在新机空的目标目录中恢复：
+
+   ```bash
+   tar -xpf /home/akun/car_migration_20261012/user-projects.tar \
+     -C /home/akun \
+     --exclude='*/build' \
+     --exclude='*/install' \
+     workspace/Car_jetson \
+     workspace/sensor \
+     Desktop \
+     start_robot_service.sh
+   ```
+
+   旧的编译产物已经完整保存在归档里；新机运行所用的 `build/install` 应重新生成。
+
+   先按 [ROS 2 Humble 安装说明](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) 配置 ROS 软件源，再安装主要依赖：
+
+   ```bash
+   sudo apt update
+   sudo apt install \
+     ros-humble-desktop \
+     python3-colcon-common-extensions python3-rosdep python3-pip \
+     build-essential cmake git rsync \
+     libpcl-dev libopencv-dev libeigen3-dev libboost-all-dev \
+     libyaml-cpp-dev libpcap-dev libusb-1.0-0-dev \
+     python3-opencv python3-yaml python3-psutil \
+     python3-matplotlib python3-serial \
+     software-properties-common
+
+   sudo add-apt-repository ppa:borglab/gtsam-release-4.1
+   sudo apt update
+   sudo apt install libgtsam-dev libgtsam-unstable-dev
+   ```
+
+   根据保存的 Python 版本记录补齐项目依赖。OpenCV 和 NumPy 的冲突应单独解决；新机可以先使用系统的 `python3-opencv`，避免直接复制旧机的冲突组合。
+
+   同为 x86_64、Ubuntu 22.04 时，可以恢复现有 RealSense 驱动：
+
+   ```bash
+   tar -xpf /home/akun/car_migration_20261012/user-projects.tar \
+     -C /home/akun .local/realsense_ros
+   ```
+
+   若改为系统级安装 RealSense，需要同时调整自启脚本中的用户级驱动 `source` 行。
+
+4. 安装 Livox SDK2，依次编译工作区。
+
+   新机不能只装 ROS 包：当前 Livox 驱动还依赖 SDK2 的库和头文件。可以直接用迁移来的 SDK 源码重新安装：
+
+   ```bash
+   SDK_SOURCE=/home/akun/workspace/Car_jetson/real_ws/src/driver/lidar/Livox-SDK2
+   SDK_BUILD=/home/akun/car_migration_20261012/livox_sdk_build
+
+   cmake -S "$SDK_SOURCE" -B "$SDK_BUILD" \
+     -DCMAKE_BUILD_TYPE=Release
+   cmake --build "$SDK_BUILD" -j2
+   sudo cmake --install "$SDK_BUILD"
+   sudo ldconfig
+   ```
+
+   随后在新机终端中执行。只有 `rosdep` 尚未初始化时，才运行一次 `sudo rosdep init`。
+
+   ```bash
+   source /opt/ros/humble/setup.bash
+   source /home/akun/.local/realsense_ros/setup.bash
+   rosdep update
+
+   cd /home/akun/workspace/Car_jetson
+   rosdep install --from-paths \
+     real_ws/src slam/src utils/src nav2/src \
+     multi_map_navigation/src URDF_ws/src simulation_ws/src \
+     --ignore-src --rosdistro humble -r -y
+   ```
+
+   `rosdep` 之外仍需检查 Python 依赖、Livox SDK 和底盘厂家库，因为项目的依赖声明并不覆盖全部本机配置。
+
+   按下面顺序编译，每一步成功后再继续：
+
+   ```bash
+   set -e
+   CAR_ROOT=/home/akun/workspace/Car_jetson
+
+   cd "$CAR_ROOT/real_ws"
+   colcon build --symlink-install --executor sequential \
+     --packages-select serial livox_ros_driver2
+   source install/setup.bash
+
+   colcon build --symlink-install --executor sequential \
+     --cmake-args -DCMAKE_BUILD_TYPE=Release
+   source install/setup.bash
+
+   for ws in slam utils nav2 multi_map_navigation URDF_ws simulation_ws; do
+     cd "$CAR_ROOT/$ws"
+     colcon build --symlink-install --executor sequential \
+       --cmake-args -DCMAKE_BUILD_TYPE=Release
+     source install/setup.bash
+   done
+   ```
+
+   实际包名是 `livox_ros_driver2`，原 README 中的 `livox_ros2_driver` 名称有误。Nav2 也要编译本地修改过的源码。
+
+5. 恢复网络、设备规则及自启服务。
+
+   先把系统备份解压到参考目录，检查后选择性安装，避免把旧机网卡配置直接覆盖到新机：
+
+   ```bash
+   mkdir -p /home/akun/car_migration_20261012/system-reference
+   tar -xpf /home/akun/car_migration_20261012/system-config.tar \
+     -C /home/akun/car_migration_20261012/system-reference
+
+   sudo usermod -aG dialout,video akun
+   ```
+
+   新机必须逐项核对以下配置：
+
+   | 配置 | 当前值或注意事项 |
+   |---|---|
+   | 主机传感器网络 | `192.168.1.140/24`；新旧机同时在线时要避免同 IP |
+   | Livox MID360 | 雷达 IP `192.168.1.187`，配置中的接收主机 IP 为 `.140` |
+   | 前后单线雷达 | `192.168.1.12`、`192.168.1.13` |
+   | CAN 网络盒 | `192.168.1.10`，远端端口 `4001/4002`，本机端口 `8002` |
+   | 网卡名称 | 当前在线有线网卡为 `enp1s0`，底盘配置仍写着 `enp3s0`；新机要按实际网卡核对 |
+   | IMU | 按 CP2102 的稳定设备身份识别，波特率 `921600` |
+   | GNSS | 当前使用 `/dev/ttyACM0`；新机枚举顺序可能改变 |
+   | 门锁串口 | 当前绑定 USB `by-path`，换主板或 USB 口后需更新 |
+   | 后摄像头 | `/dev/rear_camera` 依赖 udev 规则 |
+   | RealSense | 当前绑定序列号 `117322074703`；更换相机需更新 |
+   | MQTT | 保留 broker、账号、VIN、主题配置；并行测试时避免客户端 ID 冲突 |
+
+   保留同一套传感器及安装位置时，沿用相机内参、TF 外参、IMU/LiDAR 外参和车辆控制参数。更换或移动传感器后，需要重新标定。
+
+   检查完规则和路径后，再安装 `robot-service.service`、IMU 重置服务及脚本，执行 `systemctl daemon-reload`、udev 规则重载，并启用服务。串口用户组变更需要重新登录才生效。
+
+6. 按验收结果确认迁移成功。
+
+   至少完成这些检查：
+
+   - **文件完整**：归档校验通过，地图五件套、CSV、模型和每个 bag 的分片齐全。
+   - **依赖与编译**：工作区编译成功，Python 导入正常，动态库没有 `not found`；处理完项目相关的 `pip check` 冲突。
+   - **录包读取**：用 `ros2 bag info` 检查历史录包；回放测试先使用独立 ROS 域并隔离底盘执行器。
+   - **实车传感器**：点云、IMU、GNSS、前后单线雷达及相机持续有数据，时间戳正常。
+   - **定位与 TF**：重定位成功，`map → odom → base_link` 正确，RViz 中车辆位置与现场一致。
+   - **导航与切图**：地图加载、航点执行、跨地图切换和失败恢复正常。
+   - **底盘与外围设备**：低速验证速度转换、停止、门锁和报警功能。
+   - **冷启动与持续运行**：重启后传感器服务正常，连续跑车期间没有掉设备、节点退出或资源异常。
+
+   目前单独启动 Nav2 的默认地图仍指向桌面的 `K8.yaml`；单独启动重定位的默认配置也有旧地图路径。新机测试时建议明确指定实际地图，例如：
+
+   ```bash
+   ros2 launch nav2 run.real_launch.py \
+     map:=/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.yaml
+   ```
+
+建议新机至少预留 **100 GB 空闲空间**，内存优先按当前 32 GB 配置考虑。红绿灯识别还涉及独立的 `.150/.160` Jetson 板：仓库中的 TensorRT `.engine` 应保存，但更换 GPU、JetPack 或 TensorRT 版本后可能需要重新导出；迁移导航主机并不会同时迁移那些板上的环境。
+
+本次是旧机的只读核查，新机尚未验证；现场传感器当前也未接入。udev 规则内容和部分系统配置需要你用 sudo 导出。因此，能否在新机稳定跑车，要以上述重新编译、硬件接入和实车验收结果确认，不能仅凭“文件复制完成”判断。
+
+> 不能先备份数据到u盘上吧
+
+可以，而且建议先备份到 U 盘，再迁移新主机。当前关键数据约 40 GB，建议使用至少 128 GB 的 U 盘或移动硬盘，优先使用 `ext4`。如果是 exFAT/NTFS，建议打包成 tar 文件，避免权限、软链接和可执行位丢失。
+
+先插入 U 盘确认挂载位置：
+
+```bash
+lsblk -f
+df -h
+```
+
+假设 U 盘挂载在 `/media/akun/CAR_BACKUP`，先停止会持续写数据的服务：
+
+```bash
+sudo systemctl stop robot-service.service
+sudo systemctl stop carjetson-idle-monitor.service
+pkill -f 'ros2 bag record' || true
+```
+
+然后完整复制：
+
+```bash
+USB_DIR=/media/akun/CAR_BACKUP/car_migration_20261012
+sudo mkdir -p "$USB_DIR"
+
+sudo rsync -aHAX --numeric-ids --info=progress2 \
+  /home/akun/workspace/Car_jetson/ \
+  "$USB_DIR/Car_jetson/"
+
+sudo rsync -aHAX --numeric-ids --info=progress2 \
+  /home/akun/workspace/sensor/ \
+  "$USB_DIR/sensor/"
+
+sudo rsync -aHAX --numeric-ids --info=progress2 \
+  /home/akun/Desktop/ \
+  "$USB_DIR/Desktop/"
+
+sudo rsync -aHAX --numeric-ids --info=progress2 \
+  /home/akun/.local/realsense_ros/ \
+  "$USB_DIR/realsense_ros/"
+```
+
+再备份工作区外的启动和系统配置：
+
+```bash
+sudo tar --acls --xattrs -cpf "$USB_DIR/system-config.tar" \
+  /home/akun/start_robot_service.sh \
+  /home/akun/.bashrc \
+  /home/akun/.profile \
+  /etc/systemd/system/robot-service.service \
+  /etc/systemd/system/reset-wheeltec-imu.service \
+  /etc/systemd/system/carjetson-idle-monitor.service \
+  /usr/local/sbin/reset-wheeltec-imu-usb \
+  /etc/udev/rules.d \
+  /etc/netplan \
+  /etc/NetworkManager/system-connections \
+  /etc/apt/sources.list.d \
+  /usr/local/include/livox_lidar_api.h \
+  /usr/local/include/livox_lidar_cfg.h \
+  /usr/local/include/livox_lidar_def.h \
+  /usr/local/lib/liblivox_lidar_sdk_shared.so \
+  /usr/local/lib/liblivox_lidar_sdk_static.a
+```
+
+保存环境清单：
+
+```bash
+dpkg-query -W -f='${Package}\t${Version}\n' \
+  > "$USB_DIR/apt-packages.tsv"
+
+python3 -m pip freeze \
+  > "$USB_DIR/pip-freeze.txt"
+
+git -C /home/akun/workspace/Car_jetson status --short \
+  > "$USB_DIR/git-status.txt"
+
+git -C /home/akun/workspace/Car_jetson diff HEAD --binary \
+  > "$USB_DIR/local-changes.patch"
+```
+
+验证关键目录大小：
+
+```bash
+du -sh \
+  /home/akun/workspace/Car_jetson \
+  "$USB_DIR/Car_jetson"
+
+find "$USB_DIR/Car_jetson/bag" -name '*.db3' -o -name metadata.yaml | wc -l
+find "$USB_DIR/Car_jetson/multi_map_navigation/src/map" \
+  -type f | wc -l
+
+sudo sha256sum "$USB_DIR/system-config.tar" \
+  > "$USB_DIR/SHA256SUMS"
+sudo sha256sum -c "$USB_DIR/SHA256SUMS"
+```
+
+最后确保数据全部落盘再拔 U 盘：
+
+```bash
+sync
+sudo umount /media/akun/CAR_BACKUP
+```
+
+不要直接执行格式化命令。先用 `lsblk -f` 确认 U 盘设备和挂载路径，避免误操作系统盘。备份完成后可以重新启动旧机服务：
+
+```bash
+sudo systemctl start robot-service.service
+sudo systemctl start carjetson-idle-monitor.service
+```
+
+这份 U 盘备份会包含 Git 没有管理的 bag、PCD 地图、未提交修改和未跟踪代码，比单纯推送 GitHub 完整得多。
+
+> 以插入一个u盘，检查是否能满足备份条件
+
+<details><summary>5 previous messages</summary>
+
+> 我会检查刚插入 U 盘的容量、剩余空间、文件系统和写入权限，并核对备份所需空间。
+>
+> <details><summary>Explored a list, ran 3 commands</summary>
+>
+> - Ran `lsblk -b -o NAME,PATH,TYPE,TRAN,RM,HOTPLUG,SIZE,FSTYPE,FSVER,LABEL,UUID,MOUNTPOINTS,MODEL && findmnt -rn -o SOURCE,TARGET,FSTYPE,OPTIONS && df -hT`
+>
+> - Ran `du -s -B1 /home/akun/workspace/Car_jetson /home/akun/workspace/sensor /home/akun/Desktop /home/akun/.local/realsense_ros /home/akun/.local/lib/python3.10 /home/akun/.ros /usr/local/lib /usr/local/include && ls -ld /media /media/akun /run/media /run/media/akun 2>/dev/null; id; command -v udisksctl; command -v getfacl; command -v smartctl`
+>
+> - Ran `df -B1 --output=source,fstype,size,used,avail,target /media/akun/CPBA_X64FRE_ZH-CN_DV9 && findmnt -T /media/akun/CPBA_X64FRE_ZH-CN_DV9 -o SOURCE,TARGET,FSTYPE,OPTIONS && ls -ld /media/akun/CPBA_X64FRE_ZH-CN_DV9 && if test -w /media/akun/CPBA_X64FRE_ZH-CN_DV9; then printf 'Current user has write access\n'; fi && if test ! -e /media/akun/CPBA_X64FRE_ZH-CN_DV9/.codex-backup-write-probe-20261012.txt; then printf 'Diagnostic file path is unused\n'; fi`
+>
+> <details><summary>Explored a list</summary>
+>
+> - Listed files in `Car_jetson`
+>
+> </details>
+>
+> </details>
+>
+> Context compaction
+>
+> Source: automatic
+> Status: completed
+>
+> 容量和基础写权限已经满足。我再做一次极小的“写入、落盘、读回校验、删除”测试，确认这个 NTFS 主分区不是只在挂载参数上显示可写；不会触碰 U 盘原有文件，也不会开始正式备份。
+>
+> <details><summary>Created a file, deleted a file, ran 4 commands</summary>
+>
+> - Wrote `/media/akun/CPBA_X64FRE_ZH-CN_DV9/.codex-backup-write-probe-20261012.txt` (+2 -0)
+> - Ran `sync -f '/media/akun/CPBA_X64FRE_ZH-CN_DV9/.codex-backup-write-probe-20261012.txt'`
+> - Ran `if cmp -s '/media/akun/CPBA_X64FRE_ZH-CN_DV9/.codex-backup-write-probe-20261012.txt' <(printf '%s\n' 'Car_jetson backup write probe' '2026-10-12 Asia/Shanghai'); then printf '%s\n' '写入、落盘和读回内容校验通过'; else printf '%s\n' '读回校验失败'; exit 1; fi`
+> - Ran `df -B1 '/media/akun/CPBA_X64FRE_ZH-CN_DV9'`
+> - Deleted `/media/akun/CPBA_X64FRE_ZH-CN_DV9/.codex-backup-write-probe-20261012.txt` (+0 -2)
+> - Ran `sync -f '/media/akun/CPBA_X64FRE_ZH-CN_DV9' && test ! -e '/media/akun/CPBA_X64FRE_ZH-CN_DV9/.codex-backup-write-probe-20261012.txt'`
+>
+> </details>
+</details>
+
+检查结果：这个 U 盘满足当前小车系统备份的容量和基本写入条件，不需要格式化。
+
+| 项目 | 检查结果 |
+|---|---|
+| U 盘设备 | `/dev/sdb`，SanDisk 3.2Gen1 |
+| 用于备份的分区 | `/dev/sdb1` |
+| 挂载路径 | `/media/akun/CPBA_X64FRE_ZH-CN_DV9` |
+| 文件系统 | NTFS，当前可读写 |
+| 总容量 | 约 114.6 GiB |
+| 已用空间 | 约 22.8 GiB |
+| 剩余空间 | 约 91.8 GiB |
+| 预计需要备份 | 约 40 GiB 左右 |
+| 写入测试 | 已成功写入、落盘、读回校验，并已删除测试文件 |
+
+本次只进行了检查，没有开始正式备份，也没有修改 U 盘原有内容。
+
+需要注意：
+
+- U 盘还有一个很小的 `/dev/sdb2` 分区，标签为 `RUFUS_BOOT`，只有约 1 MB，不能用于备份。
+- 正式备份应使用大容量 NTFS 分区：
+
+  `/media/akun/CPBA_X64FRE_ZH-CN_DV9`
+
+- 由于 NTFS 对 Linux 权限、软链接、设备文件等支持不完整，代码和 ROS 数据建议打包成 `tar` 归档后保存到 U 盘，不建议直接把整个工作区用普通复制方式拷过去。
+- 预计需要备份的内容约 40 GiB，当前剩余约 91.8 GiB，备份后仍有约 50 GiB 可用空间。
+- `/etc` 下部分服务、udev、网络配置以及 `/usr/local` 中的 Livox 库可能需要管理员权限才能完整导出；因此“U 盘容量足够”已经确认，但完整系统级备份还需要用 `sudo` 读取这些目录。
+
+建议正式备份时至少包含：
+
+- `/home/akun/workspace/Car_jetson`
+- `/home/akun/workspace/sensor`
+- `/home/akun/Desktop`
+- `/home/akun/.local/realsense_ros`
+- `/home/akun/.local/lib/python3.10`
+- `/home/akun/.ros`
+- `/home/akun/start_robot_service.sh`
+- 相关 `/etc/systemd/system`、`/etc/udev`、网络配置和 `/usr/local` 库文件
+
+结论：**这个 U 盘可以用于本次迁移备份，容量和实际写入能力均满足要求。**
+
+> 帮我制定详细的备份步骤，先备份那些，在备份那些。
+
+可以。建议按照“先小而关键、再不可替代数据、最后大文件和可重建环境”的顺序备份。这样即使中途断电或 U 盘空间异常，最重要的内容也已经保存。
+
+U 盘主分区：
+
+```text
+/media/akun/CPBA_X64FRE_ZH-CN_DV9
+```
+
+预计备份约 40 GiB，当前可用约 91.8 GiB。
+
+## 一、备份前准备
+
+### 1. 停止继续产生数据
+
+正式备份前，先结束正在录制的 ROS bag。不要直接拔设备或强制杀死录包进程，否则 `metadata.yaml` 可能不完整。
+
+检查录包：
+
+```bash
+pgrep -af "ros2 bag record"
+```
+
+如果正在录制，回到启动录包的终端按 `Ctrl+C`，等待进程正常退出。
+
+停止自动巡航服务，避免地图、日志或配置在归档过程中变化：
+
+```bash
+sudo systemctl stop robot-service.service
+systemctl is-active robot-service.service
+sync
+```
+
+预期第二条命令显示 `inactive`。
+
+### 2. 建立备份目录
+
+```bash
+BACKUP_ROOT="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12"
+mkdir -p "$BACKUP_ROOT"/{archives,manifest,checksums}
+df -h "$BACKUP_ROOT"
+```
+
+后续命令应在同一个终端执行，保证 `$BACKUP_ROOT` 一直有效。
+
+## 二、第一批：主机和运行环境清单
+
+这部分体积很小，应当最先完成。它用于在新机器上确认 Ubuntu、ROS、APT 和 Python 版本。
+
+```bash
+uname -a > "$BACKUP_ROOT/manifest/uname.txt"
+lsb_release -a > "$BACKUP_ROOT/manifest/ubuntu-version.txt" 2>&1
+dpkg-query -W > "$BACKUP_ROOT/manifest/dpkg-packages.txt"
+apt-mark showmanual > "$BACKUP_ROOT/manifest/apt-manual-packages.txt"
+python3 --version > "$BACKUP_ROOT/manifest/python-version.txt" 2>&1
+python3 -m pip freeze > "$BACKUP_ROOT/manifest/pip-freeze.txt"
+ros2 pkg list > "$BACKUP_ROOT/manifest/ros2-packages.txt" 2>&1
+ip -br addr > "$BACKUP_ROOT/manifest/network-addresses.txt"
+lsusb > "$BACKUP_ROOT/manifest/usb-devices.txt"
+lsblk -f > "$BACKUP_ROOT/manifest/disks.txt"
+```
+
+Git 状态也要保存，因为当前项目存在未提交、未跟踪和被 `.gitignore` 忽略的文件：
+
+```bash
+git -C /home/akun/workspace/Car_jetson status --short --branch --ignored \
+  > "$BACKUP_ROOT/manifest/Car_jetson-git-status.txt"
+
+git -C /home/akun/workspace/Car_jetson log --all --oneline --decorate -n 200 \
+  > "$BACKUP_ROOT/manifest/Car_jetson-git-log.txt"
+```
+
+`pip-freeze.txt` 只用于记录版本，不能在新机器上直接无脑安装，因为当前 Python 环境存在依赖冲突。
+
+## 三、第二批：系统服务、硬件和网络配置
+
+这些文件很小，但决定雷达、IMU、摄像头和开机服务能否运行，应第二优先备份：
+
+```bash
+sudo tar --format=posix --acls --xattrs --numeric-owner \
+  -cpf "$BACKUP_ROOT/archives/01_host_configuration.tar" \
+  -C / \
+  etc/os-release \
+  etc/fstab \
+  etc/systemd/system/robot-service.service \
+  etc/systemd/system/reset-wheeltec-imu.service \
+  etc/systemd/system/carjetson-idle-monitor.service \
+  etc/udev/rules.d \
+  etc/NetworkManager/system-connections \
+  etc/netplan \
+  etc/apt/sources.list \
+  etc/apt/sources.list.d \
+  usr/local/sbin/reset-wheeltec-imu-usb \
+  usr/local/lib \
+  usr/local/include \
+  home/akun/start_robot_service.sh \
+  home/akun/.bashrc \
+  home/akun/.profile
+```
+
+其中 NetworkManager 配置可能包含 Wi-Fi 密码，U 盘需要妥善保管。若 U 盘会交给他人，应再对这个归档进行加密。
+
+立即验证：
+
+```bash
+tar -tf "$BACKUP_ROOT/archives/01_host_configuration.tar" >/dev/null
+sync -f "$BACKUP_ROOT/archives/01_host_configuration.tar"
+```
+
+## 四、第三批：项目代码和 Git 历史
+
+先备份代码，但暂时排除大型 bag、地图和测试数据：
+
+```bash
+sudo tar --format=posix --acls --xattrs --numeric-owner \
+  -cpf "$BACKUP_ROOT/archives/02_Car_jetson_code.tar" \
+  -C /home/akun/workspace \
+  --exclude='Car_jetson/bag' \
+  --exclude='Car_jetson/test_data' \
+  --exclude='Car_jetson/slam/src/pcd_global/real' \
+  --exclude='Car_jetson/multi_map_navigation/src/map' \
+  Car_jetson
+```
+
+这个归档会保留：
+
+- `.git` 和完整 Git 历史
+- 未提交、未跟踪和忽略文件
+- ROS 工作区源码
+- launch、参数和配置文件
+- 当前 `build/install/log`
+- `utils/install` 中目前源码目录已经缺失的历史包
+
+验证：
+
+```bash
+tar -tf "$BACKUP_ROOT/archives/02_Car_jetson_code.tar" >/dev/null
+sync -f "$BACKUP_ROOT/archives/02_Car_jetson_code.tar"
+```
+
+## 五、第四批：地图、点云和测试数据
+
+这些数据通常无法从 Git 恢复，要成套备份：
+
+```bash
+sudo tar --format=posix --acls --xattrs --numeric-owner \
+  -cpf "$BACKUP_ROOT/archives/03_maps_and_test_data.tar" \
+  -C /home/akun/workspace \
+  Car_jetson/slam/src/pcd_global/real \
+  Car_jetson/multi_map_navigation/src/map \
+  Car_jetson/test_data
+```
+
+确保地图组合中的以下文件都在归档中：
+
+- `*_raw.pcd`
+- `*_clean.pcd`
+- `*_clean.pgm`
+- `*_clean.yaml`
+- `*.csv`
+
+验证：
+
+```bash
+tar -tf "$BACKUP_ROOT/archives/03_maps_and_test_data.tar" >/dev/null
+sync -f "$BACKUP_ROOT/archives/03_maps_and_test_data.tar"
+```
+
+## 六、第五批：ROS bag 跑车数据
+
+`bag/` 约 18 GiB，是最大的单项数据，应单独归档：
+
+```bash
+sudo tar --format=posix --acls --xattrs --numeric-owner \
+  -cpf "$BACKUP_ROOT/archives/04_rosbag_data.tar" \
+  -C /home/akun/workspace \
+  Car_jetson/bag
+```
+
+每个录包目录都应包含：
+
+```text
+metadata.yaml
+*.db3
+```
+
+验证：
+
+```bash
+tar -tf "$BACKUP_ROOT/archives/04_rosbag_data.tar" >/dev/null
+sync -f "$BACKUP_ROOT/archives/04_rosbag_data.tar"
+```
+
+## 七、第六批：外部地图和备用传感器工作区
+
+主程序还引用了工作区外的数据，尤其是默认地图 `/home/akun/Desktop/K8.yaml`：
+
+```bash
+sudo tar --format=posix --acls --xattrs --numeric-owner \
+  -cpf "$BACKUP_ROOT/archives/05_external_project_data.tar" \
+  -C /home/akun \
+  workspace/sensor \
+  Desktop
+```
+
+验证：
+
+```bash
+tar -tf "$BACKUP_ROOT/archives/05_external_project_data.tar" >/dev/null
+sync -f "$BACKUP_ROOT/archives/05_external_project_data.tar"
+```
+
+## 八、第七批：用户级驱动、Python 包和 ROS 日志
+
+这些内容可以辅助恢复，但部分二进制包需要在新机器上重新安装或编译，因此放在最后：
+
+```bash
+sudo tar --format=posix --acls --xattrs --numeric-owner \
+  -cpf "$BACKUP_ROOT/archives/06_user_runtime_reference.tar" \
+  -C /home/akun \
+  .local/realsense_ros \
+  .local/lib/python3.10 \
+  .ros
+```
+
+验证：
+
+```bash
+tar -tf "$BACKUP_ROOT/archives/06_user_runtime_reference.tar" >/dev/null
+sync -f "$BACKUP_ROOT/archives/06_user_runtime_reference.tar"
+```
+
+RealSense 和 Python 二进制包只能作为恢复参考；如果新主机架构、Ubuntu 或 Python 版本不同，应重新安装。
+
+## 九、生成总校验文件
+
+全部归档完成后：
+
+```bash
+cd "$BACKUP_ROOT"
+sha256sum archives/*.tar > checksums/SHA256SUMS
+sha256sum -c checksums/SHA256SUMS
+du -sh archives
+df -h .
+sync
+```
+
+只有所有结果都显示 `OK`，备份才算通过。
+
+再检查每个归档能否读取：
+
+```bash
+for archive in "$BACKUP_ROOT"/archives/*.tar; do
+  echo "检查：$archive"
+  tar -tf "$archive" >/dev/null || break
+done
+```
+
+## 十、安全弹出
+
+确认没有命令还在访问 U 盘：
+
+```bash
+cd /home/akun
+sync
+udisksctl unmount -b /dev/sdb1
+```
+
+看到卸载成功后再拔 U 盘。不要卸载或使用只有约 1 MB 的 `/dev/sdb2`、`RUFUS_BOOT` 分区。
+
+## 新机器恢复顺序
+
+到新机器后按下面顺序恢复：
+
+1. 安装同架构的 Ubuntu 22.04 和 ROS 2 Humble。
+2. 尽量创建相同用户名 `akun`，最好保持相同 UID `1001`。
+3. 用 `sha256sum -c` 验证 U 盘文件。
+4. 先恢复 `02_Car_jetson_code.tar`。
+5. 恢复地图、测试数据、ROS bag 和 Desktop 数据。
+6. 根据清单重新安装 APT、ROS、Python、GTSAM、PCL、Livox 和 RealSense 依赖。
+7. 审核后恢复 systemd、udev、网络和 `/usr/local` 配置。
+8. 在新机重新编译 ROS 工作区，不应直接依赖旧机器的 `build/install`。
+9. 核对新机网卡名称、USB 路径、RealSense 序列号和传感器 IP。
+10. 最后启用 `robot-service.service`，先单模块测试，再进行实车巡航测试。
+
+当前只是制定步骤，尚未执行正式备份，也没有停止车辆服务。
+
+> 这个ros bag录制是什么时候开始的，是自动的吗，帮我停止录制。
+
+<details><summary>6 previous messages</summary>
+
+> 我先查当前是否真的存在 `ros2 bag record` 进程、它的启动时间和父进程，再检查 systemd/启动脚本里是否配置了自动录制。确认后我只停止录包，不停止整套小车服务。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `ps -eo pid,ppid,lstart,etime,user,args | rg '[r]os2 bag record|[r]osbag'`
+> - Ran `systemctl status robot-service.service --no-pager -l`
+> - Ran `rg -n --hidden --glob '!**/.git/**' --glob '!**/build/**' --glob '!**/install/**' --glob '!**/log/**' 'ros2[[:space:]]+bag[[:space:]]+record|rosbag[[:space:]]+record|bag record' /home/akun/workspace/Car_jetson /home/akun/start_robot_service.sh /etc/systemd/system 2>&1`
+>
+> </details>
+>
+> 初查没有发现正在运行的录包进程；刚才进程列表里出现的文字只是我自己的搜索命令。自动启动服务自 2026-10-12 10:35:10 起运行，但其进程树中也没有录包程序。我继续核对 ROS 节点、启动脚本和现有 bag 的时间，避免把历史数据误认为当前录制。
+>
+> <details><summary>Ran 5 commands</summary>
+>
+> - Ran `find /home/akun/workspace/Car_jetson/bag -maxdepth 2 -type f \( -name metadata.yaml -o -name '*.db3' \) -printf '%TY-%Tm-%Td %TH:%TM:%TS %10s %p\n' 2>/dev/null | sort -r | head -40`
+> - Ran `sed -n '1,240p' /home/akun/start_robot_service.sh; systemctl cat robot-service.service`
+> - Ran `ps -eo pid,ppid,lstart,etime,user,comm,args | rg -i '[r]osbag2|[r]os2[[:space:]]+bag|[b]ag_recorder|[r]ecorder'`
+> - Ran `journalctl -u robot-service.service --since '2026-10-12 10:35:00' --no-pager 2>/dev/null | rg -i 'ros2 bag|rosbag|recording|record' | tail -50`
+> - Ran `bash -lc 'source /opt/ros/humble/setup.bash && timeout 8 ros2 node list 2>/dev/null | rg -i "bag|record"'`
+>
+> </details>
+>
+> 现有 bag 的最后一次写入是 2026-04-22 19:16:28，今天没有新增或持续增长；当前也没有录包节点。因此无需发送中断信号，强行执行停止命令反而可能误伤其他 ROS 进程。我再检查一次 launch 文件、定时任务和自启动项，确认它不是由其他机制自动拉起。
+>
+> <details><summary>Ran 4 commands</summary>
+>
+> - Ran `rg -n --hidden --glob '!**/build/**' --glob '!**/install/**' --glob '!**/log/**' -i 'rosbag2_transport|ros2[[:space:]]+bag|bag[[:space:]]+record|record_options|storage_options|record_all' /home/akun/workspace/Car_jetson/real_ws/src /home/akun/workspace/sensor/real_ws/src 2>/dev/null`
+> - Ran `crontab -l 2>/dev/null | rg -i 'bag|record|ros' || true; rg -n -i 'ros2[[:space:]]+bag|rosbag|bag[[:space:]]+record' /etc/cron.d /etc/cron.daily /etc/cron.hourly /etc/cron.weekly /etc/cron.monthly /home/akun/.config/systemd /home/akun/.config/autostart 2>/dev/null || true`
+> - Ran `bag_files=(); while IFS= read -r -d '' f; do bag_files+=("$f"); done < <(find /home/akun/workspace/Car_jetson/bag -type f \( -name '*.db3' -o -name metadata.yaml \) -print0 2>/dev/null); if ((${#bag_files[@]})); then lsof -- "${bag_files[@]}" 2>/dev/null || true; fi`
+> - Ran `systemctl list-unit-files --type=service --type=timer --no-pager | rg -i 'bag|record|ros'; systemctl --user list-unit-files --type=service --type=timer --no-pager 2>/dev/null | rg -i 'bag|record|ros'`
+>
+> </details>
+</details>
+
+检查确认：**当前没有 ROS bag 正在录制，因此不需要再停止。** 我没有终止其他 ROS 节点，小车的 `robot-service.service` 仍保持运行。
+
+具体情况：
+
+- 当前没有 `ros2 bag record`、`rosbag2` recorder 进程。
+- ROS 节点中没有录包节点。
+- 现有 `.db3` 文件没有被任何进程打开。
+- 今天没有生成新的 bag 数据。
+- 项目中最近一次录包目录是 `rosbag2_2026_04_22-19_12_20`。
+- 从目录名判断，开始于 **2026-04-22 19:12:20**。
+- 最后写入时间是 **2026-04-22 19:16:28**，录制约 4 分钟。
+
+它不是自动启动的：
+
+- [start_robot_service.sh](~/start_robot_service.sh) 只启动 `ros2 launch launch_real run.launch.py`。
+- `robot-service.service`、launch 文件、定时任务和用户自启动项中均未发现自动录包命令。
+- 搜索到的 `rosbag record` 仅存在于说明文档和开发计划中，不会自动执行。
+
+所以结论是：**小车服务会开机自动启动，但 ROS bag 录制不会；历史 bag 大概率是手动启动并且早已停止。**现在可以直接进入备份流程。
+
+> 现在能帮我开始按照上面的部分备份所有所需文件吗，确保不会损坏删除源文件。
+
+<details><summary>26 previous messages</summary>
+
+> 我会按分批归档、每批立即校验的方式执行；所有源目录只读，不使用移动、删除或覆盖命令。先做挂载、空间、录包进程和目标目录冲突检查，再依次备份配置清单、代码、地图、bag、外部数据和运行环境。
+>
+> <details><summary>Ran 5 commands</summary>
+>
+> - Ran `findmnt -no SOURCE,FSTYPE,OPTIONS,TARGET '/media/akun/CPBA_X64FRE_ZH-CN_DV9'; df -B1 '/media/akun/CPBA_X64FRE_ZH-CN_DV9'`
+> - Ran `command -v tar; command -v sha256sum; tar --version | head -1`
+> - Ran `find '/media/akun/CPBA_X64FRE_ZH-CN_DV9' -maxdepth 1 -mindepth 1 -type d -name 'Car_jetson_backup_*' -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n' 2>/dev/null | sort`
+> - Ran `ps -eo pid,ppid,lstart,etime,user,args | rg -i '[r]osbag2|[/]opt/ros/humble/bin/ros2[[:space:]]+bag[[:space:]]+record|[b]ag_recorder' || true`
+> - Ran `du -s -B1 --apparent-size /home/akun/workspace/Car_jetson /home/akun/workspace/sensor /home/akun/Desktop /home/akun/.local/realsense_ros /home/akun/.local/lib/python3.10 /home/akun/.ros 2>&1`
+>
+> </details>
+>
+> 预检通过：U 盘以 NTFS 读写挂载，剩余 98,611,908,608 字节（约 91.8 GiB）；待备份用户数据约 38.9 GiB，且没有录包进程。现有 U 盘上没有同名备份目录，我现在创建一个带时间戳的新目录，避免覆盖任何旧内容。小车服务不会写这些代码、地图或 bag 源文件，因此保持运行；活跃的 `.ros` 日志会在最后单独处理。
+>
+> <details><summary>Explored a search, 2 lists, ran 4 commands</summary>
+>
+> - Ran `backup_root="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_$(date +%F_%H%M%S)"; mkdir -p "$backup_root/archives" "$backup_root/manifest" "$backup_root/checksums"; chmod 700 "$backup_root"; printf '%s\n' "$backup_root"; test -d "$backup_root/archives" -a -w "$backup_root/archives"`
+>
+> - Ran `sudo -n true`
+>
+> - Ran `rg --files -g AGENTS.md -g '!bag/**' -g '!**/build/**' -g '!**/install/**' -g '!**/log/**' /home/akun/workspace /home/akun 2>/dev/null | head -60`
+>
+> - Ran `stat -c '%A %U %G %n' /etc/udev/rules.d /etc/NetworkManager/system-connections /etc/netplan /etc/apt/sources.list /etc/apt/sources.list.d /usr/local/lib /usr/local/include /usr/local/sbin/reset-wheeltec-imu-usb /etc/systemd/system/robot-service.service /etc/systemd/system/reset-wheeltec-imu.service /etc/systemd/system/carjetson-idle-monitor.service /home/akun/.local/bin /home/akun/.local/realsense_ros /home/akun/.ros; date --iso-8601=seconds; id`
+>
+> <details><summary>Explored a search, 2 lists</summary>
+>
+> - Listed files in `bag`
+> - Searched for `^(ExecStart|ExecStop|Environment|User|WorkingDirectory|Restart)` in `carjetson-idle-monitor.service`
+> - Listed files in `Car_jetson`
+>
+> </details>
+>
+> </details>
+>
+> 有一项权限限制已经确认：本机 `sudo` 需要密码，我无法代输；udev 规则和部分网络配置需要管理员权限才能完整读取。我会先完成全部可读数据的备份和校验，并把需要管理员补备的内容单独列出。
+>
+> 另外，后台监控会持续写日志。我会把这些活跃日志单独归档，避免把“归档时文件变化”误报成成功，也不会为备份修改源文件。
+>
+> <details><summary>Ran 5 commands</summary>
+>
+> - Ran `for d in / /home /home/akun /home/akun/workspace /home/akun/workspace/Car_jetson; do if test -f "$d/AGENTS.md"; then printf '%s\n' "$d/AGENTS.md"; sed -n '1,240p' "$d/AGENTS.md"; fi; done; rg -n 'open\(|mkdir|log_dir|output|csv|json|thermal_testing|reports|results' thermal_testing/idle_crash_monitor.py | head -65; systemctl is-active carjetson-idle-monitor.service; find thermal_testing -maxdepth 3 -type d -printf '%p\n' | head -50`
+> - Ran `find /home/akun/workspace/Car_jetson /home/akun/workspace/sensor /home/akun/Desktop /home/akun/.local/realsense_ros /home/akun/.local/lib/python3.10 /home/akun/.ros -type d ! -executable -printf '%p\n' 2>/dev/null | head -50; find /home/akun/.local/realsense_ros -maxdepth 2 -type l -printf '%p -> %l\n' | head -20; rg -n 'rosbag2|record|bag' real_ws/install/launch_real/share/launch_real/launch/run.launch.py 2>/dev/null || true`
+> - Ran `find /etc/NetworkManager/system-connections /etc/netplan /etc/apt/sources.list.d /usr/local/lib /usr/local/include /usr/local/sbin -maxdepth 2 -type f ! -readable -printf '%p\n' 2>/dev/null; find /home/akun/workspace/Car_jetson /home/akun/workspace/sensor /home/akun/Desktop /home/akun/.local/realsense_ros /home/akun/.local/lib/python3.10 /home/akun/.ros -type f ! -readable -printf '%p\n' 2>/dev/null | head -50`
+> - Ran `set -u
+> manifest="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest"
+> date --iso-8601=seconds > "$manifest/backup-started.txt"
+> uname -a > "$manifest/uname.txt"
+> lsb_release -a > "$manifest/ubuntu-version.txt" 2>&1 || true
+> dpkg-query -W -f='${binary:Package}\t${Version}\n' > "$manifest/dpkg-packages.tsv"
+> apt-mark showmanual > "$manifest/apt-manual-packages.txt"
+> python3 --version > "$manifest/python-version.txt" 2>&1
+> python3 -m pip freeze > "$manifest/pip-freeze.txt" 2>&1 || true
+> python3 -m pip check > "$manifest/pip-check.txt" 2>&1 || true
+> bash -lc 'source /opt/ros/humble/setup.bash && ros2 pkg list' > "$manifest/ros2-packages.txt" 2>&1 || true
+> ip -br addr > "$manifest/network-addresses.txt"
+> ip route > "$manifest/network-routes.txt"
+> lsusb > "$manifest/usb-devices.txt"
+> lspci -nn > "$manifest/pci-devices.txt"
+> lsblk -o NAME,PATH,SIZE,TYPE,FSTYPE,LABEL,UUID,MOUNTPOINTS > "$manifest/disks.txt"
+> findmnt > "$manifest/mounts.txt"
+> getent group > "$manifest/groups.txt"
+> systemctl list-unit-files --state=enabled --no-pager > "$manifest/enabled-systemd-units.txt"
+> systemctl status robot-service.service reset-wheeltec-imu.service carjetson-idle-monitor.service --no-pager -l > "$manifest/robot-services-status.txt" 2>&1 || true
+> systemctl cat robot-service.service reset-wheeltec-imu.service carjetson-idle-monitor.service > "$manifest/robot-services-units.txt" 2>&1 || true
+> git -C /home/akun/workspace/Car_jetson status --short --branch > "$manifest/Car_jetson-git-status.txt" 2>&1 || true
+> git -C /home/akun/workspace/Car_jetson log --all --oneline --decorate -n 500 > "$manifest/Car_jetson-git-log.txt" 2>&1 || true
+> git -C /home/akun/workspace/Car_jetson submodule status --recursive > "$manifest/Car_jetson-submodules.txt" 2>&1 || true
+> du -s -B1 --apparent-size /home/akun/workspace/Car_jetson /home/akun/workspace/sensor /home/akun/Desktop /home/akun/.local/realsense_ros /home/akun/.local/lib/python3.10 /home/akun/.ros > "$manifest/source-apparent-sizes.txt" 2>&1
+> find /home/akun/workspace/Car_jetson/bag -maxdepth 2 -type f \( -name metadata.yaml -o -name '*.db3' \) -printf '%TY-%Tm-%Td %TH:%TM:%TS %s %p\n' | sort > "$manifest/rosbag-files.txt"
+> printf '%s\n'   '/etc/udev/rules.d'   '/etc/NetworkManager/system-connections'   > "$manifest/requires-sudo-for-complete-backup.txt"
+> sync -f "$manifest"
+> find "$manifest" -maxdepth 1 -type f -printf '%f %s bytes\n' | sort`
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/01_host_configuration_readable.tar"
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" -C / \
+>   etc/os-release \
+>   etc/fstab \
+>   etc/hosts \
+>   etc/hostname \
+>   etc/systemd/system/robot-service.service \
+>   etc/systemd/system/reset-wheeltec-imu.service \
+>   etc/systemd/system/carjetson-idle-monitor.service \
+>   etc/netplan \
+>   etc/apt/sources.list \
+>   etc/apt/sources.list.d \
+>   usr/local/sbin/reset-wheeltec-imu-usb \
+>   usr/local/lib \
+>   usr/local/include \
+>   home/akun/start_robot_service.sh \
+>   home/akun/.bashrc \
+>   home/akun/.profile
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> stat -c '%n %s bytes' "$archive"`
+>
+> </details>
+>
+> 第一批已完成并通过归档目录读取校验：主机/软件清单已导出，可读的 systemd、APT、netplan、Livox 库、启动脚本和 shell 环境已归档，大小约 29.2 MiB。接下来备份代码与 Git 内容；会排除单独归档的大型 bag、地图和测试数据，避免重复占用 U 盘。
+>
+> 代码归档正在写入 U 盘，源文件保持只读。这个归档还包含工作区中的 `.git`、未提交文件、未跟踪文件以及现有构建产物，所以会比纯源码备份耗时更长；完成后我会先读完整个 tar 目录再进入数据归档。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/02_Car_jetson_code.tar"
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" \
+>   -C /home/akun/workspace \
+>   --exclude='Car_jetson/bag' \
+>   --exclude='Car_jetson/test_data' \
+>   --exclude='Car_jetson/slam/src/pcd_global/real' \
+>   --exclude='Car_jetson/multi_map_navigation/src/map' \
+>   --exclude='Car_jetson/thermal_testing/idle_crash_runs/20261012_103454_boot_idle_watch' \
+>   Car_jetson
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> stat -c '%n %s bytes' "$archive"`
+>
+> </details>
+>
+> 代码与 Git 归档已完成并通过读取校验，大小约 3.38 GiB。现在处理不可替代的地图、点云和测试数据；这一批会保留原始目录结构，恢复时可以放回相同路径。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/03_maps_and_test_data.tar"
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" \
+>   -C /home/akun/workspace \
+>   Car_jetson/slam/src/pcd_global/real \
+>   Car_jetson/multi_map_navigation/src/map \
+>   Car_jetson/test_data
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> stat -c '%n %s bytes' "$archive"`
+>
+> </details>
+>
+> 地图批次仍在正常写入并做顺序读回校验，目前没有 tar 警告或磁盘错误。该批源数据约 8.7 GiB，NTFS 写入和完整目录扫描会花几分钟；我会等校验结束再开始 18 GiB 的 bag。
+>
+> 地图、点云和测试数据归档已完成并通过读取校验，大小约 8.73 GiB。现在开始备份 ROS bag；已再次确认没有录包进程，现有 `metadata.yaml` 和 `.db3` 都是静态历史数据，不会在归档中途变化。
+>
+> ROS bag 归档正在继续，暂无错误。代码与地图两批已分别保存为独立归档；正式结束前还会生成 SHA-256 校验清单，并把归档内容与源文件作比较，以确认这次拷贝完整。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `stat -c '%n %s bytes' '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/04_rosbag_data.tar'; df -B1 /tmp; sed -n '1,85p' thermal_testing/idle_crash_monitor.py; sed -n '145,180p' thermal_testing/idle_crash_monitor.py`
+> - Ran `find /home/akun/.ros -maxdepth 3 -type f -mmin -2 -printf '%TY-%Tm-%Td %TH:%TM:%TS %s %p\n' | head -25; find /home/akun/workspace/Car_jetson/thermal_testing/idle_crash_runs/20261012_103454_boot_idle_watch -maxdepth 1 -printf '%y %f\n'; du -sh /home/akun/.local/bin; command -v nvcc || true; systemctl --user is-active codex.service 2>/dev/null || true`
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/04_rosbag_data.tar"
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" \
+>   -C /home/akun/workspace \
+>   Car_jetson/bag
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> stat -c '%n %s bytes' "$archive"`
+>
+> </details>
+>
+> bag 归档文件已写到约 13 GiB，目前正在执行完整目录读回。归档启用了稀疏文件保留，SQLite 数据库中的空洞不会占用 U 盘实际空间，恢复后的逻辑文件大小仍保持原值；这也是归档小于源逻辑大小的原因。
+>
+> ROS bag 已完成并通过读取校验，归档大小约 17.57 GiB。下一批是工作区外但被程序依赖的数据：备用传感器工作区和 Desktop 中的 K8 地图、PCD、GPS CSV、历史录包等。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/05_external_project_data.tar"
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" \
+>   -C /home/akun \
+>   workspace/sensor \
+>   Desktop
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> stat -c '%n %s bytes' "$archive"`
+>
+> </details>
+>
+> 外部项目数据已完成并通过读取校验，约 4.64 GiB。最后一批用户运行环境将包含 RealSense 用户安装、Python 3.10 用户包、`~/.local/bin` 和 ROS 日志；当前仍在增长的两份 ROS 日志会排除并记入清单，它们不是运行依赖，历史日志会完整保留。这样可避免为了日志一致性中断小车服务。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/06_user_runtime_reference.tar"
+> manifest="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/volatile-ros-files-excluded.txt"
+> cd /home/akun
+> mapfile -d '' volatile_files < <(find .ros -type f -mmin -2 -print0)
+> : > "$manifest"
+> tar_excludes=()
+> for file in "${volatile_files[@]}"; do
+>   printf '/home/akun/%s\n' "$file" >> "$manifest"
+>   tar_excludes+=("--exclude=$file")
+> done
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" \
+>   "${tar_excludes[@]}" \
+>   .local/realsense_ros \
+>   .local/lib/python3.10 \
+>   .local/bin \
+>   .ros
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> printf 'Excluded volatile files: %s\n' "${#volatile_files[@]}"
+> stat -c '%n %s bytes' "$archive"
+> cat "$manifest"`
+>
+> </details>
+>
+> 用户运行环境归档仍在进行，RealSense 和用户 Python 包包含较多文件，会比其逻辑容量耗时。没有对这些源目录做任何写操作；归档完成后我会生成总校验和，并重新检查 U 盘空间和所有归档列表。
+>
+> 最后一批用户运行环境已完成并通过读取校验，约 4.68 GiB；仅排除了两份仍在增长的传感器日志，并已把绝对路径写入清单。这两份日志不是程序依赖，其余历史 ROS 日志均已备份。
+>
+> 现在进入完整性验证：我会对每个归档逐文件比较源文件内容，并随后生成 SHA-256。这个阶段只读取源文件和 U 盘，耗时会较长。
+>
+> <details><summary>Ran 4 commands</summary>
+>
+> - Ran `du -sh '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'; df -h '/media/akun/CPBA_X64FRE_ZH-CN_DV9'; find '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives' -maxdepth 1 -type f -printf '%f %s bytes\n' | sort`
+> - Ran `printf '%s\n' '[udev names]'; ls -1 /etc/udev/rules.d 2>&1; printf '%s\n' '[NetworkManager names]'; ls -1 /etc/NetworkManager/system-connections 2>&1; printf '%s\n' '[netplan contents readable]'; find /etc/netplan -maxdepth 1 -type f -readable -printf '%p\n'`
+> - Ran `ps -eo pid,args | rg -i '[r]osbag2|[/]opt/ros/humble/bin/ros2[[:space:]]+bag[[:space:]]+record|[b]ag_recorder' || true; find /home/akun/workspace/Car_jetson /home/akun/workspace/sensor /home/akun/Desktop -type f -mmin -2 -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n' 2>/dev/null | head -30`
+> - Ran `printf 'DISPLAY=%s\nWAYLAND_DISPLAY=%s\nXDG_SESSION_TYPE=%s\nDBUS_SESSION_BUS_ADDRESS=%s\n' "${DISPLAY-}" "${WAYLAND_DISPLAY-}" "${XDG_SESSION_TYPE-}" "${DBUS_SESSION_BUS_ADDRESS-}"; command -v pkexec || true; pgrep -af 'polkit.*authentication|polkit-gnome|lxpolkit|mate-polkit|polkit-kde' || true`
+>
+> </details>
+>
+> 六个主要归档已写入 U 盘，总计约 39 GiB，盘上还剩约 53 GiB。系统配置归档已与源文件比较一致，其余归档正在逐个比较。我会另存刚才排除的活跃日志快照，让它们也有一份备份；udev 和网络连接配置仍需要管理员权限补齐。
+>
+> <details><summary>Ran 2 commands</summary>
+>
+> - Ran `ls -l '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/source-compare-status.tsv'; sed -n '1,80p' '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/02_Car_jetson_code-source-compare.txt'; find /home/akun/workspace/Car_jetson/thermal_testing/idle_crash_runs/20261012_103454_boot_idle_watch -maxdepth 1 -type f -printf '%f %s bytes\n'; stat -c '%n %s bytes' /home/akun/.ros/log/ahrs_driver_node_2328_1791772551878.log /home/akun/.ros/log/realsense2_camera_node_2538_1791772553930.log`
+> - Ran `set -u
+> backup_root='/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'
+> for spec in \
+>   '01_host_configuration_readable.tar:/' \
+>   '02_Car_jetson_code.tar:/home/akun/workspace' \
+>   '03_maps_and_test_data.tar:/home/akun/workspace' \
+>   '04_rosbag_data.tar:/home/akun/workspace' \
+>   '05_external_project_data.tar:/home/akun' \
+>   '06_user_runtime_reference.tar:/home/akun'
+> do
+>   archive_name="${spec%%:*}"
+>   source_root="${spec#*:}"
+>   printf 'COMPARE START %s\n' "$archive_name"
+>   tar --compare --file="$backup_root/archives/$archive_name" --directory="$source_root" --numeric-owner \
+>     > "$backup_root/manifest/${archive_name%.tar}-source-compare.txt" 2>&1
+>   compare_status=$?
+>   printf '%s\t%s\n' "$archive_name" "$compare_status" >> "$backup_root/manifest/source-compare-status.tsv"
+>   printf 'COMPARE END %s status=%s\n' "$archive_name" "$compare_status"
+> done
+> sync -f "$backup_root/manifest"`
+>
+> </details>
+>
+> System error
+>
+> exceeded retry limit, last status: 429 Too Many Requests, request id: 1b75e28b-fa13-4b16-bd70-d6ce61bfc7d9
+</details>
+
+<details><summary>20 previous messages</summary>
+
+> 我继续做归档完整性核对。当前逐文件比较已通过系统配置、代码和地图数据三批；接下来核对 ROS bag 与其余归档，并补存两份仍在增长的 ROS 日志快照。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -u
+> backup_root='/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'
+> printf '%s\n' '[compare status]'
+> cat "$backup_root/manifest/source-compare-status.tsv" 2>/dev/null || true
+> printf '%s\n' '[compare reports]'
+> for report in "$backup_root"/manifest/*-source-compare.txt; do printf '%s %s bytes\n' "$(basename "$report")" "$(stat -c %s "$report")"; done
+> printf '%s\n' '[archive files]'
+> find "$backup_root/archives" -maxdepth 1 -type f -printf '%f %s bytes\n' | sort
+> printf '%s\n' '[running checks]'
+> ps -eo pid,etime,args | rg '[t]ar --compare|[s]ha256sum .*Car_jetson_backup' || true
+> printf '%s\n' '[disk]'
+> df -h "$backup_root"`
+>
+> </details>
+>
+> 备份进程已经不在运行，但原挂载路径目前消失了，说明 U 盘可能被系统自动卸载、拔出或重新挂载到了别的名称。我先只读定位 `/dev/sdb1` 和备份目录；不会重新格式化，也不会修改源文件。
+>
+> <details><summary>Ran 5 commands</summary>
+>
+> - Ran `lsblk -o NAME,PATH,TRAN,RM,SIZE,FSTYPE,LABEL,UUID,MOUNTPOINTS; findmnt -rn -S /dev/sdb1 -o SOURCE,TARGET,FSTYPE,OPTIONS || true; find /media/akun -maxdepth 3 -type d -name 'Car_jetson_backup_2026-10-12_150801' -print 2>/dev/null || true; ls -la /media/akun 2>&1`
+> - Ran `stat -c '%A %U:%G %n' /media/yunle /media/yunle/CPBA_X64FRE_ZH-CN_DV9; test -r /media/yunle/CPBA_X64FRE_ZH-CN_DV9 && echo readable || echo not-readable; test -w /media/yunle/CPBA_X64FRE_ZH-CN_DV9 && echo writable || echo not-writable; ls -la /media/yunle/CPBA_X64FRE_ZH-CN_DV9 2>&1 | head -40`
+> - Ran `find /run/media /media/akun /media/yunle -maxdepth 4 -type d -name 'Car_jetson_backup_*' -print 2>&1 | head -30`
+> - Ran `id; whoami; mount | rg '/dev/sdb1|/media/yunle'; ps -eo pid,etime,user,args | rg '[t]ar --compare|[s]ha256sum|[c]ar_jetson_backup' || true`
+> - Ran `backup_root='/media/yunle/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'; printf '[mount]\n'; findmnt -no SOURCE,FSTYPE,OPTIONS,TARGET "$backup_root"; printf '[backup directory]\n'; ls -la "$backup_root"; printf '[archives]\n'; find "$backup_root/archives" -maxdepth 1 -type f -printf '%f %s bytes\n' | sort; printf '[compare status]\n'; cat "$backup_root/manifest/source-compare-status.tsv" 2>/dev/null || true; printf '[available space]\n'; df -h "$backup_root"`
+>
+> </details>
+>
+> U 盘仍在，但跨过午夜后被桌面会话重新挂载到 `/media/yunle/...`，当前沙箱账户不能直接进入。我已请求对该重新挂载路径的访问，用于继续校验现有备份；这是读取和续写备份目录，不会修改任何源文件。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `getfacl -p /media/yunle 2>&1; namei -l /media/yunle/CPBA_X64FRE_ZH-CN_DV9 2>&1; ls -ldn /media /media/yunle 2>&1; udisksctl info -b /dev/sdb1 | sed -n '1,120p'`
+>
+> </details>
+>
+> 当前阻塞点不是备份源，而是 U 盘挂载权限：它被另一个桌面会话挂载为 `/media/yunle/...`，`akun` 无法进入该路径，所以我不能安全地读取校验结果。备份归档本身已经写完前六批；我不会绕过权限直接操作块设备。先尝试用系统的“卸载再按当前用户重新挂载”恢复访问，过程中不会格式化或删除 U 盘内容。
+>
+> <details><summary>Ran 2 commands</summary>
+>
+> - Ran `udisksctl unmount -b /dev/sdb1`
+> - Ran `udisksctl unmount -b /dev/sdb1`
+>
+> </details>
+>
+> 系统工具无法在当前无控制终端的会话中完成授权卸载，因此我先不再尝试。源目录没有执行任何删除、移动或覆盖；已写入的六个归档也不会因重新挂载而消失。现在需要把 U 盘重新挂载到当前 `akun` 会话后，才能完成最后的校验和管理员配置补备。
+>
+> <details><summary>Ran 4 commands</summary>
+>
+> - Ran `ps -eo pid,ppid,lstart,etime,user,args | rg '[r]os2 launch launch_real|[r]os2 bag record|[r]osbag2' | head -30`
+> - Ran `lsblk -o NAME,PATH,SIZE,FSTYPE,LABEL,MOUNTPOINTS | rg 'sdb|CPBA|RUFUS'`
+> - Ran `git -C /home/akun/workspace/Car_jetson status --short --branch | head -20`
+> - Ran `systemctl is-active robot-service.service; systemctl status robot-service.service --no-pager -l | sed -n '1,22p'; pgrep -af 'start_robot_service|ros2 launch' || true`
+>
+> </details>
+>
+> 已开始备份，源文件没有被删除、移动或覆盖。
+>
+> 已完成并写入 U 盘的归档目录：
+>
+> ```text
+> Car_jetson_backup_2026-10-12_150801
+> ```
+>
+> 六个归档已完成：
+>
+> - `01_host_configuration_readable.tar`：系统配置和环境清单
+> - `02_Car_jetson_code.tar`：完整代码、`.git`、未提交及未跟踪文件
+> - `03_maps_and_test_data.tar`：地图、点云、测试数据
+> - `04_rosbag_data.tar`：全部 ROS bag
+> - `05_external_project_data.tar`：`sensor` 工作区和 Desktop 数据
+> - `06_user_runtime_reference.tar`：RealSense、Python 用户包、ROS 历史日志
+>
+> 已写入约 39 GiB，写入时 U 盘剩余约 53 GiB。系统配置、代码、地图三批已经完成与源文件的逐项比较，结果通过。
+>
+> 目前还没有完成：
+>
+> - ROS bag、外部数据、用户运行环境的最终逐文件比较
+> - SHA-256 总校验
+> - 需要管理员权限的 `/etc/udev/rules.d` 和 NetworkManager 配置
+>
+> 原因是 U 盘后来被重新挂载到了：
+>
+> ```text
+> /media/yunle/CPBA_X64FRE_ZH-CN_DV9
+> ```
+>
+> 当前 `akun` 用户无法进入该挂载路径，系统也无法在此会话中授权卸载。请先在本机终端执行：
+>
+> ```bash
+> sudo umount /dev/sdb1
+> ```
+>
+> 然后重新插拔 U 盘，并确认它重新挂载到当前用户可访问的路径。不要格式化 U 盘，也不要删除备份目录。重新挂载后我会继续完成最终校验和管理员配置备份。
+>
+> 暂停等我切换桌面
+>
+> 现在继续，桌面以切换
+>
+> 我继续从中断点处理：先确认 U 盘现在由哪个用户挂载、六个归档是否都还在，然后从 ROS bag 的源文件比较开始续跑，最后补齐 SHA-256 和管理员配置。不会重新打包已验证的内容，也不会修改源文件。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `lsblk -o NAME,PATH,TRAN,RM,SIZE,FSTYPE,LABEL,UUID,MOUNTPOINTS; findmnt -rn -S /dev/sdb1 -o SOURCE,TARGET,FSTYPE,OPTIONS || true; find /media/akun /media/yunle -maxdepth 3 -type d -name 'Car_jetson_backup_2026-10-12_150801' -print 2>/dev/null || true; id`
+>
+> </details>
+>
+> 桌面切换后 U 盘仍保持原来的挂载状态：`/dev/sdb1` 还是 `/media/yunle/CPBA_X64FRE_ZH-CN_DV9`，并且该目录 ACL 仍拒绝当前 `akun` 用户访问。因此我还不能安全地继续读校验文件；我先确认是否有可用的当前用户挂载点，不会强行改挂载参数。
+>
+> <details><summary>Ran 2 commands</summary>
+>
+> - Ran `findmnt -rn -S /dev/sdb1 -o SOURCE,TARGET,FSTYPE,OPTIONS; cat /proc/self/mountinfo | rg 'sdb1|CPBA'`
+> - Ran `find /media -maxdepth 3 -type d -printf '%M %u:%g %p\n' 2>&1 | head -80; getfacl -p /media/yunle 2>&1`
+>
+> </details>
+>
+> 确认到问题点：当前活动挂载目录只授权给桌面用户 `yunle`，而 Codex 进程身份仍是 `akun`。我检查桌面切换后是否已有图形授权代理可用；如果系统允许，我会只为 `akun` 增加这个挂载目录的访问权限，不卸载、不格式化 U 盘。
+>
+> 当前还不能继续校验，原因已明确：
+>
+> - U 盘仍挂载在 `/media/yunle/CPBA_X64FRE_ZH-CN_DV9`
+> - 该目录只授权给用户 `yunle`
+> - 当前 Codex 进程用户是 `akun`
+> - 系统未提供可用的管理员授权代理
+>
+> 六个归档仍在 U 盘上，未发现删除或损坏迹象；源文件也没有被修改。
+>
+> 请在已切换到正确桌面的终端执行：
+>
+> ```bash
+> sudo umount /dev/sdb1
+> udisksctl mount -b /dev/sdb1
+> findmnt -no SOURCE,TARGET,OPTIONS /dev/sdb1
+> ```
+>
+> 确认输出路径变为类似：
+>
+> ```text
+> /media/akun/CPBA_X64FRE_ZH-CN_DV9
+> ```
+>
+> 不要格式化 U 盘，也不要操作 `/dev/sdb2`。完成后告诉我新的挂载路径，我会继续完成剩余归档比较、SHA-256 校验和管理员配置备份。
+>
+> 等我拔插一下优盘
+</details>
+
+好的。请安全拔插 U 盘，重新挂载后告诉我“继续”即可。
+
+不要格式化，也不要删除已有的 `Car_jetson_backup_2026-10-12_150801` 目录。
+
+> 已经拔插了切换了接口
+
+<details><summary>24 previous messages</summary>
+
+> 我现在检查新接口上的设备名、挂载用户和备份目录。若已经恢复为 `akun` 可访问，我会立刻续做剩余三批源文件比较、补存活跃日志快照，并生成最终 SHA-256 校验。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `lsblk -o NAME,PATH,TRAN,RM,SIZE,FSTYPE,LABEL,UUID,MOUNTPOINTS; findmnt -rn -S /dev/sdb1 -o SOURCE,TARGET,FSTYPE,OPTIONS || true; findmnt -rn -t ntfs,ntfs3 -o SOURCE,TARGET,FSTYPE,OPTIONS; find /media/akun /media/yunle -maxdepth 3 -type d -name 'Car_jetson_backup_2026-10-12_150801' -print 2>/dev/null || true; id`
+>
+> </details>
+>
+> 访问已恢复：U 盘重新挂载到 `/media/akun/CPBA_X64FRE_ZH-CN_DV9`，读写权限正确，原备份目录仍在。现在先读取中断前的比较状态，避免重复耗时，然后续跑未完成项目。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `printf '%s\n' '[archives]'; find '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives' -maxdepth 1 -type f -printf '%f %s bytes\n' | sort; printf '%s\n' '[compare status]'; cat '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/source-compare-status.tsv' 2>/dev/null || true; printf '%s\n' '[reports]'; find '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest' -maxdepth 1 -name '*-source-compare.txt' -printf '%f %s bytes\n' | sort; printf '%s\n' '[checksums]'; find '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/checksums' -maxdepth 1 -type f -printf '%f %s bytes\n' 2>/dev/null | sort; df -h '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'`
+> - Ran `sudo -n true`
+> - Ran `ps -eo pid,ppid,lstart,etime,user,args | rg -i '[r]osbag2|[/]opt/ros/humble/bin/ros2[[:space:]]+bag[[:space:]]+record|[b]ag_recorder' || true; find /home/akun/.ros -type f -mmin -2 -printf '%TY-%Tm-%Td %TH:%TM:%TS %s %p\n' | head -20`
+>
+> </details>
+>
+> 好消息：中断前的后台比较实际上已经全部完成。六个归档的比较状态都是 `0`，六份差异报告均为空，表示归档内文件与当时的源文件内容一致。
+>
+> 我现在做两件收尾工作：先把昨天被排除、如今已停止增长的日志补进一个增量归档；当前仍增长的两份日志只记录路径，不为它们停止小车服务。随后计算约 40 GiB 数据的 SHA-256，这会需要几分钟。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `find /etc/udev/rules.d -maxdepth 1 -type f -printf '%M %U:%G %p\n' 2>&1; find /etc/NetworkManager/system-connections -maxdepth 1 -type f -printf '%M %U:%G %p\n' 2>&1; find /etc/netplan -maxdepth 1 -type f -printf '%M %U:%G %p\n' 2>&1`
+> - Ran `printf 'DISPLAY=%s\nWAYLAND_DISPLAY=%s\nXDG_SESSION_TYPE=%s\nDBUS_SESSION_BUS_ADDRESS=%s\n' "${DISPLAY-}" "${WAYLAND_DISPLAY-}" "${XDG_SESSION_TYPE-}" "${DBUS_SESSION_BUS_ADDRESS-}"; loginctl list-sessions --no-legend 2>&1; ps -eo user,pid,args | rg -i '[p]olkit.*agent|[p]olkit-gnome|[l]xpolkit|[m]ate-polkit|[p]olkit-kde|[g]nome-shell' | head -40`
+> - Ran `for f in /home/akun/.ros/log/ahrs_driver_node_2328_1791772551878.log /home/akun/.ros/log/realsense2_camera_node_2538_1791772553930.log; do if test -e "$f"; then stat -c '%Y %s %n' "$f"; else printf 'MISSING %s\n' "$f"; fi; done; sleep 2; for f in /home/akun/.ros/log/ahrs_driver_node_2328_1791772551878.log /home/akun/.ros/log/realsense2_camera_node_2538_1791772553930.log; do if test -e "$f"; then stat -c '%Y %s %n' "$f"; fi; done`
+>
+> </details>
+>
+> U 盘现在已正确挂载到 `akun`，六批比较状态全部为 `0`。两份先前排除的 ROS 日志在拔插后已停止增长，我会把它们保存为一个小的增量归档；随后尝试通过当前 `akun` 图形会话取得管理员授权，仅读取并归档 udev/网络配置，不会改系统。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `tr '\0' '\n' < /proc/5476/environ 2>/dev/null | rg '^(DISPLAY|WAYLAND_DISPLAY|XDG_RUNTIME_DIR|DBUS_SESSION_BUS_ADDRESS|XDG_SESSION_TYPE)=' || true; tr '\0' '\n' < /proc/1400/environ 2>/dev/null | rg '^(DISPLAY|WAYLAND_DISPLAY|XDG_RUNTIME_DIR|DBUS_SESSION_BUS_ADDRESS|XDG_SESSION_TYPE)=' || true; ls -la /run/user/1001 /run/user/1000 2>/dev/null | head -50`
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/07_post_quiescence_increment.tar"
+> tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "$archive" \
+>   -C /home/akun \
+>   .ros/log/ahrs_driver_node_2328_1791772551878.log \
+>   .ros/log/realsense2_camera_node_2538_1791772553930.log \
+>   workspace/Car_jetson/thermal_testing/idle_crash_runs/20261012_103454_boot_idle_watch
+> sync -f "$archive"
+> tar -tf "$archive" >/dev/null
+> tar --compare --file="$archive" --directory=/home/akun --numeric-owner \
+>   > "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/07_post_quiescence_increment-source-compare.txt" 2>&1
+> status=$?
+> printf '07_post_quiescence_increment.tar\t%s\n' "$status" >> "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/source-compare-status.tsv"
+> stat -c '%n %s bytes' "$archive"
+> printf 'compare_status=%s\n' "$status"
+> exit "$status"`
+> - Ran `ls -l /home/akun/.Xauthority /run/user/1001/bus 2>&1; command -v pkexec; command -v tar`
+>
+> </details>
+>
+> 增量归档已完成并通过比较校验，包含两份已停止增长的 ROS 日志和之前的监控数据。现在我会调用当前 `akun` 图形会话的系统授权来读取两个管理员专属目录；可能会弹出一次系统密码窗口。授权命令只创建一个新的归档，不会删除、覆盖或修改系统文件。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `env DISPLAY=:2 XAUTHORITY=/home/akun/.Xauthority XDG_RUNTIME_DIR=/run/user/1001 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus pkexec /usr/bin/tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar' -C / etc/udev/rules.d etc/NetworkManager/system-connections`
+>
+> </details>
+>
+> 图形授权没有弹窗，系统仍尝试使用不存在的文本终端，因此管理员归档暂未创建。我先不阻塞主备份：现在计算七个已完成归档的 SHA-256 并再次校验。管理员目录稍后通过当前桌面打开一个可见终端，由你在系统提示中输入密码完成。
+>
+> SHA-256 正在顺序读取 U 盘归档，前五个归档已计算出摘要，没有读取错误。由于总数据接近 40 GiB，预计还需一会儿；完成后会执行 `sha256sum -c`，确保保存的摘要能重新验证。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> cd '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'
+> find archives -maxdepth 1 -type f -name '*.tar' -printf '%f\n' | sort > manifest/archive-file-list.txt
+> sha256sum archives/*.tar | tee checksums/SHA256SUMS
+> sync -f checksums/SHA256SUMS
+> sha256sum -c checksums/SHA256SUMS | tee checksums/SHA256SUMS.verify.txt
+> sync -f checksums/SHA256SUMS.verify.txt`
+>
+> </details>
+>
+> 七个归档的 SHA-256 已全部生成并验证通过，`sha256sum -c` 对每个归档均显示 `OK`。我做最后的只读盘点，确认归档数量、空间、比较状态和源目录没有被本次操作删除；管理员专属配置仍因需要密码而未归档。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `test ! -e '${b}/archives/08_privileged_host_configuration.tar' && printf '%s\n' '08 privileged archive not present'; sudo -n true >/dev/null 2>&1; printf 'sudo_cached=%s\n' "$?"`
+> - Ran `printf '%s\n' '[compare status]'; cat '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/source-compare-status.tsv'; printf '%s\n' '[checksums verify]'; cat '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/checksums/SHA256SUMS.verify.txt'; printf '%s\n' '[archives]'; find '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives' -maxdepth 1 -type f -printf '%f %s bytes\n' | sort; printf '%s\n' '[space]'; du -sh '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'; df -h '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'`
+> - Ran `for f in /home/akun/.ros/log/ahrs_driver_node_2328_1791772551878.log /home/akun/.ros/log/realsense2_camera_node_2538_1791772553930.log; do stat -c '%Y %s %n' "$f"; done; sleep 2; for f in /home/akun/.ros/log/ahrs_driver_node_2328_1791772551878.log /home/akun/.ros/log/realsense2_camera_node_2538_1791772553930.log; do stat -c '%Y %s %n' "$f"; done`
+>
+> </details>
+>
+> 七个归档现在已做到“双重验证”：逐文件源比较全部为 `0`，SHA-256 全部为 `OK`，总大小约 40 GiB。
+>
+> 还差的只有 root 才能读取的 udev 与 NetworkManager 配置。我会在当前 `akun` 桌面弹出一个终端，只执行只读 `sudo tar` 归档；请在窗口中输入本机管理员密码。成功后我会自动发现第八个归档并重新生成全套校验和。
+>
+> <details><summary>Ran 3 commands</summary>
+>
+> - Ran `command -v gnome-terminal; command -v xterm || true; test -e '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar.partial' && echo partial_exists || true`
+> - Ran `env DISPLAY=:2 XAUTHORITY=/home/akun/.Xauthority XDG_RUNTIME_DIR=/run/user/1001 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus gnome-terminal --title='Car_jetson 管理员备份' -- bash -lc 'set -o pipefail; echo "请在此窗口输入 akun 的 sudo 密码以备份 udev 和网络配置。"; sudo tar --format=posix --acls --xattrs --numeric-owner --sparse -cpf "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar" -C / etc/udev/rules.d etc/NetworkManager/system-connections; status=$?; if [ "$status" -eq 0 ]; then sync -f "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar"; tar -tf "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar" >/dev/null; echo "管理员配置归档完成。"; else echo "管理员配置归档失败，状态码 $status。"; fi; echo; read -r -p "按回车关闭此窗口..."'`
+> - Ran `for i in $(seq 1 5); do if test -f '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar'; then stat -c '%s %y %n' '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar'; exit 0; fi; sleep 2; done; echo '等待管理员终端完成输入'; exit 2`
+>
+> </details>
+>
+> 管理员终端已经打开，正在等待输入本机 `sudo` 密码。请在标题为“Car_jetson 管理员备份”的窗口中输入密码并回车；完成后先不要拔 U 盘，告诉我“已完成”，我会检查第八个归档并更新校验文件。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `for i in $(seq 1 15); do if test -f '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar'; then stat -c '%s %y %n' '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar'; exit 0; fi; sleep 2; done; echo 'still_waiting'; exit 2`
+>
+> </details>
+>
+> 完成
+>
+> 已检测到第八个归档，大小约 150 KiB。现在我先核对其中是否包含预期的 udev 规则和 NetworkManager 配置，再把它纳入 SHA-256 清单并重新验证全部八个归档。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> archive="/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/archives/08_privileged_host_configuration.tar"
+> tar -tf "$archive" > "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/08_privileged_host_configuration-contents.txt"
+> sync -f "/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/08_privileged_host_configuration-contents.txt"
+> printf 'udev files: '
+> tar -tf "$archive" | awk '/^etc\/udev\/rules.d\/[^/]+$/ {n++} END {print n+0}'
+> printf 'NetworkManager files: '
+> tar -tf "$archive" | awk '/^etc\/NetworkManager\/system-connections\/[^/]+$/ {n++} END {print n+0}'
+> printf '%s\n' '[required udev rules]'
+> for f in 99-rear-camera.rules aic.rules wheeltec_fdcontroller_340.rules wheeltec_fdi_imu_gnss.rules wheeltec_fdi_imu_gnss2.rules wheeltec_fdi_imu_gnss3.rules; do
+>   tar -tf "$archive" | rg -Fx "etc/udev/rules.d/$f" >/dev/null && printf 'OK %s\n' "$f" || printf 'MISSING %s\n' "$f"
+> done
+> printf '%s\n' '[archive]'
+> stat -c '%n %s bytes' "$archive"`
+>
+> </details>
+>
+> 第八个归档内容检查通过：包含 10 个 udev 规则文件、19 个 NetworkManager 连接配置，摄像头和 Wheeltec 相关规则均在。现在正在重新读取约 40 GiB 归档做全套 SHA-256 校验，目前没有错误。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `set -o pipefail
+> cd '/media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801'
+> find archives -maxdepth 1 -type f -name '*.tar' -printf '%f\n' | sort > manifest/archive-file-list.txt
+> sha256sum archives/*.tar > checksums/SHA256SUMS
+> sync -f checksums/SHA256SUMS
+> sha256sum -c checksums/SHA256SUMS | tee checksums/SHA256SUMS.verify.txt
+> sync -f checksums/SHA256SUMS.verify.txt
+> printf '%s\n' '[compare statuses]'
+> cat manifest/source-compare-status.tsv
+> printf '%s\n' '[space]'
+> du -sh .
+> df -h .`
+>
+> </details>
+</details>
+
+备份已完整完成，源文件没有被删除、移动或覆盖。
+
+备份位置：
+
+[Car_jetson_backup_2026-10-12_150801](</media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801>)
+
+结果：
+
+- 共 8 个归档，约 40 GiB
+- 代码、Git、地图、点云、测试数据、ROS bag、Desktop、传感器工作区、RealSense、Python 环境均已备份
+- udev 规则和 NetworkManager 配置已用管理员权限补齐
+- 7 个用户数据归档与源文件逐项比较，状态全部为 `0`
+- 8 个归档 SHA-256 复核全部显示 `OK`
+- U 盘剩余约 53 GiB
+
+重要文件：
+
+- [SHA256SUMS](</media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/checksums/SHA256SUMS>)
+- [SHA256SUMS.verify.txt](</media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/checksums/SHA256SUMS.verify.txt>)
+- [archive-file-list.txt](</media/akun/CPBA_X64FRE_ZH-CN_DV9/Car_jetson_backup_2026-10-12_150801/manifest/archive-file-list.txt>)
+
+注意：管理员归档中可能含 Wi-Fi 密码，请妥善保管 U 盘。当前仍在增长的实时 ROS 日志没有纳入最终快照，但它们不是迁移和运行所需数据。
+
+现在不要直接拔盘。如需拔出，先执行：
+
+```bash
+sync
+udisksctl unmount -b /dev/sdb1
+```
+
+看到成功卸载后再拔出 U 盘。
+
+> 接下来如果在新机上迁移需要的步骤
+
+建议新机按照“先验证备份 → 恢复数据 → 安装环境 → 重新编译 → 恢复硬件配置 → 手动测试 → 启用服务”的顺序迁移。不要一上来就恢复 systemd 服务或启动底盘。
+
+## 1. 新机系统要求
+
+最稳妥的配置是：
+
+- Ubuntu 22.04
+- x86_64 架构
+- ROS 2 Humble
+- 用户名 `akun`
+- UID/GID 最好保持 `1001:1001`
+- 系统盘至少预留 100 GiB
+
+检查：
+
+```bash
+uname -m
+lsb_release -a
+id akun
+df -h /
+```
+
+如果新机是 Jetson/ARM64，不能直接使用旧机的：
+
+- `build/`、`install/`
+- Python 二进制包
+- RealSense 已编译文件
+- `/usr/local/lib` 中的 x86_64 库
+- TensorRT engine
+
+这种情况下只能恢复源码和数据，然后在 ARM64 上重新安装、编译。
+
+## 2. 验证 U 盘备份
+
+插入 U 盘后：
+
+```bash
+lsblk -f
+```
+
+找到 `CPBA_X64FRE_ZH-CN_DV9` 的实际挂载路径，然后设置：
+
+```bash
+MIGRATION_USB="/media/akun/CPBA_X64FRE_ZH-CN_DV9"
+BACKUP_ROOT="$MIGRATION_USB/Car_jetson_backup_2026-10-12_150801"
+
+cd "$BACKUP_ROOT"
+sha256sum -c checksums/SHA256SUMS
+```
+
+必须看到八个归档全部显示 `OK`，才能继续恢复。
+
+## 3. 建立相同目录结构
+
+如果新机还没有 `akun` 用户，建议安装系统时直接创建；否则先确认 UID：
+
+```bash
+id akun
+```
+
+建立目录：
+
+```bash
+sudo mkdir -p /home/akun/workspace
+sudo chown -R akun:akun /home/akun
+```
+
+如果 `akun` 的 UID 不是 `1001`，恢复时先不要使用 `--numeric-owner`，并在恢复后执行：
+
+```bash
+sudo chown -R akun:akun /home/akun/workspace /home/akun/Desktop
+```
+
+## 4. 按顺序恢复用户数据
+
+### 第一批：代码和 Git
+
+```bash
+sudo tar --acls --xattrs --numeric-owner \
+  -xpf "$BACKUP_ROOT/archives/02_Car_jetson_code.tar" \
+  -C /home/akun/workspace
+```
+
+### 第二批：地图、点云和测试数据
+
+```bash
+sudo tar --acls --xattrs --numeric-owner \
+  -xpf "$BACKUP_ROOT/archives/03_maps_and_test_data.tar" \
+  -C /home/akun/workspace
+```
+
+### 第三批：ROS bag
+
+```bash
+sudo tar --acls --xattrs --numeric-owner \
+  -xpf "$BACKUP_ROOT/archives/04_rosbag_data.tar" \
+  -C /home/akun/workspace
+```
+
+### 第四批：外部工作区和 Desktop 数据
+
+```bash
+sudo tar --acls --xattrs --numeric-owner \
+  -xpf "$BACKUP_ROOT/archives/05_external_project_data.tar" \
+  -C /home/akun
+```
+
+这会恢复：
+
+- `/home/akun/workspace/sensor`
+- `/home/akun/Desktop`
+- `K8.yaml`、PCD、GPS CSV 等外部数据
+
+### 第五批：用户环境参考
+
+```bash
+sudo tar --acls --xattrs --numeric-owner \
+  -xpf "$BACKUP_ROOT/archives/06_user_runtime_reference.tar" \
+  -C /home/akun
+```
+
+### 第六批：补充日志和监控数据
+
+```bash
+sudo tar --acls --xattrs --numeric-owner \
+  -xpf "$BACKUP_ROOT/archives/07_post_quiescence_increment.tar" \
+  -C /home/akun
+```
+
+修正权限：
+
+```bash
+sudo chown -R akun:akun \
+  /home/akun/workspace \
+  /home/akun/Desktop \
+  /home/akun/.ros \
+  /home/akun/.local
+```
+
+## 5. 系统配置先解压到临时目录审查
+
+不要直接覆盖新机的 `/etc`。
+
+```bash
+SYSTEM_REVIEW="/tmp/carjetson-system-review"
+sudo mkdir -p "$SYSTEM_REVIEW/readable" "$SYSTEM_REVIEW/privileged"
+
+sudo tar -xpf "$BACKUP_ROOT/archives/01_host_configuration_readable.tar" \
+  -C "$SYSTEM_REVIEW/readable"
+
+sudo tar -xpf "$BACKUP_ROOT/archives/08_privileged_host_configuration.tar" \
+  -C "$SYSTEM_REVIEW/privileged"
+```
+
+先查看：
+
+```bash
+find "$SYSTEM_REVIEW" -type f | sort
+```
+
+特别注意：管理员归档中包含 NetworkManager 配置，可能带有 Wi-Fi 密码。
+
+## 6. 安装 ROS 2 和编译依赖
+
+先安装 ROS 2 Humble，然后安装基本开发工具：
+
+```bash
+sudo apt update
+sudo apt install -y \
+  build-essential cmake git \
+  python3-pip python3-rosdep \
+  python3-colcon-common-extensions \
+  python3-vcstool
+```
+
+初始化 rosdep：
+
+```bash
+sudo rosdep init
+rosdep update
+```
+
+如果提示已经初始化，可以忽略 `rosdep init` 的错误。
+
+按工作区安装依赖，例如：
+
+```bash
+cd /home/akun/workspace/Car_jetson/real_ws
+
+rosdep install \
+  --from-paths src \
+  --ignore-src \
+  --rosdistro humble \
+  -r -y
+```
+
+项目还需要重点确认：
+
+- GTSAM 4.1.1
+- PCL 1.12
+- Eigen 3.4
+- Boost 1.74
+- OpenCV
+- yaml-cpp
+- libpcap
+- libusb
+- Livox SDK2
+- RealSense/librealsense
+
+APT 和 Python 版本记录位于：
+
+```text
+manifest/apt-manual-packages.txt
+manifest/dpkg-packages.tsv
+manifest/pip-freeze.txt
+manifest/pip-check.txt
+```
+
+不要直接执行：
+
+```bash
+pip install -r pip-freeze.txt
+```
+
+旧环境存在 OpenCV/NumPy、PyNaCl/cffi 冲突，应根据实际报错逐项安装。
+
+## 7. 不使用旧的构建产物
+
+恢复包中包含旧机的 `build/install/log`，它们仅用于参考。重新编译前建议保留而不是删除：
+
+```bash
+cd /home/akun/workspace/Car_jetson/real_ws
+
+test -d build && mv build build.from_old_host
+test -d install && mv install install.from_old_host
+test -d log && mv log log.from_old_host
+
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install
+```
+
+编译完成：
+
+```bash
+source /opt/ros/humble/setup.bash
+source /home/akun/workspace/Car_jetson/real_ws/install/setup.bash
+```
+
+其他需要使用的工作区也应采用同样方式重新编译，例如：
+
+- `slam`
+- `nav2`
+- `multi_map_navigation`
+- `utils`
+- `navigation_tools`
+- `navigation_monitoring`
+- `traficclight`
+
+`utils/install` 中有历史包但源码可能缺失；如果新系统必须使用这些包，需要从 Git 历史恢复源码，不能依赖跨主机旧二进制。
+
+## 8. 恢复 Livox 和 RealSense
+
+同架构、同系统时，可以从暂存目录参考旧文件，但仍建议重新安装或重新编译。
+
+旧 Livox 文件位于：
+
+```text
+/tmp/carjetson-system-review/readable/usr/local/lib
+/tmp/carjetson-system-review/readable/usr/local/include
+```
+
+不要把整个 `/usr/local/lib` 无条件覆盖到新机。只恢复确认属于 Livox SDK2 的文件，或直接重新编译 Livox SDK2。
+
+RealSense 建议按新机环境重新安装。旧目录：
+
+```text
+/home/akun/.local/realsense_ros
+```
+
+它可以作为版本和配置参考，但 ARM64 新机必须重新编译。
+
+## 9. 恢复 udev 规则
+
+只复制小车相关规则，不需要复制 snap 自动生成规则：
+
+```bash
+UDEV_BACKUP="$SYSTEM_REVIEW/privileged/etc/udev/rules.d"
+
+sudo install -m 644 "$UDEV_BACKUP/99-rear-camera.rules" \
+  /etc/udev/rules.d/
+
+sudo install -m 644 "$UDEV_BACKUP/aic.rules" \
+  /etc/udev/rules.d/
+
+sudo install -m 644 "$UDEV_BACKUP"/wheeltec_*.rules \
+  /etc/udev/rules.d/
+```
+
+重新加载：
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+随后拔插传感器并检查：
+
+```bash
+ls -l /dev/rear_camera
+ls -l /dev/serial/by-id/
+lsusb
+```
+
+IMU 原来的设备标识包含：
+
+```text
+usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0
+```
+
+新机必须确认仍然一致。
+
+## 10. 配置传感器网卡
+
+不要直接覆盖新机 NetworkManager 配置。先查看网卡名：
+
+```bash
+ip -br link
+ip -br addr
+```
+
+旧机传感器网卡地址为：
+
+```text
+192.168.1.140/24
+```
+
+但源码和配置中曾出现 `enp1s0`、`enp3s0` 不一致的问题。搜索所有硬编码网卡：
+
+```bash
+rg -n "enp1s0|enp3s0|192\\.168\\.1\\." \
+  /home/akun/workspace/Car_jetson
+```
+
+已知设备地址包括：
+
+- Livox：`192.168.1.187`
+- 单线雷达：`192.168.1.12`、`192.168.1.13`
+- CAN/底盘：`192.168.1.10`
+
+配置新网卡后测试：
+
+```bash
+ping -c 3 192.168.1.187
+ping -c 3 192.168.1.12
+ping -c 3 192.168.1.13
+ping -c 3 192.168.1.10
+```
+
+NetworkManager 旧配置只作为参考，不要整目录直接覆盖，否则可能导致新机断网。
+
+## 11. 检查地图和 ROS bag
+
+确认默认地图仍存在：
+
+```bash
+ls -l /home/akun/Desktop/K8.yaml
+```
+
+检查地图引用路径：
+
+```bash
+rg -n "/home/akun/Desktop|K8\\.yaml" \
+  /home/akun/workspace/Car_jetson
+```
+
+检查 bag：
+
+```bash
+find /home/akun/workspace/Car_jetson/bag \
+  -name metadata.yaml -print
+```
+
+选择一个目录测试：
+
+```bash
+source /opt/ros/humble/setup.bash
+ros2 bag info \
+  /home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20
+```
+
+## 12. 先手动启动，不要马上启用开机服务
+
+确保车辆急停有效，最好先架起驱动轮或断开动力输出。
+
+手动启动：
+
+```bash
+source /opt/ros/humble/setup.bash
+source /home/akun/workspace/Car_jetson/real_ws/install/setup.bash
+source /home/akun/.local/realsense_ros/setup.bash
+
+ros2 launch launch_real run.launch.py
+```
+
+另开终端检查：
+
+```bash
+source /opt/ros/humble/setup.bash
+source /home/akun/workspace/Car_jetson/real_ws/install/setup.bash
+
+ros2 node list
+ros2 topic list
+ros2 topic hz /scan
+ros2 topic echo /imu --once
+```
+
+依次确认：
+
+1. IMU 串口正常
+2. 前后激光雷达正常
+3. Livox 点云正常
+4. RealSense 正常
+5. 底盘通信正常
+6. TF 树正常
+7. 地图和定位正常
+8. Nav2 能加载
+9. 最后才测试车辆运动
+
+## 13. 最后恢复 systemd 服务
+
+先复制启动脚本：
+
+```bash
+sudo install -m 755 \
+  "$SYSTEM_REVIEW/readable/home/akun/start_robot_service.sh" \
+  /home/akun/start_robot_service.sh
+```
+
+复制服务：
+
+```bash
+sudo install -m 644 \
+  "$SYSTEM_REVIEW/readable/etc/systemd/system/robot-service.service" \
+  /etc/systemd/system/
+
+sudo install -m 644 \
+  "$SYSTEM_REVIEW/readable/etc/systemd/system/reset-wheeltec-imu.service" \
+  /etc/systemd/system/
+
+sudo install -m 644 \
+  "$SYSTEM_REVIEW/readable/etc/systemd/system/carjetson-idle-monitor.service" \
+  /etc/systemd/system/
+```
+
+恢复辅助脚本：
+
+```bash
+sudo install -m 755 \
+  "$SYSTEM_REVIEW/readable/usr/local/sbin/reset-wheeltec-imu-usb" \
+  /usr/local/sbin/
+```
+
+重新加载，但暂时不启用：
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start reset-wheeltec-imu.service
+sudo systemctl start robot-service.service
+```
+
+查看日志：
+
+```bash
+systemctl status robot-service.service --no-pager -l
+journalctl -u robot-service.service -f
+```
+
+确认重启后也能正常运行，最后再启用开机启动：
+
+```bash
+sudo systemctl enable robot-service.service
+sudo systemctl enable reset-wheeltec-imu.service
+```
+
+`carjetson-idle-monitor.service` 是监控服务，不是小车运行必需项，可最后决定是否启用。
+
+## 14. 最终验收标准
+
+满足以下条件，迁移才算完成：
+
+- 八个归档校验全部 `OK`
+- 所有 ROS 工作区在新机重新编译成功
+- 没有依赖旧机的 `build/install`
+- udev 设备别名正确
+- 传感器网卡及 IP 可达
+- RealSense、IMU、激光雷达、Livox 均有正常数据
+- TF、地图、定位、Nav2 正常
+- 底盘先低速人工测试通过
+- 自动巡航测试通过
+- 重启后 `robot-service.service` 能自动恢复运行
+
+特别注意：交通灯使用的 `.150/.160` 独立 Jetson 环境不在这次主机备份中，需要分别迁移或重新部署。
+
+> 0000000000000000.
+
+<details><summary>2 previous messages</summary>
+
+> 如果这是密码，请不要在聊天中发送；我不会保存或使用它。请尽快修改该密码，因为它已经出现在聊天记录中。
+>
+> 需要 `sudo` 授权时，请只在本机终端的密码提示中输入，输入时屏幕不会显示字符，这是正常现象。
+>
+> 0..0
+</details>
+
+如果这是密码片段，也不要继续发送。请仅在本机终端出现 `[sudo] password for akun:` 时输入；聊天中无需提供密码。
+
+> 前两个问题是睡觉误触的能删掉吗。
+
+<details><summary>3 previous messages</summary>
+
+> 我查一下是否能单独删除那两条误触消息；这涉及 Codex 的聊天操作，我会用 openai-docs 技能确认可用方式。
+>
+> <details><summary>Explored a file</summary>
+>
+> - Read `~/.codex/skills/.system/openai-docs/SKILL.md`
+>
+> </details>
+>
+> Context compaction
+>
+> Source: automatic
+> Status: completed
+</details>
+
+我这边无法直接删除聊天中的单条消息。
+
+那两条我会视为误触并忽略，不影响之前的备份和迁移讨论，也不会触发任何操作。
+
+> 在新机上建立新用户的步骤
+
+<details><summary>2 previous messages</summary>
+
+> 我先确认旧机用户 `akun` 的 UID、GID 和用户组；新机保持这些标识一致，可以减少恢复工作区、ROS 数据和设备权限时的麻烦。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `id akun && getent passwd akun && getent group dialout video render gpio i2c | head -n 20 && . /etc/os-release && printf '%s\n' "$PRETTY_NAME"`
+>
+> </details>
+</details>
+
+旧机用户信息已经确认：
+
+- 用户名：`akun`
+- UID：`1001`
+- 主组：`akun`
+- GID：`1001`
+- 附加组：`sudo`、`dialout`
+- 主目录：`/home/akun`
+- Shell：`/bin/bash`
+
+为了让备份里的文件权限在新机上直接对应，建议新机也使用相同的 UID/GID。
+
+## 一、安装新机时先创建临时管理员
+
+第一次启动新机时，先创建一个临时管理员，例如：
+
+```text
+用户名：migration_admin
+```
+
+先不要把系统安装时的第一个用户命名为 `akun`，因为第一个用户通常会占用 UID `1000`。登录 `migration_admin` 后再创建正式用户。
+
+## 二、检查 UID/GID 是否空闲
+
+在新机终端执行：
+
+```bash
+getent passwd akun
+getent passwd 1001
+getent group akun
+getent group 1001
+```
+
+正常情况下都不应输出内容。
+
+如果其中有结果，说明用户名或编号被占用，先不要继续创建，也不要删除已有用户，需要根据实际输出调整。
+
+## 三、创建与旧机一致的用户
+
+使用临时管理员执行：
+
+```bash
+sudo groupadd --gid 1001 akun
+sudo useradd \
+  --uid 1001 \
+  --gid 1001 \
+  --create-home \
+  --shell /bin/bash \
+  --comment "akun" \
+  akun
+```
+
+为新用户设置密码：
+
+```bash
+sudo passwd akun
+```
+
+这里可以设置新密码，不要求与旧机密码相同。
+
+加入旧机原有的附加组：
+
+```bash
+sudo usermod -aG sudo,dialout akun
+```
+
+如果新机还没有 `dialout` 组，先检查系统及驱动安装是否完整，不要自行创建错误编号的设备组。
+
+## 四、验证创建结果
+
+执行：
+
+```bash
+id akun
+getent passwd akun
+ls -ldn /home/akun
+```
+
+预期类似：
+
+```text
+uid=1001(akun) gid=1001(akun) groups=1001(akun),20(dialout),27(sudo)
+akun:x:1001:1001:akun:/home/akun:/bin/bash
+```
+
+测试切换用户：
+
+```bash
+sudo -iu akun
+```
+
+进入后执行：
+
+```bash
+whoami
+id
+pwd
+```
+
+应分别看到：
+
+```text
+akun
+uid=1001...
+/home/akun
+```
+
+然后退出：
+
+```bash
+exit
+```
+
+## 五、创建用户后的恢复顺序
+
+建议按以下顺序继续：
+
+1. 保留临时管理员 `migration_admin`。
+2. 安装新机系统更新、JetPack/CUDA、ROS及基础驱动。
+3. 创建并验证 `akun` 用户。
+4. 插入备份U盘并确认所有校验和。
+5. 先恢复项目代码、配置文件和脚本。
+6. 再恢复 ROS bag、地图、模型及车辆运行数据。
+7. 恢复 `/home/akun` 中需要的用户配置。
+8. 恢复 udev 和 NetworkManager 系统配置。
+9. 修复权限并重启。
+10. 使用 `akun` 登录，先做静态检查，再连接车辆硬件测试。
+
+恢复归档时应使用管理员权限，并保留归档里的数字 UID/GID，例如：
+
+```bash
+sudo tar --numeric-owner -xpf 归档文件.tar -C /
+```
+
+不要在确认归档名称和内部路径之前直接执行这条恢复命令。也暂时不要删除 `migration_admin`；等小车系统、ROS、串口、相机和自动巡航全部验证完成后，再决定是否保留。
+
+> 安装新机系统更新、JetPack/CUDA、ROS及基础驱动。  这一步的具体步骤
+
+<details><summary>12 previous messages</summary>
+
+> 我会先以旧机的实际版本为基准核对 Jetson 型号、JetPack/L4T、CUDA、ROS、内核和项目依赖，再给你一套可逐条执行的安装顺序。这里最关键的是不要随意安装“最新版”，而要让新机与旧机版本兼容。
+>
+> <details><summary>Explored 2 searches, ran 4 commands</summary>
+>
+> - Ran `printf '%s\n' 'MODEL:'; tr -d '\0' </proc/device-tree/model 2>/dev/null || true; printf '\nARCH/KERNEL:\n'; uname -a; printf '\nL4T:\n'; cat /etc/nv_tegra_release 2>/dev/null || true; printf '\nOS:\n'; cat /etc/os-release`
+>
+> - Ran `lsblk -o NAME,MODEL,SIZE,FSTYPE,LABEL,MOUNTPOINTS; printf '\nBACKUP DIRS:\n'; find /media/akun -maxdepth 3 -type d -name 'Car_jetson_backup_*' -print 2>/dev/null | sort`
+>
+> - Ran `dpkg-query -W -f='${Package}\t${Version}\n' 'nvidia-jetpack' 'nvidia-l4t-core' 'nvidia-l4t-kernel' 'nvidia-l4t-cuda' 'cuda-toolkit-*' 2>/dev/null | sort; printf '\nNVCC:\n'; /usr/local/cuda/bin/nvcc --version 2>/dev/null || true; printf '\nCUDA LINKS:\n'; ls -ld /usr/local/cuda* 2>/dev/null || true`
+>
+> - Ran `printf '%s\n' 'ROS ENV:'; bash -lc 'source /opt/ros/humble/setup.bash 2>/dev/null || true; env | rg "^(ROS|RMW)" | sort'; printf '\nROS INSTALLS:\n'; find /opt/ros -maxdepth 1 -mindepth 1 -type d -printf '%f\n' 2>/dev/null; printf '\nROS META PACKAGES:\n'; dpkg-query -W -f='${Package}\t${Version}\n' 'ros-*-desktop*' 'ros-*-ros-base' 2>/dev/null | sort`
+>
+> <details><summary>Explored 2 searches</summary>
+>
+> - Searched for `package.xml` in `.`
+> - Searched for `foxy|galactic|humble|iron|jazzy|melodic|noetic|jetpack|cuda|rosdep` in `.`
+>
+> </details>
+>
+> </details>
+>
+> 当前正在操作的这台电脑本身是 x86_64 Ubuntu 22.04，并不是 Jetson；但项目记录明确指出实际车载目标机是 Jetson Orin Nano Super，基线为 Ubuntu 22.04、L4T R36.4.3、CUDA 12.6、ROS 2 Humble。下面我再核对项目中保存的硬件依赖和 ROS 包清单，避免把开发机环境误装到车载新机。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `printf '%s\n' 'ENV/INSTALL DOCS'; rg --files -g '*README*' -g '*INSTALL*' -g '*SETUP*' -g '*BASELINE*' -g '*MIGRAT*' -g '*backup*' -g '*manifest*' | sort | head -n 250; printf '\nBASELINE EXCERPTS\n'; sed -n '40,90p' TRAFFIC_LIGHT_P0_BASELINE_2026-09-22.md 2>/dev/null; sed -n '530,665p' TRAFFIC_LIGHT_NAVIGATION_INTEGRATION_PLAN.md 2>/dev/null; printf '\nPACKAGE MANIFESTS\n'; find . -type f \( -name package.xml -o -name requirements.txt -o -name '*.repos' -o -name 'apt*.txt' -o -name '*packages*.txt' \) -not -path './build/*' -not -path './install/*' -not -path './log/*' -print | sort | head -n 300; printf '\nDEVICE/DRIVER REFS\n'; rg -n -S '/dev/(tty|video|can)|udev|SocketCAN|can0|realsense|robosense|livox|serial|usb_cam' --glob '!build/**' --glob '!install/**' --glob '!log/**' --glob '!*.bag' --glob '!*.db3' --glob '*.md' --glob '*.yaml' --glob '*.py' --glob '*.cpp' --glob '*.sh' | head -n 350`
+>
+> </details>
+>
+> 有一个需要先纠正的边界：只有 Jetson 才安装 JetPack。当前旧工作站是 x86_64 Ubuntu 22.04，只有 ROS 2 Humble，没有 JetPack/CUDA；项目中的 Orin Nano Super 识别板才使用 L4T R36.4.3/CUDA 12.6。下面我分别给出两种安装路线，并把车载迁移应采用的顺序标清。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `sed -n '1,230p' README.md; printf '\nREAL_WS INSTALL SECTION\n'; sed -n '1,210p' real_ws/README.md; printf '\nREALSENSE LOCAL INSTALL\n'; ls -la /home/akun/.local/realsense_ros 2>/dev/null || true; printf '\nROS MANUAL PACKAGES\n'; apt-mark showmanual 2>/dev/null | rg '^(ros-humble|librealsense|python3-(rosdep|colcon|vcstool)|cmake|build-essential|lib(pcap|yaml-cpp|eigen|pcl|boost|serial|usb))' | sort | head -n 300; printf '\nUDEV RULES\n'; find /etc/udev/rules.d -maxdepth 1 -type f -printf '%f\n' 2>/dev/null | sort`
+>
+> </details>
+>
+> 我已经把旧机的实际依赖和项目说明对上了：主机侧需要 Ubuntu 22.04 + ROS 2 Humble；Livox、RoboSense 和底盘驱动源码都在工作区内，RealSense 使用 ROS 二进制包；串口设备则依靠 `dialout` 用户组和备份中的 udev 规则。还需要保留车辆局域网设备地址（如 `.10/.12/.13/.150/.160`），但新机自身地址必须先查旧配置，不能猜。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `printf '%s\n' 'INTERFACES'; ip -br address; printf '\nROUTES\n'; ip route; printf '\nNM ACTIVE\n'; nmcli -t -f NAME,UUID,TYPE,DEVICE connection show --active 2>/dev/null || true; printf '\nNM PROFILES SUMMARY\n'; nmcli -f NAME,TYPE,DEVICE,IP4.METHOD,IP4.ADDRESS connection show 2>/dev/null || true; printf '\nROS EXPLICIT VERSIONS\n'; dpkg-query -W -f='${Package}\t${Version}\n' ros-humble-realsense2-camera ros-humble-realsense2-description ros-humble-usb-cam ros-humble-apriltag-ros ros-humble-image-proc ros-humble-navigation2 ros-humble-nav2-bringup libpcap-dev libyaml-cpp-dev 2>/dev/null`
+>
+> </details>
+>
+> 我正在把“装系统环境”和“恢复代码后编译”分开，因为驱动依赖可先安装，但 `rosdep` 和工作区编译必须等源码恢复后再做。这样出现问题时，能准确判断是系统、ROS、权限还是项目编译导致的。
+>
+> <details><summary>Explored 3 files, ran a command</summary>
+>
+> - Ran `printf '%s\n' 'WORKSPACES'; find . -maxdepth 2 -type d -name src -printf '%h\n' | sort -u; printf '\nREAL_WS PACKAGES\n'; find real_ws/src -name package.xml -not -path '*/build/*' -not -path '*/install/*' -print0 | xargs -0 -r awk -F'[<>]' '/<name>/{print FILENAME ":" $3; nextfile}' | sort; printf '\nTOP ROS PACKAGE NAMES\n'; for d in multi_map_navigation nav2 slam utils URDF_ws simulation_ws; do [ -d "$d/src" ] || continue; echo "[$d]"; find "$d/src" -name package.xml -not -path '*/build/*' -not -path '*/install/*' -print0 | xargs -0 -r awk -F'[<>]' '/<name>/{print $3; nextfile}' | sort -u | head -n 100; done`
+>
+> <details><summary>Explored 3 files</summary>
+>
+> - Read `./README.md`
+> - Read `./TRAFFIC_LIGHT_P0_BASELINE_2026-09-22.md`
+> - Read `./real_ws/README.md`
+>
+> </details>
+>
+> </details>
+>
+> 还有一个版本风险：项目记录中的 ROS 二进制包已经是 2026 年构建版本，而 Jetson 基线锁在 L4T R36.4.3。迁移时可以更新 ROS Humble 的补丁包，但 Jetson 的 L4T/CUDA/TensorRT 不应混装通用 Ubuntu CUDA 包；先恢复同一 JetPack 基线，再单独验证 PyTorch/TensorRT。
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `printf '%s\n' 'ROS SOURCES'; for f in /etc/apt/sources.list.d/*ros* /usr/share/keyrings/ros*; do [ -e "$f" ] && { echo "[$f]"; file "$f"; case "$f" in *.list|*.sources) sed -n '1,100p' "$f";; esac; }; done; printf '\nAPT POLICY\n'; apt-cache policy ros-humble-desktop ros-humble-navigation2 ros-humble-realsense2-camera 2>/dev/null | sed -n '1,100p'; printf '\nAPT MANIFEST FILES\n'; find . -maxdepth 3 -type f \( -iname '*package*list*' -o -iname '*apt*list*' -o -iname '*environment*' -o -iname '*manifest*' \) -print | sort | head -n 200`
+>
+> </details>
+</details>
+
+先明确：如果新机是替换当前运行小车的主机，应安装“Ubuntu 22.04 + ROS 2 Humble”，不要安装 JetPack。JetPack 只用于 Jetson Orin Nano Super 板卡。
+
+当前项目的实际结构是：
+
+| 设备 | 建议环境 |
+|---|---|
+| 小车主机/开发机 | x86_64、Ubuntu 22.04、ROS 2 Humble |
+| Jetson `.150/.160` | Jetson Orin Nano Super、L4T R36.4.3、CUDA 12.6 |
+| 传感器驱动 | 多数源码包含在 `Car_jetson/real_ws/src` |
+| RealSense D435i | ROS 二进制驱动包 |
+| 串口设备 | `dialout` 用户组及 udev 规则 |
+| 雷达/CAN盒 | 车辆局域网及项目内驱动 |
+
+项目硬件清单见 [README.md](./README.md:36)，Jetson 基线见 [TRAFFIC_LIGHT_P0_BASELINE_2026-09-22.md](./TRAFFIC_LIGHT_P0_BASELINE_2026-09-22.md:57)。
+
+# 路线一：更换小车主机/开发机
+
+这是目前最可能需要执行的路线。
+
+## 1. 安装 Ubuntu
+
+安装：
+
+```text
+Ubuntu 22.04.5 LTS 64位
+```
+
+不要安装 Ubuntu 24.04，因为项目使用 ROS 2 Humble，和 Ubuntu 22.04 配套。
+
+安装时先创建临时管理员，随后按前面的步骤创建：
+
+```text
+akun
+UID=1001
+GID=1001
+```
+
+## 2. 确认系统和架构
+
+以下命令全部在新机执行：
+
+```bash
+uname -m
+lsb_release -a
+id akun
+```
+
+预期：
+
+```text
+x86_64
+Ubuntu 22.04
+uid=1001(akun) gid=1001(akun)
+```
+
+如果 `uname -m` 是 `x86_64`，不要安装 JetPack。
+
+## 3. 更新干净的新系统
+
+此时先不要插车辆传感器、底盘控制器和 CAN 设备。
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y linux-generic-hwe-22.04
+sudo reboot
+```
+
+重启后确认：
+
+```bash
+uname -r
+lsb_release -ds
+```
+
+禁止执行：
+
+```bash
+sudo do-release-upgrade
+```
+
+它可能把系统升级到 Ubuntu 24.04。
+
+## 4. 安装基础开发工具
+
+```bash
+sudo apt update
+sudo apt install -y \
+  build-essential \
+  cmake \
+  git \
+  git-lfs \
+  curl \
+  wget \
+  gnupg \
+  lsb-release \
+  software-properties-common \
+  pkg-config \
+  ninja-build \
+  python3-dev \
+  python3-pip \
+  python3-venv \
+  python3-setuptools \
+  python3-yaml \
+  python3-serial \
+  python3-colcon-common-extensions \
+  python3-rosdep \
+  python3-vcstool \
+  libeigen3-dev \
+  libpcl-dev \
+  libyaml-cpp-dev \
+  libpcap-dev \
+  libusb-1.0-0-dev
+```
+
+初始化 Git LFS：
+
+```bash
+git lfs install
+```
+
+不要使用以下方式安装系统 Python 包：
+
+```bash
+sudo pip install ...
+```
+
+系统依赖优先使用 `apt`，项目 Python 依赖后续再放入虚拟环境。
+
+## 5. 安装 ROS 2 Humble 软件源
+
+首先启用 Universe：
+
+```bash
+sudo add-apt-repository -y universe
+sudo apt update
+```
+
+安装 ROS 软件源密钥：
+
+```bash
+sudo curl -sSL \
+  https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+  -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+
+添加 ROS 2 软件源：
+
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo "$UBUNTU_CODENAME") main" \
+  | sudo tee /etc/apt/sources.list.d/ros2.list >/dev/null
+```
+
+更新索引：
+
+```bash
+sudo apt update
+```
+
+如果官方源下载太慢，可以后续切换国内镜像，但不要同时保留多个重复 ROS 源。
+
+## 6. 安装 ROS 2 Humble
+
+```bash
+sudo apt install -y \
+  ros-humble-desktop \
+  ros-dev-tools
+```
+
+安装本项目使用的 ROS 驱动及功能包：
+
+```bash
+sudo apt install -y \
+  ros-humble-apriltag-msgs \
+  ros-humble-apriltag-ros \
+  ros-humble-behaviortree-cpp-v3 \
+  ros-humble-camera-calibration \
+  ros-humble-diagnostic-updater \
+  ros-humble-image-pipeline \
+  ros-humble-image-proc \
+  ros-humble-pcl-ros \
+  ros-humble-pointcloud-to-laserscan \
+  ros-humble-realsense2-camera \
+  ros-humble-realsense2-description \
+  ros-humble-robot-localization \
+  ros-humble-rqt-tf-tree \
+  ros-humble-tf-transformations \
+  ros-humble-usb-cam \
+  ros-humble-xacro
+```
+
+RealSense 安装要求也记录在 [real_ws/README.md](./real_ws/README.md:119)。
+
+如果新机也要运行 Gazebo 仿真，再安装：
+
+```bash
+sudo apt install -y ros-humble-gazebo-ros-pkgs
+```
+
+当前 Nav2 源码已经在项目内，第一阶段不要额外安装另一个版本的 Nav2 二进制包，以免和工作区覆盖关系混乱。
+
+## 7. 初始化 rosdep
+
+```bash
+sudo rosdep init
+```
+
+如果提示已经初始化，不是错误，可以继续：
+
+```bash
+rosdep update --rosdistro=humble
+```
+
+加载 ROS 环境：
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+验证：
+
+```bash
+printenv ROS_DISTRO
+ros2 --help
+ros2 doctor --report
+```
+
+应看到：
+
+```text
+humble
+```
+
+确认无误后加入 `akun` 的启动环境：
+
+```bash
+grep -qxF 'source /opt/ros/humble/setup.bash' ~/.bashrc \
+  || echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
+```
+
+暂时不要把项目工作空间的 `install/setup.bash` 加入 `.bashrc`，要等新机重新编译成功。
+
+## 8. 设置硬件访问权限
+
+```bash
+sudo usermod -aG dialout,video,render,plugdev akun
+```
+
+确认：
+
+```bash
+id akun
+```
+
+执行后需要注销账户并重新登录，用户组权限才会生效。
+
+不要用下面这种长期开放权限的方法：
+
+```bash
+sudo chmod 666 /dev/ttyUSB0
+```
+
+串口和摄像头权限应通过用户组和 udev 规则管理。
+
+## 9. NVIDIA显卡和CUDA怎么处理
+
+### 新机没有NVIDIA独立显卡
+
+完全跳过 CUDA。小车导航、ROS、串口和雷达驱动不依赖 CUDA。
+
+### 新机有NVIDIA独立显卡
+
+先检测：
+
+```bash
+lspci | grep -i nvidia
+ubuntu-drivers devices
+```
+
+安装系统推荐驱动：
+
+```bash
+sudo ubuntu-drivers install
+sudo reboot
+```
+
+验证：
+
+```bash
+nvidia-smi
+```
+
+当前交通灯 GPU 推理主要运行在 Jetson `.150`，所以普通小车主机不需要为了迁移而强行安装 CUDA 12.6。
+
+特别不要执行：
+
+```bash
+sudo apt install nvidia-cuda-toolkit
+```
+
+Ubuntu 自带的这个包通常不是项目所需版本。若以后确定要在 x86 新机上运行 AI 推理，再根据显卡型号单独安装 NVIDIA 官方 CUDA；Jetson 上生成的 TensorRT `.engine` 也不能直接当作 x86 GPU 的通用模型使用。
+
+## 10. 恢复 udev 规则
+
+代码恢复完成后，从备份中的管理员配置归档中提取 udev 文件，逐个检查后放入：
+
+```text
+/etc/udev/rules.d/
+```
+
+不要直接覆盖整个 `/etc`。
+
+复制完成后执行：
+
+```bash
+sudo chmod 0644 /etc/udev/rules.d/*.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+然后重新拔插：
+
+- IMU
+- GNSS
+- 门锁控制器
+- 警报灯
+- USB-CAN
+- 后置相机
+- RealSense
+
+检查：
+
+```bash
+ls -l /dev/ttyUSB* /dev/ttyACM* /dev/video* 2>/dev/null
+ls -l /dev/rear_camera /dev/usb2can_alystii 2>/dev/null
+```
+
+## 11. 设置车辆有线网络
+
+旧机车辆网口地址为：
+
+```text
+192.168.1.140/24
+```
+
+已知设备：
+
+- CAN盒：`192.168.1.10`
+- 单线雷达：`192.168.1.12`、`192.168.1.13`
+- Jetson：`192.168.1.150`、`192.168.1.160`
+
+先关闭旧机或拔掉旧机网线，避免新旧两台机器同时使用 `192.168.1.140`。
+
+查看新网卡名称：
+
+```bash
+nmcli device status
+```
+
+假设新网口叫 `enp2s0`，创建车辆网络：
+
+```bash
+sudo nmcli connection add \
+  type ethernet \
+  ifname enp2s0 \
+  con-name car-lan \
+  ipv4.method manual \
+  ipv4.addresses 192.168.1.140/24 \
+  ipv4.never-default yes \
+  ipv6.method disabled
+```
+
+启动：
+
+```bash
+sudo nmcli connection up car-lan
+```
+
+验证：
+
+```bash
+ip -br address
+ping -c 3 192.168.1.10
+ping -c 3 192.168.1.12
+ping -c 3 192.168.1.13
+ping -c 3 192.168.1.150
+ping -c 3 192.168.1.160
+```
+
+如果真实网卡名不是 `enp2s0`，必须替换成实际名称。
+
+## 12. 代码恢复后重新安装项目依赖
+
+恢复代码并确认路径为：
+
+```text
+/home/akun/workspace/Car_jetson
+```
+
+不要直接使用旧机复制来的 `build/`、`install/` 和 `log/` 作为正式运行结果，因为它们可能包含旧机绝对路径和硬件环境。
+
+先加载 ROS：
+
+```bash
+source /opt/ros/humble/setup.bash
+cd /home/akun/workspace/Car_jetson
+```
+
+安装源码声明的系统依赖：
+
+```bash
+rosdep install \
+  --from-paths real_ws/src \
+  --ignore-src \
+  --rosdistro humble \
+  -r -y
+```
+
+旧编译目录不要删除，可以改名保留：
+
+```bash
+cd /home/akun/workspace/Car_jetson/real_ws
+mv build build.from_old_machine
+mv install install.from_old_machine
+mv log log.from_old_machine
+```
+
+如果某个目录不存在，就跳过对应命令。
+
+按项目真实包名先编译基础驱动：
+
+```bash
+source /opt/ros/humble/setup.bash
+
+colcon build \
+  --symlink-install \
+  --packages-select serial livox_ros_driver2
+```
+
+再编译其余驱动：
+
+```bash
+source install/setup.bash
+colcon build --symlink-install
+```
+
+项目说明中写的是 `livox_ros2_driver`，但实际 `package.xml` 中的包名是 `livox_ros_driver2`，新机应使用后者。
+
+## 13. 环境验收
+
+先不启动底盘运动控制，执行：
+
+```bash
+source /opt/ros/humble/setup.bash
+source /home/akun/workspace/Car_jetson/real_ws/install/setup.bash
+
+ros2 pkg prefix launch_real
+ros2 pkg prefix livox_ros_driver2
+ros2 pkg prefix rslidar_sdk
+ros2 pkg prefix fdilink_ahrs
+ros2 pkg prefix chassis_driver
+```
+
+检查 RealSense：
+
+```bash
+ros2 pkg prefix realsense2_camera
+```
+
+检查设备和网络：
+
+```bash
+id
+ip -br address
+lsusb
+ls -l /dev/ttyUSB* /dev/ttyACM* /dev/video* 2>/dev/null
+```
+
+第一次硬件测试时：
+
+- 急停保持按下。
+- 驱动轮悬空或车辆架起。
+- 不启动完整自动巡航。
+- 逐个测试相机、IMU、GNSS和雷达。
+- 最后再测试底盘控制。
+- 确认没有任何 `ros bag record` 自动录制进程。
+
+# 路线二：如果新机本身是Jetson Orin Nano Super
+
+这种情况下才安装 JetPack。
+
+应使用 NVIDIA SDK Manager 刷入与项目基线一致的：
+
+```text
+JetPack 6 系列
+L4T R36.4.3
+CUDA 12.6
+Ubuntu 22.04
+```
+
+不要在 Jetson 上先安装普通 Ubuntu，再用通用 CUDA 包拼装环境。JetPack 刷机会清空 Jetson 存储，必须选对目标板和存储设备。
+
+刷机完成后验证：
+
+```bash
+uname -m
+cat /etc/nv_tegra_release
+uname -r
+
+dpkg-query -W \
+  nvidia-l4t-core \
+  nvidia-jetpack \
+  tensorrt 2>/dev/null
+
+/usr/local/cuda/bin/nvcc --version
+```
+
+预期重点是：
+
+```text
+aarch64
+R36.4.3
+CUDA 12.6
+```
+
+PyTorch应安装 NVIDIA 为相应 JetPack 提供的 Jetson 版本，不要执行：
+
+```bash
+pip install torch
+```
+
+这可能覆盖 NVIDIA 的 CUDA 适配版本。原基线记录的是 NVIDIA Jetson 版 PyTorch，TensorRT engine 也应在相同 JetPack/TensorRT 环境重新导出或验证，不能只复制后默认可用。
+
+就“迁移当前小车主机”而言，应先完整执行路线一；JetPack/CUDA部分可以跳过。

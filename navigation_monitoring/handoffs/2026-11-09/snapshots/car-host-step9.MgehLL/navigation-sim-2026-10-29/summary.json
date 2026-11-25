@@ -1,0 +1,46 @@
+{
+  "completed_at": "2026-10-29T12:18:49.693544+08:00",
+  "total_tests": 27,
+  "suites": [
+    {
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "41.360",
+      "file": "nav2-results.xml"
+    },
+    {
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "72.349",
+      "file": "task-results.xml"
+    },
+    {
+      "tests": "5",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "31.110",
+      "file": "localization-slam-map-results.xml"
+    },
+    {
+      "tests": "19",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "1.497",
+      "file": "recovery-after-results.xml"
+    }
+  ],
+  "leftover_test_pids": [],
+  "source_install_identical_sha256": {
+    "multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py": "490c5ff7d756ddf07634051229d2c134870958233a723327487d1f7ea4e0482d",
+    "nav2/src/nav2/config/nav2_real_params.yaml": "b33ebff4269f6401880af3b1ed75de6483f327e24e534ad78e368057985927f0",
+    "slam/src/LIO-SAM/config/params_rslidar.yaml": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a"
+  },
+  "model": "unicycle feedback; software-only; localhost DDS domain 87",
+  "physical_control_started": false
+}

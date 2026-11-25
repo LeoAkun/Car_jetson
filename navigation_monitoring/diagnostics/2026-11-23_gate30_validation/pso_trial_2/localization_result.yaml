@@ -1,0 +1,30 @@
+header:
+  stamp:
+    sec: 1795407095
+    nanosec: 8086087
+  frame_id: map
+session_id: offline-nov23-failed-pso-trial-2
+map_id: map2
+success: false
+fitness_score: .inf
+pose:
+  position:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+cloud_stamp:
+  sec: 1795406975
+  nanosec: 124811411
+observation_id: 1
+confirmation_count: 0
+first_fitness_score: .inf
+first_cloud_stamp:
+  sec: 0
+  nanosec: 0
+reason: localization exceeded 120 second deadline while waiting for /re_localization response
+---

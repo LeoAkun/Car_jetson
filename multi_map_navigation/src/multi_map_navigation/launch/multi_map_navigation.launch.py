@@ -6,7 +6,9 @@
 
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, EmitEvent, RegisterEventHandler
+from launch.event_handlers import OnProcessExit
+from launch.events import Shutdown
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
@@ -59,6 +61,16 @@ def generate_launch_description():
         emulate_tty=True
     )
 
+    route_planner_exit_guard = RegisterEventHandler(
+        OnProcessExit(
+            target_action=route_planner_node,
+            on_exit=[
+                EmitEvent(event=Shutdown(
+                    reason='route_planner exited; route service unavailable'))
+            ],
+        )
+    )
+
     # 导航管理器节点
     navigation_manager_node = Node(
         package='multi_map_navigation',
@@ -67,6 +79,16 @@ def generate_launch_description():
         output='screen',
         parameters=[LaunchConfiguration('nav_config')],
         emulate_tty=True
+    )
+
+    navigation_manager_exit_guard = RegisterEventHandler(
+        OnProcessExit(
+            target_action=navigation_manager_node,
+            on_exit=[
+                EmitEvent(event=Shutdown(
+                    reason='navigation_manager exited; task owner unavailable'))
+            ],
+        )
     )
 
     # 地图切换控制器节点
@@ -89,13 +111,48 @@ def generate_launch_description():
         emulate_tty=True
     )
 
+    process_manager_exit_guard = RegisterEventHandler(
+        OnProcessExit(
+            target_action=process_manager_node,
+            on_exit=[
+                EmitEvent(event=Shutdown(
+                    reason='process_manager exited; stop duplicate/unsafe managers'))
+            ],
+        )
+    )
+
+    # 唯一持有 map->odom 的管理节点；每轮新定位会话会先清除旧 TF。
+    map_odom_authority_node = Node(
+        package='multi_map_navigation',
+        executable='map_odom_authority',
+        name='map_odom_authority',
+        output='screen',
+        parameters=[LaunchConfiguration('nav_config')],
+        emulate_tty=True
+    )
+
+    map_odom_authority_exit_guard = RegisterEventHandler(
+        OnProcessExit(
+            target_action=map_odom_authority_node,
+            on_exit=[
+                EmitEvent(event=Shutdown(
+                    reason='map_odom_authority exited; TF owner unavailable'))
+            ],
+        )
+    )
+
     return LaunchDescription([
         mqtt_config_arg,
         nav_config_arg,
+        map_odom_authority_exit_guard,
+        map_odom_authority_node,
+        process_manager_exit_guard,
         process_manager_node,
         mqtt_task_receiver_node,
         status_reporter_node,
+        route_planner_exit_guard,
         route_planner_node,
+        navigation_manager_exit_guard,
         navigation_manager_node,
         map_switch_controller_node,
         

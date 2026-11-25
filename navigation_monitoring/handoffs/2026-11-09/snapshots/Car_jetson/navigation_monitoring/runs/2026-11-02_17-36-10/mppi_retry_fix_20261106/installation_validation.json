@@ -1,0 +1,17 @@
+{
+  "optimizer_unit_tests": {
+    "tests": "12",
+    "failures": "0",
+    "errors": "0"
+  },
+  "critic_manager_test": {
+    "tests": "2",
+    "failures": "0",
+    "errors": "0"
+  },
+  "installed_header_matches_source": true,
+  "regression_loads_installed_controller_library": true,
+  "critic_manager_and_navigation_parameters_unchanged": true,
+  "regression_assertions_passed": 23,
+  "finite_check_compile_option_verified": true
+}

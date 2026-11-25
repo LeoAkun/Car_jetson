@@ -1,0 +1,40 @@
+{
+  "bag": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-18_11-25-25_manual_publish_monitor/navigation_core_bag_segment_3",
+  "topic": "/lio_sam/mapping/loop_closure_constraints",
+  "method": "Deserialize visualization_msgs/msg/MarkerArray, read loop_edges LINE_LIST point_count/2, split epochs when the cumulative edge count decreases after a LIO restart.",
+  "sessions": [
+    {
+      "session": 1,
+      "first_message_local": "2026-11-18 11:54:19.821+08:00",
+      "last_message_local": "2026-11-18 11:56:28.932+08:00",
+      "last_new_edge_local": "2026-11-18 11:56:05.963+08:00",
+      "max_cumulative_edges": 99,
+      "marker_messages": 1135
+    },
+    {
+      "session": 2,
+      "first_message_local": "2026-11-18 12:00:06.333+08:00",
+      "last_message_local": "2026-11-18 12:04:00.293+08:00",
+      "last_new_edge_local": "2026-11-18 12:03:58.875+08:00",
+      "max_cumulative_edges": 73,
+      "marker_messages": 1978
+    },
+    {
+      "session": 3,
+      "first_message_local": "2026-11-18 12:12:31.666+08:00",
+      "last_message_local": "2026-11-18 12:12:47.816+08:00",
+      "last_new_edge_local": "2026-11-18 12:12:31.666+08:00",
+      "max_cumulative_edges": 1,
+      "marker_messages": 162
+    }
+  ],
+  "interpretation": "The current implementation adds an entry to loopIndexContainer only after ICP passes historyKeyframeFitnessScore, and visualizeLoopClosure publishes that container cumulatively. The counts therefore represent accepted loop edges per LIO process. This topic does not contain ICP fitness, overlap, correction magnitude, GPS-factor events, or scan-to-map residuals, so it cannot assign every odometry jump to a specific loop edge.",
+  "active_config": {
+    "file": "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml",
+    "loopClosureFrequency_hz": 10.0,
+    "historyKeyframeFitnessScore": 0.5,
+    "historyKeyframeSearchRadius_m": 15.0,
+    "effective_icp_max_correspondence_m": 30.0,
+    "historyKeyframeSearchTimeDiff_s": 30.0
+  }
+}

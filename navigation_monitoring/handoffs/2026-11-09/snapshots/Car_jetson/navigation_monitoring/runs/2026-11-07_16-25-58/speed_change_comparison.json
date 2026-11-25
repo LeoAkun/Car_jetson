@@ -1,0 +1,195 @@
+{
+  "method": "113→106 first66s, monitor snapshots, drive_mode1, vehicle fresh<=0.2s, speed>0.1kmh",
+  "results": [
+    {
+      "run": "2026-11-02_17-36-10",
+      "window": "17:39:12–17:40:18",
+      "n": 12,
+      "mean_kmh": 1.7249999999999999,
+      "median_kmh": 1.8,
+      "p90_kmh": 2.4,
+      "max_kmh": 2.6,
+      "samples": [
+        {
+          "time": "2026-11-02T17:39:18.252+08:00",
+          "vehicle_speed_kmh": 2.2,
+          "cmd_vel_linear_x_mps": 2.0181,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:23.245+08:00",
+          "vehicle_speed_kmh": 1.8,
+          "cmd_vel_linear_x_mps": 2.0181,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:29.245+08:00",
+          "vehicle_speed_kmh": 0.7,
+          "cmd_vel_linear_x_mps": 0.8073,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:34.259+08:00",
+          "vehicle_speed_kmh": 1.4,
+          "cmd_vel_linear_x_mps": 1.6082,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:39.250+08:00",
+          "vehicle_speed_kmh": 2.4,
+          "cmd_vel_linear_x_mps": 2.3568,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:44.251+08:00",
+          "vehicle_speed_kmh": 0.8,
+          "cmd_vel_linear_x_mps": 1.5362,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:50.244+08:00",
+          "vehicle_speed_kmh": 1.8,
+          "cmd_vel_linear_x_mps": 2.4987,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:39:55.256+08:00",
+          "vehicle_speed_kmh": 1.8,
+          "cmd_vel_linear_x_mps": 1.8357,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:40:00.249+08:00",
+          "vehicle_speed_kmh": 2.3,
+          "cmd_vel_linear_x_mps": 2.4939,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:40:06.257+08:00",
+          "vehicle_speed_kmh": 2.4,
+          "cmd_vel_linear_x_mps": 2.2063,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-02T17:40:12.244+08:00",
+          "vehicle_speed_kmh": 2.6,
+          "cmd_vel_linear_x_mps": 2.5168,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-02T17:40:17.251+08:00",
+          "vehicle_speed_kmh": 0.5,
+          "cmd_vel_linear_x_mps": 1.1561,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.0
+        }
+      ]
+    },
+    {
+      "run": "2026-11-07_16-25-58",
+      "window": "16:28:02–16:29:08",
+      "n": 12,
+      "mean_kmh": 2.8249999999999997,
+      "median_kmh": 3.0,
+      "p90_kmh": 3.1,
+      "max_kmh": 3.2,
+      "samples": [
+        {
+          "time": "2026-11-07T16:28:05.413+08:00",
+          "vehicle_speed_kmh": 2.7,
+          "cmd_vel_linear_x_mps": 0.5602,
+          "cmd_vel_age_sec": 0.0,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-07T16:28:11.419+08:00",
+          "vehicle_speed_kmh": 1.1,
+          "cmd_vel_linear_x_mps": 0.0,
+          "cmd_vel_age_sec": 0.1,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-07T16:28:17.425+08:00",
+          "vehicle_speed_kmh": 2.8,
+          "cmd_vel_linear_x_mps": 0.8332,
+          "cmd_vel_age_sec": 0.05,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-07T16:28:23.421+08:00",
+          "vehicle_speed_kmh": 2.7,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.04,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-07T16:28:29.413+08:00",
+          "vehicle_speed_kmh": 3.0,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.04,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-07T16:28:34.413+08:00",
+          "vehicle_speed_kmh": 3.1,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.04,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-07T16:28:40.419+08:00",
+          "vehicle_speed_kmh": 3.1,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.04,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-07T16:28:46.413+08:00",
+          "vehicle_speed_kmh": 3.0,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-07T16:28:51.427+08:00",
+          "vehicle_speed_kmh": 3.1,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-07T16:28:57.415+08:00",
+          "vehicle_speed_kmh": 3.0,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.0
+        },
+        {
+          "time": "2026-11-07T16:29:02.421+08:00",
+          "vehicle_speed_kmh": 3.2,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        },
+        {
+          "time": "2026-11-07T16:29:07.422+08:00",
+          "vehicle_speed_kmh": 3.1,
+          "cmd_vel_linear_x_mps": 0.8333,
+          "cmd_vel_age_sec": 0.03,
+          "vehicle_status_age_sec": 0.01
+        }
+      ]
+    }
+  ]
+}

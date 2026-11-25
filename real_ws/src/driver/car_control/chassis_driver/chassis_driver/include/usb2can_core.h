@@ -29,6 +29,7 @@
 #include <arpa/inet.h>   
 #include <vector>
 #include <thread>
+#include <chrono>
 
 namespace USB2CAN
 {
@@ -114,6 +115,12 @@ private:
 
   double pre_steer;
   double vehicle_weight;
+
+  bool use_front_wheel_feedback = false;
+  double front_wheel_feedback_timeout = 0.15;
+  bool front_wheel_feedback_seen = false;
+  double front_left_feedback = 0.0, front_right_feedback = 0.0;
+  std::chrono::steady_clock::time_point front_wheel_feedback_time;
   
   CARTYPE car_type;
 

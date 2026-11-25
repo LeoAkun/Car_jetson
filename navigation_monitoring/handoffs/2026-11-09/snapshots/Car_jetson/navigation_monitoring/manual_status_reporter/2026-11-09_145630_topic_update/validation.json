@@ -1,0 +1,19 @@
+{
+  "yaml_valid": true,
+  "python_syntax_valid": true,
+  "other_yaml_settings_preserved": true,
+  "checks": [
+    {
+      "status_topic_from_vin": "robot/TEST_ROBOT_SN/up/ack",
+      "passed": true
+    },
+    {
+      "task_subscription": "robot/LS1234567890/down/cmd",
+      "passed": true
+    },
+    {
+      "configured_status_topic_override": "robot/CONFIG_OVERRIDE/up/ack",
+      "passed": true
+    }
+  ]
+}

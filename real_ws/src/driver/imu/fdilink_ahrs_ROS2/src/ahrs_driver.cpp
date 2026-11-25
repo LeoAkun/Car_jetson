@@ -46,6 +46,15 @@ ahrsBringup::ahrsBringup()
   this->declare_parameter<std::int64_t>("serial_baud_",921600);
   this->get_parameter("serial_baud_", serial_baud_);  
 
+  this->declare_parameter<int>("no_data_reconnect_ms_", 5000);
+  this->get_parameter("no_data_reconnect_ms_", no_data_reconnect_ms_);
+
+  this->declare_parameter<bool>("reset_on_open_", true);
+  this->get_parameter("reset_on_open_", reset_on_open_);
+
+  this->declare_parameter<bool>("use_device_timestamp_", true);
+  this->get_parameter("use_device_timestamp_", use_device_timestamp_);
+
   //pravite_nh.param("debug",     if_debug_,  false);
   //pravite_nh.param("device_type", device_type_, 1); // default: single imu
   // pravite_nh.param("imu_topic", imu_topic_, std::string("/imu"));
@@ -72,6 +81,25 @@ ahrsBringup::ahrsBringup()
 
 
   //setp up serial  设置串口参数并打开串口
+  while (rclcpp::ok() && !openSerialPort())
+  {
+    RCLCPP_WARN(this->get_logger(), "Waiting for IMU serial port: %s", serial_port_.c_str());
+    rclcpp::sleep_for(std::chrono::seconds(1));
+  }
+  if (!rclcpp::ok())
+  {
+    return;
+  }
+  processLoop();
+}
+
+bool ahrsBringup::openSerialPort()
+{
+  if (serial_.isOpen())
+  {
+    return true;
+  }
+
   try
   {
     serial_.setPort(serial_port_);
@@ -86,19 +114,108 @@ ahrsBringup::ahrsBringup()
   }
   catch (serial::IOException &e)  // 抓取异常
   {
-    RCLCPP_ERROR(this->get_logger(),"Unable to open port ");
-    exit(0);
+    RCLCPP_WARN(this->get_logger(),"Unable to open port %s: %s", serial_port_.c_str(), e.what());
+    return false;
   }
+
   if (serial_.isOpen())
   {
-    RCLCPP_INFO(this->get_logger(),"Serial Port initialized");
+    if (reset_on_open_)
+    {
+      try
+      {
+        // A CP2102 re-enumeration alone does not always reset the IMU UART.
+        // Pulse modem-control lines for IMUs wired to DTR/RTS reset.
+        serial_.setDTR(false);
+        serial_.setRTS(false);
+        rclcpp::sleep_for(std::chrono::milliseconds(200));
+        serial_.setDTR(true);
+        serial_.setRTS(true);
+        rclcpp::sleep_for(std::chrono::milliseconds(500));
+      }
+      catch (const std::exception &e)
+      {
+        RCLCPP_WARN(this->get_logger(), "Unable to pulse IMU reset lines: %s", e.what());
+      }
+    }
+    serial_.flushInput();
+    RCLCPP_INFO(this->get_logger(),"Serial Port initialized: %s", serial_port_.c_str());
+    return true;
   }
-  else
+
+  RCLCPP_WARN(this->get_logger(),"Unable to initial Serial port %s", serial_port_.c_str());
+  return false;
+}
+
+bool ahrsBringup::recoverSerialPort()
+{
+  if (serial_.isOpen())
   {
-    RCLCPP_ERROR(this->get_logger(),"Unable to initial Serial port ");
-    exit(0);
+    serial_.close();
   }
-  processLoop();
+  rclcpp::sleep_for(std::chrono::milliseconds(500));
+  return openSerialPort();
+}
+
+bool ahrsBringup::readExact(
+  uint8_t * buffer, size_t length, const char * field)
+{
+  size_t total = 0;
+  while (rclcpp::ok() && total < length)
+  {
+    const size_t received = serial_.read(buffer + total, length - total);
+    if (received == 0)
+    {
+      break;
+    }
+    total += received;
+  }
+
+  if (total == length)
+  {
+    return true;
+  }
+
+  ++short_read_error_;
+  RCLCPP_WARN_THROTTLE(
+    this->get_logger(), *this->get_clock(), 5000,
+    "Short IMU serial read for %s: received=%zu expected=%zu total_short_reads=%d",
+    field, total, length, short_read_error_);
+  return false;
+}
+
+rclcpp::Time ahrsBringup::imuTimestamp(int64_t device_timestamp_us)
+{
+  const int64_t host_now_ns = this->get_clock()->now().nanoseconds();
+
+  if (!use_device_timestamp_ || device_timestamp_us <= 0)
+  {
+    const int64_t stamp_ns = std::max(host_now_ns, last_ros_stamp_ns_ + 1);
+    last_ros_stamp_ns_ = stamp_ns;
+    return rclcpp::Time(stamp_ns, this->get_clock()->get_clock_type());
+  }
+
+  if (!device_time_initialized_ || device_timestamp_us <= last_device_time_us_)
+  {
+    if (device_time_initialized_)
+    {
+      RCLCPP_WARN(
+        this->get_logger(),
+        "IMU device timestamp reset/non-monotonic: current=%ld previous=%ld; re-anchoring",
+        static_cast<long>(device_timestamp_us),
+        static_cast<long>(last_device_time_us_));
+    }
+    device_time_epoch_us_ = device_timestamp_us;
+    ros_time_epoch_ns_ = std::max(host_now_ns, last_ros_stamp_ns_ + 1);
+    device_time_initialized_ = true;
+  }
+
+  int64_t stamp_ns =
+    ros_time_epoch_ns_ + (device_timestamp_us - device_time_epoch_us_) * 1000;
+  stamp_ns = std::max(stamp_ns, last_ros_stamp_ns_ + 1);
+  last_device_time_us_ = device_timestamp_us;
+  last_ros_stamp_ns_ = stamp_ns;
+  return rclcpp::Time(stamp_ns, this->get_clock()->get_clock_type());
 }
 
 ahrsBringup::~ahrsBringup()  // 析构函数关闭串口通道
@@ -110,15 +227,36 @@ ahrsBringup::~ahrsBringup()  // 析构函数关闭串口通道
 void ahrsBringup::processLoop()  // 数据处理过程
 {
   RCLCPP_INFO(this->get_logger(),"ahrsBringup::processLoop: start");
+  const int max_empty_reads = std::max(1, no_data_reconnect_ms_ / serial_timeout_);
+  int empty_reads = 0;
   while (rclcpp::ok())
   {
     if (!serial_.isOpen())
     {
       RCLCPP_WARN(this->get_logger(),"serial unopen");
+      if (!openSerialPort())
+      {
+        rclcpp::sleep_for(std::chrono::seconds(1));
+        continue;
+      }
     }
     //check head start   检查起始 数据帧头
     uint8_t check_head[1] = {0xff};  
     size_t head_s = serial_.read(check_head, 1);
+    if (head_s == 0)
+    {
+      if (++empty_reads >= max_empty_reads)
+      {
+        RCLCPP_WARN(
+          this->get_logger(),
+          "No IMU serial data for %d ms; resetting and reopening %s",
+          no_data_reconnect_ms_, serial_port_.c_str());
+        empty_reads = 0;
+        recoverSerialPort();
+      }
+      continue;
+    }
+    empty_reads = 0;
     if (if_debug_){
       if (head_s != 1)
       {
@@ -133,7 +271,8 @@ void ahrsBringup::processLoop()  // 数据处理过程
     }
     //check head type   检查数据类型
     uint8_t head_type[1] = {0xff};
-    size_t type_s = serial_.read(head_type, 1);
+    if (!readExact(head_type, 1, "frame type"))
+      continue;
     if (if_debug_){
       std::cout << "head_type:  " << std::hex << (int)head_type[0] << std::dec << std::endl;
     }
@@ -144,7 +283,8 @@ void ahrsBringup::processLoop()  // 数据处理过程
     }
     //check head length    检查对应数据类型的长度是否符合
     uint8_t check_len[1] = {0xff};
-    size_t len_s = serial_.read(check_len, 1);
+    if (!readExact(check_len, 1, "frame length"))
+      continue;
     if (if_debug_){
       std::cout << "check_len: "<< std::dec << (int)check_len[0]  << std::endl;
     }
@@ -168,7 +308,8 @@ void ahrsBringup::processLoop()  // 数据处理过程
     else if (head_type[0] == TYPE_GROUND || head_type[0] == 0x50) // 未知数据，防止记录失败
     {
       uint8_t ground_sn[1];
-      size_t ground_sn_s = serial_.read(ground_sn, 1);
+      if (!readExact(ground_sn, 1, "ground serial number"))
+        continue;
       if (++read_sn_ != ground_sn[0])
       {
         if ( ground_sn[0] < read_sn_)
@@ -191,18 +332,20 @@ void ahrsBringup::processLoop()  // 数据处理过程
         }
       }
       uint8_t ground_ignore[500];
-      size_t ground_ignore_s = serial_.read(ground_ignore, (check_len[0]+4));
+      if (!readExact(ground_ignore, check_len[0] + 4, "ground payload"))
+        continue;
       continue;
     }
     //read head sn 
     uint8_t check_sn[1] = {0xff};
-    size_t sn_s = serial_.read(check_sn, 1);
     uint8_t head_crc8[1] = {0xff};
-    size_t crc8_s = serial_.read(head_crc8, 1);
     uint8_t head_crc16_H[1] = {0xff};
     uint8_t head_crc16_L[1] = {0xff};
-    size_t crc16_H_s = serial_.read(head_crc16_H, 1);
-    size_t crc16_L_s = serial_.read(head_crc16_L, 1);
+    if (!readExact(check_sn, 1, "serial number") ||
+        !readExact(head_crc8, 1, "header CRC8") ||
+        !readExact(head_crc16_H, 1, "header CRC16 high") ||
+        !readExact(head_crc16_L, 1, "header CRC16 low"))
+      continue;
     if (if_debug_){
       std::cout << "check_sn: "     << std::hex << (int)check_sn[0]     << std::dec << std::endl;
       std::cout << "head_crc8: "    << std::hex << (int)head_crc8[0]    << std::dec << std::endl;
@@ -305,7 +448,8 @@ void ahrsBringup::processLoop()  // 数据处理过程
       uint16_t head_crc16_l = imu_frame_.frame.header.header_crc16_l;
       uint16_t head_crc16_h = imu_frame_.frame.header.header_crc16_h;
       uint16_t head_crc16 = head_crc16_l + (head_crc16_h << 8);
-      size_t data_s = serial_.read(imu_frame_.read_buf.read_msg, (IMU_LEN + 1)); //48+1
+      if (!readExact(imu_frame_.read_buf.read_msg, IMU_LEN + 1, "IMU payload"))
+        continue;
       // if (if_debug_){
       //   for (size_t i = 0; i < (IMU_LEN + 1); i++)
       //   {
@@ -326,7 +470,10 @@ void ahrsBringup::processLoop()  // 数据处理过程
       
       if (head_crc16 != CRC16)
       {
-        RCLCPP_WARN(this->get_logger(),"check crc16 faild(imu).");
+        ++crc_error_;
+        RCLCPP_WARN(
+          this->get_logger(), "check crc16 failed (imu), total_crc_errors=%d",
+          crc_error_);
         continue;
       }
       else if(imu_frame_.frame.frame_end != FRAME_END)
@@ -341,7 +488,8 @@ void ahrsBringup::processLoop()  // 数据处理过程
       uint16_t head_crc16_l = ahrs_frame_.frame.header.header_crc16_l;
       uint16_t head_crc16_h = ahrs_frame_.frame.header.header_crc16_h;
       uint16_t head_crc16 = head_crc16_l + (head_crc16_h << 8);
-      size_t data_s = serial_.read(ahrs_frame_.read_buf.read_msg, (AHRS_LEN + 1)); //48+1
+      if (!readExact(ahrs_frame_.read_buf.read_msg, AHRS_LEN + 1, "AHRS payload"))
+        continue;
       // if (if_debug_){
       //   for (size_t i = 0; i < (AHRS_LEN + 1); i++)
       //   {
@@ -361,7 +509,10 @@ void ahrsBringup::processLoop()  // 数据处理过程
       
       if (head_crc16 != CRC16)
       {
-        RCLCPP_WARN(this->get_logger(),"check crc16 faild(ahrs).");
+        ++crc_error_;
+        RCLCPP_WARN(
+          this->get_logger(), "check crc16 failed (ahrs), total_crc_errors=%d",
+          crc_error_);
         continue;
       }
       else if(ahrs_frame_.frame.frame_end != FRAME_END)
@@ -375,7 +526,9 @@ void ahrsBringup::processLoop()  // 数据处理过程
       uint16_t head_crc16_l = insgps_frame_.frame.header.header_crc16_l;
       uint16_t head_crc16_h = insgps_frame_.frame.header.header_crc16_h;
       uint16_t head_crc16 = head_crc16_l + (head_crc16_h << 8);
-      size_t data_s = serial_.read(insgps_frame_.read_buf.read_msg, (INSGPS_LEN + 1)); //48+1
+      if (!readExact(
+          insgps_frame_.read_buf.read_msg, INSGPS_LEN + 1, "INSGPS payload"))
+        continue;
       // if (if_debug_){
       //   for (size_t i = 0; i < (AHRS_LEN + 1); i++)
       //   {
@@ -395,7 +548,10 @@ void ahrsBringup::processLoop()  // 数据处理过程
       
       if (head_crc16 != CRC16)
       {
-        RCLCPP_WARN(this->get_logger(),"check crc16 faild(ahrs).");
+        ++crc_error_;
+        RCLCPP_WARN(
+          this->get_logger(), "check crc16 failed (insgps), total_crc_errors=%d",
+          crc_error_);
         continue;
       }
       else if(insgps_frame_.frame.frame_end != FRAME_END)
@@ -409,7 +565,10 @@ void ahrsBringup::processLoop()  // 数据处理过程
       uint16_t head_crc16_l = Geodetic_Position_frame_.frame.header.header_crc16_l;
       uint16_t head_crc16_h = Geodetic_Position_frame_.frame.header.header_crc16_h;
       uint16_t head_crc16 = head_crc16_l + (head_crc16_h << 8);
-      size_t data_s = serial_.read(Geodetic_Position_frame_.read_buf.read_msg, (GEODETIC_POS_LEN + 1)); //24+1
+      if (!readExact(
+          Geodetic_Position_frame_.read_buf.read_msg,
+          GEODETIC_POS_LEN + 1, "geodetic payload"))
+        continue;
       // if (if_debug_){
       //   for (size_t i = 0; i < (AHRS_LEN + 1); i++)
       //   {
@@ -429,7 +588,10 @@ void ahrsBringup::processLoop()  // 数据处理过程
       
       if (head_crc16 != CRC16)
       {
-        RCLCPP_WARN(this->get_logger(),"check crc16 faild(gps).");
+        ++crc_error_;
+        RCLCPP_WARN(
+          this->get_logger(), "check crc16 failed (gps), total_crc_errors=%d",
+          crc_error_);
         continue;
       }
       else if(Geodetic_Position_frame_.frame.frame_end != FRAME_END)
@@ -445,7 +607,8 @@ void ahrsBringup::processLoop()  // 数据处理过程
     {
       // publish imu topic
       sensor_msgs::msg::Imu imu_data;
-      imu_data.header.stamp = rclcpp::Node::now();
+      imu_data.header.stamp =
+        imuTimestamp(imu_frame_.frame.data.data_pack.Timestamp);
       imu_data.header.frame_id = imu_frame_id_.c_str();
       Eigen::Quaterniond q_ahrs(ahrs_frame_.frame.data.data_pack.Qw,
                                 ahrs_frame_.frame.data.data_pack.Qx,

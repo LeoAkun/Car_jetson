@@ -1,0 +1,67 @@
+{
+  "generated_at_beijing": "2026-11-09T17:45:14.127335+08:00",
+  "status": "PASS",
+  "scope": "只读文件/链接/快照SHA256/录包目录元数据核对；未启动ROS或导航，没有回放或控制车辆",
+  "snapshot_hashes_checked": 1152,
+  "original_files_indexed": 1417,
+  "visible_chat_message_count": 339,
+  "chat_counts": {
+    "user": 83,
+    "assistant": 256
+  },
+  "chat_source_files": 2,
+  "chat_null_only_lines_skipped": 2,
+  "known_credential_value_scan": "PASS",
+  "large_bags_not_copied": true,
+  "bag_checks": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/navigation_raw_bag",
+      "db3_files_expected": 1,
+      "db3_files_actual": 1,
+      "db3_bytes_actual": 24576,
+      "metadata_exists": true,
+      "ok": true
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/navigation_raw_bag",
+      "db3_files_expected": 2,
+      "db3_files_actual": 2,
+      "db3_bytes_actual": 354091008,
+      "metadata_exists": true,
+      "ok": true
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/navigation_raw_bag",
+      "db3_files_expected": 1,
+      "db3_files_actual": 1,
+      "db3_bytes_actual": 144723968,
+      "metadata_exists": true,
+      "ok": true
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/navigation_raw_bag",
+      "db3_files_expected": 1,
+      "db3_files_actual": 1,
+      "db3_bytes_actual": 263897088,
+      "metadata_exists": true,
+      "ok": true
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag",
+      "db3_files_expected": 19,
+      "db3_files_actual": 19,
+      "db3_bytes_actual": 5398286336,
+      "metadata_exists": true,
+      "ok": true
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag",
+      "db3_files_expected": 9,
+      "db3_files_actual": 9,
+      "db3_bytes_actual": 4817985536,
+      "metadata_exists": true,
+      "ok": true
+    }
+  ],
+  "errors": []
+}

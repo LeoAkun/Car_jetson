@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="109.752" timestamp="2026-11-19T13:38:56.624016" hostname="admin1-Default-string"><testcase time="0.003" /><testcase classname="pytest" name="internal" time="0.000"><error message="internal error">Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/_pytest/main.py", line 269, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "/usr/lib/python3/dist-packages/_pytest/main.py", line 323, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "/usr/lib/python3/dist-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "/usr/lib/python3/dist-packages/pluggy/manager.py", line 92, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "/usr/lib/python3/dist-packages/pluggy/manager.py", line 83, in &lt;lambda&gt;
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "/usr/lib/python3/dist-packages/_pytest/main.py", line 348, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "/usr/lib/python3/dist-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "/usr/lib/python3/dist-packages/pluggy/manager.py", line 92, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "/usr/lib/python3/dist-packages/pluggy/manager.py", line 83, in &lt;lambda&gt;
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "/usr/lib/python3/dist-packages/_pytest/runner.py", line 109, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "/usr/lib/python3/dist-packages/_pytest/runner.py", line 126, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "/usr/lib/python3/dist-packages/_pytest/runner.py", line 219, in call_and_report
+    hook.pytest_runtest_logreport(report=report)
+  File "/usr/lib/python3/dist-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "/usr/lib/python3/dist-packages/pluggy/manager.py", line 92, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "/usr/lib/python3/dist-packages/pluggy/manager.py", line 83, in &lt;lambda&gt;
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/usr/lib/python3/dist-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "/usr/lib/python3/dist-packages/_pytest/terminal.py", line 573, in pytest_runtest_logreport
+    self.flush()
+  File "/usr/lib/python3/dist-packages/_pytest/terminal.py", line 424, in flush
+    self._tw.flush()
+  File "/usr/lib/python3/dist-packages/_pytest/_io/terminalwriter.py", line 174, in flush
+    self._file.flush()
+BrokenPipeError: [Errno 32] Broken pipe</error></testcase></testsuite></testsuites>

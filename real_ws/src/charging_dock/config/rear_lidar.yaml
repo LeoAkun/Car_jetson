@@ -1,0 +1,19 @@
+rear_lidar_processor:
+  ros__parameters:
+    scan_topic: /laser/scan_back
+    expected_frame: rear_laser
+    sensor_x_m: -0.43
+    sensor_y_m: -0.28
+    sensor_yaw_deg: -135.0
+    maximum_message_age_sec: 0.20
+    minimum_segment_points: 5
+    segment_jump_threshold_m: 0.08
+    stable_frames: 10
+    maximum_distance_jump_m: 0.10
+    minimum_visible_width_m: 0.05
+    maximum_visible_width_m: 0.60
+    maximum_fit_residual_m: 0.01
+    lateral_center_enabled: false
+    # Final base_link-to-dock-plane parking window fixed by project decision.
+    final_parking_window_min_m: 0.45
+    final_parking_window_max_m: 0.47

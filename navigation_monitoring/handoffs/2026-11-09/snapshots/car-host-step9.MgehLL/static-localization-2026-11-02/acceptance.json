@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-02",
+  "map": "3b2mus",
+  "stationary_check_passed": true,
+  "checks": {
+    "no_runtime_failure": true,
+    "normal_exit_all_eight_nodes": true,
+    "actual_map_match_accepted": true,
+    "fresh_30s_scan_overlap": true,
+    "fresh_60s_scan_overlap": true,
+    "imu_rate_over_95Hz": true,
+    "lidar_rate_over_9Hz": true,
+    "lio_mapping_rate_over_8Hz": true,
+    "all_topic_timestamps_positive_monotonic": true,
+    "imu_values_finite": true,
+    "odom->base_link_at_least_60s": true,
+    "odom->base_link_max_shift_under_10cm": true,
+    "odom->base_link_max_step_under_5cm": true,
+    "odom->base_link_orientation_under_1deg": true,
+    "odom->base_link_finite_nonregressing_tf": true,
+    "map->base_link_at_least_60s": true,
+    "map->base_link_max_shift_under_10cm": true,
+    "map->base_link_max_step_under_5cm": true,
+    "map->base_link_orientation_under_1deg": true,
+    "map->base_link_finite_nonregressing_tf": true,
+    "gps_fix_received": true
+  },
+  "tf_metrics": {
+    "odom->base_link": {
+      "timestamp_regressions": 0,
+      "duplicate_reads": 0,
+      "max_observer_gap_s": 0.15699165500336676,
+      "max_transform_stamp_gap_s": 0.1598663330078125,
+      "all_pose_values_finite": true,
+      "max_orientation_step_deg": 0.11366347690360863,
+      "last_base_pose_xy_yaw_deg": [
+        -0.32410772077002187,
+        0.012618633289248683,
+        -0.06081528036750479
+      ]
+    },
+    "map->base_link": {
+      "timestamp_regressions": 0,
+      "duplicate_reads": 1055,
+      "max_observer_gap_s": 0.15699165500336676,
+      "max_transform_stamp_gap_s": 0.2098526954650879,
+      "all_pose_values_finite": true,
+      "max_orientation_step_deg": 0.11036661646807386,
+      "last_base_pose_xy_yaw_deg": [
+        106.19934443993606,
+        -10.642732871894863,
+        -89.57932698750834
+      ]
+    }
+  },
+  "gps": {
+    "statuses": [
+      1
+    ],
+    "satellites_min_max": [
+      12,
+      12
+    ],
+    "hdop_min_max": [
+      0.58,
+      1.04
+    ]
+  },
+  "acceptance_note": "Local engineering screening thresholds; not a safety certification or absolute position ground truth.",
+  "control_outputs": "No control node launched and no control topic was published by these scripts.",
+  "initialization_mode": "Bounded GPS-seeded yaw search using installed NDT; independently verified overlap. Production automatic initialization was not run.",
+  "followup_issue": "Production NDT score_threshold=2.0 and PoseInit final_score<10.0 do not reject poor matches on a 0..1 score. Unchanged this check."
+}

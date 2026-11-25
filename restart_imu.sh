@@ -4,7 +4,7 @@ set -Ee -o pipefail
 ROS_SETUP="/opt/ros/humble/setup.bash"
 WS_SETUP="/home/akun/workspace/Car_jetson/real_ws/install/setup.bash"
 IMU_NODE="/home/akun/workspace/Car_jetson/real_ws/install/fdilink_ahrs/lib/fdilink_ahrs/ahrs_driver_node"
-IMU_DEVICE="/dev/wheeltec_FDI_IMU_GNSS"
+IMU_DEVICE="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0"
 LOG_DIR="${HOME}/.local/state/car_jetson"
 LOG_FILE="${LOG_DIR}/imu_driver.log"
 PID_FILE="${LOG_DIR}/imu_driver.pid"
@@ -120,11 +120,39 @@ fi
 mkdir -p "${LOG_DIR}"
 touch "${LOG_FILE}"
 
+# The normal launch file uses respawn=True. Give its parent launch process time
+# to load the installed binary before starting a standalone copy on the same
+# serial port.
+respawned_pids=()
+for _ in {1..40}; do
+    mapfile -t respawned_pids < <(get_imu_pids)
+    ((${#respawned_pids[@]} > 0)) && break
+    sleep 0.1
+done
+
+if ((${#respawned_pids[@]} > 1)); then
+    echo "Expected at most one respawned IMU process, found ${#respawned_pids[@]}: ${respawned_pids[*]}" >&2
+    exit 1
+fi
+
+if ((${#respawned_pids[@]} == 1)); then
+    if imu_has_data 3; then
+        echo "${respawned_pids[0]}" >"${PID_FILE}"
+        echo "Parent launch loaded the new IMU driver successfully (PID ${respawned_pids[0]})."
+        exit 0
+    fi
+    echo "Respawned IMU process ${respawned_pids[0]} has no /imu data." >&2
+    exit 1
+fi
+
 echo "Starting one IMU driver..."
 nohup setsid "${IMU_NODE}" --ros-args \
     -p if_debug_:=false \
     -p serial_port_:="${IMU_DEVICE}" \
     -p serial_baud_:=921600 \
+    -p no_data_reconnect_ms_:=5000 \
+    -p reset_on_open_:=true \
+    -p use_device_timestamp_:=false \
     -p imu_topic:=/imu \
     -p imu_frame_id_:=imu_link \
     -p device_type_:=1 \

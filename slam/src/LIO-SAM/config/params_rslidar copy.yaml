@@ -47,9 +47,9 @@
     imuGravity: 9.80511
     imuRPYWeight: 0.07
 
-    # extrinsicTrans:  [-0.011,  -0.0234, 0.044] # imu与mid360激光雷达之间的坐标变换。用于将雷达与imu数据进行转化，liosam内部计算odom值，计算的odom值会发布为odom->base_link的变换
-    
-    extrinsicTrans: [0.0, 0.0, -0.15]
+    # IMU origin in rslidar coordinates: 0.11 m below the LiDAR.
+    # Height confirmed by the user on 2026-10-29; matches the existing static TF.
+    extrinsicTrans: [0.0, 0.0, -0.11]
     
     extrinsicRot:    [1.0,  0.0,  0.0,
                        0.0,  1.0,  0.0,

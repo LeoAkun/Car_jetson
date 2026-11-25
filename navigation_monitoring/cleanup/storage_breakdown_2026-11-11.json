@@ -1,0 +1,1925 @@
+{
+  "project": "/home/akun/workspace/Car_jetson",
+  "project_allocated_bytes": 115280818176,
+  "categories": [
+    {
+      "category": "ROS录包",
+      "files": 212,
+      "allocated_bytes": 103883972608,
+      "logical_bytes": 103883247616,
+      "GiB": 96.7494888305664,
+      "percent": 90.11384049113846
+    },
+    {
+      "category": "地图（PCD/PGM）",
+      "files": 54,
+      "allocated_bytes": 8676016128,
+      "logical_bytes": 8676179886,
+      "GiB": 8.080169677734375,
+      "percent": 7.525984170891525
+    },
+    {
+      "category": "编译与安装产物",
+      "files": 20125,
+      "allocated_bytes": 996126720,
+      "logical_bytes": 942183168,
+      "GiB": 0.9277153015136719,
+      "percent": 0.8640871358834448
+    },
+    {
+      "category": "监测记录、分析导出与文本日志",
+      "files": 3177,
+      "allocated_bytes": 967327744,
+      "logical_bytes": 960181746,
+      "GiB": 0.9008941650390625,
+      "percent": 0.8391055505202731
+    },
+    {
+      "category": "源码、配置、模型及其他",
+      "files": 4893,
+      "allocated_bytes": 454414336,
+      "logical_bytes": 442693601,
+      "GiB": 0.4232063293457031,
+      "percent": 0.3941803529761929
+    },
+    {
+      "category": "Git仓库历史",
+      "files": 599,
+      "allocated_bytes": 269352960,
+      "logical_bytes": 267481574,
+      "GiB": 0.2508544921875,
+      "percent": 0.2336494173634134
+    },
+    {
+      "category": "目录及其他文件系统开销",
+      "files": 0,
+      "allocated_bytes": 33607680,
+      "GiB": 0.031299591064453125,
+      "percent": 0.029152881226685023
+    }
+  ],
+  "recording_types": [
+    {
+      "category": "导航核心录包",
+      "allocated_bytes": 101564780544,
+      "bag_count": 13
+    },
+    {
+      "category": "导航原始雷达录包",
+      "allocated_bytes": 762744832,
+      "bag_count": 4
+    },
+    {
+      "category": "充电对接录包",
+      "allocated_bytes": 1556381696,
+      "bag_count": 11
+    }
+  ],
+  "recording_days": [
+    {
+      "date": "2026-11-04",
+      "allocated_bytes": 429015040
+    },
+    {
+      "date": "2026-11-05",
+      "allocated_bytes": 566935552
+    },
+    {
+      "date": "2026-11-06",
+      "allocated_bytes": 225366016
+    },
+    {
+      "date": "2026-11-07",
+      "allocated_bytes": 762744832
+    },
+    {
+      "date": "2026-11-09",
+      "allocated_bytes": 10216312832
+    },
+    {
+      "date": "2026-11-10",
+      "allocated_bytes": 84429746176
+    },
+    {
+      "date": "2026-11-11",
+      "allocated_bytes": 7253786624
+    }
+  ],
+  "largest_recordings": [
+    {
+      "run": "2026-11-10_10-17-53",
+      "allocated_bytes": 44438454272,
+      "duration": "27分45秒",
+      "segments": 82
+    },
+    {
+      "run": "2026-11-10_11-04-54",
+      "allocated_bytes": 25218859008,
+      "duration": "15分04秒",
+      "segments": 47
+    },
+    {
+      "run": "2026-11-09_14-33-18",
+      "allocated_bytes": 5398294528,
+      "duration": "6分48秒",
+      "segments": 19
+    },
+    {
+      "run": "2026-11-11_10-49-06",
+      "allocated_bytes": 5303910400,
+      "duration": "8分16秒",
+      "segments": 10
+    },
+    {
+      "run": "2026-11-09_15-47-22",
+      "allocated_bytes": 4818018304,
+      "duration": "6分35秒",
+      "segments": 9
+    }
+  ],
+  "file_types": [
+    {
+      "extension": ".db3",
+      "files": 208,
+      "logical_bytes": 103883182080,
+      "allocated_bytes": 103883907072
+    },
+    {
+      "extension": ".pcd",
+      "files": 32,
+      "logical_bytes": 8472422547,
+      "allocated_bytes": 8472547328
+    },
+    {
+      "extension": ".jsonl",
+      "files": 83,
+      "logical_bytes": 600365968,
+      "allocated_bytes": 600666112
+    },
+    {
+      "extension": ".so",
+      "files": 579,
+      "logical_bytes": 327074186,
+      "allocated_bytes": 328380416
+    },
+    {
+      "extension": ".o",
+      "files": 1064,
+      "logical_bytes": 285467296,
+      "allocated_bytes": 287641600
+    },
+    {
+      "extension": ".csv",
+      "files": 248,
+      "logical_bytes": 286369622,
+      "allocated_bytes": 286937088
+    },
+    {
+      "extension": "[git data]",
+      "files": 599,
+      "logical_bytes": 267481574,
+      "allocated_bytes": 269352960
+    },
+    {
+      "extension": ".pgm",
+      "files": 22,
+      "logical_bytes": 203757339,
+      "allocated_bytes": 203468800
+    },
+    {
+      "extension": ".gif",
+      "files": 16,
+      "logical_bytes": 153027290,
+      "allocated_bytes": 153063424
+    },
+    {
+      "extension": ".log",
+      "files": 2921,
+      "logical_bytes": 76668268,
+      "allocated_bytes": 83132416
+    },
+    {
+      "extension": ".engine",
+      "files": 5,
+      "logical_bytes": 73432407,
+      "allocated_bytes": 73445376
+    },
+    {
+      "extension": ".json",
+      "files": 1548,
+      "logical_bytes": 62917653,
+      "allocated_bytes": 66560000
+    },
+    {
+      "extension": ".dae",
+      "files": 11,
+      "logical_bytes": 62156633,
+      "allocated_bytes": 62181376
+    },
+    {
+      "extension": ".make",
+      "files": 2165,
+      "logical_bytes": 49168441,
+      "allocated_bytes": 55529472
+    },
+    {
+      "extension": "[no extension]",
+      "files": 1096,
+      "logical_bytes": 52740811,
+      "allocated_bytes": 55504896
+    },
+    {
+      "extension": ".stl",
+      "files": 6,
+      "logical_bytes": 54171104,
+      "allocated_bytes": 54190080
+    },
+    {
+      "extension": ".png",
+      "files": 184,
+      "logical_bytes": 29475559,
+      "allocated_bytes": 29855744
+    },
+    {
+      "extension": ".d",
+      "files": 1068,
+      "logical_bytes": 27502806,
+      "allocated_bytes": 29790208
+    },
+    {
+      "extension": ".internal",
+      "files": 278,
+      "logical_bytes": 23921076,
+      "allocated_bytes": 24465408
+    },
+    {
+      "extension": ".c",
+      "files": 771,
+      "logical_bytes": 22376356,
+      "allocated_bytes": 23982080
+    },
+    {
+      "extension": ".pt",
+      "files": 4,
+      "logical_bytes": 22915823,
+      "allocated_bytes": 22921216
+    },
+    {
+      "extension": ".cmake",
+      "files": 2843,
+      "logical_bytes": 12309240,
+      "allocated_bytes": 20815872
+    },
+    {
+      "extension": ".cpp",
+      "files": 1235,
+      "logical_bytes": 15356148,
+      "allocated_bytes": 17977344
+    },
+    {
+      "extension": ".hpp",
+      "files": 1980,
+      "logical_bytes": 10054583,
+      "allocated_bytes": 14557184
+    },
+    {
+      "extension": ".txt",
+      "files": 1101,
+      "logical_bytes": 11114144,
+      "allocated_bytes": 14135296
+    },
+    {
+      "extension": ".py",
+      "files": 1158,
+      "logical_bytes": 10554518,
+      "allocated_bytes": 13062144
+    },
+    {
+      "extension": ".pdf",
+      "files": 8,
+      "logical_bytes": 11376582,
+      "allocated_bytes": 11390976
+    },
+    {
+      "extension": ".h",
+      "files": 1373,
+      "logical_bytes": 7882425,
+      "allocated_bytes": 11300864
+    },
+    {
+      "extension": ".gz",
+      "files": 1,
+      "logical_bytes": 9833326,
+      "allocated_bytes": 9834496
+    },
+    {
+      "extension": ".onnx",
+      "files": 1,
+      "logical_bytes": 9299917,
+      "allocated_bytes": 9302016
+    },
+    {
+      "extension": ".npz",
+      "files": 6,
+      "logical_bytes": 8235661,
+      "allocated_bytes": 8241152
+    },
+    {
+      "extension": ".md",
+      "files": 407,
+      "logical_bytes": 2800659,
+      "allocated_bytes": 3756032
+    },
+    {
+      "extension": ".stamp",
+      "files": 772,
+      "logical_bytes": 1329984,
+      "allocated_bytes": 3715072
+    },
+    {
+      "extension": ".pyc",
+      "files": 342,
+      "logical_bytes": 2783793,
+      "allocated_bytes": 3624960
+    },
+    {
+      "extension": ".sh",
+      "files": 660,
+      "logical_bytes": 1063111,
+      "allocated_bytes": 3252224
+    },
+    {
+      "extension": ".dsv",
+      "files": 760,
+      "logical_bytes": 91333,
+      "allocated_bytes": 3112960
+    },
+    {
+      "extension": ".rs",
+      "files": 124,
+      "logical_bytes": 2608728,
+      "allocated_bytes": 2949120
+    },
+    {
+      "extension": ".a",
+      "files": 9,
+      "logical_bytes": 2619168,
+      "allocated_bytes": 2633728
+    },
+    {
+      "extension": ".jpg",
+      "files": 22,
+      "logical_bytes": 2421295,
+      "allocated_bytes": 2478080
+    },
+    {
+      "extension": ".yaml",
+      "files": 334,
+      "logical_bytes": 1413755,
+      "allocated_bytes": 2338816
+    },
+    {
+      "extension": ".bin",
+      "files": 139,
+      "logical_bytes": 2213674,
+      "allocated_bytes": 2269184
+    },
+    {
+      "extension": ".ts",
+      "files": 515,
+      "logical_bytes": 68294,
+      "allocated_bytes": 2109440
+    },
+    {
+      "extension": ".out",
+      "files": 123,
+      "logical_bytes": 1963240,
+      "allocated_bytes": 1998848
+    },
+    {
+      "extension": ".eap",
+      "files": 1,
+      "logical_bytes": 1925120,
+      "allocated_bytes": 1892352
+    },
+    {
+      "extension": ".world",
+      "files": 18,
+      "logical_bytes": 1736687,
+      "allocated_bytes": 1781760
+    },
+    {
+      "extension": ".xml",
+      "files": 256,
+      "logical_bytes": 373487,
+      "allocated_bytes": 1122304
+    },
+    {
+      "extension": ".ps1",
+      "files": 246,
+      "logical_bytes": 306022,
+      "allocated_bytes": 1007616
+    },
+    {
+      "extension": ".bash",
+      "files": 229,
+      "logical_bytes": 361898,
+      "allocated_bytes": 942080
+    },
+    {
+      "extension": ".zsh",
+      "files": 210,
+      "logical_bytes": 397111,
+      "allocated_bytes": 892928
+    },
+    {
+      "extension": ".msg",
+      "files": 194,
+      "logical_bytes": 33649,
+      "allocated_bytes": 794624
+    },
+    {
+      "extension": ".env",
+      "files": 76,
+      "logical_bytes": 526918,
+      "allocated_bytes": 696320
+    },
+    {
+      "extension": ".idl",
+      "files": 170,
+      "logical_bytes": 138110,
+      "allocated_bytes": 696320
+    },
+    {
+      "extension": ".npy",
+      "files": 2,
+      "logical_bytes": 576448,
+      "allocated_bytes": 581632
+    },
+    {
+      "extension": ".pid",
+      "files": 100,
+      "logical_bytes": 564,
+      "allocated_bytes": 405504
+    },
+    {
+      "extension": ".marks",
+      "files": 96,
+      "logical_bytes": 224,
+      "allocated_bytes": 393216
+    },
+    {
+      "extension": ".rc",
+      "files": 78,
+      "logical_bytes": 168,
+      "allocated_bytes": 319488
+    },
+    {
+      "extension": ".check_cache",
+      "files": 64,
+      "logical_bytes": 5440,
+      "allocated_bytes": 262144
+    },
+    {
+      "extension": ".last",
+      "files": 62,
+      "logical_bytes": 9724,
+      "allocated_bytes": 253952
+    },
+    {
+      "extension": ".sdf",
+      "files": 39,
+      "logical_bytes": 144271,
+      "allocated_bytes": 241664
+    },
+    {
+      "extension": ".rviz",
+      "files": 23,
+      "logical_bytes": 176179,
+      "allocated_bytes": 225280
+    },
+    {
+      "extension": ".srv",
+      "files": 54,
+      "logical_bytes": 10250,
+      "allocated_bytes": 221184
+    },
+    {
+      "extension": ".vsdx",
+      "files": 1,
+      "logical_bytes": 208318,
+      "allocated_bytes": 208896
+    },
+    {
+      "extension": ".cc",
+      "files": 34,
+      "logical_bytes": 154004,
+      "allocated_bytes": 192512
+    },
+    {
+      "extension": ".xacro",
+      "files": 37,
+      "logical_bytes": 85158,
+      "allocated_bytes": 159744
+    },
+    {
+      "extension": ".geojson",
+      "files": 10,
+      "logical_bytes": 136488,
+      "allocated_bytes": 155648
+    },
+    {
+      "extension": ".config",
+      "files": 36,
+      "logical_bytes": 10903,
+      "allocated_bytes": 147456
+    },
+    {
+      "extension": ".patch",
+      "files": 9,
+      "logical_bytes": 115692,
+      "allocated_bytes": 143360
+    },
+    {
+      "extension": ".action",
+      "files": 32,
+      "logical_bytes": 10806,
+      "allocated_bytes": 131072
+    },
+    {
+      "extension": ".toml",
+      "files": 24,
+      "logical_bytes": 12404,
+      "allocated_bytes": 98304
+    },
+    {
+      "extension": ".svg",
+      "files": 3,
+      "logical_bytes": 89998,
+      "allocated_bytes": 94208
+    },
+    {
+      "extension": ".db3-shm",
+      "files": 2,
+      "logical_bytes": 65536,
+      "allocated_bytes": 65536
+    },
+    {
+      "extension": ".xcf",
+      "files": 1,
+      "logical_bytes": 58779,
+      "allocated_bytes": 61440
+    },
+    {
+      "extension": ".urdf",
+      "files": 7,
+      "logical_bytes": 34171,
+      "allocated_bytes": 53248
+    },
+    {
+      "extension": ".cfg",
+      "files": 13,
+      "logical_bytes": 1278,
+      "allocated_bytes": 53248
+    },
+    {
+      "extension": ".idls",
+      "files": 12,
+      "logical_bytes": 9246,
+      "allocated_bytes": 49152
+    },
+    {
+      "extension": ".model",
+      "files": 6,
+      "logical_bytes": 36751,
+      "allocated_bytes": 49152
+    },
+    {
+      "extension": ".yml",
+      "files": 5,
+      "logical_bytes": 21943,
+      "allocated_bytes": 36864
+    },
+    {
+      "extension": ".tag",
+      "files": 8,
+      "logical_bytes": 1552,
+      "allocated_bytes": 32768
+    },
+    {
+      "extension": ".launch",
+      "files": 8,
+      "logical_bytes": 15129,
+      "allocated_bytes": 32768
+    },
+    {
+      "extension": ".vcxproj",
+      "files": 3,
+      "logical_bytes": 31051,
+      "allocated_bytes": 32768
+    },
+    {
+      "extension": ".css",
+      "files": 1,
+      "logical_bytes": 28804,
+      "allocated_bytes": 32768
+    },
+    {
+      "extension": ".in",
+      "files": 6,
+      "logical_bytes": 7957,
+      "allocated_bytes": 24576
+    },
+    {
+      "extension": ".service",
+      "files": 5,
+      "logical_bytes": 1975,
+      "allocated_bytes": 20480
+    },
+    {
+      "extension": ".ini",
+      "files": 5,
+      "logical_bytes": 9917,
+      "allocated_bytes": 20480
+    },
+    {
+      "extension": ".8oxvh1",
+      "files": 1,
+      "logical_bytes": 16674,
+      "allocated_bytes": 20480
+    },
+    {
+      "extension": ".qeqth1",
+      "files": 1,
+      "logical_bytes": 16757,
+      "allocated_bytes": 20480
+    },
+    {
+      "extension": ".gv",
+      "files": 4,
+      "logical_bytes": 2514,
+      "allocated_bytes": 16384
+    },
+    {
+      "extension": ".egg-link",
+      "files": 4,
+      "logical_bytes": 254,
+      "allocated_bytes": 16384
+    },
+    {
+      "extension": ".odg",
+      "files": 1,
+      "logical_bytes": 13296,
+      "allocated_bytes": 16384
+    },
+    {
+      "extension": ".tar",
+      "files": 1,
+      "logical_bytes": 10240,
+      "allocated_bytes": 12288
+    },
+    {
+      "extension": ".dockerfile",
+      "files": 2,
+      "logical_bytes": 10253,
+      "allocated_bytes": 12288
+    },
+    {
+      "extension": ".rst",
+      "files": 14,
+      "logical_bytes": 1522,
+      "allocated_bytes": 8192
+    },
+    {
+      "extension": ".rules",
+      "files": 2,
+      "logical_bytes": 1938,
+      "allocated_bytes": 8192
+    },
+    {
+      "extension": ".sql",
+      "files": 2,
+      "logical_bytes": 1324,
+      "allocated_bytes": 8192
+    },
+    {
+      "extension": ".ipynb",
+      "files": 1,
+      "logical_bytes": 5389,
+      "allocated_bytes": 8192
+    },
+    {
+      "extension": ".sha256",
+      "files": 1,
+      "logical_bytes": 109,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".sln",
+      "files": 1,
+      "logical_bytes": 2940,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".tmp",
+      "files": 1,
+      "logical_bytes": 404,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".lock",
+      "files": 1,
+      "logical_bytes": 527,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".timer",
+      "files": 1,
+      "logical_bytes": 237,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".bmp",
+      "files": 1,
+      "logical_bytes": 374,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".html",
+      "files": 1,
+      "logical_bytes": 1126,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".repos",
+      "files": 1,
+      "logical_bytes": 882,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".2026-11-09_002238_286380",
+      "files": 1,
+      "logical_bytes": 1275,
+      "allocated_bytes": 4096
+    },
+    {
+      "extension": ".stderr",
+      "files": 9,
+      "logical_bytes": 0,
+      "allocated_bytes": 0
+    },
+    {
+      "extension": ".db3-wal",
+      "files": 2,
+      "logical_bytes": 0,
+      "allocated_bytes": 0
+    }
+  ],
+  "large_files": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap2.pcd",
+      "logical_bytes": 1409989202,
+      "allocated_bytes": 1409994752
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap3.pcd",
+      "logical_bytes": 1406985822,
+      "allocated_bytes": 1406992384
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap4.pcd",
+      "logical_bytes": 1404571922,
+      "allocated_bytes": 1404579840
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-36-32/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 1001267200,
+      "allocated_bytes": 1001271296
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-42-07/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 1001242624,
+      "allocated_bytes": 1001246720
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-42-07/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 1001234432,
+      "allocated_bytes": 1001238528
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-36-32/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 1001201664,
+      "allocated_bytes": 1001205760
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 1001091072,
+      "allocated_bytes": 1001095168
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-25-10/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 1000751104,
+      "allocated_bytes": 1000755200
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 1000435712,
+      "allocated_bytes": 1000439808
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 1000075264,
+      "allocated_bytes": 1000079360
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 1000017920,
+      "allocated_bytes": 1000022016
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-51-41/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 1000001536,
+      "allocated_bytes": 1000005632
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-51-41/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 1000001536,
+      "allocated_bytes": 1000005632
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-25-10/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 838586368,
+      "allocated_bytes": 838590464
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map2/map2_clean.pcd",
+      "logical_bytes": 722511648,
+      "allocated_bytes": 722518016
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 562188288,
+      "allocated_bytes": 562192384
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_78.db3",
+      "logical_bytes": 562118656,
+      "allocated_bytes": 562122752
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 561930240,
+      "allocated_bytes": 561934336
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 561590272,
+      "allocated_bytes": 561594368
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_6.db3",
+      "logical_bytes": 561446912,
+      "allocated_bytes": 561451008
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_32.db3",
+      "logical_bytes": 561446912,
+      "allocated_bytes": 561451008
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_72.db3",
+      "logical_bytes": 561385472,
+      "allocated_bytes": 561389568
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_38.db3",
+      "logical_bytes": 561168384,
+      "allocated_bytes": 561172480
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_19.db3",
+      "logical_bytes": 560746496,
+      "allocated_bytes": 560750592
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_14.db3",
+      "logical_bytes": 560463872,
+      "allocated_bytes": 560467968
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_66.db3",
+      "logical_bytes": 559857664,
+      "allocated_bytes": 559861760
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_25.db3",
+      "logical_bytes": 559640576,
+      "allocated_bytes": 559644672
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_15.db3",
+      "logical_bytes": 558665728,
+      "allocated_bytes": 558669824
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_16.db3",
+      "logical_bytes": 558100480,
+      "allocated_bytes": 558104576
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_22.db3",
+      "logical_bytes": 558075904,
+      "allocated_bytes": 558080000
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_42.db3",
+      "logical_bytes": 557953024,
+      "allocated_bytes": 557957120
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_27.db3",
+      "logical_bytes": 557711360,
+      "allocated_bytes": 557715456
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_7.db3",
+      "logical_bytes": 557666304,
+      "allocated_bytes": 557670400
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_49.db3",
+      "logical_bytes": 557371392,
+      "allocated_bytes": 557375488
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_77.db3",
+      "logical_bytes": 557223936,
+      "allocated_bytes": 557228032
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_26.db3",
+      "logical_bytes": 557006848,
+      "allocated_bytes": 557010944
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_5.db3",
+      "logical_bytes": 556863488,
+      "allocated_bytes": 556867584
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_20.db3",
+      "logical_bytes": 556421120,
+      "allocated_bytes": 556425216
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_71.db3",
+      "logical_bytes": 555540480,
+      "allocated_bytes": 555544576
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_76.db3",
+      "logical_bytes": 555470848,
+      "allocated_bytes": 555474944
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 555368448,
+      "allocated_bytes": 555372544
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_8.db3",
+      "logical_bytes": 554561536,
+      "allocated_bytes": 554565632
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_5.db3",
+      "logical_bytes": 554102784,
+      "allocated_bytes": 554106880
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_39.db3",
+      "logical_bytes": 554065920,
+      "allocated_bytes": 554070016
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_12.db3",
+      "logical_bytes": 553193472,
+      "allocated_bytes": 553197568
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_35.db3",
+      "logical_bytes": 552071168,
+      "allocated_bytes": 552075264
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_39.db3",
+      "logical_bytes": 551743488,
+      "allocated_bytes": 551747584
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_11.db3",
+      "logical_bytes": 550940672,
+      "allocated_bytes": 550944768
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_31.db3",
+      "logical_bytes": 550592512,
+      "allocated_bytes": 550596608
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_22.db3",
+      "logical_bytes": 550428672,
+      "allocated_bytes": 550432768
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_70.db3",
+      "logical_bytes": 550387712,
+      "allocated_bytes": 550391808
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_40.db3",
+      "logical_bytes": 550359040,
+      "allocated_bytes": 550363136
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_62.db3",
+      "logical_bytes": 550342656,
+      "allocated_bytes": 550346752
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 549523456,
+      "allocated_bytes": 549527552
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_75.db3",
+      "logical_bytes": 549498880,
+      "allocated_bytes": 549502976
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_7.db3",
+      "logical_bytes": 549081088,
+      "allocated_bytes": 549085184
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_10.db3",
+      "logical_bytes": 549064704,
+      "allocated_bytes": 549068800
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_41.db3",
+      "logical_bytes": 548945920,
+      "allocated_bytes": 548950016
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_9.db3",
+      "logical_bytes": 548519936,
+      "allocated_bytes": 548524032
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_43.db3",
+      "logical_bytes": 548261888,
+      "allocated_bytes": 548265984
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 547565568,
+      "allocated_bytes": 547569664
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_10.db3",
+      "logical_bytes": 547532800,
+      "allocated_bytes": 547536896
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_13.db3",
+      "logical_bytes": 547065856,
+      "allocated_bytes": 547069952
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_43.db3",
+      "logical_bytes": 546492416,
+      "allocated_bytes": 546496512
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_68.db3",
+      "logical_bytes": 546459648,
+      "allocated_bytes": 546463744
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_23.db3",
+      "logical_bytes": 546164736,
+      "allocated_bytes": 546168832
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_9.db3",
+      "logical_bytes": 546037760,
+      "allocated_bytes": 546041856
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_63.db3",
+      "logical_bytes": 545705984,
+      "allocated_bytes": 545710080
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_45.db3",
+      "logical_bytes": 544854016,
+      "allocated_bytes": 544858112
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_54.db3",
+      "logical_bytes": 544649216,
+      "allocated_bytes": 544653312
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_6.db3",
+      "logical_bytes": 544591872,
+      "allocated_bytes": 544595968
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_14.db3",
+      "logical_bytes": 544501760,
+      "allocated_bytes": 544505856
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_17.db3",
+      "logical_bytes": 544456704,
+      "allocated_bytes": 544460800
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_58.db3",
+      "logical_bytes": 543932416,
+      "allocated_bytes": 543936512
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_57.db3",
+      "logical_bytes": 543686656,
+      "allocated_bytes": 543690752
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_29.db3",
+      "logical_bytes": 543617024,
+      "allocated_bytes": 543621120
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_56.db3",
+      "logical_bytes": 543023104,
+      "allocated_bytes": 543027200
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_28.db3",
+      "logical_bytes": 542646272,
+      "allocated_bytes": 542650368
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_16.db3",
+      "logical_bytes": 542179328,
+      "allocated_bytes": 542183424
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_55.db3",
+      "logical_bytes": 541224960,
+      "allocated_bytes": 541229056
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_36.db3",
+      "logical_bytes": 540946432,
+      "allocated_bytes": 540950528
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_41.db3",
+      "logical_bytes": 540704768,
+      "allocated_bytes": 540708864
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_34.db3",
+      "logical_bytes": 540688384,
+      "allocated_bytes": 540692480
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_37.db3",
+      "logical_bytes": 540123136,
+      "allocated_bytes": 540127232
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_35.db3",
+      "logical_bytes": 539930624,
+      "allocated_bytes": 539934720
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_27.db3",
+      "logical_bytes": 539697152,
+      "allocated_bytes": 539701248
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_24.db3",
+      "logical_bytes": 539619328,
+      "allocated_bytes": 539623424
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_38.db3",
+      "logical_bytes": 539561984,
+      "allocated_bytes": 539566080
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_18.db3",
+      "logical_bytes": 539254784,
+      "allocated_bytes": 539258880
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_17.db3",
+      "logical_bytes": 539213824,
+      "allocated_bytes": 539217920
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_52.db3",
+      "logical_bytes": 538808320,
+      "allocated_bytes": 538812416
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_36.db3",
+      "logical_bytes": 538370048,
+      "allocated_bytes": 538374144
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_53.db3",
+      "logical_bytes": 538238976,
+      "allocated_bytes": 538243072
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_8.db3",
+      "logical_bytes": 538193920,
+      "allocated_bytes": 538198016
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 538136576,
+      "allocated_bytes": 538140672
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_24.db3",
+      "logical_bytes": 538116096,
+      "allocated_bytes": 538120192
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 538099712,
+      "allocated_bytes": 538103808
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_51.db3",
+      "logical_bytes": 538083328,
+      "allocated_bytes": 538087424
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_5.db3",
+      "logical_bytes": 538075136,
+      "allocated_bytes": 538079232
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_60.db3",
+      "logical_bytes": 538062848,
+      "allocated_bytes": 538066944
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_4.db3",
+      "logical_bytes": 538025984,
+      "allocated_bytes": 538030080
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_4.db3",
+      "logical_bytes": 538013696,
+      "allocated_bytes": 538017792
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 538005504,
+      "allocated_bytes": 538009600
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_32.db3",
+      "logical_bytes": 537989120,
+      "allocated_bytes": 537993216
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_18.db3",
+      "logical_bytes": 537976832,
+      "allocated_bytes": 537980928
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_21.db3",
+      "logical_bytes": 537964544,
+      "allocated_bytes": 537968640
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_7.db3",
+      "logical_bytes": 537964544,
+      "allocated_bytes": 537968640
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 537919488,
+      "allocated_bytes": 537923584
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_30.db3",
+      "logical_bytes": 537919488,
+      "allocated_bytes": 537923584
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_44.db3",
+      "logical_bytes": 537870336,
+      "allocated_bytes": 537874432
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 537866240,
+      "allocated_bytes": 537870336
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_25.db3",
+      "logical_bytes": 537841664,
+      "allocated_bytes": 537845760
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_73.db3",
+      "logical_bytes": 537812992,
+      "allocated_bytes": 537817088
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_44.db3",
+      "logical_bytes": 537792512,
+      "allocated_bytes": 537796608
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_11.db3",
+      "logical_bytes": 537755648,
+      "allocated_bytes": 537759744
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_33.db3",
+      "logical_bytes": 537726976,
+      "allocated_bytes": 537731072
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_19.db3",
+      "logical_bytes": 537722880,
+      "allocated_bytes": 537726976
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_59.db3",
+      "logical_bytes": 537632768,
+      "allocated_bytes": 537636864
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 537632768,
+      "allocated_bytes": 537636864
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_69.db3",
+      "logical_bytes": 537624576,
+      "allocated_bytes": 537628672
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_80.db3",
+      "logical_bytes": 537612288,
+      "allocated_bytes": 537616384
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 537600000,
+      "allocated_bytes": 537604096
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 537579520,
+      "allocated_bytes": 537583616
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_6.db3",
+      "logical_bytes": 537497600,
+      "allocated_bytes": 537501696
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 537436160,
+      "allocated_bytes": 537440256
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_13.db3",
+      "logical_bytes": 537427968,
+      "allocated_bytes": 537432064
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_48.db3",
+      "logical_bytes": 537423872,
+      "allocated_bytes": 537427968
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_33.db3",
+      "logical_bytes": 537419776,
+      "allocated_bytes": 537423872
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_79.db3",
+      "logical_bytes": 537387008,
+      "allocated_bytes": 537391104
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_67.db3",
+      "logical_bytes": 537358336,
+      "allocated_bytes": 537362432
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_4.db3",
+      "logical_bytes": 537337856,
+      "allocated_bytes": 537341952
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_21.db3",
+      "logical_bytes": 537337856,
+      "allocated_bytes": 537341952
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_28.db3",
+      "logical_bytes": 537255936,
+      "allocated_bytes": 537260032
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_45.db3",
+      "logical_bytes": 537251840,
+      "allocated_bytes": 537255936
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 537239552,
+      "allocated_bytes": 537243648
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_26.db3",
+      "logical_bytes": 537231360,
+      "allocated_bytes": 537235456
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_64.db3",
+      "logical_bytes": 537223168,
+      "allocated_bytes": 537227264
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_7.db3",
+      "logical_bytes": 537194496,
+      "allocated_bytes": 537198592
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_74.db3",
+      "logical_bytes": 537182208,
+      "allocated_bytes": 537186304
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 537169920,
+      "allocated_bytes": 537174016
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 537165824,
+      "allocated_bytes": 537169920
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_12.db3",
+      "logical_bytes": 537149440,
+      "allocated_bytes": 537153536
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 537116672,
+      "allocated_bytes": 537120768
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_15.db3",
+      "logical_bytes": 537100288,
+      "allocated_bytes": 537104384
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_29.db3",
+      "logical_bytes": 537083904,
+      "allocated_bytes": 537088000
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_31.db3",
+      "logical_bytes": 537071616,
+      "allocated_bytes": 537075712
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap1.pcd",
+      "logical_bytes": 537052382,
+      "allocated_bytes": 537059328
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_23.db3",
+      "logical_bytes": 537051136,
+      "allocated_bytes": 537055232
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_61.db3",
+      "logical_bytes": 537022464,
+      "allocated_bytes": 537026560
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_20.db3",
+      "logical_bytes": 537010176,
+      "allocated_bytes": 537014272
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 537010176,
+      "allocated_bytes": 537014272
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_37.db3",
+      "logical_bytes": 537006080,
+      "allocated_bytes": 537010176
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_50.db3",
+      "logical_bytes": 536985600,
+      "allocated_bytes": 536989696
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 536985600,
+      "allocated_bytes": 536989696
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_65.db3",
+      "logical_bytes": 536952832,
+      "allocated_bytes": 536956928
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_34.db3",
+      "logical_bytes": 536940544,
+      "allocated_bytes": 536944640
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_40.db3",
+      "logical_bytes": 536932352,
+      "allocated_bytes": 536936448
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_46.db3",
+      "logical_bytes": 536920064,
+      "allocated_bytes": 536924160
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_5.db3",
+      "logical_bytes": 536915968,
+      "allocated_bytes": 536920064
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_47.db3",
+      "logical_bytes": 536891392,
+      "allocated_bytes": 536895488
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_4.db3",
+      "logical_bytes": 536891392,
+      "allocated_bytes": 536895488
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_42.db3",
+      "logical_bytes": 536875008,
+      "allocated_bytes": 536879104
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_8.db3",
+      "logical_bytes": 536870912,
+      "allocated_bytes": 536875008
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_30.db3",
+      "logical_bytes": 536870912,
+      "allocated_bytes": 536875008
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 536870912,
+      "allocated_bytes": 536875008
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_6.db3",
+      "logical_bytes": 536870912,
+      "allocated_bytes": 536875008
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap5.pcd",
+      "logical_bytes": 534602222,
+      "allocated_bytes": 534609920
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map1/map1_clean.pcd",
+      "logical_bytes": 534548542,
+      "allocated_bytes": 534556672
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_8.db3",
+      "logical_bytes": 519081984,
+      "allocated_bytes": 519081984
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_9.db3",
+      "logical_bytes": 466395136,
+      "allocated_bytes": 466395136
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map1/map1_raw.pcd",
+      "logical_bytes": 455371122,
+      "allocated_bytes": 455376896
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map2/map2_raw.pcd",
+      "logical_bytes": 388469682,
+      "allocated_bytes": 388472832
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-51-41/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 344735744,
+      "allocated_bytes": 344739840
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 336687104,
+      "allocated_bytes": 336691200
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261110_diagnostic_run13/bag/bag_0.db3",
+      "logical_bytes": 335060992,
+      "allocated_bytes": 335065088
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 289398784,
+      "allocated_bytes": 289398784
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_3.db3",
+      "logical_bytes": 288071680,
+      "allocated_bytes": 288071680
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_12.db3",
+      "logical_bytes": 287416320,
+      "allocated_bytes": 287416320
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_7.db3",
+      "logical_bytes": 287363072,
+      "allocated_bytes": 287363072
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_5.db3",
+      "logical_bytes": 287236096,
+      "allocated_bytes": 287236096
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_14.db3",
+      "logical_bytes": 287199232,
+      "allocated_bytes": 287199232
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_raw.pcd",
+      "logical_bytes": 287052562,
+      "allocated_bytes": 287059968
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_8.db3",
+      "logical_bytes": 286879744,
+      "allocated_bytes": 286879744
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_11.db3",
+      "logical_bytes": 286801920,
+      "allocated_bytes": 286801920
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_1.db3",
+      "logical_bytes": 286781440,
+      "allocated_bytes": 286785536
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_9.db3",
+      "logical_bytes": 286593024,
+      "allocated_bytes": 286593024
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_13.db3",
+      "logical_bytes": 286580736,
+      "allocated_bytes": 286580736
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_4.db3",
+      "logical_bytes": 286568448,
+      "allocated_bytes": 286568448
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_17.db3",
+      "logical_bytes": 286523392,
+      "allocated_bytes": 286523392
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_10.db3",
+      "logical_bytes": 286109696,
+      "allocated_bytes": 286109696
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_16.db3",
+      "logical_bytes": 285667328,
+      "allocated_bytes": 285667328
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_6.db3",
+      "logical_bytes": 285618176,
+      "allocated_bytes": 285618176
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_15.db3",
+      "logical_bytes": 285048832,
+      "allocated_bytes": 285048832
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_0.db3",
+      "logical_bytes": 284807168,
+      "allocated_bytes": 284811264
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "logical_bytes": 268435456,
+      "allocated_bytes": 268435456
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "logical_bytes": 263897088,
+      "allocated_bytes": 263901184
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_81.db3",
+      "logical_bytes": 258007040,
+      "allocated_bytes": 258007040
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_4.db3",
+      "logical_bytes": 249303040,
+      "allocated_bytes": 249307136
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.pcd",
+      "logical_bytes": 242200948,
+      "allocated_bytes": 242204672
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/.git/objects/pack/pack-fec5902cf1fbd3aafb0d3b8e08beba4431dbed20.pack",
+      "logical_bytes": 241809915,
+      "allocated_bytes": 241811456
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_18.db3",
+      "logical_bytes": 237621248,
+      "allocated_bytes": 237621248
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-36-32/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 212762624,
+      "allocated_bytes": 212762624
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261104_diagnostic_run03/20261104_diagnostic_run03_0.db3",
+      "logical_bytes": 211877888,
+      "allocated_bytes": 211877888
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map3/map3_raw.pcd",
+      "logical_bytes": 209578610,
+      "allocated_bytes": 209580032
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map3/map3_clean.pcd",
+      "logical_bytes": 178751648,
+      "allocated_bytes": 178753536
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261110_diagnostic_run13/motion_trace.jsonl",
+      "logical_bytes": 171659668,
+      "allocated_bytes": 171667456
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_46.db3",
+      "logical_bytes": 155815936,
+      "allocated_bytes": 155815936
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run09/bag/bag_0.db3",
+      "logical_bytes": 154152960,
+      "allocated_bytes": 154157056
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261104_diagnostic_run04/20261104_diagnostic_run04_0.db3",
+      "logical_bytes": 147783680,
+      "allocated_bytes": 147783680
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "logical_bytes": 144723968,
+      "allocated_bytes": 144728064
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/utils/build/re_localization/CMakeFiles/pcl_localization_component.dir/src/pcl_localization_component.cpp.o",
+      "logical_bytes": 120177856,
+      "allocated_bytes": 120180736
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261106_diagnostic_run11/bag/bag_0.db3",
+      "logical_bytes": 113852416,
+      "allocated_bytes": 113856512
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261106_diagnostic_run12/bag/bag_0.db3",
+      "logical_bytes": 111509504,
+      "allocated_bytes": 111509504
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run07/bag/bag_0.db3",
+      "logical_bytes": 110665728,
+      "allocated_bytes": 110669824
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run06/bag/bag_0.db3",
+      "logical_bytes": 105447424,
+      "allocated_bytes": 105451520
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run10/bag/bag_0.db3",
+      "logical_bytes": 103055360,
+      "allocated_bytes": 103059456
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-42-07/navigation_core_bag/navigation_core_bag_2.db3",
+      "logical_bytes": 93810688,
+      "allocated_bytes": 93810688
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run08/bag/bag_0.db3",
+      "logical_bytes": 93593600,
+      "allocated_bytes": 93597696
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run10/motion_trace.jsonl",
+      "logical_bytes": 88293926,
+      "allocated_bytes": 88301568
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/navigation_raw_bag/navigation_raw_bag_1.db3",
+      "logical_bytes": 85655552,
+      "allocated_bytes": 85655552
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/utils/build/re_localization/libpcl_localization_component.so",
+      "logical_bytes": 77030784,
+      "allocated_bytes": 77033472
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/utils/install/re_localization/lib/libpcl_localization_component.so",
+      "logical_bytes": 77030784,
+      "allocated_bytes": 77033472
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run09/motion_trace.jsonl",
+      "logical_bytes": 70412440,
+      "allocated_bytes": 70418432
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261104_diagnostic_run05/20261104_diagnostic_run05_0.db3",
+      "logical_bytes": 69349376,
+      "allocated_bytes": 69353472
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map2/map2_clean.pgm",
+      "logical_bytes": 63518933,
+      "allocated_bytes": 63520768
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/real/GlobalMap.pcd",
+      "logical_bytes": 62230848,
+      "allocated_bytes": 62234624
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/utils/src/pcd_filter/map_clean/GlobalMap_clean.pcd",
+      "logical_bytes": 53170945,
+      "allocated_bytes": 53174272
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map1/map1_clean.pgm",
+      "logical_bytes": 53118817,
+      "allocated_bytes": 53121024
+    }
+  ]
+}

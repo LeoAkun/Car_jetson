@@ -1,4 +1,8 @@
 #include <pcl_localization/pcl_localization_component.hpp>
+#include <algorithm>
+#include <cmath>
+#include <limits>
+#include "lifecycle_msgs/msg/state.hpp"
 PCLLocalization::PCLLocalization(const rclcpp::NodeOptions & options)
 : rclcpp_lifecycle::LifecycleNode("pcl_localization", options),
   clock_(RCL_ROS_TIME),
@@ -10,9 +14,10 @@ PCLLocalization::PCLLocalization(const rclcpp::NodeOptions & options)
   declare_parameter("odom_frame_id", "odom");
   declare_parameter("base_frame_id", "base_link");
   declare_parameter("registration_method", "NDT");
-  declare_parameter("score_threshold", 2.0);
+  declare_parameter("score_threshold", 0.05);
   declare_parameter("ndt_resolution", 1.0);
   declare_parameter("ndt_step_size", 0.1);
+  declare_parameter("ndt_num_threads", 0);  // 0 keeps the OpenMP default.
   declare_parameter("transform_epsilon", 0.01);
   declare_parameter("voxel_leaf_size", 0.2);
   declare_parameter("scan_max_range", 100.0);
@@ -24,6 +29,30 @@ PCLLocalization::PCLLocalization(const rclcpp::NodeOptions & options)
   declare_parameter("use_imu", false);
   declare_parameter("enable_debug", false);
   declare_parameter("lidar_topic", "/pointcloud");
+  declare_parameter("localization_session_id", "");
+  declare_parameter("map_id", "");
+  declare_parameter("session_start_ns", int64_t{0});
+
+  // This service exists before configure so the lifecycle owner can verify
+  // the spawned instance's parameter identity before sending transitions.
+  readiness_service_ = create_service<re_localization::srv::GetLocalizationReadiness>(
+    "~/get_readiness",
+    [this](
+      const std::shared_ptr<re_localization::srv::GetLocalizationReadiness::Request>,
+      std::shared_ptr<re_localization::srv::GetLocalizationReadiness::Response> response) {
+      get_parameter("localization_session_id", response->session_id);
+      get_parameter("map_id", response->map_id);
+      get_parameter("session_start_ns", response->session_start_ns);
+      const auto state = get_current_state();
+      response->ready = state.id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE &&
+        registrationTargetReady();
+      if (state.id() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+        response->message = "localization lifecycle is not active (" + state.label() +
+          "): " + readiness_message_;
+      } else {
+        response->message = response->ready ? "localization target is ready" : readiness_message_;
+      }
+    });
 }
 
 using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
@@ -32,6 +61,8 @@ CallbackReturn PCLLocalization::on_configure(const rclcpp_lifecycle::State &)
 {
   RCLCPP_INFO(get_logger(), "Configuring");
 
+  resetLocalizationState();
+  topic_map_ptr_.reset();
   initializeParameters();
   initializeService(); //创建服务
   initializePubSub();
@@ -48,31 +79,62 @@ CallbackReturn PCLLocalization::on_activate(const rclcpp_lifecycle::State &)
 {
   RCLCPP_INFO(get_logger(), "Activating");
 
-  path_pub_->on_activate();
-  initial_map_pub_->on_activate();
-
-
-  if (use_pcd_map_) {
-    pcl::PointCloud<pcl::PointXYZI>::Ptr map_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>);
-    pcl::io::loadPCDFile(map_path_, *map_cloud_ptr);
-    RCLCPP_INFO(get_logger(), "Map Size %ld", map_cloud_ptr->size());
-
-    sensor_msgs::msg::PointCloud2::SharedPtr map_msg_ptr(new sensor_msgs::msg::PointCloud2);
-    pcl::toROSMsg(*map_cloud_ptr, *map_msg_ptr);
-    map_msg_ptr->header.frame_id = global_frame_id_;
-    initial_map_pub_->publish(*map_msg_ptr);
-    RCLCPP_INFO(get_logger(), "Initial Map Published");
-
-    if (registration_method_ == "GICP" || registration_method_ == "GICP_OMP") {
-      pcl::PointCloud<pcl::PointXYZI>::Ptr filtered_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>());
-      voxel_grid_filter_.setInputCloud(map_cloud_ptr);
-      voxel_grid_filter_.filter(*filtered_cloud_ptr);
-      registration_->setInputTarget(filtered_cloud_ptr);
-    } else {
-      registration_->setInputTarget(map_cloud_ptr);
+  resetLocalizationState();
+  try {
+    pcl::PointCloud<pcl::PointXYZI>::Ptr map_cloud_ptr;
+    if (use_pcd_map_) {
+      map_cloud_ptr.reset(new pcl::PointCloud<pcl::PointXYZI>());
+      if (pcl::io::loadPCDFile(map_path_, *map_cloud_ptr) < 0) {
+        readiness_message_ = "failed to load PCD map: " + map_path_;
+        RCLCPP_ERROR(get_logger(), "Cannot activate: failed to load PCD map %s", map_path_.c_str());
+        return CallbackReturn::FAILURE;
+      }
+      RCLCPP_INFO(get_logger(), "Map Size %zu", map_cloud_ptr->size());
+    } else if (topic_map_ptr_) {
+      map_cloud_ptr.reset(new pcl::PointCloud<pcl::PointXYZI>());
+      pcl::fromROSMsg(*topic_map_ptr_, *map_cloud_ptr);
     }
 
-    map_recieved_ = true;
+    if (map_cloud_ptr && !prepareRegistrationTarget(map_cloud_ptr)) {
+      if (use_pcd_map_) {
+        readiness_message_ += " (PCD map: " + map_path_ + ")";
+      }
+      return CallbackReturn::FAILURE;
+    }
+    if (!registration_) {
+      readiness_message_ = "registration is not initialized";
+      RCLCPP_ERROR(get_logger(), "Cannot activate: registration is not initialized");
+      return CallbackReturn::FAILURE;
+    }
+
+    path_pub_->on_activate();
+    initial_map_pub_->on_activate();
+    if (map_cloud_ptr) {
+      sensor_msgs::msg::PointCloud2 map_msg;
+      pcl::toROSMsg(*map_cloud_ptr, map_msg);
+      map_msg.header.frame_id = global_frame_id_;
+      // This latched message is readiness evidence: publish only after the
+      // registration target has been installed and checked.
+      initial_map_pub_->publish(map_msg);
+      map_recieved_ = true;
+      readiness_message_ = "localization target is ready";
+      RCLCPP_INFO(get_logger(), "Initial Map Published; registration target ready");
+    } else {
+      // Topic-map mode may receive its latched map after activation.
+      readiness_message_ = "waiting for a valid map topic";
+      RCLCPP_INFO(get_logger(), "Active; waiting for a valid map topic before localization");
+    }
+  } catch (const std::exception & ex) {
+    resetLocalizationState();
+    readiness_message_ = "localization activation failed: " + std::string(ex.what());
+    if (path_pub_ && path_pub_->is_activated()) {
+      path_pub_->on_deactivate();
+    }
+    if (initial_map_pub_ && initial_map_pub_->is_activated()) {
+      initial_map_pub_->on_deactivate();
+    }
+    RCLCPP_ERROR(get_logger(), "Cannot activate localization: %s", ex.what());
+    return CallbackReturn::FAILURE;
   }
 
   RCLCPP_INFO(get_logger(), "Activating end");
@@ -83,6 +145,7 @@ CallbackReturn PCLLocalization::on_deactivate(const rclcpp_lifecycle::State &)
 {
   RCLCPP_INFO(get_logger(), "Deactivating");
 
+  resetLocalizationState();
   path_pub_->on_deactivate();
   initial_map_pub_->on_deactivate();
 
@@ -93,6 +156,11 @@ CallbackReturn PCLLocalization::on_deactivate(const rclcpp_lifecycle::State &)
 CallbackReturn PCLLocalization::on_cleanup(const rclcpp_lifecycle::State &)
 {
   RCLCPP_INFO(get_logger(), "Cleaning Up");
+  resetLocalizationState();
+  topic_map_ptr_.reset();
+  map_sub_.reset();
+  localization_service_.reset();
+  registration_.reset();
   initial_pose_sub_.reset();
   initial_map_pub_.reset();
   path_pub_.reset();
@@ -107,6 +175,7 @@ CallbackReturn PCLLocalization::on_cleanup(const rclcpp_lifecycle::State &)
 CallbackReturn PCLLocalization::on_shutdown(const rclcpp_lifecycle::State & state)
 {
   RCLCPP_INFO(get_logger(), "Shutting Down from %s", state.label().c_str());
+  resetLocalizationState();
 
   return CallbackReturn::SUCCESS;
 }
@@ -114,6 +183,7 @@ CallbackReturn PCLLocalization::on_shutdown(const rclcpp_lifecycle::State & stat
 CallbackReturn PCLLocalization::on_error(const rclcpp_lifecycle::State & state)
 {
   RCLCPP_FATAL(get_logger(), "Error Processing from %s", state.label().c_str());
+  resetLocalizationState();
 
   return CallbackReturn::SUCCESS;
 }
@@ -156,6 +226,9 @@ void PCLLocalization::initializeParameters()
   get_parameter("use_imu", use_imu_);
   get_parameter("enable_debug", enable_debug_);
   get_parameter("lidar_topic", lidar_topic_);
+  get_parameter("localization_session_id", localization_session_id_);
+  get_parameter("map_id", map_id_);
+  get_parameter("session_start_ns", session_start_ns_);
 
   RCLCPP_INFO(get_logger(),"global_frame_id: %s", global_frame_id_.c_str());
   RCLCPP_INFO(get_logger(),"odom_frame_id: %s", odom_frame_id_.c_str());
@@ -176,6 +249,8 @@ void PCLLocalization::initializeParameters()
   RCLCPP_INFO(get_logger(),"use_imu: %d", use_imu_);
   RCLCPP_INFO(get_logger(),"enable_debug: %d", enable_debug_);
   RCLCPP_INFO(get_logger(),"lidar_topic: %s", lidar_topic_.c_str());
+  RCLCPP_INFO(get_logger(), "localization_session_id: %s", localization_session_id_.c_str());
+  RCLCPP_INFO(get_logger(), "map_id: %s", map_id_.c_str());
 }
 
 // 初始化服务
@@ -197,12 +272,60 @@ void PCLLocalization::handleLocalizationService(
   const std::shared_ptr<re_localization::srv::ReLocalization::Request> request/*request*/,
   std::shared_ptr<re_localization::srv::ReLocalization::Response> response)
 {
+  response->success = false;
+  response->fitness_score = std::numeric_limits<double>::infinity();
+  response->session_id = request->session_id;
+  response->map_id = request->map_id;
+  response->observation_id = request->observation_id;
+
+  if (get_current_state().id() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+    response->message = "localization lifecycle is not active";
+    return;
+  }
+  if (!registrationTargetReady()) {
+    response->message = "registration target is not ready";
+    return;
+  }
+
+  if (request->observation_id == 0) {
+    response->message = "observation id must be greater than zero";
+    return;
+  }
+
+  if (!localization_session_id_.empty() &&
+      request->session_id != localization_session_id_) {
+    response->message = "localization session does not match this server instance";
+    RCLCPP_ERROR(
+      get_logger(), "Rejecting session %s; expected %s",
+      request->session_id.c_str(), localization_session_id_.c_str());
+    return;
+  }
+  if (!map_id_.empty() && request->map_id != map_id_) {
+    response->message = "map id does not match this server instance";
+    RCLCPP_ERROR(
+      get_logger(), "Rejecting map %s; expected %s",
+      request->map_id.c_str(), map_id_.c_str());
+    return;
+  }
+
+  const int64_t request_start_ns =
+    static_cast<int64_t>(request->session_start.sec) * 1000000000LL +
+    static_cast<int64_t>(request->session_start.nanosec);
+  if (session_start_ns_ > 0 && request_start_ns != session_start_ns_) {
+    response->message = "session start does not match this server instance";
+    RCLCPP_ERROR(
+      get_logger(), "Rejecting session start %ld; expected %ld",
+      static_cast<long>(request_start_ns), static_cast<long>(session_start_ns_));
+    return;
+  }
+
   RCLCPP_INFO(this->get_logger(), "✅ 服务调用成功！");
 
   // 获取初始化位姿
     RCLCPP_INFO(get_logger(), "initialPoseReceived");
   if (request->initial_pose.header.frame_id != global_frame_id_) {
     RCLCPP_WARN(this->get_logger(), "initialpose_frame_id does not match global_frame_id");
+    response->message = "initial pose frame does not match global frame";
     return;
   }
   
@@ -212,27 +335,87 @@ void PCLLocalization::handleLocalizationService(
   
   RCLCPP_INFO(get_logger(), "initialPoseReceived end");
 
-  // 获取点云：第一次调用时等待新帧并缓存，后续调用复用缓存
+  // 同一 observation 的候选必须复用同一帧；更大的 observation 才能刷新。
   std::cout << "map_recieved : " << map_recieved_ <<  "initialpose_recieved : " << initialpose_recieved_ << std::endl;
-  if (!map_recieved_ || !initialpose_recieved_) {return;}
+  if (!map_recieved_ || !initialpose_recieved_) {
+    response->message = "map or initial pose is not ready";
+    return;
+  }
   RCLCPP_INFO(get_logger(), "cloudReceived");
 
   pcl::PointCloud<pcl::PointXYZI>::Ptr filtered_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>());
 
   {
     std::lock_guard<std::mutex> lock(cloud_mutex_);
-    if (!has_first_cloud_) {
+    if (has_first_cloud_ &&
+        (cached_session_id_ != request->session_id ||
+         cached_map_id_ != request->map_id)) {
+      response->message = "cached cloud belongs to another localization session";
+      RCLCPP_ERROR(get_logger(), "Rejecting request for a different cached session");
+      return;
+    }
+    const bool need_new_cloud = !has_first_cloud_ ||
+      request->observation_id > cached_observation_id_;
+    if (has_first_cloud_ && request->observation_id < cached_observation_id_) {
+      response->message = "observation id is older than cached observation";
+      return;
+    }
+    if (has_first_cloud_ &&
+        request->observation_id == cached_observation_id_ &&
+        request->refresh_cloud) {
+      response->message = "cannot refresh an existing observation id";
+      return;
+    }
+    if (need_new_cloud && !request->refresh_cloud) {
+      response->message = "a new observation id requires refresh_cloud=true";
+      return;
+    }
+    if (need_new_cloud) {
       sensor_msgs::msg::PointCloud2 cloud_msg;
       auto temp_node = std::make_shared<rclcpp::Node>("temp_wait_node");
-      bool got_msg = rclcpp::wait_for_message<sensor_msgs::msg::PointCloud2>(
-        cloud_msg,
-        temp_node,
-        lidar_topic_,
-        std::chrono::seconds(3));
+      const int64_t requested_min_ns =
+        static_cast<int64_t>(request->min_cloud_stamp.sec) * 1000000000LL +
+        static_cast<int64_t>(request->min_cloud_stamp.nanosec);
+      const int64_t cached_stamp_ns =
+        static_cast<int64_t>(first_cloud_stamp_.sec) * 1000000000LL +
+        static_cast<int64_t>(first_cloud_stamp_.nanosec);
+      const int64_t minimum_stamp_ns = std::max(
+        request_start_ns,
+        std::max(requested_min_ns, has_first_cloud_ ? cached_stamp_ns : int64_t{0}));
+      const auto deadline = std::chrono::steady_clock::now() + std::chrono::seconds(3);
+      bool got_msg = false;
+      int64_t cloud_stamp_ns = 0;
+      while (rclcpp::ok() && std::chrono::steady_clock::now() < deadline) {
+        const auto remaining = std::chrono::duration_cast<std::chrono::milliseconds>(
+          deadline - std::chrono::steady_clock::now());
+        if (remaining.count() <= 0 ||
+            !rclcpp::wait_for_message<sensor_msgs::msg::PointCloud2>(
+              cloud_msg, temp_node, lidar_topic_, remaining)) {
+          break;
+        }
+        cloud_stamp_ns =
+          static_cast<int64_t>(cloud_msg.header.stamp.sec) * 1000000000LL +
+          static_cast<int64_t>(cloud_msg.header.stamp.nanosec);
+        const bool stamp_is_new_enough = has_first_cloud_ ?
+          cloud_stamp_ns > minimum_stamp_ns : cloud_stamp_ns >= minimum_stamp_ns;
+        if (stamp_is_new_enough) {
+          got_msg = true;
+          break;
+        }
+      }
 
       if (!got_msg) {
-        RCLCPP_WARN(this->get_logger(), "⚠️ 3秒内未接收到点云消息");
+        RCLCPP_WARN(this->get_logger(), "3秒内未接收到满足时间门限的新点云");
         response->success = false;
+        response->message = "no fresh point cloud received within timeout";
+        return;
+      }
+
+      if (request_start_ns > 0 && cloud_stamp_ns < request_start_ns) {
+        response->message = "point cloud predates localization session";
+        RCLCPP_ERROR(
+          get_logger(), "Rejecting stale point cloud stamp %ld before session %ld",
+          static_cast<long>(cloud_stamp_ns), static_cast<long>(request_start_ns));
         return;
       }
 
@@ -258,11 +441,23 @@ void PCLLocalization::handleLocalizationService(
         }
       }
       has_first_cloud_ = true;
-      RCLCPP_INFO(this->get_logger(), "✅ 首次获取点云并缓存，开始匹配...");
+      cached_session_id_ = request->session_id;
+      cached_map_id_ = request->map_id;
+      first_cloud_stamp_ = cloud_msg.header.stamp;
+      cached_observation_id_ = request->observation_id;
+      RCLCPP_INFO(
+        this->get_logger(), "缓存 observation=%lu 的新点云，开始匹配",
+        static_cast<unsigned long>(cached_observation_id_));
     } else {
-      RCLCPP_INFO(this->get_logger(), "✅ 使用缓存点云，开始匹配...");
+      RCLCPP_INFO(
+        this->get_logger(), "复用 observation=%lu 的缓存点云，开始匹配",
+        static_cast<unsigned long>(cached_observation_id_));
     }
     *filtered_cloud_ptr = *first_cloud_;
+    response->session_id = cached_session_id_;
+    response->map_id = cached_map_id_;
+    response->cloud_stamp = first_cloud_stamp_;
+    response->observation_id = cached_observation_id_;
   }
 
   registration_->setInputSource(filtered_cloud_ptr);
@@ -281,6 +476,7 @@ void PCLLocalization::handleLocalizationService(
   bool has_converged = registration_->hasConverged();
   if (!has_converged) {
     RCLCPP_WARN(get_logger(), "The registration didn't converge.");
+    response->message = "registration did not converge";
     return;
   }
 
@@ -350,9 +546,14 @@ void PCLLocalization::handleLocalizationService(
     std::cout << "delta_angle:" << delta_angle * 180 / M_PI << "[deg]" << std::endl;
     std::cout << "-----------------------------------------------------" << std::endl;
   }
-    response->success = true;
-    response->fitness_score = fitness_score;
-    response->pose = *corrent_pose_with_cov_stamped_ptr_;
+  response->success = true;
+  response->fitness_score = fitness_score;
+  response->pose = *corrent_pose_with_cov_stamped_ptr_;
+  response->session_id = cached_session_id_;
+  response->map_id = cached_map_id_;
+  response->cloud_stamp = first_cloud_stamp_;
+  response->observation_id = cached_observation_id_;
+  response->message = "localization candidate evaluated";
 }
 
 void PCLLocalization::initializePubSub()
@@ -368,9 +569,11 @@ void PCLLocalization::initializePubSub()
     "initial_map",
     rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable());
 
-  map_sub_ = create_subscription<sensor_msgs::msg::PointCloud2>(
-    "map", rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable(),
-    std::bind(&PCLLocalization::mapReceived, this, std::placeholders::_1));
+  if (!use_pcd_map_) {
+    map_sub_ = create_subscription<sensor_msgs::msg::PointCloud2>(
+      "map", rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable(),
+      std::bind(&PCLLocalization::mapReceived, this, std::placeholders::_1));
+  }
 
   odom_sub_ = create_subscription<nav_msgs::msg::Odometry>(
     "odom", rclcpp::SensorDataQoS(),
@@ -435,36 +638,105 @@ void PCLLocalization::initializeRegistration()
 
 
 
+void PCLLocalization::resetLocalizationState()
+{
+  map_recieved_ = false;
+  initialpose_recieved_ = false;
+  readiness_message_ = "localization lifecycle is not active";
+  corrent_pose_with_cov_stamped_ptr_.reset();
+  std::lock_guard<std::mutex> lock(cloud_mutex_);
+  first_cloud_.reset();
+  has_first_cloud_ = false;
+  cached_session_id_.clear();
+  cached_map_id_.clear();
+  first_cloud_stamp_ = builtin_interfaces::msg::Time();
+  cached_observation_id_ = 0;
+}
+
+bool PCLLocalization::registrationTargetReady() const
+{
+  return map_recieved_ && registration_ && registration_->getInputTarget() &&
+         !registration_->getInputTarget()->empty();
+}
+
+bool PCLLocalization::prepareRegistrationTarget(
+  const pcl::PointCloud<pcl::PointXYZI>::Ptr & map_cloud)
+{
+  map_recieved_ = false;
+  if (!registration_ || !map_cloud || map_cloud->empty()) {
+    readiness_message_ = "registration target is missing or empty";
+    RCLCPP_ERROR(get_logger(), "Registration target is missing or empty");
+    return false;
+  }
+  if (!std::all_of(map_cloud->begin(), map_cloud->end(), [](const pcl::PointXYZI & p) {
+        return std::isfinite(p.x) && std::isfinite(p.y) && std::isfinite(p.z);
+      })) {
+    readiness_message_ = "registration target contains non-finite XYZ coordinates";
+    RCLCPP_ERROR(get_logger(), "Registration target contains non-finite XYZ coordinates");
+    return false;
+  }
+
+  pcl::PointCloud<pcl::PointXYZI>::Ptr target_cloud = map_cloud;
+  if (registration_method_ == "GICP" || registration_method_ == "GICP_OMP") {
+    target_cloud.reset(new pcl::PointCloud<pcl::PointXYZI>());
+    voxel_grid_filter_.setInputCloud(map_cloud);
+    voxel_grid_filter_.filter(*target_cloud);
+  }
+  if (target_cloud->empty()) {
+    readiness_message_ = "registration target is empty after map filtering";
+    RCLCPP_ERROR(get_logger(), "Registration target is empty after map filtering");
+    return false;
+  }
+  registration_->setInputTarget(target_cloud);
+  const auto installed_target = registration_->getInputTarget();
+  if (!installed_target || installed_target->empty() ||
+      installed_target.get() != target_cloud.get()) {
+    readiness_message_ = "registration did not install the requested target";
+    RCLCPP_ERROR(get_logger(), "Registration did not install the requested target");
+    return false;
+  }
+  return true;
+}
+
 void PCLLocalization::mapReceived(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
 {
-  RCLCPP_INFO(get_logger(), "mapReceived");
-  pcl::PointCloud<pcl::PointXYZI>::Ptr map_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>);
-
+  // A session bound to a PCD file must not silently switch to an unrelated
+  // transient-local /map publisher.
+  if (use_pcd_map_) {
+    return;
+  }
   if (msg->header.frame_id != global_frame_id_) {
-    RCLCPP_WARN(this->get_logger(), "map_frame_id does not match　global_frame_id");
+    RCLCPP_WARN(this->get_logger(), "map_frame_id does not match global_frame_id");
     return;
   }
 
-  pcl::fromROSMsg(*msg, *map_cloud_ptr);
-
-  if (registration_method_ == "GICP" || registration_method_ == "GICP_OMP") {
-    pcl::PointCloud<pcl::PointXYZI>::Ptr filtered_cloud_ptr(new pcl::PointCloud<pcl::PointXYZI>());
-    voxel_grid_filter_.setInputCloud(map_cloud_ptr);
-    voxel_grid_filter_.filter(*filtered_cloud_ptr);
-    registration_->setInputTarget(filtered_cloud_ptr);
-
-  } else {
-    registration_->setInputTarget(map_cloud_ptr);
+  try {
+    pcl::PointCloud<pcl::PointXYZI>::Ptr map_cloud(new pcl::PointCloud<pcl::PointXYZI>());
+    pcl::fromROSMsg(*msg, *map_cloud);
+    if (!prepareRegistrationTarget(map_cloud)) {
+      topic_map_ptr_.reset();
+      return;
+    }
+    topic_map_ptr_ = msg;
+    if (get_current_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+      initial_map_pub_->publish(*msg);
+    }
+    map_recieved_ = true;
+    readiness_message_ = "localization target is ready";
+    RCLCPP_INFO(get_logger(), "mapReceived end; registration target ready");
+  } catch (const std::exception & ex) {
+    map_recieved_ = false;
+    topic_map_ptr_.reset();
+    readiness_message_ = "cannot install map topic target: " + std::string(ex.what());
+    RCLCPP_ERROR(get_logger(), "Cannot install map topic target: %s", ex.what());
   }
-
-  map_recieved_ = true;
-  RCLCPP_INFO(get_logger(), "mapReceived end");
 }
 
 
 void PCLLocalization::odomReceived(const nav_msgs::msg::Odometry::ConstSharedPtr msg)
 {
-  if (!use_odom_) {return;}
+  if (!use_odom_ || !corrent_pose_with_cov_stamped_ptr_ ||
+      get_current_state().id() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {return;}
   RCLCPP_INFO(get_logger(), "odomReceived");
 
   double current_odom_received_time = msg->header.stamp.sec +

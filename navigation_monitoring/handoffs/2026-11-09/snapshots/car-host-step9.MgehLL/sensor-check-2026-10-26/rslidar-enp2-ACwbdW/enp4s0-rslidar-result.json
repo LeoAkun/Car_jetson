@@ -1,0 +1,106 @@
+{
+  "/rslidar_points": {
+    "message_count": 348,
+    "received_hz": 9.998428555052142,
+    "nonmonotonic_stamps": 0,
+    "zero_stamps": 1,
+    "point_count_range": [
+      8704,
+      57600
+    ],
+    "first": {
+      "received": 27259.939156616,
+      "stamp": 0.0,
+      "frame": "rslidar",
+      "points": 8704,
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "intensity",
+        "ring",
+        "timestamp"
+      ],
+      "finite_points": 8197,
+      "ring_range": [
+        0,
+        31
+      ]
+    },
+    "last": {
+      "received": 27294.644610387,
+      "stamp": 1793008663.6822937,
+      "frame": "rslidar",
+      "points": 57600,
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "intensity",
+        "ring",
+        "timestamp"
+      ],
+      "finite_points": 53738,
+      "ring_range": [
+        0,
+        31
+      ]
+    }
+  },
+  "/rslidar_Pointcloud2": {
+    "message_count": 347,
+    "received_hz": 9.997139337358977,
+    "nonmonotonic_stamps": 0,
+    "zero_stamps": 1,
+    "point_count_range": [
+      8704,
+      57600
+    ],
+    "first": {
+      "received": 27259.940589886,
+      "stamp": 0.0,
+      "frame": "rslidar",
+      "points": 8704,
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "intensity",
+        "ring",
+        "time"
+      ],
+      "finite_points": 8197,
+      "ring_range": [
+        0,
+        31
+      ],
+      "point_time_range": [
+        0.0,
+        0.01449441909790039
+      ]
+    },
+    "last": {
+      "received": 27294.550490611,
+      "stamp": 1793008663.5820928,
+      "frame": "rslidar",
+      "points": 57600,
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "intensity",
+        "ring",
+        "time"
+      ],
+      "finite_points": 53697,
+      "ring_range": [
+        0,
+        31
+      ],
+      "point_time_range": [
+        0.0,
+        0.10019898414611816
+      ]
+    }
+  }
+}

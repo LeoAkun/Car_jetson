@@ -1,0 +1,4551 @@
+{
+  "project": "/home/akun/workspace/Car_jetson",
+  "cutoff": "2026-11-01T00:00:00+08:00",
+  "started_at": "2026-11-11T12:23:07.395824+08:00",
+  "project_bytes_before": 134993969152,
+  "bag_count": 83,
+  "bag_sets": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01",
+      "format": "rosbag2/sqlite3",
+      "start": "2025-11-26T14:20:01.360605+08:00",
+      "end": "2025-11-26T14:29:37.354525+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01/rosbag2_2025_11_26-01_20_01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20",
+      "format": "rosbag2/sqlite3",
+      "start": "2025-11-28T17:11:20.508476+08:00",
+      "end": "2025-11-28T17:21:33.899642+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20/rosbag2_2025_11_28-04_11_20_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-04-22T17:17:01.649167+08:00",
+      "end": "2026-04-22T17:17:10.574902+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01/rosbag2_2026_04_22-17_17_01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-04-22T19:10:23.098687+08:00",
+      "end": "2026-04-22T19:10:34.435533+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22/rosbag2_2026_04_22-19_10_22_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-04-22T19:12:20.656191+08:00",
+      "end": "2026-04-22T19:16:28.792888+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20/rosbag2_2026_04_22-19_12_20_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-21T16:22:17.518564+08:00",
+      "end": "2026-08-21T16:22:31.288344+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624/baseline_post_tf_20260821_1624_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-21T16:14:54.573236+08:00",
+      "end": "2026-08-21T16:15:06.254698+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821/baseline_pre_tf_20260821_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T16:08:27.270213+08:00",
+      "end": "2026-08-24T16:08:41.979664+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01/d2p50_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T16:08:43.639814+08:00",
+      "end": "2026-08-24T16:08:57.981517+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02/d2p50_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T16:08:59.967735+08:00",
+      "end": "2026-08-24T16:09:14.092002+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03/d2p50_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T16:05:27.166268+08:00",
+      "end": "2026-08-24T16:05:38.766540+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01/d2p50_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T16:05:41.036691+08:00",
+      "end": "2026-08-24T16:05:51.826058+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02/d2p50_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T16:05:53.094045+08:00",
+      "end": "2026-08-24T16:06:04.869474+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03/d2p50_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:02:15.758818+08:00",
+      "end": "2026-08-27T17:02:29.467972+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01/d0p50_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:03:02.328515+08:00",
+      "end": "2026-08-27T17:03:17.010444+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02/d0p50_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:03:45.973463+08:00",
+      "end": "2026-08-27T17:04:00.711659+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03/d0p50_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:49:08.867192+08:00",
+      "end": "2026-08-27T16:49:22.636663+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01/d0p75_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:49:58.453010+08:00",
+      "end": "2026-08-27T16:50:12.823513+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02/d0p75_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:50:23.762041+08:00",
+      "end": "2026-08-27T16:50:38.552281+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03/d0p75_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:51:08.343547+08:00",
+      "end": "2026-08-27T16:51:22.718742+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04/d0p75_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:51:46.794646+08:00",
+      "end": "2026-08-27T16:52:01.125910+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05/d0p75_ap00_r05_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:52:26.855363+08:00",
+      "end": "2026-08-27T16:52:41.547969+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06/d0p75_ap00_r06_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:53:07.717801+08:00",
+      "end": "2026-08-27T16:53:22.116745+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07/d0p75_ap00_r07_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:36:34.315942+08:00",
+      "end": "2026-08-27T16:36:49.093119+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01/d1p00_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:37:17.990822+08:00",
+      "end": "2026-08-27T16:37:32.702767+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02/d1p00_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:37:43.414908+08:00",
+      "end": "2026-08-27T16:37:58.200251+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03/d1p00_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:38:33.900180+08:00",
+      "end": "2026-08-27T16:38:48.254439+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04/d1p00_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:39:13.619132+08:00",
+      "end": "2026-08-27T16:39:28.020065+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05/d1p00_ap00_r05_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:05:40.384359+08:00",
+      "end": "2026-08-27T16:05:55.076267+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01/d1p50_am15_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:06:17.556516+08:00",
+      "end": "2026-08-27T16:06:32.308525+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02/d1p50_am15_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:07:13.346592+08:00",
+      "end": "2026-08-27T16:07:28.101520+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03/d1p50_am15_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:46:19.137552+08:00",
+      "end": "2026-08-25T15:46:33.508637+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01/d1p50_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:46:51.347384+08:00",
+      "end": "2026-08-25T15:47:05.989966+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02/d1p50_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:47:34.507462+08:00",
+      "end": "2026-08-25T15:47:49.237091+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03/d1p50_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:48:53.914522+08:00",
+      "end": "2026-08-25T15:49:08.722676+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04/d1p50_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:22:42.499637+08:00",
+      "end": "2026-08-27T16:22:56.859684+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01/d1p50_ap15_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:23:29.724686+08:00",
+      "end": "2026-08-27T16:23:44.345266+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02/d1p50_ap15_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:23:56.691842+08:00",
+      "end": "2026-08-27T16:24:11.488853+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03/d1p50_ap15_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:24:24.436444+08:00",
+      "end": "2026-08-27T16:24:39.222994+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04/d1p50_ap15_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:25:07.206854+08:00",
+      "end": "2026-08-27T16:25:21.955742+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05/d1p50_ap15_r05_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:25:52.085415+08:00",
+      "end": "2026-08-27T16:26:06.818270+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06/d1p50_ap15_r06_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:26:17.069619+08:00",
+      "end": "2026-08-27T16:26:31.761204+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07/d1p50_ap15_r07_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:27:12.423184+08:00",
+      "end": "2026-08-27T16:27:27.203187+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08/d1p50_ap15_r08_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T16:27:50.939758+08:00",
+      "end": "2026-08-27T16:28:05.349296+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09/d1p50_ap15_r09_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:28:13.943524+08:00",
+      "end": "2026-08-25T15:28:28.320654+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01/d2p00_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:28:43.960364+08:00",
+      "end": "2026-08-25T15:28:58.734312+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02/d2p00_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:29:17.616304+08:00",
+      "end": "2026-08-25T15:29:32.342221+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03/d2p00_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:30:40.145179+08:00",
+      "end": "2026-08-25T15:30:54.414201+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04/d2p00_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-25T15:31:43.910471+08:00",
+      "end": "2026-08-25T15:31:58.360606+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05/d2p00_ap00_r05_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:23:10.219387+08:00",
+      "end": "2026-08-24T18:23:24.992799+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01/d2p50_am05_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:23:26.277508+08:00",
+      "end": "2026-08-24T18:23:41.006628+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02/d2p50_am05_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:23:42.287721+08:00",
+      "end": "2026-08-24T18:23:57.071713+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03/d2p50_am05_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:29:07.915019+08:00",
+      "end": "2026-08-24T18:29:21.919169+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01/d2p50_am10_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:29:23.231491+08:00",
+      "end": "2026-08-24T18:29:37.950011+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02/d2p50_am10_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:29:39.640671+08:00",
+      "end": "2026-08-24T18:29:53.991682+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03/d2p50_am10_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:38:16.391193+08:00",
+      "end": "2026-08-24T18:38:30.726317+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01/d2p50_am15_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:38:41.079504+08:00",
+      "end": "2026-08-24T18:38:55.838917+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02/d2p50_am15_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:39:07.868223+08:00",
+      "end": "2026-08-24T18:39:22.612150+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03/d2p50_am15_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:40:14.296783+08:00",
+      "end": "2026-08-24T18:40:29.089459+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04/d2p50_am15_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:07:22.594201+08:00",
+      "end": "2026-08-24T17:07:37.312769+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01/d2p50_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:07:38.587670+08:00",
+      "end": "2026-08-24T17:07:53.390194+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02/d2p50_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:07:54.649933+08:00",
+      "end": "2026-08-24T17:08:09.381425+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03/d2p50_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:09:08.958651+08:00",
+      "end": "2026-08-24T17:09:23.718155+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04/d2p50_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:12:41.665564+08:00",
+      "end": "2026-08-24T18:12:56.398271+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01/d2p50_ap05_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:12:58.015060+08:00",
+      "end": "2026-08-24T18:13:12.420549+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02/d2p50_ap05_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:13:13.822513+08:00",
+      "end": "2026-08-24T18:13:28.521087+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03/d2p50_ap05_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:45:08.278766+08:00",
+      "end": "2026-08-24T17:45:23.063293+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01/d2p50_ap10_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:45:24.372839+08:00",
+      "end": "2026-08-24T17:45:39.082577+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02/d2p50_ap10_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T17:45:40.383857+08:00",
+      "end": "2026-08-24T17:45:55.098352+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03/d2p50_ap10_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:04:43.099982+08:00",
+      "end": "2026-08-24T18:04:57.542159+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01/d2p50_ap15_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:04:58.858298+08:00",
+      "end": "2026-08-24T18:05:13.667062+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02/d2p50_ap15_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:05:14.961638+08:00",
+      "end": "2026-08-24T18:05:29.765818+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03/d2p50_ap15_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-24T18:06:21.322465+08:00",
+      "end": "2026-08-24T18:06:36.083244+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04/d2p50_ap15_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:42:37.727804+08:00",
+      "end": "2026-08-27T17:42:52.432470+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01/d0p45_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:43:28.435423+08:00",
+      "end": "2026-08-27T17:43:43.045522+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02/d0p45_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:43:56.609399+08:00",
+      "end": "2026-08-27T17:44:10.962234+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03/d0p45_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:44:48.548762+08:00",
+      "end": "2026-08-27T17:45:02.884373+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04/d0p45_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:45:26.386276+08:00",
+      "end": "2026-08-27T17:45:41.105545+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05/d0p45_ap00_r05_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:35:06.479124+08:00",
+      "end": "2026-08-27T17:35:21.251955+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01/d0p47_ap00_r01_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:35:49.761852+08:00",
+      "end": "2026-08-27T17:36:04.542819+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02/d0p47_ap00_r02_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:36:15.693207+08:00",
+      "end": "2026-08-27T17:36:30.333483+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03/d0p47_ap00_r03_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04",
+      "format": "rosbag2/sqlite3",
+      "start": "2026-08-27T17:37:01.045116+08:00",
+      "end": "2026-08-27T17:37:15.742644+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04/d0p47_ap00_r04_0.db3"
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/data/gps_data.bag",
+      "format": "rosbag1",
+      "start": "2021-12-30T19:51:39.138890+08:00",
+      "end": "2021-12-30T19:53:14.096331+08:00",
+      "data_files": [
+        "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/data/gps_data.bag"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547917,
+      "size": 2004,
+      "mtime_ns": 1764138577357182686,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01/rosbag2_2025_11_26-01_20_01_0.db3",
+      "device": 2050,
+      "inode": 11547916,
+      "size": 5126676480,
+      "mtime_ns": 1764138577353182793,
+      "allocated_bytes": 5126680576,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20/metadata.yaml",
+      "device": 2050,
+      "inode": 11547920,
+      "size": 9973,
+      "mtime_ns": 1764322194294825794,
+      "allocated_bytes": 12288,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20/rosbag2_2025_11_28-04_11_20_0.db3",
+      "device": 2050,
+      "inode": 11547919,
+      "size": 7219335168,
+      "mtime_ns": 1764322194294825794,
+      "allocated_bytes": 7219339264,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547926,
+      "size": 25945,
+      "mtime_ns": 1776849430583983412,
+      "allocated_bytes": 28672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01/rosbag2_2026_04_22-17_17_01_0.db3",
+      "device": 2050,
+      "inode": 11547925,
+      "size": 152006656,
+      "mtime_ns": 1776849430573983109,
+      "allocated_bytes": 152006656,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22/metadata.yaml",
+      "device": 2050,
+      "inode": 11547928,
+      "size": 28142,
+      "mtime_ns": 1776856234445027049,
+      "allocated_bytes": 28672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22/rosbag2_2026_04_22-19_10_22_0.db3",
+      "device": 2050,
+      "inode": 11547929,
+      "size": 257142784,
+      "mtime_ns": 1776856234434027380,
+      "allocated_bytes": 257142784,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20/metadata.yaml",
+      "device": 2050,
+      "inode": 11547923,
+      "size": 26830,
+      "mtime_ns": 1776856588815392662,
+      "allocated_bytes": 28672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20/rosbag2_2026_04_22-19_12_20_0.db3",
+      "device": 2050,
+      "inode": 11547922,
+      "size": 6114783232,
+      "mtime_ns": 1776856588792393350,
+      "allocated_bytes": 6114787328,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624/baseline_post_tf_20260821_1624_0.db3",
+      "device": 2050,
+      "inode": 11547604,
+      "size": 9400320,
+      "mtime_ns": 1787300551287271033,
+      "allocated_bytes": 9400320,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624/metadata.yaml",
+      "device": 2050,
+      "inode": 11547603,
+      "size": 3261,
+      "mtime_ns": 1787300551298270775,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821/baseline_pre_tf_20260821_0.db3",
+      "device": 2050,
+      "inode": 11547600,
+      "size": 8237056,
+      "mtime_ns": 1787300106253633232,
+      "allocated_bytes": 8237056,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821/metadata.yaml",
+      "device": 2050,
+      "inode": 11547601,
+      "size": 2471,
+      "mtime_ns": 1787300106274632860,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01/d2p50_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547469,
+      "size": 9744384,
+      "mtime_ns": 1787558921979542432,
+      "allocated_bytes": 9744384,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547468,
+      "size": 3833,
+      "mtime_ns": 1787558921986542222,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02/d2p50_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11438418,
+      "size": 10420224,
+      "mtime_ns": 1787558937980063493,
+      "allocated_bytes": 10420224,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11438419,
+      "size": 4135,
+      "mtime_ns": 1787558937986063313,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03/d2p50_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547597,
+      "size": 10186752,
+      "mtime_ns": 1787558954091582956,
+      "allocated_bytes": 10186752,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547598,
+      "size": 2927,
+      "mtime_ns": 1787558954101582658,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01/d2p50_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547587,
+      "size": 7401472,
+      "mtime_ns": 1787558738765167362,
+      "allocated_bytes": 7401472,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547586,
+      "size": 3833,
+      "mtime_ns": 1787558738772167141,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02/d2p50_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547581,
+      "size": 7921664,
+      "mtime_ns": 1787558751825756713,
+      "allocated_bytes": 7921664,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547582,
+      "size": 3229,
+      "mtime_ns": 1787558751831756525,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03/d2p50_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547592,
+      "size": 6737920,
+      "mtime_ns": 1787558764868348265,
+      "allocated_bytes": 6737920,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547593,
+      "size": 3531,
+      "mtime_ns": 1787558764880347890,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01/d0p50_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547569,
+      "size": 10055680,
+      "mtime_ns": 1787821349466746199,
+      "allocated_bytes": 10055680,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547570,
+      "size": 4135,
+      "mtime_ns": 1787821349478745478,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02/d0p50_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547560,
+      "size": 10117120,
+      "mtime_ns": 1787821397009989015,
+      "allocated_bytes": 10117120,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547561,
+      "size": 4135,
+      "mtime_ns": 1787821397015988679,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03/d0p50_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547564,
+      "size": 10764288,
+      "mtime_ns": 1787821440710616743,
+      "allocated_bytes": 10764288,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547563,
+      "size": 2927,
+      "mtime_ns": 1787821440715616480,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01/d0p75_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547412,
+      "size": 10117120,
+      "mtime_ns": 1787820562635668442,
+      "allocated_bytes": 10117120,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547413,
+      "size": 3531,
+      "mtime_ns": 1787820562642668302,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02/d0p75_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547428,
+      "size": 9768960,
+      "mtime_ns": 1787820612822704430,
+      "allocated_bytes": 9768960,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547427,
+      "size": 2927,
+      "mtime_ns": 1787820612826704356,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03/d0p75_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547441,
+      "size": 10764288,
+      "mtime_ns": 1787820638551235639,
+      "allocated_bytes": 10764288,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547442,
+      "size": 3833,
+      "mtime_ns": 1787820638561235460,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04/d0p75_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547421,
+      "size": 10358784,
+      "mtime_ns": 1787820682717468030,
+      "allocated_bytes": 10358784,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547420,
+      "size": 3229,
+      "mtime_ns": 1787820682721467963,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05/d0p75_ap00_r05_0.db3",
+      "device": 2050,
+      "inode": 11547439,
+      "size": 9703424,
+      "mtime_ns": 1787820721125836048,
+      "allocated_bytes": 9703424,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05/metadata.yaml",
+      "device": 2050,
+      "inode": 11547438,
+      "size": 3531,
+      "mtime_ns": 1787820721140835808,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06/d0p75_ap00_r06_0.db3",
+      "device": 2050,
+      "inode": 11547416,
+      "size": 10690560,
+      "mtime_ns": 1787820761547203911,
+      "allocated_bytes": 10690560,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06/metadata.yaml",
+      "device": 2050,
+      "inode": 11547417,
+      "size": 3229,
+      "mtime_ns": 1787820761552203835,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07/d0p75_ap00_r07_0.db3",
+      "device": 2050,
+      "inode": 11547433,
+      "size": 10063872,
+      "mtime_ns": 1787820802115600919,
+      "allocated_bytes": 10063872,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07/metadata.yaml",
+      "device": 2050,
+      "inode": 11547434,
+      "size": 4135,
+      "mtime_ns": 1787820802128600731,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01/d1p00_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547279,
+      "size": 10891264,
+      "mtime_ns": 1787819809092620197,
+      "allocated_bytes": 10891264,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547280,
+      "size": 3531,
+      "mtime_ns": 1787819809096619923,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02/d1p00_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11438422,
+      "size": 10481664,
+      "mtime_ns": 1787819852701748449,
+      "allocated_bytes": 10481664,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11438423,
+      "size": 2927,
+      "mtime_ns": 1787819852708748006,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03/d1p00_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547285,
+      "size": 10780672,
+      "mtime_ns": 1787819878199170276,
+      "allocated_bytes": 10780672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547286,
+      "size": 3531,
+      "mtime_ns": 1787819878215169309,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04/d1p00_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547288,
+      "size": 9707520,
+      "mtime_ns": 1787819928253272527,
+      "allocated_bytes": 9707520,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547289,
+      "size": 4135,
+      "mtime_ns": 1787819928261272084,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05/d1p00_ap00_r05_0.db3",
+      "device": 2050,
+      "inode": 11547282,
+      "size": 10604544,
+      "mtime_ns": 1787819968020145897,
+      "allocated_bytes": 10604544,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05/metadata.yaml",
+      "device": 2050,
+      "inode": 11547283,
+      "size": 2927,
+      "mtime_ns": 1787819968025145639,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01/d1p50_am15_r01_0.db3",
+      "device": 2050,
+      "inode": 11547517,
+      "size": 9682944,
+      "mtime_ns": 1787817955075752122,
+      "allocated_bytes": 9682944,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547518,
+      "size": 3229,
+      "mtime_ns": 1787817955095752008,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02/d1p50_am15_r02_0.db3",
+      "device": 2050,
+      "inode": 11547522,
+      "size": 10792960,
+      "mtime_ns": 1787817992307568769,
+      "allocated_bytes": 10792960,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547523,
+      "size": 3531,
+      "mtime_ns": 1787817992319568720,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03/d1p50_am15_r03_0.db3",
+      "device": 2050,
+      "inode": 11547515,
+      "size": 9363456,
+      "mtime_ns": 1787818048100401456,
+      "allocated_bytes": 9363456,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547514,
+      "size": 3531,
+      "mtime_ns": 1787818048106401445,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01/d1p50_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547389,
+      "size": 10498048,
+      "mtime_ns": 1787643993507486271,
+      "allocated_bytes": 10498048,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547388,
+      "size": 3531,
+      "mtime_ns": 1787643993530486480,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02/d1p50_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547377,
+      "size": 10506240,
+      "mtime_ns": 1787644025988781620,
+      "allocated_bytes": 10506240,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547376,
+      "size": 3833,
+      "mtime_ns": 1787644025996781692,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03/d1p50_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547386,
+      "size": 10285056,
+      "mtime_ns": 1787644069237174860,
+      "allocated_bytes": 10285056,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547385,
+      "size": 3833,
+      "mtime_ns": 1787644069251174987,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04/d1p50_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547371,
+      "size": 10006528,
+      "mtime_ns": 1787644148721897575,
+      "allocated_bytes": 10006528,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547370,
+      "size": 3531,
+      "mtime_ns": 1787644148730897657,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01/d1p50_ap15_r01_0.db3",
+      "device": 2050,
+      "inode": 11547316,
+      "size": 10579968,
+      "mtime_ns": 1787818976858239209,
+      "allocated_bytes": 10579968,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547315,
+      "size": 4135,
+      "mtime_ns": 1787818976865239308,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02/d1p50_ap15_r02_0.db3",
+      "device": 2050,
+      "inode": 11547312,
+      "size": 10764288,
+      "mtime_ns": 1787819024344918816,
+      "allocated_bytes": 10764288,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547313,
+      "size": 4135,
+      "mtime_ns": 1787819024355918974,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03/d1p50_ap15_r03_0.db3",
+      "device": 2050,
+      "inode": 11547307,
+      "size": 10895360,
+      "mtime_ns": 1787819051487312986,
+      "allocated_bytes": 10895360,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547306,
+      "size": 3833,
+      "mtime_ns": 1787819051497313132,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04/d1p50_ap15_r04_0.db3",
+      "device": 2050,
+      "inode": 11547297,
+      "size": 10387456,
+      "mtime_ns": 1787819079222719783,
+      "allocated_bytes": 10387456,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547296,
+      "size": 3531,
+      "mtime_ns": 1787819079226719842,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05/d1p50_ap15_r05_0.db3",
+      "device": 2050,
+      "inode": 11547302,
+      "size": 10862592,
+      "mtime_ns": 1787819121954353990,
+      "allocated_bytes": 10862592,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05/metadata.yaml",
+      "device": 2050,
+      "inode": 11547303,
+      "size": 3531,
+      "mtime_ns": 1787819121965354154,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06/d1p50_ap15_r06_0.db3",
+      "device": 2050,
+      "inode": 11547331,
+      "size": 10842112,
+      "mtime_ns": 1787819166818028876,
+      "allocated_bytes": 10842112,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06/metadata.yaml",
+      "device": 2050,
+      "inode": 11547332,
+      "size": 3229,
+      "mtime_ns": 1787819166824028967,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07/d1p50_ap15_r07_0.db3",
+      "device": 2050,
+      "inode": 11547320,
+      "size": 10739712,
+      "mtime_ns": 1787819191760407801,
+      "allocated_bytes": 10739712,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07/metadata.yaml",
+      "device": 2050,
+      "inode": 11547321,
+      "size": 3833,
+      "mtime_ns": 1787819191781408121,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08/d1p50_ap15_r08_0.db3",
+      "device": 2050,
+      "inode": 11547309,
+      "size": 10506240,
+      "mtime_ns": 1787819247202258849,
+      "allocated_bytes": 10506240,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08/metadata.yaml",
+      "device": 2050,
+      "inode": 11547310,
+      "size": 3833,
+      "mtime_ns": 1787819247208258942,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09/d1p50_ap15_r09_0.db3",
+      "device": 2050,
+      "inode": 11547327,
+      "size": 10547200,
+      "mtime_ns": 1787819285348981696,
+      "allocated_bytes": 10547200,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09/metadata.yaml",
+      "device": 2050,
+      "inode": 11547326,
+      "size": 2927,
+      "mtime_ns": 1787819285357980068,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01/d2p00_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547356,
+      "size": 8650752,
+      "mtime_ns": 1787642908319318508,
+      "allocated_bytes": 8650752,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547357,
+      "size": 3229,
+      "mtime_ns": 1787642908329318623,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02/d2p00_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547366,
+      "size": 10797056,
+      "mtime_ns": 1787642938733658893,
+      "allocated_bytes": 10797056,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547367,
+      "size": 3531,
+      "mtime_ns": 1787642938743659003,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03/d2p00_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547350,
+      "size": 10850304,
+      "mtime_ns": 1787642972342019388,
+      "allocated_bytes": 10850304,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547351,
+      "size": 3833,
+      "mtime_ns": 1787642972351019482,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04/d2p00_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547347,
+      "size": 10518528,
+      "mtime_ns": 1787643054413852053,
+      "allocated_bytes": 10518528,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547348,
+      "size": 3229,
+      "mtime_ns": 1787643054417852093,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05/d2p00_ap00_r05_0.db3",
+      "device": 2050,
+      "inode": 11547360,
+      "size": 9121792,
+      "mtime_ns": 1787643118359471187,
+      "allocated_bytes": 9121792,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05/metadata.yaml",
+      "device": 2050,
+      "inode": 11547361,
+      "size": 3531,
+      "mtime_ns": 1787643118368471273,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01/d2p50_am05_r01_0.db3",
+      "device": 2050,
+      "inode": 11547463,
+      "size": 10055680,
+      "mtime_ns": 1787567004992464214,
+      "allocated_bytes": 10055680,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547462,
+      "size": 3531,
+      "mtime_ns": 1787567005000464164,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02/d2p50_am05_r02_0.db3",
+      "device": 2050,
+      "inode": 11547452,
+      "size": 8560640,
+      "mtime_ns": 1787567021006361279,
+      "allocated_bytes": 8560640,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547451,
+      "size": 2927,
+      "mtime_ns": 1787567021009361259,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03/d2p50_am05_r03_0.db3",
+      "device": 2050,
+      "inode": 11547459,
+      "size": 10235904,
+      "mtime_ns": 1787567037070254650,
+      "allocated_bytes": 10235904,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547458,
+      "size": 3833,
+      "mtime_ns": 1787567037077254602,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01/d2p50_am10_r01_0.db3",
+      "device": 2050,
+      "inode": 11547394,
+      "size": 10321920,
+      "mtime_ns": 1787567361918517543,
+      "allocated_bytes": 10321920,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547395,
+      "size": 3833,
+      "mtime_ns": 1787567361926517465,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02/d2p50_am10_r02_0.db3",
+      "device": 2050,
+      "inode": 11547405,
+      "size": 8781824,
+      "mtime_ns": 1787567377949359744,
+      "allocated_bytes": 8781824,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547404,
+      "size": 3531,
+      "mtime_ns": 1787567377955359684,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03/d2p50_am10_r03_0.db3",
+      "device": 2050,
+      "inode": 11547409,
+      "size": 10346496,
+      "mtime_ns": 1787567393991200160,
+      "allocated_bytes": 10346496,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547408,
+      "size": 5041,
+      "mtime_ns": 1787567394013199940,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01/d2p50_am15_r01_0.db3",
+      "device": 2050,
+      "inode": 11307353,
+      "size": 10113024,
+      "mtime_ns": 1787567910725415089,
+      "allocated_bytes": 10113024,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11307354,
+      "size": 3229,
+      "mtime_ns": 1787567910732415004,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02/d2p50_am15_r02_0.db3",
+      "device": 2050,
+      "inode": 11438412,
+      "size": 9781248,
+      "mtime_ns": 1787567935838111719,
+      "allocated_bytes": 9781248,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11438413,
+      "size": 3531,
+      "mtime_ns": 1787567935855111514,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03/d2p50_am15_r03_0.db3",
+      "device": 2050,
+      "inode": 11438416,
+      "size": 10706944,
+      "mtime_ns": 1787567962611786767,
+      "allocated_bytes": 10706944,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11438415,
+      "size": 3229,
+      "mtime_ns": 1787567962622786633,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04/d2p50_am15_r04_0.db3",
+      "device": 2050,
+      "inode": 11307347,
+      "size": 8855552,
+      "mtime_ns": 1787568029087973667,
+      "allocated_bytes": 8855552,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11307346,
+      "size": 4135,
+      "mtime_ns": 1787568029092973605,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01/d2p50_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547544,
+      "size": 10727424,
+      "mtime_ns": 1787562457312698355,
+      "allocated_bytes": 10727424,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547543,
+      "size": 3229,
+      "mtime_ns": 1787562457329698514,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02/d2p50_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547538,
+      "size": 9207808,
+      "mtime_ns": 1787562473389843057,
+      "allocated_bytes": 9207808,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547539,
+      "size": 3833,
+      "mtime_ns": 1787562473397843126,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03/d2p50_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547551,
+      "size": 9936896,
+      "mtime_ns": 1787562489379975031,
+      "allocated_bytes": 9936896,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547552,
+      "size": 2927,
+      "mtime_ns": 1787562489389975110,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04/d2p50_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547534,
+      "size": 10121216,
+      "mtime_ns": 1787562563717442539,
+      "allocated_bytes": 10121216,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547535,
+      "size": 3833,
+      "mtime_ns": 1787562563730442601,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01/d2p50_ap05_r01_0.db3",
+      "device": 2050,
+      "inode": 11547474,
+      "size": 10817536,
+      "mtime_ns": 1787566376397238468,
+      "allocated_bytes": 10817536,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547473,
+      "size": 2927,
+      "mtime_ns": 1787566376401238510,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02/d2p50_ap05_r02_0.db3",
+      "device": 2050,
+      "inode": 11547478,
+      "size": 9834496,
+      "mtime_ns": 1787566392419398849,
+      "allocated_bytes": 9834496,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547479,
+      "size": 3833,
+      "mtime_ns": 1787566392431398964,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03/d2p50_ap05_r03_0.db3",
+      "device": 2050,
+      "inode": 11547485,
+      "size": 10829824,
+      "mtime_ns": 1787566408520548454,
+      "allocated_bytes": 10829824,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547484,
+      "size": 4739,
+      "mtime_ns": 1787566408525548498,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01/d2p50_ap10_r01_0.db3",
+      "device": 2050,
+      "inode": 11307340,
+      "size": 9732096,
+      "mtime_ns": 1787564723062869516,
+      "allocated_bytes": 9732096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11307341,
+      "size": 3229,
+      "mtime_ns": 1787564723067869396,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02/d2p50_ap10_r02_0.db3",
+      "device": 2050,
+      "inode": 11307334,
+      "size": 9523200,
+      "mtime_ns": 1787564739081486038,
+      "allocated_bytes": 9523200,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11307335,
+      "size": 2927,
+      "mtime_ns": 1787564739101485561,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03/d2p50_ap10_r03_0.db3",
+      "device": 2050,
+      "inode": 11307327,
+      "size": 10481664,
+      "mtime_ns": 1787564755097104994,
+      "allocated_bytes": 10481664,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11307328,
+      "size": 2927,
+      "mtime_ns": 1787564755104104828,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01/d2p50_ap15_r01_0.db3",
+      "device": 2050,
+      "inode": 11547498,
+      "size": 10199040,
+      "mtime_ns": 1787565897541136318,
+      "allocated_bytes": 10199040,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547499,
+      "size": 3531,
+      "mtime_ns": 1787565897549136160,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02/d2p50_ap15_r02_0.db3",
+      "device": 2050,
+      "inode": 11547490,
+      "size": 10768384,
+      "mtime_ns": 1787565913666819657,
+      "allocated_bytes": 10768384,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547491,
+      "size": 4135,
+      "mtime_ns": 1787565913673819519,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03/d2p50_ap15_r03_0.db3",
+      "device": 2050,
+      "inode": 11547493,
+      "size": 10018816,
+      "mtime_ns": 1787565929765503766,
+      "allocated_bytes": 10018816,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547494,
+      "size": 4135,
+      "mtime_ns": 1787565929787503335,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04/d2p50_ap15_r04_0.db3",
+      "device": 2050,
+      "inode": 11547505,
+      "size": 10215424,
+      "mtime_ns": 1787565996082204862,
+      "allocated_bytes": 10215424,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547504,
+      "size": 4135,
+      "mtime_ns": 1787565996093204647,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01/d0p45_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547651,
+      "size": 10211328,
+      "mtime_ns": 1787823772431685106,
+      "allocated_bytes": 10211328,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547652,
+      "size": 3229,
+      "mtime_ns": 1787823772440684773,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02/d0p45_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547648,
+      "size": 10764288,
+      "mtime_ns": 1787823823044858989,
+      "allocated_bytes": 10764288,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547649,
+      "size": 4437,
+      "mtime_ns": 1787823823052858707,
+      "allocated_bytes": 8192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03/d0p45_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547660,
+      "size": 10031104,
+      "mtime_ns": 1787823850961886228,
+      "allocated_bytes": 10031104,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547659,
+      "size": 2927,
+      "mtime_ns": 1787823850973885815,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04/d0p45_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547645,
+      "size": 10371072,
+      "mtime_ns": 1787823902884136883,
+      "allocated_bytes": 10371072,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547646,
+      "size": 3229,
+      "mtime_ns": 1787823902892136619,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05/d0p45_ap00_r05_0.db3",
+      "device": 2050,
+      "inode": 11547641,
+      "size": 10813440,
+      "mtime_ns": 1787823941104895250,
+      "allocated_bytes": 10813440,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05/metadata.yaml",
+      "device": 2050,
+      "inode": 11547642,
+      "size": 3531,
+      "mtime_ns": 1787823941108895122,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01/d0p47_ap00_r01_0.db3",
+      "device": 2050,
+      "inode": 11547631,
+      "size": 10866688,
+      "mtime_ns": 1787823321251259629,
+      "allocated_bytes": 10866688,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01/metadata.yaml",
+      "device": 2050,
+      "inode": 11547630,
+      "size": 3531,
+      "mtime_ns": 1787823321256259551,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02/d0p47_ap00_r02_0.db3",
+      "device": 2050,
+      "inode": 11547614,
+      "size": 10842112,
+      "mtime_ns": 1787823364541522363,
+      "allocated_bytes": 10842112,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02/metadata.yaml",
+      "device": 2050,
+      "inode": 11547613,
+      "size": 3229,
+      "mtime_ns": 1787823364547522013,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03/d0p47_ap00_r03_0.db3",
+      "device": 2050,
+      "inode": 11547621,
+      "size": 10690560,
+      "mtime_ns": 1787823390333044744,
+      "allocated_bytes": 10690560,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03/metadata.yaml",
+      "device": 2050,
+      "inode": 11547620,
+      "size": 3833,
+      "mtime_ns": 1787823390337044519,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04/d0p47_ap00_r04_0.db3",
+      "device": 2050,
+      "inode": 11547625,
+      "size": 10829824,
+      "mtime_ns": 1787823435741558502,
+      "allocated_bytes": 10829824,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04/metadata.yaml",
+      "device": 2050,
+      "inode": 11547626,
+      "size": 3531,
+      "mtime_ns": 1787823435749558077,
+      "allocated_bytes": 4096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/data/gps_data.bag",
+      "device": 2050,
+      "inode": 11543815,
+      "size": 64978353,
+      "mtime_ns": 1764240606660129045,
+      "allocated_bytes": 64978944,
+      "nlink": 1
+    }
+  ],
+  "planned_allocated_bytes": 19713122304,
+  "protected_files": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "device": 2050,
+      "inode": 11802212,
+      "size": 24576,
+      "mtime_ns": 1794039612863380613,
+      "allocated_bytes": 24576,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "device": 2050,
+      "inode": 11802269,
+      "size": 268435456,
+      "mtime_ns": 1794040110622785137,
+      "allocated_bytes": 268435456,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/navigation_raw_bag/navigation_raw_bag_1.db3",
+      "device": 2050,
+      "inode": 11802316,
+      "size": 85655552,
+      "mtime_ns": 1794040148883469313,
+      "allocated_bytes": 85655552,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "device": 2050,
+      "inode": 11802337,
+      "size": 144723968,
+      "mtime_ns": 1794040765167703759,
+      "allocated_bytes": 144728064,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/navigation_raw_bag/navigation_raw_bag_0.db3",
+      "device": 2050,
+      "inode": 11802367,
+      "size": 263897088,
+      "mtime_ns": 1794042567307904020,
+      "allocated_bytes": 263901184,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11802627,
+      "size": 284807168,
+      "mtime_ns": 1794206335710575693,
+      "allocated_bytes": 284811264,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 11802620,
+      "size": 286781440,
+      "mtime_ns": 1794206346742589720,
+      "allocated_bytes": 286785536,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 11802629,
+      "size": 289398784,
+      "mtime_ns": 1794206359128725867,
+      "allocated_bytes": 289398784,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 11802628,
+      "size": 288071680,
+      "mtime_ns": 1794206370875801151,
+      "allocated_bytes": 288071680,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_4.db3",
+      "device": 2050,
+      "inode": 11802630,
+      "size": 286568448,
+      "mtime_ns": 1794206381829801919,
+      "allocated_bytes": 286568448,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_5.db3",
+      "device": 2050,
+      "inode": 11802633,
+      "size": 287236096,
+      "mtime_ns": 1794206393061826204,
+      "allocated_bytes": 287236096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_6.db3",
+      "device": 2050,
+      "inode": 11802631,
+      "size": 285618176,
+      "mtime_ns": 1794206404068828156,
+      "allocated_bytes": 285618176,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_7.db3",
+      "device": 2050,
+      "inode": 11799636,
+      "size": 287363072,
+      "mtime_ns": 1794206415772891637,
+      "allocated_bytes": 287363072,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_8.db3",
+      "device": 2050,
+      "inode": 11799450,
+      "size": 286879744,
+      "mtime_ns": 1794206427277935144,
+      "allocated_bytes": 286879744,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_9.db3",
+      "device": 2050,
+      "inode": 11799726,
+      "size": 286593024,
+      "mtime_ns": 1794206438789977455,
+      "allocated_bytes": 286593024,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_10.db3",
+      "device": 2050,
+      "inode": 11799821,
+      "size": 286109696,
+      "mtime_ns": 1794206449775970463,
+      "allocated_bytes": 286109696,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_11.db3",
+      "device": 2050,
+      "inode": 11799822,
+      "size": 286801920,
+      "mtime_ns": 1794206460960979819,
+      "allocated_bytes": 286801920,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_12.db3",
+      "device": 2050,
+      "inode": 11799841,
+      "size": 287416320,
+      "mtime_ns": 1794206472403010691,
+      "allocated_bytes": 287416320,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_13.db3",
+      "device": 2050,
+      "inode": 11802632,
+      "size": 286580736,
+      "mtime_ns": 1794206483598017701,
+      "allocated_bytes": 286580736,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_14.db3",
+      "device": 2050,
+      "inode": 11802634,
+      "size": 287199232,
+      "mtime_ns": 1794206495013042906,
+      "allocated_bytes": 287199232,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_15.db3",
+      "device": 2050,
+      "inode": 11802635,
+      "size": 285048832,
+      "mtime_ns": 1794206505807010875,
+      "allocated_bytes": 285048832,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_16.db3",
+      "device": 2050,
+      "inode": 11802637,
+      "size": 285667328,
+      "mtime_ns": 1794206516809996168,
+      "allocated_bytes": 285667328,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_17.db3",
+      "device": 2050,
+      "inode": 11802636,
+      "size": 286523392,
+      "mtime_ns": 1794206528296023214,
+      "allocated_bytes": 286523392,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag/navigation_core_bag_18.db3",
+      "device": 2050,
+      "inode": 11802638,
+      "size": 237621248,
+      "mtime_ns": 1794206732102026132,
+      "allocated_bytes": 237621248,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11802714,
+      "size": 537632768,
+      "mtime_ns": 1794210487897582890,
+      "allocated_bytes": 537636864,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 11802743,
+      "size": 537010176,
+      "mtime_ns": 1794210535195032160,
+      "allocated_bytes": 537014272,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 11802752,
+      "size": 537436160,
+      "mtime_ns": 1794210586697795263,
+      "allocated_bytes": 537440256,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 11802765,
+      "size": 537165824,
+      "mtime_ns": 1794210628797876400,
+      "allocated_bytes": 537169920,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_4.db3",
+      "device": 2050,
+      "inode": 11802767,
+      "size": 536891392,
+      "mtime_ns": 1794210670298917765,
+      "allocated_bytes": 536895488,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_5.db3",
+      "device": 2050,
+      "inode": 11802769,
+      "size": 538075136,
+      "mtime_ns": 1794210711598948099,
+      "allocated_bytes": 538079232,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_6.db3",
+      "device": 2050,
+      "inode": 11802768,
+      "size": 537497600,
+      "mtime_ns": 1794210753700040710,
+      "allocated_bytes": 537501696,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_7.db3",
+      "device": 2050,
+      "inode": 11802770,
+      "size": 537194496,
+      "mtime_ns": 1794210796896217146,
+      "allocated_bytes": 537198592,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag/navigation_core_bag_8.db3",
+      "device": 2050,
+      "inode": 11802771,
+      "size": 519081984,
+      "mtime_ns": 1794210838233259826,
+      "allocated_bytes": 519081984,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11804321,
+      "size": 561590272,
+      "mtime_ns": 1794277460681287534,
+      "allocated_bytes": 561594368,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 11802786,
+      "size": 547565568,
+      "mtime_ns": 1794277476493966594,
+      "allocated_bytes": 547569664,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 11802787,
+      "size": 562188288,
+      "mtime_ns": 1794277492478653807,
+      "allocated_bytes": 562192384,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 11802788,
+      "size": 561930240,
+      "mtime_ns": 1794277507485229594,
+      "allocated_bytes": 561934336,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_4.db3",
+      "device": 2050,
+      "inode": 11802783,
+      "size": 537337856,
+      "mtime_ns": 1794277522410789899,
+      "allocated_bytes": 537341952,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_5.db3",
+      "device": 2050,
+      "inode": 11802784,
+      "size": 554102784,
+      "mtime_ns": 1794277537277337888,
+      "allocated_bytes": 554106880,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_6.db3",
+      "device": 2050,
+      "inode": 11802785,
+      "size": 561446912,
+      "mtime_ns": 1794277552695937597,
+      "allocated_bytes": 561451008,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_7.db3",
+      "device": 2050,
+      "inode": 11802782,
+      "size": 549081088,
+      "mtime_ns": 1794277567684487693,
+      "allocated_bytes": 549085184,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_8.db3",
+      "device": 2050,
+      "inode": 11802795,
+      "size": 536870912,
+      "mtime_ns": 1794277583208088518,
+      "allocated_bytes": 536875008,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_9.db3",
+      "device": 2050,
+      "inode": 11802789,
+      "size": 548519936,
+      "mtime_ns": 1794277597685577713,
+      "allocated_bytes": 548524032,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_10.db3",
+      "device": 2050,
+      "inode": 11804312,
+      "size": 547532800,
+      "mtime_ns": 1794277613101582149,
+      "allocated_bytes": 547536896,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_11.db3",
+      "device": 2050,
+      "inode": 11804311,
+      "size": 537755648,
+      "mtime_ns": 1794277628693771850,
+      "allocated_bytes": 537759744,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_12.db3",
+      "device": 2050,
+      "inode": 11804313,
+      "size": 553193472,
+      "mtime_ns": 1794277644685603869,
+      "allocated_bytes": 553197568,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_13.db3",
+      "device": 2050,
+      "inode": 11804358,
+      "size": 537427968,
+      "mtime_ns": 1794277660053160174,
+      "allocated_bytes": 537432064,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_14.db3",
+      "device": 2050,
+      "inode": 11804352,
+      "size": 560463872,
+      "mtime_ns": 1794277676602398052,
+      "allocated_bytes": 560467968,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_15.db3",
+      "device": 2050,
+      "inode": 11804360,
+      "size": 537100288,
+      "mtime_ns": 1794277692425097294,
+      "allocated_bytes": 537104384,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_16.db3",
+      "device": 2050,
+      "inode": 11804359,
+      "size": 542179328,
+      "mtime_ns": 1794277708008398830,
+      "allocated_bytes": 542183424,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_17.db3",
+      "device": 2050,
+      "inode": 11804361,
+      "size": 544456704,
+      "mtime_ns": 1794277723600843767,
+      "allocated_bytes": 544460800,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_18.db3",
+      "device": 2050,
+      "inode": 11804362,
+      "size": 537976832,
+      "mtime_ns": 1794277739422122273,
+      "allocated_bytes": 537980928,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_19.db3",
+      "device": 2050,
+      "inode": 11804363,
+      "size": 537722880,
+      "mtime_ns": 1794277755195131713,
+      "allocated_bytes": 537726976,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_20.db3",
+      "device": 2050,
+      "inode": 11804364,
+      "size": 556421120,
+      "mtime_ns": 1794277771998491180,
+      "allocated_bytes": 556425216,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_21.db3",
+      "device": 2050,
+      "inode": 11804366,
+      "size": 537337856,
+      "mtime_ns": 1794277788591374266,
+      "allocated_bytes": 537341952,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_22.db3",
+      "device": 2050,
+      "inode": 11804367,
+      "size": 550428672,
+      "mtime_ns": 1794277804201776586,
+      "allocated_bytes": 550432768,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_23.db3",
+      "device": 2050,
+      "inode": 11804365,
+      "size": 537051136,
+      "mtime_ns": 1794277820683306907,
+      "allocated_bytes": 537055232,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_24.db3",
+      "device": 2050,
+      "inode": 11804369,
+      "size": 538116096,
+      "mtime_ns": 1794277836889090612,
+      "allocated_bytes": 538120192,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_25.db3",
+      "device": 2050,
+      "inode": 11804346,
+      "size": 559640576,
+      "mtime_ns": 1794277853393000603,
+      "allocated_bytes": 559644672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_26.db3",
+      "device": 2050,
+      "inode": 11804348,
+      "size": 557006848,
+      "mtime_ns": 1794277870211562937,
+      "allocated_bytes": 557010944,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_27.db3",
+      "device": 2050,
+      "inode": 11804349,
+      "size": 539697152,
+      "mtime_ns": 1794277885587067491,
+      "allocated_bytes": 539701248,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_28.db3",
+      "device": 2050,
+      "inode": 11804350,
+      "size": 542646272,
+      "mtime_ns": 1794277901421615548,
+      "allocated_bytes": 542650368,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_29.db3",
+      "device": 2050,
+      "inode": 11804351,
+      "size": 543617024,
+      "mtime_ns": 1794277916780136523,
+      "allocated_bytes": 543621120,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_30.db3",
+      "device": 2050,
+      "inode": 11804347,
+      "size": 536870912,
+      "mtime_ns": 1794277933032078457,
+      "allocated_bytes": 536875008,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_31.db3",
+      "device": 2050,
+      "inode": 11804368,
+      "size": 550592512,
+      "mtime_ns": 1794277949190228812,
+      "allocated_bytes": 550596608,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_32.db3",
+      "device": 2050,
+      "inode": 11804371,
+      "size": 561446912,
+      "mtime_ns": 1794277965999246151,
+      "allocated_bytes": 561451008,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_33.db3",
+      "device": 2050,
+      "inode": 11804372,
+      "size": 537726976,
+      "mtime_ns": 1794277982642102036,
+      "allocated_bytes": 537731072,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_34.db3",
+      "device": 2050,
+      "inode": 11804373,
+      "size": 540688384,
+      "mtime_ns": 1794277997417700993,
+      "allocated_bytes": 540692480,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_35.db3",
+      "device": 2050,
+      "inode": 11804374,
+      "size": 552071168,
+      "mtime_ns": 1794278012985926844,
+      "allocated_bytes": 552075264,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_36.db3",
+      "device": 2050,
+      "inode": 11804370,
+      "size": 538370048,
+      "mtime_ns": 1794278028604703755,
+      "allocated_bytes": 538374144,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_37.db3",
+      "device": 2050,
+      "inode": 11804375,
+      "size": 540123136,
+      "mtime_ns": 1794278045193261447,
+      "allocated_bytes": 540127232,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_38.db3",
+      "device": 2050,
+      "inode": 11804377,
+      "size": 539561984,
+      "mtime_ns": 1794278061010407968,
+      "allocated_bytes": 539566080,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_39.db3",
+      "device": 2050,
+      "inode": 11804376,
+      "size": 554065920,
+      "mtime_ns": 1794278076999352870,
+      "allocated_bytes": 554070016,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_40.db3",
+      "device": 2050,
+      "inode": 11804379,
+      "size": 550359040,
+      "mtime_ns": 1794278092603080913,
+      "allocated_bytes": 550363136,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_41.db3",
+      "device": 2050,
+      "inode": 11804378,
+      "size": 548945920,
+      "mtime_ns": 1794278107783636186,
+      "allocated_bytes": 548950016,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_42.db3",
+      "device": 2050,
+      "inode": 11804381,
+      "size": 536875008,
+      "mtime_ns": 1794278123171527124,
+      "allocated_bytes": 536879104,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_43.db3",
+      "device": 2050,
+      "inode": 11804380,
+      "size": 548261888,
+      "mtime_ns": 1794278137793781047,
+      "allocated_bytes": 548265984,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_44.db3",
+      "device": 2050,
+      "inode": 11804383,
+      "size": 537792512,
+      "mtime_ns": 1794278153662142636,
+      "allocated_bytes": 537796608,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_45.db3",
+      "device": 2050,
+      "inode": 11804384,
+      "size": 544854016,
+      "mtime_ns": 1794278168411550054,
+      "allocated_bytes": 544858112,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_46.db3",
+      "device": 2050,
+      "inode": 11804385,
+      "size": 536920064,
+      "mtime_ns": 1794278184761072695,
+      "allocated_bytes": 536924160,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_47.db3",
+      "device": 2050,
+      "inode": 11804382,
+      "size": 536891392,
+      "mtime_ns": 1794278199848613728,
+      "allocated_bytes": 536895488,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_48.db3",
+      "device": 2050,
+      "inode": 11804386,
+      "size": 537423872,
+      "mtime_ns": 1794278215751237915,
+      "allocated_bytes": 537427968,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_49.db3",
+      "device": 2050,
+      "inode": 11804387,
+      "size": 557371392,
+      "mtime_ns": 1794278231901921897,
+      "allocated_bytes": 557375488,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_50.db3",
+      "device": 2050,
+      "inode": 11804389,
+      "size": 536985600,
+      "mtime_ns": 1794278248360664676,
+      "allocated_bytes": 536989696,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_51.db3",
+      "device": 2050,
+      "inode": 11804390,
+      "size": 538083328,
+      "mtime_ns": 1794278265047459152,
+      "allocated_bytes": 538087424,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_52.db3",
+      "device": 2050,
+      "inode": 11804391,
+      "size": 538808320,
+      "mtime_ns": 1794278280528229078,
+      "allocated_bytes": 538812416,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_53.db3",
+      "device": 2050,
+      "inode": 11804388,
+      "size": 538238976,
+      "mtime_ns": 1794278296401047436,
+      "allocated_bytes": 538243072,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_54.db3",
+      "device": 2050,
+      "inode": 11804392,
+      "size": 544649216,
+      "mtime_ns": 1794278312529905517,
+      "allocated_bytes": 544653312,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_55.db3",
+      "device": 2050,
+      "inode": 11804393,
+      "size": 541224960,
+      "mtime_ns": 1794278328603784126,
+      "allocated_bytes": 541229056,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_56.db3",
+      "device": 2050,
+      "inode": 11804394,
+      "size": 543023104,
+      "mtime_ns": 1794278344537675460,
+      "allocated_bytes": 543027200,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_57.db3",
+      "device": 2050,
+      "inode": 11804397,
+      "size": 543686656,
+      "mtime_ns": 1794278359574533066,
+      "allocated_bytes": 543690752,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_58.db3",
+      "device": 2050,
+      "inode": 11804396,
+      "size": 543932416,
+      "mtime_ns": 1794278374215381707,
+      "allocated_bytes": 543936512,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_59.db3",
+      "device": 2050,
+      "inode": 11804395,
+      "size": 537632768,
+      "mtime_ns": 1794278388846241729,
+      "allocated_bytes": 537636864,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_60.db3",
+      "device": 2050,
+      "inode": 11804399,
+      "size": 538062848,
+      "mtime_ns": 1794278403747128573,
+      "allocated_bytes": 538066944,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_61.db3",
+      "device": 2050,
+      "inode": 11804400,
+      "size": 537022464,
+      "mtime_ns": 1794278419147055437,
+      "allocated_bytes": 537026560,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_62.db3",
+      "device": 2050,
+      "inode": 11804401,
+      "size": 550342656,
+      "mtime_ns": 1794278433673938313,
+      "allocated_bytes": 550346752,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_63.db3",
+      "device": 2050,
+      "inode": 11804398,
+      "size": 545705984,
+      "mtime_ns": 1794278448731861252,
+      "allocated_bytes": 545710080,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_64.db3",
+      "device": 2050,
+      "inode": 11804402,
+      "size": 537223168,
+      "mtime_ns": 1794278463444769869,
+      "allocated_bytes": 537227264,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_65.db3",
+      "device": 2050,
+      "inode": 11804404,
+      "size": 536952832,
+      "mtime_ns": 1794278478646714985,
+      "allocated_bytes": 536956928,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_66.db3",
+      "device": 2050,
+      "inode": 11804405,
+      "size": 559857664,
+      "mtime_ns": 1794278493952672311,
+      "allocated_bytes": 559861760,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_67.db3",
+      "device": 2050,
+      "inode": 11804406,
+      "size": 537358336,
+      "mtime_ns": 1794278508445583514,
+      "allocated_bytes": 537362432,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_68.db3",
+      "device": 2050,
+      "inode": 11804403,
+      "size": 546459648,
+      "mtime_ns": 1794278523533536469,
+      "allocated_bytes": 546463744,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_69.db3",
+      "device": 2050,
+      "inode": 11804408,
+      "size": 537624576,
+      "mtime_ns": 1794278539296536261,
+      "allocated_bytes": 537628672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_70.db3",
+      "device": 2050,
+      "inode": 11804409,
+      "size": 550387712,
+      "mtime_ns": 1794278554284490430,
+      "allocated_bytes": 550391808,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_71.db3",
+      "device": 2050,
+      "inode": 11804410,
+      "size": 555540480,
+      "mtime_ns": 1794278570211507720,
+      "allocated_bytes": 555544576,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_72.db3",
+      "device": 2050,
+      "inode": 11804412,
+      "size": 561385472,
+      "mtime_ns": 1794278585804506630,
+      "allocated_bytes": 561389568,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_73.db3",
+      "device": 2050,
+      "inode": 11804413,
+      "size": 537812992,
+      "mtime_ns": 1794278601243498220,
+      "allocated_bytes": 537817088,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_74.db3",
+      "device": 2050,
+      "inode": 11804407,
+      "size": 537182208,
+      "mtime_ns": 1794278616045451005,
+      "allocated_bytes": 537186304,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_75.db3",
+      "device": 2050,
+      "inode": 11804420,
+      "size": 549498880,
+      "mtime_ns": 1794278630821635059,
+      "allocated_bytes": 549502976,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_76.db3",
+      "device": 2050,
+      "inode": 11804421,
+      "size": 555470848,
+      "mtime_ns": 1794278647004568498,
+      "allocated_bytes": 555474944,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_77.db3",
+      "device": 2050,
+      "inode": 11804414,
+      "size": 557223936,
+      "mtime_ns": 1794278663024372076,
+      "allocated_bytes": 557228032,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_78.db3",
+      "device": 2050,
+      "inode": 11804422,
+      "size": 562118656,
+      "mtime_ns": 1794278679040081306,
+      "allocated_bytes": 562122752,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_79.db3",
+      "device": 2050,
+      "inode": 11804423,
+      "size": 537387008,
+      "mtime_ns": 1794278695750814429,
+      "allocated_bytes": 537391104,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_80.db3",
+      "device": 2050,
+      "inode": 11804424,
+      "size": 537612288,
+      "mtime_ns": 1794278711554316585,
+      "allocated_bytes": 537616384,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-17-53/navigation_core_bag/navigation_core_bag_81.db3",
+      "device": 2050,
+      "inode": 11804425,
+      "size": 258007040,
+      "mtime_ns": 1794278741360834308,
+      "allocated_bytes": 258007040,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11804481,
+      "size": 538099712,
+      "mtime_ns": 1794279646203300631,
+      "allocated_bytes": 538103808,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 11804487,
+      "size": 538005504,
+      "mtime_ns": 1794279688713799855,
+      "allocated_bytes": 538009600,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 11804490,
+      "size": 537579520,
+      "mtime_ns": 1794279729608532320,
+      "allocated_bytes": 537583616,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-59-56/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 11804489,
+      "size": 30224384,
+      "mtime_ns": 1794279736181325199,
+      "allocated_bytes": 30224384,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11804511,
+      "size": 537239552,
+      "mtime_ns": 1794279942410218544,
+      "allocated_bytes": 537243648,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 11804514,
+      "size": 536985600,
+      "mtime_ns": 1794279984116176569,
+      "allocated_bytes": 536989696,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 11804518,
+      "size": 549523456,
+      "mtime_ns": 1794280018510130446,
+      "allocated_bytes": 549527552,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 11804524,
+      "size": 555368448,
+      "mtime_ns": 1794280033556259719,
+      "allocated_bytes": 555372544,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_4.db3",
+      "device": 2050,
+      "inode": 11804525,
+      "size": 538013696,
+      "mtime_ns": 1794280048723459444,
+      "allocated_bytes": 538017792,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_5.db3",
+      "device": 2050,
+      "inode": 11804517,
+      "size": 556863488,
+      "mtime_ns": 1794280063574631657,
+      "allocated_bytes": 556867584,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_6.db3",
+      "device": 2050,
+      "inode": 11804527,
+      "size": 544591872,
+      "mtime_ns": 1794280079155996790,
+      "allocated_bytes": 544595968,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_7.db3",
+      "device": 2050,
+      "inode": 11804526,
+      "size": 557666304,
+      "mtime_ns": 1794280096382756201,
+      "allocated_bytes": 557670400,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_8.db3",
+      "device": 2050,
+      "inode": 11804528,
+      "size": 554561536,
+      "mtime_ns": 1794280111754141109,
+      "allocated_bytes": 554565632,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_9.db3",
+      "device": 2050,
+      "inode": 11804530,
+      "size": 546037760,
+      "mtime_ns": 1794280127555647075,
+      "allocated_bytes": 546041856,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_10.db3",
+      "device": 2050,
+      "inode": 11804531,
+      "size": 549064704,
+      "mtime_ns": 1794280143336171952,
+      "allocated_bytes": 549068800,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_11.db3",
+      "device": 2050,
+      "inode": 11804529,
+      "size": 550940672,
+      "mtime_ns": 1794280158960682483,
+      "allocated_bytes": 550944768,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_12.db3",
+      "device": 2050,
+      "inode": 11804532,
+      "size": 537149440,
+      "mtime_ns": 1794280175044315007,
+      "allocated_bytes": 537153536,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_13.db3",
+      "device": 2050,
+      "inode": 11804533,
+      "size": 547065856,
+      "mtime_ns": 1794280190353788382,
+      "allocated_bytes": 547069952,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_14.db3",
+      "device": 2050,
+      "inode": 11804534,
+      "size": 544501760,
+      "mtime_ns": 1794280205969345132,
+      "allocated_bytes": 544505856,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_15.db3",
+      "device": 2050,
+      "inode": 11804535,
+      "size": 558665728,
+      "mtime_ns": 1794280222569139708,
+      "allocated_bytes": 558669824,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_16.db3",
+      "device": 2050,
+      "inode": 11804537,
+      "size": 558100480,
+      "mtime_ns": 1794280238959898636,
+      "allocated_bytes": 558104576,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_17.db3",
+      "device": 2050,
+      "inode": 11804538,
+      "size": 539213824,
+      "mtime_ns": 1794280254579490607,
+      "allocated_bytes": 539217920,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_18.db3",
+      "device": 2050,
+      "inode": 11804536,
+      "size": 539254784,
+      "mtime_ns": 1794280270167083707,
+      "allocated_bytes": 539258880,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_19.db3",
+      "device": 2050,
+      "inode": 11804539,
+      "size": 560746496,
+      "mtime_ns": 1794280286776920690,
+      "allocated_bytes": 560750592,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_20.db3",
+      "device": 2050,
+      "inode": 11804542,
+      "size": 537010176,
+      "mtime_ns": 1794280304210956102,
+      "allocated_bytes": 537014272,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_21.db3",
+      "device": 2050,
+      "inode": 11804541,
+      "size": 537964544,
+      "mtime_ns": 1794280321167887990,
+      "allocated_bytes": 537968640,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_22.db3",
+      "device": 2050,
+      "inode": 11804544,
+      "size": 558075904,
+      "mtime_ns": 1794280338060810959,
+      "allocated_bytes": 558080000,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_23.db3",
+      "device": 2050,
+      "inode": 11804540,
+      "size": 546164736,
+      "mtime_ns": 1794280354327593427,
+      "allocated_bytes": 546168832,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_24.db3",
+      "device": 2050,
+      "inode": 11804546,
+      "size": 539619328,
+      "mtime_ns": 1794280369895217285,
+      "allocated_bytes": 539623424,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_25.db3",
+      "device": 2050,
+      "inode": 11804357,
+      "size": 537841664,
+      "mtime_ns": 1794280386976197350,
+      "allocated_bytes": 537845760,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_26.db3",
+      "device": 2050,
+      "inode": 11804411,
+      "size": 537231360,
+      "mtime_ns": 1794280405382490256,
+      "allocated_bytes": 537235456,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_27.db3",
+      "device": 2050,
+      "inode": 11804415,
+      "size": 557711360,
+      "mtime_ns": 1794280422110394868,
+      "allocated_bytes": 557715456,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_28.db3",
+      "device": 2050,
+      "inode": 11804417,
+      "size": 537255936,
+      "mtime_ns": 1794280439886547033,
+      "allocated_bytes": 537260032,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_29.db3",
+      "device": 2050,
+      "inode": 11804416,
+      "size": 537083904,
+      "mtime_ns": 1794280456689474250,
+      "allocated_bytes": 537088000,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_30.db3",
+      "device": 2050,
+      "inode": 11804547,
+      "size": 537919488,
+      "mtime_ns": 1794280473475056833,
+      "allocated_bytes": 537923584,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_31.db3",
+      "device": 2050,
+      "inode": 11804548,
+      "size": 537071616,
+      "mtime_ns": 1794280489543662255,
+      "allocated_bytes": 537075712,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_32.db3",
+      "device": 2050,
+      "inode": 11804418,
+      "size": 537989120,
+      "mtime_ns": 1794280506217920565,
+      "allocated_bytes": 537993216,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_33.db3",
+      "device": 2050,
+      "inode": 11804550,
+      "size": 537419776,
+      "mtime_ns": 1794280523897519454,
+      "allocated_bytes": 537423872,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_34.db3",
+      "device": 2050,
+      "inode": 11804549,
+      "size": 536940544,
+      "mtime_ns": 1794280539228398176,
+      "allocated_bytes": 536944640,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_35.db3",
+      "device": 2050,
+      "inode": 11804552,
+      "size": 539930624,
+      "mtime_ns": 1794280555104609669,
+      "allocated_bytes": 539934720,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_36.db3",
+      "device": 2050,
+      "inode": 11804551,
+      "size": 540946432,
+      "mtime_ns": 1794280570835116965,
+      "allocated_bytes": 540950528,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_37.db3",
+      "device": 2050,
+      "inode": 11804553,
+      "size": 537006080,
+      "mtime_ns": 1794280587053140909,
+      "allocated_bytes": 537010176,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_38.db3",
+      "device": 2050,
+      "inode": 11804555,
+      "size": 561168384,
+      "mtime_ns": 1794280605865785443,
+      "allocated_bytes": 561172480,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_39.db3",
+      "device": 2050,
+      "inode": 11804556,
+      "size": 551743488,
+      "mtime_ns": 1794280624613851765,
+      "allocated_bytes": 551747584,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_40.db3",
+      "device": 2050,
+      "inode": 11804557,
+      "size": 536932352,
+      "mtime_ns": 1794280641595287979,
+      "allocated_bytes": 536936448,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_41.db3",
+      "device": 2050,
+      "inode": 11804558,
+      "size": 540704768,
+      "mtime_ns": 1794280656810653364,
+      "allocated_bytes": 540708864,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_42.db3",
+      "device": 2050,
+      "inode": 11804559,
+      "size": 557953024,
+      "mtime_ns": 1794280673143280651,
+      "allocated_bytes": 557957120,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_43.db3",
+      "device": 2050,
+      "inode": 11804560,
+      "size": 546492416,
+      "mtime_ns": 1794280692804903006,
+      "allocated_bytes": 546496512,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_44.db3",
+      "device": 2050,
+      "inode": 11804554,
+      "size": 537870336,
+      "mtime_ns": 1794280727021995771,
+      "allocated_bytes": 537874432,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_45.db3",
+      "device": 2050,
+      "inode": 11804574,
+      "size": 537251840,
+      "mtime_ns": 1794280780231277164,
+      "allocated_bytes": 537255936,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/navigation_core_bag/navigation_core_bag_46.db3",
+      "device": 2050,
+      "inode": 11804568,
+      "size": 155815936,
+      "mtime_ns": 1794280798473477169,
+      "allocated_bytes": 155815936,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11804750,
+      "size": 1000017920,
+      "mtime_ns": 1794293960900961691,
+      "allocated_bytes": 1000022016,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 11804752,
+      "size": 1000075264,
+      "mtime_ns": 1794294070411911569,
+      "allocated_bytes": 1000079360,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 11804762,
+      "size": 1001091072,
+      "mtime_ns": 1794294196025074926,
+      "allocated_bytes": 1001095168,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 11804763,
+      "size": 1000435712,
+      "mtime_ns": 1794294309323372471,
+      "allocated_bytes": 1000439808,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_14-57-42/navigation_core_bag/navigation_core_bag_4.db3",
+      "device": 2050,
+      "inode": 11804573,
+      "size": 249303040,
+      "mtime_ns": 1794294336707381857,
+      "allocated_bytes": 249307136,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-25-10/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 12582928,
+      "size": 1000751104,
+      "mtime_ns": 1794295608531247637,
+      "allocated_bytes": 1000755200,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-25-10/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 12582947,
+      "size": 838586368,
+      "mtime_ns": 1794295695534116978,
+      "allocated_bytes": 838590464,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-51-41/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 12582960,
+      "size": 1000001536,
+      "mtime_ns": 1794297193601803874,
+      "allocated_bytes": 1000005632,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-51-41/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 12582979,
+      "size": 1000001536,
+      "mtime_ns": 1794297310100262532,
+      "allocated_bytes": 1000005632,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_15-51-41/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 12582980,
+      "size": 344735744,
+      "mtime_ns": 1794297346895307408,
+      "allocated_bytes": 344739840,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-36-32/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 12583743,
+      "size": 1001201664,
+      "mtime_ns": 1794299873941518117,
+      "allocated_bytes": 1001205760,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-36-32/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 12583748,
+      "size": 1001267200,
+      "mtime_ns": 1794299969540519943,
+      "allocated_bytes": 1001271296,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-36-32/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 12583760,
+      "size": 212762624,
+      "mtime_ns": 1794299989187771401,
+      "allocated_bytes": 212762624,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-42-07/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 12583780,
+      "size": 1001234432,
+      "mtime_ns": 1794300218240724395,
+      "allocated_bytes": 1001238528,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-42-07/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 12583793,
+      "size": 1001242624,
+      "mtime_ns": 1794300322141683098,
+      "allocated_bytes": 1001246720,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_16-42-07/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 12583797,
+      "size": 93810688,
+      "mtime_ns": 1794300335878609621,
+      "allocated_bytes": 93810688,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 12588265,
+      "size": 537169920,
+      "mtime_ns": 1794365393170614615,
+      "allocated_bytes": 537174016,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 12588267,
+      "size": 537600000,
+      "mtime_ns": 1794365439774845919,
+      "allocated_bytes": 537604096,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 12588269,
+      "size": 537866240,
+      "mtime_ns": 1794365488072195304,
+      "allocated_bytes": 537870336,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 12588286,
+      "size": 536870912,
+      "mtime_ns": 1794365533760364333,
+      "allocated_bytes": 536875008,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_4.db3",
+      "device": 2050,
+      "inode": 12588287,
+      "size": 538025984,
+      "mtime_ns": 1794365579474535690,
+      "allocated_bytes": 538030080,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_5.db3",
+      "device": 2050,
+      "inode": 12588291,
+      "size": 536915968,
+      "mtime_ns": 1794365623874616340,
+      "allocated_bytes": 536920064,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_6.db3",
+      "device": 2050,
+      "inode": 12588289,
+      "size": 536870912,
+      "mtime_ns": 1794365668238694905,
+      "allocated_bytes": 536875008,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_7.db3",
+      "device": 2050,
+      "inode": 12588292,
+      "size": 537964544,
+      "mtime_ns": 1794365726570743320,
+      "allocated_bytes": 537968640,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_8.db3",
+      "device": 2050,
+      "inode": 12588316,
+      "size": 538193920,
+      "mtime_ns": 1794365787287957892,
+      "allocated_bytes": 538198016,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_10-49-06/navigation_core_bag/navigation_core_bag_9.db3",
+      "device": 2050,
+      "inode": 12588313,
+      "size": 466395136,
+      "mtime_ns": 1794365842664802265,
+      "allocated_bytes": 466395136,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261104_diagnostic_run03/20261104_diagnostic_run03_0.db3",
+      "device": 2050,
+      "inode": 11799755,
+      "size": 211877888,
+      "mtime_ns": 1793783287560180886,
+      "allocated_bytes": 211877888,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261104_diagnostic_run04/20261104_diagnostic_run04_0.db3",
+      "device": 2050,
+      "inode": 11802085,
+      "size": 147783680,
+      "mtime_ns": 1793785646937803418,
+      "allocated_bytes": 147783680,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261104_diagnostic_run05/20261104_diagnostic_run05_0.db3",
+      "device": 2050,
+      "inode": 11802142,
+      "size": 69349376,
+      "mtime_ns": 1793788514678187103,
+      "allocated_bytes": 69353472,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run06/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11799396,
+      "size": 105447424,
+      "mtime_ns": 1793851538245955870,
+      "allocated_bytes": 105451520,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run07/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11809947,
+      "size": 110665728,
+      "mtime_ns": 1793859005701880231,
+      "allocated_bytes": 110669824,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run08/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11809964,
+      "size": 93593600,
+      "mtime_ns": 1793860221427779987,
+      "allocated_bytes": 93597696,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run09/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11810075,
+      "size": 154152960,
+      "mtime_ns": 1793867750097155050,
+      "allocated_bytes": 154157056,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261105_diagnostic_run10/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11810097,
+      "size": 103055360,
+      "mtime_ns": 1793869611638610099,
+      "allocated_bytes": 103059456,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261106_diagnostic_run11/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11810146,
+      "size": 113852416,
+      "mtime_ns": 1793938143302126940,
+      "allocated_bytes": 113856512,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261106_diagnostic_run12/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11810174,
+      "size": 111509504,
+      "mtime_ns": 1793940499213604528,
+      "allocated_bytes": 111509504,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data/charging_dock/20261110_diagnostic_run13/bag/bag_0.db3",
+      "device": 2050,
+      "inode": 11804695,
+      "size": 335060992,
+      "mtime_ns": 1794290825810221139,
+      "allocated_bytes": 335065088,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-49-33/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 11804440,
+      "size": 46870528,
+      "mtime_ns": 1794279084592834173,
+      "allocated_bytes": 46870528,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_1.db3",
+      "device": 2050,
+      "inode": 12588383,
+      "size": 537919488,
+      "mtime_ns": 1794368450829717078,
+      "allocated_bytes": 537923584,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_3.db3",
+      "device": 2050,
+      "inode": 12588390,
+      "size": 336687104,
+      "mtime_ns": 1794368583087122965,
+      "allocated_bytes": 336691200,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_0.db3",
+      "device": 2050,
+      "inode": 12588155,
+      "size": 537116672,
+      "mtime_ns": 1794368341521183529,
+      "allocated_bytes": 537120768,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_2.db3",
+      "device": 2050,
+      "inode": 12588388,
+      "size": 538136576,
+      "mtime_ns": 1794368539140346745,
+      "allocated_bytes": 538140672,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/navigation_raw_bag/navigation_raw_bag_0.db3-shm",
+      "device": 2050,
+      "inode": 11802483,
+      "size": 32768,
+      "mtime_ns": 1794043902968585061,
+      "allocated_bytes": 32768,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/navigation_raw_bag/navigation_raw_bag_0.db3-wal",
+      "device": 2050,
+      "inode": 11802479,
+      "size": 0,
+      "mtime_ns": 1794043902968585061,
+      "allocated_bytes": 0,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/navigation_raw_bag/navigation_raw_bag_0.db3-shm",
+      "device": 2050,
+      "inode": 11802485,
+      "size": 32768,
+      "mtime_ns": 1794043903945636403,
+      "allocated_bytes": 32768,
+      "nlink": 1
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/navigation_raw_bag/navigation_raw_bag_0.db3-wal",
+      "device": 2050,
+      "inode": 11802482,
+      "size": 0,
+      "mtime_ns": 1794043903945636403,
+      "allocated_bytes": 0,
+      "nlink": 1
+    }
+  ],
+  "deleted_paths": [
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01/rosbag2_2025_11_26-01_20_01_0.db3",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20/rosbag2_2025_11_28-04_11_20_0.db3",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01/rosbag2_2026_04_22-17_17_01_0.db3",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22/rosbag2_2026_04_22-19_10_22_0.db3",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20/rosbag2_2026_04_22-19_12_20_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624/baseline_post_tf_20260821_1624_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821/baseline_pre_tf_20260821_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01/d2p50_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02/d2p50_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03/d2p50_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01/d2p50_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02/d2p50_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03/d2p50_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01/d0p50_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02/d0p50_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03/d0p50_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01/d0p75_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02/d0p75_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03/d0p75_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04/d0p75_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05/d0p75_ap00_r05_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06/d0p75_ap00_r06_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07/d0p75_ap00_r07_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01/d1p00_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02/d1p00_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03/d1p00_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04/d1p00_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05/d1p00_ap00_r05_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01/d1p50_am15_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02/d1p50_am15_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03/d1p50_am15_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01/d1p50_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02/d1p50_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03/d1p50_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04/d1p50_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01/d1p50_ap15_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02/d1p50_ap15_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03/d1p50_ap15_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04/d1p50_ap15_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05/d1p50_ap15_r05_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06/d1p50_ap15_r06_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07/d1p50_ap15_r07_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08/d1p50_ap15_r08_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09/d1p50_ap15_r09_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01/d2p00_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02/d2p00_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03/d2p00_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04/d2p00_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05/d2p00_ap00_r05_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01/d2p50_am05_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02/d2p50_am05_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03/d2p50_am05_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01/d2p50_am10_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02/d2p50_am10_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03/d2p50_am10_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01/d2p50_am15_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02/d2p50_am15_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03/d2p50_am15_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04/d2p50_am15_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01/d2p50_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02/d2p50_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03/d2p50_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04/d2p50_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01/d2p50_ap05_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02/d2p50_ap05_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03/d2p50_ap05_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01/d2p50_ap10_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02/d2p50_ap10_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03/d2p50_ap10_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01/d2p50_ap15_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02/d2p50_ap15_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03/d2p50_ap15_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04/d2p50_ap15_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01/d0p45_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02/d0p45_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03/d0p45_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04/d0p45_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05/d0p45_ap00_r05_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01/d0p47_ap00_r01_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02/d0p47_ap00_r02_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03/d0p47_ap00_r03_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04/d0p47_ap00_r04_0.db3",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04/metadata.yaml",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/data/gps_data.bag"
+  ],
+  "removed_directories": [
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/pilot_2p50_ap00_20260824/d2p50_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p50_ap00_20260827/d0p50_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r05",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r06",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d0p75_ap00_20260827/d0p75_ap00_r07",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p00_ap00_20260827/d1p00_ap00_r05",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_am15_20260827/d1p50_am15_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap00_20260825/d1p50_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r05",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r06",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r07",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r08",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d1p50_ap15_20260827/d1p50_ap15_r09",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p00_ap00_20260825/d2p00_ap00_r05",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am05_20260824/d2p50_am05_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am10_20260824/d2p50_am10_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_am15_20260824/d2p50_am15_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap00_20260824/d2p50_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap05_20260824/d2p50_ap05_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap10_20260824/d2p50_ap10_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/right_structure_d2p50_ap15_20260824/d2p50_ap15_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p45_ap00_20260827/d0p45_ap00_r05",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/window_v2/right_structure_d0p47_ap00_20260827/d0p47_ap00_r04",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r01",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r02",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/minimal_63/d2p50_ap00_r03",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_post_tf_20260821_1624",
+    "/home/akun/workspace/Car_jetson/test_data/docking_stage1/baseline_pre_tf_20260821",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_26-01_20_01",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2025_11_28-04_11_20",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-17_17_01",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_10_22",
+    "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20"
+  ],
+  "status": "completed",
+  "finished_at": "2026-11-11T12:23:07.443397+08:00",
+  "verification": {
+    "remaining_old_recordings": [],
+    "retained_ros2_sets_with_metadata": 26,
+    "retained_data_files": 208,
+    "retained_metadata_only_snapshots": 8,
+    "protected_files_missing": [],
+    "protected_files_changed_during_cleanup": [],
+    "retained_segments_without_metadata": [
+      {
+        "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_10-49-33/navigation_core_bag/navigation_core_bag_0.db3",
+        "indexed_read_error": "database disk image is malformed",
+        "table_read_error": "database disk image is malformed",
+        "decision": "retained: November run directory, data could not be verified completely"
+      },
+      {
+        "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_1.db3",
+        "first_ns": 1794368341524723277,
+        "last_ns": 1794368450830237183,
+        "first_before_cutoff": false
+      },
+      {
+        "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_3.db3",
+        "first_ns": 1794368539141380310,
+        "last_ns": 1794368583088341283,
+        "first_before_cutoff": false
+      },
+      {
+        "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_0.db3",
+        "first_ns": 1794368277426300893,
+        "last_ns": 1794368341521140156,
+        "first_before_cutoff": false
+      },
+      {
+        "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_11-37-57/navigation_core_bag/navigation_core_bag_2.db3",
+        "first_ns": 1794368450834522848,
+        "last_ns": 1794368539140385347,
+        "first_before_cutoff": false
+      }
+    ]
+  },
+  "directory_usage": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/URDF_ws",
+      "allocated_bytes": 247902208
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/log",
+      "allocated_bytes": 4866048
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/build",
+      "allocated_bytes": 151552
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/simulation_ws",
+      "allocated_bytes": 6787072
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/install",
+      "allocated_bytes": 212992
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring",
+      "allocated_bytes": 102500343808
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_tools",
+      "allocated_bytes": 90112
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/real_ws",
+      "allocated_bytes": 122339328
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/utils",
+      "allocated_bytes": 407379968
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/thermal_testing",
+      "allocated_bytes": 69820416
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/.vscode",
+      "allocated_bytes": 8192
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/cache",
+      "allocated_bytes": 241664
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/traficclight",
+      "allocated_bytes": 109027328
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/ops",
+      "allocated_bytes": 16384
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/.pytest_cache",
+      "allocated_bytes": 65536
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam",
+      "allocated_bytes": 5552295936
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/.codex",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/.agents",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/nav2",
+      "allocated_bytes": 606240768
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/.git",
+      "allocated_bytes": 270385152
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/__pycache__",
+      "allocated_bytes": 36864
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/test_data",
+      "allocated_bytes": 2167554048
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag",
+      "allocated_bytes": 4096
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/multi_map_navigation",
+      "allocated_bytes": 3213078528
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson",
+      "allocated_bytes": 115280711680
+    }
+  ],
+  "project_bytes_after": 115280723968,
+  "measured_at": "2026-11-11T12:23:54.802019+08:00"
+}

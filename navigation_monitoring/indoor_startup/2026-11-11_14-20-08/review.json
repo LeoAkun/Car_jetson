@@ -1,0 +1,406 @@
+{
+  "generated": "2026-11-11T14:25:28.624746+08:00",
+  "run_directory": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_14-20-08",
+  "scope": {
+    "read_only_log_review": true,
+    "new_ros_subscriptions": false,
+    "goals_or_controls_sent": false,
+    "process_start_or_stop": false,
+    "production_changes": false,
+    "new_report_files_only": true,
+    "physical_motion_inference": "excluded; no stationary or drift conclusion is made"
+  },
+  "program_result": {
+    "passed": true,
+    "error": null,
+    "started": "2026-11-11T14:20:08.432811+08:00",
+    "ended": "2026-11-11T14:23:54.658909+08:00",
+    "finished_cleanup": "2026-11-11T14:24:03.730060+08:00",
+    "duration_sec": 226.22610502299995
+  },
+  "startup": {
+    "lio_ready_after_phase_start_sec": 8.067721,
+    "nav2_all_active_after_phase_start_sec": 16.019909,
+    "conditions": [
+      {
+        "time": "2026-11-11T14:20:38.632595+08:00",
+        "event": "condition_met",
+        "phase": "lio_start",
+        "description": "real LIO ready and odom->base_link fresh"
+      },
+      {
+        "time": "2026-11-11T14:20:54.652627+08:00",
+        "event": "condition_met",
+        "phase": "nav2_start",
+        "description": "all eight Nav2 lifecycle nodes active"
+      }
+    ],
+    "hold_started": "2026-11-11T14:20:54.652761+08:00"
+  },
+  "hold": {
+    "duration_sec": 180.00615982899944,
+    "observations": 179,
+    "lifecycle_nodes": [
+      "map_server",
+      "controller_server",
+      "smoother_server",
+      "planner_server",
+      "behavior_server",
+      "bt_navigator",
+      "waypoint_follower",
+      "velocity_smoother"
+    ],
+    "nonactive_samples": [],
+    "stale_query_samples": [],
+    "ready_false_samples": [],
+    "ready_to_not_ready_count": 0,
+    "tf_unfresh_samples": [],
+    "max_observed_topic_arrival_age_sec": {
+      "/imu": 0.010468089999449148,
+      "/rslidar_Pointcloud2": 0.3547024389999933,
+      "/lio_sam/mapping/odometry": 2.532761216999461,
+      "/odom": 0.019604140000410553,
+      "/global_costmap/costmap": 1.1928777220000484,
+      "/local_costmap/costmap": 0.09864127800028655
+    }
+  },
+  "imu": {
+    "raw_samples": 22343,
+    "cumulative": {
+      "count": 22344,
+      "arrival_hz": 100.02195772059378,
+      "last_arrival_age_sec": 0.0020471629995881813,
+      "last_header_stamp_ns": 1794378235024754606,
+      "last_header_age_sec": -0.365833955,
+      "counters": {
+        "quaternion_nonfinite_count": 0,
+        "quaternion_norm_nonfinite_count": 0,
+        "quaternion_zero_norm_count": 0,
+        "quaternion_norm_outside_0_9_to_1_1_count": 2,
+        "acceleration_nonfinite_count": 0,
+        "angular_velocity_nonfinite_count": 0
+      },
+      "latest": {
+        "quaternion_norm": 1.0000000410928203,
+        "acceleration_norm": 9.811129833131828,
+        "angular_velocity_norm": 0.002411418534907637,
+        "orientation_declared_unavailable": false,
+        "frame_id": "imu_link"
+      },
+      "arrival_intervals": {
+        "count": 22343,
+        "sum_sec": 223.38095063499986,
+        "min_sec": 0.0005601849998129182,
+        "max_sec": 0.023078835999513103,
+        "nonpositive_count": 0,
+        "gap_count": 0,
+        "last_gap_sec": null,
+        "mean_sec": 0.009997804709976273
+      },
+      "header_intervals": {
+        "count": 22343,
+        "sum_sec": 223.74999999994301,
+        "min_sec": 0.009916,
+        "max_sec": 0.33,
+        "nonpositive_count": 0,
+        "gap_count": 1,
+        "last_gap_sec": 0.33,
+        "mean_sec": 0.010014322159062929
+      },
+      "interval_arrival_hz": 0.0,
+      "publisher_count": 1
+    },
+    "hold": {
+      "count": 18001,
+      "arrival_hz": 100.00130253307674,
+      "last_arrival_age_sec": 0.0020471629995881813,
+      "last_header_stamp_ns": 1794378235024754606,
+      "last_header_age_sec": -0.365833955,
+      "counters": {
+        "quaternion_nonfinite_count": 0,
+        "quaternion_norm_nonfinite_count": 0,
+        "quaternion_zero_norm_count": 0,
+        "quaternion_norm_outside_0_9_to_1_1_count": 0,
+        "acceleration_nonfinite_count": 0,
+        "angular_velocity_nonfinite_count": 0
+      },
+      "latest": {
+        "quaternion_norm": 1.0000000410928203,
+        "acceleration_norm": 9.811129833131828,
+        "angular_velocity_norm": 0.002411418534907637,
+        "orientation_declared_unavailable": false,
+        "frame_id": "imu_link"
+      },
+      "arrival_intervals": {
+        "count": 18001,
+        "sum_sec": 180.00805692599988,
+        "min_sec": 0.00434571000005235,
+        "max_sec": 0.015223120999507955,
+        "nonpositive_count": 0,
+        "gap_count": 0,
+        "last_gap_sec": null,
+        "mean_sec": 0.009999892057441246
+      },
+      "header_intervals": {
+        "count": 18001,
+        "sum_sec": 180.00999999998191,
+        "min_sec": 0.009916,
+        "max_sec": 0.010045,
+        "nonpositive_count": 0,
+        "gap_count": 0,
+        "last_gap_sec": null,
+        "mean_sec": 0.009999999999998996
+      }
+    },
+    "invalid_startup_orientations": [
+      {
+        "line": 1,
+        "phase": "sensor_baseline",
+        "received_time": "2026-11-11T14:20:11.276424+08:00",
+        "q": [
+          -6.673866032852771e+36,
+          4.0865643375356956e+20,
+          4.0865643375356956e+20,
+          -4.0865643375356956e+20
+        ],
+        "norm": 6.673866032852771e+36,
+        "near_zero_norm": false
+      },
+      {
+        "line": 6,
+        "phase": "sensor_baseline",
+        "received_time": "2026-11-11T14:20:11.283597+08:00",
+        "q": [
+          -1.6019192412748746,
+          -1529506.5230807588,
+          -2.6161326552252416e+16,
+          -1.6019192410895737
+        ],
+        "norm": 2.6161326552252416e+16,
+        "near_zero_norm": false
+      }
+    ],
+    "timestamp_anomalies": [
+      {
+        "line": 6,
+        "phase": "sensor_baseline",
+        "header_delta_sec": 0.33,
+        "arrival_delta_sec": 0.001334101,
+        "received_time": "2026-11-11T14:20:11.283597+08:00"
+      }
+    ],
+    "hold_header_age_sec": {
+      "min": -0.367400135,
+      "max": -0.356741949,
+      "median": -0.365260436
+    },
+    "interpretation": "Startup orientation/CRC/timestamp anomalies are recorded separately from the healthy hold period. Header jumps had no matching reception pause."
+  },
+  "idle_action_observations": {
+    "/indoor_startup/cmd_vel": {
+      "count": 0,
+      "counters": {}
+    },
+    "/indoor_startup/cmd_vel_nav": {
+      "count": 0,
+      "counters": {}
+    },
+    "/indoor_startup/cmd_vel_smoothed": {
+      "count": 0,
+      "counters": {}
+    },
+    "/navigate_to_pose/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/navigate_through_poses/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/follow_waypoints/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/follow_path/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/spin/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/backup/_action/status": {
+      "count": 0,
+      "counters": {}
+    },
+    "/drive_on_heading/_action/status": {
+      "count": 0,
+      "counters": {}
+    }
+  },
+  "logs": {
+    "imu.log": {
+      "line_count": 5,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [
+        {
+          "line": 3,
+          "text": "[WARN] [1794378011.278286235] [ahrs_bringup]: check crc16 failed (ahrs), total_crc_errors=1"
+        }
+      ],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 2
+    },
+    "lidar.log": {
+      "line_count": 70,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    },
+    "lidar_converter.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    },
+    "lio_featureExtraction.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    },
+    "lio_imageProjection.log": {
+      "line_count": 6,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    },
+    "lio_imuPreintegration.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    },
+    "lio_mapOptimization.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    },
+    "nav2.log": {
+      "line_count": 504,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [
+        {
+          "line": 148,
+          "text": "[component_container_isolated-1] [INFO] [1794378039.571959735] [controller_server]: Optimizer reset"
+        },
+        {
+          "line": 199,
+          "text": "[component_container_isolated-1] [INFO] [1794378052.653131078] [controller_server]: Optimizer reset"
+        }
+      ],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 178,
+      "runtime_warning_count": 180
+    },
+    "pointcloud_scan.log": {
+      "line_count": 2,
+      "runtime_error_fatal": [],
+      "runtime_heartbeat_failures": [],
+      "reset_or_gtsam_lines": [],
+      "crc_failures": [],
+      "known_zero_valid_point_warning_count": 0,
+      "runtime_warning_count": 0
+    }
+  },
+  "cleanup": {
+    "program": [
+      {
+        "label": "nav2",
+        "pid": 13409,
+        "returncode": -15
+      },
+      {
+        "label": "lio_mapOptimization",
+        "pid": 13270,
+        "returncode": 0
+      },
+      {
+        "label": "lio_featureExtraction",
+        "pid": 13269,
+        "returncode": 0
+      },
+      {
+        "label": "lio_imageProjection",
+        "pid": 13268,
+        "returncode": 0
+      },
+      {
+        "label": "lio_imuPreintegration",
+        "pid": 13267,
+        "returncode": 0
+      },
+      {
+        "label": "pointcloud_scan",
+        "pid": 13204,
+        "returncode": 0
+      },
+      {
+        "label": "lidar_converter",
+        "pid": 13203,
+        "returncode": 0
+      },
+      {
+        "label": "lidar",
+        "pid": 13202,
+        "returncode": 0
+      },
+      {
+        "label": "imu",
+        "pid": 13201,
+        "returncode": 0
+      }
+    ],
+    "independent_process_group_check_time": "2026-11-11T14:25:28.625461+08:00",
+    "test_owned_groups": {
+      "13201": "imu",
+      "13202": "lidar",
+      "13203": "lidar_converter",
+      "13204": "pointcloud_scan",
+      "13267": "lio_imuPreintegration",
+      "13268": "lio_imageProjection",
+      "13269": "lio_featureExtraction",
+      "13270": "lio_mapOptimization",
+      "13409": "nav2"
+    },
+    "remaining_members": []
+  },
+  "limitations": [
+    "Lifecycle and TF freshness are sampled at approximately 1 Hz.",
+    "No new ROS subscription was created for this review; it only reads existing recordings.",
+    "The pre-existing zero-valid-point warning is generated by a total_points counter that is never incremented; it cannot establish obstacle-chain loss.",
+    "No physical-motion or localization-drift conclusion is made."
+  ]
+}

@@ -7,6 +7,11 @@
   <maintainer email="2370344139@qq.com">akun</maintainer>
   <license>TODO: License declaration</license>
 
+  <exec_depend>realsense2_camera</exec_depend>
+  <exec_depend>ground</exec_depend>
+  <exec_depend>charging_dock</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

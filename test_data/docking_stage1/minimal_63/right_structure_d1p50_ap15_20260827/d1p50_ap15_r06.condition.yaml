@@ -1,0 +1,25 @@
+condition_name: d1p50_ap15_r06
+recorded_at: '2026-08-27T16:25:51.780542+08:00'
+operator: akun
+distance_m: 1.5
+expected_range_m: 1.39
+dock_angle_deg: 15
+lateral_offset_m: 0.0
+roi_center_deg: 65.5
+roi_min_deg: 56.0
+roi_max_deg: 75.0
+duration_sec: 15.0
+repeat: 6
+scan_topic: /laser/scan_back
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: right-side dock plane; positive 15deg approximate; replacement repeat 6; exclude
+  adjacent 1.16m structure

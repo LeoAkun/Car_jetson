@@ -1,0 +1,64 @@
+{
+  "topics": {
+    "/odom": {
+      "samples": 0,
+      "duration_sec": null,
+      "speed_mps_max": null,
+      "speed_mps_mean": null,
+      "speed_mps_p95": null,
+      "speed_mps_p99": null,
+      "step_m_max": null,
+      "step_m_p99": null,
+      "net_displacement_m": null,
+      "stamp_gap_over_0_2": 0
+    },
+    "/odom_incremental": {
+      "samples": 0,
+      "duration_sec": null,
+      "speed_mps_max": null,
+      "speed_mps_mean": null,
+      "speed_mps_p95": null,
+      "speed_mps_p99": null,
+      "step_m_max": null,
+      "step_m_p99": null,
+      "net_displacement_m": null,
+      "stamp_gap_over_0_2": 0
+    },
+    "/lio_sam/mapping/odometry": {
+      "samples": 284,
+      "duration_sec": 118.4008309841156,
+      "speed_mps_max": 0.0,
+      "speed_mps_mean": 0.0,
+      "speed_mps_p95": 0.0,
+      "speed_mps_p99": 0.0,
+      "step_m_max": 64.19158754007033,
+      "step_m_p99": 19.58952214774007,
+      "net_displacement_m": 55.23073924361034,
+      "stamp_gap_over_0_2": 162
+    },
+    "/lio_sam/mapping/odometry_incremental": {
+      "samples": 284,
+      "duration_sec": 118.4008309841156,
+      "speed_mps_max": 0.0,
+      "speed_mps_mean": 0.0,
+      "speed_mps_p95": 0.0,
+      "speed_mps_p99": 0.0,
+      "step_m_max": 110.13228685108342,
+      "step_m_p99": 98.0231660306703,
+      "net_displacement_m": 8881.06833356187,
+      "stamp_gap_over_0_2": 162
+    }
+  },
+  "zero_velocity_updates": {
+    "log_count": 0,
+    "speed_kmh": [],
+    "velocity_before_mps": [],
+    "velocity_after_mps": [],
+    "accel_bias_norm": []
+  },
+  "log_markers": {
+    "fatal_count": 1,
+    "failure_detection_count": 0,
+    "correction_requires_relocalization_count": 0
+  }
+}

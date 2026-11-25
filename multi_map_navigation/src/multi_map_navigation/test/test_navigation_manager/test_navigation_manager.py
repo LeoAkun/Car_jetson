@@ -24,9 +24,14 @@ from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.action import ActionServer
 
-from std_msgs.msg import Bool, String
+from std_msgs.msg import String
 from nav2_msgs.action import NavigateToPose
-from multi_map_navigation_msgs.msg import WaypointList, Waypoint, MapSwitchTrigger
+from multi_map_navigation_msgs.msg import (
+    MapSwitchResult,
+    MapSwitchTrigger,
+    Waypoint,
+    WaypointList,
+)
 from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess
 
 
@@ -117,7 +122,8 @@ class MockMapSwitchController(Node):
             self.on_trigger,
             10
         )
-        self.pub = self.create_publisher(Bool, '/map_switch_complete', 10)
+        self.pub = self.create_publisher(
+            MapSwitchResult, '/map_switch_complete', 10)
         self.get_logger().info('MockMapSwitchController 就绪')
 
     def on_trigger(self, msg):
@@ -126,8 +132,9 @@ class MockMapSwitchController(Node):
 
         def delayed_complete():
             time.sleep(self.delay_sec)
-            result = Bool()
-            result.data = True
+            result = MapSwitchResult()
+            result.transaction_id = msg.transaction_id
+            result.success = True
             self.pub.publish(result)
             self.get_logger().info('已发布地图切换完成')
 

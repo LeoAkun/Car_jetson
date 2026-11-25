@@ -1,0 +1,49 @@
+{
+  "red_circle": {
+    "x": -132.48412289577772,
+    "y": 169.49676124338635,
+    "center_value_and_clearance": [
+      254,
+      0.1
+    ]
+  },
+  "start": {
+    "x": -132.53229444356907,
+    "y": 166.6298488666144,
+    "yaw_deg": 43.19996686159836,
+    "center_value_and_clearance": [
+      254,
+      0.41231056256176607
+    ],
+    "footprint_occupied_samples": 13
+  },
+  "end": {
+    "x": -133.21326734544806,
+    "y": 165.99144550575937,
+    "yaw_deg": 42.204805910010535,
+    "center_value_and_clearance": [
+      0,
+      0.0
+    ],
+    "footprint_occupied_samples": 709
+  },
+  "furthest_backup": {
+    "x": -133.3160525400105,
+    "y": 165.89976776579252,
+    "center_value_and_clearance": [
+      0,
+      0.0
+    ],
+    "footprint_occupied_samples": 745
+  },
+  "distance_red_to_start_m": 2.8673170515492012,
+  "goal": [
+    -114.0,
+    297.0
+  ],
+  "nearest_catalog_waypoint_48": [
+    -113.0,
+    189.0
+  ],
+  "distance_red_to_waypoint_48_m": 27.568231118721535
+}

@@ -1,0 +1,14 @@
+{
+  "time": "2026-11-09T14:33:18.992259+08:00",
+  "map": "3b2mus",
+  "route": [
+    113,
+    106,
+    107
+  ],
+  "speed_target_limit_kmh": 2,
+  "operator_command": "开始",
+  "sensor_precheck": false,
+  "monitor_mode": "passive; operator handles braking",
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7"
+}

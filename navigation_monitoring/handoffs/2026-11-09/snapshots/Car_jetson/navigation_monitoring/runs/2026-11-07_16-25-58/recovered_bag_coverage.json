@@ -1,0 +1,60 @@
+[
+  {
+    "file": "navigation_raw_bag_0.db3",
+    "first_message_beijing": "2026-11-07T16:25:58.433490+08:00",
+    "last_message_beijing": "2026-11-07T16:28:30.623728+08:00",
+    "message_count": 82418,
+    "quick_check": "ok",
+    "topic_counts": {
+      "/rosout": 715,
+      "/cmd_vel": 1722,
+      "/tf_static": 9,
+      "/robot_state": 6,
+      "/robot_status": 50,
+      "/waypoint_list": 1,
+      "/imu": 15040,
+      "/laser/scan_front": 4479,
+      "/vehicle_status": 15092,
+      "/laser/scan_back": 4495,
+      "/laser/scan_merge_laser": 4467,
+      "/ecu": 3004,
+      "/tf": 12833,
+      "/lio_sam/mapping/odometry": 306,
+      "/odom": 11354,
+      "/lio_sam/mapping/odometry_incremental": 306,
+      "/local_costmap/published_footprint": 1991,
+      "/local_costmap/costmap_raw": 1232,
+      "/cmd_vel_nav": 946,
+      "/plan": 77,
+      "/navigate_to_pose/_action/feedback": 4290,
+      "/navigate_to_pose/_action/status": 3
+    }
+  },
+  {
+    "file": "navigation_raw_bag_1.db3",
+    "first_message_beijing": "2026-11-07T16:28:30.626111+08:00",
+    "last_message_beijing": "2026-11-07T16:29:08.884146+08:00",
+    "message_count": 24782,
+    "quick_check": "ok",
+    "topic_counts": {
+      "/navigate_to_pose/_action/feedback": 1913,
+      "/plan": 35,
+      "/local_costmap/costmap_raw": 479,
+      "/odom": 3825,
+      "/lio_sam/mapping/odometry": 124,
+      "/ecu": 765,
+      "/laser/scan_merge_laser": 1136,
+      "/cmd_vel_nav": 422,
+      "/lio_sam/mapping/odometry_incremental": 124,
+      "/rosout": 159,
+      "/local_costmap/published_footprint": 765,
+      "/imu": 3826,
+      "/tf": 4331,
+      "/laser/scan_front": 1136,
+      "/cmd_vel": 765,
+      "/laser/scan_back": 1140,
+      "/robot_status": 13,
+      "/vehicle_status": 3824
+    }
+  }
+]

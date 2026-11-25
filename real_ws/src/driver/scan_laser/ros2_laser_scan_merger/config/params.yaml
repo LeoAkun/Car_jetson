@@ -1,7 +1,9 @@
 /ros2_laser_scan_merger:
   ros__parameters:
-    flip1: true
-    flip2: true
+    # The Lakibeam drivers already publish both scans with inverted=true.
+    # Reversing the ranges again here mirrors road-side geometry into the path.
+    flip1: false
+    flip2: false
     inverse1: true
     inverse2: true
     laser1Alpha: 45.0
@@ -10,19 +12,32 @@
     laser1B: 0
     laser1G: 0
     laser1R: 255
-    laser1XOff: 0.44
+    laser1XOff: 0.43
     laser1YOff: 0.28
-    laser1ZOff: -0.06
+    # laser_link is 0.60 m above base_link; the sensor is at 0.15 m.
+    laser1ZOff: -0.45
+    # Candidate mask applies only to the filtered output. Angles are raw laser1 degrees;
+    # ranges and transformed laser_link coordinates are in metres.
+    laser1MaskEnabled: true
+    laser1MaskAngleMin: 132.0
+    laser1MaskAngleMax: 135.0
+    laser1MaskRangeMin: 0.60
+    laser1MaskRangeMax: 0.83
+    laser1MaskXMin: -0.40
+    laser1MaskXMax: -0.18
+    laser1MaskYMin: 0.28
+    laser1MaskYMax: 0.33
     laser2Alpha: 225.0
     laser2AngleMax: 0.0
     laser2AngleMin: 0.0
     laser2B: 255
     laser2G: 0
     laser2R: 0
-    laser2XOff: -0.44
+    laser2XOff: -0.43
     laser2YOff: -0.28
-    laser2ZOff: -0.06
+    laser2ZOff: -0.45
     pointCloudTopic: /laser/scan_merge
+    filteredPointCloudTopic: /laser/scan_merge_filtered
     pointCloutFrameId: laser_link
     qos_overrides./parameter_events.publisher.depth: 1000
     # qos_overrides./parameter_events.publisher.durability: volatile
@@ -54,7 +69,29 @@
     queue_size: 100
     range_max: 10.0
     range_min: 0.35
-    scan_time: 0.3333
+    scan_time: 0.0333333333
+    target_frame: laser_link
+    transform_tolerance: 2.0
+    use_inf: true
+    use_sim_time: false
+
+/pointcloud_to_laserscan_filtered:
+  ros__parameters:
+    angle_increment: 0.0087
+    angle_max: 3.14
+    angle_min: -3.14
+    inf_epsilon: 1.0
+    max_height: 10.0
+    min_height: -10.0
+    qos_overrides:
+      /parameter_events:
+        publisher:
+          depth: 1000
+          reliability: best_effort
+    queue_size: 100
+    range_max: 10.0
+    range_min: 0.35
+    scan_time: 0.0333333333
     target_frame: laser_link
     transform_tolerance: 2.0
     use_inf: true

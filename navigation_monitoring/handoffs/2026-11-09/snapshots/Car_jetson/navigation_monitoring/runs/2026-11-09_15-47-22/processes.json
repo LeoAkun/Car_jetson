@@ -1,0 +1,77 @@
+{
+  "bag_record": {
+    "pid": 22671,
+    "pgid": 22671,
+    "command": [
+      "ros2",
+      "bag",
+      "record",
+      "-o",
+      "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag",
+      "--max-bag-size",
+      "536870912",
+      "/tf",
+      "/tf_static",
+      "/imu",
+      "/laser/scan_front",
+      "/laser/scan_back",
+      "/laser/scan_merge_laser",
+      "/cmd_vel",
+      "/cmd_vel_nav",
+      "/ecu",
+      "/vehicle_status",
+      "/odom",
+      "/odom_incremental",
+      "/lio_sam/mapping/odometry",
+      "/lio_sam/mapping/odometry_incremental",
+      "/odometry/filtered_local",
+      "/sensing/gnss/pose_with_covariance",
+      "/plan",
+      "/navigate_to_pose/_action/feedback",
+      "/navigate_to_pose/_action/status",
+      "/robot_state",
+      "/robot_status",
+      "/waypoint_list",
+      "/start_end_graph",
+      "/process_manager/fault",
+      "/global_costmap/costmap_raw",
+      "/local_costmap/costmap_raw",
+      "/rosout",
+      "/rslidar_Pointcloud2",
+      "/map"
+    ],
+    "started_at": "2026-11-09T15:47:22.853139+08:00"
+  },
+  "monitor": {
+    "pid": 22672,
+    "pgid": 22672,
+    "command": [
+      "python3",
+      "/home/akun/workspace/Car_jetson/navigation_monitoring/nav_task_monitor.py",
+      "--output",
+      "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/monitor.raw.jsonl"
+    ],
+    "started_at": "2026-11-09T15:47:22.853479+08:00"
+  },
+  "real_drivers": {
+    "pid": 22673,
+    "pgid": 22673,
+    "command": [
+      "ros2",
+      "launch",
+      "launch_real",
+      "run.launch.py"
+    ],
+    "started_at": "2026-11-09T15:47:22.853893+08:00"
+  },
+  "management_stack": {
+    "pid": 22674,
+    "pgid": 22674,
+    "command": [
+      "ros2",
+      "launch",
+      "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/management_reuse_reporter.launch.py"
+    ],
+    "started_at": "2026-11-09T15:47:22.854265+08:00"
+  }
+}

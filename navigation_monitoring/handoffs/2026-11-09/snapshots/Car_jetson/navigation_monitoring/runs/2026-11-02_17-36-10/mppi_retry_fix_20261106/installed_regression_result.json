@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "label": "first-fail then success completes a cycle",
+      "passed": true
+    },
+    {
+      "label": "real CriticManager invokes failing critic again on retry",
+      "passed": true
+    },
+    {
+      "label": "remaining critic runs on successful retry only",
+      "passed": true
+    },
+    {
+      "label": "only the scripted initial failure occurred",
+      "passed": true
+    },
+    {
+      "label": "retry invalidates path and furthest-point caches",
+      "passed": true
+    },
+    {
+      "label": "successful retry has clear flag and finite controls",
+      "passed": true
+    },
+    {
+      "label": "persistent failure still throws at retry limit two",
+      "passed": true
+    },
+    {
+      "label": "persistent failure actually scores initial plus two retries",
+      "passed": true
+    },
+    {
+      "label": "CriticManager stops immediately after each failure",
+      "passed": true
+    },
+    {
+      "label": "new cycle after exhausted retries has fresh budget",
+      "passed": true
+    },
+    {
+      "label": "iteration_count three stops scoring after first failure",
+      "passed": true
+    },
+    {
+      "label": "failed iteration exits optimize before generating another candidate batch",
+      "passed": true
+    },
+    {
+      "label": "failed scoring does not update the selected control sequence",
+      "passed": true
+    },
+    {
+      "label": "failed batch schedules its one allowed retry",
+      "passed": true
+    },
+    {
+      "label": "fallback reset clears failure and stale caches",
+      "passed": true
+    },
+    {
+      "label": "fallback preserves current dynamic speed limits",
+      "passed": true
+    },
+    {
+      "label": "retry retains pose speed plan model checker and CriticData references",
+      "passed": true
+    },
+    {
+      "label": "retry with three iterations really executes all successful critics",
+      "passed": true
+    },
+    {
+      "label": "successful retry exits fallback loop",
+      "passed": true
+    },
+    {
+      "label": "two optimizer cycles have independent retry budgets",
+      "passed": true
+    },
+    {
+      "label": "both interleaved cycles rescore after initial failure",
+      "passed": true
+    },
+    {
+      "label": "new cycle does not inherit an abandoned cycle retry count",
+      "passed": true
+    },
+    {
+      "label": "zero retry limit never schedules another batch",
+      "passed": true
+    }
+  ],
+  "total": 23,
+  "passed": 23,
+  "failed": 0
+}

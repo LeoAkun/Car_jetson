@@ -1,0 +1,8 @@
+observer /home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-02-27_manual_publish_monitor/detail_observer.jsonl
+window_ros_epoch 1794627735 1794627855
+plan_count 60 first_line 13289 last_line 14141
+plans_before_first_lethal 59
+plans_after_first_lethal 1
+odom_count 560 first_line 13218 last_line 14379
+plan_csv /home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-14_costmap_failures/task_1794627698_11-41_audit/plan_records.csv
+odom_csv /home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-14_costmap_failures/task_1794627698_11-41_audit/odom_records.csv

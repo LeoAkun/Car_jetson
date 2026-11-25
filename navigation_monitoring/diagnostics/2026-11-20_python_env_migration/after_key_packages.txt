@@ -1,0 +1,22 @@
+WARNING: Package(s) not found: opencv-python
+Name: numpy
+Version: 1.21.5
+Summary: NumPy is the fundamental package for array computing with Python.
+Home-page: https://www.numpy.org
+Author: Travis E. Oliphant et al.
+Author-email: 
+License: BSD
+Location: /usr/lib/python3/dist-packages
+Requires: 
+Required-by: shapely
+---
+Name: paho-mqtt
+Version: 1.6.1
+Summary: MQTT version 5.0/3.1.1 client class
+Home-page: http://eclipse.org/paho
+Author: Roger Light
+Author-email: roger@atchoo.org
+License: Eclipse Public License v2.0 / Eclipse Distribution License v1.0
+Location: /home/akun/.local/lib/python3.10/site-packages
+Requires: 
+Required-by: 

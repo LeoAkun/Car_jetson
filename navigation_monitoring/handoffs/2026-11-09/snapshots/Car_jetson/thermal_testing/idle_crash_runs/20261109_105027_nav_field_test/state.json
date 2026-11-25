@@ -1,0 +1,14 @@
+{
+  "status": "RUNNING",
+  "started_at": "2026-11-09T10:50:27+08:00",
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7",
+  "duration_s": 86400,
+  "interval_s": 1.0,
+  "label": "nav_field_test",
+  "last_sample_at": "2026-11-09T17:42:37.103+08:00",
+  "last_elapsed_s": 24729.5,
+  "last_package_c": 33.0,
+  "last_cpu_busy_pct": 0.2,
+  "last_mem_available_kib": 30657184,
+  "samples": 23834
+}

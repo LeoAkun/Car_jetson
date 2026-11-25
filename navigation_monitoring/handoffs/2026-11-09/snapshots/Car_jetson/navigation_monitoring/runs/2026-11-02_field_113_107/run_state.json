@@ -1,0 +1,27 @@
+{
+  "time": "2026-11-02T17:16:48.028722+08:00",
+  "map": "3b2mus",
+  "start": 113,
+  "goal": 107,
+  "route": [
+    113,
+    106,
+    107
+  ],
+  "boot_id": "5547afec-0740-4fd8-91ec-4a5b2746a064",
+  "motion_converter_enabled": true,
+  "operator_route_clear": true,
+  "operator_estop_present": true,
+  "prior_boot_unexpected": true,
+  "system_monitor_service": "carjetson-navigation-watch.service",
+  "system_monitor_dir": "/home/akun/workspace/Car_jetson/thermal_testing/idle_crash_runs/20261102_170628_nav_field_test",
+  "localization_acceptance_threshold": 0.05,
+  "updated_at": "2026-11-02T17:35:49.561729+08:00",
+  "drive_mode": 1,
+  "is_autodrive": true,
+  "installed_nav2_resources_rebuilt": true,
+  "control_parameters_changed": false,
+  "first_attempt_run": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-30-35",
+  "first_attempt_result": "ABORTED at 113; general_nav_to_pose.xml missing; no cmd_vel or motion recorded",
+  "first_attempt_monitor_cleanup": "SIGKILL after terminal record; shutdown callback deadlock; no active mission or substack"
+}

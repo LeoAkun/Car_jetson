@@ -23,6 +23,7 @@
 
 import sys
 import argparse
+import time
 import numpy as np
 import matplotlib
 import os
@@ -44,10 +45,14 @@ def parse_args():
     parser.add_argument('--angle_step', type=int, default=30)
     parser.add_argument('--save',     type=str,   default='score_data.npz')
     parser.add_argument('--load',     type=str,   default=None)
+    parser.add_argument('--session_id', type=str, default='')
+    parser.add_argument('--map_id', type=str, default='')
+    parser.add_argument('--session_start_ns', type=int, default=0)
     return parser.parse_args()
 
 
-def collect_scores(center_x, center_y, radius, step, angle_step):
+def collect_scores(center_x, center_y, radius, step, angle_step,
+                   session_id, map_id, session_start_ns):
     """通过 ROS2 服务扫描 XY 网格，返回 (xs, ys, scores) 三个数组。"""
     import rclpy
     import math
@@ -58,6 +63,8 @@ def collect_scores(center_x, center_y, radius, step, angle_step):
     class ScoreCollector(Node):
         def __init__(self):
             super().__init__('score_visualizer')
+            self.observation_id = time.time_ns()
+            self.has_cloud = False
             self.client = self.create_client(ReLocalization, '/re_localization')
             self.get_logger().info('等待 /re_localization 服务...')
             while not self.client.wait_for_service(timeout_sec=2.0):
@@ -84,11 +91,22 @@ def collect_scores(center_x, center_y, radius, step, angle_step):
                 request.initial_pose.pose.pose.orientation.y = qy
                 request.initial_pose.pose.pose.orientation.z = qz
                 request.initial_pose.pose.pose.orientation.w = qw
+                request.session_id = session_id
+                request.map_id = map_id
+                request.session_start.sec = session_start_ns // 1_000_000_000
+                request.session_start.nanosec = session_start_ns % 1_000_000_000
+                request.observation_id = self.observation_id
+                request.refresh_cloud = not self.has_cloud
+                request.min_cloud_stamp = request.session_start
 
                 future = self.client.call_async(request)
                 rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
                 try:
                     resp = future.result()
+                    if (resp is not None
+                            and resp.observation_id == self.observation_id
+                            and (resp.cloud_stamp.sec or resp.cloud_stamp.nanosec)):
+                        self.has_cloud = True
                     if resp is not None and resp.success:
                         if resp.fitness_score < best_score:
                             best_score = resp.fitness_score
@@ -208,8 +226,15 @@ def main():
         if args.center_x is None or args.center_y is None:
             print('错误：需要提供 --center_x 和 --center_y，或者使用 --load 加载已有数据。')
             sys.exit(1)
+        if (not args.session_id or not args.map_id
+                or args.session_start_ns <= 0):
+            print('错误：采集模式必须提供当前定位会话的 --session_id、'
+                  '--map_id 和 --session_start_ns。')
+            sys.exit(1)
         cx, cy = args.center_x, args.center_y
-        xs, ys, scores = collect_scores(cx, cy, args.radius, args.step, args.angle_step)
+        xs, ys, scores = collect_scores(
+            cx, cy, args.radius, args.step, args.angle_step,
+            args.session_id, args.map_id, args.session_start_ns)
         np.savez(args.save, xs=xs, ys=ys, scores=scores, center_x=cx, center_y=cy)
         print(f'数据已保存到: {args.save}')
 

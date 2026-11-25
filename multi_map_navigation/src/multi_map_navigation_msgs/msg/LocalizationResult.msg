@@ -1,0 +1,12 @@
+std_msgs/Header header
+string session_id
+string map_id
+bool success
+float64 fitness_score
+geometry_msgs/Pose pose
+builtin_interfaces/Time cloud_stamp
+uint64 observation_id
+uint8 confirmation_count
+float64 first_fitness_score
+builtin_interfaces/Time first_cloud_stamp
+string reason

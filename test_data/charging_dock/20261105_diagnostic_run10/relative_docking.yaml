@@ -1,0 +1,94 @@
+command_mux:
+  ros__parameters:
+    nav_topic: /cmd_vel  # Nav2 velocity_smoother output only.
+    legacy_nav_topic: ''
+    dock_topic: /cmd_vel_dock
+    output_topic: /cmd_vel_selected
+    measured_handoff: true
+    command_timeout_sec: 0.20
+    handoff_stop_cycles: 3
+
+relative_docking_controller:
+  ros__parameters:
+    allow_motion: false
+    calibrated: false  # Set only after mechanical, steering and brake validation.
+    base_frame: base_link
+    local_frame: odom
+    global_frame: map
+    scan_frame: rear_laser
+    scan_topic: /laser/scan_back
+    nominal_dock_distance: 2.5  # P0 base_link to physical charging face, not back plate.
+    # Nominal 25cm body with the compound contour confirmed at P0 on 2026-10-30.
+    # The measured envelope is about 0.217-0.229m; use it for coarse acquisition.
+    face_width: 0.25
+    face_width_tolerance: 0.05
+    face_min_points: 6
+    face_edge_depth: 0.025  # Retain the observed shoulders as one finite contour.
+    face_residual: 0.03  # Static contour RMS 0.012-0.015m, quality still >=0.4 required.
+    face_stable_frames: 5
+    face_position_gate: 0.35
+    face_depth_gate: 0.15  # P0 distance prior; keep distractors out of the longitudinal band.
+    face_angle_gate: 0.34906585
+    face_min_range: 0.06
+    face_timeout: 0.20
+    # Observed back-plate centre -> physical charging face. Positive x points
+    # out towards the vehicle. Applied once, before control/collision checks.
+    face_to_dock_x: 0.057
+    face_to_dock_y: 0.0
+    face_to_dock_yaw: 0.0
+    # Pose of receiver frame in base_link and desired receiver pose in dock.
+    # dock x points towards the vehicle; receiver frame convention is configurable.
+    # User-confirmed nominal geometry. Footprint/TF/steering still need validation.
+    receiver_x: -0.45
+    receiver_y: 0.0
+    receiver_yaw: 0.0
+    target_receiver_x: 0.01  # Physical face 0.46 +/-0.01 m; back plate 0.517 +/-0.01 m.
+    target_receiver_y: 0.0
+    target_receiver_yaw: 0.0
+    footprint_front: 0.43
+    footprint_rear: 0.43  # Shell only, excluding the intended receiver/contact.
+    footprint_half_width: 0.43
+    collision_margin: 0.02
+    wheelbase: 0.5
+    max_steer: 0.13962634  # 8 deg, match converter and measured kinematics.
+    speed: 0.06
+    final_speed: 0.025
+    acceleration: 0.10
+    braking: 0.10
+    latency: 0.20
+    final_zone: 0.50
+    alignment_zone: 0.15
+    # Shared by the standalone test and navigation-to-P0 docking entrypoints.
+    # Preset range requests a stop; it is not the measured lock distance.
+    # After braking, average distinct stationary lidar observations, verify
+    # alignment, and lock the actual physical face in local odometry.
+    enable_locked_final: true
+    lock_distance: 1.00  # Nominal stop trigger; actual stopped range may be 0.92m, etc.
+    lock_distance_tolerance: 0.05  # Begin first stop once range <= 1.05m.
+    lock_preposition_lead: 0.10  # Shape the live path toward a 1.10m pose first.
+    lock_required_by_distance: 0.60  # Abort if still unaligned at this distance.
+    lock_alignment_lateral: 0.005
+    lock_alignment_yaw: 0.00872665  # 0.5 deg.
+    lock_verify_timeout: 3.0  # Braking + stopped observation confirmation budget.
+    lock_min_observations: 3
+    lock_pose_position_tolerance: 0.01
+    lock_pose_yaw_tolerance: 0.01745329
+    locked_final_speed: 0.025
+    locked_final_travel_limit: 0.70
+    locked_final_timeout: 0.0  # No locked-final deadline; positive values opt in (seconds).
+    locked_lateral_limit: 0.03
+    locked_yaw_limit: 0.05235988  # 3 deg, odometry drift/correction envelope.
+    longitudinal_tolerance: 0.01
+    lateral_tolerance: 0.015
+    yaw_tolerance: 0.01745329
+    capture_lateral: 0.30
+    capture_yaw: 0.34906585
+    run_limit: 2.5
+    motion_limit: 2.8
+    timeout: 0.0  # No overall action deadline; local stage/sensor limits remain active.
+    stopped_speed: 0.01
+    stopped_omega: 0.02
+    observation_reacquire_timeout: 2.00
+    stable_duration: 0.50
+    minimum_quality: 0.4
+    minimum_charge_current: 0.1

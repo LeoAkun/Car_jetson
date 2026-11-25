@@ -46,6 +46,7 @@
 
     imuGravity: 9.80511
     imuRPYWeight: 0.07
+    imuMaxGapSec: 0.2                       # 0 disables positive-gap resynchronization
 
     extrinsicTrans:  [-0.011,  -0.0234, 0.044] # imu与mid360激光雷达之间的坐标变换。用于将雷达与imu数据进行转化，liosam内部计算odom值，计算的odom值会发布为odom->base_link的变换
     

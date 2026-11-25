@@ -1,0 +1,366 @@
+    PID ELAPSED CMD
+      1  188425 /sbin/init splash
+      2  188425 [kthreadd]
+      3  188425 [pool_workqueue_release]
+      4  188425 [kworker/R-rcu_g]
+      5  188425 [kworker/R-rcu_p]
+      6  188425 [kworker/R-slub_]
+      7  188425 [kworker/R-netns]
+      9  188425 [kworker/0:0H-events_highpri]
+     12  188425 [kworker/R-mm_pe]
+     13  188425 [rcu_tasks_kthread]
+     14  188425 [rcu_tasks_rude_kthread]
+     15  188425 [rcu_tasks_trace_kthread]
+     16  188425 [ksoftirqd/0]
+     17  188425 [rcu_preempt]
+     18  188425 [migration/0]
+     19  188425 [idle_inject/0]
+     20  188425 [cpuhp/0]
+     21  188425 [cpuhp/2]
+     22  188425 [idle_inject/2]
+     23  188425 [migration/2]
+     24  188425 [ksoftirqd/2]
+     26  188425 [kworker/2:0H-events_highpri]
+     27  188425 [cpuhp/4]
+     28  188425 [idle_inject/4]
+     29  188425 [migration/4]
+     30  188425 [ksoftirqd/4]
+     32  188425 [kworker/4:0H-events_highpri]
+     33  188425 [cpuhp/6]
+     34  188425 [idle_inject/6]
+     35  188425 [migration/6]
+     36  188425 [ksoftirqd/6]
+     38  188425 [kworker/6:0H-events_highpri]
+     39  188425 [cpuhp/8]
+     40  188425 [idle_inject/8]
+     41  188425 [migration/8]
+     42  188425 [ksoftirqd/8]
+     44  188425 [kworker/8:0H-events_highpri]
+     45  188425 [cpuhp/10]
+     46  188425 [idle_inject/10]
+     47  188425 [migration/10]
+     48  188425 [ksoftirqd/10]
+     50  188425 [kworker/10:0H-events_highpri]
+     51  188425 [cpuhp/12]
+     52  188425 [idle_inject/12]
+     53  188425 [migration/12]
+     54  188425 [ksoftirqd/12]
+     56  188425 [kworker/12:0H-kblockd]
+     57  188425 [cpuhp/14]
+     58  188425 [idle_inject/14]
+     59  188425 [migration/14]
+     60  188425 [ksoftirqd/14]
+     62  188425 [kworker/14:0H-events_highpri]
+     63  188425 [cpuhp/16]
+     64  188425 [idle_inject/16]
+     65  188425 [migration/16]
+     66  188425 [ksoftirqd/16]
+     68  188425 [kworker/16:0H-events_highpri]
+     69  188425 [cpuhp/17]
+     70  188425 [idle_inject/17]
+     71  188425 [migration/17]
+     72  188425 [ksoftirqd/17]
+     74  188425 [kworker/17:0H-events_highpri]
+     75  188425 [cpuhp/18]
+     76  188425 [idle_inject/18]
+     77  188425 [migration/18]
+     78  188425 [ksoftirqd/18]
+     80  188425 [kworker/18:0H-events_highpri]
+     81  188425 [cpuhp/19]
+     82  188425 [idle_inject/19]
+     83  188425 [migration/19]
+     84  188425 [ksoftirqd/19]
+     86  188425 [kworker/19:0H-events_highpri]
+     87  188425 [cpuhp/1]
+     88  188425 [idle_inject/1]
+     89  188425 [migration/1]
+     90  188425 [ksoftirqd/1]
+     92  188425 [kworker/1:0H-events_highpri]
+     93  188425 [cpuhp/3]
+     94  188425 [idle_inject/3]
+     95  188425 [migration/3]
+     96  188425 [ksoftirqd/3]
+     98  188425 [kworker/3:0H-events_highpri]
+     99  188425 [cpuhp/5]
+    100  188425 [idle_inject/5]
+    101  188425 [migration/5]
+    102  188425 [ksoftirqd/5]
+    104  188425 [kworker/5:0H-events_highpri]
+    105  188425 [cpuhp/7]
+    106  188425 [idle_inject/7]
+    107  188425 [migration/7]
+    108  188425 [ksoftirqd/7]
+    110  188425 [kworker/7:0H-events_highpri]
+    111  188425 [cpuhp/9]
+    112  188425 [idle_inject/9]
+    113  188425 [migration/9]
+    114  188425 [ksoftirqd/9]
+    116  188425 [kworker/9:0H-events_highpri]
+    117  188425 [cpuhp/11]
+    118  188425 [idle_inject/11]
+    119  188425 [migration/11]
+    120  188425 [ksoftirqd/11]
+    122  188425 [kworker/11:0H-events_highpri]
+    123  188425 [cpuhp/13]
+    124  188425 [idle_inject/13]
+    125  188425 [migration/13]
+    126  188425 [ksoftirqd/13]
+    128  188425 [kworker/13:0H-events_highpri]
+    129  188425 [cpuhp/15]
+    130  188425 [idle_inject/15]
+    131  188425 [migration/15]
+    132  188425 [ksoftirqd/15]
+    134  188425 [kworker/15:0H-events_highpri]
+    135  188425 [kdevtmpfs]
+    136  188425 [kworker/R-inet_]
+    137  188425 [kauditd]
+    138  188425 [kworker/0:2-events]
+    139  188425 [khungtaskd]
+    141  188425 [oom_reaper]
+    143  188425 [kworker/R-write]
+    144  188425 [kcompactd0]
+    145  188425 [ksmd]
+    146  188425 [khugepaged]
+    147  188425 [kworker/R-kinte]
+    148  188425 [kworker/R-kbloc]
+    149  188425 [kworker/R-blkcg]
+    151  188425 [irq/9-acpi]
+    156  188423 [kworker/R-tpm_d]
+    157  188423 [kworker/R-ata_s]
+    158  188423 [kworker/R-md]
+    159  188423 [kworker/R-md_bi]
+    160  188423 [kworker/R-edac-]
+    161  188423 [kworker/R-devfr]
+    162  188423 [watchdogd]
+    163  188423 [kworker/R-quota]
+    164  188423 [kworker/17:1H-kblockd]
+    165  188423 [kswapd0]
+    166  188423 [ecryptfs-kthread]
+    167  188423 [kworker/R-kthro]
+    168  188423 [irq/122-pciehp]
+    169  188423 [irq/123-aerdrv]
+    170  188423 [irq/124-aerdrv]
+    171  188423 [irq/125-aerdrv]
+    172  188422 [kworker/R-acpi_]
+    174  188422 [kworker/3:1-mm_percpu_wq]
+    178  188422 [hwrng]
+    179  188422 [kworker/R-hfi-u]
+    181  188422 [kworker/R-mld]
+    182  188422 [kworker/18:1H-kblockd]
+    183  188422 [kworker/R-ipv6_]
+    191  188422 [kworker/R-kstrp]
+    193  188422 [kworker/11:1-events]
+    211  188422 [kworker/R-charg]
+    232  188422 [kworker/16:1H-kblockd]
+    235  188422 [kworker/0:1H-kblockd]
+    236  188422 [kworker/2:1H-kblockd]
+    251  188422 [kworker/12:1H]
+    252  188422 [kworker/8:1H-kblockd]
+    253  188422 [kworker/4:1H-kblockd]
+    254  188422 [kworker/15:1H-kblockd]
+    255  188422 [kworker/10:1H-kblockd]
+    256  188422 [kworker/6:1H-kblockd]
+    257  188422 [kworker/14:1H-kblockd]
+    258  188422 [kworker/11:1H-kblockd]
+    259  188422 [kworker/5:1H-kblockd]
+    261  188422 [kworker/19:1H-kblockd]
+    263  188422 [kworker/3:1H-kblockd]
+    265  188422 [kworker/7:1H-kblockd]
+    286  188422 [kworker/13:1H-kblockd]
+    287  188422 [kworker/1:1H-kblockd]
+    289  188422 [kworker/9:1H-kblockd]
+    310  188422 [scsi_eh_0]
+    311  188422 [kworker/R-scsi_]
+    312  188422 [scsi_eh_1]
+    313  188422 [kworker/R-scsi_]
+    314  188422 [scsi_eh_2]
+    315  188422 [kworker/R-scsi_]
+    316  188422 [scsi_eh_3]
+    317  188422 [kworker/R-scsi_]
+    318  188422 [scsi_eh_4]
+    319  188422 [kworker/R-scsi_]
+    320  188422 [scsi_eh_5]
+    321  188422 [kworker/R-scsi_]
+    322  188422 [scsi_eh_6]
+    323  188422 [kworker/R-scsi_]
+    324  188422 [scsi_eh_7]
+    325  188422 [kworker/R-scsi_]
+    358  188422 [kworker/13:1-mm_percpu_wq]
+    371  188421 [spi1]
+    414  188415 [jbd2/sda2-8]
+    415  188415 [kworker/R-ext4-]
+    454  188415 /lib/systemd/systemd-journald
+    483  188415 /lib/systemd/systemd-udevd
+    586  188414 [irq/143-mei_me]
+    612  188414 [kworker/R-crypt]
+    659  188414 [kworker/R-cfg80]
+    686  188414 [kworker/R-ttm]
+    726  188414 [card1-crtc0]
+    727  188414 [card1-crtc1]
+    728  188414 [card1-crtc2]
+    757  188414 /lib/systemd/systemd-oomd
+    761  188414 /lib/systemd/systemd-resolved
+    936  188413 /usr/libexec/accounts-daemon
+    937  188413 /usr/sbin/acpid
+    939  188413 avahi-daemon: running [admin1-Default-string.local]
+    940  188413 /usr/sbin/cron -f -P
+    941  188413 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+    943  188413 /usr/sbin/NetworkManager --no-daemon
+    952  188413 /usr/libexec/iio-sensor-proxy
+    954  188413 /usr/sbin/irqbalance --foreground
+    955  188413 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+    956  188413 /usr/libexec/polkitd --no-debug
+    957  188413 /usr/libexec/power-profiles-daemon
+    958  188413 /usr/sbin/rsyslogd -n -iNONE
+    964  188413 /snap/snapd/current/usr/lib/snapd/snapd
+    966  188413 /usr/libexec/switcheroo-control
+    972  188413 /lib/systemd/systemd-logind
+    973  188413 /usr/sbin/thermald --systemd --dbus-enable --adaptive
+    975  188413 [kworker/5:2-events]
+    976  188413 /usr/libexec/udisks2/udisksd
+    978  188413 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+    982  188413 avahi-daemon: chroot helper
+   1059  188412 /usr/sbin/ModemManager
+   1064  188412 [kworker/15:2-events]
+   1068  188412 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+   1090  188412 /usr/sbin/chronyd -F 1
+   1097  188412 /usr/sbin/chronyd -F 1
+   1115  188412 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+   1398  188406 /usr/sbin/kerneloops --test
+   1409  188406 /usr/sbin/kerneloops
+   1424  188406 /usr/sbin/gdm3
+   1429  188406 gdm-session-worker [pam/gdm-autologin]
+   1434  188405 /lib/systemd/systemd --user
+   1435  188405 (sd-pam)
+   1441  188405 /usr/bin/pipewire
+   1442  188405 /usr/bin/pipewire-media-session
+   1443  188405 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+   1455  188405 /usr/bin/gnome-keyring-daemon --daemonize --login
+   1458  188405 /usr/libexec/rtkit-daemon
+   1461  188405 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1468  188405 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+   1473  188405 /usr/libexec/gnome-session-binary --session=ubuntu
+   1509  188405 /usr/libexec/xdg-document-portal
+   1519  188405 /usr/libexec/xdg-permission-store
+   1525  188405 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1001/doc
+   1544  188405 /usr/libexec/gnome-session-ctl --monitor
+   1555  188405 /usr/libexec/gvfsd
+   1563  188405 /usr/libexec/gvfsd-fuse /run/user/1001/gvfs -f
+   1565  188405 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+   1589  188405 /usr/libexec/at-spi-bus-launcher --launch-immediately
+   1595  188405 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1001/at-spi/bus
+   1600  188405 /usr/bin/gnome-shell
+   1695  188404 /usr/libexec/gnome-shell-calendar-server
+   1700  188404 /usr/libexec/upowerd
+   1703  188404 /usr/libexec/evolution-source-registry
+   1709  188404 /usr/libexec/dconf-service
+   1715  188404 /usr/libexec/gvfs-udisks2-volume-monitor
+   1720  188404 /usr/libexec/goa-daemon
+   1726  188404 /usr/libexec/gvfs-afc-volume-monitor
+   1731  188404 /usr/libexec/gvfs-gphoto2-volume-monitor
+   1734  188404 /usr/libexec/evolution-calendar-factory
+   1740  188404 /usr/libexec/gvfs-mtp-volume-monitor
+   1744  188404 /usr/libexec/gvfs-goa-volume-monitor
+   1753  188404 /usr/libexec/goa-identity-service
+   1767  188404 /usr/libexec/evolution-addressbook-factory
+   1768  188404 /usr/libexec/packagekitd
+   1782  188404 /usr/libexec/gvfsd-trash --spawner :1.15 /org/gtk/gvfs/exec_spaw/0
+   1791  188403 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+   1793  188403 /usr/libexec/at-spi2-registryd --use-gnome-session
+   1811  188403 sh -c /usr/bin/ibus-daemon --panel disable $([ "$XDG_SESSION_TYPE" = "x11" ] && echo "--xim")
+   1812  188403 /usr/libexec/gsd-a11y-settings
+   1813  188403 /usr/libexec/gsd-color
+   1815  188403 /usr/bin/ibus-daemon --panel disable
+   1817  188403 /usr/libexec/gsd-datetime
+   1818  188403 /usr/libexec/gsd-housekeeping
+   1820  188403 /usr/libexec/gsd-keyboard
+   1821  188403 /usr/libexec/gsd-media-keys
+   1823  188403 /usr/libexec/gsd-power
+   1825  188403 /usr/libexec/gsd-print-notifications
+   1826  188403 /usr/libexec/gsd-rfkill
+   1827  188403 /usr/libexec/gsd-screensaver-proxy
+   1829  188403 /usr/libexec/gsd-sharing
+   1831  188403 /usr/libexec/gsd-smartcard
+   1832  188403 /usr/libexec/gsd-sound
+   1834  188403 /usr/libexec/gsd-wacom
+   1886  188403 /usr/libexec/evolution-data-server/evolution-alarm-notify
+   1905  188403 /usr/libexec/gsd-disk-utility-notify
+   1941  188403 /usr/libexec/ibus-dconf
+   1942  188403 /usr/libexec/ibus-extension-gtk3
+   1946  188403 /usr/libexec/ibus-portal
+   1977  188403 /usr/libexec/ibus-engine-libpinyin --ibus
+   1985  188403 /usr/libexec/xdg-desktop-portal
+   1986  188403 /usr/libexec/gsd-printer
+   2002  188403 /usr/libexec/xdg-desktop-portal-gnome
+   2014  188403 /usr/libexec/colord
+   2020  188403 /usr/libexec/tracker-miner-fs-3
+   2048  188403 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver
+   2077  188403 /usr/libexec/xdg-desktop-portal-gtk
+   2088  188402 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -M 0 -D 0:0:1920:1200:1:27:0:70:0:0
+   2114  188402 /usr/libexec/gvfsd-metadata
+   2127  188400 /snap/snapd-desktop-integration/391/usr/bin/user-session-helper /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration
+   2205  188400 /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration
+   2277  188343 update-notifier
+   3381  187710 node /home/akun/.nvm/versions/node/v22.23.3/bin/codex -c features.code_mode_host=true app-server --listen unix://
+   3388  187710 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+   5234  187228 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex-code-mode-host
+   9716  183557 [kworker/7:0-events]
+  10425  182745 [kworker/R-tls-s]
+  32526  169975 [kworker/19:2-events]
+  39914  167816 /home/akun/.vscode-server/code-69047191fc427f2f92828279aae1d90d8eeda7ab --cli-data-dir /home/akun/.vscode-server/cli agent host
+  48729  162557 [kworker/9:0-events]
+  55013  160409 [kworker/15:0-events]
+  55054  160409 [kworker/13:3]
+  56130  160343 [kworker/12:0-mm_percpu_wq]
+  56858  160281 [kworker/1:0]
+  59105  159265 [kworker/9:1-cgroup_free]
+  64434  155346 [kworker/11:0]
+  64437  155346 [kworker/3:2]
+ 169657  107767 [kworker/10:0-mm_percpu_wq]
+ 177011  102372 [kworker/14:2-events]
+ 186051   96416 [kworker/17:2-events]
+ 196435   92088 [kworker/18:1-events]
+ 196480   92087 [kworker/5:3]
+ 197761   91202 [kworker/7:3-inode_switch_wbs]
+ 197762   91202 [kworker/1:1-mm_percpu_wq]
+ 204120   85425 [kworker/u41:0-uvcvideo]
+ 204250   84721 [kworker/u41:1-i915_flip]
+ 205559   80819 [kworker/0:0]
+ 205892   80328 [kworker/8:2-events]
+ 221962   71132 [kworker/16:0-events]
+ 225831   62305 /usr/libexec/gnome-terminal-server
+ 225857   62304 bash
+ 226684   51973 [kworker/14:1]
+ 226768   50316 [kworker/6:1-rcu_gp]
+ 226808   50316 /usr/sbin/cupsd -l
+ 226811   50316 /usr/sbin/cups-browsed
+ 227050   46074 [kworker/18:2]
+ 228895   19908 [kworker/4:1-events]
+ 228901   19908 [kworker/19:0]
+ 229111   15594 /usr/bin/python3 /home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py --duration 86400 --interval 1 --label nav_field_test
+ 230258   12598 sshd: akun [priv]
+ 230268   12598 [kworker/2:1-events]
+ 230305   12597 sshd: akun@notty
+ 230306   12597 node /home/akun/.nvm/versions/node/v22.23.3/bin/codex app-server proxy
+ 230560   12596 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex app-server proxy
+ 231008    9969 sshd: akun [priv]
+ 231045    9969 sshd: akun@notty
+ 231046    9969 node /home/akun/.nvm/versions/node/v22.23.3/bin/codex app-server proxy
+ 231300    9968 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex app-server proxy
+ 234646    8519 sshd: akun [priv]
+ 234708    8512 sshd: akun
+ 242780    6008 [kworker/u40:2-flush-8:0]
+ 246925    3750 [kworker/2:0]
+ 249188    2881 [kworker/16:2-mm_percpu_wq]
+ 249189    2881 [kworker/6:0-events]
+ 249190    2881 [kworker/12:1-events]
+ 249418    2880 [kworker/17:1]
+ 249420    2880 [kworker/10:1-inet_frag_wq]
+ 250317    2612 [kworker/u40:7-events_unbound]
+ 250649    2272 [kworker/8:3]
+ 252012    1668 [kworker/4:2]
+ 255347    1562 [kworker/u40:1-events_unbound]
+ 256952     454 [kworker/u40:0-flush-8:0]
+ 257374     215 [kworker/u40:3]
+ 257660       0 /bin/bash -lc run_dir=$(cat /tmp/car_jetson_current_sim_run) cat > "$run_dir/SUMMARY.md" <<'MD' # 2026-11-19 当前修改仿真测试报告  ## 结论  **总体：不通过，禁止把本轮结果视为可部署。**  当前源码可以完整编译，核心回归测试通过，map-odom authority 单实例保护和 NavigationManager 故障取消逻辑通过。但 45 秒历史 IMU/点云回放中，LIO 的 IMU 预积分发散并 fatal 退出。输入数据同时证明 IMU 与主机接收时间、LiDAR 时间基准存在约 0.47 秒相对偏差。  本轮没有启动底盘、ECU、CAN、MQTT、门控、真实传感器驱动或实际任务。所有 ROS 测试均使用 `ROS_LOCALHOST_ONLY=1` 和隔离 domain。  ## 测试环境  - Git HEAD: `0dba9db0fe0a598392b780695692048484662bcb` - 分支：`codex/traffic-light-p0` - 测试 overlay：本目录下 `install/` - LIO instance：`sim-20261119-1328` - 构建包：`ndt_omp_ros2`、`multi_map_navigation_msgs`、`multi_map_navigation`、`lio_sam`、`re_localization`、`nav2_init_pose`  ## 结果矩阵  | 项目 | 结果 | 证据 | |---|---|---| | 当前源码隔离构建 | 通过 | 6 个包完成；LIO、重定位、消息和 Python 包均成功 | | Python 编译检查 | 通过 | 源码目录定向检查无语法错误 | | 核心回归 | 通过 | 224 passed，2 个第三方 NumPy deprecated warning | | fault→Nav2 取消聚焦回归 | 通过 | 12 passed；取消目标、停车、清理、旧目标隔离 | | map-odom authority 主实例启动 | 通过 | `/map_odom_authority` 可发现 | | map-odom authority 重复实例保护 | 通过 | 第二实例退出码 1，提示已有实例持有 TF 所有权 | | NavigationManager 旧端到端夹具 | 阻塞 | 缺少当前必需的 `/route_planner/pub_new_path` mock，构造函数持续等待 | | LIO 45 秒 IMU/点云回放 | **失败** | IMU 预积分速度约 38 m/s，readiness 变 false，进程 fatal 退出 |  ## 输入时间戳  输入窗口包含 4,483 条 `/imu`、365 帧 `/rslidar_Pointcloud2` 和 8 条 `/tf_static`。  - IMU 头时间严格单调：周期中位数 10 ms，最大 90 ms，无倒退、无超过 200 ms 的头时间断流。 - IMU `录包接收时间 - header` 中位数为 **-0.369434 s**，即 IMU header 持续超前接收时间约 369 ms。 - LiDAR `录包接收时间 - header` 中位数为 **+0.103991 s**，即 LiDAR header 落后接收时间约 104 ms。 - 按接收时间比较，IMU 与 LiDAR header 的典型相对偏差约 **0.473 s**。 - IMU 第 1247 个样本处，接收间隔出现 341.77 ms，而 header 只前进 10 ms，形成 331.77 ms 的接收侧跳变；随后积压样本以微秒级间隔到达。该现象是接收/排队停顿，不是 IMU header 倒退。  ## LIO 输出  | 指标 | 结果 | |---|---:| | correction event | 23（接受 6，拒绝 17） | | epoch odometry | 3,806，epoch 2～21，未倒退，instance/generation 一致 | | `/odom` 样本 | 1,009 | | `/odom` 最大相邻平移 | 0.024620 m | | `/odom` 99.9 分位相邻平移 | 0.024570 m | | `/odom` 超过 0.05 m / 1° | 0 / 0 | | `/odom` 最大时间空洞 | 14.24 s | | `/odom_incremental` 最大相邻平移 | 19.5295 m | | `/odom_incremental` 超过 0.05 m | 2,424 | | fault | 7（1 次 scan-to-map unreliable，6 次 continuity fault） |  `/odom` 的 0.05 m 硬门限挡住了大步长直接输出，但没有达到建议的 99.9 分位 `<=0.02 m`，且长时间停止更新。内部预积分状态继续发散，最终因 `velocity_norm=38.004892` 触发 fatal。故障后 readiness 正确变为 false。  ## 处理建议  1. 先统一 IMU 与 LiDAR 的时间基准，消除 IMU header 约 +0.369 s、LiDAR约 -0.104 s 的相对偏差，再测试 LIO 算法。不要只在 Nav2 层补偿。 2. 检查 IMU 驱动的 header 生成、设备时钟到系统时钟换算，以及接收线程出现 331.77 ms 停顿后批量吐数据的原因。 3. 时间修复后复用本轮 45 秒输入窗口，要求 LIO 全程存活、readiness 不掉、`/odom` 无超过 200 ms 的空洞、最大步长不超过 0.05 m 且 99.9 分位不超过 0.02 m。 4. 补齐 NavigationManager 端到端夹具中的 `PubNewPath` mock，再进行完整虚拟航点、地图切换和 fault 取消测试。 5. 在 LIO 回放通过前，不继续真实 Nav2 或车辆联调。 MD sha256sum -c "$run_dir/manifests/source_sha256.txt" > "$run_dir/results/source_sha256_verify.txt" 2>&1 verify_rc=$? ps -eo pid,etimes,cmd > "$run_dir/manifests/processes_after.txt" ps -eo pid,etimes,cmd | rg -i 'ros2|lio_sam|nav2|multi_map|cmdvel|mqtt|rslidar|imu' | rg -v 'rg -i|functions.exec' > "$run_dir/results/residual_processes.txt" || true {   printf 'sha256_verify_rc=%s\n' "$verify_rc"   printf 'source_failed=%s\n' "$(rg -c 'FAILED' "$run_dir/results/source_sha256_verify.txt" || true)"   printf 'residual_process_lines=%s\n' "$(wc -l < "$run_dir/results/residual_processes.txt")"   printf 'completed_at=%s\n' "$(date --iso-8601=seconds)" } > "$run_dir/results/final_checks.txt" cat "$run_dir/results/final_checks.txt" cat "$run_dir/results/residual_processes.txt"
+ 257665       0 ps -eo pid,etimes,cmd

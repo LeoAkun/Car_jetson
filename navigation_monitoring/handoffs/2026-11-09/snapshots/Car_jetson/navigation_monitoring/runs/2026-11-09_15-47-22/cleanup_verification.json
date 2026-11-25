@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-11-09T15:57:15.283119+08:00",
+  "remaining_matching_processes": [],
+  "bag_metadata_exists": true,
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7",
+  "topic_counts": {
+    "/cmd_vel": 3,
+    "/cmd_vel_nav": 0,
+    "/navigate_to_pose/_action/feedback": 0,
+    "/navigate_to_pose/_action/status": 0,
+    "/start_end_graph": 3,
+    "/rslidar_Pointcloud2": 3500,
+    "/vehicle_status": 32401,
+    "/imu": 39197
+  },
+  "existing_status_reporter_preserved": true
+}

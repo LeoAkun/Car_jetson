@@ -1,0 +1,42 @@
+[
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp",
+    "sha256": "73b931226263adb35e7dc613b731c2bf02491cf158fbd3fbd5910f478bc01662",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/optimizer.hpp",
+    "sha256": "d13ab15b9ba1f71334a972460c76667592232811b5c0f4b8923608eda1ef141d",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/optimizer.hpp"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/src/critic_manager.cpp",
+    "sha256": "88eec3c5bfa491c383bc6ad84cb9f383d636ad75196df1963d775ee986aa90a6",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/src/critic_manager.cpp"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/test/optimizer_unit_tests.cpp",
+    "sha256": "1db12084e60c10113f383df85ad522bf29e8335b7cedf6f4cb143b28a79d505e",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/test/optimizer_unit_tests.cpp"
+  },
+  {
+    "path": "nav2/src/navigation2/nav2_mppi_controller/test/CMakeLists.txt",
+    "sha256": "162768d66155938b151c6329a8cd763ea54abd836fcd9c814a86a48cb1d8bd5f",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/test/CMakeLists.txt"
+  },
+  {
+    "path": "nav2/install/nav2_mppi_controller/lib/libmppi_controller.so",
+    "sha256": "71c11ee8f482c3939db9314744cef5c81d21699a3f035344a60238431e38d10d",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/install/nav2_mppi_controller/lib/libmppi_controller.so"
+  },
+  {
+    "path": "nav2/install/nav2_mppi_controller/lib/libmppi_critics.so",
+    "sha256": "4dbce02f48fb8f09e445c06217d3f02fa1ca09bb74f6ac34f18c6f5c58a91db0",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/install/nav2_mppi_controller/lib/libmppi_critics.so"
+  },
+  {
+    "path": "nav2/src/nav2/config/nav2_real_params.yaml",
+    "sha256": "d172f3d66a6c995f5ad850ffaedf2b7dc4743e008024460570994c489d9b11d7",
+    "resolved_to": "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml"
+  }
+]

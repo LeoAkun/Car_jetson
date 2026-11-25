@@ -1,0 +1,188 @@
+{
+  "time": "2026-11-11T14:22:18.582111+08:00",
+  "boot_id": "d53fafeb-91ac-4ceb-8254-8bb737042ac6",
+  "executables": [
+    {
+      "label": "imu",
+      "pid": 13201,
+      "pgid": 13201,
+      "live_exe": "/home/akun/workspace/Car_jetson/real_ws/install/fdilink_ahrs/lib/fdilink_ahrs/ahrs_driver_node",
+      "live_sha256": "7ea6a0ee8e2d7986335b0b4fee18f59fbf3b8cab42fe016a41367806b630b321",
+      "command": [
+        "/home/akun/workspace/Car_jetson/real_ws/install/fdilink_ahrs/lib/fdilink_ahrs/ahrs_driver_node",
+        "--ros-args",
+        "-p",
+        "serial_port_:=/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+        "-p",
+        "serial_baud_:=921600",
+        "-p",
+        "if_debug_:=false",
+        "-p",
+        "no_data_reconnect_ms_:=5000",
+        "-p",
+        "reset_on_open_:=true",
+        "-p",
+        "use_device_timestamp_:=true",
+        "-p",
+        "imu_topic:=/imu",
+        "-p",
+        "imu_frame_id_:=imu_link",
+        "-p",
+        "device_type_:=1"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/real_ws/install/fdilink_ahrs/lib/fdilink_ahrs/ahrs_driver_node",
+      "expected_sha256": "7ea6a0ee8e2d7986335b0b4fee18f59fbf3b8cab42fe016a41367806b630b321"
+    },
+    {
+      "label": "lidar",
+      "pid": 13202,
+      "pgid": 13202,
+      "live_exe": "/home/akun/workspace/Car_jetson/real_ws/build/rslidar_sdk/rslidar_sdk_node",
+      "live_sha256": "838a7bd70bb08e3a249af0f25256e0c9b268ae31ff2f0a44bca2d72d9cd8b838",
+      "command": [
+        "/home/akun/workspace/Car_jetson/real_ws/install/rslidar_sdk/lib/rslidar_sdk/rslidar_sdk_node",
+        "--ros-args",
+        "-r",
+        "__ns:=/rslidar_sdk",
+        "-p",
+        "config_path:=/home/akun/workspace/Car_jetson/real_ws/install/rslidar_sdk/share/rslidar_sdk/config/config.yaml"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/real_ws/build/rslidar_sdk/rslidar_sdk_node",
+      "expected_sha256": "838a7bd70bb08e3a249af0f25256e0c9b268ae31ff2f0a44bca2d72d9cd8b838"
+    },
+    {
+      "label": "lidar_converter",
+      "pid": 13203,
+      "pgid": 13203,
+      "live_exe": "/home/akun/workspace/Car_jetson/real_ws/build/rslidar_sdk/rslidar_convert_node",
+      "live_sha256": "ddd1df2395c306bac554bd2b4b62b0d8bd3d8da6251e7fb3baa9781e4d9d219d",
+      "command": [
+        "/home/akun/workspace/Car_jetson/real_ws/install/rslidar_sdk/lib/rslidar_sdk/rslidar_convert_node",
+        "--ros-args"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/real_ws/build/rslidar_sdk/rslidar_convert_node",
+      "expected_sha256": "ddd1df2395c306bac554bd2b4b62b0d8bd3d8da6251e7fb3baa9781e4d9d219d"
+    },
+    {
+      "label": "pointcloud_scan",
+      "pid": 13204,
+      "pgid": 13204,
+      "live_exe": "/opt/ros/humble/lib/pointcloud_to_laserscan/pointcloud_to_laserscan_node",
+      "live_sha256": "09d9659937ce40ae69a29598e9b9896288a0b0b62df6fe2a15a1ff22dc90fadc",
+      "command": [
+        "/opt/ros/humble/lib/pointcloud_to_laserscan/pointcloud_to_laserscan_node",
+        "--ros-args",
+        "-r",
+        "cloud_in:=/rslidar_Pointcloud2",
+        "-r",
+        "scan:=/laser/scan_merge_laser",
+        "-p",
+        "target_frame:=base_link",
+        "-p",
+        "transform_tolerance:=0.1",
+        "-p",
+        "min_height:=0.1",
+        "-p",
+        "max_height:=2.0",
+        "-p",
+        "angle_min:=-3.141592653589793",
+        "-p",
+        "angle_max:=3.141592653589793",
+        "-p",
+        "angle_increment:=0.008726646259971648",
+        "-p",
+        "scan_time:=0.1",
+        "-p",
+        "range_min:=0.3",
+        "-p",
+        "range_max:=30.0",
+        "-p",
+        "use_inf:=true"
+      ],
+      "expected_path": "/opt/ros/humble/lib/pointcloud_to_laserscan/pointcloud_to_laserscan_node",
+      "expected_sha256": "09d9659937ce40ae69a29598e9b9896288a0b0b62df6fe2a15a1ff22dc90fadc"
+    },
+    {
+      "label": "lio_imuPreintegration",
+      "pid": 13267,
+      "pgid": 13267,
+      "live_exe": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_imuPreintegration",
+      "live_sha256": "f64abe1f0cf4ec32172ad3e8127c80e8bdec72f04fe1b1d3121fa24d4ed19823",
+      "command": [
+        "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_imuPreintegration",
+        "--ros-args",
+        "--params-file",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_14-20-08/lio_params.yaml"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_imuPreintegration",
+      "expected_sha256": "f64abe1f0cf4ec32172ad3e8127c80e8bdec72f04fe1b1d3121fa24d4ed19823"
+    },
+    {
+      "label": "lio_imageProjection",
+      "pid": 13268,
+      "pgid": 13268,
+      "live_exe": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_imageProjection",
+      "live_sha256": "74b5ffb3729689cb9f64b3d95bfba8bd16051defee7f74664aa9c454e5d83af1",
+      "command": [
+        "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_imageProjection",
+        "--ros-args",
+        "--params-file",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_14-20-08/lio_params.yaml"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_imageProjection",
+      "expected_sha256": "74b5ffb3729689cb9f64b3d95bfba8bd16051defee7f74664aa9c454e5d83af1"
+    },
+    {
+      "label": "lio_featureExtraction",
+      "pid": 13269,
+      "pgid": 13269,
+      "live_exe": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_featureExtraction",
+      "live_sha256": "985c77f58d4f55b35858fbce52c8f046a393d51c04be80c4a9449c4ea1797e04",
+      "command": [
+        "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_featureExtraction",
+        "--ros-args",
+        "--params-file",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_14-20-08/lio_params.yaml"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_featureExtraction",
+      "expected_sha256": "985c77f58d4f55b35858fbce52c8f046a393d51c04be80c4a9449c4ea1797e04"
+    },
+    {
+      "label": "lio_mapOptimization",
+      "pid": 13270,
+      "pgid": 13270,
+      "live_exe": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_mapOptimization",
+      "live_sha256": "6b80463546becdb47256a75a9f92d1d914568cb09e281dcc8a26ac06993a8cbb",
+      "command": [
+        "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_mapOptimization",
+        "--ros-args",
+        "--params-file",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_14-20-08/lio_params.yaml"
+      ],
+      "expected_path": "/home/akun/workspace/Car_jetson/slam/install/lio_sam/lib/lio_sam/lio_sam_mapOptimization",
+      "expected_sha256": "6b80463546becdb47256a75a9f92d1d914568cb09e281dcc8a26ac06993a8cbb"
+    },
+    {
+      "label": "nav2",
+      "pid": 13409,
+      "pgid": 13409,
+      "live_exe": "/usr/bin/python3.10",
+      "live_sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae",
+      "command": [
+        "/opt/ros/humble/bin/ros2",
+        "launch",
+        "/home/akun/workspace/Car_jetson/navigation_tools/indoor_nav2.launch.py",
+        "params_file:=/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_14-20-08/nav2_params.yaml"
+      ],
+      "expected_path": "/usr/bin/python3.10",
+      "expected_sha256": "a2f33a6e006989270f4340528eb61f8f97366e00a5d1b602ac8672ea44fc56ae"
+    }
+  ],
+  "source_sha256": {
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/src/ahrs_driver.cpp": "661cee6cb32f6ccd88cdcc7014e39cd33414300d37f7ad5b7d8525fcd09244b8",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/imu/fdilink_ahrs_ROS2/include/ahrs_driver.h": "26ad37dca670ddd93aa7a06c06d332f8a162c9d0c2af7f4db4951d3bd805a15d",
+    "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml": "19b598b6e6e1f1e18c152b8b022ffe83138c735aaf8d93f8b2b67005b100baf6",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/src/imuPreintegration.cpp": "0bacc9a7d37b5fe2cfb94b37e38fa991d70784472e89127df3ec7575b9356deb"
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>上周车辆导航测试与问题处理简表</title>
+  <style>
+    @page { size: A4 landscape; margin: 9mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #111827; font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; font-size: 8.4pt; line-height: 1.25; }
+    h1 { margin: 0 0 2mm; text-align: center; font-size: 15pt; }
+    .meta { margin-bottom: 2mm; text-align: center; color: #374151; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td { border: 0.25mm solid #6b7280; padding: 1.2mm 1.4mm; vertical-align: top; overflow-wrap: anywhere; }
+    th { color: white; background: #1f4e78; text-align: center; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #f3f6f8; }
+    td:nth-child(1), td:nth-child(6) { text-align: center; vertical-align: middle; }
+    .status-done { color: #0f5132; font-weight: 700; }
+    .status-part { color: #8a4b08; font-weight: 700; }
+    .status-open { color: #9b1c1c; font-weight: 700; }
+    h2 { margin: 2.3mm 0 1mm; font-size: 10.5pt; color: #1f4e78; }
+    ul { margin: 0; padding-left: 5mm; }
+    li { margin: 0.35mm 0; }
+    .source { margin-top: 1.5mm; color: #4b5563; font-size: 7.6pt; }
+    code { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 0.95em; }
+  </style>
+</head>
+<body>
+  <h1>上周车辆导航测试与问题处理简表</h1>
+  <div class="meta"><b>统计周期：</b>2026-11-09～2026-11-15　　<b>整理日期：</b>2026-11-16　　同日多轮测试按问题类别合并</div>
+  <table>
+    <colgroup>
+      <col style="width:6%"><col style="width:14%"><col style="width:15%"><col style="width:25%"><col style="width:31%"><col style="width:9%">
+    </colgroup>
+    <thead><tr><th>日期</th><th>测试内容</th><th>测试结果</th><th>主要发现</th><th>处理情况</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td>11/09</td><td><code>3b2mus</code><br>113→106→107</td><td>113、106到达；107中止，现场接管</td><td>到106时仍左转、车头约偏左20°；转向响应约滞后0.6 s；全局实时障碍曾被高度过滤；定位、路沿与车体边界仍需联合核验</td><td>11/10统一雷达方向、footprint、膨胀和转弯模型；同路线于11/11完整通过</td><td class="status-part">部分解决</td></tr>
+      <tr><td>11/10</td><td>规划、雷达和车辆模型离线验证</td><td>构建及专项回归通过，未发车</td><td>双雷达合并存在二次反转；全局/局部车体模型不一致；Smac、MPPI与底盘转弯半径不一致</td><td>取消二次反转；统一有效轮廓约0.90×0.60 m；转弯半径统一为1.0 m；54+46项测试通过</td><td class="status-done">已完成</td></tr>
+      <tr><td>11/09～11/11</td><td>导航启动与IMU预积分复测</td><td>多轮在行驶前失败；修复后可正常启动并完成路线</td><td>GTSAM <code>b0/x3</code>异常、IMU时间间隔异常、Nav2大地图冷启动超过60 s；旧健康检查过早终止恢复</td><td>增加设备时间映射、短帧检查、队列串行处理、gap重同步、5 s恢复宽限和进程联锁；Nav2专用上限改150 s；11/11实车通过</td><td class="status-done">已解决并复测</td></tr>
+      <tr><td>11/11</td><td><code>3b2mus</code><br>113→106→107</td><td>三个航点全部自主到达；到107后人工转场</td><td>仍有瞬时致命区告警、控制周期降频及底盘反馈短时高于2 km/h</td><td>主路线成功验收；遗留项继续保留诊断，不据单次成功关闭</td><td class="status-part">通过，有遗留</td></tr>
+      <tr><td>11/11</td><td><code>3b2mus</code><br>110→114，多轮</td><td>严重右偏入路沿、规划中止、严重左偏，均未完成</td><td>操作者在110附近，但软件起点距110约82.5～90.7 m；航点lat/lon与XY不一致；错误全局路径伴随lethal-start和大转角恢复</td><td>已定位到全局定位/坐标基准与航点一致性问题；应先统一坐标并增加起点距离校验，再复测转向</td><td class="status-open">待修复</td></tr>
+      <tr><td>11/12</td><td>室内footprint、双雷达、LIO静止测试</td><td>约471 s稳定；车辆静止；LIO在启动gap后恢复</td><td>0.90×0.60 m总尺寸与实测包络基本一致；未发现车体内或边界外5 cm近回波；前后雷达约30 Hz</td><td>当前footprint可作为测试初值；仍需补测base_link到前后左右四边距离，确认是否需非对称轮廓</td><td class="status-part">通过，有待测</td></tr>
+      <tr><td>11/12～11/13</td><td>导航关闭、FastDDS残留及持续刹车排查</td><td>关闭脚本多轮执行后导航进程/节点残留为0</td><td>FastDDS文件存在不等于锁故障；实际占用随进程退出而释放。零速被转换成<code>brake=true</code>且控制节点持续发布，会妨碍人工解除</td><td>完成<code>stop_navigation.sh</code>；控制转换改为<code>brake=false</code>、超时仅发一次中性帧、人工模式下停止输出；61项单测通过</td><td class="status-part">脚本已验<br>刹车待实车验收</td></tr>
+      <tr><td>11/13</td><td>重启后110→114多轮测试</td><td>出现未启动定位、后方近障碍、驻车不走、行驶后规划失败等不同结果</td><td>当前工控机重启后不会自动拉起整车传感器；发布任务只启动重定位→LIO→Nav2。两轮缺GNSS并非FastDDS问题</td><td>明确手动顺序：先<code>launch_real</code>，再导航管理栈，最后发布任务；整车驱动自动拉起服务仍未部署</td><td class="status-part">流程已明确</td></tr>
+      <tr><td>11/14</td><td>110→114及map2多轮；含11:22成功对照</td><td>10:59规划耗尽；11:13与11:41落入致命区；11:22同路线成功</td><td>11:13出现1.508 m LIO修正，约4 ms后融合里程计在10 ms跳1.179 m并进入静态障碍；不是重定位失败，且已排除该次由前雷达近车体回波触发</td><td>已修监控终态后提前停包，并补充<code>/odom_incremental</code>等下轮主题；TransformFusion跨修正epoch不连续仍待修复和实车验证</td><td class="status-open">监控已修<br>融合待修</td></tr>
+    </tbody>
+  </table>
+  <h2>当前结论</h2>
+  <ul>
+    <li>已解决并有实车复测：IMU预积分启动健壮性、Nav2冷启动时间预算、113→106→107主路线启动与执行。</li>
+    <li>代码或工具已改、仍需实车验收：导航结束后的持续刹车、完整收尾脚本、监控终态后持续录包。</li>
+    <li>最高优先级未解决项：LIO大修正触发融合里程计跳变、航点/地图坐标一致性、路线与静态障碍边缘净空。</li>
+  </ul>
+  <div class="source"><b>主要依据：</b><code>navigation_monitoring/runs/</code>各轮结果、11/10几何修复报告、11/11 IMU修复报告、11/14代价地图失败复盘。</div>
+</body>
+</html>

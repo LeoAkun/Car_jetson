@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="72.349" timestamp="2026-10-29T12:16:56.515182" hostname="admin1-Default-string"><testcase classname="test_task_navigation" name="test_route_task_completes_three_waypoints_and_stack_fault_stops_motion" time="72.113" /></testsuite></testsuites>

@@ -1,0 +1,825 @@
+{
+  "counts": {
+    "/lio_sam/imu_preintegration_readiness": 3,
+    "/lio_sam/mapping/odometry_incremental": 23,
+    "/lio_sam/mapping/odometry": 23,
+    "/lio_sam/correction_event": 23,
+    "/odom": 1009,
+    "/lio_sam/map_odom_correction": 1009,
+    "/odom_incremental": 3806,
+    "/lio_sam/epoch_odometry": 3806,
+    "/lio_sam/imu_preintegration_ready": 2,
+    "/lio_sam/localization_fault": 7
+  },
+  "odometry": {
+    "/lio_sam/mapping/odometry_incremental": {
+      "samples": 23,
+      "first_stamp_ns": 1794972935524420738,
+      "last_stamp_ns": 1794972976324437857,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 16,
+      "max_dt_sec": 16.999965906,
+      "step_m_max": 216.32109840133717,
+      "step_m_p99": 192.91570551990785,
+      "step_m_p999": 213.98055911319418,
+      "yaw_step_deg_max": 2.0271158221720045,
+      "hard_translation_over_0_05": 16,
+      "hard_yaw_over_1deg": 2,
+      "worst_10": [
+        [
+          216.32109840133717,
+          2.0271158221720045,
+          6.999727965,
+          1794972973824337721,
+          1795067648873013908,
+          282.8848571777344,
+          -348.9091491699219,
+          55.150489807128906
+        ],
+        [
+          104.86684658500747,
+          0.05219403780098965,
+          16.999965906,
+          1794972959724944830,
+          1795067634909731970,
+          64.1417236328125,
+          -84.42733001708984,
+          2.914435386657715
+        ],
+        [
+          104.10448899059685,
+          0.053692704034852046,
+          5.799431801,
+          1794972965824461699,
+          1795067640925363581,
+          129.22190856933594,
+          -169.39462280273438,
+          21.235122680664062
+        ],
+        [
+          30.376725147177893,
+          1.5413873595735847,
+          2.500100136,
+          1794972976324437857,
+          1795067651345803300,
+          286.66162109375,
+          -360.9128723144531,
+          27.50284767150879
+        ],
+        [
+          11.339248592855256,
+          0.20680279349288666,
+          0.499768972,
+          1794972966824609756,
+          1795067642196265249,
+          143.80323791503906,
+          -186.549072265625,
+          22.130401611328125
+        ],
+        [
+          11.239832390858924,
+          0.15461296452916878,
+          0.500379085,
+          1794972966324840784,
+          1795067641327405021,
+          136.00531005859375,
+          -178.3562774658203,
+          21.324800491333008
+        ],
+        [
+          5.964194999178921,
+          0.09332185513555613,
+          0.300085068,
+          1794972960025029898,
+          1795067635330576025,
+          66.56056213378906,
+          -87.40617370605469,
+          7.480323314666748
+        ],
+        [
+          0.4209641699394819,
+          0.0015625458448792426,
+          0.699338198,
+          1794972942524468899,
+          1795067617642522205,
+          0.8838193416595459,
+          -0.9855575561523438,
+          0.06832341849803925
+        ],
+        [
+          0.4054995093495827,
+          0.005661419739040599,
+          0.100338936,
+          1794972941825130701,
+          1795067616942296011,
+          0.6084864139556885,
+          -0.6672682762145996,
+          0.07804687321186066
+        ],
+        [
+          0.388522263246905,
+          0.012107830984956634,
+          0.199939012,
+          1794972941724791765,
+          1795067616738658656,
+          0.34487438201904297,
+          -0.3593069016933441,
+          0.08796355128288269
+        ]
+      ]
+    },
+    "/lio_sam/mapping/odometry": {
+      "samples": 23,
+      "first_stamp_ns": 1794972935524420738,
+      "last_stamp_ns": 1794972976324437857,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 16,
+      "max_dt_sec": 16.999965906,
+      "step_m_max": 215.53943636815964,
+      "step_m_p99": 192.31863653248445,
+      "step_m_p999": 213.21735638459202,
+      "yaw_step_deg_max": 1.8392523361646622,
+      "hard_translation_over_0_05": 11,
+      "hard_yaw_over_1deg": 1,
+      "worst_10": [
+        [
+          215.53943636815964,
+          1.8392523361646622,
+          6.999727965,
+          1794972973824337721,
+          1795067648873027207,
+          279.1563720703125,
+          -354.6307067871094,
+          30.476709365844727
+        ],
+        [
+          104.96419905542102,
+          0.14752390747936575,
+          16.999965906,
+          1794972959724944830,
+          1795067634909714848,
+          63.672061920166016,
+          -84.12791442871094,
+          -4.446079254150391
+        ],
+        [
+          104.17988401369854,
+          0.12561326197376388,
+          5.799431801,
+          1794972965824461699,
+          1795067640925380228,
+          128.7287139892578,
+          -170.5615997314453,
+          1.5362944602966309
+        ],
+        [
+          22.61640143893783,
+          0.21499661258841513,
+          0.499768972,
+          1794972966824609756,
+          1795067642196282523,
+          143.11021423339844,
+          -187.72984313964844,
+          20.843782424926758
+        ],
+        [
+          11.151323401339425,
+          0.03568971276487363,
+          0.500379085,
+          1794972966324840784,
+          1795067641327384312,
+          135.40931701660156,
+          -179.48544311523438,
+          1.2420563697814941
+        ],
+        [
+          4.190280890824394,
+          0.0033262087443035764,
+          0.300085068,
+          1794972960025029898,
+          1795067635330586420,
+          66.17835235595703,
+          -87.47969818115234,
+          -4.6522536277771
+        ],
+        [
+          0.6522455936108795,
+          0.003737882721775633,
+          1.100008964,
+          1794972941325028896,
+          1795067616338903004,
+          -0.22593002021312714,
+          0.2722758650779724,
+          0.015748940408229828
+        ],
+        [
+          0.5494915778943394,
+          0.0042385609343426845,
+          0.699338198,
+          1794972942524468899,
+          1795067617642533094,
+          0.12229686975479126,
+          -0.0749024748802185,
+          0.08265324681997299
+        ],
+        [
+          0.5070606259907384,
+          0.011934212487120925,
+          0.200510025,
+          1794972942724978924,
+          1795067617733697255,
+          0.44799795746803284,
+          -0.4634980857372284,
+          0.07788553088903427
+        ],
+        [
+          0.18203513213519762,
+          0.0034791351123451848,
+          2.30015707,
+          1794972939624867916,
+          1795067614735053135,
+          0.10813059657812119,
+          -0.15218386054039001,
+          -0.04823719337582588
+        ]
+      ]
+    },
+    "/odom": {
+      "samples": 1009,
+      "first_stamp_ns": 1794972936366098088,
+      "last_stamp_ns": 1794972967916098088,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 5,
+      "max_dt_sec": 14.24,
+      "step_m_max": 0.024619783981362515,
+      "step_m_p99": 0.02410264768827219,
+      "step_m_p999": 0.02456950803294666,
+      "yaw_step_deg_max": 0.0015349505072989509,
+      "hard_translation_over_0_05": 0,
+      "hard_yaw_over_1deg": 0,
+      "worst_10": [
+        [
+          0.024619783981362515,
+          0.0001994881043956034,
+          0.01,
+          1794972946396098088,
+          1795067621003362881,
+          3.6578061188313074,
+          -4.748772682292708,
+          -0.26385877191402946
+        ],
+        [
+          0.024569885233160824,
+          0.00029392573415084087,
+          0.01,
+          1794972946386098088,
+          1795067621002668972,
+          3.6427704853627354,
+          -4.729281841150541,
+          -0.2634457331041143
+        ],
+        [
+          0.024515999488279743,
+          2.22792837763939e-05,
+          0.01,
+          1794972946376098088,
+          1795067620660768546,
+          3.6277709288750515,
+          -4.7098262263052595,
+          -0.263031466842454
+        ],
+        [
+          0.024465405089639933,
+          0.0006603889131105588,
+          0.01,
+          1794972946366098088,
+          1795067620650757973,
+          3.6128030520305616,
+          -4.690414210186306,
+          -0.26261852147679954
+        ],
+        [
+          0.024412024496444105,
+          0.0002751898740919934,
+          0.01,
+          1794972946356098088,
+          1795067620640642183,
+          3.5978640695694066,
+          -4.671043800639117,
+          -0.262206110032199
+        ],
+        [
+          0.02436087772146139,
+          0.000414228042291349,
+          0.01,
+          1794972946346098088,
+          1795067620630725463,
+          3.5829583150269224,
+          -4.65171514060593,
+          -0.26179583834699827
+        ],
+        [
+          0.024312077980527126,
+          6.25631603582505e-05,
+          0.01,
+          1794972946336098088,
+          1795067620620639565,
+          3.568080473869953,
+          -4.632429498621828,
+          -0.2613881385443849
+        ],
+        [
+          0.02426110860527205,
+          0.0005755576599799282,
+          0.01,
+          1794972946326098088,
+          1795067620610642497,
+          3.5532344195403285,
+          -4.613180949747557,
+          -0.2609817239680669
+        ],
+        [
+          0.024208987511799843,
+          0.00039057559983160425,
+          0.01,
+          1794972946316098088,
+          1795067620600610624,
+          3.5384177113299593,
+          -4.593974124311716,
+          -0.2605762548043655
+        ],
+        [
+          0.02415734624610015,
+          0.0003905246655166717,
+          0.01,
+          1794972946306098088,
+          1795067620590554898,
+          3.52362924263264,
+          -4.574811360372244,
+          -0.2601703630269835
+        ]
+      ]
+    },
+    "/odom_incremental": {
+      "samples": 3806,
+      "first_stamp_ns": 1794972936366098088,
+      "last_stamp_ns": 1794972974586098088,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 0,
+      "max_dt_sec": 0.09,
+      "step_m_max": 19.529530488937688,
+      "step_m_p99": 0.3969938433241557,
+      "step_m_p999": 0.4797768562020086,
+      "yaw_step_deg_max": 1.1485191755277604,
+      "hard_translation_over_0_05": 2424,
+      "hard_yaw_over_1deg": 1,
+      "worst_10": [
+        [
+          19.529530488937688,
+          0.1992740225556737,
+          0.01,
+          1794972966646098088,
+          1795067640929682795,
+          140.59651831793667,
+          -184.3936031564526,
+          19.76076562590712
+        ],
+        [
+          8.161536023493978,
+          0.027161073044875073,
+          0.01,
+          1794972960636098088,
+          1795067634919654454,
+          72.00678654610591,
+          -94.89410773105489,
+          2.6366013343898835
+        ],
+        [
+          1.970823814303066,
+          1.1485191755277604,
+          0.01,
+          1794972967916098088,
+          1795067642199618524,
+          160.5243095391176,
+          -208.23553634697046,
+          23.003069759843005
+        ],
+        [
+          0.6483936325887244,
+          0.02022750577205718,
+          0.01,
+          1794972943366098088,
+          1795067617650709605,
+          1.120486714561726,
+          -1.2758956290819792,
+          0.034117873519480604
+        ],
+        [
+          0.4386712738988021,
+          0.010354923513691943,
+          0.01,
+          1794972942666098088,
+          1795067616950608902,
+          0.43230358958705845,
+          -0.4539357693626487,
+          0.06344061520483359
+        ],
+        [
+          0.405078666257206,
+          0.0010801600969527014,
+          0.01,
+          1794972974586098088,
+          1795067648869425998,
+          298.37229417314705,
+          -377.90587206916405,
+          29.10549155327172
+        ],
+        [
+          0.4048069751913578,
+          0.0008568243269607185,
+          0.01,
+          1794972974576098088,
+          1795067648859471011,
+          298.1149398663958,
+          -377.59305061350557,
+          29.105018760503707
+        ],
+        [
+          0.4045728388233173,
+          0.0017397594080789927,
+          0.01,
+          1794972974566098088,
+          1795067648849462353,
+          297.8577644637406,
+          -377.28043384178034,
+          29.1045153036504
+        ],
+        [
+          0.40429981293256245,
+          0.0015876893820798174,
+          0.01,
+          1794972974556098088,
+          1795067648839863225,
+          297.60073783310406,
+          -376.96799791583624,
+          29.103981228141002
+        ],
+        [
+          0.40406461666403387,
+          0.0012904442097868033,
+          0.01,
+          1794972974546098088,
+          1795067648829704187,
+          297.3438924470504,
+          -376.6557664808947,
+          29.103417814782343
+        ]
+      ]
+    }
+  },
+  "epoch": {
+    "samples": 3806,
+    "epochs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "epoch_decreases": 0,
+    "identities": [
+      [
+        "sim-20261119-1328",
+        5
+      ]
+    ]
+  },
+  "correction": {
+    "samples": 23,
+    "accepted": 6,
+    "rejected": 17,
+    "source_counts": {
+      "1": 22,
+      "4": 1
+    },
+    "max_translation_residual": 30.376720428466797,
+    "events": [
+      {
+        "stamp_ns": 1794972935524420738,
+        "epoch": 1,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.0,
+        "yaw_residual": 0.0,
+        "arrival_delay_sec": 94674.998145357,
+        "reason": "scan-to-map skipped; corner_features=935; surface_features=7345; selected_features=0; iterations=0; correction_translation=0; correction_rotation=0; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972935624533892,
+        "epoch": 2,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.0024372709449380636,
+        "yaw_residual": -0.00011933845235034825,
+        "arrival_delay_sec": 94675.016659808,
+        "reason": "scan-to-map optimized; corner_features=946; surface_features=7376; selected_features=4790; iterations=3; correction_translation=0.00243727; correction_rotation=0.0001218; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972935924797773,
+        "epoch": 3,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.00498662143945694,
+        "yaw_residual": -0.0001020731870085001,
+        "arrival_delay_sec": 94675.000386244,
+        "reason": "scan-to-map optimized; corner_features=954; surface_features=7241; selected_features=4691; iterations=2; correction_translation=0.00498662; correction_rotation=0.000131884; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972936224387884,
+        "epoch": 4,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.0024117291904985905,
+        "yaw_residual": -0.0001714986137812957,
+        "arrival_delay_sec": 94675.213848858,
+        "reason": "scan-to-map optimized; corner_features=956; surface_features=7069; selected_features=4489; iterations=2; correction_translation=0.00241173; correction_rotation=0.000206787; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972937025017738,
+        "epoch": 5,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.00777847645804286,
+        "yaw_residual": 6.533379200845957e-05,
+        "arrival_delay_sec": 94675.009328903,
+        "reason": "scan-to-map optimized; corner_features=924; surface_features=6911; selected_features=4295; iterations=3; correction_translation=0.00777848; correction_rotation=0.000126788; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972937324710846,
+        "epoch": 6,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.004398976918309927,
+        "yaw_residual": -8.406140841543674e-05,
+        "arrival_delay_sec": 94675.116489824,
+        "reason": "scan-to-map optimized; corner_features=1017; surface_features=7009; selected_features=4443; iterations=3; correction_translation=0.00439898; correction_rotation=0.000516268; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972939624867916,
+        "epoch": 7,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.17809748649597168,
+        "yaw_residual": 0.00041330658132210374,
+        "arrival_delay_sec": 94675.111176039,
+        "reason": "scan-to-map correction rejected; corner_features=981; surface_features=7000; selected_features=4404; iterations=4; correction_translation=0.178098; correction_rotation=0.00397175; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972939824626923,
+        "epoch": 8,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.2097359299659729,
+        "yaw_residual": 0.00029041862580925226,
+        "arrival_delay_sec": 94675.02200687,
+        "reason": "scan-to-map correction rejected; corner_features=995; surface_features=7095; selected_features=4444; iterations=4; correction_translation=0.209736; correction_rotation=0.00438566; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972940225019932,
+        "epoch": 9,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.2868817448616028,
+        "yaw_residual": 0.0003109799581579864,
+        "arrival_delay_sec": 94675.022967325,
+        "reason": "scan-to-map correction rejected; corner_features=1018; surface_features=7055; selected_features=4543; iterations=5; correction_translation=0.286882; correction_rotation=0.00517159; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972941325028896,
+        "epoch": 10,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.37272128462791443,
+        "yaw_residual": -3.368145917193033e-05,
+        "arrival_delay_sec": 94675.014884359,
+        "reason": "scan-to-map correction rejected; corner_features=992; surface_features=7211; selected_features=4570; iterations=4; correction_translation=0.372721; correction_rotation=0.00286683; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972941424699783,
+        "epoch": 11,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.37920403480529785,
+        "yaw_residual": 0.0002086425665766001,
+        "arrival_delay_sec": 94675.118142215,
+        "reason": "scan-to-map correction rejected; corner_features=951; surface_features=7175; selected_features=4518; iterations=4; correction_translation=0.379204; correction_rotation=0.00284089; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972941524852753,
+        "epoch": 12,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.3906223177909851,
+        "yaw_residual": 0.0002733601722866297,
+        "arrival_delay_sec": 94675.119701326,
+        "reason": "scan-to-map correction rejected; corner_features=976; surface_features=7171; selected_features=4482; iterations=5; correction_translation=0.390622; correction_rotation=0.0027365; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972941724791765,
+        "epoch": 13,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.4086858332157135,
+        "yaw_residual": 6.800668052164838e-05,
+        "arrival_delay_sec": 94675.015136252,
+        "reason": "scan-to-map correction rejected; corner_features=968; surface_features=7138; selected_features=4461; iterations=5; correction_translation=0.408686; correction_rotation=0.00249851; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972941825130701,
+        "epoch": 14,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.4152836203575134,
+        "yaw_residual": 5.235357093624771e-06,
+        "arrival_delay_sec": 94675.118517252,
+        "reason": "scan-to-map correction rejected; corner_features=962; surface_features=7162; selected_features=4448; iterations=5; correction_translation=0.415284; correction_rotation=0.00239185; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972942524468899,
+        "epoch": 15,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.1577032208442688,
+        "yaw_residual": 0.0001553258771309629,
+        "arrival_delay_sec": 94675.119350124,
+        "reason": "scan-to-map correction rejected; corner_features=942; surface_features=7178; selected_features=4555; iterations=4; correction_translation=0.157703; correction_rotation=0.00959927; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972942724978924,
+        "epoch": 16,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.6342949867248535,
+        "yaw_residual": 0.00031501727062277496,
+        "arrival_delay_sec": 94675.009822166,
+        "reason": "scan-to-map correction rejected; corner_features=945; surface_features=7106; selected_features=4495; iterations=5; correction_translation=0.634295; correction_rotation=0.0178231; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972959724944830,
+        "epoch": 17,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 4.3460798263549805,
+        "yaw_residual": 0.0006272042519412934,
+        "arrival_delay_sec": 94675.188046835,
+        "reason": "scan-to-map correction rejected; corner_features=867; surface_features=6813; selected_features=2; iterations=30; correction_translation=4.34608; correction_rotation=0.0296352; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972960025029898,
+        "epoch": 18,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 4.553441524505615,
+        "yaw_residual": -0.0007058755727484822,
+        "arrival_delay_sec": 94675.306113004,
+        "reason": "scan-to-map correction rejected; corner_features=860; surface_features=6813; selected_features=1142; iterations=2; correction_translation=4.55344; correction_rotation=0.0322535; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972965824461699,
+        "epoch": 19,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 1.436295986175537,
+        "yaw_residual": 0.0009884395403787494,
+        "arrival_delay_sec": 94675.1028309,
+        "reason": "scan-to-map correction rejected; corner_features=896; surface_features=6816; selected_features=0; iterations=30; correction_translation=1.4363; correction_rotation=0.0571745; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972966324840784,
+        "epoch": 20,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 1.1420536041259766,
+        "yaw_residual": -0.003020666539669037,
+        "arrival_delay_sec": 94675.003377936,
+        "reason": "scan-to-map correction rejected; corner_features=917; surface_features=6834; selected_features=95; iterations=2; correction_translation=1.14206; correction_rotation=0.0598159; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972966824609756,
+        "epoch": 21,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 20.7437801361084,
+        "yaw_residual": 0.002942304126918316,
+        "arrival_delay_sec": 94675.372509077,
+        "reason": "scan-to-map correction rejected; corner_features=923; surface_features=6942; selected_features=0; iterations=30; correction_translation=20.7438; correction_rotation=0.0797993; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1794972973824337721,
+        "epoch": 22,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 30.376720428466797,
+        "yaw_residual": 0.01525967102497816,
+        "arrival_delay_sec": 94675.050847067,
+        "reason": "scan-to-map correction rejected; corner_features=945; surface_features=7107; selected_features=0; iterations=30; correction_translation=30.3767; correction_rotation=0.146634; translation_limit=0.15; rotation_limit=0.0349066; discarded by IMU preintegration reset"
+      },
+      {
+        "stamp_ns": 1795067648875207103,
+        "epoch": 22,
+        "source": 4,
+        "accepted": true,
+        "translation_residual": 0.0,
+        "yaw_residual": 0.0,
+        "arrival_delay_sec": 4.05e-07,
+        "reason": "IMU preintegration reset; clear_imu_queues=true; min_correction_time=-1.000000"
+      }
+    ]
+  },
+  "map_odom_correction": {
+    "samples": 1009,
+    "accepted": 1009,
+    "state_counts": {
+      "1": 1009
+    },
+    "max_translation_residual": 0.00777847645804286
+  },
+  "faults": [
+    {
+      "bag_ns": 1795067615247273816,
+      "data": "LIO_SCAN_TO_MAP_UNRELIABLE: consecutive_rejects=3; consecutive_degenerate=0"
+    },
+    {
+      "bag_ns": 1795067621003741786,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=16; step=0.074167; yaw_step=0.000014"
+    },
+    {
+      "bag_ns": 1795067634929927244,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=17; step=0.147963; yaw_step=0.000004"
+    },
+    {
+      "bag_ns": 1795067635350075914,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=18; step=0.153147; yaw_step=0.000011"
+    },
+    {
+      "bag_ns": 1795067640939685036,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=19; step=0.235720; yaw_step=0.000004"
+    },
+    {
+      "bag_ns": 1795067641339738987,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=20; step=0.243586; yaw_step=0.000001"
+    },
+    {
+      "bag_ns": 1795067642209684464,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=21; step=0.258229; yaw_step=0.000011"
+    }
+  ],
+  "readiness": [
+    {
+      "kind": "identity",
+      "bag_ns": 1795067603836697834,
+      "ready": false,
+      "instance": "sim-20261119-1328",
+      "generation": 5
+    },
+    {
+      "kind": "legacy",
+      "bag_ns": 1795067611438334227,
+      "ready": true
+    },
+    {
+      "kind": "identity",
+      "bag_ns": 1795067611438342905,
+      "ready": true,
+      "instance": "sim-20261119-1328",
+      "generation": 5
+    },
+    {
+      "kind": "legacy",
+      "bag_ns": 1795067648875271625,
+      "ready": false
+    },
+    {
+      "kind": "identity",
+      "bag_ns": 1795067648875285748,
+      "ready": false,
+      "instance": "sim-20261119-1328",
+      "generation": 5
+    }
+  ]
+}

@@ -5,13 +5,15 @@ from yunle_msgs.msg import Ecu
 from std_msgs.msg import Header
 import math
 
+
 class CmdVelToEcu(Node):
     def __init__(self):
         super().__init__("cmdvel_to_ecu")
 
         # 创建发布者和订阅者
         self.ecu_pub = self.create_publisher(Ecu, "/ecu", 10)
-        self.cmd_sub = self.create_subscription(Twist, "/cmd_vel", self.cmd_callback, 10)
+        self.cmd_sub = self.create_subscription(
+            Twist, "/cmd_vel", self.cmd_callback, 10)
 
         # 声明参数
         self.declare_parameter('L', 0.5)
@@ -28,7 +30,7 @@ class CmdVelToEcu(Node):
         self.OMEGA_DEADZONE = self.get_parameter('OMEGA_DEADZONE').value
         self.OMEGA_FULL_STEER = self.get_parameter('OMEGA_FULL_STEER').value
         self.rear_wheel_flag = self.get_parameter('rear_wheel_flag').value
-        
+
         self.get_logger().info("/cmd_vel → /ecu 节点已启动")
 
     def cmdvel_2_ecu(self, msg: Twist) -> Ecu:
@@ -69,16 +71,18 @@ class CmdVelToEcu(Node):
             if abs(omega) < self.OMEGA_DEADZONE:
                 steer_deg = 0.0
             else:
-                steer_deg = omega * (self.MAX_STEER_DEG / self.OMEGA_FULL_STEER)
+                steer_deg = omega * (
+                    self.MAX_STEER_DEG / self.OMEGA_FULL_STEER)
         else:
             # 行驶转向（阿克曼）
             steer_deg = math.degrees(math.atan(self.L * omega / v))
 
         # 转向角限幅
-        ecu_msg.steer = max(-self.MAX_STEER_DEG, min(steer_deg, self.MAX_STEER_DEG))
+        ecu_msg.steer = max(
+            -self.MAX_STEER_DEG, min(steer_deg, self.MAX_STEER_DEG))
 
-        # ====================== 刹车与标志位 ======================
-        ecu_msg.brake = abs(v) < epsilon
+        # 零速不是紧急停车；驻车由车辆硬件和现场人工保护负责。
+        ecu_msg.brake = False
         ecu_msg.rear_wheel_flag = self.rear_wheel_flag
 
         return ecu_msg

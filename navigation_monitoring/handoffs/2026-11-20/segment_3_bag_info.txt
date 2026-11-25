@@ -1,0 +1,43 @@
+
+Files:             navigation_core_bag_segment_3_0.db3
+                   navigation_core_bag_segment_3_1.db3
+                   navigation_core_bag_segment_3_2.db3
+                   navigation_core_bag_segment_3_3.db3
+                   navigation_core_bag_segment_3_4.db3
+                   navigation_core_bag_segment_3_5.db3
+                   navigation_core_bag_segment_3_6.db3
+                   navigation_core_bag_segment_3_7.db3
+                   navigation_core_bag_segment_3_8.db3
+                   navigation_core_bag_segment_3_9.db3
+                   navigation_core_bag_segment_3_10.db3
+                   navigation_core_bag_segment_3_11.db3
+                   navigation_core_bag_segment_3_12.db3
+                   navigation_core_bag_segment_3_13.db3
+                   navigation_core_bag_segment_3_14.db3
+                   navigation_core_bag_segment_3_15.db3
+Bag size:          5.7 GiB
+Storage id:        sqlite3
+Duration:          473.243703022s
+Start:             Nov 20 2026 11:55:41.850531419 (1795146941.850531419)
+End:               Nov 20 2026 12:03:35.094234441 (1795147415.094234441)
+Messages:          155136
+Topic information: Topic: /robot_state | Type: std_msgs/msg/String | Count: 0 | Serialization Format: cdr
+                   Topic: /rslidar_Pointcloud2 | Type: sensor_msgs/msg/PointCloud2 | Count: 4404 | Serialization Format: cdr
+                   Topic: /waypoint_list | Type: multi_map_navigation_msgs/msg/WaypointList | Count: 0 | Serialization Format: cdr
+                   Topic: /start_end_graph | Type: multi_map_navigation_msgs/msg/StartEndGraph | Count: 0 | Serialization Format: cdr
+                   Topic: /tf_static | Type: tf2_msgs/msg/TFMessage | Count: 8 | Serialization Format: cdr
+                   Topic: /sensing/gnss/pose_with_covariance | Type: sensor_msgs/msg/NavSatFix | Count: 0 | Serialization Format: cdr
+                   Topic: /cmd_vel | Type: geometry_msgs/msg/Twist | Count: 0 | Serialization Format: cdr
+                   Topic: /parameter_events | Type: rcl_interfaces/msg/ParameterEvent | Count: 0 | Serialization Format: cdr
+                   Topic: /process_manager/fault | Type: std_msgs/msg/String | Count: 0 | Serialization Format: cdr
+                   Topic: /laser/scan_merge_laser | Type: sensor_msgs/msg/LaserScan | Count: 14047 | Serialization Format: cdr
+                   Topic: /rosout | Type: rcl_interfaces/msg/Log | Count: 140 | Serialization Format: cdr
+                   Topic: /imu | Type: sensor_msgs/msg/Imu | Count: 47239 | Serialization Format: cdr
+                   Topic: /robot_status | Type: multi_map_navigation_msgs/msg/RobotStatus | Count: 114 | Serialization Format: cdr
+                   Topic: /laser/scan_back | Type: sensor_msgs/msg/LaserScan | Count: 14106 | Serialization Format: cdr
+                   Topic: /localization_session | Type: multi_map_navigation_msgs/msg/LocalizationSession | Count: 1 | Serialization Format: cdr
+                   Topic: /vehicle_status | Type: yunle_msgs/msg/VehicleStatus | Count: 46985 | Serialization Format: cdr
+                   Topic: /laser/scan_merge_laser_filtered | Type: sensor_msgs/msg/LaserScan | Count: 14042 | Serialization Format: cdr
+                   Topic: /laser/scan_front | Type: sensor_msgs/msg/LaserScan | Count: 14050 | Serialization Format: cdr
+                   Topic: /tf | Type: tf2_msgs/msg/TFMessage | Count: 0 | Serialization Format: cdr
+

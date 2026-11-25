@@ -214,7 +214,7 @@ def main():
     parser = argparse.ArgumentParser(description='MQTT TaskGraph 复杂图测试发布器（含地图切换点）')
     parser.add_argument('--broker', type=str, default='localhost', help='MQTT 代理地址')
     parser.add_argument('--port', type=int, default=1883, help='MQTT 代理端口')
-    parser.add_argument('--topic', type=str, default='prod/ctrl/vehicle/LS1234567890/task/start', help='MQTT 主题')
+    parser.add_argument('--topic', type=str, default='robot/LS1234567890/down/cmd/sendTask', help='MQTT 主题')
     parser.add_argument('--username', type=str, default='', help='MQTT 用户名')
     parser.add_argument('--password', type=str, default='', help='MQTT 密码')
     args = parser.parse_args()

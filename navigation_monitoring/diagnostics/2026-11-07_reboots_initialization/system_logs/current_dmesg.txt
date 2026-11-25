@@ -1,0 +1,1888 @@
+[Sat Nov  7 16:58:27 2026] Linux version 6.8.0-138-generic (buildd@lcy02-amd64-008) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  (Ubuntu 6.8.0-138.138~22.04.1-generic 6.8.12)
+[Sat Nov  7 16:58:27 2026] Command line: BOOT_IMAGE=/boot/vmlinuz-6.8.0-138-generic root=UUID=20e2dc10-047e-482f-a269-c976b450fcb6 ro quiet splash vt.handoff=7
+[Sat Nov  7 16:58:27 2026] KERNEL supported cpus:
+[Sat Nov  7 16:58:27 2026]   Intel GenuineIntel
+[Sat Nov  7 16:58:27 2026]   AMD AuthenticAMD
+[Sat Nov  7 16:58:27 2026]   Hygon HygonGenuine
+[Sat Nov  7 16:58:27 2026]   Centaur CentaurHauls
+[Sat Nov  7 16:58:27 2026]   zhaoxin   Shanghai  
+[Sat Nov  7 16:58:27 2026] x86/tme: not enabled by BIOS
+[Sat Nov  7 16:58:27 2026] x86/split lock detection: #AC: crashing the kernel on kernel split_locks and warning on user-space split_locks
+[Sat Nov  7 16:58:27 2026] BIOS-provided physical RAM map:
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x0000000000000000-0x000000000005dfff] usable
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000000005e000-0x000000000005efff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000000005f000-0x000000000009ffff] usable
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x0000000000100000-0x000000006b8cbfff] usable
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000006b8cc000-0x000000006e9cbfff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000006e9cc000-0x000000006ead6fff] ACPI data
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000006ead7000-0x000000006efc4fff] ACPI NVS
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000006efc5000-0x000000006fffefff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x000000006ffff000-0x000000006fffffff] usable
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x0000000070000000-0x0000000073ffffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x0000000074600000-0x00000000747fffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x0000000075000000-0x00000000807fffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000c0000000-0x00000000cfffffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000fe000000-0x00000000fe010fff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000fed00000-0x00000000fed00fff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000fed20000-0x00000000fed7ffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x00000000ff000000-0x00000000ffffffff] reserved
+[Sat Nov  7 16:58:27 2026] BIOS-e820: [mem 0x0000000100000000-0x000000087f7fffff] usable
+[Sat Nov  7 16:58:27 2026] NX (Execute Disable) protection: active
+[Sat Nov  7 16:58:27 2026] APIC: Static calls initialized
+[Sat Nov  7 16:58:27 2026] e820: update [mem 0x64171018-0x64191e57] usable ==> usable
+[Sat Nov  7 16:58:27 2026] e820: update [mem 0x64171018-0x64191e57] usable ==> usable
+[Sat Nov  7 16:58:27 2026] extended physical RAM map:
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000000000000-0x000000000005dfff] usable
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000000005e000-0x000000000005efff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000000005f000-0x000000000009ffff] usable
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000000a0000-0x00000000000fffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000000100000-0x0000000064171017] usable
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000064171018-0x0000000064191e57] usable
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000064191e58-0x000000006b8cbfff] usable
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000006b8cc000-0x000000006e9cbfff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000006e9cc000-0x000000006ead6fff] ACPI data
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000006ead7000-0x000000006efc4fff] ACPI NVS
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000006efc5000-0x000000006fffefff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x000000006ffff000-0x000000006fffffff] usable
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000070000000-0x0000000073ffffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000074600000-0x00000000747fffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000075000000-0x00000000807fffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000c0000000-0x00000000cfffffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000fe000000-0x00000000fe010fff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000fed00000-0x00000000fed00fff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000fed20000-0x00000000fed7ffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x00000000ff000000-0x00000000ffffffff] reserved
+[Sat Nov  7 16:58:27 2026] reserve setup_data: [mem 0x0000000100000000-0x000000087f7fffff] usable
+[Sat Nov  7 16:58:27 2026] efi: EFI v2.9 by American Megatrends
+[Sat Nov  7 16:58:27 2026] efi: ACPI=0x6ef21000 ACPI 2.0=0x6ef21014 TPMFinalLog=0x6eef0000 SMBIOS=0x6fc97000 SMBIOS 3.0=0x6fc96000 MEMATTR=0x647a9018 ESRT=0x68a6dc98 MOKvar=0x6fcf8000 RNG=0x6ea00018 TPMEventLog=0x6e9fc018 
+[Sat Nov  7 16:58:27 2026] random: crng init done
+[Sat Nov  7 16:58:27 2026] efi: Remove mem69: MMIO range=[0xc0000000-0xcfffffff] (256MB) from e820 map
+[Sat Nov  7 16:58:27 2026] e820: remove [mem 0xc0000000-0xcfffffff] reserved
+[Sat Nov  7 16:58:27 2026] efi: Not removing mem70: MMIO range=[0xfe000000-0xfe010fff] (68KB) from e820 map
+[Sat Nov  7 16:58:27 2026] efi: Not removing mem71: MMIO range=[0xfec00000-0xfec00fff] (4KB) from e820 map
+[Sat Nov  7 16:58:27 2026] efi: Not removing mem72: MMIO range=[0xfed00000-0xfed00fff] (4KB) from e820 map
+[Sat Nov  7 16:58:27 2026] efi: Not removing mem74: MMIO range=[0xfee00000-0xfee00fff] (4KB) from e820 map
+[Sat Nov  7 16:58:27 2026] efi: Remove mem75: MMIO range=[0xff000000-0xffffffff] (16MB) from e820 map
+[Sat Nov  7 16:58:27 2026] e820: remove [mem 0xff000000-0xffffffff] reserved
+[Sat Nov  7 16:58:27 2026] secureboot: Secure boot disabled
+[Sat Nov  7 16:58:27 2026] SMBIOS 3.6.0 present.
+[Sat Nov  7 16:58:27 2026] DMI: Default string Default string/Default string, BIOS 7151I101 03/19/2025
+[Sat Nov  7 16:58:27 2026] tsc: Detected 1400.000 MHz processor
+[Sat Nov  7 16:58:27 2026] tsc: Detected 1382.400 MHz TSC
+[Sat Nov  7 16:58:27 2026] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+[Sat Nov  7 16:58:27 2026] e820: remove [mem 0x000a0000-0x000fffff] usable
+[Sat Nov  7 16:58:27 2026] last_pfn = 0x87f800 max_arch_pfn = 0x400000000
+[Sat Nov  7 16:58:27 2026] total RAM covered: 63328M
+[Sat Nov  7 16:58:27 2026] Found optimal setting for mtrr clean up
+[Sat Nov  7 16:58:27 2026]  gran_size: 64K 	chunk_size: 256M 	num_reg: 7  	lose cover RAM: 0G
+[Sat Nov  7 16:58:27 2026] MTRR map: 6 entries (3 fixed + 3 variable; max 23), built from 10 variable MTRRs
+[Sat Nov  7 16:58:27 2026] x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[Sat Nov  7 16:58:27 2026] e820: update [mem 0x76000000-0xffffffff] usable ==> reserved
+[Sat Nov  7 16:58:27 2026] last_pfn = 0x70000 max_arch_pfn = 0x400000000
+[Sat Nov  7 16:58:27 2026] found SMP MP-table at [mem 0x000fce80-0x000fce8f]
+[Sat Nov  7 16:58:27 2026] esrt: Reserving ESRT space from 0x0000000068a6dc98 to 0x0000000068a6dd70.
+[Sat Nov  7 16:58:27 2026] e820: update [mem 0x68a6d000-0x68a6dfff] usable ==> reserved
+[Sat Nov  7 16:58:27 2026] Using GB pages for direct mapping
+[Sat Nov  7 16:58:27 2026] secureboot: Secure boot disabled
+[Sat Nov  7 16:58:27 2026] RAMDISK: [mem 0x527fc000-0x5754ffff]
+[Sat Nov  7 16:58:27 2026] ACPI: Early table checksum verification disabled
+[Sat Nov  7 16:58:27 2026] ACPI: RSDP 0x000000006EF21014 000024 (v02 ALASKA)
+[Sat Nov  7 16:58:27 2026] ACPI: XSDT 0x000000006EF20728 0000F4 (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: FACP 0x000000006EAD4000 000114 (v06 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: DSDT 0x000000006EA35000 09EC86 (v02 ALASKA A M I    01072009 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: FACS 0x000000006EFC4000 000040
+[Sat Nov  7 16:58:27 2026] ACPI: FIDT 0x000000006EA34000 00009C (v01 ALASKA A M I    01072009 AMI  00010013)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EAD6000 00038C (v02 PmaxDv Pmax_Dev 00000001 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA2E000 005D34 (v02 CpuRef CpuSsdt  00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA2B000 002BA7 (v02 SaSsdt SaSsdt   00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA27000 00334F (v02 INTEL  IgfxSsdt 00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: HPET 0x000000006EAD5000 000038 (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: APIC 0x000000006EA26000 0001DC (v05 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: MCFG 0x000000006EA25000 00003C (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA23000 001F1A (v02 ALASKA Ther_Rvp 00001000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: UEFI 0x000000006EED6000 000048 (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: NHLT 0x000000006EA22000 00002D (v00 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: LPIT 0x000000006EA21000 0000CC (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA1D000 002A83 (v02 ALASKA PtidDevc 00001000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA13000 0093E7 (v02 ALASKA TbtTypeC 00000000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: DBGP 0x000000006EA12000 000034 (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: DBG2 0x000000006EA11000 000054 (v00 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA0F000 00190A (v02 ALASKA UsbCTabl 00001000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: DMAR 0x000000006EA0E000 000088 (v01 INTEL  EDK2     00000002      01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: FPDT 0x000000006EA0D000 000044 (v01 ALASKA A M I    01072009 AMI  01000013)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA0B000 0015FE (v02 INTEL  xh_adls3 00000000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA07000 0039DA (v02 SocGpe SocGpe   00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0x000000006EA03000 0039DA (v02 SocCmn SocCmn   00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: PHAT 0x000000006EA02000 000611 (v01 ALASKA A M I    00000005 MSFT 0100000D)
+[Sat Nov  7 16:58:27 2026] ACPI: TPM2 0x000000006EA01000 00004C (v04 ALASKA A M I    00000001 AMI  00000000)
+[Sat Nov  7 16:58:27 2026] ACPI: WSMT 0x000000006EA20000 000028 (v01 ALASKA A M I    01072009 AMI  00010013)
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving FACP table memory at [mem 0x6ead4000-0x6ead4113]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving DSDT table memory at [mem 0x6ea35000-0x6ead3c85]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving FACS table memory at [mem 0x6efc4000-0x6efc403f]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving FIDT table memory at [mem 0x6ea34000-0x6ea3409b]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ead6000-0x6ead638b]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea2e000-0x6ea33d33]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea2b000-0x6ea2dba6]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea27000-0x6ea2a34e]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving HPET table memory at [mem 0x6ead5000-0x6ead5037]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving APIC table memory at [mem 0x6ea26000-0x6ea261db]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving MCFG table memory at [mem 0x6ea25000-0x6ea2503b]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea23000-0x6ea24f19]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving UEFI table memory at [mem 0x6eed6000-0x6eed6047]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving NHLT table memory at [mem 0x6ea22000-0x6ea2202c]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving LPIT table memory at [mem 0x6ea21000-0x6ea210cb]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea1d000-0x6ea1fa82]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea13000-0x6ea1c3e6]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving DBGP table memory at [mem 0x6ea12000-0x6ea12033]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving DBG2 table memory at [mem 0x6ea11000-0x6ea11053]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea0f000-0x6ea10909]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving DMAR table memory at [mem 0x6ea0e000-0x6ea0e087]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving FPDT table memory at [mem 0x6ea0d000-0x6ea0d043]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea0b000-0x6ea0c5fd]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea07000-0x6ea0a9d9]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving SSDT table memory at [mem 0x6ea03000-0x6ea069d9]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving PHAT table memory at [mem 0x6ea02000-0x6ea02610]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving TPM2 table memory at [mem 0x6ea01000-0x6ea0104b]
+[Sat Nov  7 16:58:27 2026] ACPI: Reserving WSMT table memory at [mem 0x6ea20000-0x6ea20027]
+[Sat Nov  7 16:58:27 2026] No NUMA configuration found
+[Sat Nov  7 16:58:27 2026] Faking a node at [mem 0x0000000000000000-0x000000087f7fffff]
+[Sat Nov  7 16:58:27 2026] NODE_DATA(0) allocated [mem 0x87f7d5000-0x87f7fffff]
+[Sat Nov  7 16:58:27 2026] Zone ranges:
+[Sat Nov  7 16:58:27 2026]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[Sat Nov  7 16:58:27 2026]   DMA32    [mem 0x0000000001000000-0x00000000ffffffff]
+[Sat Nov  7 16:58:27 2026]   Normal   [mem 0x0000000100000000-0x000000087f7fffff]
+[Sat Nov  7 16:58:27 2026]   Device   empty
+[Sat Nov  7 16:58:27 2026] Movable zone start for each node
+[Sat Nov  7 16:58:27 2026] Early memory node ranges
+[Sat Nov  7 16:58:27 2026]   node   0: [mem 0x0000000000001000-0x000000000005dfff]
+[Sat Nov  7 16:58:27 2026]   node   0: [mem 0x000000000005f000-0x000000000009ffff]
+[Sat Nov  7 16:58:27 2026]   node   0: [mem 0x0000000000100000-0x000000006b8cbfff]
+[Sat Nov  7 16:58:27 2026]   node   0: [mem 0x000000006ffff000-0x000000006fffffff]
+[Sat Nov  7 16:58:27 2026]   node   0: [mem 0x0000000100000000-0x000000087f7fffff]
+[Sat Nov  7 16:58:27 2026] Initmem setup node 0 [mem 0x0000000000001000-0x000000087f7fffff]
+[Sat Nov  7 16:58:27 2026] On node 0, zone DMA: 1 pages in unavailable ranges
+[Sat Nov  7 16:58:27 2026] On node 0, zone DMA: 1 pages in unavailable ranges
+[Sat Nov  7 16:58:27 2026] On node 0, zone DMA: 96 pages in unavailable ranges
+[Sat Nov  7 16:58:27 2026] On node 0, zone DMA32: 18227 pages in unavailable ranges
+[Sat Nov  7 16:58:27 2026] On node 0, zone Normal: 2048 pages in unavailable ranges
+[Sat Nov  7 16:58:27 2026] Reserving Intel graphics memory at [mem 0x76800000-0x807fffff]
+[Sat Nov  7 16:58:27 2026] ACPI: PM-Timer IO Port: 0x1808
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x01] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x02] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x03] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x04] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x05] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x06] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x07] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x08] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x09] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x0a] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x0b] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x0c] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x0d] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x0e] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x0f] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x10] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x11] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x12] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x13] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x14] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x15] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x16] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x17] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] ACPI: LAPIC_NMI (acpi_id[0x00] high edge lint[0x1])
+[Sat Nov  7 16:58:27 2026] IOAPIC[0]: apic_id 2, version 32, address 0xfec00000, GSI 0-119
+[Sat Nov  7 16:58:27 2026] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[Sat Nov  7 16:58:27 2026] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[Sat Nov  7 16:58:27 2026] ACPI: Using ACPI (MADT) for SMP configuration information
+[Sat Nov  7 16:58:27 2026] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[Sat Nov  7 16:58:27 2026] TSC deadline timer available
+[Sat Nov  7 16:58:27 2026] smpboot: Allowing 20 CPUs, 0 hotplug CPUs
+[Sat Nov  7 16:58:27 2026] PM: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[Sat Nov  7 16:58:27 2026] PM: hibernation: Registered nosave memory: [mem 0x0005e000-0x0005efff]
+[Sat Nov  7 16:58:27 2026] PM: hibernation: Registered nosave memory: [mem 0x000a0000-0x000fffff]
+[Sat Nov  7 16:58:27 2026] PM: hibernation: Registered nosave memory: [mem 0x68a6d000-0x68a6dfff]
+[Sat Nov  7 16:58:27 2026] PM: hibernation: Registered nosave memory: [mem 0x6b8cc000-0x6fffefff]
+[Sat Nov  7 16:58:27 2026] PM: hibernation: Registered nosave memory: [mem 0x70000000-0xffffffff]
+[Sat Nov  7 16:58:27 2026] [mem 0x80800000-0xfdffffff] available for PCI devices
+[Sat Nov  7 16:58:27 2026] Booting paravirtualized kernel on bare hardware
+[Sat Nov  7 16:58:27 2026] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[Sat Nov  7 16:58:27 2026] setup_percpu: NR_CPUS:8192 nr_cpumask_bits:20 nr_cpu_ids:20 nr_node_ids:1
+[Sat Nov  7 16:58:27 2026] percpu: Embedded 86 pages/cpu s229376 r8192 d114688 u524288
+[Sat Nov  7 16:58:27 2026] pcpu-alloc: s229376 r8192 d114688 u524288 alloc=1*2097152
+[Sat Nov  7 16:58:27 2026] pcpu-alloc: [0] 00 01 02 03 [0] 04 05 06 07 
+[Sat Nov  7 16:58:27 2026] pcpu-alloc: [0] 08 09 10 11 [0] 12 13 14 15 
+[Sat Nov  7 16:58:27 2026] pcpu-alloc: [0] 16 17 18 19 
+[Sat Nov  7 16:58:27 2026] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-6.8.0-138-generic root=UUID=20e2dc10-047e-482f-a269-c976b450fcb6 ro quiet splash vt.handoff=7
+[Sat Nov  7 16:58:27 2026] Unknown kernel command line parameters "splash", will be passed to user space.
+[Sat Nov  7 16:58:27 2026] Dentry cache hash table entries: 4194304 (order: 13, 33554432 bytes, linear)
+[Sat Nov  7 16:58:27 2026] Inode-cache hash table entries: 2097152 (order: 12, 16777216 bytes, linear)
+[Sat Nov  7 16:58:27 2026] Fallback order for Node 0: 0 
+[Sat Nov  7 16:58:27 2026] Built 1 zonelists, mobility grouping on.  Total pages: 8172809
+[Sat Nov  7 16:58:27 2026] Policy zone: Normal
+[Sat Nov  7 16:58:27 2026] mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+[Sat Nov  7 16:58:27 2026] software IO TLB: area num 32.
+[Sat Nov  7 16:58:27 2026] Memory: 32356716K/33210796K available (22528K kernel code, 4438K rwdata, 14008K rodata, 4928K init, 4784K bss, 853820K reserved, 0K cma-reserved)
+[Sat Nov  7 16:58:27 2026] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=20, Nodes=1
+[Sat Nov  7 16:58:27 2026] ftrace: allocating 58339 entries in 228 pages
+[Sat Nov  7 16:58:27 2026] ftrace: allocated 228 pages with 4 groups
+[Sat Nov  7 16:58:27 2026] Dynamic Preempt: voluntary
+[Sat Nov  7 16:58:27 2026] rcu: Preemptible hierarchical RCU implementation.
+[Sat Nov  7 16:58:27 2026] rcu: 	RCU restricting CPUs from NR_CPUS=8192 to nr_cpu_ids=20.
+[Sat Nov  7 16:58:27 2026] 	Trampoline variant of Tasks RCU enabled.
+[Sat Nov  7 16:58:27 2026] 	Rude variant of Tasks RCU enabled.
+[Sat Nov  7 16:58:27 2026] 	Tracing variant of Tasks RCU enabled.
+[Sat Nov  7 16:58:27 2026] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[Sat Nov  7 16:58:27 2026] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=20
+[Sat Nov  7 16:58:27 2026] RCU Tasks: Setting shift to 5 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=20.
+[Sat Nov  7 16:58:27 2026] RCU Tasks Rude: Setting shift to 5 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=20.
+[Sat Nov  7 16:58:27 2026] RCU Tasks Trace: Setting shift to 5 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=20.
+[Sat Nov  7 16:58:27 2026] NR_IRQS: 524544, nr_irqs: 2216, preallocated irqs: 16
+[Sat Nov  7 16:58:27 2026] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[Sat Nov  7 16:58:27 2026] Console: colour dummy device 80x25
+[Sat Nov  7 16:58:27 2026] printk: legacy console [tty0] enabled
+[Sat Nov  7 16:58:27 2026] ACPI: Core revision 20230628
+[Sat Nov  7 16:58:27 2026] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 99544814920 ns
+[Sat Nov  7 16:58:27 2026] APIC: Switch to symmetric I/O mode setup
+[Sat Nov  7 16:58:27 2026] DMAR: Host address width 39
+[Sat Nov  7 16:58:27 2026] DMAR: DRHD base: 0x000000fed90000 flags: 0x0
+[Sat Nov  7 16:58:27 2026] DMAR: dmar0: reg_base_addr fed90000 ver 4:0 cap 1c0000c40660462 ecap 29a00f0505e
+[Sat Nov  7 16:58:27 2026] DMAR: DRHD base: 0x000000fed91000 flags: 0x1
+[Sat Nov  7 16:58:27 2026] DMAR: dmar1: reg_base_addr fed91000 ver 5:0 cap d2008c40660462 ecap f050da
+[Sat Nov  7 16:58:27 2026] DMAR: RMRR base: 0x00000076000000 end: 0x000000807fffff
+[Sat Nov  7 16:58:27 2026] DMAR-IR: IOAPIC id 2 under DRHD base  0xfed91000 IOMMU 1
+[Sat Nov  7 16:58:27 2026] DMAR-IR: HPET id 0 under DRHD base 0xfed91000
+[Sat Nov  7 16:58:27 2026] DMAR-IR: Queued invalidation will be enabled to support x2apic and Intr-remapping.
+[Sat Nov  7 16:58:27 2026] DMAR-IR: Enabled IRQ remapping in x2apic mode
+[Sat Nov  7 16:58:27 2026] x2apic enabled
+[Sat Nov  7 16:58:27 2026] APIC: Switched APIC routing to: cluster x2apic
+[Sat Nov  7 16:58:27 2026] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[Sat Nov  7 16:58:27 2026] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x13ed2e4df6c, max_idle_ns: 440795243303 ns
+[Sat Nov  7 16:58:27 2026] Calibrating delay loop (skipped), value calculated using timer frequency.. 2764.80 BogoMIPS (lpj=1382400)
+[Sat Nov  7 16:58:27 2026] CPU0: Thermal monitoring enabled (TM1)
+[Sat Nov  7 16:58:27 2026] x86/cpu: User Mode Instruction Prevention (UMIP) activated
+[Sat Nov  7 16:58:27 2026] process: using mwait in idle threads
+[Sat Nov  7 16:58:27 2026] Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+[Sat Nov  7 16:58:27 2026] Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[Sat Nov  7 16:58:27 2026] Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[Sat Nov  7 16:58:27 2026] Spectre V2 : Mitigation: Enhanced / Automatic IBRS
+[Sat Nov  7 16:58:27 2026] Spectre V2 : Spectre v2 / PBRSB-eIBRS: Retire a single CALL on VMEXIT
+[Sat Nov  7 16:58:27 2026] Spectre V2 : mitigation: Enabling conditional Indirect Branch Prediction Barrier
+[Sat Nov  7 16:58:27 2026] Speculative Store Bypass: Mitigation: Speculative Store Bypass disabled via prctl
+[Sat Nov  7 16:58:27 2026] Register File Data Sampling: Mitigation: Clear Register File
+[Sat Nov  7 16:58:27 2026] VMSCAPE: Mitigation: IBPB before exit to userspace
+[Sat Nov  7 16:58:27 2026] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[Sat Nov  7 16:58:27 2026] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+[Sat Nov  7 16:58:27 2026] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+[Sat Nov  7 16:58:27 2026] x86/fpu: Supporting XSAVE feature 0x200: 'Protection Keys User registers'
+[Sat Nov  7 16:58:27 2026] x86/fpu: Supporting XSAVE feature 0x800: 'Control-flow User registers'
+[Sat Nov  7 16:58:27 2026] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+[Sat Nov  7 16:58:27 2026] x86/fpu: xstate_offset[9]:  832, xstate_sizes[9]:    8
+[Sat Nov  7 16:58:27 2026] x86/fpu: xstate_offset[11]:  840, xstate_sizes[11]:   16
+[Sat Nov  7 16:58:27 2026] x86/fpu: Enabled xstate features 0xa07, context size is 856 bytes, using 'compacted' format.
+[Sat Nov  7 16:58:27 2026] Freeing SMP alternatives memory: 48K
+[Sat Nov  7 16:58:27 2026] pid_max: default: 32768 minimum: 301
+[Sat Nov  7 16:58:27 2026] LSM: initializing lsm=lockdown,capability,landlock,yama,apparmor,integrity
+[Sat Nov  7 16:58:27 2026] landlock: Up and running.
+[Sat Nov  7 16:58:27 2026] Yama: becoming mindful.
+[Sat Nov  7 16:58:27 2026] AppArmor: AppArmor initialized
+[Sat Nov  7 16:58:27 2026] Mount-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[Sat Nov  7 16:58:27 2026] Mountpoint-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[Sat Nov  7 16:58:27 2026] smpboot: CPU0: 12th Gen Intel(R) Core(TM) i7-12700T (family: 0x6, model: 0x97, stepping: 0x2)
+[Sat Nov  7 16:58:27 2026] Performance Events: XSAVE Architectural LBR, PEBS fmt4+-baseline,  AnyThread deprecated, Alderlake Hybrid events, 32-deep LBR, full-width counters, Intel PMU driver.
+[Sat Nov  7 16:58:27 2026] core: cpu_core PMU driver: 
+[Sat Nov  7 16:58:27 2026] ... version:                5
+[Sat Nov  7 16:58:27 2026] ... bit width:              48
+[Sat Nov  7 16:58:27 2026] ... generic registers:      8
+[Sat Nov  7 16:58:27 2026] ... value mask:             0000ffffffffffff
+[Sat Nov  7 16:58:27 2026] ... max period:             00007fffffffffff
+[Sat Nov  7 16:58:27 2026] ... fixed-purpose events:   4
+[Sat Nov  7 16:58:27 2026] ... event mask:             0001000f000000ff
+[Sat Nov  7 16:58:27 2026] signal: max sigframe size: 3632
+[Sat Nov  7 16:58:27 2026] Estimated ratio of average max frequency by base frequency (times 1024): 3145
+[Sat Nov  7 16:58:27 2026] rcu: Hierarchical SRCU implementation.
+[Sat Nov  7 16:58:27 2026] rcu: 	Max phase no-delay instances is 400.
+[Sat Nov  7 16:58:27 2026] NMI watchdog: Enabled. Permanently consumes one hw-PMU counter.
+[Sat Nov  7 16:58:27 2026] smp: Bringing up secondary CPUs ...
+[Sat Nov  7 16:58:27 2026] smpboot: x86: Booting SMP configuration:
+[Sat Nov  7 16:58:27 2026] .... node  #0, CPUs:        #2  #4  #6  #8 #10 #12 #14 #16 #17 #18 #19
+[Sat Nov  7 16:58:27 2026] core: cpu_atom PMU driver: 
+[Sat Nov  7 16:58:27 2026] ... version:                5
+[Sat Nov  7 16:58:27 2026] ... bit width:              48
+[Sat Nov  7 16:58:27 2026] ... generic registers:      6
+[Sat Nov  7 16:58:27 2026] ... value mask:             0000ffffffffffff
+[Sat Nov  7 16:58:27 2026] ... max period:             00007fffffffffff
+[Sat Nov  7 16:58:27 2026] ... fixed-purpose events:   3
+[Sat Nov  7 16:58:27 2026] ... event mask:             000000070000003f
+[Sat Nov  7 16:58:27 2026]   #1  #3  #5  #7  #9 #11 #13 #15
+[Sat Nov  7 16:58:27 2026] smp: Brought up 1 node, 20 CPUs
+[Sat Nov  7 16:58:27 2026] smpboot: Max logical packages: 1
+[Sat Nov  7 16:58:27 2026] smpboot: Total of 20 processors activated (55296.00 BogoMIPS)
+[Sat Nov  7 16:58:27 2026] devtmpfs: initialized
+[Sat Nov  7 16:58:27 2026] x86/mm: Memory block size: 128MB
+[Sat Nov  7 16:58:27 2026] ACPI: PM: Registering ACPI NVS region [mem 0x6ead7000-0x6efc4fff] (5169152 bytes)
+[Sat Nov  7 16:58:27 2026] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[Sat Nov  7 16:58:27 2026] futex hash table entries: 8192 (order: 7, 524288 bytes, linear)
+[Sat Nov  7 16:58:27 2026] pinctrl core: initialized pinctrl subsystem
+[Sat Nov  7 16:58:27 2026] PM: RTC time: 08:58:27, date: 2026-11-07
+[Sat Nov  7 16:58:27 2026] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[Sat Nov  7 16:58:27 2026] DMA: preallocated 4096 KiB GFP_KERNEL pool for atomic allocations
+[Sat Nov  7 16:58:27 2026] DMA: preallocated 4096 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[Sat Nov  7 16:58:27 2026] DMA: preallocated 4096 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[Sat Nov  7 16:58:27 2026] audit: initializing netlink subsys (disabled)
+[Sat Nov  7 16:58:27 2026] audit: type=2000 audit(1794041907.089:1): state=initialized audit_enabled=0 res=1
+[Sat Nov  7 16:58:27 2026] thermal_sys: Registered thermal governor 'fair_share'
+[Sat Nov  7 16:58:27 2026] thermal_sys: Registered thermal governor 'bang_bang'
+[Sat Nov  7 16:58:27 2026] thermal_sys: Registered thermal governor 'step_wise'
+[Sat Nov  7 16:58:27 2026] thermal_sys: Registered thermal governor 'user_space'
+[Sat Nov  7 16:58:27 2026] thermal_sys: Registered thermal governor 'power_allocator'
+[Sat Nov  7 16:58:27 2026] cpuidle: using governor ladder
+[Sat Nov  7 16:58:27 2026] cpuidle: using governor menu
+[Sat Nov  7 16:58:27 2026] efi: Freeing EFI boot services memory: 79660K
+[Sat Nov  7 16:58:27 2026] ACPI FADT declares the system doesn't support PCIe ASPM, so disable it
+[Sat Nov  7 16:58:27 2026] acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+[Sat Nov  7 16:58:27 2026] PCI: ECAM [mem 0xc0000000-0xcfffffff] (base 0xc0000000) for domain 0000 [bus 00-ff]
+[Sat Nov  7 16:58:27 2026] PCI: Using configuration type 1 for base access
+[Sat Nov  7 16:58:27 2026] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[Sat Nov  7 16:58:27 2026] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[Sat Nov  7 16:58:27 2026] HugeTLB: 16380 KiB vmemmap can be freed for a 1.00 GiB page
+[Sat Nov  7 16:58:27 2026] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[Sat Nov  7 16:58:27 2026] HugeTLB: 28 KiB vmemmap can be freed for a 2.00 MiB page
+[Sat Nov  7 16:58:27 2026] ACPI: Added _OSI(Module Device)
+[Sat Nov  7 16:58:27 2026] ACPI: Added _OSI(Processor Device)
+[Sat Nov  7 16:58:27 2026] ACPI: Added _OSI(Processor Aggregator Device)
+[Sat Nov  7 16:58:27 2026] ACPI: 12 ACPI AML tables successfully acquired and loaded
+[Sat Nov  7 16:58:27 2026] ACPI: Dynamic OEM Table Load:
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0xFFFF8D8241971C00 0002ED (v02 PmRef  Cpu0Ist  00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: Dynamic OEM Table Load:
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0xFFFF8D8241F48000 0001AB (v02 PmRef  Cpu0Psd  00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: Dynamic OEM Table Load:
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0xFFFF8D8241978800 0004B5 (v02 PmRef  Cpu0Hwp  00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: Dynamic OEM Table Load:
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0xFFFF8D8241984000 001BAF (v02 PmRef  ApIst    00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: Dynamic OEM Table Load:
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0xFFFF8D8240356000 001038 (v02 PmRef  ApHwp    00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: Dynamic OEM Table Load:
+[Sat Nov  7 16:58:27 2026] ACPI: SSDT 0xFFFF8D8240352000 001349 (v02 PmRef  ApPsd    00003000 INTL 20200717)
+[Sat Nov  7 16:58:27 2026] ACPI: _OSC evaluated successfully for all CPUs
+[Sat Nov  7 16:58:27 2026] ACPI: Interpreter enabled
+[Sat Nov  7 16:58:27 2026] ACPI: PM: (supports S0 S5)
+[Sat Nov  7 16:58:27 2026] ACPI: Using IOAPIC for interrupt routing
+[Sat Nov  7 16:58:27 2026] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[Sat Nov  7 16:58:27 2026] PCI: Ignoring E820 reservations for host bridge windows
+[Sat Nov  7 16:58:27 2026] ACPI: Enabled 6 GPEs in block 00 to 7F
+[Sat Nov  7 16:58:27 2026] ACPI: \_SB_.PC00.CNVW.WRST: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: \_TZ_.FN00: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: \_TZ_.FN01: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: \_TZ_.FN02: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: \_TZ_.FN03: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: \_TZ_.FN04: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: \PIN_: New power resource
+[Sat Nov  7 16:58:27 2026] ACPI: PCI Root Bridge [PC00] (domain 0000 [bus 00-fe])
+[Sat Nov  7 16:58:27 2026] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI EDR HPX-Type3]
+[Sat Nov  7 16:58:27 2026] acpi PNP0A08:00: _OSC: OS now controls [PCIeHotplug SHPCHotplug PME AER PCIeCapability LTR DPC]
+[Sat Nov  7 16:58:27 2026] acpi PNP0A08:00: FADT indicates ASPM is unsupported, using BIOS configuration
+[Sat Nov  7 16:58:27 2026] PCI host bridge to bus 0000:00
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: root bus resource [mem 0x80800000-0xbfffffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: root bus resource [mem 0x4000000000-0x7fffffffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: root bus resource [bus 00-fe]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:00.0: [8086:4668] type 00 class 0x060000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: [8086:4680] type 00 class 0x030000 PCIe Root Complex Integrated Endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: BAR 0 [mem 0x6001000000-0x6001ffffff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: BAR 2 [mem 0x4000000000-0x400fffffff 64bit pref]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: BAR 4 [io  0x6000-0x603f]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: DMAR: Skip IOMMU disabling for graphics
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: VF BAR 0 [mem 0x00000000-0x00ffffff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: VF BAR 0 [mem 0x00000000-0x06ffffff 64bit]: contains BAR 0 for 7 VFs
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: VF BAR 2 [mem 0x00000000-0x1fffffff 64bit pref]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: VF BAR 2 [mem 0x00000000-0xdfffffff 64bit pref]: contains BAR 2 for 7 VFs
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.0: [8086:7ae0] type 00 class 0x0c0330 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.0: BAR 0 [mem 0x6002100000-0x600210ffff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.0: PME# supported from D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.2: [8086:7aa7] type 00 class 0x050000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.2: BAR 0 [mem 0x6002114000-0x6002117fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.2: BAR 2 [mem 0x6002122000-0x6002122fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.0: [8086:7acc] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.0: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.1: [8086:7acd] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.1: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.2: [8086:7ace] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.2: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.3: [8086:7acf] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.3: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:16.0: [8086:7ae8] type 00 class 0x078000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:16.0: BAR 0 [mem 0x600211d000-0x600211dfff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:16.0: PME# supported from D3hot
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: [8086:7ae2] type 00 class 0x010601 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: BAR 0 [mem 0x81720000-0x81721fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: BAR 1 [mem 0x81723000-0x817230ff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: BAR 2 [io  0x6090-0x6097]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: BAR 3 [io  0x6080-0x6083]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: BAR 4 [io  0x6060-0x607f]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: BAR 5 [mem 0x81722000-0x817227ff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: PME# supported from D3hot
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.0: [8086:7afc] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.0: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.1: [8086:7afd] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.1: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0: [8086:7ab8] type 01 class 0x060400 PCIe Root Port
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0: PCI bridge to [bus 01]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0:   bridge window [io  0x5000-0x5fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0:   bridge window [mem 0x80800000-0x811fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0:   bridge window [mem 0x6000000000-0x60009fffff 64bit pref]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: [8086:7aba] type 01 class 0x060400 PCIe Root Port
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: PCI bridge to [bus 02]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2:   bridge window [io  0x4000-0x4fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2:   bridge window [mem 0x81600000-0x816fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: PME# supported from D0 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: PTM enabled (root), 4ns granularity
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: [8086:7abb] type 01 class 0x060400 PCIe Root Port
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: PCI bridge to [bus 03]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3:   bridge window [io  0x3000-0x3fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3:   bridge window [mem 0x81500000-0x815fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: PME# supported from D0 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: PTM enabled (root), 4ns granularity
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: [8086:7abf] type 01 class 0x060400 PCIe Root Port
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: PCI bridge to [bus 04]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7:   bridge window [mem 0x81200000-0x814fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: PME# supported from D0 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: PTM enabled (root), 4ns granularity
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.0: [8086:7aa8] type 00 class 0x078000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.0: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.3: [8086:7aab] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.3: BAR 0 [mem 0x00000000-0x00000fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.0: [8086:7a87] type 00 class 0x060100 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.3: [8086:7ad0] type 00 class 0x040300 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.3: BAR 0 [mem 0x6002110000-0x6002113fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.3: BAR 4 [mem 0x6002000000-0x60020fffff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.3: PME# supported from D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.4: [8086:7aa3] type 00 class 0x0c0500 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.4: BAR 0 [mem 0x6002118000-0x60021180ff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.4: BAR 4 [io  0xefa0-0xefbf]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.5: [8086:7aa4] type 00 class 0x0c8000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.5: BAR 0 [mem 0xfe010000-0xfe010fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.6: [8086:1a1c] type 00 class 0x020000 conventional PCI endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.6: BAR 0 [mem 0x81700000-0x8171ffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.6: PME# supported from D0 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0: PCI bridge to [bus 01]
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: [10ec:8168] type 00 class 0x020000 PCIe Endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: BAR 0 [io  0x4000-0x40ff]
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: BAR 2 [mem 0x81604000-0x81604fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: BAR 4 [mem 0x81600000-0x81603fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: supports D1 D2
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: PCI bridge to [bus 02]
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: [10ec:8168] type 00 class 0x020000 PCIe Endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: BAR 0 [io  0x3000-0x30ff]
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: BAR 2 [mem 0x81504000-0x81504fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: BAR 4 [mem 0x81500000-0x81503fff 64bit]
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: supports D1 D2
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: PCI bridge to [bus 03]
+[Sat Nov  7 16:58:27 2026] pci 0000:04:00.0: [8086:15f3] type 00 class 0x020000 PCIe Endpoint
+[Sat Nov  7 16:58:27 2026] pci 0000:04:00.0: BAR 0 [mem 0x81300000-0x813fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:04:00.0: BAR 3 [mem 0x81400000-0x81403fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:04:00.0: ROM [mem 0x81200000-0x812fffff pref]
+[Sat Nov  7 16:58:27 2026] pci 0000:04:00.0: PME# supported from D0 D3hot D3cold
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: PCI bridge to [bus 04]
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKA configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKB configured for IRQ 1
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKC configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKD configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKE configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKF configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKG configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] ACPI: PCI: Interrupt link LNKH configured for IRQ 0
+[Sat Nov  7 16:58:27 2026] iommu: Default domain type: Translated
+[Sat Nov  7 16:58:27 2026] iommu: DMA domain TLB invalidation policy: lazy mode
+[Sat Nov  7 16:58:27 2026] SCSI subsystem initialized
+[Sat Nov  7 16:58:27 2026] libata version 3.00 loaded.
+[Sat Nov  7 16:58:27 2026] ACPI: bus type USB registered
+[Sat Nov  7 16:58:27 2026] usbcore: registered new interface driver usbfs
+[Sat Nov  7 16:58:27 2026] usbcore: registered new interface driver hub
+[Sat Nov  7 16:58:27 2026] usbcore: registered new device driver usb
+[Sat Nov  7 16:58:27 2026] pps_core: LinuxPPS API ver. 1 registered
+[Sat Nov  7 16:58:27 2026] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[Sat Nov  7 16:58:27 2026] PTP clock support registered
+[Sat Nov  7 16:58:27 2026] EDAC MC: Ver: 3.0.0
+[Sat Nov  7 16:58:27 2026] efivars: Registered efivars operations
+[Sat Nov  7 16:58:27 2026] NetLabel: Initializing
+[Sat Nov  7 16:58:27 2026] NetLabel:  domain hash size = 128
+[Sat Nov  7 16:58:27 2026] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[Sat Nov  7 16:58:27 2026] NetLabel:  unlabeled traffic allowed by default
+[Sat Nov  7 16:58:27 2026] mctp: management component transport protocol core
+[Sat Nov  7 16:58:27 2026] NET: Registered PF_MCTP protocol family
+[Sat Nov  7 16:58:27 2026] PCI: Using ACPI for IRQ routing
+[Sat Nov  7 16:58:27 2026] PCI: pci_cache_line_size set to 64 bytes
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.5: BAR 0 [mem 0xfe010000-0xfe010fff]: can't claim; no compatible bridge window
+[Sat Nov  7 16:58:27 2026] e820: reserve RAM buffer [mem 0x0005e000-0x0005ffff]
+[Sat Nov  7 16:58:27 2026] e820: reserve RAM buffer [mem 0x64171018-0x67ffffff]
+[Sat Nov  7 16:58:27 2026] e820: reserve RAM buffer [mem 0x68a6d000-0x6bffffff]
+[Sat Nov  7 16:58:27 2026] e820: reserve RAM buffer [mem 0x6b8cc000-0x6bffffff]
+[Sat Nov  7 16:58:27 2026] e820: reserve RAM buffer [mem 0x87f800000-0x87fffffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: vgaarb: setting as boot VGA device
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: vgaarb: bridge control possible
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[Sat Nov  7 16:58:27 2026] vgaarb: loaded
+[Sat Nov  7 16:58:27 2026] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0, 0, 0, 0, 0, 0
+[Sat Nov  7 16:58:27 2026] hpet0: 8 comparators, 64-bit 19.200000 MHz counter
+[Sat Nov  7 16:58:27 2026] clocksource: Switched to clocksource tsc-early
+[Sat Nov  7 16:58:27 2026] VFS: Disk quotas dquot_6.6.0
+[Sat Nov  7 16:58:27 2026] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[Sat Nov  7 16:58:27 2026] AppArmor: AppArmor Filesystem Enabled
+[Sat Nov  7 16:58:27 2026] pnp: PnP ACPI init
+[Sat Nov  7 16:58:27 2026] system 00:00: [io  0x0a00-0x0a0f] has been reserved
+[Sat Nov  7 16:58:27 2026] system 00:00: [io  0x0a10-0x0a1f] has been reserved
+[Sat Nov  7 16:58:27 2026] system 00:00: [io  0x0a20-0x0a2f] has been reserved
+[Sat Nov  7 16:58:27 2026] pnp 00:01: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] pnp 00:02: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 10 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:04: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 10 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:05: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 10 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:06: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 10 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:07: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 11 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:09: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 11 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:0a: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 11 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:0b: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] ACPI: IRQ 11 override to edge, high(!)
+[Sat Nov  7 16:58:27 2026] pnp 00:0c: [dma 0 disabled]
+[Sat Nov  7 16:58:27 2026] system 00:0d: [io  0x0680-0x069f] has been reserved
+[Sat Nov  7 16:58:27 2026] system 00:0d: [io  0x164e-0x164f] has been reserved
+[Sat Nov  7 16:58:27 2026] pnp 00:0e: disabling [mem 0xc0000000-0xcfffffff] because it overlaps 0000:00:02.0 BAR 9 [mem 0x00000000-0xdfffffff 64bit pref]
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfedc0000-0xfedc7fff] has been reserved
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfeda0000-0xfeda0fff] has been reserved
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfeda1000-0xfeda1fff] has been reserved
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfed20000-0xfed7ffff] could not be reserved
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfed90000-0xfed93fff] could not be reserved
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfed45000-0xfed8ffff] could not be reserved
+[Sat Nov  7 16:58:27 2026] system 00:0e: [mem 0xfee00000-0xfeefffff] could not be reserved
+[Sat Nov  7 16:58:27 2026] system 00:0f: [io  0x2000-0x20fe] has been reserved
+[Sat Nov  7 16:58:27 2026] pnp: PnP ACPI: found 17 devices
+[Sat Nov  7 16:58:27 2026] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[Sat Nov  7 16:58:27 2026] NET: Registered PF_INET protocol family
+[Sat Nov  7 16:58:27 2026] IP idents hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[Sat Nov  7 16:58:27 2026] tcp_listen_portaddr_hash hash table entries: 16384 (order: 6, 262144 bytes, linear)
+[Sat Nov  7 16:58:27 2026] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[Sat Nov  7 16:58:27 2026] TCP established hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[Sat Nov  7 16:58:27 2026] TCP bind hash table entries: 65536 (order: 9, 2097152 bytes, linear)
+[Sat Nov  7 16:58:27 2026] TCP: Hash tables configured (established 262144 bind 65536)
+[Sat Nov  7 16:58:27 2026] MPTCP token hash table entries: 32768 (order: 8, 786432 bytes, linear)
+[Sat Nov  7 16:58:27 2026] UDP hash table entries: 16384 (order: 7, 524288 bytes, linear)
+[Sat Nov  7 16:58:27 2026] UDP-Lite hash table entries: 16384 (order: 7, 524288 bytes, linear)
+[Sat Nov  7 16:58:27 2026] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[Sat Nov  7 16:58:27 2026] NET: Registered PF_XDP protocol family
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: max bus depth: 1 pci_try_num: 2
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: VF BAR 2 [mem 0x4020000000-0x40ffffffff 64bit pref]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: VF BAR 0 [mem 0x4010000000-0x4016ffffff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.0: BAR 0 [mem 0x4017000000-0x4017000fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.1: BAR 0 [mem 0x4017001000-0x4017001fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.2: BAR 0 [mem 0x4017002000-0x4017002fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.3: BAR 0 [mem 0x4017003000-0x4017003fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.0: BAR 0 [mem 0x4017004000-0x4017004fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.1: BAR 0 [mem 0x4017005000-0x4017005fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.0: BAR 0 [mem 0x4017006000-0x4017006fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.3: BAR 0 [mem 0x4017007000-0x4017007fff 64bit]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.5: BAR 0 [mem 0x81724000-0x81724fff]: assigned
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0: PCI bridge to [bus 01]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0:   bridge window [io  0x5000-0x5fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0:   bridge window [mem 0x80800000-0x811fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0:   bridge window [mem 0x6000000000-0x60009fffff 64bit pref]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: PCI bridge to [bus 02]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2:   bridge window [io  0x4000-0x4fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2:   bridge window [mem 0x81600000-0x816fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: PCI bridge to [bus 03]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3:   bridge window [io  0x3000-0x3fff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3:   bridge window [mem 0x81500000-0x815fffff]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: PCI bridge to [bus 04]
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7:   bridge window [mem 0x81200000-0x814fffff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: resource 7 [mem 0x80800000-0xbfffffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:00: resource 8 [mem 0x4000000000-0x7fffffffff window]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:01: resource 0 [io  0x5000-0x5fff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:01: resource 1 [mem 0x80800000-0x811fffff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:01: resource 2 [mem 0x6000000000-0x60009fffff 64bit pref]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:02: resource 0 [io  0x4000-0x4fff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:02: resource 1 [mem 0x81600000-0x816fffff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:03: resource 0 [io  0x3000-0x3fff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:03: resource 1 [mem 0x81500000-0x815fffff]
+[Sat Nov  7 16:58:27 2026] pci_bus 0000:04: resource 1 [mem 0x81200000-0x814fffff]
+[Sat Nov  7 16:58:27 2026] PCI: CLS 64 bytes, default 64
+[Sat Nov  7 16:58:27 2026] DMAR: No ATSR found
+[Sat Nov  7 16:58:27 2026] DMAR: No SATC found
+[Sat Nov  7 16:58:27 2026] DMAR: IOMMU feature fl1gp_support inconsistent
+[Sat Nov  7 16:58:27 2026] DMAR: IOMMU feature pgsel_inv inconsistent
+[Sat Nov  7 16:58:27 2026] DMAR: IOMMU feature nwfs inconsistent
+[Sat Nov  7 16:58:27 2026] DMAR: IOMMU feature dit inconsistent
+[Sat Nov  7 16:58:27 2026] DMAR: IOMMU feature sc_support inconsistent
+[Sat Nov  7 16:58:27 2026] DMAR: IOMMU feature dev_iotlb_support inconsistent
+[Sat Nov  7 16:58:27 2026] DMAR: dmar0: Using Queued invalidation
+[Sat Nov  7 16:58:27 2026] DMAR: dmar1: Using Queued invalidation
+[Sat Nov  7 16:58:27 2026] Trying to unpack rootfs image as initramfs...
+[Sat Nov  7 16:58:27 2026] pci 0000:00:02.0: Adding to iommu group 0
+[Sat Nov  7 16:58:27 2026] pci 0000:00:00.0: Adding to iommu group 1
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.0: Adding to iommu group 2
+[Sat Nov  7 16:58:27 2026] pci 0000:00:14.2: Adding to iommu group 2
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.0: Adding to iommu group 3
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.1: Adding to iommu group 3
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.2: Adding to iommu group 3
+[Sat Nov  7 16:58:27 2026] pci 0000:00:15.3: Adding to iommu group 3
+[Sat Nov  7 16:58:27 2026] pci 0000:00:16.0: Adding to iommu group 4
+[Sat Nov  7 16:58:27 2026] pci 0000:00:17.0: Adding to iommu group 5
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.0: Adding to iommu group 6
+[Sat Nov  7 16:58:27 2026] pci 0000:00:19.1: Adding to iommu group 6
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.0: Adding to iommu group 7
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.2: Adding to iommu group 8
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.3: Adding to iommu group 9
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1c.7: Adding to iommu group 10
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.0: Adding to iommu group 11
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1e.3: Adding to iommu group 11
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.0: Adding to iommu group 12
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.3: Adding to iommu group 12
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.4: Adding to iommu group 12
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.5: Adding to iommu group 12
+[Sat Nov  7 16:58:27 2026] pci 0000:00:1f.6: Adding to iommu group 12
+[Sat Nov  7 16:58:27 2026] pci 0000:02:00.0: Adding to iommu group 13
+[Sat Nov  7 16:58:27 2026] pci 0000:03:00.0: Adding to iommu group 14
+[Sat Nov  7 16:58:27 2026] pci 0000:04:00.0: Adding to iommu group 15
+[Sat Nov  7 16:58:27 2026] DMAR: Intel(R) Virtualization Technology for Directed I/O
+[Sat Nov  7 16:58:27 2026] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+[Sat Nov  7 16:58:27 2026] software IO TLB: mapped [mem 0x0000000060171000-0x0000000064171000] (64MB)
+[Sat Nov  7 16:58:27 2026] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x13ed2e4df6c, max_idle_ns: 440795243303 ns
+[Sat Nov  7 16:58:27 2026] clocksource: Switched to clocksource tsc
+[Sat Nov  7 16:58:27 2026] platform rtc_cmos: registered platform RTC device (no PNP device found)
+[Sat Nov  7 16:58:27 2026] Initialise system trusted keyrings
+[Sat Nov  7 16:58:27 2026] Key type blacklist registered
+[Sat Nov  7 16:58:27 2026] workingset: timestamp_bits=36 max_order=23 bucket_order=0
+[Sat Nov  7 16:58:27 2026] zbud: loaded
+[Sat Nov  7 16:58:27 2026] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[Sat Nov  7 16:58:27 2026] fuse: init (API version 7.39)
+[Sat Nov  7 16:58:27 2026] integrity: Platform Keyring initialized
+[Sat Nov  7 16:58:27 2026] integrity: Machine keyring initialized
+[Sat Nov  7 16:58:27 2026] Key type asymmetric registered
+[Sat Nov  7 16:58:27 2026] Asymmetric key parser 'x509' registered
+[Sat Nov  7 16:58:27 2026] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 243)
+[Sat Nov  7 16:58:27 2026] io scheduler mq-deadline registered
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.0: PME: Signaling with IRQ 122
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.0: pciehp: Slot #0 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.2: PME: Signaling with IRQ 123
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.2: AER: enabled with IRQ 123
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.3: PME: Signaling with IRQ 124
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.3: AER: enabled with IRQ 124
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.7: PME: Signaling with IRQ 125
+[Sat Nov  7 16:58:27 2026] pcieport 0000:00:1c.7: AER: enabled with IRQ 125
+[Sat Nov  7 16:58:27 2026] shpchp: Standard Hot Plug PCI Controller Driver version: 0.4
+[Sat Nov  7 16:58:27 2026] input: Sleep Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input0
+[Sat Nov  7 16:58:27 2026] ACPI: button: Sleep Button [SLPB]
+[Sat Nov  7 16:58:27 2026] input: Power Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input1
+[Sat Nov  7 16:58:27 2026] ACPI: button: Power Button [PWRB]
+[Sat Nov  7 16:58:27 2026] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input2
+[Sat Nov  7 16:58:27 2026] ACPI: button: Power Button [PWRF]
+[Sat Nov  7 16:58:27 2026] thermal LNXTHERM:00: registered as thermal_zone0
+[Sat Nov  7 16:58:27 2026] ACPI: thermal: Thermal Zone [TZ00] (28 C)
+[Sat Nov  7 16:58:27 2026] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+[Sat Nov  7 16:58:28 2026] 00:01: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:02: ttyS1 at I/O 0x2f8 (irq = 3, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:04: ttyS4 at I/O 0xc00 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:05: ttyS5 at I/O 0xc08 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:06: ttyS6 at I/O 0xc10 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:07: ttyS7 at I/O 0xc18 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:09: ttyS8 at I/O 0xc20 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:0a: ttyS9 at I/O 0xc28 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:0b: ttyS10 at I/O 0xc30 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] 00:0c: ttyS11 at I/O 0xc38 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:58:28 2026] Linux agpgart interface v0.103
+[Sat Nov  7 16:58:28 2026] loop: module loaded
+[Sat Nov  7 16:58:28 2026] ACPI: bus type drm_connector registered
+[Sat Nov  7 16:58:28 2026] tun: Universal TUN/TAP device driver, 1.6
+[Sat Nov  7 16:58:28 2026] PPP generic driver version 2.4.2
+[Sat Nov  7 16:58:28 2026] i8042: PNP: No PS/2 controller found.
+[Sat Nov  7 16:58:28 2026] mousedev: PS/2 mouse device common for all mice
+[Sat Nov  7 16:58:28 2026] rtc_cmos rtc_cmos: RTC can wake from S4
+[Sat Nov  7 16:58:28 2026] rtc_cmos rtc_cmos: registered as rtc0
+[Sat Nov  7 16:58:28 2026] rtc_cmos rtc_cmos: setting system clock to 2026-11-07T08:58:28 UTC (1794041908)
+[Sat Nov  7 16:58:28 2026] rtc_cmos rtc_cmos: alarms up to one month, y3k, 114 bytes nvram
+[Sat Nov  7 16:58:28 2026] i2c_dev: i2c /dev entries driver
+[Sat Nov  7 16:58:28 2026] device-mapper: core: CONFIG_IMA_DISABLE_HTABLE is disabled. Duplicate IMA measurements will not be recorded in the IMA log.
+[Sat Nov  7 16:58:28 2026] device-mapper: uevent: version 1.0.3
+[Sat Nov  7 16:58:28 2026] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[Sat Nov  7 16:58:28 2026] intel_pstate: Intel P-state driver initializing
+[Sat Nov  7 16:58:28 2026] intel_pstate: HWP enabled
+[Sat Nov  7 16:58:28 2026] ledtrig-cpu: registered to indicate activity on CPUs
+[Sat Nov  7 16:58:28 2026] [drm] Initialized simpledrm 1.0.0 20200625 for simple-framebuffer.0 on minor 0
+[Sat Nov  7 16:58:28 2026] fbcon: Deferring console take-over
+[Sat Nov  7 16:58:28 2026] simple-framebuffer simple-framebuffer.0: [drm] fb0: simpledrmdrmfb frame buffer device
+[Sat Nov  7 16:58:28 2026] drop_monitor: Initializing network drop monitor service
+[Sat Nov  7 16:58:28 2026] NET: Registered PF_INET6 protocol family
+[Sat Nov  7 16:58:28 2026] Freeing initrd memory: 79184K
+[Sat Nov  7 16:58:28 2026] Segment Routing with IPv6
+[Sat Nov  7 16:58:28 2026] In-situ OAM (IOAM) with IPv6
+[Sat Nov  7 16:58:28 2026] NET: Registered PF_PACKET protocol family
+[Sat Nov  7 16:58:28 2026] Key type dns_resolver registered
+[Sat Nov  7 16:58:28 2026] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
+[Sat Nov  7 16:58:28 2026] microcode: Current revision: 0x0000003e
+[Sat Nov  7 16:58:28 2026] microcode: Updated early from: 0x00000037
+[Sat Nov  7 16:58:28 2026] IPI shorthand broadcast: enabled
+[Sat Nov  7 16:58:28 2026] sched_clock: Marking stable (1414000792, 3074003)->(1460652027, -43577232)
+[Sat Nov  7 16:58:28 2026] registered taskstats version 1
+[Sat Nov  7 16:58:28 2026] Loading compiled-in X.509 certificates
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Build time autogenerated kernel key: 03c33e7a3eb9f1bb240db7665813fa030f4400ba'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Live Patch Signing 2025 Kmod: d541cef61dc7e793b7eb7e899970a2eef0b5dc8c'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Live Patch Signing: 14df34d1a87cf37625abec039ef2bf521249b969'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Kernel Module Signing 2025 Kmod: 4627603d2357a2a3f81006370894c221175893e9'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Kernel Module Signing: 88f752e560a1e0737e31163a466ad7b70a850c19'
+[Sat Nov  7 16:58:28 2026] blacklist: Loading compiled-in revocation X.509 certificates
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing: 61482aa2830d0ab2ad5af10b7250da9033ddcef0'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2017): 242ade75ac4a15e50d50c84b0d45ff3eae707a03'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (ESM 2018): 365188c1d374d6b07c3c8f240f8ef722433d6a8b'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2019): c0746fd6c5da3ae827864651ad66ae47fe24b3e8'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2021 v1): a8d54bbb3825cfb94fa13c9f8a594a195c107b8d'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2021 v2): 4cf046892d6fd3c9a5b03f98d845f90851dc6a8c'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (2021 v3): 100437bb6de6e469b581e61cd66bce3ef4ed53af'
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing (Ubuntu Core 2019): c1d57b8f6b743f23ee41f4f7ee292f06eecadfb9'
+[Sat Nov  7 16:58:28 2026] Key type .fscrypt registered
+[Sat Nov  7 16:58:28 2026] Key type fscrypt-provisioning registered
+[Sat Nov  7 16:58:28 2026] Key type trusted registered
+[Sat Nov  7 16:58:28 2026] Key type encrypted registered
+[Sat Nov  7 16:58:28 2026] AppArmor: AppArmor sha256 policy hashing enabled
+[Sat Nov  7 16:58:28 2026] Loading compiled-in module X.509 certificates
+[Sat Nov  7 16:58:28 2026] Loaded X.509 cert 'Build time autogenerated kernel key: 03c33e7a3eb9f1bb240db7665813fa030f4400ba'
+[Sat Nov  7 16:58:28 2026] ima: Allocated hash algorithm: sha256
+[Sat Nov  7 16:58:28 2026] ima: No architecture policies found
+[Sat Nov  7 16:58:28 2026] evm: Initialising EVM extended attributes:
+[Sat Nov  7 16:58:28 2026] evm: security.selinux
+[Sat Nov  7 16:58:28 2026] evm: security.SMACK64
+[Sat Nov  7 16:58:28 2026] evm: security.SMACK64EXEC
+[Sat Nov  7 16:58:28 2026] evm: security.SMACK64TRANSMUTE
+[Sat Nov  7 16:58:28 2026] evm: security.SMACK64MMAP
+[Sat Nov  7 16:58:28 2026] evm: security.apparmor
+[Sat Nov  7 16:58:28 2026] evm: security.ima
+[Sat Nov  7 16:58:28 2026] evm: security.capability
+[Sat Nov  7 16:58:28 2026] evm: HMAC attrs: 0x1
+[Sat Nov  7 16:58:28 2026] PM:   Magic number: 2:845:977
+[Sat Nov  7 16:58:28 2026] RAS: Correctable Errors collector initialized.
+[Sat Nov  7 16:58:28 2026] clk: Disabling unused clocks
+[Sat Nov  7 16:58:28 2026] Freeing unused decrypted memory: 2028K
+[Sat Nov  7 16:58:28 2026] Freeing unused kernel image (initmem) memory: 4928K
+[Sat Nov  7 16:58:28 2026] Write protecting the kernel read-only data: 36864k
+[Sat Nov  7 16:58:28 2026] Freeing unused kernel image (rodata/data gap) memory: 328K
+[Sat Nov  7 16:58:28 2026] x86/mm: Checked W+X mappings: passed, no W+X pages found.
+[Sat Nov  7 16:58:28 2026] Run /init as init process
+[Sat Nov  7 16:58:28 2026]   with arguments:
+[Sat Nov  7 16:58:28 2026]     /init
+[Sat Nov  7 16:58:28 2026]     splash
+[Sat Nov  7 16:58:28 2026]   with environment:
+[Sat Nov  7 16:58:28 2026]     HOME=/
+[Sat Nov  7 16:58:28 2026]     TERM=linux
+[Sat Nov  7 16:58:28 2026] xhci_hcd 0000:00:14.0: xHCI Host Controller
+[Sat Nov  7 16:58:28 2026] xhci_hcd 0000:00:14.0: new USB bus registered, assigned bus number 1
+[Sat Nov  7 16:58:28 2026] ahci 0000:00:17.0: version 3.0
+[Sat Nov  7 16:58:28 2026] ahci 0000:00:17.0: AHCI 0001.0301 32 slots 4 ports 6 Gbps 0xf0 impl SATA mode
+[Sat Nov  7 16:58:28 2026] ahci 0000:00:17.0: flags: 64bit ncq sntf pm led clo only pio slum part ems deso sadm sds 
+[Sat Nov  7 16:58:28 2026] xhci_hcd 0000:00:14.0: hcc params 0x20007fc1 hci version 0x120 quirks 0x0000000200009810
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:15.0: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] i801_smbus 0000:00:1f.4: SPD Write Disable is set
+[Sat Nov  7 16:58:28 2026] i801_smbus 0000:00:1f.4: SMBus using PCI interrupt
+[Sat Nov  7 16:58:28 2026] r8169 0000:02:00.0: enabling device (0000 -> 0003)
+[Sat Nov  7 16:58:28 2026] xhci_hcd 0000:00:14.0: xHCI Host Controller
+[Sat Nov  7 16:58:28 2026] xhci_hcd 0000:00:14.0: new USB bus registered, assigned bus number 2
+[Sat Nov  7 16:58:28 2026] xhci_hcd 0000:00:14.0: Host supports USB 3.2 Enhanced SuperSpeed
+[Sat Nov  7 16:58:28 2026] r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+[Sat Nov  7 16:58:28 2026] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.08
+[Sat Nov  7 16:58:28 2026] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Sat Nov  7 16:58:28 2026] usb usb1: Product: xHCI Host Controller
+[Sat Nov  7 16:58:28 2026] usb usb1: Manufacturer: Linux 6.8.0-138-generic xhci-hcd
+[Sat Nov  7 16:58:28 2026] usb usb1: SerialNumber: 0000:00:14.0
+[Sat Nov  7 16:58:28 2026] idma64 idma64.0: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] hub 1-0:1.0: USB hub found
+[Sat Nov  7 16:58:28 2026] hub 1-0:1.0: 16 ports detected
+[Sat Nov  7 16:58:28 2026] Intel(R) 2.5G Ethernet Linux Driver
+[Sat Nov  7 16:58:28 2026] Copyright(c) 2018 Intel Corporation.
+[Sat Nov  7 16:58:28 2026] igc 0000:04:00.0: PTM enabled, 4ns granularity
+[Sat Nov  7 16:58:28 2026] e1000e: Intel(R) PRO/1000 Network Driver
+[Sat Nov  7 16:58:28 2026] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[Sat Nov  7 16:58:28 2026] e1000e 0000:00:1f.6: enabling device (0000 -> 0002)
+[Sat Nov  7 16:58:28 2026] e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+[Sat Nov  7 16:58:28 2026] r8169 0000:02:00.0 eth0: RTL8168h/8111h, 10:0c:29:59:5c:da, XID 541, IRQ 136
+[Sat Nov  7 16:58:28 2026] r8169 0000:02:00.0 eth0: jumbo features [frames: 9194 bytes, tx checksumming: ko]
+[Sat Nov  7 16:58:28 2026] r8169 0000:03:00.0: enabling device (0000 -> 0003)
+[Sat Nov  7 16:58:28 2026] r8169 0000:03:00.0: can't disable ASPM; OS doesn't have ASPM control
+[Sat Nov  7 16:58:28 2026] scsi host0: ahci
+[Sat Nov  7 16:58:28 2026] scsi host1: ahci
+[Sat Nov  7 16:58:28 2026] scsi host2: ahci
+[Sat Nov  7 16:58:28 2026] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.08
+[Sat Nov  7 16:58:28 2026] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Sat Nov  7 16:58:28 2026] usb usb2: Product: xHCI Host Controller
+[Sat Nov  7 16:58:28 2026] usb usb2: Manufacturer: Linux 6.8.0-138-generic xhci-hcd
+[Sat Nov  7 16:58:28 2026] usb usb2: SerialNumber: 0000:00:14.0
+[Sat Nov  7 16:58:28 2026] scsi host3: ahci
+[Sat Nov  7 16:58:28 2026] hub 2-0:1.0: USB hub found
+[Sat Nov  7 16:58:28 2026] hub 2-0:1.0: 4 ports detected
+[Sat Nov  7 16:58:28 2026] scsi host4: ahci
+[Sat Nov  7 16:58:28 2026] scsi host5: ahci
+[Sat Nov  7 16:58:28 2026] scsi host6: ahci
+[Sat Nov  7 16:58:28 2026] scsi host7: ahci
+[Sat Nov  7 16:58:28 2026] ata1: DUMMY
+[Sat Nov  7 16:58:28 2026] ata2: DUMMY
+[Sat Nov  7 16:58:28 2026] ata3: DUMMY
+[Sat Nov  7 16:58:28 2026] ata4: DUMMY
+[Sat Nov  7 16:58:28 2026] ata5: SATA max UDMA/133 abar m2048@0x81722000 port 0x81722300 irq 126 lpm-pol 0
+[Sat Nov  7 16:58:28 2026] ata6: SATA max UDMA/133 abar m2048@0x81722000 port 0x81722380 irq 126 lpm-pol 0
+[Sat Nov  7 16:58:28 2026] ata7: SATA max UDMA/133 abar m2048@0x81722000 port 0x81722400 irq 126 lpm-pol 0
+[Sat Nov  7 16:58:28 2026] ata8: SATA max UDMA/133 abar m2048@0x81722000 port 0x81722480 irq 126 lpm-pol 0
+[Sat Nov  7 16:58:28 2026] r8169 0000:03:00.0 eth1: RTL8168h/8111h, 10:0c:29:59:5c:db, XID 541, IRQ 137
+[Sat Nov  7 16:58:28 2026] r8169 0000:03:00.0 eth1: jumbo features [frames: 9194 bytes, tx checksumming: ko]
+[Sat Nov  7 16:58:28 2026] i2c i2c-0: 2/4 memory slots populated (from DMI)
+[Sat Nov  7 16:58:28 2026] i2c i2c-0: Memory type 0x22 not supported yet, not instantiating SPD
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:15.1: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.1: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:15.2: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.2: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:15.3: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.3: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:19.0: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.4: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] igc 0000:04:00.0 (unnamed net_device) (uninitialized): PHC added
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:19.1: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.5: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:1e.0: enabling device (0000 -> 0002)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.6: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] intel-lpss 0000:00:1e.3: enabling device (0004 -> 0006)
+[Sat Nov  7 16:58:28 2026] idma64 idma64.7: Found Intel integrated DMA 64-bit
+[Sat Nov  7 16:58:28 2026] igc 0000:04:00.0: 4.000 Gb/s available PCIe bandwidth (5.0 GT/s PCIe x1 link)
+[Sat Nov  7 16:58:28 2026] igc 0000:04:00.0 eth2: MAC: 10:0c:29:57:98:75
+[Sat Nov  7 16:58:28 2026] e1000e 0000:00:1f.6 0000:00:1f.6 (uninitialized): registered PHC clock
+[Sat Nov  7 16:58:28 2026] usb 1-1: new high-speed USB device number 2 using xhci_hcd
+[Sat Nov  7 16:58:28 2026] e1000e 0000:00:1f.6 eth3: (PCI Express:2.5GT/s:Width x1) 10:0c:29:57:98:74
+[Sat Nov  7 16:58:28 2026] e1000e 0000:00:1f.6 eth3: Intel(R) PRO/1000 Network Connection
+[Sat Nov  7 16:58:28 2026] e1000e 0000:00:1f.6 eth3: MAC: 15, PHY: 12, PBA No: FFFFFF-0FF
+[Sat Nov  7 16:58:28 2026] ata8: SATA link down (SStatus 4 SControl 300)
+[Sat Nov  7 16:58:28 2026] ata7: SATA link down (SStatus 4 SControl 300)
+[Sat Nov  7 16:58:28 2026] ata6: SATA link down (SStatus 4 SControl 300)
+[Sat Nov  7 16:58:28 2026] ata5: SATA link up 6.0 Gbps (SStatus 133 SControl 300)
+[Sat Nov  7 16:58:28 2026] ata5.00: ATA-11: Acer SSD RE100 2.5 512GB
+                           , SN21432, max UDMA/133
+[Sat Nov  7 16:58:28 2026] ata5.00: 1000215216 sectors, multi 1: LBA48 NCQ (depth 32), AA
+[Sat Nov  7 16:58:28 2026] ata5.00: configured for UDMA/133
+[Sat Nov  7 16:58:28 2026] scsi 4:0:0:0: Direct-Access     ATA      Acer SSD RE100 2 432  PQ: 0 ANSI: 5
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: Attached scsi generic sg0 type 0
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: [sda] 1000215216 512-byte logical blocks: (512 GB/477 GiB)
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: [sda] Write Protect is off
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+[Sat Nov  7 16:58:28 2026]  sda: sda1 sda2
+[Sat Nov  7 16:58:28 2026] sd 4:0:0:0: [sda] Attached SCSI disk
+[Sat Nov  7 16:58:28 2026] r8169 0000:02:00.0 enp2s0: renamed from eth0
+[Sat Nov  7 16:58:29 2026] r8169 0000:03:00.0 enp3s0: renamed from eth1
+[Sat Nov  7 16:58:29 2026] usb 1-1: New USB device found, idVendor=05e3, idProduct=0610, bcdDevice= 6.63
+[Sat Nov  7 16:58:29 2026] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:29 2026] usb 1-1: Product: USB2.1 Hub
+[Sat Nov  7 16:58:29 2026] usb 1-1: Manufacturer: GenesysLogic
+[Sat Nov  7 16:58:29 2026] hub 1-1:1.0: USB hub found
+[Sat Nov  7 16:58:29 2026] hub 1-1:1.0: 4 ports detected
+[Sat Nov  7 16:58:29 2026] e1000e 0000:00:1f.6 eno1: renamed from eth3
+[Sat Nov  7 16:58:29 2026] igc 0000:04:00.0 enp4s0: renamed from eth2
+[Sat Nov  7 16:58:29 2026] usb 2-1: new SuperSpeed USB device number 2 using xhci_hcd
+[Sat Nov  7 16:58:29 2026] usb 2-1: New USB device found, idVendor=05e3, idProduct=0626, bcdDevice= 6.63
+[Sat Nov  7 16:58:29 2026] usb 2-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:29 2026] usb 2-1: Product: USB3.1 Hub
+[Sat Nov  7 16:58:29 2026] usb 2-1: Manufacturer: GenesysLogic
+[Sat Nov  7 16:58:29 2026] hub 2-1:1.0: USB hub found
+[Sat Nov  7 16:58:29 2026] hub 2-1:1.0: 4 ports detected
+[Sat Nov  7 16:58:29 2026] usb 1-2: new high-speed USB device number 3 using xhci_hcd
+[Sat Nov  7 16:58:29 2026] usb 1-2: New USB device found, idVendor=05e3, idProduct=0610, bcdDevice= 6.56
+[Sat Nov  7 16:58:29 2026] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:29 2026] usb 1-2: Product: USB2.1 Hub
+[Sat Nov  7 16:58:29 2026] usb 1-2: Manufacturer: GenesysLogic
+[Sat Nov  7 16:58:29 2026] hub 1-2:1.0: USB hub found
+[Sat Nov  7 16:58:29 2026] hub 1-2:1.0: 4 ports detected
+[Sat Nov  7 16:58:29 2026] usb 2-2: new SuperSpeed USB device number 3 using xhci_hcd
+[Sat Nov  7 16:58:29 2026] usb 2-2: New USB device found, idVendor=05e3, idProduct=0626, bcdDevice= 6.56
+[Sat Nov  7 16:58:29 2026] usb 2-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:29 2026] usb 2-2: Product: USB3.1 Hub
+[Sat Nov  7 16:58:29 2026] usb 2-2: Manufacturer: GenesysLogic
+[Sat Nov  7 16:58:29 2026] hub 2-2:1.0: USB hub found
+[Sat Nov  7 16:58:29 2026] hub 2-2:1.0: 4 ports detected
+[Sat Nov  7 16:58:29 2026] usb 1-1.1: new high-speed USB device number 4 using xhci_hcd
+[Sat Nov  7 16:58:29 2026] usb 1-1.1: New USB device found, idVendor=1bcf, idProduct=0005, bcdDevice= 7.18
+[Sat Nov  7 16:58:29 2026] usb 1-1.1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:29 2026] usb 1-1.1: Product: UNIQUESKY_CAR_CAMERA
+[Sat Nov  7 16:58:29 2026] usb 1-1.1: Manufacturer: HSK-250718-ZW
+[Sat Nov  7 16:58:29 2026] usb 1-4: new high-speed USB device number 5 using xhci_hcd
+[Sat Nov  7 16:58:29 2026] usb 1-4: New USB device found, idVendor=05e3, idProduct=0610, bcdDevice= 6.63
+[Sat Nov  7 16:58:29 2026] usb 1-4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:29 2026] usb 1-4: Product: USB2.1 Hub
+[Sat Nov  7 16:58:29 2026] usb 1-4: Manufacturer: GenesysLogic
+[Sat Nov  7 16:58:29 2026] hub 1-4:1.0: USB hub found
+[Sat Nov  7 16:58:29 2026] hub 1-4:1.0: 4 ports detected
+[Sat Nov  7 16:58:30 2026] usb 2-3: new SuperSpeed USB device number 4 using xhci_hcd
+[Sat Nov  7 16:58:30 2026] usb 2-3: New USB device found, idVendor=8086, idProduct=0b3a, bcdDevice=50.c9
+[Sat Nov  7 16:58:30 2026] usb 2-3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[Sat Nov  7 16:58:30 2026] usb 2-3: Product: Intel(R) RealSense(TM) Depth Camera 435i
+[Sat Nov  7 16:58:30 2026] usb 2-3: Manufacturer: Intel(R) RealSense(TM) Depth Camera 435i
+[Sat Nov  7 16:58:30 2026] usb 2-3: SerialNumber: 119623060362
+[Sat Nov  7 16:58:30 2026] usb 1-2.3: new full-speed USB device number 6 using xhci_hcd
+[Sat Nov  7 16:58:30 2026] usb 1-2.3: New USB device found, idVendor=046d, idProduct=c534, bcdDevice=29.01
+[Sat Nov  7 16:58:30 2026] usb 1-2.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:30 2026] usb 1-2.3: Product: USB Receiver
+[Sat Nov  7 16:58:30 2026] usb 1-2.3: Manufacturer: Logitech
+[Sat Nov  7 16:58:30 2026] usb 1-1.2: new full-speed USB device number 7 using xhci_hcd
+[Sat Nov  7 16:58:30 2026] usb 1-1.2: New USB device found, idVendor=1a86, idProduct=7523, bcdDevice= 2.64
+[Sat Nov  7 16:58:30 2026] usb 1-1.2: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:30 2026] usb 1-1.2: Product: USB Serial
+[Sat Nov  7 16:58:32 2026] usb 1-5: new full-speed USB device number 8 using xhci_hcd
+[Sat Nov  7 16:58:32 2026] usb 1-5: New USB device found, idVendor=10c4, idProduct=ea60, bcdDevice= 1.00
+[Sat Nov  7 16:58:32 2026] usb 1-5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[Sat Nov  7 16:58:32 2026] usb 1-5: Product: CP2102 USB to UART Bridge Controller
+[Sat Nov  7 16:58:32 2026] usb 1-5: Manufacturer: Silicon Labs
+[Sat Nov  7 16:58:32 2026] usb 1-5: SerialNumber: 0001
+[Sat Nov  7 16:58:32 2026] usb 2-4: new SuperSpeed USB device number 6 using xhci_hcd
+[Sat Nov  7 16:58:32 2026] usb 2-4: New USB device found, idVendor=05e3, idProduct=0626, bcdDevice= 6.63
+[Sat Nov  7 16:58:32 2026] usb 2-4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:32 2026] usb 2-4: Product: USB3.1 Hub
+[Sat Nov  7 16:58:32 2026] usb 2-4: Manufacturer: GenesysLogic
+[Sat Nov  7 16:58:32 2026] hub 2-4:1.0: USB hub found
+[Sat Nov  7 16:58:32 2026] hub 2-4:1.0: 4 ports detected
+[Sat Nov  7 16:58:32 2026] usb 1-4.1: new high-speed USB device number 9 using xhci_hcd
+[Sat Nov  7 16:58:32 2026] usb 1-4.1: New USB device found, idVendor=1bcf, idProduct=0001, bcdDevice= 7.18
+[Sat Nov  7 16:58:32 2026] usb 1-4.1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:32 2026] usb 1-4.1: Product: UNIQUESKY_CAR_CAMERA
+[Sat Nov  7 16:58:32 2026] usb 1-4.1: Manufacturer: HSK-250718-ZW
+[Sat Nov  7 16:58:32 2026] usb 1-1.3: new full-speed USB device number 10 using xhci_hcd
+[Sat Nov  7 16:58:32 2026] usb 1-1.3: New USB device found, idVendor=1a86, idProduct=7523, bcdDevice= 2.64
+[Sat Nov  7 16:58:32 2026] usb 1-1.3: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:32 2026] usb 1-1.3: Product: USB Serial
+[Sat Nov  7 16:58:32 2026] usb 1-6: new high-speed USB device number 11 using xhci_hcd
+[Sat Nov  7 16:58:32 2026] usb 1-6: New USB device found, idVendor=148f, idProduct=7601, bcdDevice= 0.00
+[Sat Nov  7 16:58:32 2026] usb 1-6: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[Sat Nov  7 16:58:32 2026] usb 1-6: Product: 802.11 n WLAN
+[Sat Nov  7 16:58:32 2026] usb 1-6: Manufacturer: MediaTek
+[Sat Nov  7 16:58:32 2026] usb 1-6: SerialNumber: 1.0
+[Sat Nov  7 16:58:32 2026] hid: raw HID events driver (C) Jiri Kosina
+[Sat Nov  7 16:58:32 2026] usbcore: registered new interface driver usbhid
+[Sat Nov  7 16:58:32 2026] usbhid: USB HID core driver
+[Sat Nov  7 16:58:32 2026] hid-generic 0003:8086:0B3A.0001: hiddev0,hidraw0: USB HID v1.10 Device [Intel(R) RealSense(TM) Depth Camera 435i Intel(R) RealSense(TM) Depth Camera 435i] on usb-0000:00:14.0-3/input5
+[Sat Nov  7 16:58:32 2026] input: Logitech USB Receiver as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.0/0003:046D:C534.0002/input/input3
+[Sat Nov  7 16:58:33 2026] usb 1-4.2: new high-speed USB device number 12 using xhci_hcd
+[Sat Nov  7 16:58:33 2026] hid-generic 0003:046D:C534.0002: input,hidraw1: USB HID v1.11 Keyboard [Logitech USB Receiver] on usb-0000:00:14.0-2.3/input0
+[Sat Nov  7 16:58:33 2026] input: Logitech USB Receiver Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/input/input4
+[Sat Nov  7 16:58:33 2026] input: Logitech USB Receiver Consumer Control as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/input/input5
+[Sat Nov  7 16:58:33 2026] input: Logitech USB Receiver System Control as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/input/input6
+[Sat Nov  7 16:58:33 2026] hid-generic 0003:046D:C534.0003: input,hiddev1,hidraw2: USB HID v1.11 Mouse [Logitech USB Receiver] on usb-0000:00:14.0-2.3/input1
+[Sat Nov  7 16:58:33 2026] hid-sensor-hub 0003:8086:0B3A.0001: hiddev0,hidraw0: USB HID v1.10 Device [Intel(R) RealSense(TM) Depth Camera 435i Intel(R) RealSense(TM) Depth Camera 435i] on usb-0000:00:14.0-3/input5
+[Sat Nov  7 16:58:33 2026] logitech-djreceiver 0003:046D:C534.0002: hidraw1: USB HID v1.11 Keyboard [Logitech USB Receiver] on usb-0000:00:14.0-2.3/input0
+[Sat Nov  7 16:58:33 2026] usb 1-4.2: New USB device found, idVendor=1bcf, idProduct=0003, bcdDevice= 7.18
+[Sat Nov  7 16:58:33 2026] usb 1-4.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:33 2026] usb 1-4.2: Product: UNIQUESKY_CAR_CAMERA
+[Sat Nov  7 16:58:33 2026] usb 1-4.2: Manufacturer: HSK-250718-ZW
+[Sat Nov  7 16:58:33 2026] logitech-djreceiver 0003:046D:C534.0003: hiddev1,hidraw2: USB HID v1.11 Mouse [Logitech USB Receiver] on usb-0000:00:14.0-2.3/input1
+[Sat Nov  7 16:58:33 2026] logitech-djreceiver 0003:046D:C534.0003: device of type eQUAD nano Lite (0x0a) connected on slot 1
+[Sat Nov  7 16:58:33 2026] input: Logitech Wireless Keyboard PID:4023 Keyboard as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/0003:046D:4023.0004/input/input9
+[Sat Nov  7 16:58:33 2026] hid-generic 0003:046D:4023.0004: input,hidraw3: USB HID v1.11 Keyboard [Logitech Wireless Keyboard PID:4023] on usb-0000:00:14.0-2.3/input1:1
+[Sat Nov  7 16:58:33 2026] logitech-djreceiver 0003:046D:C534.0003: device of type eQUAD nano Lite (0x0a) connected on slot 2
+[Sat Nov  7 16:58:33 2026] usb 1-1.4: new full-speed USB device number 13 using xhci_hcd
+[Sat Nov  7 16:58:33 2026] input: Logitech Wireless Mouse PID:4022 Mouse as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/0003:046D:4022.0005/input/input14
+[Sat Nov  7 16:58:33 2026] input: Logitech Wireless Mouse PID:4022 Consumer Control as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/0003:046D:4022.0005/input/input15
+[Sat Nov  7 16:58:33 2026] hid-generic 0003:046D:4022.0005: input,hidraw4: USB HID v1.11 Mouse [Logitech Wireless Mouse PID:4022] on usb-0000:00:14.0-2.3/input1:2
+[Sat Nov  7 16:58:33 2026] input: Logitech Wireless Keyboard PID:4023 as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/0003:046D:4023.0004/input/input19
+[Sat Nov  7 16:58:33 2026] logitech-hidpp-device 0003:046D:4023.0004: input,hidraw3: USB HID v1.11 Keyboard [Logitech Wireless Keyboard PID:4023] on usb-0000:00:14.0-2.3/input1:1
+[Sat Nov  7 16:58:33 2026] input: Logitech Wireless Mouse PID:4022 as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C534.0003/0003:046D:4022.0005/input/input20
+[Sat Nov  7 16:58:33 2026] logitech-hidpp-device 0003:046D:4022.0005: input,hidraw4: USB HID v1.11 Mouse [Logitech Wireless Mouse PID:4022] on usb-0000:00:14.0-2.3/input1:2
+[Sat Nov  7 16:58:33 2026] usb 1-1.4: New USB device found, idVendor=1a86, idProduct=7523, bcdDevice= 2.64
+[Sat Nov  7 16:58:33 2026] usb 1-1.4: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:33 2026] usb 1-1.4: Product: USB Serial
+[Sat Nov  7 16:58:33 2026] usb 1-4.3: new high-speed USB device number 14 using xhci_hcd
+[Sat Nov  7 16:58:33 2026] usb 1-4.3: New USB device found, idVendor=1bcf, idProduct=0004, bcdDevice= 7.18
+[Sat Nov  7 16:58:33 2026] usb 1-4.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:33 2026] usb 1-4.3: Product: UNIQUESKY_CAR_CAMERA
+[Sat Nov  7 16:58:33 2026] usb 1-4.3: Manufacturer: HSK-250718-ZW
+[Sat Nov  7 16:58:33 2026] usb 1-4.4: new high-speed USB device number 15 using xhci_hcd
+[Sat Nov  7 16:58:33 2026] usb 1-4.4: New USB device found, idVendor=1bcf, idProduct=0002, bcdDevice= 7.18
+[Sat Nov  7 16:58:33 2026] usb 1-4.4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[Sat Nov  7 16:58:33 2026] usb 1-4.4: Product: UNIQUESKY_CAR_CAMERA
+[Sat Nov  7 16:58:33 2026] usb 1-4.4: Manufacturer: HSK-250718-ZW
+[Sat Nov  7 16:58:49 2026] fbcon: Taking over console
+[Sat Nov  7 16:58:49 2026] Console: switching to colour frame buffer device 100x37
+[Sat Nov  7 16:58:51 2026] EXT4-fs (sda2): mounted filesystem 20e2dc10-047e-482f-a269-c976b450fcb6 ro with ordered data mode. Quota mode: none.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Inserted module 'autofs4'
+[Sat Nov  7 16:58:52 2026] systemd[1]: systemd 249.11-0ubuntu3.23 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY -P11KIT -QRENCODE +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[Sat Nov  7 16:58:52 2026] systemd[1]: Detected architecture x86-64.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Hostname set to <admin1-Default-string>.
+[Sat Nov  7 16:58:52 2026] block sda: the capability attribute has been deprecated.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Configuration file /run/systemd/system/netplan-ovs-cleanup.service is marked world-inaccessible. This has no effect as configuration data is accessible via APIs without restrictions. Proceeding anyway.
+[Sat Nov  7 16:58:52 2026] systemd[1]: /lib/systemd/system/snapd.service:23: Unknown key name 'RestartMode' in section 'Service', ignoring.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Queued start job for default target Graphical Interface.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Created slice Slice /system/modprobe.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Created slice Slice /system/systemd-fsck.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Created slice User and Session Slice.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Reached target User and Group Name Lookups.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Reached target Remote File Systems.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Reached target Slice Units.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Reached target Mounting snaps.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Reached target Local Verity Protected Volumes.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on Syslog Socket.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on fsck to fsckd communication Socket.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on Journal Audit Socket.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on Journal Socket (/dev/log).
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on Journal Socket.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on udev Control Socket.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Listening on udev Kernel Socket.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounting Huge Pages File System...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounting POSIX Message Queue File System...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounting Kernel Debug File System...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounting Kernel Trace File System...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Journal Service...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Set the console keyboard layout...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Create List of Static Device Nodes...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Load Kernel Module configfs...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Load Kernel Module drm...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Load Kernel Module efi_pstore...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Load Kernel Module fuse...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Condition check resulted in File System Check on Root Device being skipped.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Load Kernel Modules...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Remount Root and Kernel File Systems...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Coldplug All udev Devices...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounted Huge Pages File System.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounted POSIX Message Queue File System.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounted Kernel Debug File System.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounted Kernel Trace File System.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Create List of Static Device Nodes.
+[Sat Nov  7 16:58:52 2026] systemd[1]: modprobe@configfs.service: Deactivated successfully.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Load Kernel Module configfs.
+[Sat Nov  7 16:58:52 2026] systemd[1]: modprobe@drm.service: Deactivated successfully.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Load Kernel Module drm.
+[Sat Nov  7 16:58:52 2026] systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Load Kernel Module fuse.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounting FUSE Control File System...
+[Sat Nov  7 16:58:52 2026] pstore: Using crash dump compression: deflate
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounting Kernel Configuration File System...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounted FUSE Control File System.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Mounted Kernel Configuration File System.
+[Sat Nov  7 16:58:52 2026] pstore: Registered efi_pstore as persistent store backend
+[Sat Nov  7 16:58:52 2026] systemd[1]: modprobe@efi_pstore.service: Deactivated successfully.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Load Kernel Module efi_pstore.
+[Sat Nov  7 16:58:52 2026] lp: driver loaded but no devices found
+[Sat Nov  7 16:58:52 2026] ppdev: user-space parallel port driver
+[Sat Nov  7 16:58:52 2026] EXT4-fs (sda2): re-mounted 20e2dc10-047e-482f-a269-c976b450fcb6 r/w.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Remount Root and Kernel File Systems.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Activating swap /swapfile...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Condition check resulted in Platform Persistent Storage Archival being skipped.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Load/Save Random Seed...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Create System Users...
+[Sat Nov  7 16:58:52 2026] Adding 2097148k swap on /swapfile.  Priority:-2 extents:16 across:245497856k SS
+[Sat Nov  7 16:58:52 2026] systemd[1]: Activated swap /swapfile.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Reached target Swaps.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Load Kernel Modules.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Apply Kernel Variables...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Load/Save Random Seed.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Condition check resulted in First Boot Complete being skipped.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Create System Users.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Starting Create Static Device Nodes in /dev...
+[Sat Nov  7 16:58:52 2026] systemd[1]: Finished Set the console keyboard layout.
+[Sat Nov  7 16:58:52 2026] systemd[1]: Started Journal Service.
+[Sat Nov  7 16:58:52 2026] systemd-journald[453]: Received client request to flush runtime journal.
+[Sat Nov  7 16:58:52 2026] systemd-journald[453]: File /var/log/journal/5aa33db556a744bcb8541f231de82d1b/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[Sat Nov  7 16:58:52 2026] loop0: detected capacity change from 0 to 8
+[Sat Nov  7 16:58:52 2026] loop1: detected capacity change from 0 to 152112
+[Sat Nov  7 16:58:52 2026] loop2: detected capacity change from 0 to 136784
+[Sat Nov  7 16:58:52 2026] loop3: detected capacity change from 0 to 555496
+[Sat Nov  7 16:58:52 2026] loop4: detected capacity change from 0 to 580456
+[Sat Nov  7 16:58:52 2026] loop5: detected capacity change from 0 to 1034424
+[Sat Nov  7 16:58:52 2026] loop6: detected capacity change from 0 to 1088496
+[Sat Nov  7 16:58:52 2026] loop7: detected capacity change from 0 to 1261624
+[Sat Nov  7 16:58:52 2026] loop8: detected capacity change from 0 to 1260056
+[Sat Nov  7 16:58:52 2026] loop9: detected capacity change from 0 to 187776
+[Sat Nov  7 16:58:52 2026] intel_pmc_core INT33A1:00:  initialized
+[Sat Nov  7 16:58:52 2026] mc: Linux media interface: v0.10
+[Sat Nov  7 16:58:52 2026] mei_me 0000:00:16.0: enabling device (0000 -> 0002)
+[Sat Nov  7 16:58:52 2026] usbcore: registered new interface driver usbserial_generic
+[Sat Nov  7 16:58:52 2026] dw-apb-uart.6: ttyS12 at MMIO 0x4017006000 (irq = 16, base_baud = 6250000) is a 16550A
+[Sat Nov  7 16:58:52 2026] usbserial: USB Serial support registered for generic
+[Sat Nov  7 16:58:52 2026] usbcore: registered new interface driver ch341
+[Sat Nov  7 16:58:52 2026] usbserial: USB Serial support registered for ch341-uart
+[Sat Nov  7 16:58:52 2026] ch341 1-1.2:1.0: ch341-uart converter detected
+[Sat Nov  7 16:58:52 2026] usb 1-1.2: ch341-uart converter now attached to ttyUSB0
+[Sat Nov  7 16:58:52 2026] ch341 1-1.3:1.0: ch341-uart converter detected
+[Sat Nov  7 16:58:52 2026] usb 1-1.3: ch341-uart converter now attached to ttyUSB1
+[Sat Nov  7 16:58:52 2026] ch341 1-1.4:1.0: ch341-uart converter detected
+[Sat Nov  7 16:58:52 2026] usb 1-1.4: ch341-uart converter now attached to ttyUSB2
+[Sat Nov  7 16:58:52 2026] Creating 1 MTD partitions on "0000:00:1f.5":
+[Sat Nov  7 16:58:52 2026] 0x000000000000-0x000002000000 : "BIOS"
+[Sat Nov  7 16:58:52 2026] usbcore: registered new interface driver cp210x
+[Sat Nov  7 16:58:52 2026] usbserial: USB Serial support registered for cp210x
+[Sat Nov  7 16:58:52 2026] cp210x 1-5:1.0: cp210x converter detected
+[Sat Nov  7 16:58:52 2026] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[Sat Nov  7 16:58:52 2026] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[Sat Nov  7 16:58:52 2026] Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[Sat Nov  7 16:58:52 2026] RAPL PMU: API unit is 2^-32 Joules, 3 fixed counters, 655360 ms ovfl timer
+[Sat Nov  7 16:58:52 2026] RAPL PMU: hw unit of domain pp0-core 2^-14 Joules
+[Sat Nov  7 16:58:52 2026] RAPL PMU: hw unit of domain package 2^-14 Joules
+[Sat Nov  7 16:58:52 2026] RAPL PMU: hw unit of domain pp1-gpu 2^-14 Joules
+[Sat Nov  7 16:58:52 2026] usb 1-5: cp210x converter now attached to ttyUSB3
+[Sat Nov  7 16:58:52 2026] videodev: Linux video capture interface: v2.00
+[Sat Nov  7 16:58:52 2026] cryptd: max_cpu_qlen set to 1000
+[Sat Nov  7 16:58:52 2026] AVX2 version of gcm_enc/dec engaged.
+[Sat Nov  7 16:58:52 2026] AES CTR mode by8 optimization enabled
+[Sat Nov  7 16:58:52 2026] usb 1-1.1: Found UVC 1.00 device UNIQUESKY_CAR_CAMERA (1bcf:0005)
+[Sat Nov  7 16:58:52 2026] uvcvideo 2-3:1.1: Unknown video format 00000050-0000-0010-8000-00aa00389b71
+[Sat Nov  7 16:58:52 2026] usb 2-3: Found UVC 1.50 device Intel(R) RealSense(TM) Depth Camera 435i (8086:0b3a)
+[Sat Nov  7 16:58:52 2026] uvcvideo 2-3:1.4: Unknown video format 36315752-1a66-a242-9065-d01814a8ef8a
+[Sat Nov  7 16:58:52 2026] usb 2-3: Found UVC 1.50 device Intel(R) RealSense(TM) Depth Camera 435i (8086:0b3a)
+[Sat Nov  7 16:58:52 2026] usb 1-4.1: Found UVC 1.00 device UNIQUESKY_CAR_CAMERA (1bcf:0001)
+[Sat Nov  7 16:58:52 2026] usb 1-4.2: Found UVC 1.00 device UNIQUESKY_CAR_CAMERA (1bcf:0003)
+[Sat Nov  7 16:58:52 2026] usb 1-4.3: Found UVC 1.00 device UNIQUESKY_CAR_CAMERA (1bcf:0004)
+[Sat Nov  7 16:58:52 2026] usb 1-4.4: Found UVC 1.00 device UNIQUESKY_CAR_CAMERA (1bcf:0002)
+[Sat Nov  7 16:58:52 2026] usbcore: registered new interface driver uvcvideo
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] VT-d active for gfx access
+[Sat Nov  7 16:58:53 2026] Console: switching to colour dummy device 80x25
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: vgaarb: deactivate vga console
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] Using Transparent Hugepages
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=io+mem:owns=io+mem
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] Finished loading DMC firmware i915/adls_dmc_ver2_01.bin (v2.1)
+[Sat Nov  7 16:58:53 2026] mei_hdcp 0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: bound 0000:00:02.0 (ops i915_hdcp_ops [i915])
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] GT0: GuC firmware i915/tgl_guc_70.bin version 70.20.0
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] GT0: HuC firmware i915/tgl_huc.bin version 7.9.3
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.383:2): apparmor="STATUS" operation="profile_load" profile="unconfined" name="libreoffice-xpdfimport" pid=744 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.383:3): apparmor="STATUS" operation="profile_load" profile="unconfined" name="libreoffice-senddoc" pid=742 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.384:4): apparmor="STATUS" operation="profile_load" profile="unconfined" name="lsb_release" pid=733 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.384:5): apparmor="STATUS" operation="profile_load" profile="unconfined" name="nvidia_modprobe" pid=734 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.384:6): apparmor="STATUS" operation="profile_load" profile="unconfined" name="nvidia_modprobe//kmod" pid=734 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.384:7): apparmor="STATUS" operation="profile_load" profile="unconfined" name="libreoffice-oosplash" pid=741 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.385:8): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/bin/man" pid=739 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.385:9): apparmor="STATUS" operation="profile_load" profile="unconfined" name="man_filter" pid=739 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.385:10): apparmor="STATUS" operation="profile_load" profile="unconfined" name="man_groff" pid=739 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] audit: type=1400 audit(1794041933.387:11): apparmor="STATUS" operation="profile_load" profile="unconfined" name="ubuntu_pro_apt_news" pid=736 comm="apparmor_parser"
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] GT0: HuC: authenticated for all workloads
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] GT0: GUC: submission disabled
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] GT0: GUC: SLPC disabled
+[Sat Nov  7 16:58:53 2026] mei_pxp 0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: bound 0000:00:02.0 (ops i915_pxp_tee_component_ops [i915])
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] Protected Xe Path (PXP) protected content support initialized
+[Sat Nov  7 16:58:53 2026] snd_hda_intel 0000:00:1f.3: enabling device (0000 -> 0002)
+[Sat Nov  7 16:58:53 2026] intel_tcc_cooling: TCC Offset locked
+[Sat Nov  7 16:58:53 2026] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.0 on minor 1
+[Sat Nov  7 16:58:53 2026] ACPI: video: Video Device [GFX0] (multi-head: yes  rom: no  post: no)
+[Sat Nov  7 16:58:53 2026] input: Video Bus as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input21
+[Sat Nov  7 16:58:53 2026] i915 display info: display version: 12
+[Sat Nov  7 16:58:53 2026] i915 display info: cursor_needs_physical: no
+[Sat Nov  7 16:58:53 2026] i915 display info: has_cdclk_crawl: no
+[Sat Nov  7 16:58:53 2026] i915 display info: has_cdclk_squash: no
+[Sat Nov  7 16:58:53 2026] i915 display info: has_ddi: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_dp_mst: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_dsb: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_fpga_dbg: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_gmch: no
+[Sat Nov  7 16:58:53 2026] i915 display info: has_hotplug: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_hti: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_ipc: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_overlay: no
+[Sat Nov  7 16:58:53 2026] i915 display info: has_psr: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_psr_hw_tracking: no
+[Sat Nov  7 16:58:53 2026] i915 display info: overlay_needs_physical: no
+[Sat Nov  7 16:58:53 2026] i915 display info: supports_tv: no
+[Sat Nov  7 16:58:53 2026] i915 display info: has_hdcp: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_dmc: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: has_dsc: yes
+[Sat Nov  7 16:58:53 2026] i915 display info: rawclk rate: 19200 kHz
+[Sat Nov  7 16:58:53 2026] usb 1-6: reset high-speed USB device number 11 using xhci_hcd
+[Sat Nov  7 16:58:53 2026] snd_hda_intel 0000:00:1f.3: bound 0000:00:02.0 (ops i915_audio_component_bind_ops [i915])
+[Sat Nov  7 16:58:53 2026] fbcon: i915drmfb (fb0) is primary device
+[Sat Nov  7 16:58:53 2026] Console: switching to colour frame buffer device 240x75
+[Sat Nov  7 16:58:53 2026] i915 0000:00:02.0: [drm] fb0: i915drmfb frame buffer device
+[Sat Nov  7 16:58:53 2026] intel_rapl_msr: PL4 support detected.
+[Sat Nov  7 16:58:53 2026] intel_rapl_common: Found RAPL domain package
+[Sat Nov  7 16:58:53 2026] intel_rapl_common: Found RAPL domain core
+[Sat Nov  7 16:58:53 2026] intel_rapl_common: Found RAPL domain uncore
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0: ignore pin 0x1b with mismatching assoc# 0x2 vs 0x1
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0: autoconfig for ALC897: line_outs=1 (0x14/0x0/0x0/0x0/0x0) type:line
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:    hp_outs=1 (0x15/0x0/0x0/0x0/0x0)
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:    mono: mono_out=0x0
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:    inputs:
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:      Rear Mic=0x18
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:      Front Mic=0x19
+[Sat Nov  7 16:58:53 2026] snd_hda_codec_realtek hdaudioC0D0:      Line=0x1a
+[Sat Nov  7 16:58:53 2026] mt7601u 1-6:1.0: ASIC revision: 76010001 MAC revision: 76010500
+[Sat Nov  7 16:58:53 2026] mt7601u 1-6:1.0: Firmware Version: 0.1.00 Build: 7640 Build time: 201302052146____
+[Sat Nov  7 16:58:53 2026] input: HDA Intel PCH HDMI/DP,pcm=3 as /devices/pci0000:00/0000:00:1f.3/sound/card0/input22
+[Sat Nov  7 16:58:53 2026] input: HDA Intel PCH HDMI/DP,pcm=7 as /devices/pci0000:00/0000:00:1f.3/sound/card0/input23
+[Sat Nov  7 16:58:53 2026] input: HDA Intel PCH HDMI/DP,pcm=8 as /devices/pci0000:00/0000:00:1f.3/sound/card0/input24
+[Sat Nov  7 16:58:53 2026] input: HDA Intel PCH HDMI/DP,pcm=9 as /devices/pci0000:00/0000:00:1f.3/sound/card0/input25
+[Sat Nov  7 16:58:53 2026] hid-sensor-hub 0003:8086:0B3A.0001: No report with id 0xffffffff found
+[Sat Nov  7 16:58:53 2026] mt7601u 1-6:1.0: EEPROM ver:0d fae:00
+[Sat Nov  7 16:58:53 2026] Generic FE-GE Realtek PHY r8169-0-200:00: attached PHY driver (mii_bus:phy_addr=r8169-0-200:00, irq=MAC)
+[Sat Nov  7 16:58:54 2026] r8169 0000:02:00.0 enp2s0: Link is Down
+[Sat Nov  7 16:58:54 2026] ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
+[Sat Nov  7 16:58:54 2026] usbcore: registered new interface driver mt7601u
+[Sat Nov  7 16:58:54 2026] Generic FE-GE Realtek PHY r8169-0-300:00: attached PHY driver (mii_bus:phy_addr=r8169-0-300:00, irq=MAC)
+[Sat Nov  7 16:58:54 2026] r8169 0000:03:00.0 enp3s0: Link is Down
+[Sat Nov  7 16:58:54 2026] mt7601u 1-6:1.0 wlx90de800ed399: renamed from wlan0
+[Sat Nov  7 16:58:54 2026] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[Sat Nov  7 16:58:55 2026] wlx90de800ed399: authenticate with c2:2b:29:62:2c:4a (local address=90:de:80:0e:d3:99)
+[Sat Nov  7 16:58:55 2026] wlx90de800ed399: send auth to c2:2b:29:62:2c:4a (try 1/3)
+[Sat Nov  7 16:58:55 2026] wlx90de800ed399: authenticated
+[Sat Nov  7 16:58:55 2026] wlx90de800ed399: associate with c2:2b:29:62:2c:4a (try 1/3)
+[Sat Nov  7 16:58:55 2026] wlx90de800ed399: RX AssocResp from c2:2b:29:62:2c:4a (capab=0x1431 status=0 aid=5)
+[Sat Nov  7 16:58:55 2026] wlx90de800ed399: associated
+[Sat Nov  7 16:58:56 2026] igc 0000:04:00.0 enp4s0: NIC Link is Up 100 Mbps Full Duplex, Flow Control: RX/TX
+[Sat Nov  7 16:58:56 2026] br-sensors: port 1(enp4s0) entered blocking state
+[Sat Nov  7 16:58:56 2026] br-sensors: port 1(enp4s0) entered disabled state
+[Sat Nov  7 16:58:56 2026] igc 0000:04:00.0 enp4s0: entered allmulticast mode
+[Sat Nov  7 16:58:56 2026] igc 0000:04:00.0 enp4s0: entered promiscuous mode
+[Sat Nov  7 16:58:56 2026] br-sensors: port 1(enp4s0) entered blocking state
+[Sat Nov  7 16:58:56 2026] br-sensors: port 1(enp4s0) entered listening state
+[Sat Nov  7 16:58:56 2026] e1000e 0000:00:1f.6 eno1: NIC Link is Up 1000 Mbps Full Duplex, Flow Control: Rx/Tx
+[Sat Nov  7 16:58:56 2026] br-sensors: port 2(eno1) entered blocking state
+[Sat Nov  7 16:58:56 2026] br-sensors: port 2(eno1) entered disabled state
+[Sat Nov  7 16:58:56 2026] e1000e 0000:00:1f.6 eno1: entered allmulticast mode
+[Sat Nov  7 16:58:56 2026] e1000e 0000:00:1f.6 eno1: entered promiscuous mode
+[Sat Nov  7 16:58:56 2026] br-sensors: port 2(eno1) entered blocking state
+[Sat Nov  7 16:58:56 2026] br-sensors: port 2(eno1) entered listening state
+[Sat Nov  7 16:58:59 2026] systemd-journald[453]: File /var/log/journal/5aa33db556a744bcb8541f231de82d1b/user-1001.journal corrupted or uncleanly shut down, renaming and replacing.
+[Sat Nov  7 16:59:00 2026] br-sensors: port 1(enp4s0) entered learning state
+[Sat Nov  7 16:59:00 2026] serial 00:01: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:02: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:04: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:05: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:06: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:07: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:09: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:0a: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:0b: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:0c: disabled
+[Sat Nov  7 16:59:00 2026] serial 00:01: activated
+[Sat Nov  7 16:59:00 2026] 00:01: ttyS1 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:02: activated
+[Sat Nov  7 16:59:00 2026] 00:02: ttyS0 at I/O 0x2f8 (irq = 3, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:04: activated
+[Sat Nov  7 16:59:00 2026] 00:04: ttyS4 at I/O 0xc00 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:05: activated
+[Sat Nov  7 16:59:00 2026] 00:05: ttyS3 at I/O 0xc08 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:06: activated
+[Sat Nov  7 16:59:00 2026] 00:06: ttyS2 at I/O 0xc10 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:07: activated
+[Sat Nov  7 16:59:00 2026] 00:07: ttyS8 at I/O 0xc18 (irq = 10, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:09: activated
+[Sat Nov  7 16:59:00 2026] 00:09: ttyS7 at I/O 0xc20 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:0a: activated
+[Sat Nov  7 16:59:00 2026] 00:0a: ttyS6 at I/O 0xc28 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:0b: activated
+[Sat Nov  7 16:59:00 2026] 00:0b: ttyS5 at I/O 0xc30 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] serial 00:0c: activated
+[Sat Nov  7 16:59:00 2026] 00:0c: ttyS11 at I/O 0xc38 (irq = 11, base_baud = 115200) is a 16550A
+[Sat Nov  7 16:59:00 2026] br-sensors: port 2(eno1) entered learning state
+[Sat Nov  7 16:59:01 2026] rfkill: input handler disabled
+[Sat Nov  7 16:59:04 2026] br-sensors: port 1(enp4s0) entered forwarding state
+[Sat Nov  7 16:59:04 2026] br-sensors: topology change detected, propagating
+[Sat Nov  7 16:59:04 2026] br-sensors: port 2(eno1) entered forwarding state
+[Sat Nov  7 16:59:04 2026] br-sensors: topology change detected, propagating
+[Sat Nov  7 17:00:04 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:00:04 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:00:13 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:00:13 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:00:36 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:00:36 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:03 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:03:03 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:03:03 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:03:03 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:03:07 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:03:07 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:03:07 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:03:07 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:03:22 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:22 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:25 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:25 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:26 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:26 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:27 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:27 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:30 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:30 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:31 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:03:31 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:03:31 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:03:31 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:03:34 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:03:34 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:03:34 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:03:34 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:03:44 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:44 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:03:52 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:03:52 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:04:38 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:04:38 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:04:40 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:04:40 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:04:41 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:04:41 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:04:46 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:04:46 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:04:51 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:04:51 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:04:51 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:04:51 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:05:10 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:05:10 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:05:10 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:05:10 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:05:18 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:05:18 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:05:18 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:05:18 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:05:18 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:05:18 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:05:27 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:05:27 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:05:30 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:05:30 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:05:30 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:05:30 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:05:32 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:05:32 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:05:32 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:05:32 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:05:46 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:05:46 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:05:48 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:05:48 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:05:58 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:05:58 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:06:07 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:06:07 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:06:20 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:06:20 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:06:46 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:06:46 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:06:46 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:06:46 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:06:59 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:06:59 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:07:03 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:07:03 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:07:03 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:07:03 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:07:06 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:07:06 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:07:10 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:07:10 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:07:37 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:07:37 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:07:37 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:07:37 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:07:37 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:07:37 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:07:42 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:07:42 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:07:42 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:07:42 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:07:44 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:07:44 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:07:51 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:07:51 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:07:56 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:07:56 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:12 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:08:12 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:12 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:08:12 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:08:12 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:08:12 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:08:21 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:08:21 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:08:21 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:08:21 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:08:24 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:08:24 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:34 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:08:34 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:37 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:08:37 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:40 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:08:40 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:43 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:08:43 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:08:43 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:08:43 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:08:43 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:08:43 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:09:21 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:21 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:30 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:09:30 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:09:30 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:09:30 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:09:30 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:30 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:33 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:33 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:34 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:09:34 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:09:34 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:09:34 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:09:35 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:09:35 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:09:35 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:09:35 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:09:36 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:36 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:40 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:09:40 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:09:40 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:09:40 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:09:42 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:42 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:51 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:51 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:52 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:52 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:52 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:52 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:54 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:54 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:54 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:09:54 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:09:54 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:09:54 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:09:55 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:55 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:55 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:55 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:09:55 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:09:55 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:03 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:10:03 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:03 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:10:03 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:10:03 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:10:03 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:10:14 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:10:14 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:19 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:10:19 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:10:19 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:10:19 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:10:24 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:10:24 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:29 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:10:29 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:10:29 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:10:29 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:10:32 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:10:32 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:32 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:10:32 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:33 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:10:33 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:10:47 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:10:47 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:10:47 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:10:47 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:11:05 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:11:05 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:11:05 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:11:05 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:11:11 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:11 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:16 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:11:16 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:11:16 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:11:16 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:11:18 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:11:18 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:11:18 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:11:18 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:11:25 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:25 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:29 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:29 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:31 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:31 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:35 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:35 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:36 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:36 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:38 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:11:38 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:11:38 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:11:38 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:11:54 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:54 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:11:59 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:11:59 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:12:04 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:12:04 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:12:04 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:12:04 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:12:31 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:12:31 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:13:21 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:13:21 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:13:21 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:13:21 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:13:31 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:13:31 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:13:36 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:13:36 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:13:36 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:13:36 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:13:44 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:13:44 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:13:44 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:13:44 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:14:00 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:14:00 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:14:13 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:14:13 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:14:13 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:14:13 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:14:28 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:14:28 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:14:29 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:14:29 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:14:29 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:14:29 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:15:15 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:15:15 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:15:15 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:15:15 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:15:41 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:15:41 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:15:58 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:15:58 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:16:04 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:16:04 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:16:04 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:16:04 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:16:08 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:16:08 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:16:08 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:16:08 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:16:09 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:16:09 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:16:09 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:16:09 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:16:31 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:16:31 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:16:31 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:16:31 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:16:37 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:16:37 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:16:37 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:16:37 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:16:39 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:16:39 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:16:39 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:16:39 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:18:23 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:18:23 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:18:23 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:18:23 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:18:24 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:18:24 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:18:24 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:18:24 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:18:37 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:18:37 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:18:37 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:18:37 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:18:44 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:44 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:45 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:45 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:45 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:45 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:46 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:46 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:46 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:46 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:47 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:47 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:47 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:47 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:47 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:47 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:51 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:51 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:56 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:18:56 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:18:57 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:18:57 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:18:57 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:18:57 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:19:03 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:19:03 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:19:03 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:19:03 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:19:06 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:19:06 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:19:23 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:19:23 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:19:23 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:19:23 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:19:25 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:19:25 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:19:25 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:19:25 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:19:26 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:19:26 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:19:26 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:19:26 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:19:51 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:19:51 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:19:54 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:19:54 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:20:01 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:20:01 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:20:06 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:20:06 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:20:06 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:20:06 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:20:09 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:20:09 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:20:09 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:20:09 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:20:24 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:20:24 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:20:28 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:20:28 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:20:28 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:20:28 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:20:36 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:20:36 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:20:48 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:20:48 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:21:07 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:21:07 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:21:07 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:21:07 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:21:17 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:21:17 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:21:17 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:21:17 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:21:23 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:21:23 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:21:23 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:21:23 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:21:24 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:21:24 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:21:24 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:21:24 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:21:41 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:21:41 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:21:41 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:21:41 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:21:43 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:21:43 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:21:43 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:21:43 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:22:01 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:22:01 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:22:05 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:22:05 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:22:05 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:22:05 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:23:26 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:23:26 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:24:03 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:24:03 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:24:03 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:24:03 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:24:05 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:24:05 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:24:05 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:24:05 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:24:07 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:24:07 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:24:17 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:24:17 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:24:17 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:24:17 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:25:05 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:25:05 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:25:09 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:25:09 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:25:09 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:25:09 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:25:47 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:25:47 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:25:47 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:25:47 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:25:58 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:25:58 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:25:58 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:25:58 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:25:59 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:25:59 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:26:16 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:26:16 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:26:44 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:26:44 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:26:44 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:26:44 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:27:06 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:27:06 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:27:29 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:27:29 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:27:29 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:27:29 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:28:45 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:28:45 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:29:32 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:29:32 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:29:32 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:29:32 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:29:44 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:29:44 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:29:54 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:29:54 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:04 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:04 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:13 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:30:13 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:30:13 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:30:13 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:30:14 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:14 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:21 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:21 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:24 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:24 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:34 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:34 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:40 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:40 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:30:44 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:30:51 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:30:51 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:30:58 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:30:58 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:30:58 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:30:58 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:31:01 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:31:01 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:31:01 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:31:01 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:31:05 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:31:05 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:31:08 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:31:08 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:31:08 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:31:08 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:31:23 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:31:23 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:31:23 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:31:23 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:31:25 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:31:25 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:31:42 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:31:42 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:31:42 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:31:42 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:31:44 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:31:44 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:31:44 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:31:44 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:31:45 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:31:45 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:05 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:05 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:06 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:32:06 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:32:06 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:32:06 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:32:30 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:30 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:30 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:30 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:32 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:32 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:33 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:33 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:46 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:46 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:57 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:57 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:32:58 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:32:58 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:33:28 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:33:28 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:33:36 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:33:36 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:33:45 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:33:45 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:33:52 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:33:52 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:33:52 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:33:52 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:33:54 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:33:54 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:00 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:34:00 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:34:00 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:34:00 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:34:07 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:07 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:09 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:09 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:12 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:34:12 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:34:12 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:34:12 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:34:12 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:12 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:13 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:13 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:13 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:13 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:26 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:34:26 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:34:26 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:34:26 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:34:27 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:34:27 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:34:27 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:34:27 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:34:37 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:34:37 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:34:37 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:34:37 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:34:38 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:38 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:40 2026] pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+[Sat Nov  7 17:34:40 2026] pcieport 0000:00:1c.2: PCIe Bus Error: severity=Correctable, type=Physical Layer, (Receiver ID)
+[Sat Nov  7 17:34:40 2026] pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000
+[Sat Nov  7 17:34:40 2026] pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+[Sat Nov  7 17:34:41 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:41 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:44 2026] wlx90de800ed399: AP has invalid WMM params (AIFSN=1 for ACI 0), will use 2
+[Sat Nov  7 17:34:44 2026] wlx90de800ed399: AP has invalid WMM params (CWmin/max=0/3 for ACI 0), using defaults
+[Sat Nov  7 17:34:45 2026] logitech-hidpp-device 0003:046D:4023.0004: HID++ 2.0 device connected.

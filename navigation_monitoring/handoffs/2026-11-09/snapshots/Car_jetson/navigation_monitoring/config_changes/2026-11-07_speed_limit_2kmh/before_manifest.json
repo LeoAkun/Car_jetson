@@ -1,0 +1,42 @@
+{
+  "time_beijing": "2026-11-07T17:25:18.687290+08:00",
+  "request": "ordinary navigation target limit approximately 2 km/h; offline edits only",
+  "files": [
+    {
+      "path": "nav2/src/nav2/config/nav2_real_params.yaml",
+      "sha256": "d172f3d66a6c995f5ad850ffaedf2b7dc4743e008024460570994c489d9b11d7"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "sha256": "031ef8ea7ed4e5fca3e5d05c897eff532375a1f9c5945b9ff9b8ef54fa8dcba2"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "sha256": "e0d15f2af730f7797490290307d8dce545037d891115013f646f7a50f76aa08d"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml",
+      "sha256": "d47af2ac8cd147fa2b4f59d67f6cb1b81e6a31308fd479cb4e08e7fded8aa307"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py",
+      "sha256": "d7eb15ec4d19c7d6ff524fd3c1b949ddb6a3ed3442d7dc3b4a00d8c3d656e633"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/README.md",
+      "sha256": "f6c74b6397e795f361bbe1a389000bf21c8a278065d4f0737d0419025e20d6bf"
+    },
+    {
+      "path": "real_ws/install/cmdvel_2_ecu/lib/python3.10/site-packages/cmdvel_2_ecu/convert.py",
+      "sha256": "031ef8ea7ed4e5fca3e5d05c897eff532375a1f9c5945b9ff9b8ef54fa8dcba2"
+    },
+    {
+      "path": "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml",
+      "sha256": "e0d15f2af730f7797490290307d8dce545037d891115013f646f7a50f76aa08d"
+    },
+    {
+      "path": "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/docking_config.yaml",
+      "sha256": "d47af2ac8cd147fa2b4f59d67f6cb1b81e6a31308fd479cb4e08e7fded8aa307"
+    }
+  ]
+}

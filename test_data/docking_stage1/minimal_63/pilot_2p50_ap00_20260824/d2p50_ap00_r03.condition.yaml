@@ -1,0 +1,25 @@
+condition_name: d2p50_ap00_r03
+recorded_at: '2026-08-24T16:05:52.797129+08:00'
+operator: akun
+distance_m: 2.5
+expected_range_m: 2.089
+dock_angle_deg: 0
+lateral_offset_m: 0.0
+roi_center_deg: -54.13
+roi_min_deg: -79.13
+roi_max_deg: -29.130000000000003
+duration_sec: 12.0
+repeat: 3
+scan_topic: /laser/scan_back
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: base_link-to-dock nominal=2.5m; yaw=0deg; expected lidar range derived from
+  TF, not externally measured; static vehicle

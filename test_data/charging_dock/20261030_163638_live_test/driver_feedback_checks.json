@@ -1,0 +1,7 @@
+{
+  "missing_wheels_are_invalid": true,
+  "front_wheels_decode_signed_mps": true,
+  "diagnostics_cannot_overwrite_front_source": true,
+  "fresh_status_cannot_refresh_stale_wheels": true,
+  "default_legacy_source_unchanged": true
+}

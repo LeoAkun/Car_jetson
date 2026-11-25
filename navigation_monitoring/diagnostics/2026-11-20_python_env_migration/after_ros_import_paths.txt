@@ -1,0 +1,9 @@
+python /usr/bin/python3 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+numpy 1.21.5 /usr/lib/python3/dist-packages/numpy/__init__.py
+scipy 1.8.0 /usr/lib/python3/dist-packages/scipy/__init__.py
+matplotlib 3.5.1 /usr/lib/python3/dist-packages/matplotlib/__init__.py
+tf_transformations  /opt/ros/humble/lib/python3.10/site-packages/tf_transformations/__init__.py
+transforms3d 0.3.1 /usr/lib/python3/dist-packages/transforms3d/__init__.py
+cv_bridge  /opt/ros/humble/local/lib/python3.10/dist-packages/cv_bridge/__init__.py
+cv2 4.5.4 /usr/lib/python3/dist-packages/cv2.cpython-310-x86_64-linux-gnu.so
+paho.mqtt.client  /home/akun/.local/lib/python3.10/site-packages/paho/mqtt/client.py

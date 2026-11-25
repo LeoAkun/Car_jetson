@@ -1,0 +1,432 @@
+{
+  "note": "自动提取可见消息中Markdown链接和反引号绝对路径；包含临时/历史路径或说明片段。不存在记录保留，不能当作丢失数据已恢复。更完整实际文件见原始文件目录索引。",
+  "paths": [
+    {
+      "path": "/home/akun/下载/聊天记录.txt",
+      "first_mentioned": "2026-10-26T16:05:43.558000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:05:43.558000+08:00",
+        "2026-10-29T11:58:59.110000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 131694
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/接车后方案.md",
+      "first_mentioned": "2026-10-26T16:05:43.558000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:05:43.558000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 16402
+    },
+    {
+      "path": "/home/akun/workspace/sensor",
+      "first_mentioned": "2026-10-26T16:12:00.197000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:12:00.197000+08:00"
+      ],
+      "exists": true,
+      "is_dir": true,
+      "bytes": null
+    },
+    {
+      "path": "/home/akun/workspace/sensor/real_ws",
+      "first_mentioned": "2026-10-26T16:13:47.975000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:13:47.975000+08:00"
+      ],
+      "exists": true,
+      "is_dir": true,
+      "bytes": null
+    },
+    {
+      "path": "/home/akun/workspace/sensor/real_ws/IMU_REBOOT_RECOVERY.md",
+      "first_mentioned": "2026-10-26T16:13:47.975000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:13:47.975000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6984
+    },
+    {
+      "path": "/home/akun/workspace/sensor/real_ws/src/driver/imu/fdilink_ahrs_ROS2/wheeltec_udev.sh",
+      "first_mentioned": "2026-10-26T16:13:47.975000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:13:47.975000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 1192
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/repair-imu-usb.bash",
+      "first_mentioned": "2026-10-26T16:22:52.570000+08:00",
+      "mentioned_in": [
+        "2026-10-26T16:22:52.570000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 3640
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/sensor-check-2026-10-26/检查结果.md",
+      "first_mentioned": "2026-10-26T17:12:39.144000+08:00",
+      "mentioned_in": [
+        "2026-10-26T17:12:39.144000+08:00",
+        "2026-10-26T18:12:46.452000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 11153
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/sensor-fix-2026-10-29/修复与复查结果.md",
+      "first_mentioned": "2026-10-29T11:49:08.031000+08:00",
+      "mentioned_in": [
+        "2026-10-29T11:49:08.031000+08:00",
+        "2026-11-07T17:54:36.405000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 8809
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/real_ws/src/launch_real/launch/run.launch.py",
+      "first_mentioned": "2026-10-29T11:54:07.118000+08:00",
+      "mentioned_in": [
+        "2026-10-29T11:54:07.118000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 11497
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml",
+      "first_mentioned": "2026-10-29T11:54:07.118000+08:00",
+      "mentioned_in": [
+        "2026-10-29T11:54:07.118000+08:00",
+        "2026-10-29T11:58:59.110000+08:00",
+        "2026-10-29T12:03:37.325000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6330
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock/STAGE1_REAR_LIDAR_REPORT_2026-08-21.md",
+      "first_mentioned": "2026-10-29T11:58:59.110000+08:00",
+      "mentioned_in": [
+        "2026-10-29T11:58:59.110000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 10247
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/real_ws/src/driver/camera/calibration/rear_camera_1280x720.yaml",
+      "first_mentioned": "2026-10-29T11:58:59.110000+08:00",
+      "mentioned_in": [
+        "2026-10-29T11:58:59.110000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 659
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/bag/rosbag2_2026_04_22-19_12_20/metadata.yaml",
+      "first_mentioned": "2026-10-29T11:58:59.110000+08:00",
+      "mentioned_in": [
+        "2026-10-29T11:58:59.110000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 26830
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/导航模拟验收结果.md",
+      "first_mentioned": "2026-10-29T12:20:29.833000+08:00",
+      "mentioned_in": [
+        "2026-10-29T12:20:29.833000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 4880
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/navigation-sim-2026-10-29/trajectory.png",
+      "first_mentioned": "2026-10-29T12:20:29.833000+08:00",
+      "mentioned_in": [
+        "2026-10-29T12:20:29.833000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 131963
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/static-localization-2026-11-02/实车静止定位验收.md",
+      "first_mentioned": "2026-11-02T15:48:29.064000+08:00",
+      "mentioned_in": [
+        "2026-11-02T15:48:29.064000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 4202
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/static-localization-2026-11-02/static-localization.png",
+      "first_mentioned": "2026-11-02T15:48:29.064000+08:00",
+      "mentioned_in": [
+        "2026-11-02T15:48:29.064000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 870435
+    },
+    {
+      "path": "/home/akun/car-host-step9.MgehLL/static-localization-2026-11-02/acceptance.json",
+      "first_mentioned": "2026-11-02T15:48:29.064000+08:00",
+      "mentioned_in": [
+        "2026-11-02T15:48:29.064000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 2551
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/RESULT.md",
+      "first_mentioned": "2026-11-06T12:40:05.078000+08:00",
+      "mentioned_in": [
+        "2026-11-06T12:40:05.078000+08:00",
+        "2026-11-06T12:43:46.883000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 9674
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/MPPI_FAILURE_ANALYSIS.md",
+      "first_mentioned": "2026-11-06T12:57:40.302000+08:00",
+      "mentioned_in": [
+        "2026-11-06T12:57:40.302000+08:00",
+        "2026-11-06T13:00:28.418000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 12333
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/odometry_evidence/transformations.pcd",
+      "first_mentioned": "2026-11-06T13:06:07.714000+08:00",
+      "mentioned_in": [
+        "2026-11-06T13:06:07.714000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 41424
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/ODOMETRY_RECORD_SEARCH.md",
+      "first_mentioned": "2026-11-06T13:06:07.714000+08:00",
+      "mentioned_in": [
+        "2026-11-06T13:06:07.714000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 4091
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/speed_units_fix_20261106/RESULT.md",
+      "first_mentioned": "2026-11-06T13:41:40.927000+08:00",
+      "mentioned_in": [
+        "2026-11-06T13:41:40.927000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 4451
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/GOAL_OSCILLATION_ANALYSIS.md",
+      "first_mentioned": "2026-11-06T14:23:59.082000+08:00",
+      "mentioned_in": [
+        "2026-11-06T14:23:59.082000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 8998
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/RESULT.md",
+      "first_mentioned": "2026-11-06T14:35:08.942000+08:00",
+      "mentioned_in": [
+        "2026-11-06T14:35:08.942000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6067
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/RESULT.md",
+      "first_mentioned": "2026-11-06T15:47:29.246000+08:00",
+      "mentioned_in": [
+        "2026-11-06T15:47:29.246000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6072
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/RESULT.md",
+      "first_mentioned": "2026-11-07T16:24:29.222000+08:00",
+      "mentioned_in": [
+        "2026-11-07T16:24:29.222000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 3678
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/RESULT.md",
+      "first_mentioned": "2026-11-07T16:34:10.484000+08:00",
+      "mentioned_in": [
+        "2026-11-07T16:34:10.484000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 2365
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/RESULT.md",
+      "first_mentioned": "2026-11-07T16:40:18.101000+08:00",
+      "mentioned_in": [
+        "2026-11-07T16:40:18.101000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 1035
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/DEVIATION_FINDINGS.md",
+      "first_mentioned": "2026-11-07T17:16:43.181000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:16:43.181000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 11022
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/deviation_analysis_path.png",
+      "first_mentioned": "2026-11-07T17:16:43.181000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:16:43.181000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 212493
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/speed_change_analysis.md",
+      "first_mentioned": "2026-11-07T17:22:49.857000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:22:49.857000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 3638
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/scan_motion_audit.md",
+      "first_mentioned": "2026-11-07T17:22:49.857000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:22:49.857000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6365
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/config_changes/2026-11-07_speed_limit_2kmh/RESULT.md",
+      "first_mentioned": "2026-11-07T17:27:29.488000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:27:29.488000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 1328
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/RESULT.md",
+      "first_mentioned": "2026-11-07T17:39:05.789000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:39:05.789000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 5125
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/KERNEL_FINDINGS.md",
+      "first_mentioned": "2026-11-07T17:54:36.405000+08:00",
+      "mentioned_in": [
+        "2026-11-07T17:54:36.405000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 4136
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/SENSOR_REBOOT_REVIEW.md",
+      "first_mentioned": "2026-11-07T18:05:25.081000+08:00",
+      "mentioned_in": [
+        "2026-11-07T18:05:25.081000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6714
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/diagnostics/2026-11-07_reboots_initialization/SENSOR_RUNTIME_AUDIT.md",
+      "first_mentioned": "2026-11-07T18:08:21.189000+08:00",
+      "mentioned_in": [
+        "2026-11-07T18:08:21.189000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 6680
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/RESULT.md",
+      "first_mentioned": "2026-11-09T14:47:26.278000+08:00",
+      "mentioned_in": [
+        "2026-11-09T14:47:26.278000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 3709
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/DEVIATION_FINDINGS.md",
+      "first_mentioned": "2026-11-09T15:29:29.415000+08:00",
+      "mentioned_in": [
+        "2026-11-09T15:29:29.415000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 7663
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/imu_checks/2026-11-09_17-00-32/RESULT.md",
+      "first_mentioned": "2026-11-09T17:07:58.371000+08:00",
+      "mentioned_in": [
+        "2026-11-09T17:07:58.371000+08:00"
+      ],
+      "exists": true,
+      "is_dir": false,
+      "bytes": 4227
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "checks": {
+    "enough_samples": true,
+    "all_main_wheels_zero": true,
+    "all_vehicle_neutral": true,
+    "all_ecu_zero_neutral_brake": true
+  },
+  "vehicle_count": 301,
+  "ecu_count": 150,
+  "last_vehicle": {
+    "header": {
+      "stamp": {
+        "sec": 1793938118,
+        "nanosec": 179747682
+      },
+      "frame_id": ""
+    },
+    "cur_speed": 0.0,
+    "cur_steer": 0.6075000762939453,
+    "left_wheel_speed": 0.0,
+    "right_wheel_speed": 0.0,
+    "wheel_direction": 1,
+    "shift_level": 2,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "p_status": true
+  },
+  "last_ecu": {
+    "header": {
+      "stamp": {
+        "sec": 1793938118,
+        "nanosec": 163041317
+      },
+      "frame_id": "base_link"
+    },
+    "motor": 0.0,
+    "steer": 0.0,
+    "brake": true,
+    "set_torque": false,
+    "rear_wheel_flag": true,
+    "shift": 2
+  }
+}

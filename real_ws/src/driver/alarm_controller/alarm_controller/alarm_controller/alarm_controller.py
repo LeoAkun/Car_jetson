@@ -1,8 +1,8 @@
 import serial
-import time
 import rclpy
 from rclpy.node import Node
 from alarm_interface.srv import Alarm
+
 
 # Modbus CRC16 计算函数
 def modbus_crc16(data):
@@ -16,6 +16,7 @@ def modbus_crc16(data):
                 crc >>= 1
     return crc.to_bytes(2, 'little')
 
+
 # 构建写单个线圈命令 (功能码 0x05)
 def build_command(value):
     # address: 设备地址, 默认1
@@ -23,12 +24,13 @@ def build_command(value):
     # value: True for ON (0xFF00), False for OFF (0x0000)
     cmd_off = b"\x01\x10\x01\xf4\x00\x01\x02\x00\x03"
     cmd_on = b"\x01\x10\x01\xf4\x00\x01\x02\x00\x04"
-    if value == True:
+    if value:
         cmd = cmd_on
     else:
         cmd = cmd_off
     crc = modbus_crc16(cmd)
     return cmd + crc
+
 
 class ModbusServer(Node):
     def __init__(self):
@@ -73,11 +75,19 @@ class ModbusServer(Node):
 
         return response
 
+
 def main(args=None):
     rclpy.init(args=args)
     modbus_server = ModbusServer()
-    rclpy.spin(modbus_server)
-    rclpy.shutdown()
+    try:
+        rclpy.spin(modbus_server)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        modbus_server.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

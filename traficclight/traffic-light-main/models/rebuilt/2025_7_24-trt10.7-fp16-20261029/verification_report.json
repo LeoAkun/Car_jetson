@@ -1,0 +1,224 @@
+{
+  "status": "PASS",
+  "recorded_at_device_utc": "2025-11-25T15:26:07.273584+00:00",
+  "cases": [
+    {
+      "sample": "synthetic_black",
+      "sample_tensor_sha256": "f824c1a8a1128713f17dd8d1190d70e6012b509606d986e7a6c81e40b628df2b",
+      "max_reference_confidence": 3.5587124784797197e-06,
+      "pt_vs_onnx": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 6.672757990600076e-08,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.0001,
+        "box_pixel_tolerance": 0.25,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "pt_vs_trt_fp16": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 3.5587124784797197e-06,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.03,
+        "box_pixel_tolerance": 3.0,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "gpu_execution_ms": 66.55503845214844,
+      "copy_execute_return_ms": 68.31763199807028
+    },
+    {
+      "sample": "synthetic_white",
+      "sample_tensor_sha256": "830eadd834b9305b1472dcb60b1c7fffea53b0f0e12012fc36dc9f920fd56f2a",
+      "max_reference_confidence": 8.803247055766406e-07,
+      "pt_vs_onnx": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 5.2877055622957414e-08,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.0001,
+        "box_pixel_tolerance": 0.25,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "pt_vs_trt_fp16": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 8.803247055766406e-07,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.03,
+        "box_pixel_tolerance": 3.0,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "gpu_execution_ms": 12.46281623840332,
+      "copy_execute_return_ms": 14.137312002276303
+    },
+    {
+      "sample": "synthetic_random_seed_20261029",
+      "sample_tensor_sha256": "97dec4bc696d30e598cd7e498d0db252e6792589a5a69114d724395aecb3aff7",
+      "max_reference_confidence": 1.4474144336418249e-05,
+      "pt_vs_onnx": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 5.6982116802828386e-08,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.0001,
+        "box_pixel_tolerance": 0.25,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "pt_vs_trt_fp16": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 1.4474144336418249e-05,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.03,
+        "box_pixel_tolerance": 3.0,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "gpu_execution_ms": 12.536031723022461,
+      "copy_execute_return_ms": 14.251584001613082
+    },
+    {
+      "sample": "/opt/traffic-light/builds/tl-20250724-trt107-fp16-20261029/source/ultralytics/assets/bus.jpg",
+      "sample_tensor_sha256": "64d11ef4c1e470282a385f7d293607b639da2f40405c92238897253dd1e23f14",
+      "max_reference_confidence": 0.000407492887461558,
+      "pt_vs_onnx": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 6.374762051564176e-08,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.0001,
+        "box_pixel_tolerance": 0.25,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "pt_vs_trt_fp16": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 1.6176927601918578e-05,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.03,
+        "box_pixel_tolerance": 3.0,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "gpu_execution_ms": 12.433823585510254,
+      "copy_execute_return_ms": 14.05398399947444
+    },
+    {
+      "sample": "/opt/traffic-light/builds/tl-20250724-trt107-fp16-20261029/source/ultralytics/assets/zidane.jpg",
+      "sample_tensor_sha256": "a6c0d7d9e5403eec51446a5a61daa1e93bb746bc3692e8b743b41ed271812c48",
+      "max_reference_confidence": 4.694861672760453e-06,
+      "pt_vs_onnx": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 7.058520168357063e-08,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.0001,
+        "box_pixel_tolerance": 0.25,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "pt_vs_trt_fp16": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 4.694861672760453e-06,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.03,
+        "box_pixel_tolerance": 3.0,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "gpu_execution_ms": 12.43712043762207,
+      "copy_execute_return_ms": 14.095648002694361
+    },
+    {
+      "sample": "/opt/traffic-light/current/test_data/offline.jpg",
+      "sample_tensor_sha256": "c68b217ff488e6a5d08e513917cf875eb5b88cd7d3915a560a01f0a0a991b6d1",
+      "max_reference_confidence": 6.051660966477357e-05,
+      "pt_vs_onnx": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 6.417968734240276e-08,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.0001,
+        "box_pixel_tolerance": 0.25,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "pt_vs_trt_fp16": {
+        "status": "PASS",
+        "confidence_threshold": 0.5,
+        "max_sorted_score_absolute_error": 2.559311951699783e-06,
+        "reference_detections": 0,
+        "actual_detections": 0,
+        "confidence_tolerance": 0.03,
+        "box_pixel_tolerance": 3.0,
+        "matched_max_box_pixel_error": null,
+        "matched_max_confidence_error": null,
+        "class_ids_match": null
+      },
+      "gpu_execution_ms": 12.442560195922852,
+      "copy_execute_return_ms": 14.063872000406263
+    }
+  ],
+  "continuous_inferences": 100,
+  "warmup_inferences": 10,
+  "repeat_max_absolute_error": 0.0,
+  "gpu_execution_ms": {
+    "mean": 6.9840176486968994,
+    "p50": 6.265343904495239,
+    "p95": 9.455306959152221,
+    "p99": 9.459459323883056,
+    "min": 5.383615970611572,
+    "max": 9.459744453430176
+  },
+  "copy_execute_return_ms": {
+    "mean": 8.08154783986538,
+    "p50": 7.35487999918405,
+    "p95": 10.587551999560674,
+    "p99": 10.60060095933295,
+    "min": 6.464608002715977,
+    "max": 10.606240000925027
+  },
+  "onnxruntime": "1.20.0",
+  "onnxruntime_providers": [
+    "CPUExecutionProvider"
+  ],
+  "tensorrt": "10.7.0",
+  "torch": "2.5.0a0+872d972e41.nv24.08",
+  "cuda": "12.6",
+  "gpu": "Orin",
+  "uid": 998,
+  "real_traffic_light_accuracy_validated": false,
+  "validation_scope": "synthetic inputs and unlabeled existing images; not traffic-light gold samples",
+  "topk_comparison": "all 300 sorted confidence scores; class/box matching only at confidence >= 0.5",
+  "legacy_version": "8.1.34"
+}

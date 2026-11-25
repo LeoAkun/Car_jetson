@@ -1,0 +1,302 @@
+{
+  "first": {
+    "source": "thermal_testing/idle_crash_runs/20261107_124850_nav_field_test/samples.csv",
+    "count": 11947,
+    "window_start": "2026-11-07T16:10:50+08:00",
+    "last": {
+      "timestamp": "2026-11-07T16:15:06.973+08:00",
+      "elapsed_s": "12376.4",
+      "boot_id": "271a95a2-06a6-4728-8955-9195feec0b76",
+      "cpu_busy_pct": "19.6",
+      "load1": "0.58",
+      "load5": "0.34",
+      "freq_avg_mhz": "861.7",
+      "package_c": "36.0",
+      "core_max_c": "36.0",
+      "pch_c": "",
+      "mem_available_kib": "28983608",
+      "swap_free_kib": "2097148",
+      "package_throttle_count": "0",
+      "core_throttle_count": "0",
+      "c6_time_us": "636855095",
+      "c8_time_us": "1167088023",
+      "c10_time_us": "242199904068",
+      "robot_processes": "16"
+    },
+    "last60s": {
+      "cpu_busy_pct": {
+        "min": 0.3,
+        "max": 51.7,
+        "mean": 1.9258620689655175
+      },
+      "package_c": {
+        "min": 34.0,
+        "max": 44.0,
+        "mean": 35.08620689655172
+      },
+      "core_max_c": {
+        "min": 33.0,
+        "max": 44.0,
+        "mean": 34.56896551724138
+      },
+      "mem_available_kib": {
+        "min": 28983608.0,
+        "max": 29290352.0,
+        "mean": 29270753.172413792
+      },
+      "load1": {
+        "min": 0.58,
+        "max": 0.83,
+        "mean": 0.760689655172414
+      },
+      "package_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "core_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "window": {
+      "cpu_busy_pct": {
+        "min": 0.1,
+        "max": 51.7,
+        "mean": 1.1819277108433754
+      },
+      "package_c": {
+        "min": 34.0,
+        "max": 48.0,
+        "mean": 35.863453815261046
+      },
+      "core_max_c": {
+        "min": 33.0,
+        "max": 48.0,
+        "mean": 35.17670682730924
+      },
+      "mem_available_kib": {
+        "min": 28716032.0,
+        "max": 30869660.0,
+        "mean": 29645878.024096385
+      },
+      "load1": {
+        "min": 0.08,
+        "max": 0.83,
+        "mean": 0.37140562248995945
+      },
+      "package_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "core_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "classification": "unexpected_host_reboot; user said no manual action"
+  },
+  "second": {
+    "source": "thermal_testing/idle_crash_runs/20261107_161617_nav_field_test/samples.csv",
+    "count": 128,
+    "window_start": "2026-11-07T16:17:52+08:00",
+    "last": {
+      "timestamp": "2026-11-07T16:18:28.859+08:00",
+      "elapsed_s": "131.4",
+      "boot_id": "7a56ea4e-c01f-4c9e-be99-4775707dd7f3",
+      "cpu_busy_pct": "24.9",
+      "load1": "3.00",
+      "load5": "0.87",
+      "freq_avg_mhz": "3600.0",
+      "package_c": "55.0",
+      "core_max_c": "55.0",
+      "pch_c": "",
+      "mem_available_kib": "28037528",
+      "swap_free_kib": "2097148",
+      "package_throttle_count": "0",
+      "core_throttle_count": "0",
+      "c6_time_us": "116446423",
+      "c8_time_us": "76472557",
+      "c10_time_us": "2250976684",
+      "robot_processes": "17"
+    },
+    "last60s": {
+      "cpu_busy_pct": {
+        "min": 2.5,
+        "max": 37.9,
+        "mean": 13.032203389830508
+      },
+      "package_c": {
+        "min": 35.0,
+        "max": 55.0,
+        "mean": 40.57627118644068
+      },
+      "core_max_c": {
+        "min": 34.0,
+        "max": 55.0,
+        "mean": 40.30508474576271
+      },
+      "mem_available_kib": {
+        "min": 28037528.0,
+        "max": 30680892.0,
+        "mean": 29732604.06779661
+      },
+      "load1": {
+        "min": 0.62,
+        "max": 3.0,
+        "mean": 1.1796610169491535
+      },
+      "package_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "core_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "window": {
+      "cpu_busy_pct": {
+        "min": 3.2,
+        "max": 37.9,
+        "mean": 19.566666666666666
+      },
+      "package_c": {
+        "min": 36.0,
+        "max": 55.0,
+        "mean": 43.80555555555556
+      },
+      "core_max_c": {
+        "min": 36.0,
+        "max": 55.0,
+        "mean": 43.72222222222222
+      },
+      "mem_available_kib": {
+        "min": 28037528.0,
+        "max": 30673316.0,
+        "mean": 29138739.666666668
+      },
+      "load1": {
+        "min": 0.62,
+        "max": 3.0,
+        "mean": 1.4711111111111113
+      },
+      "package_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "core_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "classification": "host_reboot_during_test; no separate manual-action confirmation preserved"
+  },
+  "third": {
+    "source": "thermal_testing/idle_crash_runs/20261107_161937_nav_field_test/samples.csv",
+    "count": 1534,
+    "window_start": "2026-11-07T16:36:44+08:00",
+    "last": {
+      "timestamp": "2026-11-07T16:46:05.549+08:00",
+      "elapsed_s": "1587.2",
+      "boot_id": "ca32f49f-62a3-4e77-aee9-af55c9ac556a",
+      "cpu_busy_pct": "3.1",
+      "load1": "0.67",
+      "load5": "0.80",
+      "freq_avg_mhz": "844.5",
+      "package_c": "33.0",
+      "core_max_c": "33.0",
+      "pch_c": "",
+      "mem_available_kib": "30145552",
+      "swap_free_kib": "2097148",
+      "package_throttle_count": "0",
+      "core_throttle_count": "0",
+      "c6_time_us": "1001227539",
+      "c8_time_us": "1105064961",
+      "c10_time_us": "25214677346",
+      "robot_processes": "15"
+    },
+    "last60s": {
+      "cpu_busy_pct": {
+        "min": 2.9,
+        "max": 4.2,
+        "mean": 3.5551724137931027
+      },
+      "package_c": {
+        "min": 33.0,
+        "max": 35.0,
+        "mean": 33.60344827586207
+      },
+      "core_max_c": {
+        "min": 32.0,
+        "max": 34.0,
+        "mean": 33.08620689655172
+      },
+      "mem_available_kib": {
+        "min": 30128668.0,
+        "max": 30147440.0,
+        "mean": 30136994.413793102
+      },
+      "load1": {
+        "min": 0.62,
+        "max": 0.87,
+        "mean": 0.7484482758620692
+      },
+      "package_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "core_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "window": {
+      "cpu_busy_pct": {
+        "min": 2.8,
+        "max": 31.9,
+        "mean": 4.310332103321034
+      },
+      "package_c": {
+        "min": 33.0,
+        "max": 47.0,
+        "mean": 33.97047970479705
+      },
+      "core_max_c": {
+        "min": 32.0,
+        "max": 47.0,
+        "mean": 33.61808118081181
+      },
+      "mem_available_kib": {
+        "min": 29948476.0,
+        "max": 30152356.0,
+        "mean": 30123038.479704797
+      },
+      "load1": {
+        "min": 0.24,
+        "max": 1.44,
+        "mean": 0.7356826568265694
+      },
+      "package_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      },
+      "core_throttle_count": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0
+      }
+    },
+    "classification": "manual_shutdown_confirmed_by_latest_user_correction; excluded_from_unexpected_reboots"
+  }
+}

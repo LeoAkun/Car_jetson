@@ -1,0 +1,88 @@
+{
+  "baseline_at": "2026-11-18T13:34:02+08:00",
+  "consecutive_zero_hit_observation_seconds": 0.0,
+  "consecutive_zero_hit_sessions": 0,
+  "last_candidate_seen_at": "2026-11-25T11:53:31.259+08:00",
+  "policy": {
+    "action": "remind_only_never_auto_remove",
+    "minimum_consecutive_zero_hit_sessions": 3,
+    "minimum_cumulative_observation_seconds": 3600.0
+  },
+  "recent_sessions": [
+    {
+      "candidate_frames": 9668,
+      "candidate_points": 72744,
+      "ended_at": "2026-11-19T17:19:33.066+08:00",
+      "front_scan_frames": 42844,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-19_16-55-28_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 1443.523,
+      "task_id": "task_1795079523"
+    },
+    {
+      "candidate_frames": 7228,
+      "candidate_points": 67900,
+      "ended_at": "2026-11-20T12:04:48.358+08:00",
+      "front_scan_frames": 167669,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-20_10-25-54_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 5649.287,
+      "task_id": "task_1795145873"
+    },
+    {
+      "candidate_frames": 0,
+      "candidate_points": 0,
+      "ended_at": "2026-11-20T15:54:39.417+08:00",
+      "front_scan_frames": 132,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-20_15-54-05_indoor_static_repeat/monitor.raw.jsonl",
+      "observation_seconds": 4.412,
+      "task_id": null
+    },
+    {
+      "candidate_frames": 54,
+      "candidate_points": 248,
+      "ended_at": "2026-11-20T17:15:54.913+08:00",
+      "front_scan_frames": 107400,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-20_16-15-08_indoor_static_repeat_final/monitor.raw.jsonl",
+      "observation_seconds": 3616.583,
+      "task_id": null
+    },
+    {
+      "candidate_frames": 15020,
+      "candidate_points": 151679,
+      "ended_at": "2026-11-23T12:20:15.788+08:00",
+      "front_scan_frames": 69488,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-23_11-41-36_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 2319.083,
+      "task_id": "task_1795407491"
+    },
+    {
+      "candidate_frames": 6,
+      "candidate_points": 23,
+      "ended_at": "2026-11-23T17:13:12.431+08:00",
+      "front_scan_frames": 59791,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-23_16-40-28_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 1962.78,
+      "task_id": "task_1795424902"
+    },
+    {
+      "candidate_frames": 3661,
+      "candidate_points": 29102,
+      "ended_at": "2026-11-23T21:16:56.470+08:00",
+      "front_scan_frames": 120938,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-23_20-10-26_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 3989.27,
+      "task_id": "task_1795438661"
+    },
+    {
+      "candidate_frames": 10,
+      "candidate_points": 57,
+      "ended_at": "2026-11-25T11:53:31.259+08:00",
+      "front_scan_frames": 67335,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-25_11-15-37_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 2273.496,
+      "task_id": "task_1795578558"
+    }
+  ],
+  "removal_reminder_due": false,
+  "schema_version": 1,
+  "updated_at": "2026-11-25T11:53:31.263+08:00"
+}

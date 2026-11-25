@@ -1,0 +1,103 @@
+{
+  "counts": {
+    "/ecu": 2383,
+    "/laser/scan_back": 1417,
+    "/vehicle_status": 4757,
+    "/cmd_vel_dock": 1183,
+    "/docking_feedback_odometry/state": 2364,
+    "/charging_dock/local_odom": 2364,
+    "/cmd_vel_selected": 2365,
+    "/standalone_docking/state": 945,
+    "/charging_dock/state": 47,
+    "/charging_dock/dock/_action/feedback": 47,
+    "/charging_dock/observation": 55,
+    "/charging_dock/emergency_stop": 41
+  },
+  "transitions": [
+    {
+      "t": 0.44571084100061853,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "valid"
+    },
+    {
+      "t": 0.5127752330008661,
+      "topic": "/standalone_docking/state",
+      "state": "IDLE reason=waiting_for_start"
+    },
+    {
+      "t": 42.146833228000105,
+      "topic": "/standalone_docking/state",
+      "state": "WAIT_SENSORS reason="
+    },
+    {
+      "t": 42.67157690100066,
+      "topic": "/standalone_docking/state",
+      "state": "SENDING reason="
+    },
+    {
+      "t": 42.697550670000055,
+      "topic": "/standalone_docking/state",
+      "state": "DOCKING reason="
+    },
+    {
+      "t": 43.77818909999951,
+      "topic": "/charging_dock/state",
+      "state": "PRECHECK reason=dock_observation_invalid"
+    },
+    {
+      "t": 44.48651545299981,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 45.06717160900007,
+      "topic": "/charging_dock/state",
+      "state": "STOPPING reason=swept_footprint_obstacle"
+    },
+    {
+      "t": 45.64161536900065,
+      "topic": "/charging_dock/state",
+      "state": "FAILED reason=swept_footprint_obstacle"
+    },
+    {
+      "t": 45.64667342299981,
+      "topic": "/standalone_docking/state",
+      "state": "FAILED reason=dock_failed:swept_footprint_obstacle"
+    }
+  ],
+  "final_vehicle": {
+    "header": {
+      "stamp": {
+        "sec": 1795503369,
+        "nanosec": 897985568
+      },
+      "frame_id": ""
+    },
+    "cur_speed": 0.0,
+    "cur_steer": 0.42750003933906555,
+    "left_wheel_speed": 0.0,
+    "right_wheel_speed": 0.0,
+    "wheel_direction": 1,
+    "shift_level": 2,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "p_status": false
+  },
+  "final_ecu": {
+    "header": {
+      "stamp": {
+        "sec": 1795503369,
+        "nanosec": 883145623
+      },
+      "frame_id": "base_link"
+    },
+    "motor": 0.0,
+    "steer": 0.0,
+    "brake": false,
+    "set_torque": false,
+    "rear_wheel_flag": true,
+    "shift": 2
+  },
+  "final_state": "FAILED reason=dock_failed:swept_footprint_obstacle",
+  "start_service_called": false
+}

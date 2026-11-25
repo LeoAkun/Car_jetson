@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>charging_dock_standalone</name>
+  <version>0.1.0</version>
+  <description>Map-free rear-lidar docking tests from a manually positioned P0.</description>
+  <maintainer email="2370344139@qq.com">akun</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>charging_dock</exec_depend>
+  <exec_depend>charging_dock_msgs</exec_depend>
+  <exec_depend>chassis_driver</exec_depend>
+  <exec_depend>cmdvel_2_ecu</exec_depend>
+  <exec_depend>fdilink_ahrs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>lakibeam1</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>yunle_msgs</exec_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

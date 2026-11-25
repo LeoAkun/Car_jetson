@@ -1,0 +1,2 @@
+[Info] 正在读取标定文件: /home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map2/map2.csv
+{"initial": {"fitness_score": Infinity, "cloud_stamp_ns": null, "observation_id": 1}, "accepted": false, "result": {"success": false, "fitness_score": Infinity, "reason": "localization returned no finite candidate", "observation_id": 1, "confirmation_count": 0, "first_fitness_score": Infinity, "first_cloud_stamp_ns": null, "final_cloud_stamp_ns": null}}

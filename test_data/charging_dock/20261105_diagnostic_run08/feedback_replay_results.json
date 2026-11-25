@@ -1,0 +1,49 @@
+{
+  "method": "Read-only bag; recorded state publication times approximate timer ticks; same CAN/IMU acquisition stamps; no ROS nodes or vehicle commands.",
+  "scope": "Through four seconds after the original source-selection fault.",
+  "results": {
+    "legacy_source_selection": {
+      "estimates": 5962,
+      "first_failure": {
+        "time": 1793860154.7686362,
+        "main_speed": 0.20000000298023224,
+        "gear": 2,
+        "left_wheel_speed": -0.08129604160785675,
+        "right_wheel_speed": -0.04826952517032623,
+        "reason": "moving_without_direction_feedback"
+      },
+      "last_estimate": {
+        "time": 1793860154.7487764,
+        "stamp": 1793860154.7395928,
+        "x": -1.4150444378990479,
+        "y": 0.0032875855103995295,
+        "speed": -0.05970177985727787
+      }
+    },
+    "signed_wheel_source": {
+      "estimates": 6162,
+      "first_failure": null,
+      "last_estimate": {
+        "time": 1793860158.7490995,
+        "stamp": 1793860158.7396343,
+        "x": -1.4502450236981668,
+        "y": 0.0033516263986587904,
+        "speed": 0.0
+      },
+      "first_fault_window_pose": {
+        "time": 1793860154.7686362,
+        "stamp": 1793860154.7595713,
+        "x": -1.4162879459914557,
+        "y": 0.003288976828713321,
+        "speed": -0.06478278338909149
+      },
+      "stopped_pose": {
+        "time": 1793860155.9890554,
+        "stamp": 1793860155.979668,
+        "x": -1.4503595749388312,
+        "y": 0.0033518955546276963,
+        "speed": 0.0
+      }
+    }
+  }
+}

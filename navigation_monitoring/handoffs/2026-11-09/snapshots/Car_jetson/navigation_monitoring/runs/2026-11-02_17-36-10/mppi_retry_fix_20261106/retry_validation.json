@@ -1,0 +1,233 @@
+{
+  "before": {
+    "checks": [
+      {
+        "label": "first-fail then success completes a cycle",
+        "passed": false
+      },
+      {
+        "label": "real CriticManager invokes failing critic again on retry",
+        "passed": false
+      },
+      {
+        "label": "remaining critic runs on successful retry only",
+        "passed": false
+      },
+      {
+        "label": "only the scripted initial failure occurred",
+        "passed": true
+      },
+      {
+        "label": "retry invalidates path and furthest-point caches",
+        "passed": true
+      },
+      {
+        "label": "successful retry has clear flag and finite controls",
+        "passed": false
+      },
+      {
+        "label": "persistent failure still throws at retry limit two",
+        "passed": true
+      },
+      {
+        "label": "persistent failure actually scores initial plus two retries",
+        "passed": false
+      },
+      {
+        "label": "CriticManager stops immediately after each failure",
+        "passed": true
+      },
+      {
+        "label": "new cycle after exhausted retries has fresh budget",
+        "passed": false
+      },
+      {
+        "label": "iteration_count three stops scoring after first failure",
+        "passed": true
+      },
+      {
+        "label": "failed iteration exits optimize before generating another candidate batch",
+        "passed": false
+      },
+      {
+        "label": "failed scoring does not update the selected control sequence",
+        "passed": false
+      },
+      {
+        "label": "failed batch schedules its one allowed retry",
+        "passed": true
+      },
+      {
+        "label": "fallback reset clears failure and stale caches",
+        "passed": false
+      },
+      {
+        "label": "fallback preserves current dynamic speed limits",
+        "passed": false
+      },
+      {
+        "label": "retry retains pose speed plan model checker and CriticData references",
+        "passed": true
+      },
+      {
+        "label": "retry with three iterations really executes all successful critics",
+        "passed": false
+      },
+      {
+        "label": "successful retry exits fallback loop",
+        "passed": false
+      },
+      {
+        "label": "two optimizer cycles have independent retry budgets",
+        "passed": false
+      },
+      {
+        "label": "both interleaved cycles rescore after initial failure",
+        "passed": false
+      },
+      {
+        "label": "new cycle does not inherit an abandoned cycle retry count",
+        "passed": false
+      },
+      {
+        "label": "zero retry limit never schedules another batch",
+        "passed": true
+      }
+    ],
+    "total": 23,
+    "passed": 8,
+    "failed": 15,
+    "exit_code": 1
+  },
+  "after": {
+    "checks": [
+      {
+        "label": "first-fail then success completes a cycle",
+        "passed": true
+      },
+      {
+        "label": "real CriticManager invokes failing critic again on retry",
+        "passed": true
+      },
+      {
+        "label": "remaining critic runs on successful retry only",
+        "passed": true
+      },
+      {
+        "label": "only the scripted initial failure occurred",
+        "passed": true
+      },
+      {
+        "label": "retry invalidates path and furthest-point caches",
+        "passed": true
+      },
+      {
+        "label": "successful retry has clear flag and finite controls",
+        "passed": true
+      },
+      {
+        "label": "persistent failure still throws at retry limit two",
+        "passed": true
+      },
+      {
+        "label": "persistent failure actually scores initial plus two retries",
+        "passed": true
+      },
+      {
+        "label": "CriticManager stops immediately after each failure",
+        "passed": true
+      },
+      {
+        "label": "new cycle after exhausted retries has fresh budget",
+        "passed": true
+      },
+      {
+        "label": "iteration_count three stops scoring after first failure",
+        "passed": true
+      },
+      {
+        "label": "failed iteration exits optimize before generating another candidate batch",
+        "passed": true
+      },
+      {
+        "label": "failed scoring does not update the selected control sequence",
+        "passed": true
+      },
+      {
+        "label": "failed batch schedules its one allowed retry",
+        "passed": true
+      },
+      {
+        "label": "fallback reset clears failure and stale caches",
+        "passed": true
+      },
+      {
+        "label": "fallback preserves current dynamic speed limits",
+        "passed": true
+      },
+      {
+        "label": "retry retains pose speed plan model checker and CriticData references",
+        "passed": true
+      },
+      {
+        "label": "retry with three iterations really executes all successful critics",
+        "passed": true
+      },
+      {
+        "label": "successful retry exits fallback loop",
+        "passed": true
+      },
+      {
+        "label": "two optimizer cycles have independent retry budgets",
+        "passed": true
+      },
+      {
+        "label": "both interleaved cycles rescore after initial failure",
+        "passed": true
+      },
+      {
+        "label": "new cycle does not inherit an abandoned cycle retry count",
+        "passed": true
+      },
+      {
+        "label": "zero retry limit never schedules another batch",
+        "passed": true
+      }
+    ],
+    "total": 23,
+    "passed": 23,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "regression_reproduced_before": true,
+  "fixed_version_passed": true,
+  "method": "Compile and invoke real Optimizer::prepare, optimize, fallback, and real CriticManager::evalTrajectoriesScores with synthetic fail-first/always-fail critics and a counting tail critic. Model rollout and control update are real. The after executable compiles the permanent regression test directly; the before executable uses a matching legacy-signature harness snapshot.",
+  "limits": [
+    "No rclcpp::init, ROS context, node, executor, costmap node, publisher or vehicle command.",
+    "Use the prepare/do-optimize/while-fallback structure, ending before evalControl Twist packaging, which reads a Costmap2DROS frame name.",
+    "Synthetic fail-first and always-fail critics exercise dispatch and recovery, not actual sensor/obstacle collision causes.",
+    "The no-node model is a differential-drive rollout; the retry-state logic is shared with Ackermann but this does not validate vehicle geometry.",
+    "Before/after executables compile the recorded/local optimizer sources and link existing dependency libraries; they do not modify installed libraries.",
+    "No claim of full navigation simulation, real vehicle acceptance or identification of the first historical collision cell."
+  ],
+  "sha256": {
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/retry_harness.cpp": "1f5d228a41eb0952a7bcb97f867aa117aad8835f0d580ae5d1794eb9ade1a117",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/CMakeLists.txt": "56aee63fe6319969b9c47a9eda295469ea724d6a4a7cf9cd8a64317d6a3dad37",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/run_validation.py": "fc43aa51be0ee0a80722e079c44b1c07ad2b52312d076cc9199d770c42984b22",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp": "9b73f5528b9577e35b193a2cae052461710534b74a2d04e14e507c396321ff65",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/optimizer.hpp": "2967e80bc25baed772202d16e52a5790aa3897a3c8622d8955c663bd7d205db7",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/src/critic_manager.cpp": "88eec3c5bfa491c383bc6ad84cb9f383d636ad75196df1963d775ee986aa90a6",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/test/optimizer_retry_regression_test.cpp": "cd54f85048a886b74c43430ee450c9acbef50af67d7db96a623cb2758bbf7fbe",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/test/CMakeLists.txt": "571ba69f6870d819c889b82da23495288bdaee4947f0c96fa71a2edeb7b5e529",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/before/nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp": "73b931226263adb35e7dc613b731c2bf02491cf158fbd3fbd5910f478bc01662",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/before/nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/optimizer.hpp": "d13ab15b9ba1f71334a972460c76667592232811b5c0f4b8923608eda1ef141d",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/build/retry_before": "50b131265e22d8c1b9729d1e44464e67020929ec48b76f91d9c6a7abb3266f90",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_retry_fix_20261106/build/retry_after": "3bdd9d7b283fcf9f292919bd06f6c9d25af2e3bfaa9932143003b90e50e0c939"
+  },
+  "package_regression_finite_check": {
+    "compile_option": "-fno-finite-math-only",
+    "scope": "optimizer_retry_regression_test target only; production flags unchanged",
+    "installed_library_ctest": "passed",
+    "log": "ctest_installed_finite_check.log"
+  }
+}

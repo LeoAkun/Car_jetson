@@ -1,0 +1,609 @@
+navigation_core_bag_0.db3 done
+navigation_core_bag_1.db3 done
+navigation_core_bag_2.db3 done
+navigation_core_bag_3.db3 done
+navigation_core_bag_4.db3 done
+navigation_core_bag_5.db3 done
+navigation_core_bag_6.db3 done
+navigation_core_bag_7.db3 done
+navigation_core_bag_8.db3 done
+navigation_core_bag_9.db3 done
+navigation_core_bag_10.db3 done
+navigation_core_bag_11.db3 done
+navigation_core_bag_12.db3 done
+navigation_core_bag_13.db3 done
+navigation_core_bag_14.db3 done
+navigation_core_bag_15.db3 done
+navigation_core_bag_16.db3 done
+navigation_core_bag_17.db3 done
+navigation_core_bag_18.db3 done
+{
+  "coverage": {
+    "start": "2026-11-09T14:38:44.312+08:00",
+    "end": "2026-11-09T14:45:32.103+08:00",
+    "seconds": 407.7902002334595
+  },
+  "counts": {
+    "/tf_static": 8,
+    "/odom": 20675,
+    "/lio_sam/mapping/odometry": 707,
+    "/tf": 23454,
+    "/vehicle_status": 27938,
+    "/ecu": 8081,
+    "/cmd_vel": 3387,
+    "/navigate_to_pose/_action/feedback": 9644,
+    "/cmd_vel_nav": 1637,
+    "/plan": 136
+  },
+  "tf_edges": {
+    "base_link->livox_frame": 1,
+    "livox_frame->gnss_link": 1,
+    "base_link->rslidar": 1,
+    "front_depth_camera_link->front_depth_camera_depth_frame": 1,
+    "front_depth_camera_depth_frame->front_depth_camera_depth_optical_frame": 1,
+    "odom->lidar_link": 707,
+    "base_link->front_laser": 1,
+    "odom->base_link": 20674,
+    "map->odom": 2073,
+    "base_link->laser_link": 1,
+    "livox_frame->imu_link": 1,
+    "base_link->rear_laser": 1
+  },
+  "drive_mode_changes": [
+    {
+      "time": "2026-11-09T14:38:44.484+08:00",
+      "speed_kmh": 1.899999976158142,
+      "drive_mode": 1,
+      "is_autodrive": true
+    },
+    {
+      "time": "2026-11-09T14:40:13.831+08:00",
+      "speed_kmh": 0.0,
+      "drive_mode": 1,
+      "is_autodrive": false
+    },
+    {
+      "time": "2026-11-09T14:40:13.831+08:00",
+      "speed_kmh": 0.0,
+      "drive_mode": 3,
+      "is_autodrive": false
+    }
+  ],
+  "first_manual_time": "2026-11-09T14:40:13.831+08:00",
+  "first_manual_epoch": 1794206413.8312082,
+  "segment_stats": {
+    "106_end": {
+      "count": 330,
+      "first": {
+        "time": "2026-11-09T14:38:45.313+08:00",
+        "x": 115.05357077338346,
+        "y": -139.67917184731425,
+        "yaw_deg": -84.15187612388226,
+        "cross_m": 0.173802987404458
+      },
+      "last": {
+        "time": "2026-11-09T14:38:51.892+08:00",
+        "x": 115.0324090187307,
+        "y": -143.29640599132037,
+        "yaw_deg": -79.29183608425217,
+        "cross_m": -0.06279786322517023
+      },
+      "max_left": {
+        "time": "2026-11-09T14:38:46.432+08:00",
+        "x": 115.2693403818807,
+        "y": -140.50981408554821,
+        "cross_m": 0.33970851670886226
+      },
+      "max_right": {
+        "time": "2026-11-09T14:38:51.552+08:00",
+        "x": 114.9953031005674,
+        "y": -143.15669691796938,
+        "cross_m": -0.09151549361367461
+      }
+    },
+    "107_auto": {
+      "count": 3476,
+      "first": {
+        "time": "2026-11-09T14:39:03.988+08:00",
+        "x": 115.10883112407984,
+        "y": -143.51995107723764,
+        "yaw_deg": -65.80787916576895,
+        "cross_m": 0.0023705202901836784
+      },
+      "last": {
+        "time": "2026-11-09T14:40:13.818+08:00",
+        "x": 115.85693797042103,
+        "y": -147.6141564596528,
+        "yaw_deg": -84.20007592326348,
+        "cross_m": 0.45751535513937336
+      },
+      "max_left": {
+        "time": "2026-11-09T14:39:19.028+08:00",
+        "x": 115.9856201250213,
+        "y": -147.59572187068358,
+        "cross_m": 0.5871824738070284
+      },
+      "max_right": {
+        "time": "2026-11-09T14:39:04.648+08:00",
+        "x": 115.1057279533068,
+        "y": -143.52927822095228,
+        "cross_m": -0.0013878925322242212
+      }
+    },
+    "107_manual": {
+      "count": 5838,
+      "first": {
+        "time": "2026-11-09T14:40:13.838+08:00",
+        "x": 115.85626850544216,
+        "y": -147.61566122241322,
+        "yaw_deg": -84.18793674910931,
+        "cross_m": 0.45674060611041645
+      },
+      "last": {
+        "time": "2026-11-09T14:42:10.581+08:00",
+        "x": 115.30682691093709,
+        "y": -149.83489680010393,
+        "yaw_deg": -97.501222032774,
+        "cross_m": -0.249082703099979
+      },
+      "max_left": {
+        "time": "2026-11-09T14:40:29.738+08:00",
+        "x": 115.93718285275828,
+        "y": -147.9238243599217,
+        "cross_m": 0.5155419938834861
+      },
+      "max_right": {
+        "time": "2026-11-09T14:40:55.538+08:00",
+        "x": 115.29335422356826,
+        "y": -149.8700568512976,
+        "cross_m": -0.26502093168181123
+      }
+    }
+  },
+  "tf_stats": {
+    "base_link->livox_frame": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.322+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "livox_frame->gnss_link": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.437+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "base_link->rslidar": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.444+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "front_depth_camera_link->front_depth_camera_depth_frame": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.455+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "front_depth_camera_depth_frame->front_depth_camera_depth_optical_frame": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.455+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "odom->lidar_link": {
+      "count": 707,
+      "translation_range": [
+        10.684127807617188,
+        0.9484123587608337,
+        0.002574533224105835
+      ],
+      "yaw_range_deg": 53.00624654449048,
+      "max_xy_step_m": 0.8233945213970941,
+      "step_time": "2026-11-09T14:38:46.304+08:00",
+      "step_header_dt_s": 1.5001649856567383,
+      "max_yaw_step_deg": 19.28033696317427
+    },
+    "base_link->front_laser": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.476+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "odom->base_link": {
+      "count": 20674,
+      "translation_range": [
+        10.548479586497308,
+        0.8775775289106343,
+        0.20551068596791644
+      ],
+      "yaw_range_deg": 52.99543071774419,
+      "max_xy_step_m": 0.21544877757529976,
+      "step_time": "2026-11-09T14:38:46.304+08:00",
+      "step_header_dt_s": 0.010107994079589844,
+      "max_yaw_step_deg": 0.4656149067060163
+    },
+    "map->odom": {
+      "count": 2073,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0.0,
+      "step_time": "2026-11-09T14:38:44.623+08:00",
+      "step_header_dt_s": 0.1000070571899414,
+      "max_yaw_step_deg": 0.0
+    },
+    "base_link->laser_link": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:44.607+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "livox_frame->imu_link": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:45.401+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    },
+    "base_link->rear_laser": {
+      "count": 1,
+      "translation_range": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_range_deg": 0.0,
+      "max_xy_step_m": 0,
+      "step_time": "2026-11-09T14:38:45.401+08:00",
+      "step_header_dt_s": 0.0,
+      "max_yaw_step_deg": 0
+    }
+  }
+}
+SAMPLES
+[
+  {
+    "time": "2026-11-09T14:38:45.313+08:00",
+    "x": 115.05357077338346,
+    "y": -139.67917184731425,
+    "yaw_deg": -84.15187612388226,
+    "cross_m": 0.173802987404458,
+    "distance_remaining": 4.095104217529297,
+    "speed_kmh": 2.0999999046325684,
+    "steer_deg": 3.757500410079956,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.5555555555555556,
+    "cmd_w": -0.05185936018824577,
+    "nearest_current_plan_m": null
+  },
+  {
+    "time": "2026-11-09T14:38:50.992+08:00",
+    "x": 115.05714690293514,
+    "y": -142.87495653692955,
+    "yaw_deg": -106.15025830128045,
+    "cross_m": -0.012998394084918097,
+    "distance_remaining": 0.9368072748184204,
+    "speed_kmh": 2.0999999046325684,
+    "steer_deg": -11.002501487731934,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.5482907295227051,
+    "cmd_w": 0.4078458249568939,
+    "nearest_current_plan_m": 0.1404952501936305
+  },
+  {
+    "time": "2026-11-09T14:38:51.892+08:00",
+    "x": 115.0324090187307,
+    "y": -143.29640599132037,
+    "yaw_deg": -79.29183608425217,
+    "cross_m": -0.06279786322517023,
+    "distance_remaining": 0.4878918528556824,
+    "speed_kmh": 0.30000001192092896,
+    "steer_deg": -0.5400000810623169,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.0,
+    "cmd_w": 0.0,
+    "nearest_current_plan_m": 0.025056228998576086
+  },
+  {
+    "time": "2026-11-09T14:39:03.988+08:00",
+    "x": 115.10883112407984,
+    "y": -143.51995107723764,
+    "yaw_deg": -65.80787916576895,
+    "cross_m": 0.0023705202901836784,
+    "distance_remaining": 0.1624615639448166,
+    "speed_kmh": 0.0,
+    "steer_deg": -0.5400000810623169,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.034722222222222224,
+    "cmd_w": 0.029787618666887283,
+    "nearest_current_plan_m": 0.0068822429545389655
+  },
+  {
+    "time": "2026-11-09T14:39:06.008+08:00",
+    "x": 115.26606778104114,
+    "y": -143.86581892737888,
+    "yaw_deg": -70.38389911234435,
+    "cross_m": 0.13462056041915393,
+    "distance_remaining": 106.55361938476562,
+    "speed_kmh": 1.600000023841858,
+    "steer_deg": 10.507500648498535,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.49987465143203735,
+    "cmd_w": -0.23921187222003937,
+    "nearest_current_plan_m": 0.05635298066329013
+  },
+  {
+    "time": "2026-11-09T14:39:10.008+08:00",
+    "x": 115.48977314138253,
+    "y": -145.55859740963382,
+    "yaw_deg": -80.04346895266168,
+    "cross_m": 0.23741528897105002,
+    "distance_remaining": 104.6162338256836,
+    "speed_kmh": 2.0,
+    "steer_deg": -5.1075005531311035,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.5555547475814819,
+    "cmd_w": 0.08350184559822083,
+    "nearest_current_plan_m": 0.0004919701639573443
+  },
+  {
+    "time": "2026-11-09T14:39:15.008+08:00",
+    "x": 115.63754573594136,
+    "y": -146.55324408469508,
+    "yaw_deg": -90.41804321310458,
+    "cross_m": 0.31410162334183045,
+    "distance_remaining": 103.79356384277344,
+    "speed_kmh": 0.5,
+    "steer_deg": -9.315000534057617,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.45118433237075806,
+    "cmd_w": 0.28012847900390625,
+    "nearest_current_plan_m": 0.007843980597997735
+  },
+  {
+    "time": "2026-11-09T14:39:20.008+08:00",
+    "x": 115.97474305124183,
+    "y": -147.59933648783797,
+    "yaw_deg": -98.23132570469706,
+    "cross_m": 0.5760759485898769,
+    "distance_remaining": 102.69910430908203,
+    "speed_kmh": 0.4000000059604645,
+    "steer_deg": 15.772501945495605,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.09146147966384888,
+    "cmd_w": 0.1314040571451187,
+    "nearest_current_plan_m": 0.029461201964344402
+  },
+  {
+    "time": "2026-11-09T14:39:30.009+08:00",
+    "x": 115.89783933235086,
+    "y": -147.8947233369876,
+    "yaw_deg": -90.41162060623877,
+    "cross_m": 0.47836690164638157,
+    "distance_remaining": 102.44606018066406,
+    "speed_kmh": 0.0,
+    "steer_deg": -26.955001831054688,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.013965604826807976,
+    "cmd_w": 0.024518372491002083,
+    "nearest_current_plan_m": 0.04783774761236259
+  },
+  {
+    "time": "2026-11-09T14:39:40.008+08:00",
+    "x": 115.88101659022281,
+    "y": -147.82553167200683,
+    "yaw_deg": -90.54883822097146,
+    "cross_m": 0.4665057646533307,
+    "distance_remaining": 102.44606018066406,
+    "speed_kmh": 0.4000000059604645,
+    "steer_deg": -1.7775001525878906,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.025286197662353516,
+    "cmd_w": 0.027585921809077263,
+    "nearest_current_plan_m": 0.03950126005037622
+  },
+  {
+    "time": "2026-11-09T14:39:41.008+08:00",
+    "x": 115.89192771863478,
+    "y": -147.83091573431818,
+    "yaw_deg": -90.44166263368805,
+    "cross_m": 0.477006515807276,
+    "distance_remaining": 102.44606018066406,
+    "speed_kmh": 0.0,
+    "steer_deg": -5.4900007247924805,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.12457099888059829,
+    "cmd_w": -0.22978845238685608,
+    "nearest_current_plan_m": 0.04606290747954326
+  },
+  {
+    "time": "2026-11-09T14:39:49.998+08:00",
+    "x": 115.87692172364088,
+    "y": -147.65978603254365,
+    "yaw_deg": -93.19197084815112,
+    "cross_m": 0.47420460316817226,
+    "distance_remaining": 102.70027923583984,
+    "speed_kmh": 0.0,
+    "steer_deg": -14.26500129699707,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.10447995364665985,
+    "cmd_w": 0.16837537288665771,
+    "nearest_current_plan_m": 0.026920138902383428
+  },
+  {
+    "time": "2026-11-09T14:39:59.998+08:00",
+    "x": 115.88256544805857,
+    "y": -147.79645077808016,
+    "yaw_deg": -88.28235629865445,
+    "cross_m": 0.4701181494864814,
+    "distance_remaining": 102.64179992675781,
+    "speed_kmh": 0.0,
+    "steer_deg": -16.44750213623047,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": -0.049489762634038925,
+    "cmd_w": 0.07742247730493546,
+    "nearest_current_plan_m": 0.03256386332007821
+  },
+  {
+    "time": "2026-11-09T14:40:00.998+08:00",
+    "x": 115.88325759943989,
+    "y": -147.83331916602424,
+    "yaw_deg": -87.31835863692682,
+    "cross_m": 0.46818746763636915,
+    "distance_remaining": 102.4849624633789,
+    "speed_kmh": 0.0,
+    "steer_deg": -11.632501602172852,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "cmd_v": 0.10165512892935012,
+    "cmd_w": 0.0737076848745346,
+    "nearest_current_plan_m": 0.03325601470139361
+  },
+  {
+    "time": "2026-11-09T14:40:13.838+08:00",
+    "x": 115.85626850544216,
+    "y": -147.61566122241322,
+    "yaw_deg": -84.18793674910931,
+    "cross_m": 0.45674060611041645,
+    "distance_remaining": 102.63147735595703,
+    "speed_kmh": 0.0,
+    "steer_deg": -23.827503204345703,
+    "drive_mode": 1,
+    "is_autodrive": false,
+    "cmd_v": -0.2587340672810873,
+    "cmd_w": -0.11572173237800598,
+    "nearest_current_plan_m": 0.03490032435031846
+  },
+  {
+    "time": "2026-11-09T14:40:29.998+08:00",
+    "x": 115.9097428731692,
+    "y": -147.9425060995497,
+    "yaw_deg": -94.2128085180948,
+    "cross_m": 0.48684330609472826,
+    "distance_remaining": 102.41046905517578,
+    "speed_kmh": 0.0,
+    "steer_deg": 17.707502365112305,
+    "drive_mode": 3,
+    "is_autodrive": false,
+    "cmd_v": -0.47705206274986256,
+    "cmd_w": 0.7674288749694824,
+    "nearest_current_plan_m": 0.030991988416708374
+  },
+  {
+    "time": "2026-11-09T14:40:49.998+08:00",
+    "x": 115.58618566421814,
+    "y": -148.8965523619083,
+    "yaw_deg": -116.40539519373756,
+    "cross_m": 0.09627884704797135,
+    "distance_remaining": 101.46177673339844,
+    "speed_kmh": 1.7000000476837158,
+    "steer_deg": 0.4050000309944153,
+    "drive_mode": 3,
+    "is_autodrive": false,
+    "cmd_v": 0.034722222222222224,
+    "cmd_w": 0.014840151183307171,
+    "nearest_current_plan_m": 0.07231201141672727
+  },
+  {
+    "time": "2026-11-09T14:41:39.998+08:00",
+    "x": 115.30578278680717,
+    "y": -149.82747644993916,
+    "yaw_deg": -97.47579892306567,
+    "cross_m": -0.2495966508125821,
+    "distance_remaining": 100.48902130126953,
+    "speed_kmh": 0.0,
+    "steer_deg": 0.27000004053115845,
+    "drive_mode": 3,
+    "is_autodrive": false,
+    "cmd_v": 0.5555555555555556,
+    "cmd_w": -0.15118883550167084,
+    "nearest_current_plan_m": 0.049622124617913696
+  },
+  {
+    "time": "2026-11-09T14:42:09.998+08:00",
+    "x": 115.30640504000702,
+    "y": -149.8267150832487,
+    "yaw_deg": -97.50187551347864,
+    "cross_m": -0.24892184431038314,
+    "distance_remaining": 100.48902130126953,
+    "speed_kmh": 0.0,
+    "steer_deg": 0.27000004053115845,
+    "drive_mode": 3,
+    "is_autodrive": false,
+    "cmd_v": 0.38301703664991593,
+    "cmd_w": 0.3294984626770019,
+    "nearest_current_plan_m": 0.04942246708227809
+  }
+]

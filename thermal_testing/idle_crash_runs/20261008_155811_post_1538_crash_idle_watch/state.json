@@ -1,0 +1,17 @@
+{
+  "status": "INTERRUPTED",
+  "started_at": "2026-10-08T15:58:11+08:00",
+  "boot_id": "e3637b87-3853-4752-9665-ea1638e21dd4",
+  "duration_s": 43200,
+  "interval_s": 1.0,
+  "label": "post_1538_crash_idle_watch",
+  "last_sample_at": "2026-10-08T16:28:05.374+08:00",
+  "last_elapsed_s": 1793.5,
+  "last_package_c": 35.0,
+  "last_cpu_busy_pct": 2.5,
+  "last_mem_available_kib": 29654536,
+  "samples": 1715,
+  "reason": "replaced by requested 24-hour monitoring run",
+  "finished_at": "2026-10-08T16:28:05+08:00",
+  "boot_id_at_finish": "e3637b87-3853-4752-9665-ea1638e21dd4"
+}

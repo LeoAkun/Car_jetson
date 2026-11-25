@@ -13,7 +13,7 @@ public:
     GNSSConverterNode() : Node("gnss_converter_node")
     {
         // 声明参数
-        this->declare_parameter("serial_port", "/dev/ttyACM0");
+        this->declare_parameter("serial_port", "/dev/ttyS8");
         this->declare_parameter("baudrate", 115200);
         this->declare_parameter("frame_id", "gnss_link");
 

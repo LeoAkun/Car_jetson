@@ -1,0 +1,11 @@
+mqtt_task_receiver:
+  ros__parameters:
+    broker_url: "127.0.0.1"
+    port: 1
+    reconnect_delay: 60.0
+
+status_reporter:
+  ros__parameters:
+    broker_url: "127.0.0.1"
+    port: 1
+    reconnect_delay: 60.0

@@ -77,4 +77,14 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+install(
+  PROGRAMS scripts/reset_wheeltec_imu_usb.sh
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+  FILES systemd/reset-wheeltec-imu.service
+  DESTINATION share/${PROJECT_NAME}/systemd
+)
+
 ament_package()

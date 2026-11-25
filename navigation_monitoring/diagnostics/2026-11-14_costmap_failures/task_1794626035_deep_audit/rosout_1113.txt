@@ -1,0 +1,156 @@
+2026-11-14 11:12:07.172132 20 field_test_recorder_2026_11_14_11_12_06_manual_publish_monitor Subscribed to topic '/imu'
+2026-11-14 11:14:08.102825 20 process_manager 收到启动进程请求: liosam, map: 
+2026-11-14 11:14:08.103851 20 process_manager 正在启动LIO-SAM
+2026-11-14 11:14:08.694493 20 field_test_recorder_2026_11_14_11_12_06_manual_publish_monitor Subscribed to topic '/lio_sam/imu_preintegration_ready'
+2026-11-14 11:14:09.123795 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:09.127002 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:09.160748 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:09.266463 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:09.460371 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:09.564771 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:09.665702 20 lio_sam_imageProjection Waiting for IMU data ...
+2026-11-14 11:14:10.631756 20 field_test_recorder_2026_11_14_11_12_06_manual_publish_monitor Subscribed to topic '/lio_sam/mapping/odometry'
+2026-11-14 11:14:10.632778 20 field_test_recorder_2026_11_14_11_12_06_manual_publish_monitor Subscribed to topic '/lio_sam/mapping/odometry_incremental'
+2026-11-14 11:14:11.011074 20 process_manager LIO-SAM启动成功
+2026-11-14 11:14:11.027022 20 navigation_manager 启动liosam成功
+2026-11-14 11:14:30.706892 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:14:35.913567 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:14:41.103009 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:14:46.305239 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:14:51.511033 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:14:56.708274 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:04.909977 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:10.105931 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:15.307975 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:20.501136 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:25.710154 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:30.914407 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:36.106370 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:41.304680 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:46.513952 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:51.703738 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:15:56.910082 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:02.107937 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:07.316882 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:12.507677 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:17.703966 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:22.898777 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:28.109230 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:30.200713 20 gnss_converter_node GPS - Lat: 30.76652117°, Lon: 103.98680283°, Alt: 523.30m | Status: DGPS Fix | Sats: 12, HDOP: 0.54
+2026-11-14 11:16:30.200891 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 523.30)
+2026-11-14 11:16:30.201124 20 navsat_transform Datum UTM coordinate is (48R, 403036.77, 3404165.67)
+2026-11-14 11:16:30.471978 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:31.171023 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 523.50)
+2026-11-14 11:16:31.171307 20 navsat_transform Datum UTM coordinate is (48R, 403036.42, 3404165.95)
+2026-11-14 11:16:31.472632 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:32.130169 20 status_reporter 车辆速度为0，开始计时...
+2026-11-14 11:16:32.180516 20 gnss_converter_node GPS - Lat: 30.76652417°, Lon: 103.98679767°, Alt: 523.70m | Status: DGPS Fix | Sats: 12, HDOP: 0.54
+2026-11-14 11:16:32.180589 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 523.70)
+2026-11-14 11:16:32.180650 20 navsat_transform Datum UTM coordinate is (48R, 403036.28, 3404166.01)
+2026-11-14 11:16:32.521858 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:32.856730 20 status_reporter 已发布状态到 robot/LS1234567890/up/ack:  VIN: LS1234567890  任务状态: running (1)  位置: (103.986798, 30.766524)  速度: 0.50 km/h  电量: 90.0%
+2026-11-14 11:16:33.190903 20 gnss_converter_node GPS - Lat: 30.76652450°, Lon: 103.98679700°, Alt: 524.00m | Status: DGPS Fix | Sats: 12, HDOP: 0.54
+2026-11-14 11:16:33.191039 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 524.00)
+2026-11-14 11:16:33.191228 20 navsat_transform Datum UTM coordinate is (48R, 403036.21, 3404166.05)
+2026-11-14 11:16:33.306759 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:33.521899 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:34.171100 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 524.60)
+2026-11-14 11:16:34.171310 20 navsat_transform Datum UTM coordinate is (48R, 403036.25, 3404166.19)
+2026-11-14 11:16:34.565230 30 global_costmap.global_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:35.170927 20 gnss_converter_node GPS - Lat: 30.76652950°, Lon: 103.98679683°, Alt: 524.90m | Status: DGPS Fix | Sats: 12, HDOP: 0.57
+2026-11-14 11:16:35.171125 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 524.90)
+2026-11-14 11:16:35.171245 20 navsat_transform Datum UTM coordinate is (48R, 403036.20, 3404166.60)
+2026-11-14 11:16:35.565259 30 global_costmap.global_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:35.856841 20 status_reporter 已发布状态到 robot/LS1234567890/up/ack:  VIN: LS1234567890  任务状态: running (1)  位置: (103.986797, 30.766530)  速度: 2.10 km/h  电量: 90.0%
+2026-11-14 11:16:36.191314 20 gnss_converter_node GPS - Lat: 30.76653367°, Lon: 103.98679417°, Alt: 525.00m | Status: DGPS Fix | Sats: 12, HDOP: 0.57
+2026-11-14 11:16:36.191494 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.00)
+2026-11-14 11:16:36.191738 20 navsat_transform Datum UTM coordinate is (48R, 403035.95, 3404167.06)
+2026-11-14 11:16:36.565294 30 global_costmap.global_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:37.200912 20 gnss_converter_node GPS - Lat: 30.76653717°, Lon: 103.98678933°, Alt: 525.00m | Status: DGPS Fix | Sats: 12, HDOP: 0.55
+2026-11-14 11:16:37.201001 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.00)
+2026-11-14 11:16:37.201078 20 navsat_transform Datum UTM coordinate is (48R, 403035.49, 3404167.46)
+2026-11-14 11:16:37.565355 30 global_costmap.global_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:38.161041 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.20)
+2026-11-14 11:16:38.161103 20 navsat_transform Datum UTM coordinate is (48R, 403035.00, 3404167.61)
+2026-11-14 11:16:38.506650 30 controller_server Control loop missed its desired rate of 30.0000Hz
+2026-11-14 11:16:38.571977 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:38.857414 20 status_reporter 已发布状态到 robot/LS1234567890/up/ack:  VIN: LS1234567890  任务状态: running (1)  位置: (103.986784, 30.766539)  速度: 1.20 km/h  电量: 90.0%
+2026-11-14 11:16:39.073431 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:39.073515 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:39.073540 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:39.191082 20 gnss_converter_node GPS - Lat: 30.76653933°, Lon: 103.98678100°, Alt: 525.40m | Status: DGPS Fix | Sats: 12, HDOP: 0.54
+2026-11-14 11:16:39.191167 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.40)
+2026-11-14 11:16:39.191240 20 navsat_transform Datum UTM coordinate is (48R, 403034.70, 3404167.70)
+2026-11-14 11:16:39.621833 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:39.740083 20 status_reporter 车辆速度为0，开始计时...
+2026-11-14 11:16:39.765949 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:39.766017 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:39.766032 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:39.823169 40 bt_navigator_navigate_to_pose_rclcpp_node Failed to get result for follow_path in node halt!
+2026-11-14 11:16:40.073368 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:40.073455 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:40.073490 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:40.201210 20 gnss_converter_node GPS - Lat: 30.76653917°, Lon: 103.98678067°, Alt: 525.40m | Status: DGPS Fix | Sats: 12, HDOP: 0.54
+2026-11-14 11:16:40.201332 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.40)
+2026-11-14 11:16:40.201428 20 navsat_transform Datum UTM coordinate is (48R, 403034.67, 3404167.68)
+2026-11-14 11:16:40.558448 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:40.558552 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:40.558574 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:40.622116 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:41.171433 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.40)
+2026-11-14 11:16:41.171539 20 navsat_transform Datum UTM coordinate is (48R, 403034.68, 3404167.63)
+2026-11-14 11:16:41.315273 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:41.315345 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:41.315368 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:41.671861 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:41.770334 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:41.770445 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:41.770474 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:41.857330 20 status_reporter 已发布状态到 robot/LS1234567890/up/ack:  VIN: LS1234567890  任务状态: running (1)  位置: (103.986781, 30.766539)  速度: 0.00 km/h  电量: 90.0%
+2026-11-14 11:16:42.191426 20 gnss_converter_node GPS - Lat: 30.76653783°, Lon: 103.98678117°, Alt: 525.50m | Status: DGPS Fix | Sats: 12, HDOP: 0.54
+2026-11-14 11:16:42.191650 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.50)
+2026-11-14 11:16:42.191734 20 navsat_transform Datum UTM coordinate is (48R, 403034.71, 3404167.54)
+2026-11-14 11:16:42.722514 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:43.161564 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.60)
+2026-11-14 11:16:43.161642 20 navsat_transform Datum UTM coordinate is (48R, 403034.71, 3404167.44)
+2026-11-14 11:16:43.772514 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:44.161559 20 gnss_converter_node GPS - Lat: 30.76653650°, Lon: 103.98678133°, Alt: 525.60m | Status: DGPS Fix | Sats: 12, HDOP: 0.57
+2026-11-14 11:16:44.161652 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.60)
+2026-11-14 11:16:44.161734 20 navsat_transform Datum UTM coordinate is (48R, 403034.73, 3404167.39)
+2026-11-14 11:16:44.822619 30 global_costmap.global_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:44.856559 20 status_reporter 已发布状态到 robot/LS1234567890/up/ack:  VIN: LS1234567890  任务状态: running (1)  位置: (103.986781, 30.766536)  速度: 0.00 km/h  电量: 90.0%
+2026-11-14 11:16:45.171569 20 gnss_converter_node GPS - Lat: 30.76653600°, Lon: 103.98678167°, Alt: 525.60m | Status: DGPS Fix | Sats: 12, HDOP: 0.57
+2026-11-14 11:16:45.171732 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.60)
+2026-11-14 11:16:45.171792 20 navsat_transform Datum UTM coordinate is (48R, 403034.76, 3404167.33)
+2026-11-14 11:16:45.871837 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:46.161801 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.60)
+2026-11-14 11:16:46.161863 20 navsat_transform Datum UTM coordinate is (48R, 403034.77, 3404167.26)
+2026-11-14 11:16:46.853153 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:46.853204 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:46.853217 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:46.872002 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:47.181864 20 gnss_converter_node GPS - Lat: 30.76653500°, Lon: 103.98678233°, Alt: 525.90m | Status: DGPS Fix | Sats: 12, HDOP: 0.57
+2026-11-14 11:16:47.182116 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 525.90)
+2026-11-14 11:16:47.182192 20 navsat_transform Datum UTM coordinate is (48R, 403034.82, 3404167.22)
+2026-11-14 11:16:47.376163 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:47.376285 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:47.376323 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:47.751869 20 status_reporter 车辆恢复运动，速度: 0.2 km/h
+2026-11-14 11:16:47.856945 20 status_reporter 已发布状态到 robot/LS1234567890/up/ack:  VIN: LS1234567890  任务状态: running (1)  位置: (103.986782, 30.766535)  速度: 0.30 km/h  电量: 90.0%
+2026-11-14 11:16:47.922108 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:48.162387 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 526.10)
+2026-11-14 11:16:48.162585 20 navsat_transform Datum UTM coordinate is (48R, 403034.88, 3404167.13)
+2026-11-14 11:16:48.873308 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:48.873409 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:48.873454 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:48.922350 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:16:49.151999 20 gnss_converter_node GPS - Lat: 30.76653283°, Lon: 103.98678433°, Alt: 526.70m | Status: DGPS Fix | Sats: 12, HDOP: 0.58
+2026-11-14 11:16:49.152118 20 navsat_transform Datum (latitude, longitude, altitude) is (30.77, 103.99, 526.70)
+2026-11-14 11:16:49.152178 20 navsat_transform Datum UTM coordinate is (48R, 403035.01, 3404166.98)
+2026-11-14 11:16:49.566384 30 planner_server GridBased: failed to create plan, invalid use: Starting point in lethal space! Cannot create feasible plan..
+2026-11-14 11:16:49.566464 30 planner_server Planning algorithm GridBased failed to generate a valid path to (150.90, -110.30)
+2026-11-14 11:16:49.566479 30 planner_server [compute_path_to_pose] [ActionServer] Aborting handle.
+2026-11-14 11:16:49.971913 30 local_costmap.local_costmap     |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。
+2026-11-14 11:17:06.988750 20 process_manager 收到关闭进程请求: liosam
+2026-11-14 11:17:06.989054 20 process_manager 正在关闭进程组: liosam
+2026-11-14 11:17:07.490737 20 process_manager liosam 及其子进程已关闭

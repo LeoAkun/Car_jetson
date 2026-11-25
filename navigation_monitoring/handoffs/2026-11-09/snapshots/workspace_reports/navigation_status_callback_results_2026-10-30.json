@@ -1,0 +1,24 @@
+{
+  "domain_id": 226,
+  "fake_server_successes": 4,
+  "future_done_inside_timer_waits": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "future_done_after_timer_returned": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "reported_failures": [
+    "navigation2 关闭失败",
+    "liosam 关闭失败",
+    "nav2_init_pose 关闭失败",
+    "re_localization 关闭失败",
+    "部分自动驾驶进程关闭失败"
+  ],
+  "vehicle_processes_started": false
+}

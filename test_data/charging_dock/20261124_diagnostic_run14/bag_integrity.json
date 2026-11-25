@@ -1,0 +1,29 @@
+{
+  "metadata_message_count": 202671,
+  "duration_s": 441.394061274,
+  "files": [
+    {
+      "path": "bag_0.db3",
+      "quick_check": "ok",
+      "messages": 202671,
+      "topic_counts": {
+        "/imu": 38436,
+        "/laser/scan_back": 11490,
+        "/tf_static": 2,
+        "/vehicle_status": 38555,
+        "/ecu": 19250,
+        "/cmd_vel_selected": 19246,
+        "/cmd_vel_dock": 9623,
+        "/charging_dock/state": 1962,
+        "/charging_dock/observation": 2339,
+        "/charging_dock/emergency_stop": 8524,
+        "/charging_dock/local_odom": 12173,
+        "/charging_dock/dock/_action/feedback": 1962,
+        "/standalone_docking/state": 7688,
+        "/charging_dock/dock/_action/status": 3,
+        "/docking_feedback_odometry/state": 19245,
+        "/tf": 12173
+      }
+    }
+  ]
+}

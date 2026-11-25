@@ -1,0 +1,7 @@
+# P2 runtime: no additional PyPI dependencies.
+# Diagnostics use the Python standard library plus the existing JetPack packages.
+# OpenCV, NumPy, torch, torchvision, TensorRT and GStreamer are inherited from
+# system site-packages; their exact versions/paths are recorded in the runtime
+# environment manifest. Never pip-install/upgrade these through this lock file.
+# The legacy vendored Ultralytics application is not the P2 runtime entry point.
+# Add only audited pure-Python runtime dependencies here when P4/P5 need them.

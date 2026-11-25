@@ -1,0 +1,12 @@
+/rear_camera/usb_cam:
+  ros__parameters:
+    video_device: /dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1:1.0-video-index0
+    framerate: 30.0
+    io_method: mmap
+    pixel_format: mjpeg2rgb
+    av_device_format: YUV422P
+    image_width: 1280
+    image_height: 720
+    camera_name: rear_camera
+    frame_id: rear_camera_optical_frame
+    camera_info_url: package://charging_dock/config/camera_info.yaml

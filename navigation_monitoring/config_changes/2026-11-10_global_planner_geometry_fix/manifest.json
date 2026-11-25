@@ -1,0 +1,53 @@
+{
+  "change": "2026-11-10_global_planner_geometry_fix",
+  "files": [
+    {
+      "path": "real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml",
+      "before_sha256": "d86132970c9d6ed86aaea7cdcf7951e5d8885594922ce157bacc4b9d164643ac",
+      "after_sha256": "94c0f3d4f62d2751cc0ec89491d57a4e953dd8ff00c7e7aea3981f7291ccd3f9"
+    },
+    {
+      "path": "nav2/src/nav2/config/nav2_real_params.yaml",
+      "before_sha256": "be205cda306c21f70500093fbd20975ea0cedd924f13404357d4b190ffa89a8b",
+      "after_sha256": "19b598b6e6e1f1e18c152b8b022ffe83138c735aaf8d93f8b2b67005b100baf6"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "before_sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574",
+      "after_sha256": "a7de188f03b425b2fc635c9f88fbe2d5cbe70eff3e09f25dfb5da78cf8836120"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "before_sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f",
+      "after_sha256": "9dcf07887341edb141b615815c61ef1ee08042a870285904b38e76f3b361ab2c"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml",
+      "before_sha256": "314516428c528fceddb740ea8ab8a425012edd35e39eb38120268d7896bd74b6",
+      "after_sha256": "852711b020db7d6b75b9a433f71b706d7b78d175b947cc1a5f612397e0002396"
+    },
+    {
+      "path": "real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py",
+      "before_sha256": "5a2542ee03149bad8b26b0361213a3be173b5b4f74e5c60b54717ee33a359b1f",
+      "after_sha256": "3fae4d1c635bd1e257472a0e1e051cb08130f64e6b9e01ed91e1f8d359f6e2da"
+    },
+    {
+      "path": "multi_map_navigation/src/multi_map_navigation/test/test_navigation_recovery.py",
+      "before_sha256": "5cc7ae808dc768e36e8b3f529faf2ac88c4d79cae54a5176edde8502379b97ae",
+      "after_sha256": "050a5691b3fd534abfd659991ae52e56bbef3c802bd88fff1a5773b176322adb"
+    }
+  ],
+  "offline_validation": {
+    "flip_report": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/offline_flip_validation.md",
+    "turning_audit": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-10_11-04-54/turning_geometry_audit.json"
+  },
+  "builds": [
+    "ros2_laser_scan_merger",
+    "cmdvel_2_ecu",
+    "nav2"
+  ],
+  "tests": {
+    "cmdvel_2_ecu": 54,
+    "navigation_recovery": 46
+  }
+}

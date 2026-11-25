@@ -20,7 +20,7 @@ def generate_launch_description():
                 {'debug_can_id': 1},
 
                 # EthCan_UDP
-                {'can_eth_card': 'enp3s0'},  # 注意网口名
+                {'can_eth_card': 'br-sensors'},  # Host CAN address is on this bridge.
                 {'can1_remote_ip': '192.168.1.10'},
                 {'can1_remote_port': 4001},
                 {'can2_remote_ip': '192.168.1.10'},

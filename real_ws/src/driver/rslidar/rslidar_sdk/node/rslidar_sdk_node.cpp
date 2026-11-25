@@ -33,7 +33,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "manager/node_manager.hpp"
 
 #include <rs_driver/macro/version.hpp>
-#include <signal.h>
+#include <chrono>
+#include <thread>
 
 #ifdef ROS_FOUND
 #include <ros/ros.h>
@@ -44,26 +45,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using namespace robosense::lidar;
 
-#ifdef ROS2_FOUND
-std::mutex g_mtx;
-std::condition_variable g_cv;
-#endif
-
-static void sigHandler(int sig)
-{
-  RS_MSG << "RoboSense-LiDAR-Driver is stopping....." << RS_REND;
-
-#ifdef ROS_FOUND
-  ros::shutdown();
-#elif ROS2_FOUND
-  g_cv.notify_all();
-#endif
-}
-
 int main(int argc, char** argv)
 {
-  signal(SIGINT, sigHandler);  ///< bind ctrl+c signal with the sigHandler function
-
   RS_TITLE << "********************************************************" << RS_REND;
   RS_TITLE << "**********                                    **********" << RS_REND;
   RS_TITLE << "**********    RSLidar_SDK Version: v" << RSLIDAR_VERSION_MAJOR 
@@ -73,7 +56,7 @@ int main(int argc, char** argv)
   RS_TITLE << "********************************************************" << RS_REND;
 
 #ifdef ROS_FOUND
-  ros::init(argc, argv, "rslidar_sdk_node", ros::init_options::NoSigintHandler);
+  ros::init(argc, argv, "rslidar_sdk_node");
 #elif ROS2_FOUND
   rclcpp::init(argc, argv);
 #endif
@@ -128,8 +111,13 @@ int main(int argc, char** argv)
 #ifdef ROS_FOUND
   ros::spin();
 #elif ROS2_FOUND
-  std::unique_lock<std::mutex> lck(g_mtx);
-  g_cv.wait(lck);
+  while (rclcpp::ok())
+  {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  demo_ptr->stop();
+  demo_ptr.reset();
+  rclcpp::shutdown();
 #endif
 
   return 0;

@@ -1,0 +1,5 @@
+current_run_dir
+runs/*
+!runs/.gitkeep
+thermal_tests/*
+!thermal_tests/.gitkeep

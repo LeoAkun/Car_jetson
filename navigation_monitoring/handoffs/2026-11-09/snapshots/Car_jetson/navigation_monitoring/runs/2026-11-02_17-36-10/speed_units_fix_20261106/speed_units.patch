@@ -1,0 +1,535 @@
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py
+@@ -7,6 +7,9 @@
+ import math
+ 
+ 
++MPS_TO_KMH = 3.6
++
++
+ class CmdVelToEcu(Node):
+     def __init__(self):
+         super().__init__("cmdvel_to_ecu")
+@@ -18,9 +21,12 @@
+         # 声明参数
+         self.declare_parameter('L', 0.5)
+         self.declare_parameter('MAX_STEER_DEG', 20.0)
+-        self.declare_parameter('LOW_SPEED_THRESH', 0.3)
+-        self.declare_parameter('STOP_THRESH', 0.02)
+-        self.declare_parameter('Vel_Offeset', 0.03)
++        # All linear-speed parameters are m/s. Historical ECU calibration was
++        # in km/h; migrate its physical values rather than multiplying them.
++        self.declare_parameter('navigation_max_speed', 3.0 / MPS_TO_KMH)
++        self.declare_parameter('LOW_SPEED_THRESH', 0.3 / MPS_TO_KMH)
++        self.declare_parameter('STOP_THRESH', 0.02 / MPS_TO_KMH)
++        self.declare_parameter('Vel_Offeset', 0.03 / MPS_TO_KMH)
+         self.declare_parameter('OMEGA_DEADZONE', 0.20)
+         self.declare_parameter('OMEGA_FULL_STEER', 1.20)
+         self.declare_parameter('rear_wheel_flag', True)
+@@ -35,9 +41,19 @@
+         # 读取参数
+         self.L = self.get_parameter('L').value
+         self.MAX_STEER_DEG = self.get_parameter('MAX_STEER_DEG').value
++        self.navigation_max_speed = self.get_parameter('navigation_max_speed').value
+         self.LOW_SPEED_THRESH = self.get_parameter('LOW_SPEED_THRESH').value
+         self.STOP_THRESH = self.get_parameter('STOP_THRESH').value
+         self.Vel_Offeset = self.get_parameter('Vel_Offeset').value
++        for name in ('navigation_max_speed', 'LOW_SPEED_THRESH',
++                     'STOP_THRESH', 'Vel_Offeset'):
++            value = getattr(self, name)
++            if not math.isfinite(value) or value < 0.0:
++                raise ValueError(f'{name} must be finite and nonnegative (m/s)')
++        if (self.navigation_max_speed <= 0.0
++                or self.LOW_SPEED_THRESH > self.navigation_max_speed
++                or self.STOP_THRESH >= self.navigation_max_speed):
++            raise ValueError('navigation speed thresholds must fit within its m/s limit')
+         self.OMEGA_DEADZONE = self.get_parameter('OMEGA_DEADZONE').value
+         self.OMEGA_FULL_STEER = self.get_parameter('OMEGA_FULL_STEER').value
+         self.rear_wheel_flag = self.get_parameter('rear_wheel_flag').value
+@@ -77,42 +93,46 @@
+         ecu_msg.header.stamp = self.get_clock().now().to_msg()
+         ecu_msg.header.frame_id = "base_link"
+ 
+-        # 获取速度与角速度
+-        v = msg.linear.x
+-        if not self.docking_mode and v >= self.STOP_THRESH:
+-            # Preserve the production navigation calibration. Historically the
+-            # positive-speed offset was not applied to reverse commands.
+-            v += self.Vel_Offeset
++        # Twist stays in SI units through limits and inverse kinematics.
++        v_cmd = msg.linear.x
+         omega = -msg.angular.z
++        if not math.isfinite(v_cmd) or not math.isfinite(omega):
++            v_cmd = omega = 0.0
++        speed_limit = (self.docking_max_speed if self.docking_mode
++                       else self.navigation_max_speed)
++        v_cmd = max(-speed_limit, min(v_cmd, speed_limit))
++        stop_threshold = (self.docking_stop_threshold if self.docking_mode
++                          else self.STOP_THRESH)
++        # Check the requested speed before applying any forward compensation;
++        # both signs at the stop boundary must remain stopped.
++        if abs(v_cmd) <= stop_threshold:
++            v_cmd = 0.0
++
++        v_motor = v_cmd
++        if not self.docking_mode and v_motor != 0.0:
++            if v_motor > 0.0:
++                v_motor += self.Vel_Offeset
++            v_motor = math.copysign(
++                max(abs(v_motor), self.LOW_SPEED_THRESH), v_motor)
++            # Recovery/teleop can bypass Nav2 limits. Bound the final motor
++            # request too, including the offset and low-speed compensation.
++            v_motor = max(-speed_limit, min(v_motor, speed_limit))
+ 
+         # ====================== 档位处理 ======================
+-        if v > 0:
++        if v_motor > epsilon:
+             ecu_msg.shift = Ecu.SHIFT_D
+-        elif v < 0:
++        elif v_motor < -epsilon:
+             ecu_msg.shift = Ecu.SHIFT_R
+         else:
+             ecu_msg.shift = Ecu.SHIFT_N
+ 
+-        # ====================== 速度限幅（保留正负号） ======================
+-        if self.docking_mode:
+-            # Docking must be allowed to command centimetre-per-second motion;
+-            # applying LOW_SPEED_THRESH here would turn 0.03 m/s into 0.8 m/s.
+-            v = max(-self.docking_max_speed, min(v, self.docking_max_speed))
+-
+-        stop_threshold = self.docking_stop_threshold if self.docking_mode else self.STOP_THRESH
+-        if abs(v) <= stop_threshold:
+-            # 速度极小（接近停止指令），强制归零，不补偿死区
+-            v = 0.0
+-        elif not self.docking_mode and abs(v) <= self.LOW_SPEED_THRESH:
+-            v = self.LOW_SPEED_THRESH if v > 0 else -self.LOW_SPEED_THRESH
+-
+-        # 设置电机输出
+-        # Twist is m/s; the current CAN setSpeed() encodes 0.1 km/h units.
+-        # Keep the existing production navigation calibration independent.
+-        ecu_msg.motor = abs(v) * (self.docking_ecu_speed_scale if self.docking_mode else 1.0)
++        # ECU motor is km/h; CAN setSpeed() then quantizes it in 0.1 km/h.
++        speed_scale = (self.docking_ecu_speed_scale if self.docking_mode
++                       else MPS_TO_KMH)
++        ecu_msg.motor = abs(v_motor) * speed_scale
+ 
+         # ====================== 转向角计算 ======================
+-        if abs(v) <= epsilon:
++        if abs(v_cmd) <= epsilon:
+             # 原地转向
+             if abs(omega) < self.OMEGA_DEADZONE:
+                 steer_deg = 0.0
+@@ -121,7 +141,7 @@
+                     self.MAX_STEER_DEG / self.OMEGA_FULL_STEER)
+         else:
+             # 行驶转向（阿克曼）
+-            steer_deg = math.degrees(math.atan(self.L * omega / v))
++            steer_deg = math.degrees(math.atan(self.L * omega / v_cmd))
+ 
+         # 转向角限幅. Docking uses a smaller independent envelope.
+         steer_limit = (self.docking_max_steer_deg
+@@ -129,7 +149,7 @@
+         ecu_msg.steer = max(-steer_limit, min(steer_deg, steer_limit))
+ 
+         # ====================== 刹车与标志位 ======================
+-        ecu_msg.brake = abs(v) < epsilon
++        ecu_msg.brake = abs(v_motor) < epsilon
+         ecu_msg.rear_wheel_flag = self.rear_wheel_flag
+ 
+         return ecu_msg
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml
+@@ -1,15 +1,17 @@
+ /cmdvel_to_ecu:  # 节点名
+   ros__parameters:
+     L: 0.5  # 轴距（米）
+-    LOW_SPEED_THRESH: 0.8 # 死区补偿下限，低于此速度但高于STOP_THRESH时提升到该值
+-    STOP_THRESH: 0.02 # 低于此速度认为是停车指令，直接归零不补偿死区
+-    Vel_Offeset: 0.03 # 保留生产环境的前进速度补偿；对接模式不使用
++    # 所有平移速度参数为m/s；ECU输出边界统一换算为km/h。
++    navigation_max_speed: 0.8333333333333334 # 3.0km/h，补偿后同样限幅
++    LOW_SPEED_THRESH: 0.2222222222222222 # 保留原0.8km/h低速补偿
++    STOP_THRESH: 0.005555555555555556 # 原0.02km/h；先判停车，再加补偿
++    Vel_Offeset: 0.008333333333333333 # 原前进补偿0.03km/h；对接模式不使用
+     OMEGA_DEADZONE: 0.020 # 低于这个角度认为打轮角度是0
+     MAX_STEER_DEG: 30.0 # 舵机最大能打的转向角度
+     OMEGA_FULL_STEER: 5.0 # 停车时推满摇杆对应的角速度 -> 5.0即对应最大转向角度, 或者说敏感度，数值越小越敏感
+     rear_wheel_flag: True # 是否开启双阿克曼模式
+     # Stage 3 command path. The mux publishes the selected command here.
+-    # Normal launch remains backward compatible; Stage 3 uses docking_config.yaml.
++    # Stage 3 uses docking_config.yaml; both files use m/s linear parameters.
+     cmd_vel_topic: /cmd_vel
+     docking_mode: False
+     docking_max_speed: 0.10
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml
+@@ -2,8 +2,11 @@
+   ros__parameters:
+     L: 0.5
+     MAX_STEER_DEG: 30.0
+-    LOW_SPEED_THRESH: 0.8
+-    STOP_THRESH: 0.01
++    # 普通模式回切时也使用SI参数；对接模式继续独立限速0.10m/s。
++    navigation_max_speed: 0.8333333333333334
++    LOW_SPEED_THRESH: 0.2222222222222222
++    STOP_THRESH: 0.002777777777777778 # 原普通模式阈值0.01km/h
++    Vel_Offeset: 0.008333333333333333
+     OMEGA_DEADZONE: 0.020
+     OMEGA_FULL_STEER: 5.0
+     rear_wheel_flag: True
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py
+@@ -1,54 +1,224 @@
++"""Exercise conversion without a ROS context, node, executor, or publisher."""
++
++import ast
++import inspect
+ import math
+-
++from pathlib import Path
++from types import SimpleNamespace
++
++import pytest
+ import rclpy
++from builtin_interfaces.msg import Time
+ from geometry_msgs.msg import Twist
+-
+-from cmdvel_2_ecu.convert import CmdVelToEcu
+-
+-
+-def _node(docking_mode):
+-    rclpy.init()
+-    node = CmdVelToEcu()
+-    node.docking_mode = docking_mode
+-    node.STOP_THRESH = 0.01
+-    return node
+-
+-
+-def test_docking_mode_preserves_centimetre_speed():
+-    node = _node(True)
+-    try:
+-        msg = Twist()
+-        msg.linear.x = -0.03
+-        ecu = node.cmdvel_2_ecu(msg)
+-        assert math.isclose(ecu.motor, 0.03 * 3.6, abs_tol=1e-6)
+-        # Msg.cpp::setSpeed rounds to a 0.1 km/h CAN integer. Previously .03
+-        # went to zero; the converted docking command must survive encoding.
+-        assert round(ecu.motor * 10) >= 1
+-        assert ecu.shift == ecu.SHIFT_R
+-    finally:
+-        node.destroy_node()
+-        rclpy.shutdown()
+-
+-
+-def test_normal_mode_preserves_production_speed_calibration():
+-    node = _node(False)
+-    node.STOP_THRESH = 0.02
+-    node.LOW_SPEED_THRESH = 0.8
+-    node.Vel_Offeset = 0.03
+-    try:
+-        msg = Twist()
+-        msg.linear.x = 0.9
+-        ecu = node.cmdvel_2_ecu(msg)
+-        assert math.isclose(ecu.motor, 0.93, abs_tol=1e-6)
+-
+-        msg.linear.x = -0.9
+-        ecu = node.cmdvel_2_ecu(msg)
+-        assert math.isclose(ecu.motor, 0.9, abs_tol=1e-6)
+-
+-        msg.linear.x = 0.01
+-        ecu = node.cmdvel_2_ecu(msg)
+-        assert math.isclose(ecu.motor, 0.0, abs_tol=1e-6)
+-        assert ecu.brake
+-    finally:
+-        node.destroy_node()
+-        rclpy.shutdown()
++from rclpy.node import Node
++import yaml
++
++from cmdvel_2_ecu.convert import CmdVelToEcu, MPS_TO_KMH
++
++
++@pytest.fixture(autouse=True)
++def prohibit_ros_initialization(monkeypatch):
++    def prohibited(*_args, **_kwargs):
++        raise AssertionError('Conversion tests must not initialize ROS or create a node')
++
++    monkeypatch.setattr(rclpy, 'init', prohibited)
++    monkeypatch.setattr(Node, '__init__', prohibited)
++
++
++def _converter(docking_mode=False):
++    # Call the conversion method with plain data instead of constructing its Node.
++    clock = SimpleNamespace(
++        now=lambda: SimpleNamespace(to_msg=lambda: Time(sec=123, nanosec=456)))
++    return SimpleNamespace(
++        get_clock=lambda: clock,
++        L=0.5,
++        MAX_STEER_DEG=30.0,
++        LOW_SPEED_THRESH=0.8 / 3.6,
++        STOP_THRESH=0.02 / 3.6,
++        Vel_Offeset=0.03 / 3.6,
++        OMEGA_DEADZONE=0.020,
++        OMEGA_FULL_STEER=5.0,
++        rear_wheel_flag=True,
++        navigation_max_speed=3.0 / 3.6,
++        docking_mode=docking_mode,
++        docking_max_speed=0.10,
++        docking_max_steer_deg=8.0,
++        docking_stop_threshold=0.001,
++        docking_ecu_speed_scale=3.6,
++    )
++
++
++def _convert(converter, velocity, omega=0.0):
++    msg = Twist()
++    msg.linear.x = velocity
++    msg.angular.z = omega
++    return CmdVelToEcu.cmdvel_2_ecu(converter, msg)
++
++
++def _declared_numeric_default(name):
++    # Read constructor defaults without constructing a Node or executing __init__.
++    tree = ast.parse(Path(inspect.getfile(CmdVelToEcu)).read_text())
++
++    def number(expression):
++        if isinstance(expression, ast.Constant) and type(expression.value) in (int, float):
++            return expression.value
++        if isinstance(expression, ast.Name) and expression.id == 'MPS_TO_KMH':
++            return MPS_TO_KMH
++        if isinstance(expression, ast.BinOp) and isinstance(expression.op, ast.Div):
++            return number(expression.left) / number(expression.right)
++        raise AssertionError(f'Unexpected numeric default expression: {ast.dump(expression)}')
++
++    for call in ast.walk(tree):
++        if (isinstance(call, ast.Call) and isinstance(call.func, ast.Attribute)
++                and call.func.attr == 'declare_parameter' and len(call.args) >= 2
++                and isinstance(call.args[0], ast.Constant) and call.args[0].value == name):
++            return number(call.args[1])
++    raise AssertionError(f'No declared default for {name}')
++
++
++def test_bare_node_default_retains_point_three_kmh_floor_without_yaml():
++    assert MPS_TO_KMH == 3.6
++    converter = _converter()
++    converter.LOW_SPEED_THRESH = _declared_numeric_default('LOW_SPEED_THRESH')
++    assert converter.LOW_SPEED_THRESH == pytest.approx(0.3 / 3.6)
++    ecu = _convert(converter, 0.03 / 3.6)
++    assert ecu.motor == pytest.approx(0.3, abs=1e-6)
++
++
++@pytest.mark.parametrize('velocity, expected_kmh', [(0.9 / 3.6, 0.93), (-0.9 / 3.6, 0.90)])
++def test_navigation_converts_si_speed_and_preserves_kmh_offset(velocity, expected_kmh):
++    ecu = _convert(_converter(), velocity)
++    assert ecu.motor == pytest.approx(expected_kmh, abs=1e-6)
++    assert ecu.shift == (ecu.SHIFT_D if velocity > 0 else ecu.SHIFT_R)
++    assert not ecu.brake
++
++
++@pytest.mark.parametrize('direction', [-1, 1])
++def test_navigation_retains_point_eight_kmh_low_speed_compensation(direction):
++    converter = _converter()
++    ecu = _convert(converter, direction * 0.03 / 3.6)
++    assert ecu.motor == pytest.approx(0.8, abs=1e-6)
++    assert ecu.shift == (ecu.SHIFT_D if direction > 0 else ecu.SHIFT_R)
++    assert not ecu.brake
++
++
++@pytest.mark.parametrize('docking_mode', [False, True])
++@pytest.mark.parametrize('fraction', [-1.0, -0.5, -0.0, 0.0, 0.5, 1.0])
++def test_stop_deadband_includes_both_boundaries_and_selects_neutral(docking_mode, fraction):
++    converter = _converter(docking_mode)
++    threshold = (converter.docking_stop_threshold
++                 if docking_mode else converter.STOP_THRESH)
++    ecu = _convert(converter, fraction * threshold)
++    assert ecu.motor == 0.0
++    assert ecu.steer == 0.0
++    assert ecu.shift == ecu.SHIFT_N
++    assert ecu.brake
++
++
++@pytest.mark.parametrize('direction', [-1, 1])
++def test_navigation_moves_immediately_above_stop_threshold_in_both_directions(direction):
++    converter = _converter()
++    velocity = direction * math.nextafter(converter.STOP_THRESH, math.inf)
++    ecu = _convert(converter, velocity)
++    assert ecu.motor == pytest.approx(0.8, abs=1e-6)
++    assert ecu.shift == (ecu.SHIFT_D if direction > 0 else ecu.SHIFT_R)
++    assert not ecu.brake
++
++
++@pytest.mark.parametrize('velocity', [-100.0, -3.0 / 3.6, 3.0 / 3.6, 100.0])
++def test_navigation_caps_speed_after_compensation_at_historical_physical_limit(velocity):
++    ecu = _convert(_converter(), velocity)
++    assert ecu.motor == pytest.approx(3.0, abs=1e-6)
++    assert ecu.shift == (ecu.SHIFT_D if velocity > 0 else ecu.SHIFT_R)
++    assert not ecu.brake
++
++
++@pytest.mark.parametrize('velocity', [-0.25, -0.10, 0.10, 0.25])
++def test_ackermann_steering_uses_si_command_before_motor_floor_and_offset(velocity):
++    converter = _converter()
++    omega = 0.02
++    ecu = _convert(converter, velocity, omega)
++    expected = math.degrees(math.atan(converter.L * -omega / velocity))
++    assert ecu.steer == pytest.approx(expected, abs=1e-6)
++
++
++@pytest.mark.parametrize('docking_mode', [False, True])
++@pytest.mark.parametrize('direction', [-1, 1])
++def test_steering_uses_clamped_command_speed(docking_mode, direction):
++    converter = _converter(docking_mode)
++    limit = (converter.docking_max_speed if docking_mode
++             else converter.navigation_max_speed)
++    omega = 0.01
++    ecu = _convert(converter, direction * 100.0, omega)
++    expected = math.degrees(math.atan(converter.L * -omega / (direction * limit)))
++    assert ecu.steer == pytest.approx(expected, abs=1e-6)
++
++
++@pytest.mark.parametrize('docking_mode', [False, True])
++@pytest.mark.parametrize('omega', [-2.0, 2.0])
++def test_existing_steer_limits_are_retained(docking_mode, omega):
++    converter = _converter(docking_mode)
++    ecu = _convert(converter, 0.01, omega)
++    limit = (converter.docking_max_steer_deg if docking_mode
++             else converter.MAX_STEER_DEG)
++    assert ecu.steer == pytest.approx(-math.copysign(limit, omega), abs=1e-6)
++
++
++@pytest.mark.parametrize('docking_mode', [False, True])
++@pytest.mark.parametrize('invalid', [math.nan, math.inf, -math.inf])
++@pytest.mark.parametrize('axis', ['velocity', 'omega'])
++def test_nonfinite_input_cannot_generate_a_motion_command(docking_mode, invalid, axis):
++    velocity, omega = (invalid, 0.1) if axis == 'velocity' else (0.1, invalid)
++    ecu = _convert(_converter(docking_mode), velocity, omega)
++    assert ecu.motor == 0.0
++    assert ecu.steer == 0.0
++    assert ecu.shift == ecu.SHIFT_N
++    assert ecu.brake
++
++
++@pytest.mark.parametrize('velocity', [-0.03, 0.03])
++def test_docking_preserves_centimetre_speed_without_navigation_compensation(velocity):
++    ecu = _convert(_converter(True), velocity)
++    assert ecu.motor == pytest.approx(0.03 * 3.6, abs=1e-6)
++    # JD01 setSpeed() rounds positive km/h * 10 to a CAN integer. This
++    # centimetre-speed command must survive that real protocol quantization.
++    assert math.floor(ecu.motor * 10 + 0.5) == 1
++    assert ecu.shift == (ecu.SHIFT_D if velocity > 0 else ecu.SHIFT_R)
++    assert not ecu.brake
++
++
++@pytest.mark.parametrize('velocity', [-1.0, -0.1, 0.1, 1.0])
++def test_docking_retains_independent_si_speed_limit(velocity):
++    ecu = _convert(_converter(True), velocity)
++    assert ecu.motor == pytest.approx(0.1 * 3.6, abs=1e-6)
++    assert ecu.shift == (ecu.SHIFT_D if velocity > 0 else ecu.SHIFT_R)
++
++
++def test_real_navigation_configuration_preserves_the_historical_physical_envelope():
++    project = next(
++        parent for parent in Path(__file__).resolve().parents
++        if (parent / 'nav2/src/nav2/config/nav2_real_params.yaml').is_file())
++    nav_config = yaml.safe_load(
++        (project / 'nav2/src/nav2/config/nav2_real_params.yaml').read_text())
++    config_directory = Path(__file__).resolve().parents[1] / 'config'
++    controller = nav_config['controller_server']['ros__parameters']['FollowPath']
++    smoother = nav_config['velocity_smoother']['ros__parameters']
++
++    for filename, historical_stop in [('config.yaml', 0.02), ('docking_config.yaml', 0.01)]:
++        parameters = yaml.safe_load(
++            (config_directory / filename).read_text())['/cmdvel_to_ecu']['ros__parameters']
++        assert parameters['navigation_max_speed'] == pytest.approx(3.0 / 3.6)
++        assert parameters['LOW_SPEED_THRESH'] == pytest.approx(0.8 / 3.6)
++        assert parameters['STOP_THRESH'] == pytest.approx(historical_stop / 3.6)
++        assert parameters['Vel_Offeset'] == pytest.approx(0.03 / 3.6)
++    assert controller['vx_max'] == pytest.approx(3.0 / 3.6)
++    assert controller['vx_min'] == pytest.approx(-3.0 / 3.6)
++    assert controller['vx_std'] == pytest.approx(1.5 / 3.6)
++    assert controller['ax_max'] == pytest.approx(2.5 / 3.6)
++    assert controller['ax_min'] == pytest.approx(-2.5 / 3.6)
++    assert controller['wz_max'] == 5.0
++    assert controller['wz_std'] == 0.5
++    assert smoother['max_velocity'] == pytest.approx([3.0 / 3.6, 0.0, 2.0])
++    assert smoother['min_velocity'] == pytest.approx([-3.0 / 3.6, 0.0, -2.0])
++    assert smoother['max_accel'] == pytest.approx([2.5 / 3.6, 0.0, 3.2])
++    assert smoother['max_decel'] == pytest.approx([-2.5 / 3.6, 0.0, -3.2])
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/package.xml
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/package.xml
+@@ -16,6 +16,7 @@
+   <test_depend>ament_flake8</test_depend>
+   <test_depend>ament_pep257</test_depend>
+   <test_depend>python3-pytest</test_depend>
++  <test_depend>python3-yaml</test_depend>
+ 
+   <export>
+     <build_type>ament_python</build_type>
+--- /dev/null
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/README.md
+@@ -0,0 +1,25 @@
++# cmdvel_2_ecu 速度单位
++
++`/cmd_vel`（或配置的输入话题）使用ROS SI单位：`linear.x` 为m/s，`angular.z` 为rad/s。转换器仅在写入 `Ecu.motor` 时把线速度乘3.6，`Ecu.motor` 继续使用km/h；JD01的CAN编码随后乘10，分辨率为0.1km/h。不要给已经是km/h的 `/ecu` 或底盘速度反馈再次乘3.6。
++
++2026-11-06修复了普通导航将m/s数字直接按km/h下发的问题。实车Nav2配置同步迁移，最高目标保持约3km/h；转换器最终限幅覆盖导航、恢复和网页遥控等输入。充电对接继续使用独立的0.10m/s上限及原有换算，不重复乘3.6。
++
++| 参数 | 当前单位和值 | 迁移前对应的物理值 |
++|---|---|---|
++| `navigation_max_speed` | 0.8333333333333334 m/s | 约3.0km/h的实车最高范围 |
++| `LOW_SPEED_THRESH`（生产配置） | 0.2222222222222222 m/s | 0.8km/h低速补偿 |
++| `STOP_THRESH`（普通配置） | 0.005555555555555556 m/s | 0.02km/h停车死区 |
++| `Vel_Offeset` | 0.008333333333333333 m/s | 0.03km/h前进偏置 |
++| `docking_max_speed` | 0.10 m/s | 对接限速保持不变 |
++
++两份配置文件和源码默认值均使用SI语义。未加载YAML时，源码的低速补偿默认值保留原0.3km/h，换算为0.08333333333333333m/s；生产配置继续使用0.8km/h。`docking_config.yaml` 的普通模式停车死区保留其原0.01km/h物理值，转换为0.002777777777777778m/s；实际对接模式仍使用独立的 `docking_stop_threshold=0.001m/s`。
++
++普通模式先对原始请求判停车，再应用前进偏置和低速补偿，最后限幅。零速及正负停车边界不会被补偿变成行驶命令，档位由最终有效速度决定。转角计算使用未加电机偏置的有符号SI速度。
++
++例如普通请求±0.25m/s，对应ECU目标约+0.93km/h或倒车0.90km/h；正向多出的0.03km/h为保留的校准偏置。补偿后的目标也不超过3km/h。对接请求−0.03m/s仍对应倒车0.108km/h。
++
++低速补偿仍会把停车死区之外、低于0.222222m/s的普通模式请求提升至原0.8km/h目标，因此不能承诺该区间逐点跟随请求。CAN量化、真实底盘响应、里程计坐标系和转向几何还需独立实车验证；此修复不等于完成全部导航验收。
++
++实车Nav2的MPPI线速度上下限、线速度采样标准差及velocity_smoother平移速度/加减速同步除以3.6；角速度、距离、时间和仿真参数不变。配置中的MPPI `ax_max/ax_min` 也迁移为SI值，但当前本地Humble优化器不读取这两个参数，实际平移指令加减速由velocity_smoother约束。
++
++离线回归测试为 `test/test_docking_conversion.py`，使用假时钟和普通Python对象调用转换方法，不初始化rclpy、不创建节点、发布器或看门狗。安装更新只需重建该包；Nav2当前安装配置链接到源码。旧自定义参数文件需一并迁移，不能继续把0.8作为m/s填入低速补偿参数。
+--- a/nav2/src/nav2/config/nav2_real_params.yaml
++++ b/nav2/src/nav2/config/nav2_real_params.yaml
+@@ -230,15 +230,16 @@
+       regenerate_noises: false
+ 
+       # 运动参数
+-      vx_std: 1.5
++      vx_std: 0.4166666666666667 # m/s；原ECU数字1.5km/h换算
+       vy_std: 0.3
+       wz_std: 0.5 # 轨迹广度，减少角速度采样范围，避免生成过多转向轨迹
+-      vx_max: 3.0 # 最大x速度
+-      vx_min: -3.0 # 最小x速度
++      vx_max: 0.8333333333333334 # m/s，保持原约3km/h实车上限
++      vx_min: -0.8333333333333334 # m/s，倒车采用同一物理上限
+       vy_max: 0.0 # 最大y方向速度，全向底盘
+       wz_max: 5.0 # 旋转速度
+-      ax_max: 2.5
+-      ax_min: -2.5
++      # 当前本地MPPI不读取ax_*；实际平移加减速由velocity_smoother约束。
++      ax_max: 0.6944444444444444 # m/s²；原2.5km/h每秒换算
++      ax_min: -0.6944444444444444
+       ay_min: 0.0
+       ay_max: 0.0
+       az_max: 2.5
+@@ -634,10 +635,11 @@
+     smoothing_frequency: 20.0
+     scale_velocities: False
+     feedback: "OPEN_LOOP"
+-    max_velocity: [3.0, 0.0, 2.0]
+-    min_velocity: [-3.0, 0.0, -2.0]
+-    max_accel: [2.5, 0.0, 3.2]
+-    max_decel: [-2.5, 0.0, -3.2]
++    # 平移量按SI单位迁移，保持原物理速度/加速度范围；角速度不变。
++    max_velocity: [0.8333333333333334, 0.0, 2.0]
++    min_velocity: [-0.8333333333333334, 0.0, -2.0]
++    max_accel: [0.6944444444444444, 0.0, 3.2]
++    max_decel: [-0.6944444444444444, 0.0, -3.2]
+     odom_topic: "odom"
+     odom_duration: 0.1
+     # deadband_velocity: [0.3, 0.0, 0.20]

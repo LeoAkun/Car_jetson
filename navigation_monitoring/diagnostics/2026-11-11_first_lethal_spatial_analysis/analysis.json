@@ -1,0 +1,4343 @@
+{
+  "created_at": "2026-11-11T18:05:01.136948+08:00",
+  "method": "read-only sqlite rosbag2 deserialization; no playback or ROS graph",
+  "static_map": {
+    "yaml": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.yaml",
+    "pgm": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.pgm",
+    "resolution": 0.1,
+    "width": 4097,
+    "height": 6354,
+    "origin": [
+      -92.9,
+      -532.0,
+      0.0
+    ]
+  },
+  "footprint": {
+    "configured_unpadded_m": [
+      [
+        -0.43,
+        -0.28
+      ],
+      [
+        -0.43,
+        0.28
+      ],
+      [
+        0.43,
+        0.28
+      ],
+      [
+        0.43,
+        -0.28
+      ]
+    ],
+    "padding_m": 0.02,
+    "effective_padded_m": [
+      [
+        -0.45,
+        -0.3
+      ],
+      [
+        -0.45,
+        0.3
+      ],
+      [
+        0.45,
+        0.3
+      ],
+      [
+        0.45,
+        -0.3
+      ]
+    ],
+    "smac_angle_bins": 64,
+    "circumscribed_radius_m": 0.5408326913195984,
+    "inscribed_radius_m": 0.3,
+    "possible_inscribed_raw_threshold": 75,
+    "possible_inscribed_display_threshold": 29
+  },
+  "runs": [
+    {
+      "label": "15:56",
+      "run_dir": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_15-56-01",
+      "nav_log": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_15-56-01/nav2_2026-11-11_15-56-32.log",
+      "first_lethal_event_ns": 1794383824198838523,
+      "first_lethal_event": "2026-11-11T15:57:04.198838523+08:00",
+      "tf": {
+        "map_to_odom": {
+          "bag_ns": 1794383824186858571,
+          "header_ns": 1794383824186512537,
+          "pose": [
+            156.6334991455078,
+            -200.4928436279297,
+            1.6388582858847285
+          ],
+          "bag_time": "2026-11-11T15:57:04.186858571+08:00",
+          "header_time": "2026-11-11T15:57:04.186512537+08:00"
+        },
+        "odom_to_base_link": {
+          "bag_ns": 1794383824192375361,
+          "header_ns": 1794383824556000330,
+          "pose": [
+            4.816894113231838,
+            -1.1894968306828926,
+            -0.1534419589063971
+          ],
+          "bag_time": "2026-11-11T15:57:04.192375361+08:00",
+          "header_time": "2026-11-11T15:57:04.556000330+08:00"
+        }
+      },
+      "actual_tf_pose_map": {
+        "x": 157.4926477219314,
+        "y": -195.60620517886048,
+        "yaw_rad": 1.4854163269783314
+      },
+      "actual_tf_pose_odom": {
+        "x": 4.816894113231838,
+        "y": -1.1894968306828926,
+        "yaw_rad": -0.1534419589063971
+      },
+      "smac_discretized_start": {
+        "x": 157.4500037305057,
+        "y": -195.64999498799443,
+        "yaw_rad": 1.4726215563702154,
+        "map_cell": [
+          2503,
+          3363
+        ],
+        "angle_bin": 15,
+        "translation_from_actual_m": 0.06112329661188012,
+        "yaw_from_actual_rad": -0.012794770608115957
+      },
+      "static_map_at_smac_start": {
+        "pose": {
+          "x": 157.4500037305057,
+          "y": -195.64999498799443,
+          "yaw_rad": 1.4726215563702154
+        },
+        "polygon": [
+          [
+            157.70445143535906,
+            -196.12723325709578
+          ],
+          [
+            157.10734059935575,
+            -196.06842297289805
+          ],
+          [
+            157.19555602565234,
+            -195.17275671889308
+          ],
+          [
+            157.79266686165565,
+            -195.23156700309082
+          ]
+        ],
+        "center_cell": [
+          2503,
+          3363
+        ],
+        "center_occupancy": 0,
+        "boundary_cell_count": 30,
+        "boundary_occupancy_counts": {
+          "0": 30
+        },
+        "geometric_collision_if_unknown_disallowed": false,
+        "nearest_static_occupied": {
+          "distance_m": 0.49999626951943826,
+          "x": 157.95000000000002,
+          "y": -195.64999999999998,
+          "relative_forward_m": 0.04900321663991324,
+          "relative_left_m": -0.4975891420562716,
+          "cost_display": 100
+        },
+        "nearest_static_unknown": null
+      },
+      "global_costmap_primary_index": 1,
+      "global_costmap_frames": [
+        {
+          "pose": {
+            "x": 157.4500037305057,
+            "y": -195.64999498799443,
+            "yaw_rad": 1.4726215563702154
+          },
+          "polygon": [
+            [
+              157.70445143535906,
+              -196.12723325709578
+            ],
+            [
+              157.10734059935575,
+              -196.06842297289805
+            ],
+            [
+              157.19555602565234,
+              -195.17275671889308
+            ],
+            [
+              157.79266686165565,
+              -195.23156700309082
+            ]
+          ],
+          "center_cell": [
+            2503,
+            3363
+          ],
+          "center_cost_display": 36,
+          "center_cost_raw_upper": 94,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 14,
+            "22": 1,
+            "34": 1,
+            "36": 1,
+            "55": 1,
+            "59": 1,
+            "90": 2,
+            "97": 2,
+            "99": 7
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T15:57:02.875648099+08:00",
+          "header_time": "2026-11-11T15:57:02.837804251+08:00",
+          "bag_event_offset_s": -1.323190424,
+          "header_event_offset_s": -1.361034272,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.5000000074505806,
+            "x": 157.95000373795628,
+            "y": -195.64999498799443,
+            "relative_forward_m": 0.04900857089506499,
+            "relative_left_m": -0.4975923707508024,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.30000000447034836,
+            "x": 157.75000373497605,
+            "y": -195.64999498799443,
+            "relative_forward_m": 0.029405142537038992,
+            "relative_left_m": -0.29855542245048144,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 157.4500037305057,
+            "y": -195.64999498799443,
+            "yaw_rad": 1.4726215563702154
+          },
+          "polygon": [
+            [
+              157.70445143535906,
+              -196.12723325709578
+            ],
+            [
+              157.10734059935575,
+              -196.06842297289805
+            ],
+            [
+              157.19555602565234,
+              -195.17275671889308
+            ],
+            [
+              157.79266686165565,
+              -195.23156700309082
+            ]
+          ],
+          "center_cell": [
+            2503,
+            3363
+          ],
+          "center_cost_display": 36,
+          "center_cost_raw_upper": 94,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 14,
+            "22": 1,
+            "34": 1,
+            "36": 1,
+            "55": 1,
+            "59": 1,
+            "90": 2,
+            "97": 2,
+            "99": 7
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T15:57:04.096248621+08:00",
+          "header_time": "2026-11-11T15:57:04.060191640+08:00",
+          "bag_event_offset_s": -0.102589902,
+          "header_event_offset_s": -0.138646883,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.5000000074505806,
+            "x": 157.95000373795628,
+            "y": -195.64999498799443,
+            "relative_forward_m": 0.04900857089506499,
+            "relative_left_m": -0.4975923707508024,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.30000000447034836,
+            "x": 157.75000373497605,
+            "y": -195.64999498799443,
+            "relative_forward_m": 0.029405142537038992,
+            "relative_left_m": -0.29855542245048144,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 157.4500037305057,
+            "y": -195.64999498799443,
+            "yaw_rad": 1.4726215563702154
+          },
+          "polygon": [
+            [
+              157.70445143535906,
+              -196.12723325709578
+            ],
+            [
+              157.10734059935575,
+              -196.06842297289805
+            ],
+            [
+              157.19555602565234,
+              -195.17275671889308
+            ],
+            [
+              157.79266686165565,
+              -195.23156700309082
+            ]
+          ],
+          "center_cell": [
+            2503,
+            3363
+          ],
+          "center_cost_display": 36,
+          "center_cost_raw_upper": 94,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 14,
+            "22": 1,
+            "34": 1,
+            "36": 1,
+            "55": 1,
+            "59": 1,
+            "90": 2,
+            "97": 2,
+            "99": 7
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T15:57:05.099263981+08:00",
+          "header_time": "2026-11-11T15:57:05.058245316+08:00",
+          "bag_event_offset_s": 0.900425458,
+          "header_event_offset_s": 0.859406793,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.5000000074505806,
+            "x": 157.95000373795628,
+            "y": -195.64999498799443,
+            "relative_forward_m": 0.04900857089506499,
+            "relative_left_m": -0.4975923707508024,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.30000000447034836,
+            "x": 157.75000373497605,
+            "y": -195.64999498799443,
+            "relative_forward_m": 0.029405142537038992,
+            "relative_left_m": -0.29855542245048144,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "local_costmap_primary_index": 4,
+      "local_costmap_frames": [
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            153,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 38,
+            "29": 2,
+            "33": 1,
+            "36": 1,
+            "37": 1,
+            "41": 1,
+            "43": 1,
+            "52": 2,
+            "65": 1,
+            "72": 1,
+            "74": 1,
+            "88": 2,
+            "99": 8
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:03.876776007+08:00",
+          "header_time": "2026-11-11T15:57:03.876166259+08:00",
+          "bag_event_offset_s": -0.322062516,
+          "header_event_offset_s": -0.322672264,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.8500000003725465,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.537139312901709,
+            "x": 4.775000113248808,
+            "y": -1.7249998971819949,
+            "relative_forward_m": 0.04044480159753319,
+            "relative_left_m": -0.535614469080379,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.23920033331811477,
+            "x": 4.775000113248808,
+            "y": -1.4249998927116465,
+            "relative_forward_m": -0.005407364076671736,
+            "relative_left_m": -0.23913920605630423,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            152,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:03.926537946+08:00",
+          "header_time": "2026-11-11T15:57:03.926391674+08:00",
+          "bag_event_offset_s": -0.272300577,
+          "header_event_offset_s": -0.272446849,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.8000000003725467,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.9706635242102837,
+            "x": 2.875000084191543,
+            "y": -1.5249998942017626,
+            "relative_forward_m": -1.8677999754073817,
+            "relative_left_m": -0.6283613431148355,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            151,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:04.025519359+08:00",
+          "header_time": "2026-11-11T15:57:04.024852422+08:00",
+          "bag_event_offset_s": -0.173319164,
+          "header_event_offset_s": -0.173986101,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.750000000372547,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            151,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:04.123714799+08:00",
+          "header_time": "2026-11-11T15:57:04.123486587+08:00",
+          "bag_event_offset_s": -0.075123724,
+          "header_event_offset_s": -0.075351936,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.750000000372547,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            150,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:04.225939835+08:00",
+          "header_time": "2026-11-11T15:57:04.225455931+08:00",
+          "bag_event_offset_s": 0.027101312,
+          "header_event_offset_s": 0.026617408,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.700000000372547,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            149,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:04.326400955+08:00",
+          "header_time": "2026-11-11T15:57:04.325743581+08:00",
+          "bag_event_offset_s": 0.127562432,
+          "header_event_offset_s": 0.126905058,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.6500000003725472,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:04.426084265+08:00",
+          "header_time": "2026-11-11T15:57:04.425502687+08:00",
+          "bag_event_offset_s": 0.227245742,
+          "header_event_offset_s": 0.226664164,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.6000000003725474,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 4.816894113231838,
+            "y": -1.1894968306828926,
+            "yaw_rad": -0.1534419589063971
+          },
+          "polygon": [
+            [
+              4.32632906033151,
+              -1.4171938418027101
+            ],
+            [
+              4.418033390313418,
+              -0.8242433245902119
+            ],
+            [
+              5.3074591661321655,
+              -0.961799819563075
+            ],
+            [
+              5.215754836150257,
+              -1.5547503367755733
+            ]
+          ],
+          "center_cell": [
+            147,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T15:57:04.523925940+08:00",
+          "header_time": "2026-11-11T15:57:04.523616761+08:00",
+          "bag_event_offset_s": 0.325087417,
+          "header_event_offset_s": 0.324778238,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -2.5500000003725476,
+            -8.650000000372536,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 2.0199515207959444,
+            "x": 2.825000079721194,
+            "y": -1.5249998942017626,
+            "relative_forward_m": -1.9172125229262498,
+            "relative_left_m": -0.6360033712965786,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "primary_global_static_overlap": {
+        "boundary_global_static_pairs": {
+          "global=0,static=0": 14,
+          "global=22,static=0": 1,
+          "global=34,static=0": 1,
+          "global=36,static=0": 1,
+          "global=55,static=0": 1,
+          "global=59,static=0": 1,
+          "global=90,static=0": 2,
+          "global=97,static=0": 2,
+          "global=99,static=0": 7
+        },
+        "global_lethal_or_unknown_boundary_cells": []
+      },
+      "last_successful_plan_before_failure": {
+        "bag_time": "2026-11-11T15:57:03.140047319+08:00",
+        "event_offset_s": -1.058791204,
+        "header_time": "2026-11-11T15:57:03.138442079+08:00",
+        "frame": "map",
+        "pose_count": 461,
+        "start": [
+          157.35000220313668,
+          -196.24999499693513
+        ],
+        "end": [
+          150.85000210627913,
+          -110.34999371692538
+        ],
+        "actual_pose_to_plan_start_m": 0.6594035743676314,
+        "actual_pose_nearest_index": 3,
+        "actual_pose_cross_track_m": 0.0848153555793026,
+        "nearest_point": [
+          157.4361106028573,
+          -195.66942858203402
+        ],
+        "smac_pose_cross_track_m": 0.023888984347395354
+      },
+      "nearest_merged_scan": {
+        "bag_time": "2026-11-11T15:57:04.189280418+08:00",
+        "header_time": "2026-11-11T15:57:04.188263972+08:00",
+        "bag_event_offset_s": -0.009558105,
+        "header_event_offset_s": -0.010574551,
+        "frame": "laser_link",
+        "beam_count": 722,
+        "finite_count": 320,
+        "range_lt_1m_count": 2,
+        "range_lt_1m_inside_effective_footprint_count": 1,
+        "range_lt_1m_outside_effective_footprint_count": 1,
+        "minimum_finite_range_m": 0.3508179485797882,
+        "closest_outside_return_to_footprint": {
+          "index": 226,
+          "range_m": 0.7359069585800171,
+          "angle_rad": -1.1738000772893429,
+          "base_x_forward_m": 0.2845383904228879,
+          "base_y_left_m": -0.6786729374758089,
+          "inside_effective_footprint": false,
+          "outside_footprint_gap_m": 0.37867293747580894,
+          "map_x": 158.1931128680755,
+          "map_y": -195.38057798474637,
+          "distance_to_primary_global_nearest_lethal_m": 0.36288782121544566
+        },
+        "closest_lt_1m_return_to_primary_global_nearest_lethal": {
+          "index": 226,
+          "range_m": 0.7359069585800171,
+          "angle_rad": -1.1738000772893429,
+          "base_x_forward_m": 0.2845383904228879,
+          "base_y_left_m": -0.6786729374758089,
+          "inside_effective_footprint": false,
+          "outside_footprint_gap_m": 0.37867293747580894,
+          "map_x": 158.1931128680755,
+          "map_y": -195.38057798474637,
+          "distance_to_primary_global_nearest_lethal_m": 0.36288782121544566
+        },
+        "range_lt_1m_returns": [
+          {
+            "index": 226,
+            "range_m": 0.7359069585800171,
+            "angle_rad": -1.1738000772893429,
+            "base_x_forward_m": 0.2845383904228879,
+            "base_y_left_m": -0.6786729374758089,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.37867293747580894,
+            "map_x": 158.1931128680755,
+            "map_y": -195.38057798474637,
+            "distance_to_primary_global_nearest_lethal_m": 0.36288782121544566
+          },
+          {
+            "index": 611,
+            "range_m": 0.3508179485797882,
+            "angle_rad": 2.175699969753623,
+            "base_x_forward_m": -0.19950414021728788,
+            "base_y_left_m": 0.28856772356223703,
+            "inside_effective_footprint": true,
+            "outside_footprint_gap_m": 0.0,
+            "map_x": 157.1881181762302,
+            "map_y": -195.78037460453774,
+            "distance_to_primary_global_nearest_lethal_m": 0.7729608357327277
+          }
+        ]
+      }
+    },
+    {
+      "label": "16:30",
+      "run_dir": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_16-30-04",
+      "nav_log": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_16-30-04/nav2_2026-11-11_16-32-22.log",
+      "first_lethal_event_ns": 1794385964801736359,
+      "first_lethal_event": "2026-11-11T16:32:44.801736359+08:00",
+      "tf": {
+        "map_to_odom": {
+          "bag_ns": 1794385964751783229,
+          "header_ns": 1794385964751470214,
+          "pose": [
+            156.81100463867188,
+            -200.86546325683594,
+            1.5806010379052466
+          ],
+          "bag_time": "2026-11-11T16:32:44.751783229+08:00",
+          "header_time": "2026-11-11T16:32:44.751470214+08:00"
+        },
+        "odom_to_base_link": {
+          "bag_ns": 1794385964802132418,
+          "header_ns": 1794385965146454190,
+          "pose": [
+            -0.3432159218370603,
+            -0.00022210417070094197,
+            -1.5591804528725155e-05
+          ],
+          "bag_time": "2026-11-11T16:32:44.802132418+08:00",
+          "header_time": "2026-11-11T16:32:45.146454190+08:00"
+        }
+      },
+      "actual_tf_pose_map": {
+        "x": 156.81459181121295,
+        "y": -201.20866050409452,
+        "yaw_rad": 1.5805854461007178
+      },
+      "actual_tf_pose_odom": {
+        "x": -0.3432159218370603,
+        "y": -0.00022210417070094197,
+        "yaw_rad": -1.5591804528725155e-05
+      },
+      "smac_discretized_start": {
+        "x": 156.850003721565,
+        "y": -201.24999507144094,
+        "yaw_rad": 1.5707963267948966,
+        "map_cell": [
+          2497,
+          3307
+        ],
+        "angle_bin": 16,
+        "translation_from_actual_m": 0.05442931060096952,
+        "yaw_from_actual_rad": -0.00978911930582127
+      },
+      "static_map_at_smac_start": {
+        "pose": {
+          "x": 156.850003721565,
+          "y": -201.24999507144094,
+          "yaw_rad": 1.5707963267948966
+        },
+        "polygon": [
+          [
+            157.150003721565,
+            -201.69999507144092
+          ],
+          [
+            156.550003721565,
+            -201.69999507144092
+          ],
+          [
+            156.550003721565,
+            -200.79999507144095
+          ],
+          [
+            157.150003721565,
+            -200.79999507144095
+          ]
+        ],
+        "center_cell": [
+          2497,
+          3307
+        ],
+        "center_occupancy": 0,
+        "boundary_cell_count": 30,
+        "boundary_occupancy_counts": {
+          "0": 30
+        },
+        "geometric_collision_if_unknown_disallowed": false,
+        "nearest_static_occupied": {
+          "distance_m": 1.4866017123281774,
+          "x": 158.25,
+          "y": -200.75,
+          "relative_forward_m": 0.49999507144093525,
+          "relative_left_m": -1.3999962784349975,
+          "cost_display": 100
+        },
+        "nearest_static_unknown": null
+      },
+      "global_costmap_primary_index": 1,
+      "global_costmap_frames": [
+        {
+          "pose": {
+            "x": 156.850003721565,
+            "y": -201.24999507144094,
+            "yaw_rad": 1.5707963267948966
+          },
+          "polygon": [
+            [
+              157.150003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -200.79999507144095
+            ],
+            [
+              157.150003721565,
+              -200.79999507144095
+            ]
+          ],
+          "center_cell": [
+            2497,
+            3307
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 28,
+          "boundary_cost_counts_display": {
+            "0": 13,
+            "22": 1,
+            "24": 2,
+            "29": 1,
+            "34": 2,
+            "36": 3,
+            "52": 1,
+            "55": 1,
+            "72": 1,
+            "90": 1,
+            "99": 2
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:43.130306333+08:00",
+          "header_time": "2026-11-11T16:32:43.088674046+08:00",
+          "bag_event_offset_s": -1.671430026,
+          "header_event_offset_s": -1.713062313,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.7071067917232596,
+            "x": 156.35000371411442,
+            "y": -201.74999507889152,
+            "relative_forward_m": -0.5000000074505806,
+            "relative_left_m": 0.5000000074505806,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.4242640750339558,
+            "x": 156.55000371709465,
+            "y": -201.54999507591128,
+            "relative_forward_m": -0.30000000447034836,
+            "relative_left_m": 0.30000000447034836,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.850003721565,
+            "y": -201.24999507144094,
+            "yaw_rad": 1.5707963267948966
+          },
+          "polygon": [
+            [
+              157.150003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -200.79999507144095
+            ],
+            [
+              157.150003721565,
+              -200.79999507144095
+            ]
+          ],
+          "center_cell": [
+            2497,
+            3307
+          ],
+          "center_cost_display": 22,
+          "center_cost_raw_upper": 57,
+          "boundary_cell_count": 28,
+          "boundary_cost_counts_display": {
+            "0": 13,
+            "24": 2,
+            "36": 2,
+            "52": 2,
+            "72": 2,
+            "99": 7
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:44.342670807+08:00",
+          "header_time": "2026-11-11T16:32:44.288792808+08:00",
+          "bag_event_offset_s": -0.459065552,
+          "header_event_offset_s": -0.512943551,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.6000000089406967,
+            "x": 156.850003721565,
+            "y": -201.84999508038163,
+            "relative_forward_m": -0.6000000089406967,
+            "relative_left_m": -3.6739404521880375e-17,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.4000000059604645,
+            "x": 156.850003721565,
+            "y": -201.6499950774014,
+            "relative_forward_m": -0.4000000059604645,
+            "relative_left_m": -2.449293634792025e-17,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.850003721565,
+            "y": -201.24999507144094,
+            "yaw_rad": 1.5707963267948966
+          },
+          "polygon": [
+            [
+              157.150003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -200.79999507144095
+            ],
+            [
+              157.150003721565,
+              -200.79999507144095
+            ]
+          ],
+          "center_cell": [
+            2497,
+            3307
+          ],
+          "center_cost_display": 55,
+          "center_cost_raw_upper": 143,
+          "boundary_cell_count": 28,
+          "boundary_cost_counts_display": {
+            "0": 8,
+            "24": 1,
+            "26": 1,
+            "29": 1,
+            "34": 1,
+            "36": 1,
+            "46": 1,
+            "55": 2,
+            "90": 2,
+            "99": 10
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:45.550404285+08:00",
+          "header_time": "2026-11-11T16:32:45.500014480+08:00",
+          "bag_event_offset_s": 0.748667926,
+          "header_event_offset_s": 0.698278121,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.41231056870567223,
+            "x": 156.45000371560454,
+            "y": -201.34999507293105,
+            "relative_forward_m": -0.10000000149011615,
+            "relative_left_m": 0.4000000059604645,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.20000000298023224,
+            "x": 156.65000371858477,
+            "y": -201.24999507144094,
+            "relative_forward_m": -1.2246468173960125e-17,
+            "relative_left_m": 0.20000000298023224,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.850003721565,
+            "y": -201.24999507144094,
+            "yaw_rad": 1.5707963267948966
+          },
+          "polygon": [
+            [
+              157.150003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -201.69999507144092
+            ],
+            [
+              156.550003721565,
+              -200.79999507144095
+            ],
+            [
+              157.150003721565,
+              -200.79999507144095
+            ]
+          ],
+          "center_cell": [
+            2497,
+            3307
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 28,
+          "boundary_cost_counts_display": {
+            "0": 14,
+            "24": 2,
+            "36": 2,
+            "52": 2,
+            "72": 2,
+            "90": 2,
+            "97": 2,
+            "99": 2
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:46.619621400+08:00",
+          "header_time": "2026-11-11T16:32:46.564937239+08:00",
+          "bag_event_offset_s": 1.817885041,
+          "header_event_offset_s": 1.76320088,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.7000000104308128,
+            "x": 156.850003721565,
+            "y": -201.94999508187175,
+            "relative_forward_m": -0.7000000104308128,
+            "relative_left_m": -4.286263860886044e-17,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.4242640750339558,
+            "x": 156.55000371709465,
+            "y": -201.54999507591128,
+            "relative_forward_m": -0.30000000447034836,
+            "relative_left_m": 0.30000000447034836,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "local_costmap_primary_index": 6,
+      "local_costmap_frames": [
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 35,
+            "31": 1,
+            "33": 1,
+            "37": 1,
+            "41": 1,
+            "43": 1,
+            "51": 2,
+            "58": 1,
+            "62": 1,
+            "72": 1,
+            "74": 1,
+            "88": 1,
+            "90": 1,
+            "99": 12
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:44.415577944+08:00",
+          "header_time": "2026-11-11T16:32:44.415243081+08:00",
+          "bag_event_offset_s": -0.386158415,
+          "header_event_offset_s": -0.386493278,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.6075980746451465,
+            "x": -0.9249998979270462,
+            "y": 0.17500011324882525,
+            "relative_forward_m": -0.5817867080498318,
+            "relative_left_m": 0.17521314633619478,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.33182078316337027,
+            "x": -0.6249998934566978,
+            "y": 0.17500011324882525,
+            "relative_forward_m": -0.28178670361594904,
+            "relative_left_m": 0.1752178238776229,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 35,
+            "31": 1,
+            "33": 1,
+            "37": 1,
+            "41": 1,
+            "43": 1,
+            "51": 2,
+            "58": 1,
+            "62": 1,
+            "72": 1,
+            "74": 1,
+            "88": 1,
+            "90": 1,
+            "99": 12
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:44.467075297+08:00",
+          "header_time": "2026-11-11T16:32:44.466668079+08:00",
+          "bag_event_offset_s": -0.334661062,
+          "header_event_offset_s": -0.33506828,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.6075980746451465,
+            "x": -0.9249998979270462,
+            "y": 0.17500011324882525,
+            "relative_forward_m": -0.5817867080498318,
+            "relative_left_m": 0.17521314633619478,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.33182078316337027,
+            "x": -0.6249998934566978,
+            "y": 0.17500011324882525,
+            "relative_forward_m": -0.28178670361594904,
+            "relative_left_m": 0.1752178238776229,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 35,
+            "31": 1,
+            "33": 1,
+            "37": 1,
+            "41": 1,
+            "43": 1,
+            "51": 2,
+            "58": 1,
+            "62": 1,
+            "72": 1,
+            "74": 1,
+            "88": 1,
+            "90": 1,
+            "99": 12
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:44.518570689+08:00",
+          "header_time": "2026-11-11T16:32:44.517988556+08:00",
+          "bag_event_offset_s": -0.28316567,
+          "header_event_offset_s": -0.283747803,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.6075980746451465,
+            "x": -0.9249998979270462,
+            "y": 0.17500011324882525,
+            "relative_forward_m": -0.5817867080498318,
+            "relative_left_m": 0.17521314633619478,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.33182078316337027,
+            "x": -0.6249998934566978,
+            "y": 0.17500011324882525,
+            "relative_forward_m": -0.28178670361594904,
+            "relative_left_m": 0.1752178238776229,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 35,
+            "31": 1,
+            "33": 1,
+            "37": 1,
+            "41": 1,
+            "43": 1,
+            "51": 2,
+            "58": 1,
+            "62": 1,
+            "72": 1,
+            "74": 1,
+            "88": 1,
+            "90": 1,
+            "99": 12
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:44.575118685+08:00",
+          "header_time": "2026-11-11T16:32:44.574801783+08:00",
+          "bag_event_offset_s": -0.226617674,
+          "header_event_offset_s": -0.226934576,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.5951077199834839,
+            "x": -0.9249998979270462,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.5817859284595938,
+            "relative_left_m": 0.12521314559721433,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.3083550067869892,
+            "x": -0.6249998934566978,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.281785924025711,
+            "relative_left_m": 0.12521782313864246,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 36,
+            "31": 1,
+            "33": 1,
+            "36": 1,
+            "41": 2,
+            "46": 1,
+            "51": 1,
+            "58": 1,
+            "62": 1,
+            "72": 1,
+            "74": 1,
+            "88": 1,
+            "95": 1,
+            "99": 11
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:32:44.667375855+08:00",
+          "header_time": "2026-11-11T16:32:44.666845118+08:00",
+          "bag_event_offset_s": -0.134360504,
+          "header_event_offset_s": -0.134891241,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.5951077199834839,
+            "x": -0.9249998979270462,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.5817859284595938,
+            "relative_left_m": 0.12521314559721433,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.3083550067869892,
+            "x": -0.6249998934566978,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.281785924025711,
+            "relative_left_m": 0.12521782313864246,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 37,
+          "center_cost_raw_upper": 96,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 30,
+            "31": 1,
+            "34": 1,
+            "36": 1,
+            "41": 1,
+            "43": 1,
+            "46": 1,
+            "52": 1,
+            "55": 1,
+            "65": 1,
+            "70": 1,
+            "82": 1,
+            "90": 1,
+            "99": 18
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:44.767158829+08:00",
+          "header_time": "2026-11-11T16:32:44.766660187+08:00",
+          "bag_event_offset_s": -0.03457753,
+          "header_event_offset_s": -0.035076172,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.464596703039558,
+            "x": -0.6749998942017559,
+            "y": 0.32500011548399943,
+            "relative_forward_m": -0.33178904312564356,
+            "relative_left_m": 0.32521704650432626,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.1817900386038592,
+            "x": -0.47499989122152364,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.1317859218087697,
+            "relative_left_m": 0.12522016190935653,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 43,
+          "center_cost_raw_upper": 112,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 29,
+            "31": 1,
+            "34": 1,
+            "36": 1,
+            "41": 1,
+            "43": 1,
+            "46": 1,
+            "52": 1,
+            "55": 1,
+            "65": 1,
+            "70": 1,
+            "82": 1,
+            "90": 1,
+            "99": 19
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:44.817624775+08:00",
+          "header_time": "2026-11-11T16:32:44.817134210+08:00",
+          "bag_event_offset_s": 0.015888416,
+          "header_event_offset_s": 0.015397851,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.4303158128849867,
+            "x": -0.6249998934566978,
+            "y": 0.32500011548399943,
+            "relative_forward_m": -0.2817890423866631,
+            "relative_left_m": 0.32521782609456423,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.14956343495413135,
+            "x": -0.4249998904764656,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.08178592106978923,
+            "relative_left_m": 0.12522094149959453,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 41,
+          "center_cost_raw_upper": 107,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 29,
+            "31": 1,
+            "34": 1,
+            "36": 1,
+            "41": 1,
+            "43": 1,
+            "46": 1,
+            "52": 1,
+            "55": 1,
+            "65": 1,
+            "70": 1,
+            "82": 1,
+            "90": 1,
+            "99": 19
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:44.868363165+08:00",
+          "header_time": "2026-11-11T16:32:44.867883301+08:00",
+          "bag_event_offset_s": 0.066626806,
+          "header_event_offset_s": 0.066146942,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.4410391409343538,
+            "x": -0.5749998927116398,
+            "y": 0.3750001162290575,
+            "relative_forward_m": -0.2317898212379207,
+            "relative_left_m": 0.37521860642378274,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.14956343495413135,
+            "x": -0.4249998904764656,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.08178592106978923,
+            "relative_left_m": 0.12522094149959453,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 58,
+          "center_cost_raw_upper": 151,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 28,
+            "31": 1,
+            "35": 1,
+            "36": 1,
+            "41": 1,
+            "45": 1,
+            "46": 1,
+            "52": 1,
+            "58": 1,
+            "65": 1,
+            "74": 1,
+            "82": 1,
+            "95": 1,
+            "99": 20
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:44.969831916+08:00",
+          "header_time": "2026-11-11T16:32:44.969410874+08:00",
+          "bag_event_offset_s": 0.168095557,
+          "header_event_offset_s": 0.167674515,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.3725787218202093,
+            "x": -0.5249998919665817,
+            "y": 0.32500011548399943,
+            "relative_forward_m": -0.1817890409087022,
+            "relative_left_m": 0.3252193852750403,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.08166151103451179,
+            "x": -0.3749998897314075,
+            "y": 0.07500011175870913,
+            "relative_forward_m": -0.03178514074057076,
+            "relative_left_m": 0.07522172035085212,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 46,
+          "center_cost_raw_upper": 120,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 28,
+            "31": 1,
+            "34": 1,
+            "36": 1,
+            "41": 1,
+            "43": 1,
+            "46": 1,
+            "52": 1,
+            "55": 1,
+            "65": 1,
+            "70": 1,
+            "82": 1,
+            "90": 1,
+            "99": 20
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:45.065427713+08:00",
+          "header_time": "2026-11-11T16:32:45.065114108+08:00",
+          "bag_event_offset_s": 0.263691354,
+          "header_event_offset_s": 0.263377749,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.4169377968927447,
+            "x": -0.5249998919665817,
+            "y": 0.3750001162290575,
+            "relative_forward_m": -0.18178982049894024,
+            "relative_left_m": 0.3752193860140208,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.12919297257968926,
+            "x": -0.3749998897314075,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.031785920330808785,
+            "relative_left_m": 0.12522172108983257,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": -0.3432159218370603,
+            "y": -0.00022210417070094197,
+            "yaw_rad": -1.5591804528725155e-05
+          },
+          "polygon": [
+            [
+              -0.7932205993237202,
+              -0.30021508782219763
+            ],
+            [
+              -0.7932112442410033,
+              0.299784912104871
+            ],
+            [
+              0.10678875564959961,
+              0.2997708794807957
+            ],
+            [
+              0.10677940056688279,
+              -0.3002291204462729
+            ]
+          ],
+          "center_cell": [
+            149,
+            148
+          ],
+          "center_cost_display": 46,
+          "center_cost_raw_upper": 120,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 28,
+            "29": 1,
+            "33": 1,
+            "34": 1,
+            "37": 1,
+            "41": 1,
+            "43": 2,
+            "55": 2,
+            "70": 2,
+            "90": 2,
+            "99": 19
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:32:45.115399613+08:00",
+          "header_time": "2026-11-11T16:32:45.115186047+08:00",
+          "bag_event_offset_s": 0.313663254,
+          "header_event_offset_s": 0.313449688,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.800000000372529,
+            -7.450000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.4169377968927447,
+            "x": -0.5249998919665817,
+            "y": 0.3750001162290575,
+            "relative_forward_m": -0.18178982049894024,
+            "relative_left_m": 0.3752193860140208,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.12919297257968926,
+            "x": -0.3749998897314075,
+            "y": 0.1250001125037672,
+            "relative_forward_m": -0.031785920330808785,
+            "relative_left_m": 0.12522172108983257,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "primary_global_static_overlap": {
+        "boundary_global_static_pairs": {
+          "global=0,static=0": 13,
+          "global=24,static=0": 2,
+          "global=36,static=0": 2,
+          "global=52,static=0": 2,
+          "global=72,static=0": 2,
+          "global=99,static=0": 7
+        },
+        "global_lethal_or_unknown_boundary_cells": []
+      },
+      "last_successful_plan_before_failure": {
+        "bag_time": "2026-11-11T16:32:43.741693298+08:00",
+        "event_offset_s": -1.060043061,
+        "header_time": "2026-11-11T16:32:43.740508387+08:00",
+        "frame": "map",
+        "pose_count": 486,
+        "start": [
+          156.8500021956861,
+          -201.24999507144094
+        ],
+        "end": [
+          150.85000210627913,
+          -110.34999371692538
+        ],
+        "actual_pose_to_plan_start_m": 0.05442831787086066,
+        "actual_pose_nearest_index": 0,
+        "actual_pose_cross_track_m": 0.05442831787086066,
+        "nearest_point": [
+          156.8500021956861,
+          -201.24999507144094
+        ],
+        "smac_pose_cross_track_m": 1.5258789005656581e-06
+      },
+      "nearest_merged_scan": {
+        "bag_time": "2026-11-11T16:32:44.798243404+08:00",
+        "header_time": "2026-11-11T16:32:44.796563007+08:00",
+        "bag_event_offset_s": -0.003492955,
+        "header_event_offset_s": -0.005173352,
+        "frame": "laser_link",
+        "beam_count": 722,
+        "finite_count": 406,
+        "range_lt_1m_count": 71,
+        "range_lt_1m_inside_effective_footprint_count": 0,
+        "range_lt_1m_outside_effective_footprint_count": 71,
+        "minimum_finite_range_m": 0.44069817662239075,
+        "closest_outside_return_to_footprint": {
+          "index": 639,
+          "range_m": 0.4706205427646637,
+          "angle_rad": 2.4192999731749296,
+          "base_x_forward_m": -0.3531028265086911,
+          "base_y_left_m": 0.31113034114930005,
+          "inside_effective_footprint": false,
+          "outside_footprint_gap_m": 0.01113034114930006,
+          "map_x": 156.50693288775682,
+          "map_y": -201.56479205575755,
+          "distance_to_primary_global_nearest_lethal_m": 0.4461371563371148
+        },
+        "closest_lt_1m_return_to_primary_global_nearest_lethal": {
+          "index": 710,
+          "range_m": 0.628913164138794,
+          "angle_rad": 3.0369999818503857,
+          "base_x_forward_m": -0.6254762613464743,
+          "base_y_left_m": 0.06565983946908947,
+          "inside_effective_footprint": false,
+          "outside_footprint_gap_m": 0.17547626134647426,
+          "map_x": 156.75505788166342,
+          "map_y": -201.83474953870498,
+          "distance_to_primary_global_nearest_lethal_m": 0.09616204581658831
+        },
+        "range_lt_1m_returns": [
+          {
+            "index": 603,
+            "range_m": 0.5016069412231445,
+            "angle_rad": 2.106099968776107,
+            "base_x_forward_m": -0.25587081909693515,
+            "base_y_left_m": 0.43143904252849286,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.13143904252849287,
+            "map_x": 156.38567815021455,
+            "map_y": -201.4687424044494,
+            "distance_to_primary_global_nearest_lethal_m": 0.6007926756506159
+          },
+          {
+            "index": 604,
+            "range_m": 0.49713119864463806,
+            "angle_rad": 2.1147999688982964,
+            "base_x_forward_m": -0.2572981167188769,
+            "base_y_left_m": 0.42536702716451097,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.12536702716451098,
+            "map_x": 156.3917638464133,
+            "map_y": -201.47011019495162,
+            "distance_to_primary_global_nearest_lethal_m": 0.5952279473926047
+          },
+          {
+            "index": 605,
+            "range_m": 0.46349501609802246,
+            "angle_rad": 2.123499969020486,
+            "base_x_forward_m": -0.24333035838736986,
+            "base_y_left_m": 0.39448443142255973,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.09448443142255974,
+            "map_x": 156.42250823260707,
+            "map_y": -201.455840797272,
+            "distance_to_primary_global_nearest_lethal_m": 0.5814722624279213
+          },
+          {
+            "index": 606,
+            "range_m": 0.4561169147491455,
+            "angle_rad": 2.1321999691426754,
+            "base_x_forward_m": -0.24282520481841574,
+            "base_y_left_m": 0.38610692796837215,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.08610692796837216,
+            "map_x": 156.43088038973997,
+            "map_y": -201.45525366083547,
+            "distance_to_primary_global_nearest_lethal_m": 0.5757474755354458
+          },
+          {
+            "index": 607,
+            "range_m": 0.45520296692848206,
+            "angle_rad": 2.140899969264865,
+            "base_x_forward_m": -0.2456818278211593,
+            "base_y_left_m": 0.38321036074060805,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.08321036074060806,
+            "map_x": 156.43380478156115,
+            "map_y": -201.4580817925794,
+            "distance_to_primary_global_nearest_lethal_m": 0.5716796155332811
+          },
+          {
+            "index": 608,
+            "range_m": 0.45496076345443726,
+            "angle_rad": 2.1495999693870544,
+            "base_x_forward_m": -0.24887392734727037,
+            "base_y_left_m": 0.38085570045594697,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.08085570045594698,
+            "map_x": 156.4361905763709,
+            "map_y": -201.46125068947998,
+            "distance_to_primary_global_nearest_lethal_m": 0.5677706584466355
+          },
+          {
+            "index": 609,
+            "range_m": 0.9891662001609802,
+            "angle_rad": 2.158299969509244,
+            "base_x_forward_m": -0.5482799543018624,
+            "base_y_left_m": 0.8233097006908519,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.5324584418099924,
+            "map_x": 155.99668864996357,
+            "map_y": -201.76497353680108,
+            "distance_to_primary_global_nearest_lethal_m": 0.8575402464578393
+          },
+          {
+            "index": 610,
+            "range_m": 0.9744554162025452,
+            "angle_rad": 2.1669999696314335,
+            "base_x_forward_m": -0.5471617280617408,
+            "base_y_left_m": 0.8063357870707248,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.5155737878019732,
+            "map_x": 156.01365080403656,
+            "map_y": -201.76368920712682,
+            "distance_to_primary_global_nearest_lethal_m": 0.8407942116930972
+          },
+          {
+            "index": 611,
+            "range_m": 0.4451066851615906,
+            "angle_rad": 2.175699969753623,
+            "base_x_forward_m": -0.2531245248072985,
+            "base_y_left_m": 0.3661255742455294,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.0661255742455294,
+            "map_x": 156.45096160575721,
+            "map_y": -201.46535689062102,
+            "distance_to_primary_global_nearest_lethal_m": 0.5542392508751735
+          },
+          {
+            "index": 612,
+            "range_m": 0.45566174387931824,
+            "angle_rad": 2.1843999698758125,
+            "base_x_forward_m": -0.26237798475444996,
+            "base_y_left_m": 0.3725391495552314,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.07253914955523139,
+            "map_x": 156.44463891951816,
+            "map_y": -201.47467268945792,
+            "distance_to_primary_global_nearest_lethal_m": 0.5524377972832529
+          },
+          {
+            "index": 613,
+            "range_m": 0.44556084275245667,
+            "angle_rad": 2.193099969998002,
+            "base_x_forward_m": -0.25972120373019125,
+            "base_y_left_m": 0.36203502721037906,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.06203502721037907,
+            "map_x": 156.45511653144746,
+            "map_y": -201.47191321126354,
+            "distance_to_primary_global_nearest_lethal_m": 0.5467008255661944
+          },
+          {
+            "index": 614,
+            "range_m": 0.44603633880615234,
+            "angle_rad": 2.2017999701201916,
+            "base_x_forward_m": -0.2631415611705573,
+            "base_y_left_m": 0.36014571262243084,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.06014571262243085,
+            "map_x": 156.4570392372649,
+            "map_y": -201.4753149103936,
+            "distance_to_primary_global_nearest_lethal_m": 0.5429606944370065
+          },
+          {
+            "index": 615,
+            "range_m": 0.4465333819389343,
+            "angle_rad": 2.210499970242381,
+            "base_x_forward_m": -0.2665615445882297,
+            "base_y_left_m": 0.3582415443978538,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.058241544397853784,
+            "map_x": 156.45897679234596,
+            "map_y": -201.47871609011725,
+            "distance_to_primary_global_nearest_lethal_m": 0.5392125258061172
+          },
+          {
+            "index": 616,
+            "range_m": 0.44069817662239075,
+            "angle_rad": 2.2191999703645706,
+            "base_x_forward_m": -0.26614415193146757,
+            "base_y_left_m": 0.3512579867718026,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.0512579867718026,
+            "map_x": 156.46595592952727,
+            "map_y": -201.47823035567208,
+            "distance_to_primary_global_nearest_lethal_m": 0.5345107268403749
+          },
+          {
+            "index": 617,
+            "range_m": 0.7596726417541504,
+            "angle_rad": 2.22789997048676,
+            "base_x_forward_m": -0.4640279412388983,
+            "base_y_left_m": 0.6014819967208656,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.3018081799458093,
+            "map_x": 156.21768098565718,
+            "map_y": -201.67855409733033,
+            "distance_to_primary_global_nearest_lethal_m": 0.6551519312461396
+          },
+          {
+            "index": 618,
+            "range_m": 0.7582869529724121,
+            "angle_rad": 2.2365999706089497,
+            "base_x_forward_m": -0.46838727969161437,
+            "base_y_left_m": 0.5963325073071856,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2969024198982232,
+            "map_x": 156.2228729017458,
+            "map_y": -201.68286281875274,
+            "distance_to_primary_global_nearest_lethal_m": 0.6490194589103558
+          },
+          {
+            "index": 619,
+            "range_m": 0.7585936784744263,
+            "angle_rad": 2.245299970731139,
+            "base_x_forward_m": -0.4737491341860115,
+            "base_y_left_m": 0.5924745790996991,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2934372178066909,
+            "map_x": 156.22678313210326,
+            "map_y": -201.688186651228,
+            "distance_to_primary_global_nearest_lethal_m": 0.6438834295695176
+          },
+          {
+            "index": 620,
+            "range_m": 0.7572574019432068,
+            "angle_rad": 2.2539999708533287,
+            "base_x_forward_m": -0.4780421033522466,
+            "base_y_left_m": 0.587294236495077,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2886595535985381,
+            "map_x": 156.23200525021804,
+            "map_y": -201.6924287045231,
+            "distance_to_primary_global_nearest_lethal_m": 0.637768981205871
+          },
+          {
+            "index": 621,
+            "range_m": 0.768576979637146,
+            "angle_rad": 2.2626999709755182,
+            "base_x_forward_m": -0.4903553456145768,
+            "base_y_left_m": 0.5918295435810609,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.29460657906163984,
+            "map_x": 156.2275906943049,
+            "map_y": -201.7047857527736,
+            "distance_to_primary_global_nearest_lethal_m": 0.6391273154289908
+          },
+          {
+            "index": 622,
+            "range_m": 0.7528406381607056,
+            "angle_rad": 2.2713999710977077,
+            "base_x_forward_m": -0.48534074736422517,
+            "base_y_left_m": 0.5755114120624836,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2777688006254943,
+            "map_x": 156.24385895625556,
+            "map_y": -201.69961165720284,
+            "distance_to_primary_global_nearest_lethal_m": 0.6245211369353368
+          },
+          {
+            "index": 623,
+            "range_m": 0.7542567253112793,
+            "angle_rad": 2.2800999712198973,
+            "base_x_forward_m": -0.4912515713347463,
+            "base_y_left_m": 0.5723417696957276,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.275448237711891,
+            "map_x": 156.247086307592,
+            "map_y": -201.70549117045604,
+            "distance_to_primary_global_nearest_lethal_m": 0.61999257096812
+          },
+          {
+            "index": 624,
+            "range_m": 0.7479356527328491,
+            "angle_rad": 2.288799971342087,
+            "base_x_forward_m": -0.49205376773571413,
+            "base_y_left_m": 0.563285744792109,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2666231475163118,
+            "map_x": 156.25614975126476,
+            "map_y": -201.70620467932898,
+            "distance_to_primary_global_nearest_lethal_m": 0.6110140894253154
+          },
+          {
+            "index": 625,
+            "range_m": 0.7457225322723389,
+            "angle_rad": 2.2974999714642763,
+            "base_x_forward_m": -0.4954652517001449,
+            "base_y_left_m": 0.5573295968243401,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.26131515553816426,
+            "map_x": 156.26213900874552,
+            "map_y": -201.70955769532696,
+            "distance_to_primary_global_nearest_lethal_m": 0.6044067998453726
+          },
+          {
+            "index": 626,
+            "range_m": 0.7430067658424377,
+            "angle_rad": 2.306199971586466,
+            "base_x_forward_m": -0.49847323619315254,
+            "base_y_left_m": 0.5509841076535372,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.25562213699458725,
+            "map_x": 156.2685136389334,
+            "map_y": -201.7125034199398,
+            "distance_to_primary_global_nearest_lethal_m": 0.5975237843717711
+          },
+          {
+            "index": 627,
+            "range_m": 0.7425066232681274,
+            "angle_rad": 2.3148999717086554,
+            "base_x_forward_m": -0.5029091200387584,
+            "base_y_left_m": 0.5462586407361247,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2518783299938276,
+            "map_x": 156.27328230214198,
+            "map_y": -201.71689283382807,
+            "distance_to_primary_global_nearest_lethal_m": 0.5918815790839518
+          },
+          {
+            "index": 628,
+            "range_m": 0.7428662776947021,
+            "angle_rad": 2.323599971830845,
+            "base_x_forward_m": -0.5078883690783365,
+            "base_y_left_m": 0.5421251802775165,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2489491237160107,
+            "map_x": 156.27746430623833,
+            "map_y": -201.72183138200532,
+            "distance_to_primary_global_nearest_lethal_m": 0.586708884954117
+          },
+          {
+            "index": 629,
+            "range_m": 0.741890549659729,
+            "angle_rad": 2.3322999719530344,
+            "base_x_forward_m": -0.5119123151502549,
+            "base_y_left_m": 0.5369798592795831,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24493384509176253,
+            "map_x": 156.28264877096734,
+            "map_y": -201.72580476792103,
+            "distance_to_primary_global_nearest_lethal_m": 0.580788148705477
+          },
+          {
+            "index": 630,
+            "range_m": 0.7414097189903259,
+            "angle_rad": 2.340999972075224,
+            "base_x_forward_m": -0.5162298143952354,
+            "base_y_left_m": 0.5321608310865944,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24142294796817793,
+            "map_x": 156.28750983210622,
+            "map_y": -201.730074887013,
+            "distance_to_primary_global_nearest_lethal_m": 0.5751349654264094
+          },
+          {
+            "index": 631,
+            "range_m": 0.7426533102989197,
+            "angle_rad": 2.3496999721974134,
+            "base_x_forward_m": -0.5217136410675274,
+            "base_y_left_m": 0.5285345930230174,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.23952224640596195,
+            "map_x": 156.29118957740187,
+            "map_y": -201.73552295382834,
+            "distance_to_primary_global_nearest_lethal_m": 0.57041836880873
+          },
+          {
+            "index": 632,
+            "range_m": 0.7464945912361145,
+            "angle_rad": 2.358399972319603,
+            "base_x_forward_m": -0.5290142696655006,
+            "base_y_left_m": 0.5266859379507399,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2400620113124506,
+            "map_x": 156.2931096094824,
+            "map_y": -201.7428051362149,
+            "distance_to_primary_global_nearest_lethal_m": 0.5671161575927235
+          },
+          {
+            "index": 633,
+            "range_m": 0.7494940161705017,
+            "angle_rad": 2.3670999724417925,
+            "base_x_forward_m": -0.5357202758876091,
+            "base_y_left_m": 0.5241612979592182,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.23999219404182545,
+            "map_x": 156.29569977335726,
+            "map_y": -201.74948610752446,
+            "distance_to_primary_global_nearest_lethal_m": 0.5633426316403713
+          },
+          {
+            "index": 634,
+            "range_m": 0.7477326989173889,
+            "angle_rad": 2.375799972563982,
+            "base_x_forward_m": -0.5389905316118294,
+            "base_y_left_m": 0.518259969381275,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.23570474952972656,
+            "map_x": 156.30163283159675,
+            "map_y": -201.75269843867392,
+            "distance_to_primary_global_nearest_lethal_m": 0.5569356061989342
+          },
+          {
+            "index": 635,
+            "range_m": 0.743823230266571,
+            "angle_rad": 2.3844999726861715,
+            "base_x_forward_m": -0.5406373965558477,
+            "base_y_left_m": 0.5108661305366715,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.22952050597262677,
+            "map_x": 156.30904243727994,
+            "map_y": -201.754272846697,
+            "distance_to_primary_global_nearest_lethal_m": 0.5493649580351083
+          },
+          {
+            "index": 636,
+            "range_m": 0.7616167068481445,
+            "angle_rad": 2.393199972808361,
+            "base_x_forward_m": -0.5581001822500307,
+            "base_y_left_m": 0.5182510923507012,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24355530935449582,
+            "map_x": 156.3018287718643,
+            "map_y": -201.77180708681362,
+            "distance_to_primary_global_nearest_lethal_m": 0.5537229793114512
+          },
+          {
+            "index": 637,
+            "range_m": 0.7667418718338013,
+            "angle_rad": 2.4018999729305506,
+            "base_x_forward_m": -0.5663736238368862,
+            "base_y_left_m": 0.516830742356794,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24608614580249633,
+            "map_x": 156.30333004221822,
+            "map_y": -201.7800662282412,
+            "distance_to_primary_global_nearest_lethal_m": 0.551128075906342
+          },
+          {
+            "index": 638,
+            "range_m": 0.77165287733078,
+            "angle_rad": 2.41059997305274,
+            "base_x_forward_m": -0.5745048631154913,
+            "base_y_left_m": 0.5151624261818039,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.2485886774972815,
+            "map_x": 156.30507787485922,
+            "map_y": -201.7881807468421,
+            "distance_to_primary_global_nearest_lethal_m": 0.5484206325795445
+          },
+          {
+            "index": 639,
+            "range_m": 0.4706205427646637,
+            "angle_rad": 2.4192999731749296,
+            "base_x_forward_m": -0.3531028265086911,
+            "base_y_left_m": 0.31113034114930005,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.01113034114930006,
+            "map_x": 156.50693288775682,
+            "map_y": -201.56479205575755,
+            "distance_to_primary_global_nearest_lethal_m": 0.4461371563371148
+          },
+          {
+            "index": 640,
+            "range_m": 0.4837162494659424,
+            "angle_rad": 2.427999973297119,
+            "base_x_forward_m": -0.36569681602640175,
+            "base_y_left_m": 0.31661845926216914,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.01661845926216915,
+            "map_x": 156.50156831469334,
+            "map_y": -201.5774391648438,
+            "distance_to_primary_global_nearest_lethal_m": 0.4423731002858092
+          },
+          {
+            "index": 641,
+            "range_m": 0.7745304107666016,
+            "angle_rad": 2.4366999734193087,
+            "base_x_forward_m": -0.589945170807321,
+            "base_y_left_m": 0.5018585982559245,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24562480437068437,
+            "map_x": 156.31853220995833,
+            "map_y": -201.80349008406293,
+            "distance_to_primary_global_nearest_lethal_m": 0.5335022795940793
+          },
+          {
+            "index": 642,
+            "range_m": 0.7750990390777588,
+            "angle_rad": 2.445399973541498,
+            "base_x_forward_m": -0.5947252617244035,
+            "base_y_left_m": 0.4970718091444181,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24450500882528167,
+            "map_x": 156.32336556185314,
+            "map_y": -201.80822308824997,
+            "distance_to_primary_global_nearest_lethal_m": 0.5282922019028364
+          },
+          {
+            "index": 643,
+            "range_m": 0.7754436731338501,
+            "angle_rad": 2.4540999736636877,
+            "base_x_forward_m": -0.5992935715779517,
+            "base_y_left_m": 0.4920976582637433,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.24329011657877697,
+            "map_x": 156.32838419342306,
+            "map_y": -201.81274248744316,
+            "distance_to_primary_global_nearest_lethal_m": 0.522948073731666
+          },
+          {
+            "index": 680,
+            "range_m": 0.5878067016601562,
+            "angle_rad": 2.7759999781847,
+            "base_x_forward_m": -0.548959757076509,
+            "base_y_left_m": 0.2101425792815254,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.098959757076509,
+            "map_x": 156.6098330472327,
+            "map_y": -201.75965103676262,
+            "distance_to_primary_global_nearest_lethal_m": 0.25660085546751615
+          },
+          {
+            "index": 681,
+            "range_m": 0.5851002931594849,
+            "angle_rad": 2.7846999783068895,
+            "base_x_forward_m": -0.5482313298237745,
+            "base_y_left_m": 0.2044132139930558,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.09823132982377453,
+            "map_x": 156.61555500746243,
+            "map_y": -201.75886655986645,
+            "distance_to_primary_global_nearest_lethal_m": 0.2515364919760843
+          },
+          {
+            "index": 682,
+            "range_m": 0.5863282680511475,
+            "angle_rad": 2.793399978429079,
+            "base_x_forward_m": -0.5511432399227386,
+            "base_y_left_m": 0.20005490997054973,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.1011432399227386,
+            "map_x": 156.61994160724544,
+            "map_y": -201.76173566717026,
+            "distance_to_primary_global_nearest_lethal_m": 0.246410836745475
+          },
+          {
+            "index": 683,
+            "range_m": 0.5928807258605957,
+            "angle_rad": 2.8020999785512686,
+            "base_x_forward_m": -0.5590413057847351,
+            "base_y_left_m": 0.19743447906453712,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.10904130578473509,
+            "map_x": 156.62263922647284,
+            "map_y": -201.76960770331078,
+            "distance_to_primary_global_nearest_lethal_m": 0.24115709407115535
+          },
+          {
+            "index": 684,
+            "range_m": 0.5935818552970886,
+            "angle_rad": 2.810799978673458,
+            "base_x_forward_m": -0.5614009251570994,
+            "base_y_left_m": 0.1927911309440523,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11140092515709937,
+            "map_x": 156.62730545034302,
+            "map_y": -201.77192175606385,
+            "distance_to_primary_global_nearest_lethal_m": 0.23598721146556115
+          },
+          {
+            "index": 685,
+            "range_m": 0.5925186276435852,
+            "angle_rad": 2.8194999787956476,
+            "base_x_forward_m": -0.5620483895469911,
+            "base_y_left_m": 0.18756314113458242,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11204838954699109,
+            "map_x": 156.6325395276685,
+            "map_y": -201.77251801283313,
+            "distance_to_primary_global_nearest_lethal_m": 0.23085357182197744
+          },
+          {
+            "index": 686,
+            "range_m": 0.9074628949165344,
+            "angle_rad": 2.828199978917837,
+            "base_x_forward_m": -0.8632632143721347,
+            "base_y_left_m": 0.279759769020113,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.4132632143721347,
+            "map_x": 156.5432958979684,
+            "map_y": -202.07462091491428,
+            "distance_to_primary_global_nearest_lethal_m": 0.3801663512133301
+          },
+          {
+            "index": 687,
+            "range_m": 0.5886909365653992,
+            "angle_rad": 2.8368999790400267,
+            "base_x_forward_m": -0.5615753582820715,
+            "base_y_left_m": 0.17660729250121546,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11157535828207149,
+            "map_x": 156.64349022088828,
+            "map_y": -201.77193775783607,
+            "distance_to_primary_global_nearest_lethal_m": 0.22077312237846275
+          },
+          {
+            "index": 689,
+            "range_m": 0.5849381685256958,
+            "angle_rad": 2.8542999792844057,
+            "base_x_forward_m": -0.5609642019473399,
+            "base_y_left_m": 0.1657462673238207,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11096420194733986,
+            "map_x": 156.65434474309413,
+            "map_y": -201.77122031261047,
+            "distance_to_primary_global_nearest_lethal_m": 0.21092154914485836
+          },
+          {
+            "index": 690,
+            "range_m": 0.5828609466552734,
+            "angle_rad": 2.8629999794065952,
+            "base_x_forward_m": -0.5603878154695788,
+            "base_y_left_m": 0.16028842568668128,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11038781546957882,
+            "map_x": 156.65979668100357,
+            "map_y": -201.77059052713952,
+            "distance_to_primary_global_nearest_lethal_m": 0.20611599005103431
+          },
+          {
+            "index": 691,
+            "range_m": 0.5829348564147949,
+            "angle_rad": 2.8716999795287848,
+            "base_x_forward_m": -0.5618323336478692,
+            "base_y_left_m": 0.15542675346003623,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11183233364786921,
+            "map_x": 156.66467226062767,
+            "map_y": -201.77198738537717,
+            "distance_to_primary_global_nearest_lethal_m": 0.20107946412569164
+          },
+          {
+            "index": 692,
+            "range_m": 0.5841320157051086,
+            "angle_rad": 2.8803999796509743,
+            "base_x_forward_m": -0.5643198218054144,
+            "base_y_left_m": 0.1508421376446869,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11431982180541439,
+            "map_x": 156.66928100670955,
+            "map_y": -201.77442987571717,
+            "distance_to_primary_global_nearest_lethal_m": 0.19588465948283232
+          },
+          {
+            "index": 693,
+            "range_m": 0.5841888189315796,
+            "angle_rad": 2.889099979773164,
+            "base_x_forward_m": -0.5656657774672389,
+            "base_y_left_m": 0.14594109896481533,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11566577746723888,
+            "map_x": 156.67419498607583,
+            "map_y": -201.77572779080404,
+            "distance_to_primary_global_nearest_lethal_m": 0.1908516224073107
+          },
+          {
+            "index": 694,
+            "range_m": 0.5837116241455078,
+            "angle_rad": 2.8977999798953533,
+            "base_x_forward_m": -0.5664509576623499,
+            "base_y_left_m": 0.14089915800313838,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.11645095766234986,
+            "map_x": 156.67924437156262,
+            "map_y": -201.77646357800546,
+            "distance_to_primary_global_nearest_lethal_m": 0.18591836233931716
+          },
+          {
+            "index": 695,
+            "range_m": 0.5848578810691833,
+            "angle_rad": 2.906499980017543,
+            "base_x_forward_m": -0.5687700542465781,
+            "base_y_left_m": 0.1362327656662654,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.1187700542465781,
+            "map_x": 156.68393324186897,
+            "map_y": -201.77873688433291,
+            "distance_to_primary_global_nearest_lethal_m": 0.18071285159220826
+          },
+          {
+            "index": 696,
+            "range_m": 0.5859773755073547,
+            "angle_rad": 2.9151999801397324,
+            "base_x_forward_m": -0.5710246670855372,
+            "base_y_left_m": 0.1315306587314863,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.12102466708553722,
+            "map_x": 156.68865719383308,
+            "map_y": -201.7809453603959,
+            "distance_to_primary_global_nearest_lethal_m": 0.175500899830335
+          },
+          {
+            "index": 697,
+            "range_m": 0.5907852053642273,
+            "angle_rad": 2.923899980261922,
+            "base_x_forward_m": -0.5768417163791331,
+            "base_y_left_m": 0.1275962112369647,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.12684171637913305,
+            "map_x": 156.69264839569632,
+            "map_y": -201.78672361681615,
+            "distance_to_primary_global_nearest_lethal_m": 0.16959945955384567
+          },
+          {
+            "index": 698,
+            "range_m": 0.5907742977142334,
+            "angle_rad": 2.9325999803841114,
+            "base_x_forward_m": -0.5779192886871608,
+            "base_y_left_m": 0.1225706596338281,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.1279192886871608,
+            "map_x": 156.6976842548254,
+            "map_y": -201.78775194255587,
+            "distance_to_primary_global_nearest_lethal_m": 0.16454612774002472
+          },
+          {
+            "index": 699,
+            "range_m": 0.5902079343795776,
+            "angle_rad": 2.941299980506301,
+            "base_x_forward_m": -0.5784087279505215,
+            "base_y_left_m": 0.11742550504582702,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.12840872795052144,
+            "map_x": 156.7028339539962,
+            "map_y": -201.788190992641,
+            "distance_to_primary_global_nearest_lethal_m": 0.1596204427625394
+          },
+          {
+            "index": 700,
+            "range_m": 0.595412015914917,
+            "angle_rad": 2.9499999806284904,
+            "base_x_forward_m": -0.584517285519084,
+            "base_y_left_m": 0.11337994366406678,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.13451728551908398,
+            "map_x": 156.7069391179866,
+            "map_y": -201.79425965567944,
+            "distance_to_primary_global_nearest_lethal_m": 0.15353800299528816
+          },
+          {
+            "index": 701,
+            "range_m": 0.5963636040687561,
+            "angle_rad": 2.95869998075068,
+            "base_x_forward_m": -0.5864172749659088,
+            "base_y_left_m": 0.10846348638797212,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.13641727496590877,
+            "map_x": 156.71187393862655,
+            "map_y": -201.7961114270738,
+            "distance_to_primary_global_nearest_lethal_m": 0.14826761287759574
+          },
+          {
+            "index": 702,
+            "range_m": 0.5956856608390808,
+            "angle_rad": 2.9673999808728695,
+            "base_x_forward_m": -0.5866710188186595,
+            "base_y_left_m": 0.10324011917645459,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.13667101881865945,
+            "map_x": 156.7170995394598,
+            "map_y": -201.79631402742072,
+            "distance_to_primary_global_nearest_lethal_m": 0.1433358889742638
+          },
+          {
+            "index": 703,
+            "range_m": 0.596136748790741,
+            "angle_rad": 2.976099980995059,
+            "base_x_forward_m": -0.5879919189903815,
+            "base_y_left_m": 0.09820654998931391,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.1379919189903815,
+            "map_x": 156.7221457977162,
+            "map_y": -201.79758559088177,
+            "distance_to_primary_global_nearest_lethal_m": 0.13818249990705783
+          },
+          {
+            "index": 704,
+            "range_m": 0.6000051498413086,
+            "angle_rad": 2.9847999811172485,
+            "base_x_forward_m": -0.5926450009060729,
+            "base_y_left_m": 0.09369142296460224,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.14264500090607285,
+            "map_x": 156.72670625725397,
+            "map_y": -201.8021942514429,
+            "distance_to_primary_global_nearest_lethal_m": 0.13223911657585063
+          },
+          {
+            "index": 705,
+            "range_m": 0.599884033203125,
+            "angle_rad": 2.993499981239438,
+            "base_x_forward_m": -0.593317886572839,
+            "base_y_left_m": 0.08851405970120059,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.143317886572839,
+            "map_x": 156.73188995930698,
+            "map_y": -201.80281642385245,
+            "distance_to_primary_global_nearest_lethal_m": 0.1271876034314769
+          },
+          {
+            "index": 706,
+            "range_m": 0.6047022938728333,
+            "angle_rad": 3.0021999813616276,
+            "base_x_forward_m": -0.5988370214632711,
+            "base_y_left_m": 0.08401836668291174,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.1488370214632711,
+            "map_x": 156.73643946352996,
+            "map_y": -201.80829128613183,
+            "distance_to_primary_global_nearest_lethal_m": 0.12097953197908652
+          },
+          {
+            "index": 707,
+            "range_m": 0.607992947101593,
+            "angle_rad": 3.010899981483817,
+            "base_x_forward_m": -0.6028078992814551,
+            "base_y_left_m": 0.07923421160811578,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.15280789928145505,
+            "map_x": 156.7412622601572,
+            "map_y": -201.81221514177636,
+            "distance_to_primary_global_nearest_lethal_m": 0.11511745823340372
+          },
+          {
+            "index": 708,
+            "range_m": 0.616666853427887,
+            "angle_rad": 3.0195999816060066,
+            "base_x_forward_m": -0.6120838579903651,
+            "base_y_left_m": 0.07504238072103998,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.16208385799036512,
+            "map_x": 156.74554469221712,
+            "map_y": -201.8214496223685,
+            "distance_to_primary_global_nearest_lethal_m": 0.10828911295915336
+          },
+          {
+            "index": 709,
+            "range_m": 0.6218257546424866,
+            "angle_rad": 3.028299981728196,
+            "base_x_forward_m": -0.6178393830789095,
+            "base_y_left_m": 0.07029769450963852,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.1678393830789095,
+            "map_x": 156.75034549171812,
+            "map_y": -201.82715842613473,
+            "distance_to_primary_global_nearest_lethal_m": 0.10224126150144217
+          },
+          {
+            "index": 710,
+            "range_m": 0.628913164138794,
+            "angle_rad": 3.0369999818503857,
+            "base_x_forward_m": -0.6254762613464743,
+            "base_y_left_m": 0.06565983946908947,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.17547626134647426,
+            "map_x": 156.75505788166342,
+            "map_y": -201.83474953870498,
+            "distance_to_primary_global_nearest_lethal_m": 0.09616204581658831
+          }
+        ]
+      }
+    },
+    {
+      "label": "16:45",
+      "run_dir": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_16-45-24",
+      "nav_log": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-11_16-45-24/nav2_2026-11-11_16-47-03.log",
+      "first_lethal_event_ns": 1794386846802225878,
+      "first_lethal_event": "2026-11-11T16:47:26.802225878+08:00",
+      "tf": {
+        "map_to_odom": {
+          "bag_ns": 1794386846830539135,
+          "header_ns": 1794386846830196816,
+          "pose": [
+            156.4841766357422,
+            -192.25442504882812,
+            1.6271015620620328
+          ],
+          "bag_time": "2026-11-11T16:47:26.830539135+08:00",
+          "header_time": "2026-11-11T16:47:26.830196816+08:00"
+        },
+        "odom_to_base_link": {
+          "bag_ns": 1794386846801999423,
+          "header_ns": 1794386847122205605,
+          "pose": [
+            0.17592597970140178,
+            0.019072550732104825,
+            0.0613738195227983
+          ],
+          "bag_time": "2026-11-11T16:47:26.801999423+08:00",
+          "header_time": "2026-11-11T16:47:27.122205605+08:00"
+        }
+      },
+      "actual_tf_pose_map": {
+        "x": 156.45523398907162,
+        "y": -192.07985117985274,
+        "yaw_rad": 1.6884753815848312
+      },
+      "actual_tf_pose_odom": {
+        "x": 0.17592597970140178,
+        "y": 0.019072550732104825,
+        "yaw_rad": 0.0613738195227983
+      },
+      "smac_discretized_start": {
+        "x": 156.45000371560454,
+        "y": -192.04999493435025,
+        "yaw_rad": 1.6689710972195777,
+        "map_cell": [
+          2493,
+          3399
+        ],
+        "angle_bin": 17,
+        "translation_from_actual_m": 0.030310908202248854,
+        "yaw_from_actual_rad": -0.019504284365253532
+      },
+      "static_map_at_smac_start": {
+        "pose": {
+          "x": 156.45000371560454,
+          "y": -192.04999493435025,
+          "yaw_rad": 1.6689710972195777
+        },
+        "polygon": [
+          [
+            156.79266684675449,
+            -192.46842291925387
+          ],
+          [
+            156.19555601075118,
+            -192.5272332034516
+          ],
+          [
+            156.1073405844546,
+            -191.63156694944664
+          ],
+          [
+            156.7044514204579,
+            -191.5727566652489
+          ]
+        ],
+        "center_cell": [
+          2493,
+          3399
+        ],
+        "center_occupancy": 0,
+        "boundary_cell_count": 30,
+        "boundary_occupancy_counts": {
+          "0": 30
+        },
+        "geometric_collision_if_unknown_disallowed": false,
+        "nearest_static_occupied": {
+          "distance_m": 1.3152902011372936,
+          "x": 157.75,
+          "y": -191.84999999999997,
+          "relative_forward_m": 0.07160998584171618,
+          "relative_left_m": -1.3133393785063827,
+          "cost_display": 100
+        },
+        "nearest_static_unknown": null
+      },
+      "global_costmap_primary_index": 1,
+      "global_costmap_frames": [
+        {
+          "pose": {
+            "x": 156.45000371560454,
+            "y": -192.04999493435025,
+            "yaw_rad": 1.6689710972195777
+          },
+          "polygon": [
+            [
+              156.79266684675449,
+              -192.46842291925387
+            ],
+            [
+              156.19555601075118,
+              -192.5272332034516
+            ],
+            [
+              156.1073405844546,
+              -191.63156694944664
+            ],
+            [
+              156.7044514204579,
+              -191.5727566652489
+            ]
+          ],
+          "center_cell": [
+            2493,
+            3399
+          ],
+          "center_cost_display": 36,
+          "center_cost_raw_upper": 94,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 16,
+            "22": 2,
+            "36": 2,
+            "59": 2,
+            "90": 1,
+            "97": 1,
+            "99": 5,
+            "100": 1
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-11T16:47:25.854728192+08:00",
+          "header_time": "2026-11-11T16:47:25.803920907+08:00",
+          "bag_event_offset_s": -0.947497686,
+          "header_event_offset_s": -0.998304971,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.5000000074505806,
+            "x": 156.1500037111342,
+            "y": -192.44999494031072,
+            "relative_forward_m": -0.368668754063603,
+            "relative_left_m": 0.33776227916653345,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.22360680108197992,
+            "x": 156.35000371411442,
+            "y": -192.24999493733048,
+            "relative_forward_m": -0.189235234121308,
+            "relative_left_m": 0.11912190250818647,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.45000371560454,
+            "y": -192.04999493435025,
+            "yaw_rad": 1.6689710972195777
+          },
+          "polygon": [
+            [
+              156.79266684675449,
+              -192.46842291925387
+            ],
+            [
+              156.19555601075118,
+              -192.5272332034516
+            ],
+            [
+              156.1073405844546,
+              -191.63156694944664
+            ],
+            [
+              156.7044514204579,
+              -191.5727566652489
+            ]
+          ],
+          "center_cell": [
+            2493,
+            3399
+          ],
+          "center_cost_display": 36,
+          "center_cost_raw_upper": 94,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 16,
+            "22": 2,
+            "36": 2,
+            "59": 2,
+            "90": 1,
+            "97": 1,
+            "99": 5,
+            "100": 1
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-11T16:47:26.857185223+08:00",
+          "header_time": "2026-11-11T16:47:26.803906933+08:00",
+          "bag_event_offset_s": 0.054959345,
+          "header_event_offset_s": 0.001681055,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.5000000074505806,
+            "x": 156.1500037111342,
+            "y": -192.44999494031072,
+            "relative_forward_m": -0.368668754063603,
+            "relative_left_m": 0.33776227916653345,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.22360680108197992,
+            "x": 156.35000371411442,
+            "y": -192.24999493733048,
+            "relative_forward_m": -0.189235234121308,
+            "relative_left_m": 0.11912190250818647,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.45000371560454,
+            "y": -192.04999493435025,
+            "yaw_rad": 1.6689710972195777
+          },
+          "polygon": [
+            [
+              156.79266684675449,
+              -192.46842291925387
+            ],
+            [
+              156.19555601075118,
+              -192.5272332034516
+            ],
+            [
+              156.1073405844546,
+              -191.63156694944664
+            ],
+            [
+              156.7044514204579,
+              -191.5727566652489
+            ]
+          ],
+          "center_cell": [
+            2493,
+            3399
+          ],
+          "center_cost_display": 72,
+          "center_cost_raw_upper": 187,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 14,
+            "22": 2,
+            "29": 1,
+            "36": 1,
+            "46": 1,
+            "52": 1,
+            "59": 1,
+            "72": 1,
+            "90": 1,
+            "97": 2,
+            "99": 4,
+            "100": 1
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-11T16:47:27.842169598+08:00",
+          "header_time": "2026-11-11T16:47:27.807018202+08:00",
+          "bag_event_offset_s": 1.03994372,
+          "header_event_offset_s": 1.004792324,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.360555132919089,
+            "x": 156.1500037111342,
+            "y": -192.24999493733048,
+            "relative_forward_m": -0.16963180576328202,
+            "relative_left_m": 0.3181588508085075,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.10000000149011612,
+            "x": 156.35000371411442,
+            "y": -192.04999493435025,
+            "relative_forward_m": 0.009801714179012985,
+            "relative_left_m": 0.09951847415016049,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "local_costmap_primary_index": 4,
+      "local_costmap_frames": [
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            151,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.457136359+08:00",
+          "header_time": "2026-11-11T16:47:26.456406086+08:00",
+          "bag_event_offset_s": -0.345089519,
+          "header_event_offset_s": -0.345819792,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.400000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.9001269157077982,
+            "x": -1.624999914318325,
+            "y": 0.625000120699406,
+            "relative_forward_m": -1.760370396233637,
+            "relative_left_m": 0.7152470649093625,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            151,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.556424461+08:00",
+          "header_time": "2026-11-11T16:47:26.555773304+08:00",
+          "bag_event_offset_s": -0.245801417,
+          "header_event_offset_s": -0.246452574,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.400000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.9001269157077982,
+            "x": -1.624999914318325,
+            "y": 0.625000120699406,
+            "relative_forward_m": -1.760370396233637,
+            "relative_left_m": 0.7152470649093625,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            150,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.654844774+08:00",
+          "header_time": "2026-11-11T16:47:26.654423074+08:00",
+          "bag_event_offset_s": -0.147381104,
+          "header_event_offset_s": -0.147802804,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.350000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 2.157133213573933,
+            "x": -1.8249999180436154,
+            "y": 0.8250001236796383,
+            "relative_forward_m": -1.9477267840484238,
+            "relative_left_m": 0.9271375711318083,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.8697546535225942,
+            "x": -1.574999914318325,
+            "y": 0.6750001214444641,
+            "relative_forward_m": -1.7073977704331058,
+            "relative_left_m": 0.7620861617228438,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            150,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.706626316+08:00",
+          "header_time": "2026-11-11T16:47:26.706039958+08:00",
+          "bag_event_offset_s": -0.095599562,
+          "header_event_offset_s": -0.09618592,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.350000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 2.1389555728632215,
+            "x": -1.8249999180436154,
+            "y": 0.7750001229345802,
+            "relative_forward_m": -1.950793548936626,
+            "relative_left_m": 0.8772317094758234,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.8528059008960593,
+            "x": -1.574999914318325,
+            "y": 0.625000120699406,
+            "relative_forward_m": -1.7104645353213077,
+            "relative_left_m": 0.712180300066859,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            150,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.804178987+08:00",
+          "header_time": "2026-11-11T16:47:26.803872129+08:00",
+          "bag_event_offset_s": 0.001953109,
+          "header_event_offset_s": 0.001646251,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.350000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 2.1389555728632215,
+            "x": -1.8249999180436154,
+            "y": 0.7750001229345802,
+            "relative_forward_m": -1.950793548936626,
+            "relative_left_m": 0.8772317094758234,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.8528059008960593,
+            "x": -1.574999914318325,
+            "y": 0.625000120699406,
+            "relative_forward_m": -1.7104645353213077,
+            "relative_left_m": 0.712180300066859,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            150,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.857279707+08:00",
+          "header_time": "2026-11-11T16:47:26.854169362+08:00",
+          "bag_event_offset_s": 0.055053829,
+          "header_event_offset_s": 0.051943484,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.350000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 2.1389555728632215,
+            "x": -1.8249999180436154,
+            "y": 0.7750001229345802,
+            "relative_forward_m": -1.950793548936626,
+            "relative_left_m": 0.8772317094758234,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.8528059008960593,
+            "x": -1.574999914318325,
+            "y": 0.625000120699406,
+            "relative_forward_m": -1.7104645353213077,
+            "relative_left_m": 0.712180300066859,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            150,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:26.905611429+08:00",
+          "header_time": "2026-11-11T16:47:26.905245546+08:00",
+          "bag_event_offset_s": 0.103385551,
+          "header_event_offset_s": 0.103019668,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.350000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 2.1389555728632215,
+            "x": -1.8249999180436154,
+            "y": 0.7750001229345802,
+            "relative_forward_m": -1.950793548936626,
+            "relative_left_m": 0.8772317094758234,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.8528059008960593,
+            "x": -1.574999914318325,
+            "y": 0.625000120699406,
+            "relative_forward_m": -1.7104645353213077,
+            "relative_left_m": 0.712180300066859,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            149,
+            150
+          ],
+          "center_cost_display": 62,
+          "center_cost_raw_upper": 161,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 35,
+            "28": 1,
+            "29": 1,
+            "36": 1,
+            "37": 1,
+            "46": 2,
+            "58": 1,
+            "59": 1,
+            "72": 1,
+            "76": 1,
+            "88": 1,
+            "99": 14
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:47:27.004079554+08:00",
+          "header_time": "2026-11-11T16:47:27.003881856+08:00",
+          "bag_event_offset_s": 0.201853676,
+          "header_event_offset_s": 0.201655978,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.300000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.3956709096928144,
+            "x": -0.07499989271164154,
+            "y": 0.32500011622905767,
+            "relative_forward_m": -0.2316892757146301,
+            "relative_left_m": 0.3207421835305879,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.11538597591078052,
+            "x": 0.07500010952353264,
+            "y": 0.07500011250376737,
+            "relative_forward_m": -0.09730551518768564,
+            "relative_left_m": 0.06201258058605775,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            149,
+            150
+          ],
+          "center_cost_display": 62,
+          "center_cost_raw_upper": 161,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 35,
+            "28": 1,
+            "29": 1,
+            "36": 1,
+            "37": 1,
+            "46": 2,
+            "58": 1,
+            "59": 1,
+            "72": 1,
+            "76": 1,
+            "88": 1,
+            "99": 14
+          },
+          "boundary_raw_max": 253,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "checked_boundary_clear",
+          "bag_time": "2026-11-11T16:47:27.054229387+08:00",
+          "header_time": "2026-11-11T16:47:27.053993476+08:00",
+          "bag_event_offset_s": 0.252003509,
+          "header_event_offset_s": 0.251767598,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.300000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 0.3956709096928144,
+            "x": -0.07499989271164154,
+            "y": 0.32500011622905767,
+            "relative_forward_m": -0.2316892757146301,
+            "relative_left_m": 0.3207421835305879,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.11538597591078052,
+            "x": 0.07500010952353264,
+            "y": 0.07500011250376737,
+            "relative_forward_m": -0.09730551518768564,
+            "relative_left_m": 0.06201258058605775,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 0.17592597970140178,
+            "y": 0.019072550732104825,
+            "yaw_rad": 0.0613738195227983
+          },
+          "polygon": [
+            [
+              -0.2548261794545424,
+              -0.30796349832440534
+            ],
+            [
+              -0.2916273575645862,
+              0.2909068326235494
+            ],
+            [
+              0.6066781388573459,
+              0.346108599788615
+            ],
+            [
+              0.6434793169673898,
+              -0.2527617311593397
+            ]
+          ],
+          "center_cell": [
+            149,
+            150
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 60,
+          "boundary_cost_counts_display": {
+            "0": 60
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-11T16:47:27.154190110+08:00",
+          "header_time": "2026-11-11T16:47:27.153876739+08:00",
+          "bag_event_offset_s": 0.351964232,
+          "header_event_offset_s": 0.351650861,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            -7.300000000372531,
+            -7.500000000372529,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": {
+            "distance_m": 2.1108365903900053,
+            "x": -1.7749999180436156,
+            "y": 0.8250001236796383,
+            "relative_forward_m": -1.8978209231360945,
+            "relative_left_m": 0.9240708062893047,
+            "cost_display": 100
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 1.8230166962942014,
+            "x": -1.5249999143183253,
+            "y": 0.6750001214444641,
+            "relative_forward_m": -1.6574919095207763,
+            "relative_left_m": 0.7590193968803401,
+            "cost_display": 99
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "primary_global_static_overlap": {
+        "boundary_global_static_pairs": {
+          "global=0,static=0": 16,
+          "global=22,static=0": 2,
+          "global=36,static=0": 2,
+          "global=59,static=0": 2,
+          "global=90,static=0": 1,
+          "global=97,static=0": 1,
+          "global=99,static=0": 5,
+          "global=100,static=0": 1
+        },
+        "global_lethal_or_unknown_boundary_cells": [
+          {
+            "x": 156.1500037111342,
+            "y": -192.44999494031072,
+            "global": 100,
+            "static": 0
+          }
+        ]
+      },
+      "last_successful_plan_before_failure": {
+        "bag_time": "2026-11-11T16:47:25.741292224+08:00",
+        "event_offset_s": -1.060933654,
+        "header_time": "2026-11-11T16:47:25.739078458+08:00",
+        "frame": "map",
+        "pose_count": 439,
+        "start": [
+          156.45000218972564,
+          -192.14999493584037
+        ],
+        "end": [
+          150.85000210627913,
+          -110.34999371692538
+        ],
+        "actual_pose_to_plan_start_m": 0.07033859700369854,
+        "actual_pose_nearest_index": 0,
+        "actual_pose_cross_track_m": 0.07033859700369854,
+        "nearest_point": [
+          156.45000218972564,
+          -192.14999493584037
+        ],
+        "smac_pose_cross_track_m": 0.09845039643028006
+      },
+      "nearest_merged_scan": {
+        "bag_time": "2026-11-11T16:47:26.795527138+08:00",
+        "header_time": "2026-11-11T16:47:26.794909854+08:00",
+        "bag_event_offset_s": -0.00669874,
+        "header_event_offset_s": -0.007316024,
+        "frame": "laser_link",
+        "beam_count": 722,
+        "finite_count": 327,
+        "range_lt_1m_count": 1,
+        "range_lt_1m_inside_effective_footprint_count": 0,
+        "range_lt_1m_outside_effective_footprint_count": 1,
+        "minimum_finite_range_m": 0.36954382061958313,
+        "closest_outside_return_to_footprint": {
+          "index": 610,
+          "range_m": 0.36954382061958313,
+          "angle_rad": 2.1669999696314335,
+          "base_x_forward_m": -0.20750075593270734,
+          "base_y_left_m": 0.3057876250692197,
+          "inside_effective_footprint": false,
+          "outside_footprint_gap_m": 0.005787625069219704,
+          "map_x": 156.17592342270885,
+          "map_y": -192.3218186216217,
+          "distance_to_primary_global_nearest_lethal_m": 0.13077079230769129
+        },
+        "closest_lt_1m_return_to_primary_global_nearest_lethal": {
+          "index": 610,
+          "range_m": 0.36954382061958313,
+          "angle_rad": 2.1669999696314335,
+          "base_x_forward_m": -0.20750075593270734,
+          "base_y_left_m": 0.3057876250692197,
+          "inside_effective_footprint": false,
+          "outside_footprint_gap_m": 0.005787625069219704,
+          "map_x": 156.17592342270885,
+          "map_y": -192.3218186216217,
+          "distance_to_primary_global_nearest_lethal_m": 0.13077079230769129
+        },
+        "range_lt_1m_returns": [
+          {
+            "index": 610,
+            "range_m": 0.36954382061958313,
+            "angle_rad": 2.1669999696314335,
+            "base_x_forward_m": -0.20750075593270734,
+            "base_y_left_m": 0.3057876250692197,
+            "inside_effective_footprint": false,
+            "outside_footprint_gap_m": 0.005787625069219704,
+            "map_x": 156.17592342270885,
+            "map_y": -192.3218186216217,
+            "distance_to_primary_global_nearest_lethal_m": 0.13077079230769129
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Full costmap topics are snapshots (global 1 Hz, local 20 Hz); the planner checks the in-memory global map at 5 Hz.",
+    "The exact in-memory grid at the log nanosecond is not recorded. Bracketing global snapshots are retained.",
+    "TF is reconstructed from nearest bag-arrival samples. odom->base_link header stamps are about 0.3 s ahead of bag arrival in these runs.",
+    "The static-map comparison uses the unchanged map file whose mtime predates all three tests."
+  ]
+}

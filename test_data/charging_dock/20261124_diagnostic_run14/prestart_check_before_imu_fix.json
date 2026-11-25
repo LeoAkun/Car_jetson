@@ -1,0 +1,77 @@
+{
+  "counts": {
+    "vehicle": 402,
+    "ecu": 201,
+    "imu": 399,
+    "feedback_state": 199,
+    "runner_state": 80,
+    "scan": 91
+  },
+  "ages": {
+    "vehicle": 0.015198028000213526,
+    "ecu": 0.016915467999751854,
+    "imu": 0.01659088900032657,
+    "feedback_state": 0.023246589999871503,
+    "runner_state": 0.0253901399996721,
+    "scan": 0.013058976999673177
+  },
+  "checks": {
+    "all_streams": false,
+    "fresh": false,
+    "autodrive": true,
+    "stopped": true,
+    "neutral": true,
+    "brake_commanded": false,
+    "odom_stopped": false,
+    "odom_valid_continuous": false,
+    "runner_idle": true,
+    "single_ecu": true,
+    "target_valid": true
+  },
+  "vehicle": {
+    "header": {
+      "stamp": {
+        "sec": 1795489559,
+        "nanosec": 365389317
+      },
+      "frame_id": ""
+    },
+    "cur_speed": 0.0,
+    "cur_steer": 0.20250001549720764,
+    "left_wheel_speed": 0.0,
+    "right_wheel_speed": 0.0,
+    "wheel_direction": 1,
+    "shift_level": 2,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "p_status": false
+  },
+  "ecu": {
+    "header": {
+      "stamp": {
+        "sec": 1795489559,
+        "nanosec": 363499483
+      },
+      "frame_id": "base_link"
+    },
+    "motor": 0.0,
+    "steer": 0.0,
+    "brake": false,
+    "set_torque": false,
+    "rear_wheel_flag": true,
+    "shift": 2
+  },
+  "feedback_state": "can_or_imu_stale",
+  "feedback_state_counts": {
+    "can_or_imu_stale": 199
+  },
+  "runner_state": "IDLE reason=waiting_for_start",
+  "static_target": {
+    "x": -2.509950531644724,
+    "y": 0.004279578590171106,
+    "yaw": -0.041138261129393776,
+    "quality": 0.6870787597143704,
+    "width": 0.21870787597143704
+  },
+  "valid_target_frames": 87
+}

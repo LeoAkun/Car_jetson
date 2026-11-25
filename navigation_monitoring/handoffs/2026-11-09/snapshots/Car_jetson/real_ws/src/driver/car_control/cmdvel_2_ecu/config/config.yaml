@@ -1,0 +1,19 @@
+/cmdvel_to_ecu:  # 节点名
+  ros__parameters:
+    L: 0.5  # 轴距（米）
+    # 所有平移速度参数为m/s；ECU输出边界统一换算为km/h。
+    navigation_max_speed: 0.5555555555555556 # 2.0km/h，补偿后同样限幅
+    LOW_SPEED_THRESH: 0.2222222222222222 # 保留原0.8km/h低速补偿
+    STOP_THRESH: 0.005555555555555556 # 原0.02km/h；先判停车，再加补偿
+    Vel_Offeset: 0.008333333333333333 # 原前进补偿0.03km/h；对接模式不使用
+    OMEGA_DEADZONE: 0.020 # 低于这个角度认为打轮角度是0
+    MAX_STEER_DEG: 30.0 # 舵机最大能打的转向角度
+    OMEGA_FULL_STEER: 5.0 # 停车时推满摇杆对应的角速度 -> 5.0即对应最大转向角度, 或者说敏感度，数值越小越敏感
+    rear_wheel_flag: True # 是否开启双阿克曼模式
+    # Stage 3 command path. The mux publishes the selected command here.
+    # Stage 3 uses docking_config.yaml; both files use m/s linear parameters.
+    cmd_vel_topic: /cmd_vel
+    docking_mode: False
+    docking_max_speed: 0.10
+    docking_max_steer_deg: 8.0
+    input_timeout_sec: 0.20

@@ -1,0 +1,1119 @@
+{
+  "scope": "Offline SQLite mode=ro&immutable=1 deserialization only; no ROS node/init, replay, publication, service or parameter mutation. Times Asia/Shanghai. Samples use latest message at or before specified bag receive time; TF quaternion composition map->odom * odom->base_link. Feedback steering and speed are reported telemetry, not independent geometric ground truth.",
+  "topic_counts": {
+    "/ecu": 8081,
+    "/tf": 23454,
+    "/vehicle_status": 27938,
+    "/cmd_vel": 3387,
+    "/imu": 40780,
+    "/navigate_to_pose/_action/feedback": 9644,
+    "/odom": 20675,
+    "/tf_static": 9,
+    "/cmd_vel_nav": 1637
+  },
+  "bag_start": "14:38:44.312",
+  "bag_end": "14:45:32.103",
+  "modes": [
+    {
+      "bag_time": "14:40:13.831",
+      "epoch": 1794206413.8312082,
+      "drive_mode": 1,
+      "is_autodrive": false,
+      "speed_kmh": 0.0
+    },
+    {
+      "bag_time": "14:40:13.831",
+      "epoch": 1794206413.8312721,
+      "drive_mode": 3,
+      "is_autodrive": false,
+      "speed_kmh": 0.0
+    }
+  ],
+  "cmd_abs_v_max_mps": 0.5555555555555556,
+  "ecu_motor_abs_max_kmh": 2.0,
+  "line_106_107_yaw_deg": -85.92323585282315,
+  "periods": [
+    {
+      "start": "14:38:44.500",
+      "end": "14:38:51",
+      "cmd_count": 115,
+      "ecu_count": 130,
+      "vehicle_count": 571,
+      "odom_count": 650,
+      "actual_speed_max_kmh": 2.299999952316284,
+      "actual_speed_p50_p95_kmh": [
+        2.0,
+        2.0999999046325684
+      ],
+      "ecu_motor_max_kmh": 2.0,
+      "cmd_speed_sign_changes": 0,
+      "nonzero_command_below_floor_fraction": 0.0,
+      "ecu_steer_abs_ge_29p9_fraction": 0.0,
+      "vehicle_zero_speed_fraction_messages": 0.0,
+      "time_fraction_requested_motor_positive_actual_zero": 0.0,
+      "odom_vx_minus_projected_bodyforward_abs_p50_p95_max_mps": [
+        0.00325190687533089,
+        0.07781359796878981,
+        0.08793761226367941
+      ]
+    },
+    {
+      "start": "14:39:04",
+      "end": "14:39:20",
+      "cmd_count": 314,
+      "ecu_count": 320,
+      "vehicle_count": 1600,
+      "odom_count": 1599,
+      "actual_speed_max_kmh": 2.299999952316284,
+      "actual_speed_p50_p95_kmh": [
+        1.0,
+        1.7999999523162842
+      ],
+      "ecu_motor_max_kmh": 2.0,
+      "cmd_speed_sign_changes": 2,
+      "nonzero_command_below_floor_fraction": 0.10828025477707007,
+      "ecu_steer_abs_ge_29p9_fraction": 0.14375,
+      "vehicle_zero_speed_fraction_messages": 0.1925,
+      "time_fraction_requested_motor_positive_actual_zero": 0.171875,
+      "odom_vx_minus_projected_bodyforward_abs_p50_p95_max_mps": [
+        0.0038367217097182715,
+        0.045205270460856324,
+        0.12251723338880147
+      ]
+    },
+    {
+      "start": "14:39:20",
+      "end": "14:40:13.831",
+      "cmd_count": 1018,
+      "ecu_count": 1026,
+      "vehicle_count": 4232,
+      "odom_count": 5384,
+      "actual_speed_max_kmh": 0.800000011920929,
+      "actual_speed_p50_p95_kmh": [
+        0.0,
+        0.5
+      ],
+      "ecu_motor_max_kmh": 2.0,
+      "cmd_speed_sign_changes": 33,
+      "nonzero_command_below_floor_fraction": 0.6817288801571709,
+      "ecu_steer_abs_ge_29p9_fraction": 0.35477582846003897,
+      "vehicle_zero_speed_fraction_messages": 0.6987240075614367,
+      "time_fraction_requested_motor_positive_actual_zero": 0.6861652739090065,
+      "odom_vx_minus_projected_bodyforward_abs_p50_p95_max_mps": [
+        0.0006398436621148831,
+        0.007541765239434342,
+        0.01940770471558012
+      ]
+    }
+  ],
+  "lag_analysis": {
+    "window": [
+      "14:38:44.500",
+      "14:39:20"
+    ],
+    "sample_dt_s": 0.02,
+    "ecu_steer_to_vehicle_steer": [
+      {
+        "lag_s": 0.0,
+        "pearson": 0.5167929252750382,
+        "rmse": 10.38284179341894
+      },
+      {
+        "lag_s": 0.05,
+        "pearson": 0.5618925537468763,
+        "rmse": 9.89492771696483
+      },
+      {
+        "lag_s": 0.1,
+        "pearson": 0.6118497275141109,
+        "rmse": 9.296380726388326
+      },
+      {
+        "lag_s": 0.15,
+        "pearson": 0.6565705422919991,
+        "rmse": 8.761801865773549
+      },
+      {
+        "lag_s": 0.2,
+        "pearson": 0.7028114999895585,
+        "rmse": 8.143870359169256
+      },
+      {
+        "lag_s": 0.25,
+        "pearson": 0.7436670732586225,
+        "rmse": 7.591363601211451
+      },
+      {
+        "lag_s": 0.3,
+        "pearson": 0.7818489931385143,
+        "rmse": 7.00637463162112
+      },
+      {
+        "lag_s": 0.35,
+        "pearson": 0.8147805195608204,
+        "rmse": 6.493305214210848
+      },
+      {
+        "lag_s": 0.4,
+        "pearson": 0.8417765711224794,
+        "rmse": 6.008940269072498
+      },
+      {
+        "lag_s": 0.45,
+        "pearson": 0.8649239886966362,
+        "rmse": 5.592844601165669
+      },
+      {
+        "lag_s": 0.5,
+        "pearson": 0.8808880443724065,
+        "rmse": 5.25328461507241
+      },
+      {
+        "lag_s": 0.55,
+        "pearson": 0.8948222067102125,
+        "rmse": 4.969831448832484
+      },
+      {
+        "lag_s": 0.6,
+        "pearson": 0.901503928931504,
+        "rmse": 4.791864391657932
+      },
+      {
+        "lag_s": 0.65,
+        "pearson": 0.8915272314659577,
+        "rmse": 4.973670378673368
+      },
+      {
+        "lag_s": 0.7,
+        "pearson": 0.8804514505239274,
+        "rmse": 5.14164402691034
+      },
+      {
+        "lag_s": 0.75,
+        "pearson": 0.8667540044891247,
+        "rmse": 5.377716126838342
+      },
+      {
+        "lag_s": 0.8,
+        "pearson": 0.8507676369055016,
+        "rmse": 5.614904356643007
+      },
+      {
+        "lag_s": 0.85,
+        "pearson": 0.8342528778910561,
+        "rmse": 5.8757939227510265
+      },
+      {
+        "lag_s": 0.9,
+        "pearson": 0.8136829972133062,
+        "rmse": 6.1874308446345765
+      },
+      {
+        "lag_s": 0.95,
+        "pearson": 0.7938576442482511,
+        "rmse": 6.4869333885172
+      },
+      {
+        "lag_s": 1.0,
+        "pearson": 0.76872723536849,
+        "rmse": 6.823318082837109
+      }
+    ],
+    "cmd_omega_to_imu_yawrate": [
+      {
+        "lag_s": 0.0,
+        "pearson": 0.7267608883431307,
+        "rmse": 0.13851826811687715
+      },
+      {
+        "lag_s": 0.05,
+        "pearson": 0.7568996917233963,
+        "rmse": 0.1310601939413366
+      },
+      {
+        "lag_s": 0.1,
+        "pearson": 0.7890587964744232,
+        "rmse": 0.12216739737529274
+      },
+      {
+        "lag_s": 0.15,
+        "pearson": 0.8094238538168824,
+        "rmse": 0.11652846582441503
+      },
+      {
+        "lag_s": 0.2,
+        "pearson": 0.8305921460645496,
+        "rmse": 0.1099527700897712
+      },
+      {
+        "lag_s": 0.25,
+        "pearson": 0.8408986068483566,
+        "rmse": 0.10689628767087864
+      },
+      {
+        "lag_s": 0.3,
+        "pearson": 0.8495682179941682,
+        "rmse": 0.10391251439708737
+      },
+      {
+        "lag_s": 0.35,
+        "pearson": 0.8500945082729324,
+        "rmse": 0.10393386613281712
+      },
+      {
+        "lag_s": 0.4,
+        "pearson": 0.8456852714407582,
+        "rmse": 0.1052055369838154
+      },
+      {
+        "lag_s": 0.45,
+        "pearson": 0.8344207878365765,
+        "rmse": 0.10899330601347573
+      },
+      {
+        "lag_s": 0.5,
+        "pearson": 0.8162511979066593,
+        "rmse": 0.11437760453573352
+      },
+      {
+        "lag_s": 0.55,
+        "pearson": 0.7955132805292655,
+        "rmse": 0.12060576016481939
+      },
+      {
+        "lag_s": 0.6,
+        "pearson": 0.7682569769989998,
+        "rmse": 0.1279086481974439
+      },
+      {
+        "lag_s": 0.65,
+        "pearson": 0.74282238697269,
+        "rmse": 0.13472962145307976
+      },
+      {
+        "lag_s": 0.7,
+        "pearson": 0.7114579774278614,
+        "rmse": 0.14225901867205049
+      },
+      {
+        "lag_s": 0.75,
+        "pearson": 0.6822799646083819,
+        "rmse": 0.14930771323822262
+      },
+      {
+        "lag_s": 0.8,
+        "pearson": 0.6467448450732982,
+        "rmse": 0.15700370537925612
+      },
+      {
+        "lag_s": 0.85,
+        "pearson": 0.6174288535234913,
+        "rmse": 0.16347093198919685
+      },
+      {
+        "lag_s": 0.9,
+        "pearson": 0.5814135161551045,
+        "rmse": 0.17059594520321517
+      },
+      {
+        "lag_s": 0.95,
+        "pearson": 0.552752676289131,
+        "rmse": 0.1764705916116671
+      },
+      {
+        "lag_s": 1.0,
+        "pearson": 0.5158012826899754,
+        "rmse": 0.1832362934247919
+      }
+    ],
+    "best_steer_lag_by_pearson": {
+      "lag_s": 0.6,
+      "pearson": 0.901503928931504,
+      "rmse": 4.791864391657932
+    },
+    "best_omega_lag_by_pearson": {
+      "lag_s": 0.35,
+      "pearson": 0.8500945082729324,
+      "rmse": 0.10393386613281712
+    }
+  },
+  "samples": [
+    {
+      "bag_sample_time": "14:38:49",
+      "epoch": 1794206329.0,
+      "cmd_vel_mps_radps": [
+        0.5555555555555556,
+        -0.012957446277141571
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5555556416511536,
+        -0.012957446277141571
+      ],
+      "ecu_motor_kmh": 2.0,
+      "ecu_steer_deg": 0.6681360006332397,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 2.0999999046325684,
+      "actual_steer_deg": 2.0925002098083496,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.08770669996738434,
+      "tf_map_xy_m": [
+        115.29207769399545,
+        -141.80186177732966
+      ],
+      "tf_map_yaw_deg": -93.45095157046748,
+      "yaw_error_to_106_107_line_deg": -7.527715717644316,
+      "odom_yaw_rad": -0.14096706435241713,
+      "odom_vx_vy_mps": [
+        0.49493235810639025,
+        -0.11737372788299183
+      ],
+      "odom_projected_bodyforward_mps": 0.506514004435148
+    },
+    {
+      "bag_sample_time": "14:38:50",
+      "epoch": 1794206330.0,
+      "cmd_vel_mps_radps": [
+        0.5555555555555556,
+        -0.058153100311756134
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5556433200836182,
+        -0.058153100311756134
+      ],
+      "ecu_motor_kmh": 2.0,
+      "ecu_steer_deg": 2.9960010051727295,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 2.0,
+      "actual_steer_deg": 11.655001640319824,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.3436807096004486,
+      "tf_map_xy_m": [
+        115.25254893676092,
+        -142.354407336371
+      ],
+      "tf_map_yaw_deg": -108.0411734042759,
+      "yaw_error_to_106_107_line_deg": -22.117937551452734,
+      "odom_yaw_rad": -0.39562149974469024,
+      "odom_vx_vy_mps": [
+        0.43898171433736266,
+        -0.3005215085616487
+      ],
+      "odom_projected_bodyforward_mps": 0.520889056693288
+    },
+    {
+      "bag_sample_time": "14:38:51",
+      "epoch": 1794206331.0,
+      "cmd_vel_mps_radps": [
+        0.5482907295227051,
+        0.4078458249568939
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5482907295227051,
+        0.4078458249568939
+      ],
+      "ecu_motor_kmh": 2.0,
+      "ecu_steer_deg": -20.40141487121582,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 2.0999999046325684,
+      "actual_steer_deg": -11.002501487731934,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.45281708240509033,
+      "tf_map_xy_m": [
+        115.02606371322041,
+        -142.885543940077
+      ],
+      "tf_map_yaw_deg": -104.80515479590156,
+      "yaw_error_to_106_107_line_deg": -18.881918943078404,
+      "odom_yaw_rad": -0.3391694936944416,
+      "odom_vx_vy_mps": [
+        0.5815136672477558,
+        -0.07289046827527854
+      ],
+      "odom_projected_bodyforward_mps": 0.5726365429714566
+    },
+    {
+      "bag_sample_time": "14:38:51.918",
+      "epoch": 1794206331.918,
+      "cmd_vel_mps_radps": [
+        0.46722684966193306,
+        0.18887704253196716
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "ecu_motor_kmh": 1.7120167016983032,
+      "ecu_steer_deg": -11.426989555358887,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 1.5,
+      "actual_steer_deg": -19.957502365112305,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.4507993459701538,
+      "tf_map_xy_m": [
+        115.04422742539603,
+        -143.33378210320078
+      ],
+      "tf_map_yaw_deg": -76.94308558453184,
+      "yaw_error_to_106_107_line_deg": 8.980150268291323,
+      "odom_yaw_rad": 0.1473282262278742,
+      "odom_vx_vy_mps": [
+        0.36105282902263,
+        0.253583339880167
+      ],
+      "odom_projected_bodyforward_mps": 0.3943664530477462
+    },
+    {
+      "bag_sample_time": "14:38:52",
+      "epoch": 1794206332.0,
+      "cmd_vel_mps_radps": [
+        0.39778240521748864,
+        0.0
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "ecu_motor_kmh": 1.4620167016983032,
+      "ecu_steer_deg": -0.0,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 1.5,
+      "actual_steer_deg": -19.282501220703125,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.42116111516952515,
+      "tf_map_xy_m": [
+        115.05224767079338,
+        -143.36156424618983
+      ],
+      "tf_map_yaw_deg": -75.18407378542781,
+      "yaw_error_to_106_107_line_deg": 10.739162067395343,
+      "odom_yaw_rad": 0.17807687862776692,
+      "odom_vx_vy_mps": [
+        0.3528764697424472,
+        0.21549131742259509
+      ],
+      "odom_projected_bodyforward_mps": 0.3854676678535776
+    },
+    {
+      "bag_sample_time": "14:38:53",
+      "epoch": 1794206333.0,
+      "cmd_vel_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "ecu_motor_kmh": 0.0,
+      "ecu_steer_deg": 0.0,
+      "ecu_shift": 2,
+      "ecu_brake": true,
+      "actual_speed_kmh": 0.30000001192092896,
+      "actual_steer_deg": -0.5400000810623169,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.0027640617918223143,
+      "tf_map_xy_m": [
+        115.08698422109455,
+        -143.47278415228104
+      ],
+      "tf_map_yaw_deg": -66.00617034693036,
+      "yaw_error_to_106_107_line_deg": 19.9170655058928,
+      "odom_yaw_rad": 0.33827223947815,
+      "odom_vx_vy_mps": [
+        0.04428071006356127,
+        -0.0038684361916099252
+      ],
+      "odom_projected_bodyforward_mps": 0.04048752710612222
+    },
+    {
+      "bag_sample_time": "14:38:54",
+      "epoch": 1794206334.0,
+      "cmd_vel_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "ecu_motor_kmh": 0.0,
+      "ecu_steer_deg": 0.0,
+      "ecu_shift": 2,
+      "ecu_brake": true,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": -0.5400000810623169,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.0012081260792911053,
+      "tf_map_xy_m": [
+        115.0841398389046,
+        -143.495966679197
+      ],
+      "tf_map_yaw_deg": -65.79259883118482,
+      "yaw_error_to_106_107_line_deg": 20.130637021638336,
+      "odom_yaw_rad": 0.34202415158658744,
+      "odom_vx_vy_mps": [
+        -0.05222235917156811,
+        -0.048552081319525535
+      ],
+      "odom_projected_bodyforward_mps": -0.06548163041213778
+    },
+    {
+      "bag_sample_time": "14:39:03",
+      "epoch": 1794206343.0,
+      "cmd_vel_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "ecu_motor_kmh": 0.0,
+      "ecu_steer_deg": 0.0,
+      "ecu_shift": 2,
+      "ecu_brake": true,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": -0.5400000810623169,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.0004424207436386496,
+      "tf_map_xy_m": [
+        115.1175417528765,
+        -143.53834540780664
+      ],
+      "tf_map_yaw_deg": -65.80553395772053,
+      "yaw_error_to_106_107_line_deg": 20.117701895102627,
+      "odom_yaw_rad": 0.34180035940146497,
+      "odom_vx_vy_mps": [
+        0.01355543778676453,
+        -0.0006677368347313706
+      ],
+      "odom_projected_bodyforward_mps": 0.012547478269415166
+    },
+    {
+      "bag_sample_time": "14:39:04.350",
+      "epoch": 1794206344.35,
+      "cmd_vel_mps_radps": [
+        0.034722222222222224,
+        0.029787618666887283
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.09227915108203888,
+        0.029787618666887283
+      ],
+      "ecu_motor_kmh": 0.800000011920929,
+      "ecu_steer_deg": -23.216510772705078,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": -0.5400000810623169,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.00012243595847394317,
+      "tf_map_xy_m": [
+        115.11057932079007,
+        -143.52478070832876
+      ],
+      "tf_map_yaw_deg": -65.8114405660965,
+      "yaw_error_to_106_107_line_deg": 20.111795286726668,
+      "odom_yaw_rad": 0.34170254230647107,
+      "odom_vx_vy_mps": [
+        0.00680229279491626,
+        -0.0038505126709674087
+      ],
+      "odom_projected_bodyforward_mps": 0.005118747008832452
+    },
+    {
+      "bag_sample_time": "14:39:04.950",
+      "epoch": 1794206344.95,
+      "cmd_vel_mps_radps": [
+        0.439501373304261,
+        -0.0298527292907238
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5333470106124878,
+        -0.0298527292907238
+      ],
+      "ecu_motor_kmh": 1.612204909324646,
+      "ecu_steer_deg": 1.945134162902832,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.4000000059604645,
+      "actual_steer_deg": -4.725000381469727,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.0462065264582634,
+      "tf_map_xy_m": [
+        115.11371997835856,
+        -143.5505043137228
+      ],
+      "tf_map_yaw_deg": -65.46859200689212,
+      "yaw_error_to_106_107_line_deg": 20.454643845931034,
+      "odom_yaw_rad": 0.347745097298346,
+      "odom_vx_vy_mps": [
+        0.11341947968369087,
+        0.057936937158277704
+      ],
+      "odom_projected_bodyforward_mps": 0.12637426610232105
+    },
+    {
+      "bag_sample_time": "14:39:05.150",
+      "epoch": 1794206345.15,
+      "cmd_vel_mps_radps": [
+        0.5555555555555556,
+        -0.08803471177816391
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.558264970779419,
+        -0.08803471177816391
+      ],
+      "ecu_motor_kmh": 2.0,
+      "ecu_steer_deg": 4.530151844024658,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.699999988079071,
+      "actual_steer_deg": -0.11250001192092896,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.017565971240401268,
+      "tf_map_xy_m": [
+        115.13863091377934,
+        -143.57915175191812
+      ],
+      "tf_map_yaw_deg": -65.10393213479868,
+      "yaw_error_to_106_107_line_deg": 20.81930371802447,
+      "odom_yaw_rad": 0.3540927121387888,
+      "odom_vx_vy_mps": [
+        0.22191123322876455,
+        0.07220562810117198
+      ],
+      "odom_projected_bodyforward_mps": 0.23318072983716395
+    },
+    {
+      "bag_sample_time": "14:39:06",
+      "epoch": 1794206346.0,
+      "cmd_vel_mps_radps": [
+        0.49987465143203735,
+        -0.23921187222003937
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.49987465143203735,
+        -0.23921187222003937
+      ],
+      "ecu_motor_kmh": 1.829548716545105,
+      "ecu_steer_deg": 13.456279754638672,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 1.600000023841858,
+      "actual_steer_deg": 10.507500648498535,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.2802332937717438,
+      "tf_map_xy_m": [
+        115.28012724487921,
+        -143.8966955950923
+      ],
+      "tf_map_yaw_deg": -71.36899691431337,
+      "yaw_error_to_106_107_line_deg": 14.554238938509794,
+      "odom_yaw_rad": 0.2444883883916047,
+      "odom_vx_vy_mps": [
+        0.4944030265022573,
+        0.08447714981640357
+      ],
+      "odom_projected_bodyforward_mps": 0.50014865504345
+    },
+    {
+      "bag_sample_time": "14:39:07",
+      "epoch": 1794206347.0,
+      "cmd_vel_mps_radps": [
+        0.5452731847763062,
+        -0.036996521055698395
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5452731847763062,
+        -0.036996521055698395
+      ],
+      "ecu_motor_kmh": 1.9929834604263306,
+      "ecu_steer_deg": 1.943000316619873,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 1.7999999523162842,
+      "actual_steer_deg": 7.155000686645508,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.18979810178279877,
+      "tf_map_xy_m": [
+        115.36097828875018,
+        -144.31294663940193
+      ],
+      "tf_map_yaw_deg": -86.8534589225516,
+      "yaw_error_to_106_107_line_deg": -0.9302230697284295,
+      "odom_yaw_rad": -0.025731137592507544,
+      "odom_vx_vy_mps": [
+        0.4418815734128622,
+        0.0249461368191387
+      ],
+      "odom_projected_bodyforward_mps": 0.4410934768304005
+    },
+    {
+      "bag_sample_time": "14:39:12",
+      "epoch": 1794206352.0,
+      "cmd_vel_mps_radps": [
+        0.5555555555555556,
+        -0.11939223110675812
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5555619597434998,
+        -0.11939223110675812
+      ],
+      "ecu_motor_kmh": 2.0,
+      "ecu_steer_deg": 6.133071422576904,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": 10.395001411437988,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.010180683806538582,
+      "tf_map_xy_m": [
+        115.64448235571442,
+        -146.3573003858429
+      ],
+      "tf_map_yaw_deg": -84.28801429145001,
+      "yaw_error_to_106_107_line_deg": 1.6352215613731516,
+      "odom_yaw_rad": 0.01895020943855567,
+      "odom_vx_vy_mps": [
+        0.028293246638152136,
+        0.039431186105021575
+      ],
+      "odom_projected_bodyforward_mps": 0.029035351103020933
+    },
+    {
+      "bag_sample_time": "14:39:16",
+      "epoch": 1794206356.0,
+      "cmd_vel_mps_radps": [
+        0.3105666935443878,
+        0.3073556125164032
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.3105666935443878,
+        0.3073556125164032
+      ],
+      "ecu_motor_kmh": 1.1480400562286377,
+      "ecu_steer_deg": -26.327598571777344,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.8999999761581421,
+      "actual_steer_deg": -25.965002059936523,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.3479752838611603,
+      "tf_map_xy_m": [
+        115.63442074073842,
+        -146.77123272820592
+      ],
+      "tf_map_yaw_deg": -77.40778540113627,
+      "yaw_error_to_106_107_line_deg": 8.515450451686895,
+      "odom_yaw_rad": 0.1394207823793447,
+      "odom_vx_vy_mps": [
+        0.21618706724132342,
+        0.15317653436102907
+      ],
+      "odom_projected_bodyforward_mps": 0.23537620237368473
+    },
+    {
+      "bag_sample_time": "14:39:17",
+      "epoch": 1794206357.0,
+      "cmd_vel_mps_radps": [
+        0.5199653506278992,
+        -0.38223811984062195
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.5199653506278992,
+        -0.38223811984062195
+      ],
+      "ecu_motor_kmh": 1.9018752574920654,
+      "ecu_steer_deg": 20.181467056274414,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 1.2999999523162842,
+      "actual_steer_deg": -8.392500877380371,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.10898575186729431,
+      "tf_map_xy_m": [
+        115.72113952956819,
+        -146.96694256746278
+      ],
+      "tf_map_yaw_deg": -65.408557485631,
+      "yaw_error_to_106_107_line_deg": 20.51467836719217,
+      "odom_yaw_rad": 0.34892143550904103,
+      "odom_vx_vy_mps": [
+        0.5061645158043925,
+        0.2760635398706013
+      ],
+      "odom_projected_bodyforward_mps": 0.5700458834474731
+    },
+    {
+      "bag_sample_time": "14:39:18",
+      "epoch": 1794206358.0,
+      "cmd_vel_mps_radps": [
+        0.5555555555555556,
+        -0.6618178486824036
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.555779755115509,
+        -0.6618178486824036
+      ],
+      "ecu_motor_kmh": 2.0,
+      "ecu_steer_deg": 30.0,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 1.399999976158142,
+      "actual_steer_deg": 14.872501373291016,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.4557003378868103,
+      "tf_map_xy_m": [
+        115.90180203256404,
+        -147.3117960156494
+      ],
+      "tf_map_yaw_deg": -71.0982793390006,
+      "yaw_error_to_106_107_line_deg": 14.824956513822563,
+      "odom_yaw_rad": 0.24893221087404635,
+      "odom_vx_vy_mps": [
+        0.3915724024276768,
+        0.060634917131533544
+      ],
+      "odom_projected_bodyforward_mps": 0.394441169638108
+    },
+    {
+      "bag_sample_time": "14:39:19",
+      "epoch": 1794206359.0,
+      "cmd_vel_mps_radps": [
+        -0.03509652283456584,
+        0.027256449684500694
+      ],
+      "cmd_vel_nav_mps_radps": [
+        -0.15961211919784546,
+        0.027256449684500694
+      ],
+      "ecu_motor_kmh": 0.800000011920929,
+      "ecu_steer_deg": 21.221538543701172,
+      "ecu_shift": 3,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.30000001192092896,
+      "actual_steer_deg": 26.10000228881836,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.08917233347892761,
+      "tf_map_xy_m": [
+        115.98498437185329,
+        -147.59274777550718
+      ],
+      "tf_map_yaw_deg": -97.48083236359909,
+      "yaw_error_to_106_107_line_deg": -11.557596510775928,
+      "odom_yaw_rad": -0.21132729477424894,
+      "odom_vx_vy_mps": [
+        0.11699125731153975,
+        0.008413206593327671
+      ],
+      "odom_projected_bodyforward_mps": 0.11262385944170458
+    },
+    {
+      "bag_sample_time": "14:39:20",
+      "epoch": 1794206360.0,
+      "cmd_vel_mps_radps": [
+        0.09146147966384888,
+        0.1314040571451187
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.09146147966384888,
+        0.1314040571451187
+      ],
+      "ecu_motor_kmh": 0.800000011920929,
+      "ecu_steer_deg": -30.0,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.4000000059604645,
+      "actual_steer_deg": 15.772501945495605,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.1336098313331604,
+      "tf_map_xy_m": [
+        115.97492801650313,
+        -147.6086988125979
+      ],
+      "tf_map_yaw_deg": -98.68530988672799,
+      "yaw_error_to_106_107_line_deg": -12.762074033904831,
+      "odom_yaw_rad": -0.23232131660159766,
+      "odom_vx_vy_mps": [
+        0.1307290580677067,
+        -0.040288187539081866
+      ],
+      "odom_projected_bodyforward_mps": 0.13649280021812124
+    },
+    {
+      "bag_sample_time": "14:39:21",
+      "epoch": 1794206361.0,
+      "cmd_vel_mps_radps": [
+        0.10002287063333724,
+        0.23652440309524536
+      ],
+      "cmd_vel_nav_mps_radps": [
+        -0.06886252015829086,
+        0.23652440309524536
+      ],
+      "ecu_motor_kmh": 0.800000011920929,
+      "ecu_steer_deg": -30.0,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.800000011920929,
+      "actual_steer_deg": -7.3575005531311035,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.1508907973766327,
+      "tf_map_xy_m": [
+        115.93426195946188,
+        -147.7397776826444
+      ],
+      "tf_map_yaw_deg": -99.25200390182208,
+      "yaw_error_to_106_107_line_deg": -13.328768048998912,
+      "odom_yaw_rad": -0.24218390350812735,
+      "odom_vx_vy_mps": [
+        0.28228495840599305,
+        0.019831772274574236
+      ],
+      "odom_projected_bodyforward_mps": 0.2692907840294337
+    },
+    {
+      "bag_sample_time": "14:39:30",
+      "epoch": 1794206370.0,
+      "cmd_vel_mps_radps": [
+        0.013965604826807976,
+        0.024518372491002083
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.013965604826807976,
+        0.024518372491002083
+      ],
+      "ecu_motor_kmh": 0.800000011920929,
+      "ecu_steer_deg": -30.0,
+      "ecu_shift": 1,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": -26.955001831054688,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.029896078631281853,
+      "tf_map_xy_m": [
+        115.89685477173809,
+        -147.8946905136271
+      ],
+      "tf_map_yaw_deg": -90.28290812924548,
+      "yaw_error_to_106_107_line_deg": -4.359672276422322,
+      "odom_yaw_rad": -0.08563984194643039,
+      "odom_vx_vy_mps": [
+        -0.0007398521020670224,
+        -0.004577345659023572
+      ],
+      "odom_projected_bodyforward_mps": -0.0003456164906766244
+    },
+    {
+      "bag_sample_time": "14:40:02",
+      "epoch": 1794206402.0,
+      "cmd_vel_mps_radps": [
+        -0.23999999463558197,
+        0.0
+      ],
+      "cmd_vel_nav_mps_radps": [
+        0.0,
+        0.0
+      ],
+      "ecu_motor_kmh": 0.8639999628067017,
+      "ecu_steer_deg": 0.0,
+      "ecu_shift": 3,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": -17.19000244140625,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": -0.005245629698038101,
+      "tf_map_xy_m": [
+        115.87379817480128,
+        -147.81584736207375
+      ],
+      "tf_map_yaw_deg": -87.40902425249985,
+      "yaw_error_to_106_107_line_deg": -1.4857883996766899,
+      "odom_yaw_rad": -0.0355024131486495,
+      "odom_vx_vy_mps": [
+        -0.0016762148184939346,
+        0.002295076173882327
+      ],
+      "odom_projected_bodyforward_mps": -0.0017566221879154454
+    },
+    {
+      "bag_sample_time": "14:40:13.831",
+      "epoch": 1794206413.831,
+      "cmd_vel_mps_radps": [
+        -0.2934562895033095,
+        -0.10998301208019257
+      ],
+      "cmd_vel_nav_mps_radps": [
+        -0.2848495543003082,
+        -0.10998301208019257
+      ],
+      "ecu_motor_kmh": 1.0564426183700562,
+      "ecu_steer_deg": -10.613704681396484,
+      "ecu_shift": 3,
+      "ecu_brake": false,
+      "actual_speed_kmh": 0.0,
+      "actual_steer_deg": -24.165002822875977,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "imu_yaw_rate_radps": 0.00491960858926177,
+      "tf_map_xy_m": [
+        115.85626644459242,
+        -147.61566460221582
+      ],
+      "tf_map_yaw_deg": -84.18787439752083,
+      "yaw_error_to_106_107_line_deg": 1.7353614553023278,
+      "odom_yaw_rad": 0.020654668086266897,
+      "odom_vx_vy_mps": [
+        0.014749294056864471,
+        -0.007701138090062438
+      ],
+      "odom_projected_bodyforward_mps": 0.014587094889866682
+    }
+  ],
+  "source_sha256": {
+    "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574",
+    "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f",
+    "real_ws/src/driver/car_control/chassis_driver/chassis_driver/src/MsgJD01.cpp": "2d78a817fcfdc30ca6f0d3494baea7faf90d76de065cc2ceed29a7617455da94",
+    "real_ws/src/driver/car_control/chassis_driver/chassis_driver/launch/chassis_driver.launch.py": "809dbeb1c35b3ca1faf577380e243cc8a33f319709d413035ac854e6f655b3c3",
+    "slam/src/LIO-SAM/src/imuPreintegration.cpp": "7371bba9858f538e89728924dfa4695904984c7c0d167ea988037add722cd84d",
+    "nav2/src/nav2/config/nav2_real_params.yaml": "be205cda306c21f70500093fbd20975ea0cedd924f13404357d4b190ffa89a8b"
+  },
+  "curvature_mapping": {
+    "mppi_min_turning_r_m": 0.4,
+    "mppi_max_curvature_inv_m": 2.5,
+    "converter_L_m": 0.5,
+    "converter_steer_limit_deg": 30,
+    "can_steer_limit_approx_deg": 27,
+    "converter_formula_R_at_30_m": 0.8660254037844387,
+    "converter_formula_R_at_27_m": 0.9813052527525753,
+    "caveat": "Equivalent radius according to converter single-front-wheel inverse kinematics only, not an independently measured physical minimum radius. rear_wheel_flag true and independent front/rear angle telemetry absent."
+  }
+}

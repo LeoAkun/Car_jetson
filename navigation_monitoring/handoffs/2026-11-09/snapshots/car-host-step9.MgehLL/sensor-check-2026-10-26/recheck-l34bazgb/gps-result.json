@@ -1,0 +1,165 @@
+{
+  "started": "2026-10-26T18:10:15.695203+08:00",
+  "serial_port": "/dev/ttyS8",
+  "baudrate": 115200,
+  "raw_seconds": 20,
+  "driver_seconds": 20,
+  "nmea_types": {
+    "GNVTG": 20,
+    "GNGGA": 20,
+    "GNGSA": 80,
+    "GPGSV": 20,
+    "GAGSV": 20,
+    "GBGSV": 20,
+    "GQGSV": 19,
+    "GNGLL": 19,
+    "GNRMC": 19
+  },
+  "gga": [
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    },
+    {
+      "quality": "0",
+      "satellites": "00",
+      "hdop": "99.99",
+      "latitude_present": false,
+      "longitude_present": false
+    }
+  ],
+  "navsatfix": [],
+  "raw_bytes": 7455,
+  "valid_nmea": 237,
+  "invalid_nmea": 0,
+  "driver_exit": 0
+}

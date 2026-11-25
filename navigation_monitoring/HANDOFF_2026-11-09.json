@@ -1,0 +1,9 @@
+{
+  "entry": "/home/akun/workspace/Car_jetson/navigation_monitoring/HANDOFF_2026-11-09.md",
+  "start_here": "/home/akun/workspace/Car_jetson/navigation_monitoring/handoffs/2026-11-09/START_HERE.md",
+  "starter_prompt": "/home/akun/workspace/Car_jetson/navigation_monitoring/handoffs/2026-11-09/新聊天开场.txt",
+  "test_index": "/home/akun/workspace/Car_jetson/navigation_monitoring/handoffs/2026-11-09/测试索引.json",
+  "changes": "/home/akun/workspace/Car_jetson/navigation_monitoring/handoffs/2026-11-09/修改与回滚索引.json",
+  "original_files": "/home/akun/workspace/Car_jetson/navigation_monitoring/handoffs/2026-11-09/原始文件目录索引.json",
+  "generated_at": "2026-11-09T17:42:37.826977+08:00"
+}

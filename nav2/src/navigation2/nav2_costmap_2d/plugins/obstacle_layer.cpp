@@ -371,8 +371,8 @@ ObstacleLayer::laserScanValidInfCallback(
   const std::shared_ptr<nav2_costmap_2d::ObservationBuffer> & buffer)
 {
   // ==【调试插桩1】
-  RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
-    "--> [Debug ValidInf] 局部地图收到数据! 坐标系: %s, 点数: %zu", 
+  RCLCPP_DEBUG_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
+    "--> [Debug ValidInf] 局部地图收到数据! 坐标系: %s, 点数: %zu",
     raw_message->header.frame_id.c_str(), raw_message->ranges.size());
   // ====
 
@@ -400,7 +400,7 @@ ObstacleLayer::laserScanValidInfCallback(
     projector_.transformLaserScanToPointCloud(message.header.frame_id, message, cloud, *tf_);
 
     // === 【调试插桩】 ===
-    RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
+    RCLCPP_DEBUG_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
       "--> [Debug ValidInf] 局部地图 TF 转换成功。");
     // ===
 
@@ -465,10 +465,10 @@ ObstacleLayer::updateBounds(
   current_ = current;
 
   // 【调试插桩 3 - 准备变量】
-  int total_points = 0;
-  int dropped_by_height = 0;
-  int dropped_by_dist = 0;
-  int marked_points = 0;
+  size_t total_points = 0;
+  size_t dropped_by_height = 0;
+  size_t dropped_by_dist = 0;
+  size_t marked_points = 0;
   
   // 清理点云
   // raytrace freespace
@@ -493,6 +493,7 @@ ObstacleLayer::updateBounds(
     sensor_msgs::PointCloud2ConstIterator<float> iter_z(cloud, "z");
 
     for (; iter_x != iter_x.end(); ++iter_x, ++iter_y, ++iter_z) {
+      ++total_points;
       double px = *iter_x, py = *iter_y, pz = *iter_z;
 
       // if the obstacle is too low, we won't add it
@@ -525,6 +526,7 @@ ObstacleLayer::updateBounds(
       // if the point is too close, do not conisder it
       if (sq_dist < sq_obstacle_min_range) {
         RCLCPP_DEBUG(logger_, "The point is too close");
+        dropped_by_dist++;
         continue;
       }
 
@@ -546,17 +548,27 @@ ObstacleLayer::updateBounds(
   // 【调试插桩 4 - 打印过滤结果】 请加在这个位置（循环结束，updateFootprint之前）
   // =====================================================================
   // 【新代码：无论有没有点，都强制打印当前状态！】
-  RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
-    "--> [Debug Bounds] 执行中! clearing_obs(清理包): %zu | marking_obs(标记包): %zu", 
+  RCLCPP_DEBUG_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
+    "--> [Debug Bounds] 执行中! clearing_obs(清理包): %zu | marking_obs(标记包): %zu",
     clearing_observations.size(), observations.size());
 
   if (total_points > 0) {
-    RCLCPP_INFO_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
-      "    |- [点数统计] 总点数: %d | 高度丢弃: %d | 距离丢弃: %d | 最终标记: %d", 
+    RCLCPP_DEBUG_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
+      "    |- [点数统计] 总点数: %zu | 高度丢弃: %zu | 距离丢弃: %zu | 最终标记: %zu",
       total_points, dropped_by_height, dropped_by_dist, marked_points);
-  } else {
-    RCLCPP_WARN_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000, 
-      "    |- [异常警告] 缓冲区内有效点数为 0！雷达数据在此处丢失。");
+  }
+
+  if (total_points == 0 && !observations.empty()) {
+    RCLCPP_WARN_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
+      "    |- [观测告警] 标记观测存在，但经观测缓冲区过滤后点数为 0；"
+      "请检查观测源高度范围、量程与 TF。");
+  } else if (total_points > 0 && marked_points == 0) {
+    RCLCPP_WARN_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
+      "    |- [过滤告警] 收到 %zu 个雷达点，但没有点进入代价地图；"
+      "请检查障碍层高度、量程与地图范围。", total_points);
+  } else if (total_points == 0) {
+    RCLCPP_DEBUG_THROTTLE(logger_, *(node_.lock()->get_clock()), 1000,
+      "    |- [观测状态] 当前没有可用于标记的观测；不据此判定雷达断流。");
   }
   // =====================================================================
 

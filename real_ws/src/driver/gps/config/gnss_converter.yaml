@@ -3,7 +3,7 @@
 gnss_converter_node:
   ros__parameters:
     # 串口设备
-    serial_port: "/dev/ttyACM0"
+    serial_port: "/dev/ttyS8"
 
     # 波特率
     baudrate: 115200

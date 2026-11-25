@@ -1,0 +1,17 @@
+{
+  "status": "ABNORMAL_REBOOT_DETECTED",
+  "started_at": "2026-11-15T10:48:44+08:00",
+  "boot_id": "b63afe56-5225-4f79-9d0e-23039b686c07",
+  "duration_s": 86400,
+  "interval_s": 1.0,
+  "label": "nav_field_test",
+  "last_sample_at": "2026-11-15T18:01:33.713+08:00",
+  "last_elapsed_s": 25969.6,
+  "last_package_c": 36.0,
+  "last_cpu_busy_pct": 0.2,
+  "last_mem_available_kib": 30866204,
+  "samples": 24971,
+  "reason": "monitor restarted with a different host boot ID",
+  "detected_next_boot_id": "6dabe411-f07c-4d3d-a1f0-10e8bb15e388",
+  "detected_next_boot_at": "2026-11-16T10:24:16+08:00"
+}

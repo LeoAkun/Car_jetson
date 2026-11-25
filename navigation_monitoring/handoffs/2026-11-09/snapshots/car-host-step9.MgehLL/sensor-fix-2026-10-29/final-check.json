@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "/imu": true,
+    "/rslidar_points": true,
+    "/rslidar_Pointcloud2": true,
+    "/laser/scan_front": true,
+    "/laser/scan_back": true,
+    "/laser/scan_merge": true,
+    "/laser/scan_merge_laser": true,
+    "/camera/front_depth_camera/depth/image_rect_raw": true,
+    "/camera/front_depth_camera/depth/camera_info": true,
+    "/rear_camera/image_raw": true,
+    "/rear_camera/camera_info": true,
+    "/rear_camera/image_rect": true,
+    "launches_stopped_cleanly": true,
+    "extra_uvc_success": true,
+    "imu_finite": true,
+    "no_sensor_driver_residue": true
+  },
+  "active_sensor_drivers": [],
+  "gps_position_fix": "not available indoors; NMEA communication passed",
+  "network_reboot_acceptance": "not performed",
+  "extrinsic_hardware_sync_calibration": "not performed"
+}

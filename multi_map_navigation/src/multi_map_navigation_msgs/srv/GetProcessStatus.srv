@@ -5,3 +5,7 @@ bool liosam_running            # LIO-SAM进程是否运行
 bool nav2_init_pose_running    # nav2_init_pose进程是否运行
 bool navigation2_running       # navigation2进程是否运行
 string message                 # 状态消息
+string stack_state             # STOPPED/STARTING/RUNNING/STOPPING/PARTIAL/FAILED
+string active_map              # 当前完整导航栈绑定地图
+string localization_session_id # 当前重定位会话
+int64 session_start_ns         # 当前重定位会话开始时间

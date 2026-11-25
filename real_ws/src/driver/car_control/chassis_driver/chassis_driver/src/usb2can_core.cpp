@@ -2,6 +2,8 @@
 #include <errno.h>
 #include <sys/ioctl.h>
 #include <net/if.h>
+#include <limits>
+#include <stdexcept>
 
 namespace USB2CAN
 {
@@ -155,6 +157,12 @@ CAN_app::CAN_app() : Node("chassis_driver")
     this->declare_parameter<bool>("show_sending_msg", false);
     this->declare_parameter<std::string>("car_type", "JD03");
     this->declare_parameter<double>("vehicle_weight", 80);
+    use_front_wheel_feedback = this->declare_parameter<bool>("use_front_wheel_feedback", false);
+    front_wheel_feedback_timeout = this->declare_parameter<double>(
+        "front_wheel_feedback_timeout", 0.15);
+    if (!std::isfinite(front_wheel_feedback_timeout) || front_wheel_feedback_timeout <= 0.0) {
+        throw std::invalid_argument("front_wheel_feedback_timeout must be positive and finite");
+    }
 }
 
 CAN_app::~CAN_app()
@@ -723,6 +731,17 @@ void CAN_app::can_recv_func(int id) {
             msg_vehicle_status.header.stamp = rclcpp::Clock().now();
             msg_vehicle_status.left_wheel_speed = left_wheel_speed;
             msg_vehicle_status.right_wheel_speed = right_wheel_speed;
+            if (use_front_wheel_feedback) {
+                // Keep the signed 0x168 source separate from motor diagnostics.
+                // A fresh 0x51 status must not make cached wheel data fresh.
+                const double age = std::chrono::duration<double>(
+                    std::chrono::steady_clock::now() - front_wheel_feedback_time).count();
+                const bool fresh = front_wheel_feedback_seen && age <= front_wheel_feedback_timeout;
+                msg_vehicle_status.left_wheel_speed = fresh ? front_left_feedback
+                    : std::numeric_limits<float>::quiet_NaN();
+                msg_vehicle_status.right_wheel_speed = fresh ? front_right_feedback
+                    : std::numeric_limits<float>::quiet_NaN();
+            }
             // pub_vehicle_status.publish(msg_vehicle_status);
             pub_vehicle_status->publish(msg_vehicle_status);
             break;
@@ -765,6 +784,10 @@ void CAN_app::can_recv_func(int id) {
 
             left_wheel_speed  = front_left * wheel_radius*2*3.141592654/60;
             right_wheel_speed = front_right* wheel_radius*2*3.141592654/60;
+            front_left_feedback = left_wheel_speed;
+            front_right_feedback = right_wheel_speed;
+            front_wheel_feedback_time = std::chrono::steady_clock::now();
+            front_wheel_feedback_seen = true;
 			
 			//std::cout << "right wheel rpm 168 front_left:"<< front_left<< std::endl;
 			//std::cout << "right wheel rpm 168 front_right:"<< front_right<< std::endl;

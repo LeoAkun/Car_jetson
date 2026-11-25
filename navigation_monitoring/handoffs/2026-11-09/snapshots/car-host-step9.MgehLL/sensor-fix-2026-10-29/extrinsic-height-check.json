@@ -1,0 +1,31 @@
+{
+  "source_and_installed_config": {
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml": [
+      0.0,
+      0.0,
+      -0.11
+    ],
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar copy.yaml": [
+      0.0,
+      0.0,
+      -0.11
+    ],
+    "/home/akun/workspace/Car_jetson/slam/install/lio_sam/share/lio_sam/config/params_rslidar.yaml": [
+      0.0,
+      0.0,
+      -0.11
+    ],
+    "/home/akun/workspace/Car_jetson/slam/install/lio_sam/share/lio_sam/config/params_rslidar copy.yaml": [
+      0.0,
+      0.0,
+      -0.11
+    ]
+  },
+  "tf_imu_origin_in_rslidar": [
+    0.0,
+    0.0,
+    -0.10999999999999999
+  ],
+  "height_confirmation": "user confirmed 11 cm on 2026-10-29",
+  "scope": "translation height consistency only; no new dynamic calibration"
+}

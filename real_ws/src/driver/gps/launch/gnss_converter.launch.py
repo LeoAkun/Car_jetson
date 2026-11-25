@@ -7,7 +7,7 @@ def generate_launch_description():
     # 声明启动参数
     serial_port_arg = DeclareLaunchArgument(
         'serial_port',
-        default_value='/dev/ttyACM0',
+        default_value='/dev/ttyS8',
         description='Serial port for GNSS receiver'
     )
 

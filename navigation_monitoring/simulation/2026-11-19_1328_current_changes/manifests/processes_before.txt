@@ -1,0 +1,365 @@
+    PID ELAPSED CMD
+      1  186731 /sbin/init splash
+      2  186731 [kthreadd]
+      3  186731 [pool_workqueue_release]
+      4  186731 [kworker/R-rcu_g]
+      5  186731 [kworker/R-rcu_p]
+      6  186731 [kworker/R-slub_]
+      7  186731 [kworker/R-netns]
+      9  186731 [kworker/0:0H-events_highpri]
+     12  186731 [kworker/R-mm_pe]
+     13  186731 [rcu_tasks_kthread]
+     14  186731 [rcu_tasks_rude_kthread]
+     15  186731 [rcu_tasks_trace_kthread]
+     16  186731 [ksoftirqd/0]
+     17  186731 [rcu_preempt]
+     18  186731 [migration/0]
+     19  186731 [idle_inject/0]
+     20  186731 [cpuhp/0]
+     21  186731 [cpuhp/2]
+     22  186731 [idle_inject/2]
+     23  186731 [migration/2]
+     24  186731 [ksoftirqd/2]
+     26  186731 [kworker/2:0H-events_highpri]
+     27  186731 [cpuhp/4]
+     28  186731 [idle_inject/4]
+     29  186731 [migration/4]
+     30  186731 [ksoftirqd/4]
+     32  186731 [kworker/4:0H-events_highpri]
+     33  186731 [cpuhp/6]
+     34  186731 [idle_inject/6]
+     35  186731 [migration/6]
+     36  186731 [ksoftirqd/6]
+     38  186731 [kworker/6:0H-events_highpri]
+     39  186731 [cpuhp/8]
+     40  186731 [idle_inject/8]
+     41  186731 [migration/8]
+     42  186731 [ksoftirqd/8]
+     44  186731 [kworker/8:0H-events_highpri]
+     45  186731 [cpuhp/10]
+     46  186731 [idle_inject/10]
+     47  186731 [migration/10]
+     48  186731 [ksoftirqd/10]
+     50  186731 [kworker/10:0H-events_highpri]
+     51  186731 [cpuhp/12]
+     52  186731 [idle_inject/12]
+     53  186731 [migration/12]
+     54  186731 [ksoftirqd/12]
+     56  186731 [kworker/12:0H-kblockd]
+     57  186731 [cpuhp/14]
+     58  186731 [idle_inject/14]
+     59  186731 [migration/14]
+     60  186731 [ksoftirqd/14]
+     62  186731 [kworker/14:0H-events_highpri]
+     63  186731 [cpuhp/16]
+     64  186731 [idle_inject/16]
+     65  186731 [migration/16]
+     66  186731 [ksoftirqd/16]
+     68  186731 [kworker/16:0H-events_highpri]
+     69  186731 [cpuhp/17]
+     70  186731 [idle_inject/17]
+     71  186731 [migration/17]
+     72  186731 [ksoftirqd/17]
+     74  186731 [kworker/17:0H-events_highpri]
+     75  186731 [cpuhp/18]
+     76  186731 [idle_inject/18]
+     77  186731 [migration/18]
+     78  186731 [ksoftirqd/18]
+     80  186731 [kworker/18:0H-events_highpri]
+     81  186731 [cpuhp/19]
+     82  186731 [idle_inject/19]
+     83  186731 [migration/19]
+     84  186731 [ksoftirqd/19]
+     86  186731 [kworker/19:0H-events_highpri]
+     87  186731 [cpuhp/1]
+     88  186731 [idle_inject/1]
+     89  186731 [migration/1]
+     90  186731 [ksoftirqd/1]
+     92  186731 [kworker/1:0H-events_highpri]
+     93  186731 [cpuhp/3]
+     94  186731 [idle_inject/3]
+     95  186731 [migration/3]
+     96  186731 [ksoftirqd/3]
+     98  186731 [kworker/3:0H-events_highpri]
+     99  186731 [cpuhp/5]
+    100  186731 [idle_inject/5]
+    101  186731 [migration/5]
+    102  186731 [ksoftirqd/5]
+    104  186731 [kworker/5:0H-events_highpri]
+    105  186731 [cpuhp/7]
+    106  186731 [idle_inject/7]
+    107  186731 [migration/7]
+    108  186731 [ksoftirqd/7]
+    110  186731 [kworker/7:0H-events_highpri]
+    111  186731 [cpuhp/9]
+    112  186731 [idle_inject/9]
+    113  186731 [migration/9]
+    114  186731 [ksoftirqd/9]
+    116  186731 [kworker/9:0H-events_highpri]
+    117  186731 [cpuhp/11]
+    118  186731 [idle_inject/11]
+    119  186731 [migration/11]
+    120  186731 [ksoftirqd/11]
+    122  186731 [kworker/11:0H-events_highpri]
+    123  186731 [cpuhp/13]
+    124  186731 [idle_inject/13]
+    125  186731 [migration/13]
+    126  186731 [ksoftirqd/13]
+    128  186731 [kworker/13:0H-events_highpri]
+    129  186731 [cpuhp/15]
+    130  186731 [idle_inject/15]
+    131  186731 [migration/15]
+    132  186731 [ksoftirqd/15]
+    134  186731 [kworker/15:0H-events_highpri]
+    135  186731 [kdevtmpfs]
+    136  186731 [kworker/R-inet_]
+    137  186731 [kauditd]
+    138  186731 [kworker/0:2-events]
+    139  186731 [khungtaskd]
+    141  186731 [oom_reaper]
+    143  186731 [kworker/R-write]
+    144  186731 [kcompactd0]
+    145  186731 [ksmd]
+    146  186731 [khugepaged]
+    147  186731 [kworker/R-kinte]
+    148  186731 [kworker/R-kbloc]
+    149  186731 [kworker/R-blkcg]
+    151  186731 [irq/9-acpi]
+    156  186729 [kworker/R-tpm_d]
+    157  186729 [kworker/R-ata_s]
+    158  186729 [kworker/R-md]
+    159  186729 [kworker/R-md_bi]
+    160  186729 [kworker/R-edac-]
+    161  186729 [kworker/R-devfr]
+    162  186729 [watchdogd]
+    163  186729 [kworker/R-quota]
+    164  186729 [kworker/17:1H-kblockd]
+    165  186729 [kswapd0]
+    166  186729 [ecryptfs-kthread]
+    167  186729 [kworker/R-kthro]
+    168  186729 [irq/122-pciehp]
+    169  186729 [irq/123-aerdrv]
+    170  186729 [irq/124-aerdrv]
+    171  186729 [irq/125-aerdrv]
+    172  186728 [kworker/R-acpi_]
+    174  186728 [kworker/3:1-events]
+    178  186728 [hwrng]
+    179  186728 [kworker/R-hfi-u]
+    181  186728 [kworker/R-mld]
+    182  186728 [kworker/18:1H-kblockd]
+    183  186728 [kworker/R-ipv6_]
+    191  186728 [kworker/R-kstrp]
+    193  186728 [kworker/11:1-mm_percpu_wq]
+    211  186728 [kworker/R-charg]
+    232  186728 [kworker/16:1H-kblockd]
+    235  186728 [kworker/0:1H-kblockd]
+    236  186728 [kworker/2:1H-kblockd]
+    251  186728 [kworker/12:1H]
+    252  186728 [kworker/8:1H-kblockd]
+    253  186728 [kworker/4:1H-kblockd]
+    254  186728 [kworker/15:1H-kblockd]
+    255  186728 [kworker/10:1H-kblockd]
+    256  186728 [kworker/6:1H-kblockd]
+    257  186728 [kworker/14:1H-kblockd]
+    258  186728 [kworker/11:1H-kblockd]
+    259  186728 [kworker/5:1H-kblockd]
+    261  186728 [kworker/19:1H-kblockd]
+    263  186728 [kworker/3:1H-kblockd]
+    265  186728 [kworker/7:1H-kblockd]
+    286  186728 [kworker/13:1H-kblockd]
+    287  186728 [kworker/1:1H-kblockd]
+    289  186728 [kworker/9:1H-kblockd]
+    310  186728 [scsi_eh_0]
+    311  186728 [kworker/R-scsi_]
+    312  186728 [scsi_eh_1]
+    313  186728 [kworker/R-scsi_]
+    314  186728 [scsi_eh_2]
+    315  186728 [kworker/R-scsi_]
+    316  186728 [scsi_eh_3]
+    317  186728 [kworker/R-scsi_]
+    318  186728 [scsi_eh_4]
+    319  186728 [kworker/R-scsi_]
+    320  186728 [scsi_eh_5]
+    321  186728 [kworker/R-scsi_]
+    322  186728 [scsi_eh_6]
+    323  186728 [kworker/R-scsi_]
+    324  186728 [scsi_eh_7]
+    325  186728 [kworker/R-scsi_]
+    358  186728 [kworker/13:1-mm_percpu_wq]
+    371  186727 [spi1]
+    414  186721 [jbd2/sda2-8]
+    415  186721 [kworker/R-ext4-]
+    454  186721 /lib/systemd/systemd-journald
+    483  186721 /lib/systemd/systemd-udevd
+    586  186720 [irq/143-mei_me]
+    612  186720 [kworker/R-crypt]
+    659  186720 [kworker/R-cfg80]
+    686  186720 [kworker/R-ttm]
+    726  186720 [card1-crtc0]
+    727  186720 [card1-crtc1]
+    728  186720 [card1-crtc2]
+    757  186720 /lib/systemd/systemd-oomd
+    761  186720 /lib/systemd/systemd-resolved
+    936  186719 /usr/libexec/accounts-daemon
+    937  186719 /usr/sbin/acpid
+    939  186719 avahi-daemon: running [admin1-Default-string.local]
+    940  186719 /usr/sbin/cron -f -P
+    941  186719 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+    943  186719 /usr/sbin/NetworkManager --no-daemon
+    952  186719 /usr/libexec/iio-sensor-proxy
+    954  186719 /usr/sbin/irqbalance --foreground
+    955  186719 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+    956  186719 /usr/libexec/polkitd --no-debug
+    957  186719 /usr/libexec/power-profiles-daemon
+    958  186719 /usr/sbin/rsyslogd -n -iNONE
+    964  186719 /snap/snapd/current/usr/lib/snapd/snapd
+    966  186719 /usr/libexec/switcheroo-control
+    972  186719 /lib/systemd/systemd-logind
+    973  186719 /usr/sbin/thermald --systemd --dbus-enable --adaptive
+    975  186719 [kworker/5:2-events]
+    976  186719 /usr/libexec/udisks2/udisksd
+    978  186719 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+    982  186719 avahi-daemon: chroot helper
+   1059  186718 /usr/sbin/ModemManager
+   1064  186718 [kworker/15:2-mm_percpu_wq]
+   1068  186718 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+   1090  186718 /usr/sbin/chronyd -F 1
+   1097  186718 /usr/sbin/chronyd -F 1
+   1115  186718 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+   1398  186712 /usr/sbin/kerneloops --test
+   1409  186712 /usr/sbin/kerneloops
+   1424  186712 /usr/sbin/gdm3
+   1429  186712 gdm-session-worker [pam/gdm-autologin]
+   1434  186711 /lib/systemd/systemd --user
+   1435  186711 (sd-pam)
+   1441  186711 /usr/bin/pipewire
+   1442  186711 /usr/bin/pipewire-media-session
+   1443  186711 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+   1455  186711 /usr/bin/gnome-keyring-daemon --daemonize --login
+   1458  186711 /usr/libexec/rtkit-daemon
+   1461  186711 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1468  186711 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+   1473  186711 /usr/libexec/gnome-session-binary --session=ubuntu
+   1509  186711 /usr/libexec/xdg-document-portal
+   1519  186711 /usr/libexec/xdg-permission-store
+   1525  186711 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1001/doc
+   1544  186711 /usr/libexec/gnome-session-ctl --monitor
+   1555  186711 /usr/libexec/gvfsd
+   1563  186711 /usr/libexec/gvfsd-fuse /run/user/1001/gvfs -f
+   1565  186711 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+   1589  186711 /usr/libexec/at-spi-bus-launcher --launch-immediately
+   1595  186711 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1001/at-spi/bus
+   1600  186711 /usr/bin/gnome-shell
+   1695  186710 /usr/libexec/gnome-shell-calendar-server
+   1700  186710 /usr/libexec/upowerd
+   1703  186710 /usr/libexec/evolution-source-registry
+   1709  186710 /usr/libexec/dconf-service
+   1715  186710 /usr/libexec/gvfs-udisks2-volume-monitor
+   1720  186710 /usr/libexec/goa-daemon
+   1726  186710 /usr/libexec/gvfs-afc-volume-monitor
+   1731  186710 /usr/libexec/gvfs-gphoto2-volume-monitor
+   1734  186710 /usr/libexec/evolution-calendar-factory
+   1740  186710 /usr/libexec/gvfs-mtp-volume-monitor
+   1744  186710 /usr/libexec/gvfs-goa-volume-monitor
+   1753  186710 /usr/libexec/goa-identity-service
+   1767  186710 /usr/libexec/evolution-addressbook-factory
+   1768  186710 /usr/libexec/packagekitd
+   1782  186710 /usr/libexec/gvfsd-trash --spawner :1.15 /org/gtk/gvfs/exec_spaw/0
+   1791  186709 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+   1793  186709 /usr/libexec/at-spi2-registryd --use-gnome-session
+   1811  186709 sh -c /usr/bin/ibus-daemon --panel disable $([ "$XDG_SESSION_TYPE" = "x11" ] && echo "--xim")
+   1812  186709 /usr/libexec/gsd-a11y-settings
+   1813  186709 /usr/libexec/gsd-color
+   1815  186709 /usr/bin/ibus-daemon --panel disable
+   1817  186709 /usr/libexec/gsd-datetime
+   1818  186709 /usr/libexec/gsd-housekeeping
+   1820  186709 /usr/libexec/gsd-keyboard
+   1821  186709 /usr/libexec/gsd-media-keys
+   1823  186709 /usr/libexec/gsd-power
+   1825  186709 /usr/libexec/gsd-print-notifications
+   1826  186709 /usr/libexec/gsd-rfkill
+   1827  186709 /usr/libexec/gsd-screensaver-proxy
+   1829  186709 /usr/libexec/gsd-sharing
+   1831  186709 /usr/libexec/gsd-smartcard
+   1832  186709 /usr/libexec/gsd-sound
+   1834  186709 /usr/libexec/gsd-wacom
+   1886  186709 /usr/libexec/evolution-data-server/evolution-alarm-notify
+   1905  186709 /usr/libexec/gsd-disk-utility-notify
+   1941  186709 /usr/libexec/ibus-dconf
+   1942  186709 /usr/libexec/ibus-extension-gtk3
+   1946  186709 /usr/libexec/ibus-portal
+   1977  186709 /usr/libexec/ibus-engine-libpinyin --ibus
+   1985  186709 /usr/libexec/xdg-desktop-portal
+   1986  186709 /usr/libexec/gsd-printer
+   2002  186709 /usr/libexec/xdg-desktop-portal-gnome
+   2014  186709 /usr/libexec/colord
+   2020  186709 /usr/libexec/tracker-miner-fs-3
+   2048  186709 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver
+   2077  186709 /usr/libexec/xdg-desktop-portal-gtk
+   2088  186708 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -M 0 -D 0:0:1920:1200:1:27:0:70:0:0
+   2114  186708 /usr/libexec/gvfsd-metadata
+   2127  186706 /snap/snapd-desktop-integration/391/usr/bin/user-session-helper /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration
+   2205  186706 /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration
+   2277  186649 update-notifier
+   3381  186016 node /home/akun/.nvm/versions/node/v22.23.3/bin/codex -c features.code_mode_host=true app-server --listen unix://
+   3388  186016 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+   5234  185534 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex-code-mode-host
+   9716  181863 [kworker/7:0-mm_percpu_wq]
+  10425  181051 [kworker/R-tls-s]
+  32526  168281 [kworker/19:2-mm_percpu_wq]
+  39914  166122 /home/akun/.vscode-server/code-69047191fc427f2f92828279aae1d90d8eeda7ab --cli-data-dir /home/akun/.vscode-server/cli agent host
+  48729  160863 [kworker/9:0-events]
+  55013  158715 [kworker/15:0-events]
+  55054  158715 [kworker/13:3]
+  56130  158649 [kworker/12:0-mm_percpu_wq]
+  56858  158587 [kworker/1:0]
+  59105  157571 [kworker/9:1-cgroup_free]
+  64434  153652 [kworker/11:0]
+  64437  153652 [kworker/3:2]
+ 169657  106073 [kworker/10:0-events]
+ 177011  100678 [kworker/14:2-events]
+ 181773   97110 [kworker/4:0-rcu_par_gp]
+ 186051   94722 [kworker/17:2-events]
+ 196435   90394 [kworker/18:1-mm_percpu_wq]
+ 196480   90393 [kworker/5:3]
+ 197761   89508 [kworker/7:3-inode_switch_wbs]
+ 197762   89508 [kworker/1:1-mm_percpu_wq]
+ 204120   83731 [kworker/u41:0-uvcvideo]
+ 204250   83027 [kworker/u41:1-i915_flip]
+ 205559   79125 [kworker/0:0]
+ 205892   78634 [kworker/8:2-events]
+ 221962   69438 [kworker/16:0-events]
+ 225831   60611 /usr/libexec/gnome-terminal-server
+ 225857   60610 bash
+ 226684   50279 [kworker/14:1]
+ 226768   48622 [kworker/6:1-rcu_gp]
+ 226808   48622 /usr/sbin/cupsd -l
+ 226811   48622 /usr/sbin/cups-browsed
+ 227050   44380 [kworker/18:2]
+ 228895   18214 [kworker/4:1-events]
+ 228901   18214 [kworker/19:0]
+ 229111   13900 /usr/bin/python3 /home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py --duration 86400 --interval 1 --label nav_field_test
+ 230258   10904 sshd: akun [priv]
+ 230268   10904 [kworker/2:1-mm_percpu_wq]
+ 230305   10903 sshd: akun@notty
+ 230306   10903 node /home/akun/.nvm/versions/node/v22.23.3/bin/codex app-server proxy
+ 230560   10902 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex app-server proxy
+ 231008    8275 sshd: akun [priv]
+ 231045    8275 sshd: akun@notty
+ 231046    8275 node /home/akun/.nvm/versions/node/v22.23.3/bin/codex app-server proxy
+ 231300    8274 /home/akun/.nvm/versions/node/v22.23.3/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex app-server proxy
+ 234646    6825 sshd: akun [priv]
+ 234708    6818 sshd: akun
+ 242780    4314 [kworker/u40:2-ext4-rsv-conversion]
+ 246925    2056 [kworker/2:0]
+ 249188    1187 [kworker/16:2-mm_percpu_wq]
+ 249189    1187 [kworker/6:0-events]
+ 249190    1187 [kworker/12:1-events]
+ 249418    1186 [kworker/17:1]
+ 249420    1186 [kworker/10:1-inet_frag_wq]
+ 250317     918 [kworker/u40:7-mt7601u]
+ 250318     918 [kworker/u40:8-events_power_efficient]
+ 250649     578 [kworker/8:3]
+ 251000     250 [kworker/u40:0-events_power_efficient]
+ 251171       1 /bin/bash -lc kill 251121 251150 251151 2>/dev/null || true sleep 1 run_dir=$(cat /tmp/car_jetson_current_sim_run) find multi_map_navigation/src nav2/src/nav2_init_pose slam/src/LIO-SAM utils/src/re_localization navigation_monitoring -type f -newermt '2026-11-18 00:00:00' ! -newermt '2026-11-20 00:00:00' ! -path '*/build/*' ! -path '*/install/*' ! -path '*/log/*' ! -path '*/__pycache__/*' ! -path '*/.pytest_cache/*' ! -path 'navigation_monitoring/runs/*' ! -path 'navigation_monitoring/simulation/*' ! -name '*.png' ! -name '*.db3' -print0 | sort -z | xargs -0 sha256sum > "$run_dir/manifests/source_sha256.txt" ps -eo pid,etimes,cmd > "$run_dir/manifests/processes_before.txt" printf 'run_dir=%s\nmanifest_files=%s\n' "$run_dir" "$(wc -l < "$run_dir/manifests/source_sha256.txt")"
+ 251179       0 ps -eo pid,etimes,cmd

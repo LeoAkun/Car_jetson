@@ -1,0 +1,17 @@
+/cmdvel_to_ecu:
+  ros__parameters:
+    L: 0.5
+    MAX_STEER_DEG: 30.0
+    # 普通模式回切时也使用SI参数；对接模式继续独立限速0.10m/s。
+    navigation_max_speed: 0.5555555555555556 # 普通模式上限2.0km/h
+    LOW_SPEED_THRESH: 0.2222222222222222
+    STOP_THRESH: 0.002777777777777778 # 原普通模式阈值0.01km/h
+    Vel_Offeset: 0.008333333333333333
+    OMEGA_DEADZONE: 0.020
+    OMEGA_FULL_STEER: 5.0
+    rear_wheel_flag: True
+    cmd_vel_topic: /cmd_vel_selected
+    docking_mode: True
+    docking_max_speed: 0.10
+    docking_max_steer_deg: 8.0
+    input_timeout_sec: 0.20

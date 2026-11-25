@@ -5,7 +5,6 @@ from multi_map_navigation_msgs.msg import Waypoint, WaypointList, StartEndGraph
 from multi_map_navigation_msgs.srv import PubNewPath
 from std_msgs.msg import Header, String
 import networkx as nx
-import matplotlib.pyplot as plt
 import math, time
 import threading
 from shapely.geometry import Point, MultiPoint
@@ -16,7 +15,7 @@ class RoutePlannerNode(Node):
     def __init__(self):
         super().__init__('route_planner')
         self.G = None
-        self.path_nodes = {} # 所有路径
+        self.path_nodes = {} # 当前执行的最短路径
         self.points = None # 已探索过的航点
         self.latest_gps = None # 最新gps数据 
         self.gps_lock = threading.Lock()# 互斥锁，防止多线程同时访问gps数据
@@ -75,12 +74,10 @@ class RoutePlannerNode(Node):
         """机器人任务状态回调 - 接收String类型，转换为int32存储"""
         # msg.data 是字符串: "idle" 或 "running"
         
-        if msg.data == "idle":
-            with self.state_lock:
-                self.is_running = False
-        else:
-            with self.state_lock:
-                self.is_running = True
+        # Docking and parked holds still own the current route.
+        with self.state_lock:
+            self.is_running = msg.data in {
+                'running', 'docking', 'docked', 'docking_ready', 'docking_failed'}
             
     def gps_callback(self, msg: NavSatFix):
         with self.gps_lock:
@@ -100,6 +97,7 @@ class RoutePlannerNode(Node):
         id_to_name = {}
         nodes = []
         node_attrs = {}
+        node_attrs_by_name = {}
         edges = []
         edge_attrs = {}
         
@@ -126,10 +124,21 @@ class RoutePlannerNode(Node):
                     }
             # 如果 id 一样，则不添加 switch12_12, switch12_21
             nodes.append((node.name, node_attrs))
+            node_attrs_by_name[node.name] = node_attrs
         
         for edge in msg.edges:
+            start_name = id_to_name[edge.start_node_id]
+            end_name = id_to_name[edge.end_node_id]
+            if not self._edge_preserves_map_transition(
+                    node_attrs_by_name[start_name],
+                    node_attrs_by_name[end_name]):
+                self.get_logger().error(
+                    '忽略跨地图但没有地图切换点的非法边: '
+                    f'{start_name}({node_attrs_by_name[start_name]["map_name"]})'
+                    f' -> {end_name}({node_attrs_by_name[end_name]["map_name"]})')
+                continue
             edge_attrs= {"weight": edge.weight}
-            edges.append((id_to_name[edge.start_node_id], id_to_name[edge.end_node_id], edge_attrs)) 
+            edges.append((start_name, end_name, edge_attrs))
 
         # 添加节点
         self.G.add_nodes_from(nodes)
@@ -138,8 +147,9 @@ class RoutePlannerNode(Node):
         self.G.add_edges_from(edges)
         
         # 2.计算最短路径
-        self.compute_path(self.start_node_name, self.end_node_name, "weight")
-        print(f"[DEBG] 所有路径: {self.path_nodes}")
+        if not self.compute_path(self.start_node_name, self.end_node_name, "weight"):
+            self.get_logger().error('起终点不存在或无可达路径，未下发航点')
+            return
 
         # # 3.根据GPS判断机器人初始地图位置 
         # # TODO 判断经纬度正负
@@ -193,12 +203,72 @@ class RoutePlannerNode(Node):
         # self.pub_waypoint_list(path="path1", switch_count=0, latest_switch_node=None)
         self.pub_waypoint_list(self.path_nodes["path1"], path_name="path1")
 
+    @staticmethod
+    def _edge_preserves_map_transition(first: dict, second: dict) -> bool:
+        """Allow a cross-map graph edge only through a declared switch node."""
+        first_map = first.get('map_name', '')
+        second_map = second.get('map_name', '')
+        if first_map == second_map:
+            return True
+        if first.get('type') == 4 and second_map in {
+                first_map, first.get('next_map_name', '')}:
+            return True
+        if second.get('type') == 4 and first_map in {
+                second_map, second.get('next_map_name', '')}:
+            return True
+        return False
+
+    def validate_route_map_transitions(self, node_list: list[str]) -> bool:
+        """Prove every map change is represented by one switch waypoint."""
+        if not node_list:
+            self.get_logger().error('路线为空，拒绝发布')
+            return False
+
+        current_map = self.G.nodes[node_list[0]].get('map_name', '')
+        if not current_map:
+            self.get_logger().error('路线起点缺少地图名，拒绝发布')
+            return False
+
+        for index, node_name in enumerate(node_list):
+            node = self.G.nodes[node_name]
+            node_map = node.get('map_name', '')
+            if node_map != current_map:
+                self.get_logger().error(
+                    '路线地图不连续，拒绝发布: '
+                    f'node={node_name}, expected={current_map}, got={node_map}')
+                return False
+            if node.get('type') != 4:
+                continue
+
+            next_map = node.get('next_map_name', '')
+            if not next_map or next_map == current_map:
+                self.get_logger().error(
+                    f'地图切换点 {node_name} 的 next_map_name 无效')
+                return False
+            if index + 1 >= len(node_list):
+                self.get_logger().error(
+                    f'路线终点不能是尚未执行的地图切换点 {node_name}')
+                return False
+            next_node_map = self.G.nodes[node_list[index + 1]].get(
+                'map_name', '')
+            if next_node_map != next_map:
+                self.get_logger().error(
+                    '地图切换点后的航点地图不匹配，拒绝发布: '
+                    f'{node_name} expects {next_map}, got {next_node_map}')
+                return False
+            current_map = next_map
+
+        return True
+
     def pub_waypoint_list(self, node_list: list[str], path_name: str):
         '''
         function: 发布路点序列话题
         param: @ node_list: 路点列表
                @ path_name: 路径名称
         '''
+        if not self.validate_route_map_transitions(node_list):
+            return False
+
         # 填充
         waypoint_list_msg = self.fill_way_point_list_msg(node_list, path_name)
 
@@ -212,6 +282,7 @@ class RoutePlannerNode(Node):
         print(f"[DEBG] 发布一条路径:{node_list}")
         print(f"[DEBG] 共{waypoint_list_msg.total_path}条路径，已发布路径{path_name}，包含 {waypoint_list_msg.total_waypoints} 个航点")
         print("[DEBG] ---------***************-----------")
+        return True
             
     def pub_new_path_callback(self, request, response):
         '''
@@ -226,17 +297,39 @@ class RoutePlannerNode(Node):
             print(f"[DEBG] 服务调用失败，返回:{response}")
             return response
 
+        if self.G is None or "path1" not in self.path_nodes:
+            response.message = '尚未加载可用于重规划的路径图'
+            response.success = False
+            return response
+
         # 获取当前路径，path1 作为实际执行路径
         current_full_path_nodes_list = self.path_nodes["path1"]
 
         # 更新G节点地图，删除边，并重新规划路径 TODO 是否需要上报
         # 删除已走过的点与下一个点之间的边
         node1 = points[-1]
-        node2_name =  current_full_path_nodes_list[current_full_path_nodes_list.index(node1.name) + 1]
+        if node1.name not in current_full_path_nodes_list:
+            response.message = f'已完成航点 {node1.name} 不在当前路径中'
+            response.success = False
+            return response
+
+        node1_index = current_full_path_nodes_list.index(node1.name)
+        if node1_index + 1 >= len(current_full_path_nodes_list):
+            response.message = f'航点 {node1.name} 后没有可封禁的失败路径段'
+            response.success = False
+            return response
+
+        node2_name = current_full_path_nodes_list[node1_index + 1]
+        if not self.G.has_edge(node1.name, node2_name):
+            response.message = f'失败路径段 {node1.name}->{node2_name} 已不存在'
+            response.success = False
+            return response
+
         # self.G[node1.name][node2_name]['weight'] = math.inf
         self.G.remove_edge(node1.name, node2_name)
         
         # 以当前路径为起点，重新规划路径
+        self.path_nodes = {}
         ret = self.compute_path(node1.name, self.end_node_name, "weight")
         if(ret == False):
             response.success = False
@@ -245,10 +338,13 @@ class RoutePlannerNode(Node):
             return response
 
         # 如果路径点内有地图切换点，需要更新节点对应的属性
-        current_map_name  =  self.G.nodes[node2_name]['map_name']
+        current_map_name = self.G.nodes[node1.name]['map_name']
         self.update_graph_switch_node_from_list(self.path_nodes["path1"], current_map_name)
         
-        self.pub_waypoint_list(self.path_nodes["path1"], "path1")
+        if self.pub_waypoint_list(self.path_nodes["path1"], "path1") is False:
+            response.message = '重规划路线地图切换关系非法'
+            response.success = False
+            return response
         response.message = f'路径已下发'
         response.success = True
         print(f"[DEBG] 服务调用成功，返回:{response}")
@@ -342,29 +438,16 @@ class RoutePlannerNode(Node):
                   @weight: 权重字符串
         return: 返回失败则表示无路可走
         '''
-        if nx.has_path(self.G,source=source, target=target):
-        # 使用 shortest_simple_paths规划路径，它会自动按 weight 从小到大排序
-        # 生成多条候选路径
-            paths = nx.shortest_simple_paths(self.G, source=source, target=target, weight=weigth)
-        else:
+        self.path_nodes = {}
+        if self.G is None:
             return False
-
-        idx = 0
-        # 遍历所有的路径
-        for path in paths:
-            length = nx.path_weight(self.G, path, weight="weight")
-            # print(f"[DEBG] 长度: {length:.3f} | 路径: {path}")
-
-            # 为当前路径创建一个键，并初始化为空列表
-            path_key = f"path{idx + 1}" 
-            self.path_nodes[path_key] = []
-
-            # 填充节点信息
-            for node in path:
-                # print(f"[DEBG] node: {node}, loc:{self.G.nodes[node]['lng']}, lat:{self.G.nodes[node]['lat']}")
-                # 将节点加入到对应的路径列表中
-                self.path_nodes[path_key].append(node)
-            idx += 1
+        try:
+            # Only the active route is needed. Recovery removes the failed edge
+            # before asking for a new shortest path; never enumerate all paths.
+            path = nx.dijkstra_path(self.G, source=source, target=target, weight=weigth)
+        except (nx.NetworkXNoPath, nx.NodeNotFound):
+            return False
+        self.path_nodes = {"path1": path}
         return True
     
     def update_graph_switch_node_from_list(self, active_nodes_list:list[str], current_map: str):

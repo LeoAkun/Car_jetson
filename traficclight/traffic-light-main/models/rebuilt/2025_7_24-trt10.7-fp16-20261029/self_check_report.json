@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "hostname": "traffic-primary",
+  "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+  "architecture": "aarch64",
+  "overall": "PASS",
+  "checks": [
+    {
+      "name": "python",
+      "status": "PASS",
+      "required": true,
+      "detail": "Python 3.10.12 at /opt/traffic-light/venv/bin/python",
+      "data": {
+        "version": "3.10.12",
+        "executable": "/opt/traffic-light/venv/bin/python"
+      }
+    },
+    {
+      "name": "l4t",
+      "status": "PASS",
+      "required": true,
+      "detail": "# R36 (release), REVISION: 4.3, GCID: 38968081, BOARD: generic, EABI: aarch64, DATE: Wed Jan  8 01:49:37 UTC 2025",
+      "data": null
+    },
+    {
+      "name": "opencv",
+      "status": "PASS",
+      "required": true,
+      "detail": "OpenCV 4.10.0",
+      "data": {
+        "version": "4.10.0",
+        "image": "/opt/traffic-light/current/test_data/offline.jpg",
+        "shape": [
+          1080,
+          1920,
+          3
+        ],
+        "min": 0,
+        "max": 255,
+        "mean": 139.314
+      }
+    },
+    {
+      "name": "torch_cuda",
+      "status": "PASS",
+      "required": true,
+      "detail": "torch 2.5.0a0+872d972e41.nv24.08; CUDA available=True",
+      "data": {
+        "version": "2.5.0a0+872d972e41.nv24.08",
+        "cuda_available": true,
+        "torch_cuda_version": "12.6",
+        "device_name": "Orin",
+        "probe_sum": 256.0
+      }
+    },
+    {
+      "name": "tensorrt",
+      "status": "PASS",
+      "required": true,
+      "detail": "TensorRT 10.7.0; engines 1/1 loadable",
+      "data": {
+        "version": "10.7.0",
+        "engines": [
+          {
+            "path": "/opt/traffic-light/builds/tl-20250724-trt107-fp16-20261029/artifacts/2025_7_24_fp16.engine",
+            "metadata_header_bytes": 392,
+            "metadata": {
+              "description": "YOLOv10n traffic light red/green detection",
+              "version": "8.1.34",
+              "task": "detect",
+              "stride": 32,
+              "batch": 1,
+              "imgsz": [
+                640,
+                640
+              ],
+              "names": {
+                "0": "red",
+                "1": "green"
+              },
+              "source_sha256": "9fae5374557eb3ce6f83bd43e8a34d8023f96ef46b91713855ce4d8788abdc36",
+              "output_format": "xyxy_pixel,confidence,class_id; top-300 one2one; no NMS",
+              "tensorrt": "10.7.0",
+              "precision": "fp16"
+            },
+            "deserialized": true,
+            "io_tensors": [
+              {
+                "name": "images",
+                "mode": "TensorIOMode.INPUT",
+                "dtype": "DataType.FLOAT",
+                "shape": [
+                  1,
+                  3,
+                  640,
+                  640
+                ]
+              },
+              {
+                "name": "output0",
+                "mode": "TensorIOMode.OUTPUT",
+                "dtype": "DataType.FLOAT",
+                "shape": [
+                  1,
+                  300,
+                  6
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "gstreamer",
+      "status": "PASS",
+      "required": true,
+      "detail": "all required elements found",
+      "data": {
+        "required_elements": [
+          "tcpserversrc",
+          "multipartdemux",
+          "jpegdec",
+          "appsink"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "name": "ports",
+      "status": "PASS",
+      "required": true,
+      "detail": "available: 192.168.1.150:5000, 192.168.1.150:12345",
+      "data": {
+        "checked": [
+          "192.168.1.150:5000",
+          "192.168.1.150:12345"
+        ],
+        "unavailable": []
+      }
+    },
+    {
+      "name": "disk",
+      "status": "PASS",
+      "required": true,
+      "detail": "112.40 GiB free at /opt/traffic-light; minimum 10.00 GiB",
+      "data": {
+        "path": "/opt/traffic-light",
+        "free_gib": 112.403
+      }
+    },
+    {
+      "name": "model_manifest",
+      "status": "PASS",
+      "required": false,
+      "detail": "valid required fields",
+      "data": {
+        "path": "/opt/traffic-light/builds/tl-20250724-trt107-fp16-20261029/artifacts/model_manifest.json",
+        "missing": []
+      }
+    }
+  ]
+}

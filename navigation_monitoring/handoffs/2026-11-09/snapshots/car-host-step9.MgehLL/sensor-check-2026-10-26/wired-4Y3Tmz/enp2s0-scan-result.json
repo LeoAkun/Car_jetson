@@ -1,0 +1,8 @@
+{
+  "/laser/scan_front": {
+    "message_count": 0
+  },
+  "/laser/scan_back": {
+    "message_count": 0
+  }
+}

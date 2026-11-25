@@ -1,0 +1,1168 @@
+{
+  "counts": {
+    "/rosout": 31,
+    "/lio_sam/imu_preintegration_readiness": 3,
+    "/lio_sam/imu_preintegration_ready": 2,
+    "/lio_sam/correction_event": 55,
+    "/lio_sam/mapping/odometry_incremental": 54,
+    "/lio_sam/mapping/odometry": 54,
+    "/lio_sam/map_odom_correction": 1803,
+    "/odom": 1803,
+    "/lio_sam/epoch_odometry": 2318,
+    "/odom_incremental": 2318,
+    "/lio_sam/localization_fault": 4
+  },
+  "odometry": {
+    "/lio_sam/mapping/odometry_incremental": {
+      "samples": 54,
+      "first_stamp_ns": 1795079177199319839,
+      "last_stamp_ns": 1795079200899387836,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 32,
+      "max_dt_sec": 2.199759007,
+      "step_m_max": 0.01940059268988916,
+      "step_m_p99": 0.01903993539682371,
+      "step_m_p999": 0.019364526960582617,
+      "yaw_step_deg_max": 0.02582217736601533,
+      "hard_translation_over_0_05": 0,
+      "hard_yaw_over_1deg": 0,
+      "worst_10": [
+        [
+          0.01940059268988916,
+          0.017331715075666432,
+          1.399618149,
+          1795079183099237919,
+          1795098137193233203,
+          0.003647333476692438,
+          0.02527449280023575,
+          0.005356619134545326
+        ],
+        [
+          0.018707020972455607,
+          0.0016476895994423926,
+          0.199773073,
+          1795079198299388885,
+          1795098167382405129,
+          -0.0008769594132900238,
+          0.002554178237915039,
+          0.0021264555398374796
+        ],
+        [
+          0.015906713891125534,
+          0.025031612776625273,
+          1.600254058,
+          1795079197799302816,
+          1795098166398388891,
+          0.010503086261451244,
+          -0.01446922030299902,
+          0.001988182542845607
+        ],
+        [
+          0.011278029513619291,
+          0.023287559990638227,
+          0.899383068,
+          1795079192099207878,
+          1795098154988441092,
+          0.0006395434029400349,
+          -0.009860707446932793,
+          0.0024845143780112267
+        ],
+        [
+          0.011274993063228064,
+          0.02582217736601533,
+          0.600059033,
+          1795079190899517775,
+          1795098152601845468,
+          0.005463847890496254,
+          -0.000816678162664175,
+          -0.00418142881244421
+        ],
+        [
+          0.009583416420591047,
+          0.003613193416309885,
+          1.000369072,
+          1795079186399798870,
+          1795098143584855461,
+          0.005894514732062817,
+          0.018006738275289536,
+          0.006723337806761265
+        ],
+        [
+          0.008525583216024377,
+          0.022156167127385218,
+          0.299956084,
+          1795079198599344969,
+          1795098168194519401,
+          0.0007799654267728329,
+          -0.005802270956337452,
+          0.0017949044704437256
+        ],
+        [
+          0.0075204384877614085,
+          0.012752401739923501,
+          0.49947381,
+          1795079193999289751,
+          1795098159595426469,
+          -0.002870833268389106,
+          -0.008584370836615562,
+          0.0028995745815336704
+        ],
+        [
+          0.007027932068547505,
+          0.011697582742772836,
+          0.399899006,
+          1795079199699112892,
+          1795098170404478670,
+          -0.0005249857786111534,
+          -0.0005701365880668163,
+          -6.755860522389412e-05
+        ],
+        [
+          0.0070251495806330925,
+          0.00891331995219978,
+          0.199779987,
+          1795079191099297762,
+          1795098153006922368,
+          0.0032231207005679607,
+          -0.004080325365066528,
+          0.0016220593824982643
+        ]
+      ]
+    },
+    "/lio_sam/mapping/odometry": {
+      "samples": 54,
+      "first_stamp_ns": 1795079177199319839,
+      "last_stamp_ns": 1795079200899387836,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 32,
+      "max_dt_sec": 2.199759007,
+      "step_m_max": 0.01940059092375666,
+      "step_m_p99": 0.01903993632368552,
+      "step_m_p999": 0.019364525463749546,
+      "yaw_step_deg_max": 0.025822189038701905,
+      "hard_translation_over_0_05": 0,
+      "hard_yaw_over_1deg": 0,
+      "worst_10": [
+        [
+          0.01940059092375666,
+          0.017331715075666446,
+          1.399618149,
+          1795079183099237919,
+          1795098137193248262,
+          0.0036473346408456564,
+          0.0252744909375906,
+          0.005356619134545326
+        ],
+        [
+          0.018707024385158318,
+          0.0016476914232996702,
+          0.199773073,
+          1795079198299388885,
+          1795098167382411301,
+          -0.0008769556879997253,
+          0.002554167527705431,
+          0.002126455307006836
+        ],
+        [
+          0.015906713480544326,
+          0.025031630285655134,
+          1.600254058,
+          1795079197799302816,
+          1795098166398400525,
+          0.010503086261451244,
+          -0.014469237066805363,
+          0.001988181844353676
+        ],
+        [
+          0.011278032694731087,
+          0.02328756749450817,
+          0.899383068,
+          1795079192099207878,
+          1795098154988448297,
+          0.0006395459640771151,
+          -0.009860720485448837,
+          0.0024845139123499393
+        ],
+        [
+          0.011274996539753728,
+          0.025822189038701905,
+          0.600059033,
+          1795079190899517775,
+          1795098152601858079,
+          0.005463851150125265,
+          -0.0008166880579665303,
+          -0.0041814325377345085
+        ],
+        [
+          0.009583414587429135,
+          0.0036131934163098974,
+          1.000369072,
+          1795079186399798870,
+          1795098143584867909,
+          0.005894516594707966,
+          0.018006734549999237,
+          0.00672333687543869
+        ],
+        [
+          0.008525585775833554,
+          0.022156190576978776,
+          0.299956084,
+          1795079198599344969,
+          1795098168194527480,
+          0.0007799681625328958,
+          -0.005802284460514784,
+          0.0017949038883671165
+        ],
+        [
+          0.007520438800060604,
+          0.012752408410030114,
+          0.49947381,
+          1795079193999289751,
+          1795098159595433812,
+          -0.0028708293102681637,
+          -0.008584384806454182,
+          0.0028995743487030268
+        ],
+        [
+          0.007027934534582082,
+          0.011697592747932755,
+          0.399899006,
+          1795079199699112892,
+          1795098170404491942,
+          -0.0005249823443591595,
+          -0.0005701486370526254,
+          -6.75590563332662e-05
+        ],
+        [
+          0.007025152507632323,
+          0.008913322453489756,
+          0.199779987,
+          1795079191099297762,
+          1795098153006928701,
+          0.003223123960196972,
+          -0.004080337006598711,
+          0.001622058218345046
+        ]
+      ]
+    },
+    "/odom": {
+      "samples": 1803,
+      "first_stamp_ns": 1795079178887847033,
+      "last_stamp_ns": 1795079202057847033,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 7,
+      "max_dt_sec": 1.15,
+      "step_m_max": 0.049956115398669024,
+      "step_m_p99": 0.025979186427625752,
+      "step_m_p999": 0.04966022568647621,
+      "yaw_step_deg_max": 0.031707155249192424,
+      "hard_translation_over_0_05": 0,
+      "hard_yaw_over_1deg": 0,
+      "worst_10": [
+        [
+          0.049956115398669024,
+          0.014264787160174165,
+          0.68,
+          1795079198497847033,
+          1795098166399922733,
+          0.013730657625100982,
+          -0.006238275837779139,
+          -0.011932810736731192
+        ],
+        [
+          0.04970808553229529,
+          0.019995965707525955,
+          0.02,
+          1795079201587847033,
+          1795098172579105258,
+          0.013730657625100982,
+          -0.006238275837779136,
+          -0.011932810736731189
+        ],
+        [
+          0.04964833541267097,
+          0.01643243062474476,
+          0.95,
+          1795079196897847033,
+          1795098163199262529,
+          0.013730657625100982,
+          -0.006238275837779134,
+          -0.011932810736731182
+        ],
+        [
+          0.049524510056807955,
+          0.011994997579234105,
+          0.03,
+          1795079182297847033,
+          1795098133999886234,
+          0.013730657625100975,
+          -0.006238275837779125,
+          -0.011932810736731182
+        ],
+        [
+          0.04952309079074246,
+          0.009687259162141375,
+          0.02,
+          1795079193897847033,
+          1795098157199570292,
+          0.01373065762510098,
+          -0.006238275837779132,
+          -0.011932810736731182
+        ],
+        [
+          0.049500826206224646,
+          0.009497580836989957,
+          0.33,
+          1795079185507847033,
+          1795098140420111118,
+          0.013730657625100975,
+          -0.006238275837779132,
+          -0.011932810736731189
+        ],
+        [
+          0.049489560042611055,
+          0.01738531523946782,
+          1.15,
+          1795079181807847033,
+          1795098133040298835,
+          0.013730657625100975,
+          -0.006238275837779139,
+          -0.011932810736731189
+        ],
+        [
+          0.049485037893342215,
+          0.031707155249192424,
+          0.99,
+          1795079183897847033,
+          1795098137200086286,
+          0.013730657625100982,
+          -0.006238275837779136,
+          -0.011932810736731192
+        ],
+        [
+          0.04942582110325018,
+          0.012710525887426747,
+          0.11,
+          1795079184407847033,
+          1795098138219850582,
+          0.013730657625100982,
+          -0.006238275837779129,
+          -0.011932810736731189
+        ],
+        [
+          0.04942212831271317,
+          0.01028473530953549,
+          0.07,
+          1795079191507847033,
+          1795098152419795505,
+          0.013730657625100982,
+          -0.006238275837779129,
+          -0.011932810736731185
+        ]
+      ]
+    },
+    "/odom_incremental": {
+      "samples": 2318,
+      "first_stamp_ns": 1795079178887847033,
+      "last_stamp_ns": 1795079202057847033,
+      "stamp_backwards_or_equal": 0,
+      "stamp_gap_over_0_2": 0,
+      "max_dt_sec": 0.010084,
+      "step_m_max": 0.18177446948836465,
+      "step_m_p99": 0.024267692194907545,
+      "step_m_p999": 0.1190205997352092,
+      "yaw_step_deg_max": 0.012509944043595005,
+      "hard_translation_over_0_05": 9,
+      "hard_yaw_over_1deg": 0,
+      "worst_10": [
+        [
+          0.18177446948836465,
+          0.006123167979925026,
+          0.01,
+          1795079183897847033,
+          1795098137199924584,
+          0.0511868767378411,
+          -0.05563286883010637,
+          -0.07376256585608972
+        ],
+        [
+          0.15275704563090897,
+          0.0035030987468358307,
+          0.01,
+          1795079181807847033,
+          1795098133020341380,
+          0.048912142649960334,
+          -0.05343964183038009,
+          -0.050965896399797525
+        ],
+        [
+          0.12372426079230125,
+          0.01029513757953838,
+          0.01,
+          1795079187097847033,
+          1795098143599589316,
+          0.05040403816725748,
+          -0.06319325489028334,
+          -0.10108559780651409
+        ],
+        [
+          0.10883925744706398,
+          0.01088116777931946,
+          0.01,
+          1795079196897847033,
+          1795098163199208630,
+          0.005909717692755136,
+          -0.02506177893944585,
+          -0.12905070132938545
+        ],
+        [
+          0.09603977531304105,
+          0.012509944043595005,
+          0.01,
+          1795079198497847033,
+          1795098166399757551,
+          0.016346917741193682,
+          -0.024831586348613828,
+          -0.12495502151822739
+        ],
+        [
+          0.07447284514770983,
+          0.007688176667632748,
+          0.01,
+          1795079184407847033,
+          1795098138219838213,
+          0.0447834610891972,
+          -0.04756319799680787,
+          -0.06986279798903941
+        ],
+        [
+          0.06958116102439678,
+          0.007933712289042182,
+          0.01,
+          1795079185507847033,
+          1795098140419948821,
+          0.061590789787050015,
+          -0.0786296957279143,
+          -0.0831677038634744
+        ],
+        [
+          0.05748424389365596,
+          0.007294846106107779,
+          0.01,
+          1795079186107847033,
+          1795098141619818602,
+          0.050969935845985866,
+          -0.05781147636351759,
+          -0.07824125488519375
+        ],
+        [
+          0.051885861384898854,
+          0.009917855754324141,
+          0.01,
+          1795079187897847033,
+          1795098145199973613,
+          0.04738212968165309,
+          -0.060051321619978476,
+          -0.10071737103927043
+        ],
+        [
+          0.044444965479780246,
+          0.003320755062042374,
+          0.01,
+          1795079182297847033,
+          1795098133999861155,
+          0.05138945356429955,
+          -0.06014325416475976,
+          -0.05371846231694498
+        ]
+      ]
+    }
+  },
+  "epoch": {
+    "samples": 2318,
+    "epochs": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    "epoch_decreases": 0,
+    "identities": [
+      [
+        "replay-20261119-1705-fix-tf",
+        2
+      ]
+    ]
+  },
+  "correction": {
+    "samples": 55,
+    "accepted": 54,
+    "rejected": 1,
+    "source_counts": {
+      "4": 1,
+      "1": 54
+    },
+    "max_translation_residual": 0.1399088203907013,
+    "events": [
+      {
+        "stamp_ns": 1795079176778747757,
+        "epoch": 2,
+        "source": 4,
+        "accepted": true,
+        "translation_residual": 0.0,
+        "yaw_residual": 0.0,
+        "arrival_delay_sec": 0.0,
+        "reason": "IMU preintegration reset; clear_imu_queues=true; min_correction_time=1795079177.037847"
+      },
+      {
+        "stamp_ns": 1795079177199319839,
+        "epoch": 2,
+        "source": 1,
+        "accepted": false,
+        "translation_residual": 0.0,
+        "yaw_residual": 0.0,
+        "arrival_delay_sec": 0.41947098,
+        "reason": "scan-to-map skipped; corner_features=895; surface_features=6768; selected_features=0; iterations=0; correction_translation=0; correction_rotation=0; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079178199165821,
+        "epoch": 3,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.006052481476217508,
+        "yaw_residual": -0.00018813162751030177,
+        "arrival_delay_sec": 0.319668416,
+        "reason": "scan-to-map optimized; corner_features=866; surface_features=6814; selected_features=3994; iterations=2; correction_translation=0.00605248; correction_rotation=0.000364348; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079178599425793,
+        "epoch": 4,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.003589077154174447,
+        "yaw_residual": -7.896355964476243e-05,
+        "arrival_delay_sec": 0.32444948,
+        "reason": "scan-to-map optimized; corner_features=926; surface_features=6863; selected_features=3985; iterations=2; correction_translation=0.00358908; correction_rotation=0.000132291; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079178999550819,
+        "epoch": 5,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.0027752206660807133,
+        "yaw_residual": -0.0002484378346707672,
+        "arrival_delay_sec": 0.324351909,
+        "reason": "scan-to-map optimized; corner_features=938; surface_features=7054; selected_features=4060; iterations=3; correction_translation=0.00277522; correction_rotation=0.000252225; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079179199217796,
+        "epoch": 6,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.006568268407136202,
+        "yaw_residual": 0.00022049774997867644,
+        "arrival_delay_sec": 0.329708834,
+        "reason": "scan-to-map optimized; corner_features=892; surface_features=7000; selected_features=4101; iterations=3; correction_translation=0.00656827; correction_rotation=0.000573744; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079179299594879,
+        "epoch": 7,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.005265428684651852,
+        "yaw_residual": 5.195364792598412e-05,
+        "arrival_delay_sec": 0.319332066,
+        "reason": "scan-to-map optimized; corner_features=906; surface_features=7034; selected_features=4135; iterations=2; correction_translation=0.00526543; correction_rotation=0.000213013; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079180799183846,
+        "epoch": 8,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.07695218920707703,
+        "yaw_residual": 0.0005842073005624115,
+        "arrival_delay_sec": 0.634873157,
+        "reason": "scan-to-map optimized; corner_features=875; surface_features=6569; selected_features=3708; iterations=4; correction_translation=0.0769522; correction_rotation=0.00134921; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079181299729824,
+        "epoch": 9,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.060726821422576904,
+        "yaw_residual": 0.0006203610682860017,
+        "arrival_delay_sec": 0.624382696,
+        "reason": "scan-to-map optimized; corner_features=908; surface_features=6560; selected_features=3806; iterations=4; correction_translation=0.0607268; correction_rotation=0.00112902; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079181699619770,
+        "epoch": 10,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.062160007655620575,
+        "yaw_residual": 0.00027272867737337947,
+        "arrival_delay_sec": 0.339453639,
+        "reason": "scan-to-map optimized; corner_features=899; surface_features=6864; selected_features=3961; iterations=4; correction_translation=0.06216; correction_rotation=0.000825596; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079183099237919,
+        "epoch": 11,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.05938224494457245,
+        "yaw_residual": 0.0003689914592541754,
+        "arrival_delay_sec": 0.429994724,
+        "reason": "scan-to-map optimized; corner_features=904; surface_features=7152; selected_features=3694; iterations=4; correction_translation=0.0593822; correction_rotation=0.0045259; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079183699144840,
+        "epoch": 12,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.0965917631983757,
+        "yaw_residual": 0.0005631062085740268,
+        "arrival_delay_sec": 0.340138182,
+        "reason": "scan-to-map optimized; corner_features=936; surface_features=7287; selected_features=3765; iterations=6; correction_translation=0.0965918; correction_rotation=0.000598502; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079183999196768,
+        "epoch": 13,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.1399088203907013,
+        "yaw_residual": -0.00024399672111030668,
+        "arrival_delay_sec": 0.42510272,
+        "reason": "scan-to-map optimized; corner_features=921; surface_features=7227; selected_features=3760; iterations=5; correction_translation=0.139909; correction_rotation=0.00197028; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079184599111795,
+        "epoch": 14,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.005189802031964064,
+        "yaw_residual": 0.00029115445795468986,
+        "arrival_delay_sec": 0.535225142,
+        "reason": "scan-to-map optimized; corner_features=898; surface_features=7125; selected_features=3719; iterations=3; correction_translation=0.0051898; correction_rotation=0.000370231; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079184898964882,
+        "epoch": 15,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.006868747062981129,
+        "yaw_residual": 6.66253617964685e-05,
+        "arrival_delay_sec": 0.330376083,
+        "reason": "scan-to-map optimized; corner_features=890; surface_features=7146; selected_features=3725; iterations=3; correction_translation=0.00686875; correction_rotation=0.000131286; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079185399429798,
+        "epoch": 16,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.07267865538597107,
+        "yaw_residual": -8.700881153345108e-06,
+        "arrival_delay_sec": 0.33494746,
+        "reason": "scan-to-map optimized; corner_features=902; surface_features=7122; selected_features=3687; iterations=4; correction_translation=0.0726787; correction_rotation=0.000751679; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079186399798870,
+        "epoch": 17,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.05322900041937828,
+        "yaw_residual": 0.00012456128024496138,
+        "arrival_delay_sec": 0.324665072,
+        "reason": "scan-to-map optimized; corner_features=888; surface_features=7127; selected_features=3709; iterations=5; correction_translation=0.053229; correction_rotation=0.00186556; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079186499350786,
+        "epoch": 18,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.012822261080145836,
+        "yaw_residual": 0.00029733910923823714,
+        "arrival_delay_sec": 0.325122496,
+        "reason": "scan-to-map optimized; corner_features=899; surface_features=7122; selected_features=3702; iterations=4; correction_translation=0.0128223; correction_rotation=0.000301097; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079187099851847,
+        "epoch": 19,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.042812276631593704,
+        "yaw_residual": -7.054682646412402e-05,
+        "arrival_delay_sec": 0.424666376,
+        "reason": "scan-to-map optimized; corner_features=913; surface_features=7127; selected_features=3691; iterations=4; correction_translation=0.0428123; correction_rotation=0.00135159; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079187499272823,
+        "epoch": 20,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.004972056020051241,
+        "yaw_residual": -5.234495620243251e-05,
+        "arrival_delay_sec": 0.325219615,
+        "reason": "scan-to-map optimized; corner_features=917; surface_features=7125; selected_features=3664; iterations=4; correction_translation=0.00497206; correction_rotation=0.00016919; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079187899722815,
+        "epoch": 21,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.006665401626378298,
+        "yaw_residual": 0.00012954918202012777,
+        "arrival_delay_sec": 0.42480641,
+        "reason": "scan-to-map optimized; corner_features=917; surface_features=7116; selected_features=3657; iterations=4; correction_translation=0.0066654; correction_rotation=0.000571641; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188099138737,
+        "epoch": 22,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.020849667489528656,
+        "yaw_residual": 1.3012090676056688e-05,
+        "arrival_delay_sec": 0.330397035,
+        "reason": "scan-to-map optimized; corner_features=929; surface_features=7060; selected_features=3673; iterations=5; correction_translation=0.0208497; correction_rotation=0.00019324; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188199343920,
+        "epoch": 23,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.03377426788210869,
+        "yaw_residual": -5.5994518334046006e-05,
+        "arrival_delay_sec": 0.33522743,
+        "reason": "scan-to-map optimized; corner_features=914; surface_features=7099; selected_features=3646; iterations=4; correction_translation=0.0337743; correction_rotation=0.000528875; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188299575806,
+        "epoch": 24,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.007997334934771061,
+        "yaw_residual": -9.31212562136352e-05,
+        "arrival_delay_sec": 0.330020558,
+        "reason": "scan-to-map optimized; corner_features=907; surface_features=7101; selected_features=3657; iterations=3; correction_translation=0.00799733; correction_rotation=0.000101619; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188398912907,
+        "epoch": 25,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.011617278680205345,
+        "yaw_residual": 0.0004421407647896558,
+        "arrival_delay_sec": 0.325647996,
+        "reason": "scan-to-map optimized; corner_features=920; surface_features=7088; selected_features=3669; iterations=3; correction_translation=0.0116173; correction_rotation=0.000464231; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188599370956,
+        "epoch": 26,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.02110789716243744,
+        "yaw_residual": -4.541746238828637e-05,
+        "arrival_delay_sec": 0.335222616,
+        "reason": "scan-to-map optimized; corner_features=930; surface_features=7093; selected_features=3672; iterations=4; correction_translation=0.0211079; correction_rotation=7.60352e-05; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188699809790,
+        "epoch": 27,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.035172536969184875,
+        "yaw_residual": -0.0003224095271434635,
+        "arrival_delay_sec": 0.329819775,
+        "reason": "scan-to-map optimized; corner_features=921; surface_features=7128; selected_features=3700; iterations=3; correction_translation=0.0351725; correction_rotation=0.000617727; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079188799080849,
+        "epoch": 28,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.022281669080257416,
+        "yaw_residual": 5.4988078773021705e-05,
+        "arrival_delay_sec": 0.330551225,
+        "reason": "scan-to-map optimized; corner_features=901; surface_features=7073; selected_features=3675; iterations=4; correction_translation=0.0222817; correction_rotation=0.000264729; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079189199269772,
+        "epoch": 29,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.01641303114593029,
+        "yaw_residual": -0.00042738442425616086,
+        "arrival_delay_sec": 0.320395397,
+        "reason": "scan-to-map optimized; corner_features=921; surface_features=7118; selected_features=3686; iterations=4; correction_translation=0.016413; correction_rotation=0.000501015; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079189399785757,
+        "epoch": 30,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.011274094693362713,
+        "yaw_residual": -0.00013011453847866505,
+        "arrival_delay_sec": 0.32489609,
+        "reason": "scan-to-map optimized; corner_features=882; surface_features=7100; selected_features=3659; iterations=4; correction_translation=0.0112741; correction_rotation=0.000347559; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079189599555969,
+        "epoch": 31,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.009385091252624989,
+        "yaw_residual": 2.0956096705049276e-05,
+        "arrival_delay_sec": 0.435151555,
+        "reason": "scan-to-map optimized; corner_features=902; surface_features=7075; selected_features=3622; iterations=3; correction_translation=0.00938509; correction_rotation=0.000109281; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079189899564743,
+        "epoch": 32,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.00682871975004673,
+        "yaw_residual": -2.9192335205152634e-05,
+        "arrival_delay_sec": 0.520165152,
+        "reason": "scan-to-map optimized; corner_features=934; surface_features=7062; selected_features=3656; iterations=4; correction_translation=0.00682872; correction_rotation=5.50141e-05; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079190299458742,
+        "epoch": 33,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.013179253786802292,
+        "yaw_residual": 0.0002483764546923339,
+        "arrival_delay_sec": 0.835325779,
+        "reason": "scan-to-map optimized; corner_features=933; surface_features=7058; selected_features=3600; iterations=3; correction_translation=0.0131793; correction_rotation=0.000254015; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079190899517775,
+        "epoch": 34,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.009190554730594158,
+        "yaw_residual": 0.00018241527141071856,
+        "arrival_delay_sec": 0.335272933,
+        "reason": "scan-to-map optimized; corner_features=931; surface_features=6835; selected_features=3883; iterations=3; correction_translation=0.00919055; correction_rotation=0.00112375; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079191099297762,
+        "epoch": 35,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.02024657279253006,
+        "yaw_residual": 8.96911515155807e-05,
+        "arrival_delay_sec": 0.335517147,
+        "reason": "scan-to-map optimized; corner_features=911; surface_features=6782; selected_features=3884; iterations=3; correction_translation=0.0202466; correction_rotation=0.00338362; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079191199824810,
+        "epoch": 36,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.008966964669525623,
+        "yaw_residual": -0.00020477405632846057,
+        "arrival_delay_sec": 0.530008445,
+        "reason": "scan-to-map optimized; corner_features=920; surface_features=6837; selected_features=3985; iterations=3; correction_translation=0.00896696; correction_rotation=0.000447714; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079192099207878,
+        "epoch": 37,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.03603402525186539,
+        "yaw_residual": 4.251150312484242e-05,
+        "arrival_delay_sec": 0.330683867,
+        "reason": "scan-to-map optimized; corner_features=904; surface_features=6835; selected_features=3984; iterations=3; correction_translation=0.036034; correction_rotation=0.000464699; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079192299134970,
+        "epoch": 38,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.010034281760454178,
+        "yaw_residual": -2.9929447919130325e-05,
+        "arrival_delay_sec": 0.42081169,
+        "reason": "scan-to-map optimized; corner_features=897; surface_features=6799; selected_features=4001; iterations=3; correction_translation=0.0100343; correction_rotation=0.000145006; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079193099592924,
+        "epoch": 39,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.00930054485797882,
+        "yaw_residual": -5.388967474573292e-05,
+        "arrival_delay_sec": 0.425351662,
+        "reason": "scan-to-map optimized; corner_features=917; surface_features=7066; selected_features=3984; iterations=2; correction_translation=0.00930054; correction_rotation=0.00038071; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079193299198866,
+        "epoch": 40,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.011378039605915546,
+        "yaw_residual": -7.351827662205324e-05,
+        "arrival_delay_sec": 0.320785104,
+        "reason": "scan-to-map optimized; corner_features=929; surface_features=7098; selected_features=4040; iterations=3; correction_translation=0.011378; correction_rotation=0.000117868; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079193499815941,
+        "epoch": 41,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.016168801113963127,
+        "yaw_residual": 0.0001582726981723681,
+        "arrival_delay_sec": 0.52515124,
+        "reason": "scan-to-map optimized; corner_features=949; surface_features=7124; selected_features=4014; iterations=4; correction_translation=0.0161688; correction_rotation=0.000189388; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079193999289751,
+        "epoch": 42,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.03249109908938408,
+        "yaw_residual": -1.266304752789438e-05,
+        "arrival_delay_sec": 0.730762684,
+        "reason": "scan-to-map optimized; corner_features=902; surface_features=7097; selected_features=4046; iterations=4; correction_translation=0.0324911; correction_rotation=0.000269718; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079196199048758,
+        "epoch": 43,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.07757974416017532,
+        "yaw_residual": 0.00021751137683168054,
+        "arrival_delay_sec": 0.331140883,
+        "reason": "scan-to-map optimized; corner_features=829; surface_features=6448; selected_features=3568; iterations=4; correction_translation=0.0775797; correction_rotation=0.000312229; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079197799302816,
+        "epoch": 44,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.05677776411175728,
+        "yaw_residual": -0.00015981894102878866,
+        "arrival_delay_sec": 0.335983157,
+        "reason": "scan-to-map optimized; corner_features=837; surface_features=6952; selected_features=3405; iterations=5; correction_translation=0.0567778; correction_rotation=0.000516821; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079197999227762,
+        "epoch": 45,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.011174984276294708,
+        "yaw_residual": 0.0001648289617151022,
+        "arrival_delay_sec": 0.426104524,
+        "reason": "scan-to-map optimized; corner_features=851; surface_features=6954; selected_features=3405; iterations=3; correction_translation=0.011175; correction_rotation=0.000186908; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079198099615812,
+        "epoch": 46,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.0072291758842766285,
+        "yaw_residual": 0.0001435079611837864,
+        "arrival_delay_sec": 0.420725295,
+        "reason": "scan-to-map optimized; corner_features=844; surface_features=6940; selected_features=3417; iterations=3; correction_translation=0.00722918; correction_rotation=0.00016095; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079198299388885,
+        "epoch": 47,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.026711875572800636,
+        "yaw_residual": 3.194359669578262e-05,
+        "arrival_delay_sec": 0.3259536,
+        "reason": "scan-to-map optimized; corner_features=840; surface_features=6790; selected_features=3377; iterations=3; correction_translation=0.0267119; correction_rotation=0.000112251; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079198599344969,
+        "epoch": 48,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.08149787038564682,
+        "yaw_residual": 0.00029764248756691813,
+        "arrival_delay_sec": 0.431040769,
+        "reason": "scan-to-map optimized; corner_features=813; surface_features=6744; selected_features=3261; iterations=5; correction_translation=0.0814979; correction_rotation=0.000317206; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079198699848890,
+        "epoch": 49,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.004524968098849058,
+        "yaw_residual": 3.1080562621355057e-06,
+        "arrival_delay_sec": 0.460509216,
+        "reason": "scan-to-map optimized; corner_features=807; surface_features=6756; selected_features=3277; iterations=30; correction_translation=0.00452497; correction_rotation=2.3339e-05; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079198899525881,
+        "epoch": 50,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.05139331892132759,
+        "yaw_residual": -0.0002839161898009479,
+        "arrival_delay_sec": 0.330869944,
+        "reason": "scan-to-map optimized; corner_features=816; surface_features=6836; selected_features=3282; iterations=3; correction_translation=0.0513933; correction_rotation=0.000300741; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079199199559927,
+        "epoch": 51,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.008666666224598885,
+        "yaw_residual": 9.679885988589375e-05,
+        "arrival_delay_sec": 0.430859762,
+        "reason": "scan-to-map optimized; corner_features=847; surface_features=7030; selected_features=3438; iterations=3; correction_translation=0.00866667; correction_rotation=0.000109566; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079199299213886,
+        "epoch": 52,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.00521102175116539,
+        "yaw_residual": -0.00014090839249547574,
+        "arrival_delay_sec": 0.426296071,
+        "reason": "scan-to-map optimized; corner_features=858; surface_features=7070; selected_features=3442; iterations=3; correction_translation=0.00521102; correction_rotation=0.00014381; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079199699112892,
+        "epoch": 53,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.021702418103814125,
+        "yaw_residual": -0.0006406992324627936,
+        "arrival_delay_sec": 0.436309416,
+        "reason": "scan-to-map optimized; corner_features=890; surface_features=7085; selected_features=3460; iterations=4; correction_translation=0.0217024; correction_rotation=0.000640909; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079200799255848,
+        "epoch": 54,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.021024009212851524,
+        "yaw_residual": -0.000278897729003802,
+        "arrival_delay_sec": 0.421283751,
+        "reason": "scan-to-map optimized; corner_features=841; surface_features=6883; selected_features=3384; iterations=3; correction_translation=0.021024; correction_rotation=0.000386102; translation_limit=0.15; rotation_limit=0.0349066"
+      },
+      {
+        "stamp_ns": 1795079200899387836,
+        "epoch": 55,
+        "source": 1,
+        "accepted": true,
+        "translation_residual": 0.003675539046525955,
+        "yaw_residual": -0.0001894755696412176,
+        "arrival_delay_sec": 0.426171458,
+        "reason": "scan-to-map optimized; corner_features=833; surface_features=6902; selected_features=3405; iterations=2; correction_translation=0.00367554; correction_rotation=0.000191868; translation_limit=0.15; rotation_limit=0.0349066"
+      }
+    ]
+  },
+  "map_odom_correction": {
+    "samples": 1803,
+    "accepted": 1803,
+    "state_counts": {
+      "1": 827,
+      "2": 976
+    },
+    "max_translation_residual": 0.1399088203907013
+  },
+  "faults": [
+    {
+      "bag_ns": 1795098130741061080,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=7; step=0.050438; yaw_step=0.000327"
+    },
+    {
+      "bag_ns": 1795098152299687641,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=32; step=0.050162; yaw_step=0.000074"
+    },
+    {
+      "bag_ns": 1795098157179638457,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=38; step=0.050210; yaw_step=0.000171"
+    },
+    {
+      "bag_ns": 1795098161320468832,
+      "data": "LIO_ODOM_CONTINUITY_FAULT: epoch=42; step=0.050299; yaw_step=0.000289"
+    }
+  ],
+  "readiness": [
+    {
+      "kind": "identity",
+      "bag_ns": 1795098116937351840,
+      "ready": false,
+      "instance": "replay-20261119-1705-fix-tf",
+      "generation": 2
+    },
+    {
+      "kind": "legacy",
+      "bag_ns": 1795098123687950933,
+      "ready": false
+    },
+    {
+      "kind": "identity",
+      "bag_ns": 1795098123688001819,
+      "ready": false,
+      "instance": "replay-20261119-1705-fix-tf",
+      "generation": 2
+    },
+    {
+      "kind": "legacy",
+      "bag_ns": 1795098128784752305,
+      "ready": true
+    },
+    {
+      "kind": "identity",
+      "bag_ns": 1795098128784763384,
+      "ready": true,
+      "instance": "replay-20261119-1705-fix-tf",
+      "generation": 2
+    }
+  ]
+}

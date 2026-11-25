@@ -1,0 +1,188 @@
+{
+  "counts": {
+    "/vehicle_status": 34855,
+    "/laser/scan_back": 10388,
+    "/cmd_vel_selected": 17410,
+    "/ecu": 17411,
+    "/docking_feedback_odometry/state": 17410,
+    "/standalone_docking/state": 6964,
+    "/cmd_vel_dock": 8705,
+    "/charging_dock/local_odom": 17393,
+    "/charging_dock/state": 5738,
+    "/charging_dock/dock/_action/feedback": 5738,
+    "/charging_dock/observation": 6835,
+    "/charging_dock/emergency_stop": 41
+  },
+  "transitions": [
+    {
+      "t": 64.51911196499987,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "can_or_imu_stale"
+    },
+    {
+      "t": 64.56341576199975,
+      "topic": "/standalone_docking/state",
+      "state": "IDLE reason=waiting_for_start"
+    },
+    {
+      "t": 64.8599290330003,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "valid"
+    },
+    {
+      "t": 179.56364757600022,
+      "topic": "/standalone_docking/state",
+      "state": "WAIT_SENSORS reason="
+    },
+    {
+      "t": 180.0894669170002,
+      "topic": "/standalone_docking/state",
+      "state": "SENDING reason="
+    },
+    {
+      "t": 180.11364006700023,
+      "topic": "/standalone_docking/state",
+      "state": "DOCKING reason="
+    },
+    {
+      "t": 181.19092620900028,
+      "topic": "/charging_dock/state",
+      "state": "PRECHECK reason=dock_observation_invalid"
+    },
+    {
+      "t": 181.89268748199993,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 213.24588483800017,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 234.00483048299975,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 234.16851305799992,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 234.24016652499995,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 234.45288792799965,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 234.8901310729998,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 235.41919370899996,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 252.92894951800008,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 256.3657451319996,
+      "topic": "/charging_dock/state",
+      "state": "LOCK_VERIFY reason=waiting_for_measured_stop_before_lock"
+    },
+    {
+      "t": 256.7637434369999,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 256.921384319,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 256.96040371900017,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 257.21273917799954,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 257.2944433390003,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 257.8006541369996,
+      "topic": "/charging_dock/state",
+      "state": "LOCK_VERIFY reason=collecting_stopped_dock_pose"
+    },
+    {
+      "t": 258.41191599099966,
+      "topic": "/charging_dock/state",
+      "state": "LOCKED_FINAL_APPROACH reason=locked_target_confirmed"
+    },
+    {
+      "t": 409.7259211069995,
+      "topic": "/charging_dock/state",
+      "state": "STOPPING reason=insufficient_alignment_space"
+    },
+    {
+      "t": 410.6937294339996,
+      "topic": "/charging_dock/state",
+      "state": "FAILED reason=insufficient_alignment_space"
+    },
+    {
+      "t": 410.71349083599944,
+      "topic": "/standalone_docking/state",
+      "state": "FAILED reason=dock_failed:insufficient_alignment_space"
+    }
+  ],
+  "final_vehicle": {
+    "header": {
+      "stamp": {
+        "sec": 1795493475,
+        "nanosec": 235457175
+      },
+      "frame_id": ""
+    },
+    "cur_speed": 0.0,
+    "cur_steer": -0.33750003576278687,
+    "left_wheel_speed": 0.0,
+    "right_wheel_speed": 0.0,
+    "wheel_direction": 0,
+    "shift_level": 2,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "p_status": false
+  },
+  "final_ecu": {
+    "header": {
+      "stamp": {
+        "sec": 1795493475,
+        "nanosec": 221998259
+      },
+      "frame_id": "base_link"
+    },
+    "motor": 0.0,
+    "steer": 0.0,
+    "brake": false,
+    "set_torque": false,
+    "rear_wheel_flag": true,
+    "shift": 2
+  },
+  "final_state": "FAILED reason=dock_failed:insufficient_alignment_space",
+  "start_service_called": false
+}

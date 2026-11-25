@@ -1,0 +1,21 @@
+{
+  "created_beijing": "2026-11-07T16:36:44.082482+08:00",
+  "route": {
+    "map": "3b2mus",
+    "waypoints": [
+      113,
+      106,
+      107
+    ]
+  },
+  "boot_id": "ca32f49f-62a3-4e77-aee9-af55c9ac556a",
+  "processes": {
+    "monitor": 6389,
+    "rosbag_record": 6390
+  },
+  "sensor_precheck": "skipped_per_user_instruction",
+  "management_stack": "reuse_existing_pid_4830",
+  "management_log": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/management_stack.log",
+  "recording_changes": "1MiB cache, WAL, NORMAL, busy_timeout 5000; do not query active database",
+  "automatic_redispatch_after_reboot": false
+}

@@ -1,0 +1,35 @@
+{
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "probes": [
+    {
+      "input": 0.0,
+      "shape": [
+        1,
+        300,
+        6
+      ],
+      "finite": true,
+      "max_confidence": 3.516674041748047e-06,
+      "classes": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "input": 1.0,
+      "shape": [
+        1,
+        300,
+        6
+      ],
+      "finite": true,
+      "max_confidence": 8.642673492431641e-07,
+      "classes": [
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

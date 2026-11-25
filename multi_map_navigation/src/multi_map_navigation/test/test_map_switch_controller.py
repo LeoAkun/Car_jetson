@@ -15,9 +15,14 @@ from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 
-from std_msgs.msg import Bool
-from multi_map_navigation_msgs.msg import MapSwitchTrigger
+from multi_map_navigation_msgs.msg import (
+    LocalizationResult,
+    LocalizationSession,
+    MapSwitchResult,
+    MapSwitchTrigger,
+)
 from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess, GetProcessStatus
+from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 
 
 class MockProcessManager(Node):
@@ -40,6 +45,17 @@ class MockProcessManager(Node):
         self.shutdown_calls = []
         self.start_calls = []
         self.status_calls = 0
+        self.session_id = 'map-switch-test-session'
+        self.session_start_ns = 0
+        self.active_map = ''
+
+        latched_qos = QoSProfile(depth=1)
+        latched_qos.reliability = ReliabilityPolicy.RELIABLE
+        latched_qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
+        self.session_pub = self.create_publisher(
+            LocalizationSession, '/localization_session', latched_qos)
+        self.result_pub = self.create_publisher(
+            LocalizationResult, '/localization_result', latched_qos)
 
         self.shutdown_srv = self.create_service(
             ShutdownProcess,
@@ -82,6 +98,31 @@ class MockProcessManager(Node):
             self.running[name] = True
         response.success = True
         response.message = f'{name} 已启动'
+        if name == 're_localization':
+            self.session_start_ns = self.get_clock().now().nanoseconds
+            self.active_map = request.map_name
+            response.instance_id = self.session_id
+            response.active_map = request.map_name
+            response.session_start_ns = self.session_start_ns
+            session = LocalizationSession()
+            session.session_id = self.session_id
+            session.map_id = request.map_name
+            session.session_start_ns = self.session_start_ns
+            session.active = True
+            self.session_pub.publish(session)
+        elif name == 'nav2_init_pose':
+            response.instance_id = self.session_id
+            response.active_map = request.map_name
+            response.session_start_ns = self.session_start_ns
+            result = LocalizationResult()
+            result.session_id = self.session_id
+            result.map_id = request.map_name
+            result.success = True
+            result.fitness_score = 0.01
+            result.pose.orientation.w = 1.0
+            stamp = self.get_clock().now().to_msg()
+            result.cloud_stamp = stamp
+            self.result_pub.publish(result)
         return response
 
     def handle_status(self, request, response):
@@ -91,6 +132,15 @@ class MockProcessManager(Node):
         response.nav2_init_pose_running = self.running['nav2_init_pose']
         response.navigation2_running = self.running['navigation2']
         response.message = 'ok'
+        running_values = tuple(self.running.values())
+        response.stack_state = (
+            'RUNNING' if all(running_values)
+            else 'STOPPED' if not any(running_values) else 'PARTIAL')
+        response.active_map = self.active_map if all(running_values) else ''
+        response.localization_session_id = (
+            self.session_id if all(running_values) else '')
+        response.session_start_ns = (
+            self.session_start_ns if all(running_values) else 0)
         return response
 
 
@@ -110,19 +160,20 @@ class TriggerAndListener(Node):
         )
 
         self.complete_sub = self.create_subscription(
-            Bool,
+            MapSwitchResult,
             '/map_switch_complete',
             self.on_complete,
             10
         )
 
-    def on_complete(self, msg: Bool):
-        self.get_logger().info(f'收到切换结果: {msg.data}')
-        self.result = msg.data
+    def on_complete(self, msg: MapSwitchResult):
+        self.get_logger().info(f'收到切换结果: {msg.success}')
+        self.result = msg.success
         self.result_event.set()
 
     def send_trigger(self, current_map: str, next_map: str):
         msg = MapSwitchTrigger()
+        msg.transaction_id = 'integration-map-switch'
         msg.current_map = current_map
         msg.next_map = next_map
         msg.current_waypoint_id = 0
@@ -140,16 +191,18 @@ class MockTFBroadcaster(Node):
     def __init__(self, delay_sec: float = 10.0):
         super().__init__('mock_tf_broadcaster')
         import tf2_ros
-        self.br = tf2_ros.StaticTransformBroadcaster(self)
+        self.br = tf2_ros.TransformBroadcaster(self)
         self.delay_sec = delay_sec
         self.published = False
+        self.start_time = self.get_clock().now()
 
         # 用定时器延迟发布，模拟真实启动延迟
-        self.timer = self.create_timer(self.delay_sec, self._publish_tf)
+        self.timer = self.create_timer(0.1, self._publish_tf)
         self.get_logger().info(f'MockTFBroadcaster 已初始化，将在 {delay_sec}s 后发布 TF')
 
     def _publish_tf(self):
-        if self.published:
+        elapsed = (self.get_clock().now() - self.start_time).nanoseconds / 1e9
+        if elapsed < self.delay_sec:
             return
         from geometry_msgs.msg import TransformStamped
         t = TransformStamped()
@@ -159,8 +212,8 @@ class MockTFBroadcaster(Node):
         t.transform.rotation.w = 1.0
         self.br.sendTransform(t)
         self.published = True
-        self.timer.cancel()
-        self.get_logger().info(f'延迟 {self.delay_sec}s 后已发布 map -> odom 静态 TF')
+        # Keep publishing a fresh transform, matching production's unique
+        # map_odom_authority heartbeat.
 
 
 class TestMapSwitchController(unittest.TestCase):
@@ -221,7 +274,7 @@ class TestMapSwitchController(unittest.TestCase):
         self.assertEqual(mock_pm.start_calls, expected_start_order,
                          f'启动顺序不正确: {mock_pm.start_calls}')
 
-        print(f'\n=== 测试通过 ===')
+        print('\n=== 测试通过 ===')
         print(f'关闭调用: {mock_pm.shutdown_calls}')
         print(f'启动调用: {mock_pm.start_calls}')
         print(f'状态查询次数: {mock_pm.status_calls}')

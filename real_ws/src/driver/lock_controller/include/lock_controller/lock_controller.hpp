@@ -30,6 +30,8 @@ private:
   int serial_fd_;
   std::string serial_port_;
   int baud_rate_;
+  int response_timeout_ms_;
+  bool debug_;
   uint8_t default_board_address_;
 
   // 发布器
@@ -50,9 +52,14 @@ private:
 
   // 计算BCC/异或校验
   uint8_t calculateChecksum(const std::vector<uint8_t>& data);
+  std::string bytesToHex(const std::vector<uint8_t>& data);
 
   // 发送命令并接收响应
-  bool sendCommand(const std::vector<uint8_t>& command, std::vector<uint8_t>& response, int timeout_ms = 200);
+  bool sendCommand(
+    const std::vector<uint8_t>& command,
+    std::vector<uint8_t>& response,
+    int timeout_ms = 200,
+    bool require_response = true);
 
   // 服务回调函数
   void unlockCallback(

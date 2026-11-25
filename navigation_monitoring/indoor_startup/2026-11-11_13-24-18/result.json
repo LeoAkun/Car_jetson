@@ -1,0 +1,1979 @@
+{
+  "started": "2026-11-11T13:24:18.688158+08:00",
+  "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_13-24-18",
+  "passed": true,
+  "pass_scope": "startup and final data freshness; sensor timing quality is reported separately",
+  "mode": "live_imu_live_lidar_no_goal",
+  "domain": 88,
+  "limitations": [
+    "artificial empty map and map->odom",
+    "3D LiDAR projected to test scan, not front/rear laser chain",
+    "no GPS/relocalization/task/vehicle motion validation",
+    "small map and no RViz differ from production startup load"
+  ],
+  "source_sha256": {
+    "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml": "19b598b6e6e1f1e18c152b8b022ffe83138c735aaf8d93f8b2b67005b100baf6",
+    "/home/akun/workspace/Car_jetson/slam/src/LIO-SAM/config/params_rslidar.yaml": "a142ba63447e3f8e48a6980be20c764f797a6578559e6f71b1ad4c84dfd8585a"
+  },
+  "ended": "2026-11-11T13:27:59.898092+08:00",
+  "duration_sec": 221.20995076999998,
+  "observations": {
+    "timestamp_utc": "2026-11-11T05:27:59.899006+00:00",
+    "elapsed_sec": 221.1858151829997,
+    "phase": "hold",
+    "ros_time_ns": 1794374879898122005,
+    "thresholds": {
+      "imu_gap_sec": 0.2,
+      "tf_max_age_sec": 2.0
+    },
+    "topics": {
+      "/imu": {
+        "count": 21843,
+        "arrival_hz": 100.02320347588726,
+        "last_arrival_age_sec": 0.005557744999805436,
+        "last_header_stamp_ns": 1794374880252182400,
+        "last_header_age_sec": -0.354060395,
+        "counters": {
+          "quaternion_nonfinite_count": 0,
+          "quaternion_norm_nonfinite_count": 0,
+          "quaternion_zero_norm_count": 1,
+          "quaternion_norm_outside_0_9_to_1_1_count": 2,
+          "acceleration_nonfinite_count": 0,
+          "angular_velocity_nonfinite_count": 0
+        },
+        "latest": {
+          "quaternion_norm": 1.0000000840024805,
+          "acceleration_norm": 9.816976823200205,
+          "angular_velocity_norm": 0.0017262295354129786,
+          "orientation_declared_unavailable": false,
+          "frame_id": "imu_link"
+        },
+        "arrival_intervals": {
+          "count": 21842,
+          "sum_sec": 218.36933072500005,
+          "min_sec": 0.001380382999741414,
+          "max_sec": 0.015478360000088287,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009997680190687669
+        },
+        "header_intervals": {
+          "count": 21842,
+          "sum_sec": 218.72999999994724,
+          "min_sec": 0.009916,
+          "max_sec": 0.32,
+          "nonpositive_count": 0,
+          "gap_count": 1,
+          "last_gap_sec": 0.32,
+          "mean_sec": 0.010014192839481148
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/rslidar_Pointcloud2": {
+        "count": 1919,
+        "arrival_hz": 8.773973707314676,
+        "last_arrival_age_sec": 0.02087327599974742,
+        "last_header_stamp_ns": 1794374879772637606,
+        "last_header_age_sec": 0.125484399,
+        "counters": {},
+        "latest": {
+          "points": 57600,
+          "frame_id": "rslidar"
+        },
+        "arrival_intervals": {
+          "count": 1918,
+          "sum_sec": 218.60106537599995,
+          "min_sec": 0.07802809699978752,
+          "max_sec": 1.3998478110001997,
+          "nonpositive_count": 0,
+          "gap_count": 109,
+          "last_gap_sec": 0.30126973200003704,
+          "mean_sec": 0.11397344388738266
+        },
+        "header_intervals": {
+          "count": 1918,
+          "sum_sec": 218.50772523899983,
+          "min_sec": 0.099215031,
+          "max_sec": 1.40008688,
+          "nonpositive_count": 0,
+          "gap_count": 90,
+          "last_gap_sec": 0.200520993,
+          "mean_sec": 0.11392477853962452
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/laser/scan_merge_laser": {
+        "count": 1940,
+        "arrival_hz": 8.869798062999072,
+        "last_arrival_age_sec": 0.013637974999710423,
+        "last_header_stamp_ns": 1794374879772637606,
+        "last_header_age_sec": 0.125484399,
+        "counters": {},
+        "latest": {
+          "ranges": 720,
+          "frame_id": "base_link"
+        },
+        "arrival_intervals": {
+          "count": 1939,
+          "sum_sec": 218.60700618300007,
+          "min_sec": 0.083275703000254,
+          "max_sec": 1.2985938390002048,
+          "nonpositive_count": 0,
+          "gap_count": 92,
+          "last_gap_sec": 0.20032944299964583,
+          "mean_sec": 0.11274213830995362
+        },
+        "header_intervals": {
+          "count": 1939,
+          "sum_sec": 218.50772523900017,
+          "min_sec": 0.099130869,
+          "max_sec": 1.300688028,
+          "nonpositive_count": 0,
+          "gap_count": 81,
+          "last_gap_sec": 0.200572013,
+          "mean_sec": 0.11269093617276955
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/lio_sam/mapping/odometry": {
+        "count": 490,
+        "arrival_hz": 2.4794405984480052,
+        "last_arrival_age_sec": 0.07295082400014508,
+        "last_header_stamp_ns": 1794374879472539663,
+        "last_header_age_sec": 0.425582342,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": 2.142324924468994,
+          "y": 0.8780883550643921,
+          "z": 0.07783231139183044,
+          "frame_id": "odom",
+          "child_frame_id": "odom_mapping"
+        },
+        "arrival_intervals": {
+          "count": 489,
+          "sum_sec": 197.22190574199976,
+          "min_sec": 0.06704319199980091,
+          "max_sec": 11.405454178000127,
+          "nonpositive_count": 0,
+          "gap_count": 306,
+          "last_gap_sec": 0.39252754300014203,
+          "mean_sec": 0.4033167806584862
+        },
+        "header_intervals": {
+          "count": 489,
+          "sum_sec": 197.2999329560002,
+          "min_sec": 0.099216938,
+          "max_sec": 11.199603081,
+          "nonpositive_count": 0,
+          "gap_count": 283,
+          "last_gap_sec": 0.700063944,
+          "mean_sec": 0.4034763455132928
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/lio_sam/mapping/odometry_incremental": {
+        "count": 490,
+        "arrival_hz": 2.479478914136014,
+        "last_arrival_age_sec": 0.07236093599976812,
+        "last_header_stamp_ns": 1794374879472539663,
+        "last_header_age_sec": 0.425582342,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": 2.1423306465148926,
+          "y": 0.8780916333198547,
+          "z": 0.07783281058073044,
+          "frame_id": "odom",
+          "child_frame_id": "odom_mapping"
+        },
+        "arrival_intervals": {
+          "count": 489,
+          "sum_sec": 197.21885804800013,
+          "min_sec": 0.0670634279999831,
+          "max_sec": 11.404825646000063,
+          "nonpositive_count": 0,
+          "gap_count": 305,
+          "last_gap_sec": 0.39252813900020556,
+          "mean_sec": 0.4033105481554195
+        },
+        "header_intervals": {
+          "count": 489,
+          "sum_sec": 197.2999329560002,
+          "min_sec": 0.099216938,
+          "max_sec": 11.199603081,
+          "nonpositive_count": 0,
+          "gap_count": 283,
+          "last_gap_sec": 0.700063944,
+          "mean_sec": 0.4034763455132928
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/odom": {
+        "count": 19698,
+        "arrival_hz": 100.00130211575159,
+        "last_arrival_age_sec": 0.014683179999792628,
+        "last_header_stamp_ns": 1794374880242182400,
+        "last_header_age_sec": -0.344060395,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": 2.1440664736182695,
+          "y": 0.87612929045961,
+          "z": 0.07863759177523807,
+          "frame_id": "odom",
+          "child_frame_id": "odom_imu"
+        },
+        "arrival_intervals": {
+          "count": 19697,
+          "sum_sec": 196.96743525600004,
+          "min_sec": 0.00041506599973217817,
+          "max_sec": 0.02525272299999415,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009999869790120325
+        },
+        "header_intervals": {
+          "count": 19697,
+          "sum_sec": 196.9699999999667,
+          "min_sec": 0.009916,
+          "max_sec": 0.010044,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009999999999998309
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/odom_incremental": {
+        "count": 19698,
+        "arrival_hz": 100.00120839709679,
+        "last_arrival_age_sec": 0.014373434999924939,
+        "last_header_stamp_ns": 1794374880242182400,
+        "last_header_age_sec": -0.344060395,
+        "counters": {
+          "pose_nonfinite_count": 0
+        },
+        "latest": {
+          "x": 2.1356402736611364,
+          "y": 0.8791781529273359,
+          "z": 0.05849376483858755,
+          "frame_id": "odom",
+          "child_frame_id": "odom_imu"
+        },
+        "arrival_intervals": {
+          "count": 19697,
+          "sum_sec": 196.96761984900013,
+          "min_sec": 0.0018860039999708533,
+          "max_sec": 0.01705433200004336,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009999879161750528
+        },
+        "header_intervals": {
+          "count": 19697,
+          "sum_sec": 196.9699999999667,
+          "min_sec": 0.009916,
+          "max_sec": 0.010044,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.009999999999998309
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/lio_sam/imu_preintegration_ready": {
+        "count": 2,
+        "arrival_hz": 1.0487599612188276,
+        "last_arrival_age_sec": 196.68697941399978,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {
+          "false_count": 1,
+          "true_count": 1
+        },
+        "latest": {
+          "ready": true
+        },
+        "arrival_intervals": {
+          "count": 1,
+          "sum_sec": 0.9535070340002676,
+          "min_sec": 0.9535070340002676,
+          "max_sec": 0.9535070340002676,
+          "nonpositive_count": 0,
+          "gap_count": 1,
+          "last_gap_sec": 0.9535070340002676,
+          "mean_sec": 0.9535070340002676
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/map": {
+        "count": 1,
+        "arrival_hz": null,
+        "last_arrival_age_sec": 194.97582456500004,
+        "last_header_stamp_ns": 1794374684784089637,
+        "last_header_age_sec": 195.114032368,
+        "counters": {},
+        "latest": {
+          "width": 400,
+          "height": 400,
+          "resolution": 0.10000000149011612,
+          "frame_id": "map"
+        },
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/global_costmap/costmap": {
+        "count": 162,
+        "arrival_hz": 0.8895053088143471,
+        "last_arrival_age_sec": 0.5783073319998948,
+        "last_header_stamp_ns": 1794374879319188450,
+        "last_header_age_sec": 0.578933555,
+        "counters": {},
+        "latest": {
+          "width": 400,
+          "height": 400,
+          "resolution": 0.10000000149011612,
+          "frame_id": "map"
+        },
+        "arrival_intervals": {
+          "count": 161,
+          "sum_sec": 180.99948185199992,
+          "min_sec": 0.9998878760002299,
+          "max_sec": 1.2014152950000607,
+          "nonpositive_count": 0,
+          "gap_count": 161,
+          "last_gap_sec": 1.1982903329999317,
+          "mean_sec": 1.1242203841739125
+        },
+        "header_intervals": {
+          "count": 161,
+          "sum_sec": 180.99941839799993,
+          "min_sec": 0.999947513,
+          "max_sec": 1.200596655,
+          "nonpositive_count": 0,
+          "gap_count": 161,
+          "last_gap_sec": 1.19932082,
+          "mean_sec": 1.124219990049689
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/local_costmap/costmap": {
+        "count": 2255,
+        "arrival_hz": 12.388162490039974,
+        "last_arrival_age_sec": 0.09918869100010852,
+        "last_header_stamp_ns": 1794374879798055260,
+        "last_header_age_sec": 0.100066745,
+        "counters": {},
+        "latest": {
+          "width": 300,
+          "height": 300,
+          "resolution": 0.05000000074505806,
+          "frame_id": "odom"
+        },
+        "arrival_intervals": {
+          "count": 2254,
+          "sum_sec": 181.94788789799986,
+          "min_sec": 0.04830160600022282,
+          "max_sec": 0.10431284299966137,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.08072222178260864
+        },
+        "header_intervals": {
+          "count": 2254,
+          "sum_sec": 181.9483731110003,
+          "min_sec": 0.049948615,
+          "max_sec": 0.101892564,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": 0.08072243705013324
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/indoor_startup/cmd_vel": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/indoor_startup/cmd_vel_nav": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 5
+      },
+      "/indoor_startup/cmd_vel_smoothed": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/navigate_to_pose/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/navigate_through_poses/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/follow_waypoints/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/follow_path/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/spin/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/backup/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      },
+      "/drive_on_heading/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 1
+      }
+    },
+    "phases": {
+      "sensor_baseline": {
+        "first_start_elapsed_sec": 0.0,
+        "entries": 1,
+        "duration_sec": 22.09886654999991,
+        "topics": {
+          "/rslidar_Pointcloud2": {
+            "count": 194,
+            "arrival_hz": 9.894537301866851,
+            "last_arrival_age_sec": 199.11622614499993,
+            "last_header_stamp_ns": 1794374680672791719,
+            "last_header_age_sec": 199.225330286,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 193,
+              "sum_sec": 19.50571250699977,
+              "min_sec": 0.08716243099979692,
+              "max_sec": 0.2102805829999852,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.2102805829999852,
+              "mean_sec": 0.10106586791191591
+            },
+            "header_intervals": {
+              "count": 193,
+              "sum_sec": 19.407879352000002,
+              "min_sec": 0.099256039,
+              "max_sec": 0.199853897,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.100558960373057
+            }
+          },
+          "/laser/scan_merge_laser": {
+            "count": 192,
+            "arrival_hz": 9.790831842087941,
+            "last_arrival_age_sec": 199.1125979489998,
+            "last_header_stamp_ns": 1794374680672791719,
+            "last_header_age_sec": 199.225330286,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 191,
+              "sum_sec": 19.508046208999986,
+              "min_sec": 0.08643875599955209,
+              "max_sec": 0.2151623390000168,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.2151623390000168,
+              "mean_sec": 0.10213636758638736
+            },
+            "header_intervals": {
+              "count": 191,
+              "sum_sec": 19.407879352000005,
+              "min_sec": 0.099256039,
+              "max_sec": 0.200474977,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.200474977,
+              "mean_sec": 0.10161193378010475
+            }
+          },
+          "/imu": {
+            "count": 1934,
+            "arrival_hz": 100.24447755427724,
+            "last_arrival_age_sec": 199.09203072899982,
+            "last_header_stamp_ns": 1794374681162182400,
+            "last_header_age_sec": 198.735939605,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 1,
+              "quaternion_norm_outside_0_9_to_1_1_count": 2,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 1.0000000270648541,
+              "acceleration_norm": 9.783303028183868,
+              "angular_velocity_norm": 0.0018345858868322321,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 1933,
+              "sum_sec": 19.282857741000043,
+              "min_sec": 0.001380382999741414,
+              "max_sec": 0.015478360000088287,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009975611868080726
+            },
+            "header_intervals": {
+              "count": 1933,
+              "sum_sec": 19.640000000000267,
+              "min_sec": 0.009916,
+              "max_sec": 0.32,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.32,
+              "mean_sec": 0.010160372478013588
+            }
+          }
+        }
+      },
+      "lio_start": {
+        "first_start_elapsed_sec": 22.09886654999991,
+        "entries": 1,
+        "duration_sec": 3.058500888999788,
+        "topics": {
+          "/imu": {
+            "count": 306,
+            "arrival_hz": 100.13763941519925,
+            "last_arrival_age_sec": 196.0320830239998,
+            "last_header_stamp_ns": 1794374684222182400,
+            "last_header_age_sec": 195.675939605,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 0,
+              "quaternion_norm_outside_0_9_to_1_1_count": 0,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 0.9999999792189248,
+              "acceleration_norm": 9.790839196350134,
+              "angular_velocity_norm": 0.0015815688330954702,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 306,
+              "sum_sec": 3.0599477050000132,
+              "min_sec": 0.005295045999901049,
+              "max_sec": 0.014139936999981728,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999829101307233
+            },
+            "header_intervals": {
+              "count": 306,
+              "sum_sec": 3.0599999999999787,
+              "min_sec": 0.00993,
+              "max_sec": 0.01004,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999999999999993
+            }
+          },
+          "/rslidar_Pointcloud2": {
+            "count": 29,
+            "arrival_hz": 9.681137371109772,
+            "last_arrival_age_sec": 196.1151927850001,
+            "last_header_stamp_ns": 1794374683672860622,
+            "last_header_age_sec": 196.225261383,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 29,
+              "sum_sec": 3.0010333599998376,
+              "min_sec": 0.07802809699978752,
+              "max_sec": 0.20183026099994095,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.20183026099994095,
+              "mean_sec": 0.10348390896551164
+            },
+            "header_intervals": {
+              "count": 29,
+              "sum_sec": 3.000068903,
+              "min_sec": 0.099261999,
+              "max_sec": 0.199666024,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.1034506518275862
+            }
+          },
+          "/laser/scan_merge_laser": {
+            "count": 28,
+            "arrival_hz": 9.334918275685073,
+            "last_arrival_age_sec": 196.1119111099997,
+            "last_header_stamp_ns": 1794374683672860622,
+            "last_header_age_sec": 196.225261383,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 28,
+              "sum_sec": 3.000686839000082,
+              "min_sec": 0.09128353699998115,
+              "max_sec": 0.2020347379998384,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.2020347379998384,
+              "mean_sec": 0.10716738710714578
+            },
+            "header_intervals": {
+              "count": 28,
+              "sum_sec": 3.000068903,
+              "min_sec": 0.099261999,
+              "max_sec": 0.199826955,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.10714531796428571
+            }
+          },
+          "/lio_sam/imu_preintegration_ready": {
+            "count": 2,
+            "arrival_hz": 1.0487599612188276,
+            "last_arrival_age_sec": 196.68697941399978,
+            "last_header_stamp_ns": null,
+            "last_header_age_sec": null,
+            "counters": {
+              "false_count": 1,
+              "true_count": 1
+            },
+            "latest": {
+              "ready": true
+            },
+            "arrival_intervals": {
+              "count": 1,
+              "sum_sec": 0.9535070340002676,
+              "min_sec": 0.9535070340002676,
+              "max_sec": 0.9535070340002676,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.9535070340002676,
+              "mean_sec": 0.9535070340002676
+            },
+            "header_intervals": {
+              "count": 0,
+              "sum_sec": 0.0,
+              "min_sec": null,
+              "max_sec": null,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": null
+            }
+          },
+          "/lio_sam/mapping/odometry": {
+            "count": 4,
+            "arrival_hz": 4.943290937115368,
+            "last_arrival_age_sec": 196.6879734109998,
+            "last_header_stamp_ns": 1794374682872219801,
+            "last_header_age_sec": 197.025902204,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.0066216387785971165,
+              "y": -0.0042154318653047085,
+              "z": 0.008160592056810856,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 3,
+              "sum_sec": 0.606883155000105,
+              "min_sec": 0.10144943500017689,
+              "max_sec": 0.30612112700009675,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.30612112700009675,
+              "mean_sec": 0.20229438500003502
+            },
+            "header_intervals": {
+              "count": 3,
+              "sum_sec": 0.699613094,
+              "min_sec": 0.099527121,
+              "max_sec": 0.399560928,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.200525045,
+              "mean_sec": 0.2332043646666667
+            }
+          },
+          "/lio_sam/mapping/odometry_incremental": {
+            "count": 4,
+            "arrival_hz": 4.970466144613629,
+            "last_arrival_age_sec": 196.68765386299992,
+            "last_header_stamp_ns": 1794374682872219801,
+            "last_header_age_sec": 197.025902204,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.006621639244258404,
+              "y": -0.004215431399643421,
+              "z": 0.008160593919456005,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 3,
+              "sum_sec": 0.6035651209999742,
+              "min_sec": 0.10126362700020763,
+              "max_sec": 0.3026680220000344,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 0.3026680220000344,
+              "mean_sec": 0.20118837366665807
+            },
+            "header_intervals": {
+              "count": 3,
+              "sum_sec": 0.699613094,
+              "min_sec": 0.099527121,
+              "max_sec": 0.399560928,
+              "nonpositive_count": 0,
+              "gap_count": 2,
+              "last_gap_sec": 0.200525045,
+              "mean_sec": 0.2332043646666667
+            }
+          },
+          "/odom": {
+            "count": 95,
+            "arrival_hz": 99.7795865748191,
+            "last_arrival_age_sec": 196.04004197299992,
+            "last_header_stamp_ns": 1794374684212182400,
+            "last_header_age_sec": 195.685939605,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 0.0007290570785154537,
+              "y": -0.007980241191209641,
+              "z": -0.0073640008924014694,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 94,
+              "sum_sec": 0.9420764629999212,
+              "min_sec": 0.0018950740000036603,
+              "max_sec": 0.020028871999784315,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010022090031914056
+            },
+            "header_intervals": {
+              "count": 94,
+              "sum_sec": 0.9400000000000006,
+              "min_sec": 0.01,
+              "max_sec": 0.01,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010000000000000007
+            }
+          },
+          "/odom_incremental": {
+            "count": 95,
+            "arrival_hz": 99.73810937008938,
+            "last_arrival_age_sec": 196.0395250480001,
+            "last_header_stamp_ns": 1794374684212182400,
+            "last_header_age_sec": 195.685939605,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": -0.014056153731219373,
+              "y": -0.015315702932294811,
+              "z": 0.014630811219015494,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 94,
+              "sum_sec": 0.9424682359999679,
+              "min_sec": 0.0018860039999708533,
+              "max_sec": 0.014954245999888371,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010026257829786892
+            },
+            "header_intervals": {
+              "count": 94,
+              "sum_sec": 0.9400000000000006,
+              "min_sec": 0.01,
+              "max_sec": 0.01,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.010000000000000007
+            }
+          }
+        }
+      },
+      "nav2_start": {
+        "first_start_elapsed_sec": 25.1573674389997,
+        "entries": 1,
+        "duration_sec": 16.02032546600003,
+        "topics": {
+          "/odom": {
+            "count": 1603,
+            "arrival_hz": 100.02975460603832,
+            "last_arrival_age_sec": 180.00997988400013,
+            "last_header_stamp_ns": 1794374700242182400,
+            "last_header_age_sec": 179.655939605,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 2.049147201935005,
+              "y": 0.864387692307371,
+              "z": 0.019418199965223246,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 1603,
+              "sum_sec": 16.030062088999784,
+              "min_sec": 0.00041506599973217817,
+              "max_sec": 0.024194634999730624,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.01000003873300049
+            },
+            "header_intervals": {
+              "count": 1603,
+              "sum_sec": 16.029999999999713,
+              "min_sec": 0.009916,
+              "max_sec": 0.010042,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999999999999822
+            }
+          },
+          "/odom_incremental": {
+            "count": 1603,
+            "arrival_hz": 100.03175102064475,
+            "last_arrival_age_sec": 180.00964126899999,
+            "last_header_stamp_ns": 1794374700242182400,
+            "last_header_age_sec": 179.655939605,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 2.399615865646116,
+              "y": 1.1384371746196222,
+              "z": -0.09337375493107303,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 1603,
+              "sum_sec": 16.0298837790001,
+              "min_sec": 0.0036076290002711175,
+              "max_sec": 0.014968678000059299,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999927497816658
+            },
+            "header_intervals": {
+              "count": 1603,
+              "sum_sec": 16.029999999999713,
+              "min_sec": 0.009916,
+              "max_sec": 0.010042,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999999999999822
+            }
+          },
+          "/imu": {
+            "count": 1602,
+            "arrival_hz": 100.00015241747164,
+            "last_arrival_age_sec": 180.01250120299983,
+            "last_header_stamp_ns": 1794374700242182400,
+            "last_header_age_sec": 179.655939605,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 0,
+              "quaternion_norm_outside_0_9_to_1_1_count": 0,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 1.000000055180277,
+              "acceleration_norm": 9.784686434471459,
+              "angular_velocity_norm": 0.0019839108166912764,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 1602,
+              "sum_sec": 16.019581820999974,
+              "min_sec": 0.007386853999832965,
+              "max_sec": 0.012629998000193154,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999973896441946
+            },
+            "header_intervals": {
+              "count": 1602,
+              "sum_sec": 16.019999999999712,
+              "min_sec": 0.009916,
+              "max_sec": 0.010042,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999999999999982
+            }
+          },
+          "/rslidar_Pointcloud2": {
+            "count": 70,
+            "arrival_hz": 4.312736729353598,
+            "last_arrival_age_sec": 180.0192457779999,
+            "last_header_stamp_ns": 1794374699772292614,
+            "last_header_age_sec": 180.125829391,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 70,
+              "sum_sec": 16.095947007000177,
+              "min_sec": 0.08974026199985019,
+              "max_sec": 1.3998478110001997,
+              "nonpositive_count": 0,
+              "gap_count": 23,
+              "last_gap_sec": 0.20070731000032538,
+              "mean_sec": 0.22994210010000252
+            },
+            "header_intervals": {
+              "count": 70,
+              "sum_sec": 16.099431992000007,
+              "min_sec": 0.099353075,
+              "max_sec": 1.40008688,
+              "nonpositive_count": 0,
+              "gap_count": 19,
+              "last_gap_sec": 0.299952984,
+              "mean_sec": 0.22999188560000008
+            }
+          },
+          "/laser/scan_merge_laser": {
+            "count": 68,
+            "arrival_hz": 4.238035226531499,
+            "last_arrival_age_sec": 180.11090964999994,
+            "last_header_stamp_ns": 1794374699672799826,
+            "last_header_age_sec": 180.225322179,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 68,
+              "sum_sec": 16.00100145999977,
+              "min_sec": 0.08918107499994221,
+              "max_sec": 1.2985938390002048,
+              "nonpositive_count": 0,
+              "gap_count": 23,
+              "last_gap_sec": 0.2063046610001038,
+              "mean_sec": 0.23530884499999663
+            },
+            "header_intervals": {
+              "count": 68,
+              "sum_sec": 15.999939204,
+              "min_sec": 0.099353075,
+              "max_sec": 1.300688028,
+              "nonpositive_count": 0,
+              "gap_count": 22,
+              "last_gap_sec": 0.200199842,
+              "mean_sec": 0.2352932235882353
+            }
+          },
+          "/lio_sam/mapping/odometry": {
+            "count": 9,
+            "arrival_hz": 0.5328770371919558,
+            "last_arrival_age_sec": 180.091761486,
+            "last_header_stamp_ns": 1794374699472137690,
+            "last_header_age_sec": 180.425984315,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 1.9808106422424316,
+              "y": 0.7668465971946716,
+              "z": 0.0622902475297451,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 9,
+              "sum_sec": 16.596211924999807,
+              "min_sec": 0.09816327399994407,
+              "max_sec": 11.405454178000127,
+              "nonpositive_count": 0,
+              "gap_count": 6,
+              "last_gap_sec": 0.6083459840001524,
+              "mean_sec": 1.8440235472222009
+            },
+            "header_intervals": {
+              "count": 9,
+              "sum_sec": 16.599917889,
+              "min_sec": 0.10051012,
+              "max_sec": 11.199603081,
+              "nonpositive_count": 0,
+              "gap_count": 5,
+              "last_gap_sec": 0.600091935,
+              "mean_sec": 1.844435321
+            }
+          },
+          "/lio_sam/mapping/odometry_incremental": {
+            "count": 9,
+            "arrival_hz": 0.532889253732905,
+            "last_arrival_age_sec": 180.09132530299985,
+            "last_header_stamp_ns": 1794374699472137690,
+            "last_header_age_sec": 180.425984315,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 1.9808114767074585,
+              "y": 0.7668468356132507,
+              "z": 0.0622902475297451,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 9,
+              "sum_sec": 16.596328560000075,
+              "min_sec": 0.09841173399991021,
+              "max_sec": 11.404825646000063,
+              "nonpositive_count": 0,
+              "gap_count": 6,
+              "last_gap_sec": 0.6085478200002399,
+              "mean_sec": 1.8440365066666748
+            },
+            "header_intervals": {
+              "count": 9,
+              "sum_sec": 16.599917889,
+              "min_sec": 0.10051012,
+              "max_sec": 11.199603081,
+              "nonpositive_count": 0,
+              "gap_count": 5,
+              "last_gap_sec": 0.600091935,
+              "mean_sec": 1.844435321
+            }
+          },
+          "/map": {
+            "count": 1,
+            "arrival_hz": null,
+            "last_arrival_age_sec": 194.97582456500004,
+            "last_header_stamp_ns": 1794374684784089637,
+            "last_header_age_sec": 195.114032368,
+            "counters": {},
+            "latest": {
+              "width": 400,
+              "height": 400,
+              "resolution": 0.10000000149011612,
+              "frame_id": "map"
+            },
+            "arrival_intervals": {
+              "count": 0,
+              "sum_sec": 0.0,
+              "min_sec": null,
+              "max_sec": null,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": null
+            },
+            "header_intervals": {
+              "count": 0,
+              "sum_sec": 0.0,
+              "min_sec": null,
+              "max_sec": null,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": null
+            }
+          },
+          "/local_costmap/costmap": {
+            "count": 25,
+            "arrival_hz": 12.31952441486273,
+            "last_arrival_age_sec": 180.0989494380001,
+            "last_header_stamp_ns": 1794374699798427933,
+            "last_header_age_sec": 180.099694072,
+            "counters": {},
+            "latest": {
+              "width": 300,
+              "height": 300,
+              "resolution": 0.05000000074505806,
+              "frame_id": "odom"
+            },
+            "arrival_intervals": {
+              "count": 24,
+              "sum_sec": 1.9481271509998805,
+              "min_sec": 0.04995495299999675,
+              "max_sec": 0.10028025900010107,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.08117196462499503
+            },
+            "header_intervals": {
+              "count": 24,
+              "sum_sec": 1.9487457840000002,
+              "min_sec": 0.050065867,
+              "max_sec": 0.100231757,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.081197741
+            }
+          },
+          "/global_costmap/costmap": {
+            "count": 2,
+            "arrival_hz": 0.8323516473959568,
+            "last_arrival_age_sec": 180.37637388899975,
+            "last_header_stamp_ns": 1794374699520118456,
+            "last_header_age_sec": 180.378003549,
+            "counters": {},
+            "latest": {
+              "width": 400,
+              "height": 400,
+              "resolution": 0.10000000149011612,
+              "frame_id": "map"
+            },
+            "arrival_intervals": {
+              "count": 1,
+              "sum_sec": 1.2014152950000607,
+              "min_sec": 1.2014152950000607,
+              "max_sec": 1.2014152950000607,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 1.2014152950000607,
+              "mean_sec": 1.2014152950000607
+            },
+            "header_intervals": {
+              "count": 1,
+              "sum_sec": 1.200348404,
+              "min_sec": 1.200348404,
+              "max_sec": 1.200348404,
+              "nonpositive_count": 0,
+              "gap_count": 1,
+              "last_gap_sec": 1.200348404,
+              "mean_sec": 1.200348404
+            }
+          }
+        }
+      },
+      "hold": {
+        "first_start_elapsed_sec": 41.17769290499973,
+        "entries": 1,
+        "duration_sec": 180.00812227799997,
+        "topics": {
+          "/laser/scan_merge_laser": {
+            "count": 1652,
+            "arrival_hz": 9.1725714776653,
+            "last_arrival_age_sec": 0.013637974999710423,
+            "last_header_stamp_ns": 1794374879772637606,
+            "last_header_age_sec": 0.125484399,
+            "counters": {},
+            "latest": {
+              "ranges": 720,
+              "frame_id": "base_link"
+            },
+            "arrival_intervals": {
+              "count": 1652,
+              "sum_sec": 180.09727167500023,
+              "min_sec": 0.083275703000254,
+              "max_sec": 0.40096911699993143,
+              "nonpositive_count": 0,
+              "gap_count": 67,
+              "last_gap_sec": 0.20032944299964583,
+              "mean_sec": 0.1090177189315982
+            },
+            "header_intervals": {
+              "count": 1652,
+              "sum_sec": 180.09983777999975,
+              "min_sec": 0.099130869,
+              "max_sec": 0.400563002,
+              "nonpositive_count": 0,
+              "gap_count": 58,
+              "last_gap_sec": 0.200572013,
+              "mean_sec": 0.10901927226392237
+            }
+          },
+          "/imu": {
+            "count": 18001,
+            "arrival_hz": 100.0015681779248,
+            "last_arrival_age_sec": 0.005557744999805436,
+            "last_header_stamp_ns": 1794374880252182400,
+            "last_header_age_sec": -0.354060395,
+            "counters": {
+              "quaternion_nonfinite_count": 0,
+              "quaternion_norm_nonfinite_count": 0,
+              "quaternion_zero_norm_count": 0,
+              "quaternion_norm_outside_0_9_to_1_1_count": 0,
+              "acceleration_nonfinite_count": 0,
+              "angular_velocity_nonfinite_count": 0
+            },
+            "latest": {
+              "quaternion_norm": 1.0000000840024805,
+              "acceleration_norm": 9.816976823200205,
+              "angular_velocity_norm": 0.0017262295354129786,
+              "orientation_declared_unavailable": false,
+              "frame_id": "imu_link"
+            },
+            "arrival_intervals": {
+              "count": 18001,
+              "sum_sec": 180.00694345800002,
+              "min_sec": 0.00715903399986928,
+              "max_sec": 0.012836741000228358,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.00999983020154436
+            },
+            "header_intervals": {
+              "count": 18001,
+              "sum_sec": 180.0099999999817,
+              "min_sec": 0.009916,
+              "max_sec": 0.010044,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999999999998982
+            }
+          },
+          "/odom": {
+            "count": 18000,
+            "arrival_hz": 100.00164314828325,
+            "last_arrival_age_sec": 0.014683179999792628,
+            "last_header_stamp_ns": 1794374880242182400,
+            "last_header_age_sec": -0.344060395,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 2.1440664736182695,
+              "y": 0.87612929045961,
+              "z": 0.07863759177523807,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 18000,
+              "sum_sec": 179.99529670400034,
+              "min_sec": 0.0004271880002306716,
+              "max_sec": 0.02525272299999415,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999738705777797
+            },
+            "header_intervals": {
+              "count": 18000,
+              "sum_sec": 179.9999999999817,
+              "min_sec": 0.009916,
+              "max_sec": 0.010044,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999999999998984
+            }
+          },
+          "/odom_incremental": {
+            "count": 18000,
+            "arrival_hz": 100.00159702200418,
+            "last_arrival_age_sec": 0.014373434999924939,
+            "last_header_stamp_ns": 1794374880242182400,
+            "last_header_age_sec": -0.344060395,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 2.1356402736611364,
+              "y": 0.8791781529273359,
+              "z": 0.05849376483858755,
+              "frame_id": "odom",
+              "child_frame_id": "odom_imu"
+            },
+            "arrival_intervals": {
+              "count": 18000,
+              "sum_sec": 179.99526783400006,
+              "min_sec": 0.0023450070002581924,
+              "max_sec": 0.01705433200004336,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999737101888893
+            },
+            "header_intervals": {
+              "count": 18000,
+              "sum_sec": 179.9999999999817,
+              "min_sec": 0.009916,
+              "max_sec": 0.010044,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.009999999999998984
+            }
+          },
+          "/local_costmap/costmap": {
+            "count": 2230,
+            "arrival_hz": 12.390211061641827,
+            "last_arrival_age_sec": 0.09918869100010852,
+            "last_header_stamp_ns": 1794374879798055260,
+            "last_header_age_sec": 0.100066745,
+            "counters": {},
+            "latest": {
+              "width": 300,
+              "height": 300,
+              "resolution": 0.05000000074505806,
+              "frame_id": "odom"
+            },
+            "arrival_intervals": {
+              "count": 2230,
+              "sum_sec": 179.99976074699998,
+              "min_sec": 0.04830160600022282,
+              "max_sec": 0.10431284299966137,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.08071738150089686
+            },
+            "header_intervals": {
+              "count": 2230,
+              "sum_sec": 179.99962732700038,
+              "min_sec": 0.049948615,
+              "max_sec": 0.101892564,
+              "nonpositive_count": 0,
+              "gap_count": 0,
+              "last_gap_sec": null,
+              "mean_sec": 0.08071732167130062
+            }
+          },
+          "/rslidar_Pointcloud2": {
+            "count": 1626,
+            "arrival_hz": 9.032919442336494,
+            "last_arrival_age_sec": 0.02087327599974742,
+            "last_header_stamp_ns": 1794374879772637606,
+            "last_header_age_sec": 0.125484399,
+            "counters": {},
+            "latest": {
+              "points": 57600,
+              "frame_id": "rslidar"
+            },
+            "arrival_intervals": {
+              "count": 1626,
+              "sum_sec": 179.99837250200017,
+              "min_sec": 0.08763742000019192,
+              "max_sec": 0.5000813410001683,
+              "nonpositive_count": 0,
+              "gap_count": 84,
+              "last_gap_sec": 0.30126973200003704,
+              "mean_sec": 0.110700106089791
+            },
+            "header_intervals": {
+              "count": 1626,
+              "sum_sec": 180.00034499199973,
+              "min_sec": 0.099215031,
+              "max_sec": 0.499985934,
+              "nonpositive_count": 0,
+              "gap_count": 71,
+              "last_gap_sec": 0.200520993,
+              "mean_sec": 0.11070131918327167
+            }
+          },
+          "/lio_sam/mapping/odometry": {
+            "count": 477,
+            "arrival_hz": 2.647140258759417,
+            "last_arrival_age_sec": 0.07295082400014508,
+            "last_header_stamp_ns": 1794374879472539663,
+            "last_header_age_sec": 0.425582342,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 2.142324924468994,
+              "y": 0.8780883550643921,
+              "z": 0.07783231139183044,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 477,
+              "sum_sec": 180.01881066199985,
+              "min_sec": 0.06704319199980091,
+              "max_sec": 2.710627383999963,
+              "nonpositive_count": 0,
+              "gap_count": 299,
+              "last_gap_sec": 0.39252754300014203,
+              "mean_sec": 0.37739792591614224
+            },
+            "header_intervals": {
+              "count": 477,
+              "sum_sec": 180.0004019730002,
+              "min_sec": 0.099216938,
+              "max_sec": 2.599356889,
+              "nonpositive_count": 0,
+              "gap_count": 276,
+              "last_gap_sec": 0.700063944,
+              "mean_sec": 0.37735933327673
+            }
+          },
+          "/lio_sam/mapping/odometry_incremental": {
+            "count": 477,
+            "arrival_hz": 2.6471396630021715,
+            "last_arrival_age_sec": 0.07236093599976812,
+            "last_header_stamp_ns": 1794374879472539663,
+            "last_header_age_sec": 0.425582342,
+            "counters": {
+              "pose_nonfinite_count": 0
+            },
+            "latest": {
+              "x": 2.1423306465148926,
+              "y": 0.8780916333198547,
+              "z": 0.07783281058073044,
+              "frame_id": "odom",
+              "child_frame_id": "odom_mapping"
+            },
+            "arrival_intervals": {
+              "count": 477,
+              "sum_sec": 180.01896436700008,
+              "min_sec": 0.0670634279999831,
+              "max_sec": 2.7106178609997187,
+              "nonpositive_count": 0,
+              "gap_count": 298,
+              "last_gap_sec": 0.39252813900020556,
+              "mean_sec": 0.37739824814884715
+            },
+            "header_intervals": {
+              "count": 477,
+              "sum_sec": 180.0004019730002,
+              "min_sec": 0.099216938,
+              "max_sec": 2.599356889,
+              "nonpositive_count": 0,
+              "gap_count": 276,
+              "last_gap_sec": 0.700063944,
+              "mean_sec": 0.37735933327673
+            }
+          },
+          "/global_costmap/costmap": {
+            "count": 160,
+            "arrival_hz": 0.8902582210011453,
+            "last_arrival_age_sec": 0.5783073319998948,
+            "last_header_stamp_ns": 1794374879319188450,
+            "last_header_age_sec": 0.578933555,
+            "counters": {},
+            "latest": {
+              "width": 400,
+              "height": 400,
+              "resolution": 0.10000000149011612,
+              "frame_id": "map"
+            },
+            "arrival_intervals": {
+              "count": 160,
+              "sum_sec": 179.79806655699986,
+              "min_sec": 0.9998878760002299,
+              "max_sec": 1.2011641960002635,
+              "nonpositive_count": 0,
+              "gap_count": 160,
+              "last_gap_sec": 1.1982903329999317,
+              "mean_sec": 1.123737915981249
+            },
+            "header_intervals": {
+              "count": 160,
+              "sum_sec": 179.79906999399995,
+              "min_sec": 0.999947513,
+              "max_sec": 1.200596655,
+              "nonpositive_count": 0,
+              "gap_count": 160,
+              "last_gap_sec": 1.19932082,
+              "mean_sec": 1.1237441874624996
+            }
+          }
+        }
+      }
+    },
+    "imu_preintegration": {
+      "ready": true,
+      "ever_ready": true,
+      "transitions": 1,
+      "ready_to_not_ready_count": 0,
+      "last_transition_age_sec": 196.68697941399978
+    },
+    "tf": {
+      "map->odom": {
+        "available": true,
+        "expected_static": true,
+        "fresh": true,
+        "header_age_sec": 1794374879.898122,
+        "finite": true,
+        "quaternion_norm": 1.0
+      },
+      "odom->base_link": {
+        "available": true,
+        "expected_static": false,
+        "fresh": true,
+        "header_age_sec": -0.344060395,
+        "finite": true,
+        "quaternion_norm": 1.0
+      },
+      "map->base_link": {
+        "available": true,
+        "expected_static": false,
+        "fresh": true,
+        "header_age_sec": -0.344060395,
+        "finite": true,
+        "quaternion_norm": 1.0
+      }
+    }
+  },
+  "nav2_lifecycle": {
+    "map_server": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826617344
+    },
+    "controller_server": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826673655
+    },
+    "smoother_server": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826724368
+    },
+    "behavior_server": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826817673
+    },
+    "bt_navigator": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826861374
+    },
+    "waypoint_follower": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826906654
+    },
+    "velocity_smoother": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.826951673
+    },
+    "planner_server": {
+      "id": 3,
+      "label": "active",
+      "queried_at": 3581.8267739
+    }
+  },
+  "cleanup": [
+    {
+      "label": "nav2",
+      "pid": 12273,
+      "returncode": -15
+    },
+    {
+      "label": "lio_mapOptimization",
+      "pid": 12148,
+      "returncode": 0
+    },
+    {
+      "label": "lio_featureExtraction",
+      "pid": 12147,
+      "returncode": 0
+    },
+    {
+      "label": "lio_imageProjection",
+      "pid": 12146,
+      "returncode": 0
+    },
+    {
+      "label": "lio_imuPreintegration",
+      "pid": 12145,
+      "returncode": 0
+    },
+    {
+      "label": "pointcloud_scan",
+      "pid": 12087,
+      "returncode": 0
+    },
+    {
+      "label": "lidar_converter",
+      "pid": 12086,
+      "returncode": 0
+    },
+    {
+      "label": "lidar",
+      "pid": 12085,
+      "returncode": 0
+    },
+    {
+      "label": "imu",
+      "pid": 12084,
+      "returncode": 0
+    }
+  ],
+  "finished_cleanup": "2026-11-11T13:28:08.976070+08:00"
+}

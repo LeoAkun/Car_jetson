@@ -1,0 +1,32 @@
+{
+  "/rear_camera/image_raw": {
+    "message_count": 419,
+    "last": {
+      "received": 27636.178322564,
+      "width": 1280,
+      "height": 720,
+      "frame": "rear_camera_optical_frame"
+    },
+    "received_hz": 30.036936052352328
+  },
+  "/rear_camera/camera_info": {
+    "message_count": 418,
+    "last": {
+      "received": 27636.14226677,
+      "width": 1280,
+      "height": 720,
+      "frame": "rear_camera_optical_frame"
+    },
+    "received_hz": 30.04347654820618
+  },
+  "/rear_camera/image_rect": {
+    "message_count": 418,
+    "last": {
+      "received": 27636.145327741,
+      "width": 1280,
+      "height": 720,
+      "frame": "rear_camera_optical_frame"
+    },
+    "received_hz": 30.06124328216969
+  }
+}

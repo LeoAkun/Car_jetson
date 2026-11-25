@@ -1,0 +1,30 @@
+header:
+  stamp:
+    sec: 1795144194
+    nanosec: 176708007
+  frame_id: map
+session_id: offline-full-relocalization-map2-1109-20261120
+map_id: map2
+success: true
+fitness_score: 0.013253012048192736
+pose:
+  position:
+    x: -203.92196655273438
+    y: 84.0386962890625
+    z: 0.35886698961257935
+  orientation:
+    x: -0.011331490812641582
+    y: -0.012727589471440466
+    z: 0.7281391029483342
+    w: 0.6852175235263674
+cloud_stamp:
+  sec: 1795144185
+  nanosec: 422976494
+observation_id: 1
+confirmation_count: 1
+first_fitness_score: 0.013253012048192736
+first_cloud_stamp:
+  sec: 1795144185
+  nanosec: 422976494
+reason: strong localization accepted; prior distance 2.009m; 94 static cells are free
+---

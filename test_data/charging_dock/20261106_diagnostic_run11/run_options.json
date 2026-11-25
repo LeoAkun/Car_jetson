@@ -1,0 +1,14 @@
+{
+  "dry_run": false,
+  "calibrated": true,
+  "auto_start": false,
+  "recorder_manual_start": true,
+  "recorder_total_deadline": null,
+  "shared_timeout": 0.0,
+  "standalone_action_timeout": 0.0,
+  "locked_final_timeout": 0.0,
+  "lock_alignment_duration": 0.5,
+  "lock_retry_duration": 1.0,
+  "lock_retry_distance": 0.01,
+  "action_feedback_in_trace": true
+}

@@ -234,6 +234,13 @@ inline bool DecoderRSHELIOS<T_PointCloud>::internDecodeMsopPkt(const uint8_t* pa
     }
   }
 
+  // The first frame callback can arrive before the first azimuth wrap. Seed
+  // the first point time so that the SDK never publishes an epoch-zero stamp.
+  if (this->first_point_ts_ <= 0.0)
+  {
+    this->first_point_ts_ = pkt_ts;
+  }
+
   T_BlockIterator iter(pkt, this->const_param_.BLOCKS_PER_PKT, this->mech_const_param_.BLOCK_DURATION,
       this->block_az_diff_, this->fov_blind_ts_diff_);
 

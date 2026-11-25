@@ -1,0 +1,25 @@
+condition_name: d0p45_ap00_r03
+recorded_at: '2026-08-27T17:43:55.892126+08:00'
+operator: akun
+distance_m: 0.45
+expected_range_m: 0.209
+dock_angle_deg: 0
+lateral_offset_m: 0.0
+roi_center_deg: 69.5
+roi_min_deg: 61.0
+roi_max_deg: 78.0
+duration_sec: 15.0
+repeat: 3
+scan_topic: /laser/scan_back
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: charging-window center; base_link distance 0.45m; right-side dock near structure;
+  0deg; formal repeat 3; exclude 0.96m structure

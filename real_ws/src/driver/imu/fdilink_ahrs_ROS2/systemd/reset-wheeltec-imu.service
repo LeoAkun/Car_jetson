@@ -1,0 +1,12 @@
+[Unit]
+Description=Reset the Wheeltec IMU USB bridge after boot
+After=systemd-udev-settle.service
+Wants=systemd-udev-settle.service
+Before=robot-service.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/reset-wheeltec-imu-usb
+
+[Install]
+WantedBy=robot-service.service

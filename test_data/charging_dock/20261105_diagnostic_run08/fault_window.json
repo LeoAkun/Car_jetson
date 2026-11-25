@@ -1,0 +1,659 @@
+[
+  {
+    "t": 129.4826692229999,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 659547423
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.2160000056028366,
+      "steer": -2.248537540435791,
+      "brake": false,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 3
+    }
+  },
+  {
+    "t": 129.48434619399995,
+    "topic": "/charging_dock/state",
+    "message": {
+      "data": "LOCK_VERIFY reason=waiting_for_measured_stop_before_lock"
+    }
+  },
+  {
+    "t": 129.48503825900116,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 661844831
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": 0.09000001102685928,
+      "left_wheel_speed": -0.06859353184700012,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 1,
+      "shift_level": 3,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": false
+    }
+  },
+  {
+    "t": 129.49158343599993,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "valid"
+    }
+  },
+  {
+    "t": 129.49509172000035,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 671912541
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -0.06750001013278961,
+      "left_wheel_speed": -0.06859353184700012,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 3,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": false
+    }
+  },
+  {
+    "t": 129.50266085300063,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 679442964
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.50492698500057,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 681768557
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -0.29250001907348633,
+      "left_wheel_speed": -0.06859353184700012,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 3,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": false
+    }
+  },
+  {
+    "t": 129.51150714200048,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "valid"
+    }
+  },
+  {
+    "t": 129.51494481400005,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 691777090
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -0.42750003933906555,
+      "left_wheel_speed": -0.07367453724145889,
+      "right_wheel_speed": -0.04572902247309685,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": false
+    }
+  },
+  {
+    "t": 129.52251995299957,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 699364393
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.5247899290007,
+    "topic": "/charging_dock/state",
+    "message": {
+      "data": "LOCK_VERIFY reason=waiting_for_measured_stop_before_lock"
+    }
+  },
+  {
+    "t": 129.5250972699996,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 701884400
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -0.5175000429153442,
+      "left_wheel_speed": -0.07367453724145889,
+      "right_wheel_speed": -0.04572902247309685,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.53163280700028,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "valid"
+    }
+  },
+  {
+    "t": 129.53497030000108,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 711820691
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -0.6075000762939453,
+      "left_wheel_speed": -0.07367453724145889,
+      "right_wheel_speed": -0.04572902247309685,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.5424433240005,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 719336107
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.54524333799964,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 722036716
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -0.7875000834465027,
+      "left_wheel_speed": -0.07367453724145889,
+      "right_wheel_speed": -0.04572902247309685,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.5515575669997,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "valid"
+    }
+  },
+  {
+    "t": 129.55502740500015,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 731857369
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -1.0125000476837158,
+      "left_wheel_speed": -0.07367453724145889,
+      "right_wheel_speed": -0.04572902247309685,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.56130164500064,
+    "topic": "/charging_dock/state",
+    "message": {
+      "data": "LOCK_VERIFY reason=waiting_for_measured_stop_before_lock"
+    }
+  },
+  {
+    "t": 129.56237028600117,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 739188583
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.56511594600124,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 741920250
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -1.192500114440918,
+      "left_wheel_speed": -0.07367453724145889,
+      "right_wheel_speed": -0.04572902247309685,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.57178462199954,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "valid"
+    }
+  },
+  {
+    "t": 129.57497725600115,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 751772673
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.3050001859664917,
+      "left_wheel_speed": -0.08129604160785675,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.58249466500092,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 759361364
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.58494870700088,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 761780072
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.3725001811981201,
+      "left_wheel_speed": -0.08129604160785675,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.5915402520004,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "moving_without_direction_feedback"
+    }
+  },
+  {
+    "t": 129.5916221160005,
+    "topic": "/charging_dock/emergency_stop",
+    "message": {
+      "data": true
+    }
+  },
+  {
+    "t": 129.5952351240012,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 772052506
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.3950001001358032,
+      "left_wheel_speed": -0.08129604160785675,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.59999436500038,
+    "topic": "/charging_dock/state",
+    "message": {
+      "data": "LOCK_VERIFY reason=waiting_for_measured_stop_before_lock"
+    }
+  },
+  {
+    "t": 129.60245507000036,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 779405523
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.6049896830009,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 781832357
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.4175001382827759,
+      "left_wheel_speed": -0.08129604160785675,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.61157962800098,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "moving_without_direction_feedback"
+    }
+  },
+  {
+    "t": 129.61163949000002,
+    "topic": "/charging_dock/emergency_stop",
+    "message": {
+      "data": true
+    }
+  },
+  {
+    "t": 129.61498638000012,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 791826083
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.4175001382827759,
+      "left_wheel_speed": -0.08129604160785675,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.6230294220004,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 799779127
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.62514998000006,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 801823950
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.4175001382827759,
+      "left_wheel_speed": -0.08129604160785675,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.63157783300085,
+    "topic": "/docking_feedback_odometry/state",
+    "message": {
+      "data": "moving_without_direction_feedback"
+    }
+  },
+  {
+    "t": 129.6316360109995,
+    "topic": "/charging_dock/emergency_stop",
+    "message": {
+      "data": true
+    }
+  },
+  {
+    "t": 129.63500348399975,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 811841973
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": -1.4175001382827759,
+      "left_wheel_speed": -0.06478278338909149,
+      "right_wheel_speed": -0.04826952517032623,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  },
+  {
+    "t": 129.64248056799988,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 819405672
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  {
+    "t": 129.64320631200098,
+    "topic": "/charging_dock/state",
+    "message": {
+      "data": "STOPPING reason=control_not_owned"
+    }
+  },
+  {
+    "t": 129.64488913599962,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793860154,
+          "nanosec": 821760802
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.20000000298023224,
+      "cur_steer": -1.3275001049041748,
+      "left_wheel_speed": -0.06478278338909149,
+      "right_wheel_speed": -0.06351253390312195,
+      "wheel_direction": 0,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    }
+  }
+]

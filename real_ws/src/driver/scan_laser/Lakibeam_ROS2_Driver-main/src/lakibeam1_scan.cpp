@@ -10,8 +10,10 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include <cerrno>
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
@@ -32,8 +34,18 @@ public:
 		scan_pub = create_publisher<sensor_msgs::msg::LaserScan>(output_topic, 1000);
 		info();
 		// scan_config();
-		create_socket();
+		if (create_socket() != 0)
+		{
+			throw std::runtime_error("Unable to bind the LiDAR UDP socket");
+		}
 		scan_publish();
+	}
+	~lakibeam1_scan() override
+	{
+		if (sockfd >= 0)
+		{
+			close(sockfd);
+		}
 	}
 protected:
 	void get_parameters()
@@ -100,9 +112,20 @@ protected:
         sockfd = socket(AF_INET, SOCK_DGRAM, 0);
         if(sockfd == -1)
         {
-            RCLCPP_INFO(get_logger(),"Failed to create socket");
+			RCLCPP_ERROR(get_logger(),"Failed to create socket: %s", std::strerror(errno));
             return -1;
         }
+
+		timeval timeout{};
+		timeout.tv_sec = 0;
+		timeout.tv_usec = 200000;
+		if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0)
+		{
+			RCLCPP_ERROR(get_logger(),"Unable to set UDP receive timeout: %s", std::strerror(errno));
+			close(sockfd);
+			sockfd = -1;
+			return -1;
+		}
 
         memset(&ser_addr, 0, sizeof(ser_addr));
         ser_addr.sin_family = AF_INET;
@@ -111,7 +134,9 @@ protected:
 
         if(bind(sockfd, (struct sockaddr*)&ser_addr, sizeof(ser_addr)) < 0)
         {
-            RCLCPP_INFO(get_logger(),"Socket bind error!");
+			RCLCPP_ERROR(get_logger(),"Socket bind error: %s", std::strerror(errno));
+			close(sockfd);
+			sockfd = -1;
             return -1;
         }
         return 0;
@@ -126,12 +151,28 @@ protected:
 		{
 			if(scan_vec_ready == 0)
 			{
-				while(1)
+				while(rclcpp::ok())
 				{
 					if(j == 12)
 					{
 						unsigned int len = sizeof(clent_addr);
-						recvfrom(sockfd, &MSOP_Data, sizeof(MSOP_Data), 0, (struct sockaddr*)&clent_addr, &len);
+						const ssize_t received = recvfrom(
+							sockfd, &MSOP_Data, sizeof(MSOP_Data), 0,
+							(struct sockaddr*)&clent_addr, &len);
+						if (received < 0)
+						{
+							if (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR)
+							{
+								continue;
+							}
+							RCLCPP_ERROR(get_logger(), "UDP receive failed: %s", std::strerror(errno));
+							return;
+						}
+						if (received != static_cast<ssize_t>(sizeof(MSOP_Data)))
+						{
+							RCLCPP_WARN(get_logger(), "Ignoring short LiDAR datagram: %zd bytes", received);
+							continue;
+						}
 						if(MSOP_Data.BlockID[0].Azimuth == 0)
 						{
 							scan_end = scan_begin;
@@ -232,6 +273,7 @@ protected:
 			}
 		}
 		close(sockfd);
+		sockfd = -1;
 	}
 
 private:
@@ -242,7 +284,7 @@ private:
     rclcpp::Time scan_begin, scan_end;
     struct sockaddr_in ser_addr, clent_addr; 
 	int i = 0, j = 12, points_cnt;
-	int sockfd;
+	int sockfd = -1;
 	unsigned int last_timestamp_;
     std::vector <bm_response_scan_t> scan_vec;
 };
@@ -250,10 +292,22 @@ private:
 int main(int argc, char **argv)
 {
 	rclcpp::init(argc, argv);
-	rclcpp::Rate rate(30); 
-	auto node = make_shared<lakibeam1_scan>();
-	rclcpp::spin(node);
-	rclcpp::shutdown();	
-
+	try
+	{
+		// The node's receive loop runs in its constructor and owns the socket;
+		// there are no executor callbacks to spin.
+		auto node = make_shared<lakibeam1_scan>();
+		node.reset();
+	}
+	catch (const std::exception& error)
+	{
+		RCLCPP_ERROR(rclcpp::get_logger("lakibeam1_scan"), "%s", error.what());
+		rclcpp::shutdown();
+		return 1;
+	}
+	if (rclcpp::ok())
+	{
+		rclcpp::shutdown();
+	}
 	return 0;
 }

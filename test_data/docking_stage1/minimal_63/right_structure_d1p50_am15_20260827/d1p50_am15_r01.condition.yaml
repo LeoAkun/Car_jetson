@@ -1,0 +1,35 @@
+condition_name: d1p50_am15_r01
+recorded_at: '2026-08-27T16:05:40.007784+08:00'
+operator: akun
+distance_m: 1.5
+expected_range_m: 1.2
+expected_range_source: observed_radial_range_for_segment_selection
+dock_angle_deg: -15
+measured_dock_normal_angle_deg: -15.0
+angle_measurement_source: external_visual_estimate
+angle_measurement_quality: approximate_not_instrument_measured
+angle_sign_convention: positive_when_vehicle_rear_points_right
+lateral_offset_m: 0.0
+roi_center_deg: 64.5
+roi_min_deg: 59.0
+roi_max_deg: 70.0
+target_structure: dock_front_right_flat_face
+excluded_structure: left_near_plane_and_structure_transitions
+plane_normal_distance_m: 1.169
+distance_metric_note: analyzer_distance_is_roi_radial_range_median; plane_normal_distance_is_fitted_line_normal_distance; expected_plane_normal_distance_m_pending_manual_measurement
+duration_sec: 15.0
+repeat: 1
+scan_topic: /laser/scan_back
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: right-side dock plane; negative 15deg approximate; diagnostic capture; exclude
+  left near plane; static vehicle; fitted normal distance is observational until
+  manual perpendicular measurement is supplied

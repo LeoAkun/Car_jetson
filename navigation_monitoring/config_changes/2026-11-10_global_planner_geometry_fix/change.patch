@@ -1,0 +1,184 @@
+--- a/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml
++++ b/real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml
+@@ -1,7 +1,9 @@
+ /ros2_laser_scan_merger:
+   ros__parameters:
+-    flip1: true
+-    flip2: true
++    # The Lakibeam drivers already publish both scans with inverted=true.
++    # Reversing the ranges again here mirrors road-side geometry into the path.
++    flip1: false
++    flip2: false
+     inverse1: true
+     inverse2: true
+     laser1Alpha: 45.0
+--- a/nav2/src/nav2/config/nav2_real_params.yaml
++++ b/nav2/src/nav2/config/nav2_real_params.yaml
+@@ -265,7 +265,7 @@
+ 
+       # 阿克曼模型参数
+       AckermannConstraints:
+-        min_turning_r: 0.4 # 转弯半径
++        min_turning_r: 1.0 # 与Smac及底盘转换器统一的保守最小转弯半径
+       # critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic", "VelocityDeadbandCritic"] # 评判模型
+       critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic", "ObstaclesCritic"] # 评判模型
+       
+@@ -371,8 +371,9 @@
+       robot_base_frame: base_link
+       use_sim_time: False
+       resolution: 0.05 # 分辨率，通常与全局保持一致
+-      robot_radius: 0.45 # 机器人半径
+-      footprint: "[[-0.27, -0.43], [-0.27, 0.43], [0.27, 0.43], [0.27, -0.43]]" # 机器人形状
++      # base_link: x向前、y向左。按前后雷达安装外沿暂定车体长0.86m、宽0.56m；待现场外廓实测后复核。
++      footprint: "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]"
++      footprint_padding: 0.02
+ 
+       # Transform 设置 - 解决时间戳问题
+       transform_tolerance: 1.0 # 必须足够大，否则激光消息因TF缓存查不到而被丢弃，导致代价地图失效
+@@ -461,7 +462,9 @@
+ 
+       # 静态地图设置
+       use_sim_time: False # 是否使用仿真时间
+-      robot_radius: 0.22 # 机器人半径（m）
++      # 与local_costmap使用同一车体轮廓，避免全局按小圆、局部按大矩形规划。
++      footprint: "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]"
++      footprint_padding: 0.02
+       resolution: 0.05 # 地图分辨率（m/oixel）
+       track_unknown_space: true # 是否跟踪未知空间
+ 
+@@ -492,8 +495,8 @@
+         map_subscribe_transient_local: True # 订阅持久化的地图话题
+       inflation_layer:
+         plugin: "nav2_costmap_2d::InflationLayer"
+-        cost_scaling_factor: 1.5  # 增加代价缩放因子，让障碍物周围代价衰减更慢，更贴近障碍物
+-        inflation_radius: 2.0    # 增加膨胀半径，让机器人更倾向于远离障碍物
++        cost_scaling_factor: 5.0  # 与局部代价地图及MPPI障碍评估一致
++        inflation_radius: 0.55    # 略大于暂定车体外接半径，避免2m代价场覆盖整条道路
+       always_send_full_costmap: True
+ 
+ map_server:
+@@ -544,7 +547,7 @@
+ 
+       # 运动模型（对 Ackermann 车最重要）
+       motion_model_for_search: "REEDS_SHEPP"    # 运动模型。DUBIN = 只能前进不能倒车，REEDS_SHEPP = 可前进+倒车。Ackermann 车用 DUBIN 或 REEDS_SHEPP
+-      minimum_turning_radius: 0.40        # 最小转弯半径（米），必须匹配你车的实际最小转弯半径，规划出的路径曲率不会超过此限制
++      minimum_turning_radius: 1.0         # 与MPPI及底盘转换器统一；对应L=0.5m、最大转角26.565°
+       angle_quantization_bins: 64         # 角度离散化数量，360°分成64份=每份5.625°。越大搜索越精细但越慢 
+ 
+       # 代价/惩罚参数（影响路径偏好）
+@@ -558,7 +561,7 @@
+ 
+       # 解析扩展（Analytic Expansion），搜索过程中，当接近目标时会尝试用 Dubins/Reeds-Shepp 曲线直接连接到目标：
+       analytic_expansion_ratio: 5.0       # 当已走距离/剩余距离 > 此比例时，尝试解析连接。越大越少尝试
+-      analytic_expansion_max_length: 2.0    # 解析扩展最大长度（米），防止生成过长的不安全捷径。建议 ≥ 4~5 倍最小转弯半径
++      analytic_expansion_max_length: 5.0    # 保持为最小转弯半径的5倍，便于Reeds-Shepp解析连接
+       analytic_expansion_max_cost: 200   # 解析扩展路径上单个格子的最大允许代价，超过则认为扩展无效
+       analytic_expansion_max_cost_override: false # 接近目标时是否允许突破上面的代价限制。false=严格遵守
+       
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py
+@@ -20,7 +20,9 @@
+ 
+         # 声明参数
+         self.declare_parameter('L', 0.5)
+-        self.declare_parameter('MAX_STEER_DEG', 20.0)
++        # L=0.5m and 26.565deg correspond to a conservative 1.0m bicycle-model
++        # turning radius, matching Smac and MPPI. The CAN layer hard-clamps near 27deg.
++        self.declare_parameter('MAX_STEER_DEG', 26.56505117707799)
+         # All linear-speed parameters are m/s. Historical ECU calibration was
+         # in km/h; migrate its physical values rather than multiplying them.
+         self.declare_parameter('navigation_max_speed', 2.0 / MPS_TO_KMH)
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml
+@@ -7,7 +7,7 @@
+     STOP_THRESH: 0.005555555555555556 # 原0.02km/h；先判停车，再加补偿
+     Vel_Offeset: 0.008333333333333333 # 原前进补偿0.03km/h；对接模式不使用
+     OMEGA_DEADZONE: 0.020 # 低于这个角度认为打轮角度是0
+-    MAX_STEER_DEG: 30.0 # 舵机最大能打的转向角度
++    MAX_STEER_DEG: 26.56505117707799 # L=0.5m时对应1.0m最小转弯半径，并低于CAN约27°硬限
+     OMEGA_FULL_STEER: 5.0 # 停车时推满摇杆对应的角速度 -> 5.0即对应最大转向角度, 或者说敏感度，数值越小越敏感
+     rear_wheel_flag: True # 是否开启双阿克曼模式
+     # Stage 3 command path. The mux publishes the selected command here.
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml
+@@ -1,7 +1,7 @@
+ /cmdvel_to_ecu:
+   ros__parameters:
+     L: 0.5
+-    MAX_STEER_DEG: 30.0
++    MAX_STEER_DEG: 26.56505117707799 # 与普通导航、Smac和MPPI的1.0m最小转弯半径一致
+     # 普通模式回切时也使用SI参数；对接模式继续独立限速0.10m/s。
+     navigation_max_speed: 0.5555555555555556 # 普通模式上限2.0km/h
+     LOW_SPEED_THRESH: 0.2222222222222222
+--- a/real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py
++++ b/real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py
+@@ -32,7 +32,7 @@
+     return SimpleNamespace(
+         get_clock=lambda: clock,
+         L=0.5,
+-        MAX_STEER_DEG=30.0,
++        MAX_STEER_DEG=26.56505117707799,
+         LOW_SPEED_THRESH=0.8 / 3.6,
+         STOP_THRESH=0.02 / 3.6,
+         Vel_Offeset=0.03 / 3.6,
+@@ -208,6 +208,9 @@
+     for filename, historical_stop in [('config.yaml', 0.02), ('docking_config.yaml', 0.01)]:
+         parameters = yaml.safe_load(
+             (config_directory / filename).read_text())['/cmdvel_to_ecu']['ros__parameters']
++        assert parameters['L'] == pytest.approx(0.5)
++        assert parameters['MAX_STEER_DEG'] == pytest.approx(26.56505117707799)
++        assert parameters['L'] / math.tan(math.radians(parameters['MAX_STEER_DEG'])) == pytest.approx(1.0)
+         assert parameters['navigation_max_speed'] == pytest.approx(2.0 / 3.6)
+         assert parameters['LOW_SPEED_THRESH'] == pytest.approx(0.8 / 3.6)
+         assert parameters['STOP_THRESH'] == pytest.approx(historical_stop / 3.6)
+@@ -219,6 +222,7 @@
+     assert controller['ax_min'] == pytest.approx(-2.5 / 3.6)
+     assert controller['wz_max'] == 5.0
+     assert controller['wz_std'] == 0.5
++    assert controller['AckermannConstraints']['min_turning_r'] == pytest.approx(1.0)
+     assert smoother['max_velocity'] == pytest.approx([2.0 / 3.6, 0.0, 2.0])
+     assert smoother['min_velocity'] == pytest.approx([-2.0 / 3.6, 0.0, -2.0])
+     assert smoother['max_accel'] == pytest.approx([2.5 / 3.6, 0.0, 3.2])
+--- a/multi_map_navigation/src/multi_map_navigation/test/test_navigation_recovery.py
++++ b/multi_map_navigation/src/multi_map_navigation/test/test_navigation_recovery.py
+@@ -80,17 +80,37 @@
+     global_inflation = config["global_costmap"]["global_costmap"]["ros__parameters"][
+         "inflation_layer"
+     ]
++    global_costmap = config["global_costmap"]["global_costmap"]["ros__parameters"]
++    local_costmap = config["local_costmap"]["local_costmap"]["ros__parameters"]
+     mppi = controller["FollowPath"]
+ 
+     assert planner["smooth_path"] is False
+-    assert planner["minimum_turning_radius"] == pytest.approx(0.40)
+-    assert mppi["AckermannConstraints"]["min_turning_r"] == pytest.approx(0.40)
+-    assert global_inflation["inflation_radius"] == pytest.approx(2.0)
++    assert planner["minimum_turning_radius"] == pytest.approx(1.0)
++    assert mppi["AckermannConstraints"]["min_turning_r"] == pytest.approx(1.0)
++    assert planner["analytic_expansion_max_length"] >= 5.0 * planner["minimum_turning_radius"]
++    assert global_inflation["inflation_radius"] == pytest.approx(0.55)
++    assert global_inflation["cost_scaling_factor"] == pytest.approx(5.0)
++    assert global_costmap["footprint"] == local_costmap["footprint"]
++    assert global_costmap["footprint_padding"] == pytest.approx(0.02)
++    assert local_costmap["footprint_padding"] == pytest.approx(0.02)
++    assert "robot_radius" not in global_costmap
++    assert "robot_radius" not in local_costmap
+     assert controller["controller_frequency"] == pytest.approx(30.0)
+     assert mppi["time_steps"] == 56
+     assert mppi["model_dt"] == pytest.approx(0.05)
+     assert mppi["model_dt"] >= 1.0 / controller["controller_frequency"]
+     assert mppi["time_steps"] * mppi["model_dt"] == pytest.approx(2.8)
++
++
++def test_real_laser_merger_does_not_reverse_driver_corrected_scans_twice():
++    merger_path = repo_root() / (
++        "real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml"
++    )
++    with merger_path.open(encoding="utf-8") as stream:
++        merger = yaml.safe_load(stream)["/ros2_laser_scan_merger"]["ros__parameters"]
++
++    assert merger["flip1"] is False
++    assert merger["flip2"] is False
+ 
+ 
+ def test_aborted_goal_requests_alternate_route_from_last_completed_waypoint():

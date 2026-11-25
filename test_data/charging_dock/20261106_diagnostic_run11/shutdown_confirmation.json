@@ -1,0 +1,14 @@
+{
+  "completed_utc": "2026-11-06T04:09:48.614636+00:00",
+  "hardware_launch_exited": true,
+  "recorder_exited": true,
+  "bag_recorder_exit_code": 0,
+  "remaining_test_processes": [],
+  "ros_node_list_after_shutdown": [],
+  "stop_confirmation": "stop_confirmation.json",
+  "bag_integrity": "ok",
+  "bag_message_count": 126620,
+  "metadata_message_count": 126620,
+  "bag_duration_sec": 230.220688905,
+  "bag_read_only_after_recorder_exit": true
+}

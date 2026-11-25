@@ -1,0 +1,27 @@
+# Runtime P0 in the configured global_frame: map for navigation, dock_odom
+# for a manually parked standalone test. Never read from a static P0 YAML.
+geometry_msgs/PoseStamped pre_dock_pose
+int32 dock_id
+bool dry_run
+bool require_charging
+# Optional overall deadline in seconds. Zero disables this goal's deadline;
+# an explicitly positive controller timeout may still impose a limit.
+# Local acquisition, sensor, stopping and final-approach limits are independent.
+float32 timeout_sec
+---
+bool success
+bool dry_run_ready
+bool charging_confirmed
+string error_code
+string message
+float32 final_longitudinal_error
+float32 final_lateral_error
+float32 final_yaw_error
+---
+string state
+string reason
+float32 traveled_distance
+float32 longitudinal_error
+float32 lateral_error
+float32 yaw_error
+float32 quality

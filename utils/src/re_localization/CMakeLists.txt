@@ -34,6 +34,7 @@ find_package(ndt_omp_ros2 REQUIRED)
 find_package(OpenMP)
 find_package(yaml-cpp REQUIRED)
 find_package(std_msgs REQUIRED)  # ✅ 可能被srv使用
+find_package(builtin_interfaces REQUIRED)
 
 if (OPENMP_FOUND)
     set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
@@ -45,7 +46,8 @@ endif()
 # ===============================
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ReLocalization.srv"          # ✅ 你的服务文件
-  DEPENDENCIES geometry_msgs std_msgs  # ✅ 根据srv文件内容添加依赖
+  "srv/GetLocalizationReadiness.srv"
+  DEPENDENCIES geometry_msgs std_msgs builtin_interfaces
 )
 
 # ===============================

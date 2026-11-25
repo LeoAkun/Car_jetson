@@ -1,0 +1,42 @@
+{
+  "collected_at_beijing": "2026-11-07T16:23:45.423784+08:00",
+  "boot_id": "ca32f49f-62a3-4e77-aee9-af55c9ac556a",
+  "commands": {
+    "boot_list": {
+      "returncode": 0,
+      "bytes": 2417
+    },
+    "last_x": {
+      "returncode": 0,
+      "bytes": 11983
+    },
+    "pstore_listing": {
+      "returncode": 2,
+      "bytes": 153
+    },
+    "first_user_journal_tail": {
+      "returncode": 0,
+      "bytes": 22325
+    },
+    "first_system_journal_tail": {
+      "returncode": 1,
+      "bytes": 11
+    },
+    "first_kernel_journal_tail": {
+      "returncode": 1,
+      "bytes": 11
+    },
+    "second_user_journal_tail": {
+      "returncode": 0,
+      "bytes": 20844
+    },
+    "second_system_journal_tail": {
+      "returncode": 1,
+      "bytes": 11
+    },
+    "second_kernel_journal_tail": {
+      "returncode": 1,
+      "bytes": 11
+    }
+  }
+}

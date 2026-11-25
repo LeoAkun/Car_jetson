@@ -15,9 +15,18 @@ def generate_launch_description():
     ahrs_driver=Node(
         package="fdilink_ahrs",
         executable="ahrs_driver_node",
+        respawn=True,
+        respawn_delay=2.0,
         parameters=[{'if_debug_': False,
-            'serial_port_':'/dev/wheeltec_FDI_IMU_GNSS',
+            'serial_port_':(
+                '/dev/serial/by-id/'
+                'usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_'
+                'Controller_0001-if00-port0'
+            ),
             'serial_baud_':921600,
+            'no_data_reconnect_ms_':5000,
+            'reset_on_open_':True,
+            'use_device_timestamp_':False,
             'imu_topic':'/imu',
             'imu_frame_id_':'imu_link',
             # 'mag_pose_2d_topic':'/mag_pose_2d',

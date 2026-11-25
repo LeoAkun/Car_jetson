@@ -1,0 +1,20 @@
+__pycache__/
+test/
+test.py
+pyvenv.cfg
+/bin
+/lib
+# **/*.engine
+**/*.pt
+**/*.onnx
+# /ultralytics
+**/*.mp4
+**/*.jpeg
+**/*.png
+/save
+test_loadvideo.py
+# app_multiprocessing.py
+*.log
+app_multiprocessing_backup.py
+/updater_test
+config.json

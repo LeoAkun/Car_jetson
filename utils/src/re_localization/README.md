@@ -139,6 +139,8 @@ geometry_msgs/PoseWithCovarianceStamped pose
 - 节点需要先拿到地图后才能正常执行匹配
 - 首次服务调用会等待点云，超时时间为 3 秒
 - 如果 3 秒内没有接收到激光点云，返回 `success=false`
+- 同一个 `observation_id` 的候选复用同一帧点云；新的 observation 必须使用更大的 ID、`refresh_cloud=true`，并用 `min_cloud_stamp` 要求时间戳晚于上一帧
+- `session_id`、`map_id` 和 `session_start` 必须与当前服务实例一致
 
 ### 示例
 
@@ -158,7 +160,13 @@ ros2 service call /re_localization re_localization/srv/ReLocalization "{
                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     }
-  }
+  },
+  session_id: '<current-session-id>',
+  map_id: 'map2',
+  session_start: {sec: 0, nanosec: 0},
+  observation_id: 1,
+  refresh_cloud: true,
+  min_cloud_stamp: {sec: 0, nanosec: 0}
 }"
 ```
 

@@ -1,0 +1,6 @@
+{
+  "checked_at": "2026-10-26T18:12:12.263407+08:00",
+  "sensor_driver_processes": [],
+  "addresses": "lo               UNKNOWN        127.0.0.1/8 ::1/128 \nenp2s0           UP             \nenp3s0           DOWN           \nenp4s0           UP             \neno1             UP             \nwlx90de800ed399  UP             192.168.3.23/24 fe80::4af8:f1cb:ccbc:63eb/64 \n",
+  "routes": "default via 192.168.3.1 dev wlx90de800ed399 proto dhcp metric 600 \n169.254.0.0/16 dev wlx90de800ed399 scope link metric 1000 \n192.168.3.0/24 dev wlx90de800ed399 proto kernel scope link src 192.168.3.23 metric 600 \n"
+}

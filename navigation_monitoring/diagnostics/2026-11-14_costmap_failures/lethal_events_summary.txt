@@ -1,0 +1,38 @@
+
+### 11:13 failed
+2026-11-14T11:14:58.812463104+08:00 static occupied cells intersect footprint boundary pose (156.93, -183.372, 1.347) gdt 0.496 center 143 b254 2 static {'0': 28, '100': 2} rawmin 3.035 filtmin 3.035 mask 0
+2026-11-14T11:14:59.339116800+08:00 nearest 1 Hz snapshot does not reproduce in-memory collision pose (156.89, -183.305, 1.289) gdt -0.03 center 88 b254 0 static {'0': 28} rawmin 3.209 filtmin 3.209 mask 0
+2026-11-14T11:15:09.793977088+08:00 nearest 1 Hz snapshot does not reproduce in-memory collision pose (156.846, -183.797, 1.73) gdt 0.373 center 61 b254 0 static {'0': 30} rawmin 2.9 filtmin 2.9 mask 0
+2026-11-14T11:15:43.093313536+08:00 nearest 1 Hz snapshot does not reproduce in-memory collision pose (153.175, -170.136, 1.659) gdt 0.021 center 152 b254 0 static {'0': 30} rawmin 2.828 filtmin 2.828 mask 0
+2026-11-14T11:16:39.073431296+08:00 global center inscribed/lethal pose (150.442, -144.863, 1.379) gdt -0.108 center 254 b254 23 static {'0': 7, '100': 23} rawmin 2.781 filtmin 2.781 mask 0
+2026-11-14T11:16:39.765948416+08:00 global center inscribed/lethal pose (151.024, -145.33, 1.271) gdt 0.765 center 254 b254 13 static {'0': 15, '100': 13} rawmin 2.704 filtmin 2.704 mask 0
+2026-11-14T11:16:40.073367808+08:00 global center inscribed/lethal pose (151.155, -145.611, 1.325) gdt 0.457 center 253 b254 11 static {'0': 17, '100': 11} rawmin 2.648 filtmin 2.648 mask 0
+2026-11-14T11:16:40.558448384+08:00 global center inscribed/lethal pose (151.278, -145.996, 1.406) gdt -0.028 center 254 b254 10 static {'0': 20, '100': 10} rawmin 2.594 filtmin 2.594 mask 0
+2026-11-14T11:16:41.315272960+08:00 global center inscribed/lethal pose (151.405, -145.934, 1.434) gdt 0.432 center 253 b254 8 static {'0': 22, '100': 8} rawmin 2.735 filtmin 2.735 mask 0
+2026-11-14T11:16:41.770334464+08:00 global center inscribed/lethal pose (151.376, -145.841, 1.429) gdt -0.023 center 253 b254 13 static {'0': 17, '100': 13} rawmin 2.825 filtmin 2.825 mask 0
+2026-11-14T11:16:46.853153536+08:00 global center inscribed/lethal pose (151.236, -145.663, 1.424) gdt 0.493 center 254 b254 12 static {'0': 18, '100': 12} rawmin 2.826 filtmin 2.826 mask 0
+2026-11-14T11:16:47.376162560+08:00 global center inscribed/lethal pose (151.285, -145.685, 1.422) gdt -0.03 center 254 b254 13 static {'0': 17, '100': 13} rawmin 2.826 filtmin 2.826 mask 0
+2026-11-14T11:16:48.873308416+08:00 global center inscribed/lethal pose (151.189, -146.012, 1.432) gdt -0.447 center 254 b254 14 static {'0': 16, '100': 14} rawmin 2.667 filtmin 2.667 mask 0
+2026-11-14T11:16:49.566384384+08:00 global center inscribed/lethal pose (151.195, -146.093, 1.435) gdt -0.023 center 254 b254 14 static {'0': 16, '100': 14} rawmin 2.598 filtmin 2.598 mask 0
+2026-11-14T11:16:50.244417536+08:00 global center inscribed/lethal pose (151.218, -145.951, 1.433) gdt 0.482 center 254 b254 11 static {'0': 19, '100': 11} rawmin 2.603 filtmin 2.603 mask 0
+2026-11-14T11:16:50.751584256+08:00 global center inscribed/lethal pose (151.224, -145.959, 1.433) gdt -0.025 center 254 b254 11 static {'0': 19, '100': 11} rawmin 2.601 filtmin 2.601 mask 0
+2026-11-14T11:16:55.833924096+08:00 global center inscribed/lethal pose (151.219, -145.948, 1.43) gdt 0.525 center 254 b254 11 static {'0': 19, '100': 11} rawmin 2.599 filtmin 2.599 mask 0
+2026-11-14T11:16:56.382777600+08:00 global center inscribed/lethal pose (151.225, -145.958, 1.431) gdt -0.023 center 254 b254 11 static {'0': 19, '100': 11} rawmin 2.601 filtmin 2.601 mask 0
+2026-11-14T11:16:57.973972992+08:00 global center inscribed/lethal pose (151.196, -146.322, 1.44) gdt -0.487 center 254 b254 14 static {'0': 16, '100': 14} rawmin 2.434 filtmin 2.434 mask 0
+2026-11-14T11:16:58.546785792+08:00 global center inscribed/lethal pose (151.197, -146.419, 1.441) gdt -0.031 center 254 b254 13 static {'0': 17, '100': 13} rawmin 2.372 filtmin 2.372 mask 0
+2026-11-14T11:17:03.673990144+08:00 global center inscribed/lethal pose (151.161, -146.265, 1.437) gdt 0.458 center 254 b254 14 static {'0': 16, '100': 14} rawmin 2.365 filtmin 2.365 mask 0
+2026-11-14T11:17:04.155756288+08:00 global center inscribed/lethal pose (151.166, -146.255, 1.437) gdt -0.024 center 254 b254 14 static {'0': 16, '100': 14} rawmin 2.368 filtmin 2.368 mask 0
+2026-11-14T11:17:05.654142720+08:00 global center inscribed/lethal pose (151.123, -146.584, 1.442) gdt -0.452 center 254 b254 14 static {'0': 16, '100': 14} rawmin 2.228 filtmin 2.228 mask 0
+2026-11-14T11:17:06.390244608+08:00 global center inscribed/lethal pose (151.103, -146.66, 1.444) gdt -0.024 center 254 b254 13 static {'0': 17, '100': 13} rawmin 2.169 filtmin 2.169 mask 0
+
+### 11:22 succeeded
+2026-11-14T11:25:28.624175616+08:00 static occupied cells intersect footprint boundary pose (153.931, -127.372, 1.337) gdt 0.378 center 232 b254 4 static {'0': 26, '100': 4} rawmin 1.423 filtmin 1.423 mask 0
+2026-11-14T11:25:29.024278528+08:00 static occupied cells intersect footprint boundary pose (153.946, -127.274, 1.348) gdt -0.023 center 251 b254 4 static {'0': 26, '100': 4} rawmin 1.403 filtmin 1.403 mask 0
+2026-11-14T11:25:34.186110464+08:00 static occupied cells intersect footprint boundary pose (153.931, -127.351, 1.39) gdt 0.509 center 232 b254 4 static {'0': 26, '100': 4} rawmin 1.396 filtmin 1.396 mask 0
+2026-11-14T11:25:34.717760256+08:00 static occupied cells intersect footprint boundary pose (153.925, -127.367, 1.39) gdt -0.023 center 232 b254 4 static {'0': 26, '100': 4} rawmin 1.395 filtmin 1.395 mask 0
+2026-11-14T11:25:36.305527808+08:00 static occupied cells intersect footprint boundary pose (153.853, -127.785, 1.397) gdt -0.509 center 92 b254 1 static {'0': 29, '100': 1} rawmin 1.431 filtmin 1.431 mask 0
+2026-11-14T11:25:36.933580288+08:00 static occupied cells intersect footprint boundary pose (153.837, -127.885, 1.398) gdt -0.023 center 92 b254 1 static {'0': 29, '100': 1} rawmin 1.461 filtmin 1.461 mask 0
+2026-11-14T11:25:37.494414848+08:00 static occupied cells intersect footprint boundary pose (153.844, -127.897, 1.398) gdt 0.482 center 92 b254 1 static {'0': 29, '100': 1} rawmin 1.447 filtmin 1.447 mask 0
+2026-11-14T11:25:38.001664768+08:00 nearest 1 Hz snapshot does not reproduce in-memory collision pose (153.851, -127.914, 1.398) gdt -0.025 center 92 b254 0 static {'0': 30} rawmin 1.452 filtmin 1.452 mask 0
+2026-11-14T11:25:43.085384960+08:00 static occupied cells intersect footprint boundary pose (153.852, -127.706, 1.396) gdt 0.509 center 92 b254 1 static {'0': 29, '100': 1} rawmin 1.45 filtmin 1.45 mask 0
+2026-11-14T11:25:43.617697024+08:00 static occupied cells intersect footprint boundary pose (153.855, -127.702, 1.396) gdt -0.024 center 92 b254 1 static {'0': 29, '100': 1} rawmin 1.447 filtmin 1.447 mask 0

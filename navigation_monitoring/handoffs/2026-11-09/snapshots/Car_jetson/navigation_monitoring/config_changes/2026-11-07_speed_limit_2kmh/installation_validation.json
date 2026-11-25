@@ -1,0 +1,27 @@
+{
+  "navigation_target_limit_kmh": 2.0,
+  "navigation_limit_mps": 0.5555555555555556,
+  "forward_reverse_symmetric": true,
+  "nav2_installed_config_links_to_source": true,
+  "installed_files": [
+    {
+      "source": "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "installed": "real_ws/install/cmdvel_2_ecu/lib/python3.10/site-packages/cmdvel_2_ecu/convert.py",
+      "equal": true,
+      "sha256": "db1ecc603147142c1ccb4a3ec3f1cf18a63363fcaed7f633625ad55520c4e574"
+    },
+    {
+      "source": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "installed": "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml",
+      "equal": true,
+      "sha256": "2695e178e20204f2255c34ce021157dbe2c0d3a19037040404ffeb4d1419af5f"
+    },
+    {
+      "source": "real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml",
+      "installed": "real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/docking_config.yaml",
+      "equal": true,
+      "sha256": "314516428c528fceddb740ea8ab8a425012edd35e39eb38120268d7896bd74b6"
+    }
+  ],
+  "docking_limit_mps": 0.1
+}

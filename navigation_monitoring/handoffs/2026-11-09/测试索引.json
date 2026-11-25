@@ -1,0 +1,889 @@
+{
+  "generated": "2026-11-09 Asia/Shanghai",
+  "source_root": "/home/akun/workspace/Car_jetson/navigation_monitoring",
+  "scope": [
+    "2026-11-02",
+    "2026-11-07",
+    "2026-11-09",
+    "current imu check"
+  ],
+  "key_runs": [
+    {
+      "id": "2026-11-02_17-36-10",
+      "route": "3b2mus 113->106->107",
+      "result": "113/106 succeeded; 107 aborted; MPPI 29 failures; no task-window reboot"
+    },
+    {
+      "id": "2026-11-07_16-17-52",
+      "route": "3b2mus 113->106->107",
+      "result": "two whole-machine reboots before Nav2; root cause unresolved"
+    },
+    {
+      "id": "2026-11-07_16-25-58",
+      "route": "3b2mus 113->106->107",
+      "result": "113 succeeded; severe deviation before106; user stopped"
+    },
+    {
+      "id": "2026-11-07_16-36-44",
+      "route": "3b2mus 113->106->107",
+      "result": "relocalization never ACTIVE/map not loaded; score inf placeholder"
+    },
+    {
+      "id": "2026-11-07_17-03-42",
+      "route": "3b2mus 113->106->107",
+      "result": "indoors, waiting valid GPS; excluded by user"
+    },
+    {
+      "id": "2026-11-09_14-33-18",
+      "route": "3b2mus 113->106->107",
+      "result": "113/106 succeeded;107 aborted; left deviation/curb; no reboot"
+    },
+    {
+      "id": "2026-11-09_15-47-22",
+      "route": "3b2mus 113->106->107",
+      "result": "IMU GTSAM b0 abort; no action/cmd_vel_nav; no navigation movement"
+    },
+    {
+      "id": "imu_checks/2026-11-09_17-00-32",
+      "route": "static imu sampling",
+      "result": "3001 frames/30s ~100Hz; signal normal"
+    }
+  ],
+  "handoff_file": "/home/akun/workspace/Car_jetson/navigation_monitoring/handoffs/2026-11-09/START_HERE.md",
+  "principle": "Keep proven facts separate from hypotheses; no run/start/parameter changes.",
+  "all_runs": [
+    {
+      "id": "2026-11-02_15-56-09_preflight_113_107",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_15-56-09_preflight_113_107",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_15-56-09_preflight_113_107/LOCALIZATION_DIAGNOSIS.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_15-56-09_preflight_113_107/localization_diagnosis.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_15-56-09_preflight_113_107/localization_probe.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_15-56-09_preflight_113_107/preflight.json"
+      ]
+    },
+    {
+      "id": "2026-11-02_16-23-43",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_16-23-43",
+      "documents": [],
+      "json_documents": []
+    },
+    {
+      "id": "2026-11-02_16-28-54",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_16-28-54",
+      "documents": [],
+      "json_documents": []
+    },
+    {
+      "id": "2026-11-02_16-30-30",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_16-30-30",
+      "documents": [],
+      "json_documents": []
+    },
+    {
+      "id": "2026-11-02_17-30-35",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-30-35",
+      "documents": [],
+      "json_documents": []
+    },
+    {
+      "id": "2026-11-02_17-36-10",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/GOAL_OSCILLATION_ANALYSIS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/MPPI_FAILURE_ANALYSIS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/ODOMETRY_RECORD_SEARCH.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/RESULT.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_oscillation_metrics.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/mppi_unit_analysis.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/result_metrics.json"
+      ]
+    },
+    {
+      "id": "2026-11-02_field_113_107",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_field_113_107",
+      "documents": [],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_field_113_107/preflight.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_field_113_107/run_state.json"
+      ]
+    },
+    {
+      "id": "2026-11-07_16-10-50",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-10-50",
+      "documents": [],
+      "json_documents": []
+    },
+    {
+      "id": "2026-11-07_16-17-52",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/thermal_reboot_observation.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/test_interruption.json"
+      ]
+    },
+    {
+      "id": "2026-11-07_16-25-58",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/DEVIATION_FINDINGS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/deviation_analysis_bag.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/deviation_analysis_costmap.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/observer_notes.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/scan_motion_audit.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/speed_change_analysis.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/operator_stop.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/recovered_bag_coverage.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/retry_metadata.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/speed_change_comparison.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/static_map_collision_evidence.json"
+      ]
+    },
+    {
+      "id": "2026-11-07_16-36-44",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/observer_notes.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/result.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/retry_metadata.json"
+      ]
+    },
+    {
+      "id": "2026-11-07_17-03-42",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/RESULT.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/offline_analysis_stop.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/retry_metadata.json"
+      ]
+    },
+    {
+      "id": "2026-11-09_14-33-18",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/CONTROL_DEVIATION_AUDIT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/COSTMAP_DEVIATION_AUDIT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/DEVIATION_FINDINGS.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/OBSERVER_SUMMARY.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/RESULT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/TRAJECTORY_DEVIATION_AUDIT.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/bag_record_intent.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/cleanup_verification.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/control_deviation_evidence.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/costmap_deviation_evidence.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/intent.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/localization_evidence.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/operator_stop.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/trajectory_evidence.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/trajectory_plans.json"
+      ]
+    },
+    {
+      "id": "2026-11-09_15-47-22",
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22",
+      "documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/IMU_CRASH_DATA_AUDIT.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/OBSERVER_SUMMARY.md",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/RESULT.md"
+      ],
+      "json_documents": [
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/bag_record_intent.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/cleanup_verification.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/config_hashes.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/dispatch_result.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/imu_crash_data_audit.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/intent.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/operator_stop.json",
+        "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/processes.json"
+      ]
+    }
+  ],
+  "bags": [
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-17-52/navigation_raw_bag",
+      "files": 1,
+      "bytes": 24576,
+      "GiB": 2.3e-05,
+      "start_utc8": "2026-11-07T16:20:12.864202+08:00",
+      "end_utc8": "2026-11-07T16:20:12.864317+08:00",
+      "duration_s": 0.000115307,
+      "message_count": 5,
+      "topics": [
+        {
+          "name": "/rosout",
+          "type": "rcl_interfaces/msg/Log",
+          "messages": 5
+        }
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-25-58/navigation_raw_bag",
+      "files": 2,
+      "bytes": 354091008,
+      "GiB": 0.329773,
+      "start_utc8": "2026-11-07T16:25:58.433490+08:00",
+      "end_utc8": "2026-11-07T16:29:08.881763+08:00",
+      "duration_s": 190.448272969,
+      "message_count": 107200,
+      "topics": [
+        {
+          "name": "/NED_odometry",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 0
+        },
+        {
+          "name": "/cmd_vel",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 2487
+        },
+        {
+          "name": "/cmd_vel_nav",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 1368
+        },
+        {
+          "name": "/ecu",
+          "type": "yunle_msgs/msg/Ecu",
+          "messages": 3769
+        },
+        {
+          "name": "/gps/fix",
+          "type": "sensor_msgs/msg/NavSatFix",
+          "messages": 0
+        },
+        {
+          "name": "/imu",
+          "type": "sensor_msgs/msg/Imu",
+          "messages": 18866
+        },
+        {
+          "name": "/laser/scan_back",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 5635
+        },
+        {
+          "name": "/laser/scan_front",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 5615
+        },
+        {
+          "name": "/laser/scan_merge_laser",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 5603
+        },
+        {
+          "name": "/lio_sam/mapping/odometry",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 430
+        },
+        {
+          "name": "/lio_sam/mapping/odometry_incremental",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 430
+        },
+        {
+          "name": "/local_costmap/costmap_raw",
+          "type": "nav2_msgs/msg/Costmap",
+          "messages": 1711
+        },
+        {
+          "name": "/local_costmap/costmap_updates",
+          "type": "map_msgs/msg/OccupancyGridUpdate",
+          "messages": 0
+        },
+        {
+          "name": "/local_costmap/published_footprint",
+          "type": "geometry_msgs/msg/PolygonStamped",
+          "messages": 2756
+        },
+        {
+          "name": "/navigate_to_pose/_action/feedback",
+          "type": "nav2_msgs/action/NavigateToPose_FeedbackMessage",
+          "messages": 6203
+        },
+        {
+          "name": "/navigate_to_pose/_action/status",
+          "type": "action_msgs/msg/GoalStatusArray",
+          "messages": 3
+        },
+        {
+          "name": "/odom",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 15179
+        },
+        {
+          "name": "/path",
+          "type": "nav_msgs/msg/Path",
+          "messages": 0
+        },
+        {
+          "name": "/plan",
+          "type": "nav_msgs/msg/Path",
+          "messages": 112
+        },
+        {
+          "name": "/process_manager/fault",
+          "type": "std_msgs/msg/String",
+          "messages": 0
+        },
+        {
+          "name": "/robot_state",
+          "type": "std_msgs/msg/String",
+          "messages": 6
+        },
+        {
+          "name": "/robot_status",
+          "type": "multi_map_navigation_msgs/msg/RobotStatus",
+          "messages": 63
+        },
+        {
+          "name": "/rosout",
+          "type": "rcl_interfaces/msg/Log",
+          "messages": 874
+        },
+        {
+          "name": "/system_speed",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 0
+        },
+        {
+          "name": "/tf",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 17164
+        },
+        {
+          "name": "/tf_static",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 9
+        },
+        {
+          "name": "/vehicle_status",
+          "type": "yunle_msgs/msg/VehicleStatus",
+          "messages": 18916
+        },
+        {
+          "name": "/waypoint_list",
+          "type": "multi_map_navigation_msgs/msg/WaypointList",
+          "messages": 1
+        }
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_16-36-44/navigation_raw_bag",
+      "files": 1,
+      "bytes": 144723968,
+      "GiB": 0.134785,
+      "start_utc8": "2026-11-07T16:36:44.377214+08:00",
+      "end_utc8": "2026-11-07T16:39:25.154430+08:00",
+      "duration_s": 160.777215478,
+      "message_count": 57492,
+      "topics": [
+        {
+          "name": "/waypoint_list",
+          "type": "multi_map_navigation_msgs/msg/WaypointList",
+          "messages": 1
+        },
+        {
+          "name": "/process_manager/fault",
+          "type": "std_msgs/msg/String",
+          "messages": 1
+        },
+        {
+          "name": "/tf_static",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 8
+        },
+        {
+          "name": "/laser/scan_merge_laser",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 4770
+        },
+        {
+          "name": "/NED_odometry",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 0
+        },
+        {
+          "name": "/rosout",
+          "type": "rcl_interfaces/msg/Log",
+          "messages": 7857
+        },
+        {
+          "name": "/tf",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 0
+        },
+        {
+          "name": "/laser/scan_front",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 4771
+        },
+        {
+          "name": "/imu",
+          "type": "sensor_msgs/msg/Imu",
+          "messages": 16065
+        },
+        {
+          "name": "/ecu",
+          "type": "yunle_msgs/msg/Ecu",
+          "messages": 3214
+        },
+        {
+          "name": "/gps/fix",
+          "type": "sensor_msgs/msg/NavSatFix",
+          "messages": 0
+        },
+        {
+          "name": "/path",
+          "type": "nav_msgs/msg/Path",
+          "messages": 0
+        },
+        {
+          "name": "/system_speed",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 0
+        },
+        {
+          "name": "/vehicle_status",
+          "type": "yunle_msgs/msg/VehicleStatus",
+          "messages": 15980
+        },
+        {
+          "name": "/laser/scan_back",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 4765
+        },
+        {
+          "name": "/robot_status",
+          "type": "multi_map_navigation_msgs/msg/RobotStatus",
+          "messages": 53
+        },
+        {
+          "name": "/robot_state",
+          "type": "std_msgs/msg/String",
+          "messages": 4
+        },
+        {
+          "name": "/cmd_vel",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 3
+        }
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-07_17-03-42/navigation_raw_bag",
+      "files": 1,
+      "bytes": 263897088,
+      "GiB": 0.245773,
+      "start_utc8": "2026-11-07T17:03:42.526863+08:00",
+      "end_utc8": "2026-11-07T17:09:27.247364+08:00",
+      "duration_s": 344.720500546,
+      "message_count": 92259,
+      "topics": [
+        {
+          "name": "/ecu",
+          "type": "yunle_msgs/msg/Ecu",
+          "messages": 5936
+        },
+        {
+          "name": "/laser/scan_merge_laser",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 8816
+        },
+        {
+          "name": "/rosout",
+          "type": "rcl_interfaces/msg/Log",
+          "messages": 229
+        },
+        {
+          "name": "/imu",
+          "type": "sensor_msgs/msg/Imu",
+          "messages": 29721
+        },
+        {
+          "name": "/tf",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 0
+        },
+        {
+          "name": "/laser/scan_front",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 8820
+        },
+        {
+          "name": "/process_manager/fault",
+          "type": "std_msgs/msg/String",
+          "messages": 0
+        },
+        {
+          "name": "/waypoint_list",
+          "type": "multi_map_navigation_msgs/msg/WaypointList",
+          "messages": 1
+        },
+        {
+          "name": "/cmd_vel",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 0
+        },
+        {
+          "name": "/tf_static",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 8
+        },
+        {
+          "name": "/robot_state",
+          "type": "std_msgs/msg/String",
+          "messages": 2
+        },
+        {
+          "name": "/laser/scan_back",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 8854
+        },
+        {
+          "name": "/robot_status",
+          "type": "multi_map_navigation_msgs/msg/RobotStatus",
+          "messages": 99
+        },
+        {
+          "name": "/gps/fix",
+          "type": "sensor_msgs/msg/NavSatFix",
+          "messages": 0
+        },
+        {
+          "name": "/NED_odometry",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 0
+        },
+        {
+          "name": "/path",
+          "type": "nav_msgs/msg/Path",
+          "messages": 0
+        },
+        {
+          "name": "/system_speed",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 0
+        },
+        {
+          "name": "/vehicle_status",
+          "type": "yunle_msgs/msg/VehicleStatus",
+          "messages": 29773
+        }
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag",
+      "files": 19,
+      "bytes": 5398286336,
+      "GiB": 5.027546,
+      "start_utc8": "2026-11-09T14:38:44.312890+08:00",
+      "end_utc8": "2026-11-09T14:45:32.103091+08:00",
+      "duration_s": 407.790200457,
+      "message_count": 198647,
+      "topics": [
+        {
+          "name": "/waypoint_list",
+          "type": "multi_map_navigation_msgs/msg/WaypointList",
+          "messages": 0
+        },
+        {
+          "name": "/laser/scan_back",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 12118
+        },
+        {
+          "name": "/robot_status",
+          "type": "multi_map_navigation_msgs/msg/RobotStatus",
+          "messages": 136
+        },
+        {
+          "name": "/transformed_global_plan",
+          "type": "nav_msgs/msg/Path",
+          "messages": 0
+        },
+        {
+          "name": "/plan",
+          "type": "nav_msgs/msg/Path",
+          "messages": 136
+        },
+        {
+          "name": "/local_costmap/costmap_raw",
+          "type": "nav2_msgs/msg/Costmap",
+          "messages": 2560
+        },
+        {
+          "name": "/global_costmap/costmap_raw",
+          "type": "nav2_msgs/msg/Costmap",
+          "messages": 182
+        },
+        {
+          "name": "/navigate_to_pose/_action/status",
+          "type": "action_msgs/msg/GoalStatusArray",
+          "messages": 4
+        },
+        {
+          "name": "/plan_smoothed",
+          "type": "nav_msgs/msg/Path",
+          "messages": 0
+        },
+        {
+          "name": "/navigate_to_pose/_action/feedback",
+          "type": "nav2_msgs/action/NavigateToPose_FeedbackMessage",
+          "messages": 9644
+        },
+        {
+          "name": "/vehicle_status",
+          "type": "yunle_msgs/msg/VehicleStatus",
+          "messages": 27938
+        },
+        {
+          "name": "/cmd_vel",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 3387
+        },
+        {
+          "name": "/tf_static",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 8
+        },
+        {
+          "name": "/sensing/gnss/pose_with_covariance",
+          "type": "sensor_msgs/msg/NavSatFix",
+          "messages": 407
+        },
+        {
+          "name": "/imu",
+          "type": "sensor_msgs/msg/Imu",
+          "messages": 40780
+        },
+        {
+          "name": "/cmd_vel_nav",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 1637
+        },
+        {
+          "name": "/rosout",
+          "type": "rcl_interfaces/msg/Log",
+          "messages": 1235
+        },
+        {
+          "name": "/lio_sam/mapping/odometry_incremental",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 707
+        },
+        {
+          "name": "/odom",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 20675
+        },
+        {
+          "name": "/robot_state",
+          "type": "std_msgs/msg/String",
+          "messages": 5
+        },
+        {
+          "name": "/process_manager/fault",
+          "type": "std_msgs/msg/String",
+          "messages": 0
+        },
+        {
+          "name": "/laser/scan_merge_laser",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 12070
+        },
+        {
+          "name": "/odom_incremental",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 20677
+        },
+        {
+          "name": "/lio_sam/mapping/odometry",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 707
+        },
+        {
+          "name": "/laser/scan_front",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 12099
+        },
+        {
+          "name": "/tf",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 23454
+        },
+        {
+          "name": "/ecu",
+          "type": "yunle_msgs/msg/Ecu",
+          "messages": 8081
+        }
+      ]
+    },
+    {
+      "path": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag",
+      "files": 9,
+      "bytes": 4817985536,
+      "GiB": 4.487099,
+      "start_utc8": "2026-11-09T15:47:23.117438+08:00",
+      "end_utc8": "2026-11-09T15:53:58.233566+08:00",
+      "duration_s": 395.116128454,
+      "message_count": 120401,
+      "topics": [
+        {
+          "name": "/map",
+          "type": "nav_msgs/msg/OccupancyGrid",
+          "messages": 1
+        },
+        {
+          "name": "/plan",
+          "type": "nav_msgs/msg/Path",
+          "messages": 0
+        },
+        {
+          "name": "/global_costmap/costmap_raw",
+          "type": "nav2_msgs/msg/Costmap",
+          "messages": 0
+        },
+        {
+          "name": "/local_costmap/costmap_raw",
+          "type": "nav2_msgs/msg/Costmap",
+          "messages": 0
+        },
+        {
+          "name": "/odom",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 0
+        },
+        {
+          "name": "/lio_sam/mapping/odometry",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 176
+        },
+        {
+          "name": "/ecu",
+          "type": "yunle_msgs/msg/Ecu",
+          "messages": 7849
+        },
+        {
+          "name": "/rslidar_Pointcloud2",
+          "type": "sensor_msgs/msg/PointCloud2",
+          "messages": 3500
+        },
+        {
+          "name": "/imu",
+          "type": "sensor_msgs/msg/Imu",
+          "messages": 39197
+        },
+        {
+          "name": "/cmd_vel_nav",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 0
+        },
+        {
+          "name": "/lio_sam/mapping/odometry_incremental",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 176
+        },
+        {
+          "name": "/rosout",
+          "type": "rcl_interfaces/msg/Log",
+          "messages": 710
+        },
+        {
+          "name": "/tf",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 837
+        },
+        {
+          "name": "/laser/scan_front",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 11653
+        },
+        {
+          "name": "/cmd_vel",
+          "type": "geometry_msgs/msg/Twist",
+          "messages": 3
+        },
+        {
+          "name": "/process_manager/fault",
+          "type": "std_msgs/msg/String",
+          "messages": 3
+        },
+        {
+          "name": "/waypoint_list",
+          "type": "multi_map_navigation_msgs/msg/WaypointList",
+          "messages": 2
+        },
+        {
+          "name": "/tf_static",
+          "type": "tf2_msgs/msg/TFMessage",
+          "messages": 8
+        },
+        {
+          "name": "/sensing/gnss/pose_with_covariance",
+          "type": "sensor_msgs/msg/NavSatFix",
+          "messages": 394
+        },
+        {
+          "name": "/start_end_graph",
+          "type": "multi_map_navigation_msgs/msg/StartEndGraph",
+          "messages": 3
+        },
+        {
+          "name": "/odom_incremental",
+          "type": "nav_msgs/msg/Odometry",
+          "messages": 0
+        },
+        {
+          "name": "/laser/scan_merge_laser",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 11651
+        },
+        {
+          "name": "/robot_state",
+          "type": "std_msgs/msg/String",
+          "messages": 5
+        },
+        {
+          "name": "/vehicle_status",
+          "type": "yunle_msgs/msg/VehicleStatus",
+          "messages": 32401
+        },
+        {
+          "name": "/robot_status",
+          "type": "multi_map_navigation_msgs/msg/RobotStatus",
+          "messages": 132
+        },
+        {
+          "name": "/laser/scan_back",
+          "type": "sensor_msgs/msg/LaserScan",
+          "messages": 11700
+        }
+      ]
+    }
+  ],
+  "bag_limitations": {
+    "2026-11-07_16-17-52": "Only 5 rosout records after second reboot; not pre-reboot original nav data",
+    "2026-11-07_16-25-58": "Only 16:25:58.433 to16:29:08.882; missing about94s before user stop; no global costmap/raw3D",
+    "2026-11-09_14-33-18": "Starts14:38:44, complete106-to107 but incomplete113-to106; no raw3D",
+    "2026-11-09_15-47-22": "Startsbefore dispatch; raw3D3500; mapOccupancyGrid1 despite RESULT says mapnotrecorded; action/costmap/odom absent"
+  },
+  "scope_note": "本聊天新测试为10月26日至11月9日；早期历史bag另按引用索引，不能把所有run目录算本聊天测试。"
+}

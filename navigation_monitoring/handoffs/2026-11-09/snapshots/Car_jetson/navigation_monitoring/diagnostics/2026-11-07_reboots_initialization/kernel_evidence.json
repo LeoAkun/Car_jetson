@@ -1,0 +1,187 @@
+{
+  "271a95a206a6472889559195feec0b76": {
+    "kernel.log": {
+      "lines": 2413,
+      "first_line": "2026-11-07T12:48:41.688054+0800 admin1-Default-string kernel: Linux version 6.8.0-138-generic (buildd@lcy02-amd64-008) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  (Ubuntu 6.8.0-138.138~22.04.1-generic 6.8.12)",
+      "last_line": "2026-11-07T16:14:41.023347+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": [
+          "2026-11-07T12:48:41.704135+0800 admin1-Default-string kernel: ata7: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T12:48:41.704139+0800 admin1-Default-string kernel: ata6: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T12:48:41.704148+0800 admin1-Default-string kernel: ata8: SATA link down (SStatus 4 SControl 300)"
+        ]
+      }
+    },
+    "correctable_aer": {
+      "message_count": 190,
+      "first": "2026-11-07T12:48:43.046429+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "last": "2026-11-07T16:14:41.022506+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "sources": {
+        "0000:00:1c.2": 190
+      }
+    },
+    "system_tail.log": {
+      "lines": 1500,
+      "first_line": "2026-11-07T15:07:35.353343+0800 admin1-Default-string python3[1524]: 2026-11-07T15:07:35.328+08:00 elapsed=8325s cpu=0.2% pkg=35.0C mem=29.5GiB robot_pids=0",
+      "last_line": "2026-11-07T16:14:41.023347+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": []
+      }
+    }
+  },
+  "7a56ea4ec01f4c9ebe994775707dd7f3": {
+    "kernel.log": {
+      "lines": 1325,
+      "first_line": "2026-11-07T16:16:08.168730+0800 admin1-Default-string kernel: Linux version 6.8.0-138-generic (buildd@lcy02-amd64-008) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  (Ubuntu 6.8.0-138.138~22.04.1-generic 6.8.12)",
+      "last_line": "2026-11-07T16:17:55.835807+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": [
+          "2026-11-07T16:16:08.184923+0800 admin1-Default-string kernel: ata7: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T16:16:08.184932+0800 admin1-Default-string kernel: ata8: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T16:16:08.184936+0800 admin1-Default-string kernel: ata6: SATA link down (SStatus 4 SControl 300)"
+        ]
+      }
+    },
+    "correctable_aer": {
+      "message_count": 7,
+      "first": "2026-11-07T16:16:11.257791+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Multiple Correctable error message received from 0000:00:1c.2",
+      "last": "2026-11-07T16:17:55.834832+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "sources": {
+        "0000:00:1c.2": 7
+      }
+    },
+    "system_tail.log": {
+      "lines": 1500,
+      "first_line": "2026-11-07T16:16:08.186625+0800 admin1-Default-string kernel: hub 1-2:1.0: USB hub found",
+      "last_line": "2026-11-07T16:17:59.994912+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:59.968+08:00 elapsed=103s cpu=14.5% pkg=38.0C mem=28.9GiB robot_pids=15",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": []
+      }
+    }
+  },
+  "ca32f49f62a34e77aee9af55c9ac556a": {
+    "kernel.log": {
+      "lines": 4877,
+      "first_line": "2026-11-07T16:19:30.258061+0800 admin1-Default-string kernel: Linux version 6.8.0-138-generic (buildd@lcy02-amd64-008) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  (Ubuntu 6.8.0-138.138~22.04.1-generic 6.8.12)",
+      "last_line": "2026-11-07T16:45:30.700076+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": [
+          "2026-11-07T16:19:30.274238+0800 admin1-Default-string kernel: ata6: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T16:19:30.274242+0800 admin1-Default-string kernel: ata8: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T16:19:30.274252+0800 admin1-Default-string kernel: ata7: SATA link down (SStatus 4 SControl 300)"
+        ]
+      }
+    },
+    "correctable_aer": {
+      "message_count": 895,
+      "first": "2026-11-07T16:19:33.403205+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "last": "2026-11-07T16:45:30.699129+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "sources": {
+        "0000:00:1c.2": 895
+      }
+    },
+    "system_tail.log": {
+      "lines": 1500,
+      "first_line": "2026-11-07T16:36:53.003812+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2:   device [8086:7aba] error status/mask=00000001/00002000",
+      "last_line": "2026-11-07T16:45:40.721223+0800 admin1-Default-string python3[1469]: 2026-11-07T16:45:40.677+08:00 elapsed=1562s cpu=3.5% pkg=34.0C mem=28.7GiB robot_pids=15",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": []
+      }
+    }
+  },
+  "ca0a8345ba374d71b8b733c458980bd0": {
+    "kernel.log": {
+      "lines": 1885,
+      "first_line": "2026-11-07T16:58:52.451333+0800 admin1-Default-string kernel: Linux version 6.8.0-138-generic (buildd@lcy02-amd64-008) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  (Ubuntu 6.8.0-138.138~22.04.1-generic 6.8.12)",
+      "last_line": "2026-11-07T17:34:45.668617+0800 admin1-Default-string kernel: logitech-hidpp-device 0003:046D:4023.0004: HID++ 2.0 device connected.",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": [
+          "2026-11-07T16:58:52.467728+0800 admin1-Default-string kernel: ata8: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T16:58:52.467733+0800 admin1-Default-string kernel: ata7: SATA link down (SStatus 4 SControl 300)",
+          "2026-11-07T16:58:52.467737+0800 admin1-Default-string kernel: ata6: SATA link down (SStatus 4 SControl 300)"
+        ]
+      }
+    },
+    "correctable_aer": {
+      "message_count": 83,
+      "first": "2026-11-07T17:03:04.159701+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "last": "2026-11-07T17:34:41.256643+0800 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2",
+      "sources": {
+        "0000:00:1c.2": 83
+      }
+    },
+    "system_tail.log": {
+      "lines": 1500,
+      "first_line": "2026-11-07T16:58:55.030953+0800 admin1-Default-string systemd[1]: Started Time & Date Service.",
+      "last_line": "2026-11-07T17:34:52.212436+0800 admin1-Default-string sudo[11447]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1001)",
+      "evidence": {
+        "panic": [],
+        "oom": [],
+        "hardware_machine_check": [],
+        "lockup_watchdog": [],
+        "shutdown_actual": [],
+        "storage_fault": [],
+        "thermal_shutdown": [],
+        "uncorrectable_aer": [],
+        "other_device_fault": []
+      }
+    }
+  },
+  "_scope_note": "Each kernel.log is the complete persisted journal kernel export for its boot; system_tail.log is only the last 1500 persisted system journal lines. Missing persisted final seconds are not recoverable from these files."
+}

@@ -1,0 +1,13 @@
+{
+  "time_beijing": "2026-11-07T17:09:27.253119+08:00",
+  "reason": "user_back_indoors_offline_analysis_only",
+  "boot_id": "ca0a8345-ba37-4d71-b8b7-33c458980bd0",
+  "signalled_groups": [
+    4888,
+    4889,
+    5530,
+    5475
+  ],
+  "no_ros_control_messages_sent_by_stop_script": true,
+  "automatic_redispatch": false
+}

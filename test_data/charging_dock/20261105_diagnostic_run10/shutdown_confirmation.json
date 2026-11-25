@@ -1,0 +1,11 @@
+{
+  "completed_utc": "2026-11-05T09:11:03.971528+00:00",
+  "remaining_test_processes": [],
+  "ros_node_list_after_shutdown": [],
+  "hardware_launch_exited": true,
+  "recorder_exited": true,
+  "bag_recorder_exit_code": 1,
+  "bag_metadata_reconstructed": true,
+  "bag_recording_incomplete": true,
+  "bag_integrity_report": "bag_integrity.json"
+}

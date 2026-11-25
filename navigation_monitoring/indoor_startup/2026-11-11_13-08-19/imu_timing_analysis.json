@@ -1,0 +1,856 @@
+{
+  "run": "2026-11-11_13-08-19",
+  "source_files": [
+    "imu_samples.jsonl",
+    "imu.log",
+    "lio_*.log",
+    "result.json"
+  ],
+  "signed_offset_definition": "header_ns - received_ns; positive means future-dated at subscriber arrival",
+  "sample_count": 16246,
+  "sample_start": {
+    "line": 1,
+    "phase": "sensor_baseline",
+    "received_ns": 1794373702125016925,
+    "received_local": "2026-11-11 13:08:22.125016925+08:00",
+    "header_ns": 1794373702123299510,
+    "header_local": "2026-11-11 13:08:22.123299510+08:00",
+    "header_minus_received_sec": -0.001717415,
+    "quaternion_norm": 1.0000000235999007,
+    "q": [
+      -0.0037240143865346804,
+      -0.003556242445483814,
+      -0.6131359934806824,
+      -0.7899606227874756
+    ],
+    "arrival_interval_sec": null,
+    "header_interval_sec": null
+  },
+  "sample_end": {
+    "line": 16246,
+    "phase": "hold",
+    "received_ns": 1794373864536683981,
+    "received_local": "2026-11-11 13:11:04.536683981+08:00",
+    "header_ns": 1794373864893299510,
+    "header_local": "2026-11-11 13:11:04.893299510+08:00",
+    "header_minus_received_sec": 0.356615529,
+    "quaternion_norm": 1.000000018675603,
+    "q": [
+      -0.0035906943958252564,
+      -0.0036181188188493356,
+      -0.6130698323249817,
+      -0.7900123000144958
+    ],
+    "arrival_interval_sec": 0.010063769,
+    "header_interval_sec": 0.01
+  },
+  "received_span_sec": 162.411666758,
+  "received_hz": 100.02360251745776,
+  "header_minus_received_sec": {
+    "count": 16246,
+    "min": -0.001717415,
+    "median": 0.35351083,
+    "p95": 0.356441448,
+    "p99": 0.357122186,
+    "max": 0.357671419,
+    "mean": 0.3534227620662317
+  },
+  "arrival_interval_sec": {
+    "count": 16245,
+    "min": 0.000589055,
+    "median": 0.010019341,
+    "p95": 0.011474003,
+    "p99": 0.013810552,
+    "max": 0.024110181,
+    "mean": 0.0099976403052016
+  },
+  "header_interval_sec": {
+    "count": 16245,
+    "min": 0.009916,
+    "median": 0.01,
+    "p95": 0.01,
+    "p99": 0.010007,
+    "max": 0.33,
+    "mean": 0.01001969836872884
+  },
+  "arrival_gap_gt_0_2_count": 0,
+  "header_gap_gt_0_2_count": 1,
+  "header_nonpositive_count": 0,
+  "wall_interval_minus_monotonic_interval_sec": {
+    "count": 16245,
+    "min": -3.7842e-05,
+    "median": -7e-09,
+    "p95": 5.95e-07,
+    "p99": 9.73e-07,
+    "max": 3.7776e-05,
+    "mean": 1.8344105878731642e-11
+  },
+  "phases": {
+    "sensor_baseline": {
+      "count": 1932,
+      "first": {
+        "line": 1,
+        "phase": "sensor_baseline",
+        "received_ns": 1794373702125016925,
+        "received_local": "2026-11-11 13:08:22.125016925+08:00",
+        "header_ns": 1794373702123299510,
+        "header_local": "2026-11-11 13:08:22.123299510+08:00",
+        "header_minus_received_sec": -0.001717415,
+        "quaternion_norm": 1.0000000235999007,
+        "q": [
+          -0.0037240143865346804,
+          -0.003556242445483814,
+          -0.6131359934806824,
+          -0.7899606227874756
+        ],
+        "arrival_interval_sec": null,
+        "header_interval_sec": null
+      },
+      "last": {
+        "line": 1932,
+        "phase": "sensor_baseline",
+        "received_ns": 1794373721401903136,
+        "received_local": "2026-11-11 13:08:41.401903136+08:00",
+        "header_ns": 1794373721753299510,
+        "header_local": "2026-11-11 13:08:41.753299510+08:00",
+        "header_minus_received_sec": 0.351396374,
+        "quaternion_norm": 1.0000000036930525,
+        "q": [
+          -0.003582209115847935,
+          -0.003608167171478282,
+          -0.6130934953689575,
+          -0.7899940013885498
+        ],
+        "arrival_interval_sec": 0.006684604,
+        "header_interval_sec": 0.01
+      },
+      "received_hz": 100.17178301886838,
+      "header_minus_received_sec": {
+        "count": 1932,
+        "min": -0.001717415,
+        "median": 0.350551748,
+        "p95": 0.351085438,
+        "p99": 0.351529618,
+        "max": 0.352041485,
+        "mean": 0.34978413601656316
+      },
+      "arrival_interval_sec": {
+        "count": 1931,
+        "min": 0.000589055,
+        "median": 0.010005843,
+        "p95": 0.010784133,
+        "p99": 0.012890416,
+        "max": 0.024110181,
+        "mean": 0.009982851156913516
+      },
+      "header_interval_sec": {
+        "count": 1931,
+        "min": 0.009916,
+        "median": 0.01,
+        "p95": 0.01,
+        "p99": 0.010009,
+        "max": 0.33,
+        "mean": 0.010165717244950802
+      },
+      "arrival_gap_gt_0_2_count": 0,
+      "header_gap_gt_0_2_count": 1,
+      "header_nonpositive_count": 0,
+      "bad_quaternion_norm_count": 0
+    },
+    "lio_start": {
+      "count": 710,
+      "first": {
+        "line": 1933,
+        "phase": "lio_start",
+        "received_ns": 1794373721425241682,
+        "received_local": "2026-11-11 13:08:41.425241682+08:00",
+        "header_ns": 1794373721763299510,
+        "header_local": "2026-11-11 13:08:41.763299510+08:00",
+        "header_minus_received_sec": 0.338057828,
+        "quaternion_norm": 0.9999999622992546,
+        "q": [
+          -0.003581218887120475,
+          -0.0036089664790779456,
+          -0.6130926609039307,
+          -0.7899945974349976
+        ],
+        "arrival_interval_sec": 0.023338378,
+        "header_interval_sec": 0.01
+      },
+      "last": {
+        "line": 2642,
+        "phase": "lio_start",
+        "received_ns": 1794373728500887243,
+        "received_local": "2026-11-11 13:08:48.500887243+08:00",
+        "header_ns": 1794373728853299510,
+        "header_local": "2026-11-11 13:08:48.853299510+08:00",
+        "header_minus_received_sec": 0.352412267,
+        "quaternion_norm": 1.0000000167135663,
+        "q": [
+          -0.0036058158148080006,
+          -0.003572812303900729,
+          -0.6130498051643372,
+          -0.7900279760360718
+        ],
+        "arrival_interval_sec": 0.006224886,
+        "header_interval_sec": 0.01
+      },
+      "received_hz": 100.20287925740283,
+      "header_minus_received_sec": {
+        "count": 710,
+        "min": 0.338057828,
+        "median": 0.351154443,
+        "p95": 0.352033739,
+        "p99": 0.352246113,
+        "max": 0.352412267,
+        "mean": 0.35107347004225353
+      },
+      "arrival_interval_sec": {
+        "count": 710,
+        "min": 0.001367312,
+        "median": 0.010016482,
+        "p95": 0.01163686,
+        "p99": 0.0132178,
+        "max": 0.023338378,
+        "mean": 0.009998568115492958
+      },
+      "header_interval_sec": {
+        "count": 710,
+        "min": 0.009916,
+        "median": 0.01,
+        "p95": 0.01,
+        "p99": 0.01,
+        "max": 0.010043,
+        "mean": 0.01
+      },
+      "arrival_gap_gt_0_2_count": 0,
+      "header_gap_gt_0_2_count": 0,
+      "header_nonpositive_count": 0,
+      "bad_quaternion_norm_count": 0
+    },
+    "nav2_start": {
+      "count": 1603,
+      "first": {
+        "line": 2643,
+        "phase": "nav2_start",
+        "received_ns": 1794373728513746116,
+        "received_local": "2026-11-11 13:08:48.513746116+08:00",
+        "header_ns": 1794373728863299510,
+        "header_local": "2026-11-11 13:08:48.863299510+08:00",
+        "header_minus_received_sec": 0.349553394,
+        "quaternion_norm": 1.0000000596085712,
+        "q": [
+          -0.0036006234586238757,
+          -0.0035725524649024114,
+          -0.6130499839782715,
+          -0.790027916431427
+        ],
+        "arrival_interval_sec": 0.012858939,
+        "header_interval_sec": 0.01
+      },
+      "last": {
+        "line": 4245,
+        "phase": "nav2_start",
+        "received_ns": 1794373744532015566,
+        "received_local": "2026-11-11 13:09:04.532015566+08:00",
+        "header_ns": 1794373744883299510,
+        "header_local": "2026-11-11 13:09:04.883299510+08:00",
+        "header_minus_received_sec": 0.351283944,
+        "quaternion_norm": 1.0000000449623625,
+        "q": [
+          -0.003657072084024538,
+          -0.0035882396623492345,
+          -0.6132979393005371,
+          -0.7898350954055786
+        ],
+        "arrival_interval_sec": 0.01124185,
+        "header_interval_sec": 0.01
+      },
+      "received_hz": 100.01079843809656,
+      "header_minus_received_sec": {
+        "count": 1603,
+        "min": 0.34857127,
+        "median": 0.352530969,
+        "p95": 0.352794287,
+        "p99": 0.352891109,
+        "max": 0.352999873,
+        "mean": 0.35245610976356834
+      },
+      "arrival_interval_sec": {
+        "count": 1603,
+        "min": 0.006196545,
+        "median": 0.009999965,
+        "p95": 0.010304898,
+        "p99": 0.01093846,
+        "max": 0.013230002,
+        "mean": 0.010000704439176543
+      },
+      "header_interval_sec": {
+        "count": 1603,
+        "min": 0.009917,
+        "median": 0.01,
+        "p95": 0.01,
+        "p99": 0.01,
+        "max": 0.010046,
+        "mean": 0.01
+      },
+      "arrival_gap_gt_0_2_count": 0,
+      "header_gap_gt_0_2_count": 0,
+      "header_nonpositive_count": 0,
+      "bad_quaternion_norm_count": 0
+    },
+    "hold": {
+      "count": 12001,
+      "first": {
+        "line": 4246,
+        "phase": "hold",
+        "received_ns": 1794373744540783932,
+        "received_local": "2026-11-11 13:09:04.540783932+08:00",
+        "header_ns": 1794373744893299510,
+        "header_local": "2026-11-11 13:09:04.893299510+08:00",
+        "header_minus_received_sec": 0.352515578,
+        "quaternion_norm": 0.9999999813975827,
+        "q": [
+          -0.0036562397144734755,
+          -0.0035894236061722144,
+          -0.6132999062538147,
+          -0.7898334860801697
+        ],
+        "arrival_interval_sec": 0.008767747,
+        "header_interval_sec": 0.01
+      },
+      "last": {
+        "line": 16246,
+        "phase": "hold",
+        "received_ns": 1794373864536683981,
+        "received_local": "2026-11-11 13:11:04.536683981+08:00",
+        "header_ns": 1794373864893299510,
+        "header_local": "2026-11-11 13:11:04.893299510+08:00",
+        "header_minus_received_sec": 0.356615529,
+        "quaternion_norm": 1.000000018675603,
+        "q": [
+          -0.0035906943958252564,
+          -0.0036181188188493356,
+          -0.6130698323249817,
+          -0.7900123000144958
+        ],
+        "arrival_interval_sec": 0.010063769,
+        "header_interval_sec": 0.01
+      },
+      "received_hz": 100.00341607585842,
+      "header_minus_received_sec": {
+        "count": 12001,
+        "min": 0.3460141,
+        "median": 0.354329502,
+        "p95": 0.356546823,
+        "p99": 0.357222248,
+        "max": 0.357671419,
+        "mean": 0.3542766381187401
+      },
+      "arrival_interval_sec": {
+        "count": 12001,
+        "min": 0.002148869,
+        "median": 0.010033988,
+        "p95": 0.01174095,
+        "p99": 0.013982249,
+        "max": 0.018178886,
+        "mean": 0.009999555753353888
+      },
+      "header_interval_sec": {
+        "count": 12001,
+        "min": 0.009916,
+        "median": 0.01,
+        "p95": 0.01,
+        "p99": 0.010007,
+        "max": 0.010045,
+        "mean": 0.01
+      },
+      "arrival_gap_gt_0_2_count": 0,
+      "header_gap_gt_0_2_count": 0,
+      "header_nonpositive_count": 0,
+      "bad_quaternion_norm_count": 0
+    }
+  },
+  "jump_contexts": [
+    {
+      "jump_line": 5,
+      "context": [
+        {
+          "line": 1,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702125016925,
+          "received_local": "2026-11-11 13:08:22.125016925+08:00",
+          "header_ns": 1794373702123299510,
+          "header_local": "2026-11-11 13:08:22.123299510+08:00",
+          "header_minus_received_sec": -0.001717415,
+          "quaternion_norm": 1.0000000235999007,
+          "q": [
+            -0.0037240143865346804,
+            -0.003556242445483814,
+            -0.6131359934806824,
+            -0.7899606227874756
+          ],
+          "arrival_interval_sec": null,
+          "header_interval_sec": null
+        },
+        {
+          "line": 2,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702126534471,
+          "received_local": "2026-11-11 13:08:22.126534471+08:00",
+          "header_ns": 1794373702133299510,
+          "header_local": "2026-11-11 13:08:22.133299510+08:00",
+          "header_minus_received_sec": 0.006765039,
+          "quaternion_norm": 1.0000000582337372,
+          "q": [
+            -0.003723389003425826,
+            -0.003558322321623574,
+            -0.613137423992157,
+            -0.7899595499038696
+          ],
+          "arrival_interval_sec": 0.001516706,
+          "header_interval_sec": 0.01
+        },
+        {
+          "line": 3,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702127941460,
+          "received_local": "2026-11-11 13:08:22.127941460+08:00",
+          "header_ns": 1794373702143299510,
+          "header_local": "2026-11-11 13:08:22.143299510+08:00",
+          "header_minus_received_sec": 0.01535805,
+          "quaternion_norm": 1.0000000044324395,
+          "q": [
+            -0.0037282998673617736,
+            -0.003557556308805953,
+            -0.6131426095962524,
+            -0.7899554371833801
+          ],
+          "arrival_interval_sec": 0.001406776,
+          "header_interval_sec": 0.01
+        },
+        {
+          "line": 4,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702129385772,
+          "received_local": "2026-11-11 13:08:22.129385772+08:00",
+          "header_ns": 1794373702153299510,
+          "header_local": "2026-11-11 13:08:22.153299510+08:00",
+          "header_minus_received_sec": 0.023913738,
+          "quaternion_norm": 1.000000050913267,
+          "q": [
+            -0.0037259429227560655,
+            -0.003554357681423436,
+            -0.6131395697593689,
+            -0.7899578809738159
+          ],
+          "arrival_interval_sec": 0.001444562,
+          "header_interval_sec": 0.01
+        },
+        {
+          "line": 5,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702132936104,
+          "received_local": "2026-11-11 13:08:22.132936104+08:00",
+          "header_ns": 1794373702483299510,
+          "header_local": "2026-11-11 13:08:22.483299510+08:00",
+          "header_minus_received_sec": 0.350363406,
+          "quaternion_norm": 1.0000001104048817,
+          "q": [
+            -0.0037276844959705964,
+            -0.0035565968137234553,
+            -0.6131411790847778,
+            -0.7899566888809204
+          ],
+          "arrival_interval_sec": 0.003550643,
+          "header_interval_sec": 0.33
+        },
+        {
+          "line": 6,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702143088957,
+          "received_local": "2026-11-11 13:08:22.143088957+08:00",
+          "header_ns": 1794373702493299510,
+          "header_local": "2026-11-11 13:08:22.493299510+08:00",
+          "header_minus_received_sec": 0.350210553,
+          "quaternion_norm": 0.9999999798494142,
+          "q": [
+            -0.0036986977793276206,
+            -0.0035768451634794578,
+            -0.6131502389907837,
+            -0.7899495363235474
+          ],
+          "arrival_interval_sec": 0.010152626,
+          "header_interval_sec": 0.01
+        },
+        {
+          "line": 7,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702153150587,
+          "received_local": "2026-11-11 13:08:22.153150587+08:00",
+          "header_ns": 1794373702503299510,
+          "header_local": "2026-11-11 13:08:22.503299510+08:00",
+          "header_minus_received_sec": 0.350148923,
+          "quaternion_norm": 1.0000000460363951,
+          "q": [
+            -0.003700954373925914,
+            -0.003572765970602642,
+            -0.6131508946418762,
+            -0.7899491190910339
+          ],
+          "arrival_interval_sec": 0.010061847,
+          "header_interval_sec": 0.01
+        },
+        {
+          "line": 8,
+          "phase": "sensor_baseline",
+          "received_ns": 1794373702163167669,
+          "received_local": "2026-11-11 13:08:22.163167669+08:00",
+          "header_ns": 1794373702513299510,
+          "header_local": "2026-11-11 13:08:22.513299510+08:00",
+          "header_minus_received_sec": 0.350131841,
+          "quaternion_norm": 1.000000049964308,
+          "q": [
+            -0.0037014826666563645,
+            -0.0035770800895989045,
+            -0.613149106502533,
+            -0.7899504899978638
+          ],
+          "arrival_interval_sec": 0.010017003,
+          "header_interval_sec": 0.01
+        }
+      ]
+    }
+  ],
+  "bad_quaternion_contexts": [],
+  "first_15_samples": [
+    {
+      "line": 1,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702125016925,
+      "received_local": "2026-11-11 13:08:22.125016925+08:00",
+      "header_ns": 1794373702123299510,
+      "header_local": "2026-11-11 13:08:22.123299510+08:00",
+      "header_minus_received_sec": -0.001717415,
+      "quaternion_norm": 1.0000000235999007,
+      "q": [
+        -0.0037240143865346804,
+        -0.003556242445483814,
+        -0.6131359934806824,
+        -0.7899606227874756
+      ],
+      "arrival_interval_sec": null,
+      "header_interval_sec": null
+    },
+    {
+      "line": 2,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702126534471,
+      "received_local": "2026-11-11 13:08:22.126534471+08:00",
+      "header_ns": 1794373702133299510,
+      "header_local": "2026-11-11 13:08:22.133299510+08:00",
+      "header_minus_received_sec": 0.006765039,
+      "quaternion_norm": 1.0000000582337372,
+      "q": [
+        -0.003723389003425826,
+        -0.003558322321623574,
+        -0.613137423992157,
+        -0.7899595499038696
+      ],
+      "arrival_interval_sec": 0.001516706,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 3,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702127941460,
+      "received_local": "2026-11-11 13:08:22.127941460+08:00",
+      "header_ns": 1794373702143299510,
+      "header_local": "2026-11-11 13:08:22.143299510+08:00",
+      "header_minus_received_sec": 0.01535805,
+      "quaternion_norm": 1.0000000044324395,
+      "q": [
+        -0.0037282998673617736,
+        -0.003557556308805953,
+        -0.6131426095962524,
+        -0.7899554371833801
+      ],
+      "arrival_interval_sec": 0.001406776,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 4,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702129385772,
+      "received_local": "2026-11-11 13:08:22.129385772+08:00",
+      "header_ns": 1794373702153299510,
+      "header_local": "2026-11-11 13:08:22.153299510+08:00",
+      "header_minus_received_sec": 0.023913738,
+      "quaternion_norm": 1.000000050913267,
+      "q": [
+        -0.0037259429227560655,
+        -0.003554357681423436,
+        -0.6131395697593689,
+        -0.7899578809738159
+      ],
+      "arrival_interval_sec": 0.001444562,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 5,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702132936104,
+      "received_local": "2026-11-11 13:08:22.132936104+08:00",
+      "header_ns": 1794373702483299510,
+      "header_local": "2026-11-11 13:08:22.483299510+08:00",
+      "header_minus_received_sec": 0.350363406,
+      "quaternion_norm": 1.0000001104048817,
+      "q": [
+        -0.0037276844959705964,
+        -0.0035565968137234553,
+        -0.6131411790847778,
+        -0.7899566888809204
+      ],
+      "arrival_interval_sec": 0.003550643,
+      "header_interval_sec": 0.33
+    },
+    {
+      "line": 6,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702143088957,
+      "received_local": "2026-11-11 13:08:22.143088957+08:00",
+      "header_ns": 1794373702493299510,
+      "header_local": "2026-11-11 13:08:22.493299510+08:00",
+      "header_minus_received_sec": 0.350210553,
+      "quaternion_norm": 0.9999999798494142,
+      "q": [
+        -0.0036986977793276206,
+        -0.0035768451634794578,
+        -0.6131502389907837,
+        -0.7899495363235474
+      ],
+      "arrival_interval_sec": 0.010152626,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 7,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702153150587,
+      "received_local": "2026-11-11 13:08:22.153150587+08:00",
+      "header_ns": 1794373702503299510,
+      "header_local": "2026-11-11 13:08:22.503299510+08:00",
+      "header_minus_received_sec": 0.350148923,
+      "quaternion_norm": 1.0000000460363951,
+      "q": [
+        -0.003700954373925914,
+        -0.003572765970602642,
+        -0.6131508946418762,
+        -0.7899491190910339
+      ],
+      "arrival_interval_sec": 0.010061847,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 8,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702163167669,
+      "received_local": "2026-11-11 13:08:22.163167669+08:00",
+      "header_ns": 1794373702513299510,
+      "header_local": "2026-11-11 13:08:22.513299510+08:00",
+      "header_minus_received_sec": 0.350131841,
+      "quaternion_norm": 1.000000049964308,
+      "q": [
+        -0.0037014826666563645,
+        -0.0035770800895989045,
+        -0.613149106502533,
+        -0.7899504899978638
+      ],
+      "arrival_interval_sec": 0.010017003,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 9,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702173195019,
+      "received_local": "2026-11-11 13:08:22.173195019+08:00",
+      "header_ns": 1794373702523299510,
+      "header_local": "2026-11-11 13:08:22.523299510+08:00",
+      "header_minus_received_sec": 0.350104491,
+      "quaternion_norm": 1.0000000351940943,
+      "q": [
+        -0.003704551607370366,
+        -0.0035740975290536985,
+        -0.6131489276885986,
+        -0.7899506092071533
+      ],
+      "arrival_interval_sec": 0.010027451,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 10,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702183115596,
+      "received_local": "2026-11-11 13:08:22.183115596+08:00",
+      "header_ns": 1794373702533299510,
+      "header_local": "2026-11-11 13:08:22.533299510+08:00",
+      "header_minus_received_sec": 0.350183914,
+      "quaternion_norm": 1.000000049828471,
+      "q": [
+        -0.003707874799147238,
+        -0.003569090506061922,
+        -0.6131453514099121,
+        -0.7899534106254578
+      ],
+      "arrival_interval_sec": 0.009920479,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 11,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702193076870,
+      "received_local": "2026-11-11 13:08:22.193076870+08:00",
+      "header_ns": 1794373702543299510,
+      "header_local": "2026-11-11 13:08:22.543299510+08:00",
+      "header_minus_received_sec": 0.35022264,
+      "quaternion_norm": 1.0000000268704161,
+      "q": [
+        -0.0037081434857100144,
+        -0.0035649493802338943,
+        -0.6131443381309509,
+        -0.7899541854858398
+      ],
+      "arrival_interval_sec": 0.009961386,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 12,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702202953656,
+      "received_local": "2026-11-11 13:08:22.202953656+08:00",
+      "header_ns": 1794373702553299510,
+      "header_local": "2026-11-11 13:08:22.553299510+08:00",
+      "header_minus_received_sec": 0.350345854,
+      "quaternion_norm": 1.0000000424497815,
+      "q": [
+        -0.003707182593643655,
+        -0.003564453683793555,
+        -0.6131402254104614,
+        -0.7899574041366577
+      ],
+      "arrival_interval_sec": 0.009876779,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 13,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702213152774,
+      "received_local": "2026-11-11 13:08:22.213152774+08:00",
+      "header_ns": 1794373702563299510,
+      "header_local": "2026-11-11 13:08:22.563299510+08:00",
+      "header_minus_received_sec": 0.350146736,
+      "quaternion_norm": 1.0000000469599741,
+      "q": [
+        -0.0037065423093736068,
+        -0.003559893928468238,
+        -0.6131384968757629,
+        -0.7899587750434875
+      ],
+      "arrival_interval_sec": 0.010199005,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 14,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702223170196,
+      "received_local": "2026-11-11 13:08:22.223170196+08:00",
+      "header_ns": 1794373702573299510,
+      "header_local": "2026-11-11 13:08:22.573299510+08:00",
+      "header_minus_received_sec": 0.350129314,
+      "quaternion_norm": 1.0000000365190438,
+      "q": [
+        -0.003712318371981372,
+        -0.003553354647010575,
+        -0.6131329536437988,
+        -0.7899630665779114
+      ],
+      "arrival_interval_sec": 0.010017382,
+      "header_interval_sec": 0.01
+    },
+    {
+      "line": 15,
+      "phase": "sensor_baseline",
+      "received_ns": 1794373702233009099,
+      "received_local": "2026-11-11 13:08:22.233009099+08:00",
+      "header_ns": 1794373702583299510,
+      "header_local": "2026-11-11 13:08:22.583299510+08:00",
+      "header_minus_received_sec": 0.350290411,
+      "quaternion_norm": 1.0000000678799863,
+      "q": [
+        -0.0037082065828144446,
+        -0.003550255205482255,
+        -0.613132894039154,
+        -0.7899631857872009
+      ],
+      "arrival_interval_sec": 0.00983886,
+      "header_interval_sec": 0.01
+    }
+  ],
+  "nonfinite_angular_velocity_count": 0,
+  "nonfinite_acceleration_count": 0,
+  "crc_events": [
+    {
+      "line": "[WARN] [1794373702.131081430] [ahrs_bringup]: check crc16 failed (imu), total_crc_errors=1",
+      "time_ns": 1794373702131081430,
+      "time_local": "2026-11-11 13:08:22.131081430+08:00"
+    }
+  ],
+  "imu_log": "[INFO] [1794373702.122501059] [ahrs_bringup]: Serial Port initialized: /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0\n[INFO] [1794373702.122810653] [ahrs_bringup]: ahrsBringup::processLoop: start\n[WARN] [1794373702.131081430] [ahrs_bringup]: check crc16 failed (imu), total_crc_errors=1\n[INFO] [1794373907.127891791] [rclcpp]: signal_handler(SIGINT/SIGTERM)\n[WARN] [1794373907.133140374] [ahrs_bringup]: Short IMU serial read for frame type: received=0 expected=1 total_short_reads=1\n",
+  "lio_logs": {
+    "lio_featureExtraction.log": {
+      "lines": 2,
+      "gap_or_fatal_lines": [],
+      "warnings_or_errors": []
+    },
+    "lio_imageProjection.log": {
+      "lines": 5,
+      "gap_or_fatal_lines": [],
+      "warnings_or_errors": []
+    },
+    "lio_imuPreintegration.log": {
+      "lines": 2,
+      "gap_or_fatal_lines": [],
+      "warnings_or_errors": []
+    },
+    "lio_mapOptimization.log": {
+      "lines": 2,
+      "gap_or_fatal_lines": [],
+      "warnings_or_errors": []
+    }
+  },
+  "startup_result": {
+    "passed": true,
+    "started": "2026-11-11T13:08:19.281764+08:00",
+    "ended": "2026-11-11T13:11:04.543951+08:00",
+    "duration_sec": 165.2622054059998
+  },
+  "ready_summary": {
+    "ready": true,
+    "ever_ready": true,
+    "transitions": 1,
+    "ready_to_not_ready_count": 0,
+    "last_transition_age_sec": 136.31494919499983
+  },
+  "offset_window_drift": {
+    "early_window_elapsed_sec": [
+      2,
+      7
+    ],
+    "late_window_elapsed_sec": [
+      157.411666758,
+      162.411666758
+    ],
+    "early_offset_median_sec": 0.3503196415,
+    "late_offset_median_sec": 0.35655386899999997,
+    "difference_sec": 0.006234227499999967
+  }
+}

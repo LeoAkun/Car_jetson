@@ -1,0 +1,19 @@
+{
+  "vehicle_feedback_confirmation": {
+    "duration_s": 3.0,
+    "vehicle_messages": 300,
+    "ecu_messages": 150,
+    "main_speed_zero": true,
+    "left_and_right_wheel_speed_zero": true,
+    "shift_neutral": true,
+    "motor_zero": true,
+    "brake_bit": false,
+    "brake_bit_note": "Current JD03 converter intentionally does not map zero Twist or emergency stop to the combined brake/EBrake bit. The vehicle was verified stationary in neutral before shutdown."
+  },
+  "ros_nodes_after_shutdown": [],
+  "remaining_test_processes": [],
+  "launch_exit_code": 0,
+  "bag_exit_code": 0,
+  "recorder_exit_code": 0,
+  "bag_quick_check": "ok"
+}

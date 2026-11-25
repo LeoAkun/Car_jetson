@@ -1,0 +1,12 @@
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Complete ROS 2 environment used by the vehicle navigation stack.
+# Set CAR_JETSON_AUTO_SOURCE=0 before starting Bash only when a clean shell is
+# intentionally required.
+if [ "${CAR_JETSON_AUTO_SOURCE:-1}" = "1" ] && \
+   [ -r /home/akun/workspace/Car_jetson/navigation_tools/ros2_navigation_env.bash ]; then
+  source /home/akun/workspace/Car_jetson/navigation_tools/ros2_navigation_env.bash
+elif [ -r /opt/ros/humble/setup.bash ]; then
+  source /opt/ros/humble/setup.bash
+fi

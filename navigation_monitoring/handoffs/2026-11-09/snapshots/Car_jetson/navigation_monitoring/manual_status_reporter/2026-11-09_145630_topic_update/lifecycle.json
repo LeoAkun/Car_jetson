@@ -1,0 +1,7 @@
+{
+  "previous_pid": 19119,
+  "previous_run_dir": "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_144731",
+  "pid": 20451,
+  "config": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/multi_map_navigation/config/mqtt_config.yaml",
+  "log": "/home/akun/workspace/Car_jetson/navigation_monitoring/manual_status_reporter/2026-11-09_145630_topic_update/status_reporter.log"
+}

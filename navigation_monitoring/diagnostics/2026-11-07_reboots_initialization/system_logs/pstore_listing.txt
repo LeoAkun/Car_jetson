@@ -1,0 +1,9 @@
+/sys/fs/pstore:
+总计 0
+drwxr-x--- 2 root root 0 Nov  7 16:58 .
+drwxr-xr-x 8 root root 0 Nov  7 16:58 ..
+
+/var/lib/systemd/pstore:
+总计 8
+drwxr-xr-x  2 root root 4096 Sep 11  2024 .
+drwxr-xr-x 12 root root 4096 Oct 14 16:54 ..

@@ -3,10 +3,14 @@
 lock_controller:
   ros__parameters:
     # 串口设备路径
-    serial_port: "/dev/ttyUSB2"
+    serial_port: "/dev/serial/by-path/pci-0000:00:14.0-usb-0:1.4:1.0-port0"
 
     # 波特率 (固定为9600)
     baud_rate: 9600
+
+    # 查询操作必须在此时间内收到响应；开锁/长供电兼容无回包控制板。
+    response_timeout_ms: 800
+    debug: false
 
     # 默认板地址 (1-32)
     board_address: 1

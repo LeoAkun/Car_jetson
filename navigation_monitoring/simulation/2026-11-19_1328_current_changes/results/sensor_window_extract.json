@@ -1,0 +1,47 @@
+{
+  "source": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-18_11-25-25_manual_publish_monitor/navigation_core_bag_segment_2",
+  "destination": "/home/akun/workspace/Car_jetson/navigation_monitoring/simulation/2026-11-19_1328_current_changes/runtime/sensor_window_45s_current",
+  "duration_requested_sec": 45.0,
+  "first_bag_timestamp_ns": 1794972933546033805,
+  "counts": {
+    "/tf_static": 8,
+    "/rslidar_Pointcloud2": 365,
+    "/imu": 4483
+  },
+  "imu_arrival_minus_header_sec": {
+    "min": -0.369943371,
+    "median": -0.369434382,
+    "p99": -0.36870914198,
+    "max": -0.03752169,
+    "first_20": [
+      -0.36932954,
+      -0.369148564,
+      -0.36894827,
+      -0.368855999,
+      -0.367045184,
+      -0.368964291,
+      -0.367688276,
+      -0.368075152,
+      -0.36903216,
+      -0.369074862,
+      -0.369224857,
+      -0.369136938,
+      -0.369122349,
+      -0.368951124,
+      -0.369299037,
+      -0.369130113,
+      -0.369039042,
+      -0.369103324,
+      -0.36899652,
+      -0.368932525
+    ]
+  },
+  "imu_header_delta_sec": {
+    "min": 0.009991,
+    "median": 0.01,
+    "p99": 0.01,
+    "max": 0.09,
+    "negative_or_zero": 0,
+    "over_0_2_sec": 0
+  }
+}

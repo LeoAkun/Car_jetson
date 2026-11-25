@@ -1,0 +1,38 @@
+tcpdump: data link type LINUX_SLL2
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
+17:56:11.951834 eno1  B   ifindex 5 88:c9:b3:90:f6:c9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.13, length 46
+17:56:12.267824 enp4s0 B   ifindex 4 08:48:57:08:84:f4 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.200, length 46
+17:56:12.393270 eno1  B   ifindex 5 3c:6d:66:ba:4a:c1 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.160, length 46
+17:56:12.790470 eno1  B   ifindex 5 88:c9:b3:90:8d:2d ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.12, length 46
+17:56:12.823949 eno1  B   ifindex 5 3c:6d:66:a3:ff:d9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.150, length 46
+17:56:12.935923 eno1  B   ifindex 5 00:02:27:80:02:1f ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.10, length 46
+17:56:12.973932 eno1  B   ifindex 5 88:c9:b3:90:f6:c9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.13, length 46
+17:56:13.306855 enp4s0 B   ifindex 4 08:48:57:08:84:f4 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.200, length 46
+17:56:13.417191 eno1  B   ifindex 5 3c:6d:66:ba:4a:c1 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.160, length 46
+17:56:13.848301 eno1  B   ifindex 5 3c:6d:66:a3:ff:d9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.150, length 46
+17:56:13.856640 eno1  B   ifindex 5 88:c9:b3:90:8d:2d ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.12, length 46
+17:56:14.013929 eno1  B   ifindex 5 88:c9:b3:90:f6:c9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.13, length 46
+17:56:14.346877 enp4s0 B   ifindex 4 08:48:57:08:84:f4 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.200, length 46
+17:56:14.441438 eno1  B   ifindex 5 3c:6d:66:ba:4a:c1 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.160, length 46
+17:56:14.683377 eno1  B   ifindex 5 00:02:27:80:02:1f ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.10, length 46
+17:56:14.870429 eno1  B   ifindex 5 88:c9:b3:90:8d:2d ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.12, length 46
+17:56:14.872279 eno1  B   ifindex 5 3c:6d:66:a3:ff:d9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.150, length 46
+17:56:15.069157 eno1  B   ifindex 5 88:c9:b3:90:f6:c9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.13, length 46
+17:56:15.387892 enp4s0 B   ifindex 4 08:48:57:08:84:f4 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.200, length 46
+17:56:15.467536 eno1  B   ifindex 5 3c:6d:66:ba:4a:c1 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.160, length 46
+17:56:15.896250 eno1  B   ifindex 5 3c:6d:66:a3:ff:d9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.150, length 46
+17:56:15.910394 eno1  B   ifindex 5 88:c9:b3:90:8d:2d ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.12, length 46
+17:56:16.093888 eno1  B   ifindex 5 88:c9:b3:90:f6:c9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.13, length 46
+17:56:16.424651 eno1  B   ifindex 5 00:02:27:80:02:1f ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.10, length 46
+17:56:16.426925 enp4s0 B   ifindex 4 08:48:57:08:84:f4 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.200, length 46
+17:56:16.489550 eno1  B   ifindex 5 3c:6d:66:ba:4a:c1 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.160, length 46
+17:56:16.920405 eno1  B   ifindex 5 3c:6d:66:a3:ff:d9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.150, length 46
+17:56:16.963330 eno1  B   ifindex 5 88:c9:b3:90:8d:2d ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.12, length 46
+17:56:17.133902 eno1  B   ifindex 5 88:c9:b3:90:f6:c9 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.13, length 46
+17:56:17.466945 enp4s0 B   ifindex 4 08:48:57:08:84:f4 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.140 tell 192.168.1.200, length 46
+17:56:17.513567 eno1  B   ifindex 5 3c:6d:66:ba:4a:c1 ethertype ARP (0x0806), length 66: Request who-has 192.168.1.1 tell 192.168.1.160, length 46
+
+31 packets captured
+31 packets received by filter
+0 packets dropped by kernel

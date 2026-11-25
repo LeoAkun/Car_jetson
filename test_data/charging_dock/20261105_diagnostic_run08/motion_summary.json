@@ -1,0 +1,127 @@
+{
+  "counts": {
+    "/vehicle_status": 12499,
+    "/laser/scan_back": 3688,
+    "/ecu": 6235,
+    "/cmd_vel_selected": 6233,
+    "/docking_feedback_odometry/state": 6232,
+    "/standalone_docking/state": 2493,
+    "/cmd_vel_dock": 3116,
+    "/charging_dock/local_odom": 5961,
+    "/charging_dock/state": 1416,
+    "/charging_dock/observation": 1581,
+    "/charging_dock/emergency_stop": 294
+  },
+  "transitions": [
+    {
+      "t": 10.011578896001083,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "can_or_imu_stale"
+    },
+    {
+      "t": 10.049691180000082,
+      "topic": "/standalone_docking/state",
+      "state": "IDLE reason=waiting_for_start"
+    },
+    {
+      "t": 10.371668572001,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "valid"
+    },
+    {
+      "t": 74.39876807499968,
+      "topic": "/standalone_docking/state",
+      "state": "WAIT_SENSORS reason="
+    },
+    {
+      "t": 74.93604446599966,
+      "topic": "/standalone_docking/state",
+      "state": "SENDING reason="
+    },
+    {
+      "t": 74.94888252900091,
+      "topic": "/standalone_docking/state",
+      "state": "DOCKING reason="
+    },
+    {
+      "t": 76.02399084900026,
+      "topic": "/charging_dock/state",
+      "state": "PRECHECK reason=dock_observation_invalid"
+    },
+    {
+      "t": 76.73081728800025,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 107.4493316549997,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 126.80136454999956,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 129.48434619399995,
+      "topic": "/charging_dock/state",
+      "state": "LOCK_VERIFY reason=waiting_for_measured_stop_before_lock"
+    },
+    {
+      "t": 129.5915402520004,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "moving_without_direction_feedback"
+    },
+    {
+      "t": 129.64320631200098,
+      "topic": "/charging_dock/state",
+      "state": "STOPPING reason=control_not_owned"
+    },
+    {
+      "t": 132.62295967200043,
+      "topic": "/charging_dock/state",
+      "state": "FAILED reason=stop_not_confirmed"
+    },
+    {
+      "t": 132.64903524700094,
+      "topic": "/standalone_docking/state",
+      "state": "FAILED reason=dock_failed:stop_not_confirmed"
+    }
+  ],
+  "final_vehicle": {
+    "header": {
+      "stamp": {
+        "sec": 1793860159,
+        "nanosec": 821852977
+      },
+      "frame_id": ""
+    },
+    "cur_speed": 0.0,
+    "cur_steer": -0.02250000275671482,
+    "left_wheel_speed": 0.0,
+    "right_wheel_speed": 0.0,
+    "wheel_direction": 0,
+    "shift_level": 2,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "p_status": true
+  },
+  "final_ecu": {
+    "header": {
+      "stamp": {
+        "sec": 1793860159,
+        "nanosec": 820450003
+      },
+      "frame_id": "base_link"
+    },
+    "motor": 0.0,
+    "steer": 0.0,
+    "brake": true,
+    "set_torque": false,
+    "rear_wheel_flag": true,
+    "shift": 2
+  },
+  "final_state": "FAILED reason=dock_failed:stop_not_confirmed",
+  "start_service_called": false
+}

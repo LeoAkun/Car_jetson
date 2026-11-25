@@ -1,0 +1,27 @@
+{
+  "time": "2026-11-09T14:45:32.105711+08:00",
+  "operator": "结束本次测试；已确认人工接管",
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7",
+  "fault_published": "field_test_113_to_107: operator_stop_2026_11_09",
+  "actions": [
+    {
+      "name": "management_stack",
+      "pid": 17301,
+      "action": "SIGINT process group",
+      "cmd": "/usr/bin/python3 /opt/ros/humble/bin/ros2 launch multi_map_navigation multi_map_navigation.launch.py mqtt_config:=/home/akun/workspace/Car_jetson/navigation_monitoring/field_test_mqtt_local.yaml "
+    },
+    {
+      "name": "real_drivers",
+      "pid": 17300,
+      "action": "SIGINT process group",
+      "cmd": "/usr/bin/python3 /opt/ros/humble/bin/ros2 launch launch_real run.launch.py "
+    },
+    {
+      "name": "bag_record",
+      "pid": 18542,
+      "action": "SIGINT process group",
+      "cmd": "/usr/bin/python3 /opt/ros/humble/bin/ros2 bag record --include-hidden-topics --max-bag-size 268435456 --max-cache-size 0 -o /home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_14-33-18/navigation_core_bag /tf /tf_static /imu /laser/scan_front /laser/scan_back /laser/scan_merge_laser /cmd_vel /cmd_vel_nav /ecu /vehicle_status /odom /odom_incremental /lio_sam/mapping/odometry /lio_sam/mapping/odometry_incremental /odometry/filtered_local /sensing/gnss/pose_with_covariance /plan /plan_smoothed /transformed_global_plan /navigate_to_pose/_action/feedback /navigate_to_pose/_action/status /robot_state /robot_status /waypoint_list /process_manager/fault /global_costmap/costmap_raw /local_costmap/costmap_raw /rosout "
+    }
+  ],
+  "brake_command_sent": false
+}

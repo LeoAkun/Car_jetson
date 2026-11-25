@@ -1,0 +1,153 @@
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting Evolution address book service...
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'ca.desrt.dconf'
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started User preferences database.
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.gnome.evolution.dataserver.AddressBook10'
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Evolution address book service.
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating service name='org.freedesktop.FileManager1' requested by ':1.28' (uid=1001 pid=1790 comm="/usr/bin/gnome-shell " label="unconfined")
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating service name='org.gnome.Shell.Notifications' requested by ':1.28' (uid=1001 pid=1790 comm="/usr/bin/gnome-shell " label="unconfined")
+2026-11-07T16:16:17+0800 admin1-Default-string at-spi-dbus-bus.desktop[1787]: dbus-daemon[1787]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1001 pid=1790 comm="/usr/bin/gnome-shell " label="unconfined")
+2026-11-07T16:16:17+0800 admin1-Default-string at-spi-dbus-bus.desktop[1787]: dbus-daemon[1787]: Successfully activated service 'org.a11y.atspi.Registry'
+2026-11-07T16:16:17+0800 admin1-Default-string at-spi-dbus-bus.desktop[2019]: SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME Shell on Wayland.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME Session is initialized.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: GNOME session X11 services is inactive.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Dependency failed for GNOME XSettings service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: org.gnome.SettingsDaemon.XSettings.service: Job org.gnome.SettingsDaemon.XSettings.service/start failed with result 'dependency'.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: gnome-session-x11-services-ready.target: Job gnome-session-x11-services-ready.target/verify-active failed with result 'dependency'.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME Session (session: ubuntu).
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME XSettings target.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting Signal initialization done to GNOME Session Manager...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting IBus Daemon for GNOME...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME accessibility service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME color management service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME date & time service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME maintenance of expirable data service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME keyboard configuration service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME keyboard shortcuts service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME power management service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME printer notifications service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME RFKill support service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME FreeDesktop screensaver service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME file sharing service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME smartcard service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME sound sample caching service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Starting GNOME Wacom tablet support service...
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Finished Signal initialization done to GNOME Session Manager.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME accessibility service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME maintenance of expirable data service.
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation
+2026-11-07T16:16:17+0800 admin1-Default-string spice-vdagent[2048]: vdagent virtio channel /dev/virtio-ports/com.redhat.spice.0 does not exist, exiting
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME accessibility target.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME maintenance of expirable data target.
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.gnome.Shell.Notifications'
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME smartcard service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME smartcard target.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME RFKill support service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME RFKill support target.
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-session-binary[1723]: Entering running state
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string at-spi2-registr[2019]: Failed to register client: GDBus.Error:org.gnome.SessionManager.AlreadyRegistered: Unable to register client
+2026-11-07T16:16:17+0800 admin1-Default-string at-spi2-registr[2019]: Unable to register client with session manager
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-session[1723]: gnome-session-binary[1723]: GnomeDesktop-WARNING: Could not create transient scope for PID 2120: GDBus.Error:org.freedesktop.DBus.Error.UnixProcessIdUnknown: Process with ID 2120 does not exist.
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-session-binary[1723]: GnomeDesktop-WARNING: Could not create transient scope for PID 2120: GDBus.Error:org.freedesktop.DBus.Error.UnixProcessIdUnknown: Process with ID 2120 does not exist.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME FreeDesktop screensaver service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME date & time service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME file sharing service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME sound sample caching service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME date & time target.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME FreeDesktop screensaver target.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME file sharing target.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME sound sample caching target.
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating service name='org.freedesktop.portal.IBus' requested by ':1.66' (uid=1001 pid=2041 comm="/usr/bin/ibus-daemon --panel disable " label="unconfined")
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started IBus Daemon for GNOME.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Started GNOME printer notifications service.
+2026-11-07T16:16:17+0800 admin1-Default-string systemd[1272]: Reached target GNOME printer notifications target.
+2026-11-07T16:16:17+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.freedesktop.portal.IBus'
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 38 with keysym 38 (keycode 11).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 33 with keysym 33 (keycode c).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 34 with keysym 34 (keycode d).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 36 with keysym 36 (keycode f).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 32 with keysym 32 (keycode b).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 35 with keysym 35 (keycode e).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 31 with keysym 31 (keycode a).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 39 with keysym 39 (keycode 12).
+2026-11-07T16:16:17+0800 admin1-Default-string gnome-shell[1790]: Window manager warning: Overwriting existing binding of keysym 37 with keysym 37 (keycode 10).
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started GNOME keyboard configuration service.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME keyboard configuration target.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started GNOME color management service.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME color management target.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started GNOME power management service.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME power management target.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started GNOME Wacom tablet support service.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME Wacom tablet support target.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started GNOME keyboard shortcuts service.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME keyboard shortcuts target.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME Session.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target GNOME Wayland Session (session: ubuntu).
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Reached target Current graphical user session.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Condition check resulted in GNOME Initial Setup being skipped.
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating via systemd: service name='org.freedesktop.portal.Desktop' unit='xdg-desktop-portal.service' requested by ':1.46' (uid=1001 pid=2006 comm="/usr/bin/nautilus --gapplication-service " label="unconfined")
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Starting Tracker file system data miner...
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Starting Portal service...
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.gnome' unit='xdg-desktop-portal-gnome.service' requested by ':1.81' (uid=1001 pid=2549 comm="/usr/libexec/xdg-desktop-portal " label="unconfined")
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Starting Portal service (GNOME implementation)...
+2026-11-07T16:16:18+0800 admin1-Default-string gsd-media-keys[2047]: Failed to grab accelerator for keybinding settings:hibernate
+2026-11-07T16:16:18+0800 admin1-Default-string gsd-media-keys[2047]: Failed to grab accelerator for keybinding settings:playback-repeat
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating service name='org.gnome.ScreenSaver' requested by ':1.64' (uid=1001 pid=2049 comm="/usr/libexec/gsd-power " label="unconfined")
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.gnome.ScreenSaver'
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.freedesktop.impl.portal.desktop.gnome'
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started Portal service (GNOME implementation).
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating via systemd: service name='org.freedesktop.impl.portal.desktop.gtk' unit='xdg-desktop-portal-gtk.service' requested by ':1.81' (uid=1001 pid=2549 comm="/usr/libexec/xdg-desktop-portal " label="unconfined")
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Starting Portal service (GTK/GNOME implementation)...
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started Portal service (GTK/GNOME implementation).
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.freedesktop.portal.Desktop'
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started Portal service.
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.freedesktop.FileManager1'
+2026-11-07T16:16:18+0800 admin1-Default-string gnome-shell[1790]: GNOME Shell started at Sat Nov 07 2026 16:16:17 GMT+0800 (CST)
+2026-11-07T16:16:18+0800 admin1-Default-string gnome-shell[1790]: Registering session with GDM
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Started Tracker file system data miner.
+2026-11-07T16:16:18+0800 admin1-Default-string systemd[1272]: Startup finished in 2.914s.
+2026-11-07T16:16:18+0800 admin1-Default-string sshd[2646]: Received disconnect from 192.168.50.117 port 63383:11: disconnected by user
+2026-11-07T16:16:18+0800 admin1-Default-string sshd[2646]: Disconnected from user akun 192.168.50.117 port 63383
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: apparmor="DENIED" operation="dbus_method_call"  bus="session" path="/org/freedesktop/portal/desktop" interface="org.freedesktop.host.portal.Registry" member="Register" mask="send" name="org.freedesktop.portal.Desktop" pid=2736 label="snap.snapd-desktop-integration.snapd-desktop-integration" peer_pid=2549 peer_label="unconfined"
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating service name='org.gnome.ArchiveManager1' requested by ':1.87' (uid=1001 pid=2905 comm="gjs /usr/share/gnome-shell/extensions/ding@rasters" label="unconfined")
+2026-11-07T16:16:18+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.gnome.ArchiveManager1'
+2026-11-07T16:16:19+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Activating via systemd: service name='org.gtk.vfs.Metadata' unit='gvfs-metadata.service' requested by ':1.87' (uid=1001 pid=2905 comm="gjs /usr/share/gnome-shell/extensions/ding@rasters" label="unconfined")
+2026-11-07T16:16:19+0800 admin1-Default-string systemd[1272]: Starting Virtual filesystem metadata service...
+2026-11-07T16:16:19+0800 admin1-Default-string dbus-daemon[1423]: [session uid=1001 pid=1423] Successfully activated service 'org.gtk.vfs.Metadata'
+2026-11-07T16:16:19+0800 admin1-Default-string systemd[1272]: Started Virtual filesystem metadata service.
+2026-11-07T16:16:19+0800 admin1-Default-string gnome-shell[1790]: DING: Detected async api for thumbnails
+2026-11-07T16:16:19+0800 admin1-Default-string snapd-desktop-integration[2736]: New theme: gtk=Yaru icon=Yaru cursor=Yaru, sound=Yaru
+2026-11-07T16:16:19+0800 admin1-Default-string snapd-desktop-integration[2736]: All available theme snaps installed
+2026-11-07T16:16:19+0800 admin1-Default-string gnome-shell[1790]: DING: GNOME nautilus 42.6
+2026-11-07T16:16:19+0800 admin1-Default-string sshd[3018]: Received disconnect from 192.168.50.117 port 61655:11: disconnected by user
+2026-11-07T16:16:19+0800 admin1-Default-string sshd[3018]: Disconnected from user akun 192.168.50.117 port 61655
+2026-11-07T16:16:20+0800 admin1-Default-string sshd[3330]: Received disconnect from 192.168.50.117 port 61659:11: disconnected by user
+2026-11-07T16:16:20+0800 admin1-Default-string sshd[3330]: Disconnected from user akun 192.168.50.117 port 61659
+2026-11-07T16:16:26+0800 admin1-Default-string python3[1803]: 2026-11-07T16:16:26.841+08:00 elapsed=9s cpu=1.0% pkg=37.0C mem=29.4GiB robot_pids=0
+2026-11-07T16:16:28+0800 admin1-Default-string nautilus[2006]: Could not delete '.meta.isrunning': 没有那个文件或目录
+2026-11-07T16:16:37+0800 admin1-Default-string python3[1803]: 2026-11-07T16:16:37.178+08:00 elapsed=20s cpu=0.6% pkg=35.0C mem=29.4GiB robot_pids=0
+2026-11-07T16:16:41+0800 admin1-Default-string pulseaudio[1290]: GetManagedObjects() failed: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+2026-11-07T16:16:47+0800 admin1-Default-string python3[1803]: 2026-11-07T16:16:47.605+08:00 elapsed=30s cpu=2.7% pkg=35.0C mem=29.4GiB robot_pids=1
+2026-11-07T16:16:57+0800 admin1-Default-string python3[1803]: 2026-11-07T16:16:57.936+08:00 elapsed=41s cpu=2.6% pkg=36.0C mem=29.2GiB robot_pids=14
+2026-11-07T16:17:08+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:08.297+08:00 elapsed=51s cpu=2.7% pkg=35.0C mem=29.3GiB robot_pids=14
+2026-11-07T16:17:18+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:17:18+0800 admin1-Default-string systemd[1272]: Started Application launched by gnome-session-binary.
+2026-11-07T16:17:18+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:18.627+08:00 elapsed=61s cpu=3.6% pkg=35.0C mem=29.3GiB robot_pids=14
+2026-11-07T16:17:22+0800 admin1-Default-string pkexec[4524]: pam_unix(polkit-1:session): session opened for user root(uid=0) by (uid=1001)
+2026-11-07T16:17:23+0800 admin1-Default-string ubuntu-appindicators@ubuntu.com[1790]: unable to update icon for software-update-available
+2026-11-07T16:17:23+0800 admin1-Default-string ubuntu-appindicators@ubuntu.com[1790]: unable to update icon for livepatch
+2026-11-07T16:17:28+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:28.933+08:00 elapsed=72s cpu=3.2% pkg=36.0C mem=29.2GiB robot_pids=14
+2026-11-07T16:17:39+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:39.287+08:00 elapsed=82s cpu=2.7% pkg=35.0C mem=29.2GiB robot_pids=14
+2026-11-07T16:17:49+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:49.655+08:00 elapsed=92s cpu=2.9% pkg=35.0C mem=29.3GiB robot_pids=14
+2026-11-07T16:17:59+0800 admin1-Default-string python3[1803]: 2026-11-07T16:17:59.968+08:00 elapsed=103s cpu=14.5% pkg=38.0C mem=28.9GiB robot_pids=15

@@ -1,0 +1,148 @@
+{
+  "started_at": "2026-11-14T11:38:39.471+08:00",
+  "run_dir": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-38-38_manual_publish_monitor",
+  "operator_command": "启动监测本次测试，测试任务由我手动发布。",
+  "responsibility": {
+    "assistant": [
+      "observation-only navigation monitoring",
+      "rosbag recording",
+      "read-only diagnosis"
+    ],
+    "operator": [
+      "navigation task publication",
+      "vehicle motion control",
+      "manual protection"
+    ]
+  },
+  "monitor_mode": "observation only; protection disabled; no navigation or task publication",
+  "navigation_started_by_assistant": false,
+  "task_published_by_assistant": false,
+  "status": "ended_failure",
+  "boot_id": "fddb736b-0a0c-4b96-af9b-933da2533ad7",
+  "processes": [
+    {
+      "name": "bag_record",
+      "pid": 90928,
+      "pgid": 90928,
+      "proc_start_ticks": "690526",
+      "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-38-38_manual_publish_monitor/navigation_core_bag"
+    },
+    {
+      "name": "monitor",
+      "pid": 90929,
+      "pgid": 90929,
+      "proc_start_ticks": "690526",
+      "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-38-38_manual_publish_monitor/monitor.raw.jsonl"
+    },
+    {
+      "name": "detail_observer",
+      "pid": 90930,
+      "pgid": 90930,
+      "proc_start_ticks": "690526",
+      "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-38-38_manual_publish_monitor/detail_observer.jsonl"
+    }
+  ],
+  "topics": [
+    "/imu",
+    "/laser/scan_front",
+    "/laser/scan_back",
+    "/laser/scan_merge_laser",
+    "/laser/scan_merge_laser_filtered",
+    "/tf",
+    "/tf_static",
+    "/cmd_vel",
+    "/cmd_vel_nav",
+    "/vehicle_status",
+    "/robot_status",
+    "/robot_state",
+    "/process_manager/fault",
+    "/waypoint_list",
+    "/start_end_graph",
+    "/lio_sam/imu_preintegration_ready",
+    "/lio_sam/mapping/odometry",
+    "/lio_sam/mapping/odometry_incremental",
+    "/lio_sam/imu/odometry",
+    "/lio_sam/imu/odometry_incremental",
+    "/odom",
+    "/odometry/imu",
+    "/odometry/filtered_local",
+    "/plan",
+    "/global_costmap/costmap",
+    "/global_costmap/costmap_raw",
+    "/global_costmap/costmap_updates",
+    "/local_costmap/costmap",
+    "/local_costmap/costmap_raw",
+    "/local_costmap/costmap_updates",
+    "/navigate_to_pose/_action/feedback",
+    "/navigate_to_pose/_action/status",
+    "/navigate_through_poses/_action/feedback",
+    "/navigate_through_poses/_action/status",
+    "/sensing/gnss/pose_with_covariance",
+    "/initialpose",
+    "/amcl_pose",
+    "/rosout"
+  ],
+  "task": {
+    "task_id": "task_1794627438",
+    "map": "map2",
+    "waypoint_ids": [53, 54, 58, 57],
+    "published_by_assistant": false,
+    "correlation": "Inherited from the immediately preceding run; this monitor reattached after the waypoint_list event."
+  },
+  "ended_at": "2026-11-14T11:48:31.563+08:00",
+  "classification": "navigation_failed_after_automatic_retries",
+  "result": {
+    "first_waypoint_reached": false,
+    "later_waypoints_dispatched": false,
+    "attempts": [
+      {
+        "attempt": 1,
+        "run": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-35-34_manual_publish_monitor",
+        "outcome": "initialization_fault",
+        "fault": "nav2_init_pose: launch process exited with code 0"
+      },
+      {
+        "attempt": 2,
+        "navigate_to_pose_uuid": "1109eed7a4534099812b07463c15b64a",
+        "outcome": "navigation_health_fault",
+        "last_action_status": 3,
+        "last_action_state": "CANCELING",
+        "fault": "navigation2: lifecycle nodes not active: /map_server=timeout, /smoother_server=timeout, /planner_server=timeout, /bt_navigator=timeout, /waypoint_follower=timeout, /velocity_smoother=timeout"
+      },
+      {
+        "attempt": 3,
+        "navigate_to_pose_uuid": "89791e869e72480c91a1e57442b677f9",
+        "outcome": "navigation_aborted",
+        "action_status": 6,
+        "action_state": "ABORTED",
+        "nav2_message": "Goal failed",
+        "dominant_failure_evidence": "Starting point in lethal space; repeated costmap valid-point warnings and global costmap clearing timeouts"
+      }
+    ],
+    "max_vehicle_speed_kmh": 2.0,
+    "max_temperature_c": 52.0,
+    "min_memory_available_mb": 22190.8,
+    "final_robot_status": 0,
+    "final_vehicle_speed_kmh": 0.0,
+    "final_drive_mode": 3,
+    "protective_abort": false
+  },
+  "recording": {
+    "closed_normally": true,
+    "duration_ns": 130976152291,
+    "message_count": 53026,
+    "size_human": "4.9G",
+    "coverage": "Second attempt; the third automatic retry is covered by the Nav2 log and detail observer, not this rosbag."
+  },
+  "navigation_shutdown": {
+    "requested_by_operator": true,
+    "operator_reported_manual_takeover": true,
+    "verified_at": "2026-11-14T11:48:31.563+08:00",
+    "navigation_process_group": 13861,
+    "navigation_processes_remaining": 0,
+    "monitoring_processes_remaining": 0,
+    "base_drivers_kept_running": true,
+    "vehicle_control_commands_sent_by_assistant": false
+  },
+  "continuation_of": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-35-34_manual_publish_monitor"
+}

@@ -1,0 +1,604 @@
+{
+  "candidate_order": [
+    "forward",
+    "stationary",
+    "reverse"
+  ],
+  "cases": [
+    {
+      "signed_goal_x_m": 0.5,
+      "old": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          1.04761899,
+          2.5,
+          4.08333349
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          1.04761899,
+          2.5,
+          4.08333349
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          1.04761899,
+          2.5,
+          4.08333349
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          1.04761899,
+          2.5,
+          4.08333349
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 0.799899995,
+      "old": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          2.41616654,
+          3.99950004,
+          5.58283329
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          2.41616654,
+          3.99950004,
+          5.58283329
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          2.41616654,
+          3.99950004,
+          5.58283329
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          2.41616654,
+          3.99950004,
+          5.58283329
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 0.800000012,
+      "old": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          2.41666675,
+          4,
+          5.58333349
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          2.41666675,
+          4,
+          5.58333349
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          2.41666675,
+          4,
+          5.58333349
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          2.41666675,
+          4,
+          5.58333349
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 0.800100029,
+      "old": {
+        "goal_active": false,
+        "path_active": false,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          0,
+          0,
+          0
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          2.41716671,
+          4.0005002,
+          5.58383369
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          2.41716671,
+          4.0005002,
+          5.58383369
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1,
+      "old": {
+        "goal_active": false,
+        "path_active": false,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          0,
+          0,
+          0
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          3.41666675,
+          5,
+          6.58333349
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          3.41666675,
+          5,
+          6.58333349
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.20000005,
+      "old": {
+        "goal_active": false,
+        "path_active": false,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          0,
+          0,
+          0
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          4.41666698,
+          6,
+          7.58333349
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          4.41666698,
+          6,
+          7.58333349
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.39989996,
+      "old": {
+        "goal_active": false,
+        "path_active": false,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          0,
+          0,
+          0
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          5.41616583,
+          6.99949932,
+          8.58283234
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          5.41616583,
+          6.99949932,
+          8.58283234
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.39999998,
+      "old": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.1388886,
+          4.25,
+          7.36111116
+        ],
+        "sum_of_two_critics": [
+          1.1388886,
+          4.25,
+          7.36111116
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": true,
+        "goal": [
+          5.41666651,
+          7,
+          8.58333302
+        ],
+        "path": [
+          1.1388886,
+          4.25,
+          7.36111116
+        ],
+        "sum_of_two_critics": [
+          6.55555534,
+          11.25,
+          15.9444447
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.40009999,
+      "old": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.23402655,
+          4.3451376,
+          7.45624924
+        ],
+        "sum_of_two_critics": [
+          1.23402655,
+          4.3451376,
+          7.45624924
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": true,
+        "goal": [
+          5.41716671,
+          7.00049973,
+          8.58383369
+        ],
+        "path": [
+          1.23402655,
+          4.3451376,
+          7.45624924
+        ],
+        "sum_of_two_critics": [
+          6.65119314,
+          11.3456373,
+          16.0400829
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.59990001,
+      "old": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.138623,
+          4.2497344,
+          7.36084557
+        ],
+        "sum_of_two_critics": [
+          1.138623,
+          4.2497344,
+          7.36084557
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": true,
+        "goal": [
+          6.41616678,
+          7.99950027,
+          9.58283329
+        ],
+        "path": [
+          1.138623,
+          4.2497344,
+          7.36084557
+        ],
+        "sum_of_two_critics": [
+          7.55478954,
+          12.2492352,
+          16.9436798
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.60000002,
+      "old": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ],
+        "sum_of_two_critics": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ]
+      },
+      "new": {
+        "goal_active": true,
+        "path_active": true,
+        "goal": [
+          6.41666698,
+          8,
+          9.58333302
+        ],
+        "path": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ],
+        "sum_of_two_critics": [
+          7.55555582,
+          12.25,
+          16.9444447
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 1.60010004,
+      "old": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.25279784,
+          4.36390924,
+          7.47502041
+        ],
+        "sum_of_two_critics": [
+          1.25279784,
+          4.36390924,
+          7.47502041
+        ]
+      },
+      "new": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.25279784,
+          4.36390924,
+          7.47502041
+        ],
+        "sum_of_two_critics": [
+          1.25279784,
+          4.36390924,
+          7.47502041
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": 3,
+      "old": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ],
+        "sum_of_two_critics": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ]
+      },
+      "new": {
+        "goal_active": false,
+        "path_active": true,
+        "goal": [
+          0,
+          0,
+          0
+        ],
+        "path": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ],
+        "sum_of_two_critics": [
+          1.13888884,
+          4.25,
+          7.36111164
+        ]
+      }
+    },
+    {
+      "signed_goal_x_m": -1.2,
+      "new": {
+        "goal_active": true,
+        "path_active": false,
+        "goal": [
+          7.58333349,
+          6,
+          4.41666698
+        ],
+        "path": [
+          0,
+          0,
+          0
+        ],
+        "sum_of_two_critics": [
+          7.58333349,
+          6,
+          4.41666698
+        ]
+      }
+    }
+  ],
+  "sweep": {
+    "samples": 3500,
+    "old_zero_cost_samples": 599,
+    "new_zero_cost_samples": 0
+  },
+  "checks": 42,
+  "passed": true,
+  "failures": [],
+  "settings": {
+    "old_goal_threshold_m": 0.8,
+    "new_goal_threshold_m": 1.6,
+    "path_threshold_m": 1.4,
+    "goal_weight": 5.0,
+    "path_weight": 5.0,
+    "goal_power": 1,
+    "path_power": 1,
+    "path_offset": 5,
+    "time_steps": 56,
+    "model_dt_s": 0.05,
+    "candidate_speed_mps": 0.2222222222222222
+  },
+  "method": "Compiles and invokes the unmodified local C++ GoalCritic::score and PathFollowCritic::score. Protected configuration is injected by derived wrappers; no initialize/on_configure calls. All-free path validity is supplied, with the real path-furthest calculation left enabled.",
+  "limits": [
+    "No rclcpp::init, context, node, executor, publisher, launch, vehicle command or live parameter change.",
+    "Three manually constructed straight trajectories, only two critic scores; not full MPPI optimization or closed-loop simulation.",
+    "No obstacle/costmap, steering dynamics, odometry frame or real chassis-response validation.",
+    "Exact threshold results reflect the real float arithmetic and strict comparison; +/-0.0001m cases test both sides.",
+    "Historical observations cannot establish that this attraction gap uniquely caused the November 2 oscillation."
+  ],
+  "sha256": {
+    "/home/akun/workspace/Car_jetson/nav2/src/nav2/config/nav2_real_params.yaml": "d172f3d66a6c995f5ad850ffaedf2b7dc4743e008024460570994c489d9b11d7",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/before/nav2/src/nav2/config/nav2_real_params.yaml": "b1fb9a61e0aef45c54af37d33dd895895c77b2c95ef5ef5688e5cff9fc532fff",
+    "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml": "e0d15f2af730f7797490290307d8dce545037d891115013f646f7a50f76aa08d",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/critic_harness.cpp": "e5c8324af2a7ffdd14958cb0f7e5f86b27ca9edd2f79ab6b09613e272af434d4",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/CMakeLists.txt": "f6a6a62250de8d1e692a04750b80ff0b2a203ea2164806aa2321e0d25d74a023",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/goal_approach_fix_20261106/build/critic_harness": "b59d060341457c6c3e124170309bcf35378f91ba92590f2966965d410ded2279",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/src/critics/goal_critic.cpp": "a316c2d66c42ec8362e255350c3efcc44af075cc7866d33dc6bbb686271e7285",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/src/critics/path_follow_critic.cpp": "e3e2fbe0be9a16beaa8eec2910cabf2a3284911212938968be7ec491eee8c645",
+    "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_mppi_controller/include/nav2_mppi_controller/tools/utils.hpp": "87672ad3a2c183b0da7194f7b5db8a2bb2af5a7a46a31ccef4019143699d5f9d"
+  }
+}

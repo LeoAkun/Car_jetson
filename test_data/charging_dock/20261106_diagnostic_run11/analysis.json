@@ -1,0 +1,776 @@
+{
+  "test": "20261106_diagnostic_run11",
+  "evidence": "motion_trace.jsonl and source/installed code only; no bag database opened",
+  "time_basis": "recorder monotonic receipt time in seconds; receipt order does not prove underlying CAN acquisition ordering",
+  "result": {
+    "runner_final": {
+      "t": 190.90241798399998,
+      "state": "FAILED reason=dock_failed:control_not_owned"
+    },
+    "controller_final": {
+      "t": 190.851386463,
+      "state": "FAILED reason=control_not_owned"
+    },
+    "primary_fault": "invalid_wheel_feedback",
+    "program_reason_is_downstream": "control_not_owned",
+    "lock_verify_true_entries": [],
+    "locked_final_entries": [],
+    "lock_fix_hardware_validation": "not reached; no lock verification entry this run",
+    "charging_confirmation": "not obtained"
+  },
+  "summary": {
+    "trace_rows": 67823,
+    "topic_counts": {
+      "/vehicle_status": 17134,
+      "/laser/scan_back": 843,
+      "/docking_feedback_odometry/state": 8565,
+      "/cmd_vel_selected": 8565,
+      "/ecu": 8566,
+      "/cmd_vel_dock": 4283,
+      "/standalone_docking/state": 3426,
+      "/charging_dock/local_odom": 8399,
+      "/charging_dock/state": 2481,
+      "/charging_dock/dock/_action/feedback": 2481,
+      "/charging_dock/observation": 2906,
+      "/charging_dock/emergency_stop": 174
+    },
+    "docking_start": {
+      "t": 90.55236071699997,
+      "state": "DOCKING reason="
+    },
+    "first_valid_observation": {
+      "t": 91.81317751700001,
+      "topic": "/charging_dock/observation",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793937983,
+            "nanosec": 258350586
+          },
+          "frame_id": "base_link"
+        },
+        "valid": true,
+        "center_available": true,
+        "pose": {
+          "position": {
+            "x": -2.503692643710065,
+            "y": -0.03510772691409538,
+            "z": 0.0
+          },
+          "orientation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.026367848180663345,
+            "w": 0.9996523078462438
+          }
+        },
+        "quality": 0.6653895974159241,
+        "visible_width": 0.2165389508008957,
+        "fit_residual": 0.0026177363470196724,
+        "reason": "ok"
+      }
+    },
+    "last_pre_fault_valid_observation": {
+      "t": 190.239576944,
+      "topic": "/charging_dock/observation",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 682999237
+          },
+          "frame_id": "base_link"
+        },
+        "valid": true,
+        "center_available": true,
+        "pose": {
+          "position": {
+            "x": -1.081952568179336,
+            "y": -0.04523787341283097,
+            "z": 0.0
+          },
+          "orientation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.026117599320888803,
+            "w": 0.9996588773205155
+          }
+        },
+        "quality": 0.8801546692848206,
+        "visible_width": 0.23801545798778534,
+        "fit_residual": 0.002273131161928177,
+        "reason": "ok"
+      }
+    },
+    "first_action_feedback": {
+      "t": 91.65326202700001,
+      "topic": "/charging_dock/dock/_action/feedback",
+      "message": {
+        "goal_id": {
+          "uuid": [
+            114,
+            153,
+            134,
+            34,
+            34,
+            163,
+            79,
+            254,
+            172,
+            179,
+            11,
+            205,
+            30,
+            182,
+            139,
+            255
+          ]
+        },
+        "feedback": {
+          "state": "PRECHECK",
+          "reason": "dock_observation_invalid",
+          "traveled_distance": 0.0,
+          "longitudinal_error": 0.0,
+          "lateral_error": 0.0,
+          "yaw_error": 0.0,
+          "quality": 0.0
+        }
+      }
+    },
+    "last_action_feedback": {
+      "t": 190.852996795,
+      "topic": "/charging_dock/dock/_action/feedback",
+      "message": {
+        "goal_id": {
+          "uuid": [
+            114,
+            153,
+            134,
+            34,
+            34,
+            163,
+            79,
+            254,
+            172,
+            179,
+            11,
+            205,
+            30,
+            182,
+            139,
+            255
+          ]
+        },
+        "feedback": {
+          "state": "FAILED",
+          "reason": "control_not_owned",
+          "traveled_distance": 1.4040400981903076,
+          "longitudinal_error": 0.6229540109634399,
+          "lateral_error": -0.011326593346893787,
+          "yaw_error": -0.052086081355810165,
+          "quality": 0.0
+        }
+      }
+    },
+    "observation_hold_count": 6,
+    "observation_hold_entries": [
+      {
+        "t": 131.708353083,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 152.741287916,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 183.310610942,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 184.837109783,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 186.54175832899998,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 188.86290664599997,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      }
+    ],
+    "positive_selected_commands": 0,
+    "ecu_forward_D_commands": 0,
+    "positive_average_wheel_samples_above_005": 173,
+    "positive_average_wheel_peak_including_fault": {
+      "t": 190.254214636,
+      "average_mps": 0.16513258777558804,
+      "gear": 3
+    },
+    "positive_average_wheel_first": {
+      "t": 133.306385958,
+      "average_mps": 0.006351253017783165,
+      "gear": 3
+    },
+    "positive_average_wheel_last": {
+      "t": 190.43447129299997,
+      "average_mps": 0.005716127692721784,
+      "gear": 2
+    }
+  },
+  "fault": {
+    "vehicle_first_triggering_sample": {
+      "t": 190.254214636,
+      "topic": "/vehicle_status",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 738954276
+          },
+          "frame_id": ""
+        },
+        "cur_speed": 0.30000001192092896,
+        "cur_steer": 1.5525001287460327,
+        "left_wheel_speed": 0.01270250603556633,
+        "right_wheel_speed": 0.31756266951560974,
+        "wheel_direction": 1,
+        "shift_level": 3,
+        "drive_mode": 1,
+        "is_autodrive": true,
+        "p_status": false
+      }
+    },
+    "previous_vehicle_sample": {
+      "t": 190.244572407,
+      "topic": "/vehicle_status",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 729322151
+          },
+          "frame_id": ""
+        },
+        "cur_speed": 0.0,
+        "cur_steer": 1.3725001811981201,
+        "left_wheel_speed": 0.00762150390073657,
+        "right_wheel_speed": 0.0,
+        "wheel_direction": 1,
+        "shift_level": 3,
+        "drive_mode": 1,
+        "is_autodrive": true,
+        "p_status": false
+      }
+    },
+    "odom_state_first_invalid": {
+      "t": 190.25457684299997,
+      "topic": "/docking_feedback_odometry/state",
+      "message": {
+        "data": "invalid_wheel_feedback"
+      }
+    },
+    "all_wheels_finite": true,
+    "max_abs_wheel_mps": 0.31756266951560974,
+    "single_wheel_limit_mps": 0.5,
+    "single_wheel_limit_exceeded": false,
+    "left_right_difference_mps": 0.3048601634800434,
+    "difference_limit_mps": 0.1,
+    "difference_limit_exceeded": true,
+    "main_raw": 0.30000001192092896,
+    "main_as_used_mps": 0.08333333664470248,
+    "main_exceeds_core_limit": false,
+    "last_odom": {
+      "t": 190.23487134500002,
+      "topic": "/charging_dock/local_odom",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 713297920
+          },
+          "frame_id": "dock_odom"
+        },
+        "child_frame_id": "base_link",
+        "pose": {
+          "pose": {
+            "position": {
+              "x": -1.340230521557042,
+              "y": -0.13812650670245816,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.03274436678382044,
+              "w": 0.9994637594449969
+            }
+          },
+          "covariance": [
+            0.0025,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0025,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.001
+          ]
+        },
+        "twist": {
+          "twist": {
+            "linear": {
+              "x": 0.003810751950368285,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "angular": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.004986391868442297
+            }
+          },
+          "covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "last_selected_command": {
+      "t": 190.236791286,
+      "topic": "/cmd_vel_selected",
+      "message": {
+        "linear": {
+          "x": -0.023980140686035156,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "angular": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0036768732955026174
+        }
+      }
+    },
+    "last_ecu": {
+      "t": 190.23704809299997,
+      "topic": "/ecu",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 721801202
+          },
+          "frame_id": "base_link"
+        },
+        "motor": 0.08632850646972656,
+        "steer": 4.384003162384033,
+        "brake": false,
+        "set_torque": false,
+        "rear_wheel_flag": true,
+        "shift": 3
+      }
+    },
+    "first_emergency_true": {
+      "t": 190.25470177399998,
+      "topic": "/charging_dock/emergency_stop",
+      "message": {
+        "data": true
+      }
+    },
+    "first_zero_selected_after_fault": {
+      "t": 190.25665528699997,
+      "topic": "/cmd_vel_selected",
+      "message": {
+        "linear": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "angular": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      }
+    },
+    "first_braked_neutral_ecu_after_fault": {
+      "t": 190.25702730499998,
+      "topic": "/ecu",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 741776260
+          },
+          "frame_id": "base_link"
+        },
+        "motor": 0.0,
+        "steer": 0.0,
+        "brake": true,
+        "set_torque": false,
+        "rear_wheel_flag": true,
+        "shift": 2
+      }
+    },
+    "first_post_spike_normal_wheel_sample": {
+      "t": 190.274128358,
+      "topic": "/vehicle_status",
+      "message": {
+        "header": {
+          "stamp": {
+            "sec": 1793938081,
+            "nanosec": 759021197
+          },
+          "frame_id": ""
+        },
+        "cur_speed": 0.0,
+        "cur_steer": 1.7100001573562622,
+        "left_wheel_speed": 0.01270250603556633,
+        "right_wheel_speed": -0.005081002600491047,
+        "wheel_direction": 1,
+        "shift_level": 2,
+        "drive_mode": 1,
+        "is_autodrive": true,
+        "p_status": false
+      }
+    },
+    "trigger_sample_to_normal_receipt_sec": 0.019913722000012513,
+    "odom_fault_to_emergency_receipt_sec": 0.00012493100001620405,
+    "odom_fault_to_ecu_brake_receipt_sec": 0.002450462000012976
+  },
+  "code_evidence": {
+    "feedback_source": "/home/akun/workspace/Car_jetson/real_ws/src/charging_dock_standalone/charging_dock_standalone/feedback_odometry.py",
+    "feedback_installed_matches_source": true,
+    "wheel_invalid_rule_lines": [
+      61,
+      65
+    ],
+    "wheel_invalid_rule": "non-finite wheel OR max(abs(wheel))>.5 OR abs(left-right)>.10",
+    "latched_failure_lines": [
+      46,
+      47,
+      81,
+      84
+    ],
+    "latched_failure_behavior": "Once an initialized integrator rejects feedback, failed stays true; stops TF/odom updates and publishes emergency true every timer tick. Restored wheel values do not automatically clear it.",
+    "emergency_publish_lines": [
+      159,
+      163
+    ],
+    "driver_file": "/home/akun/workspace/Car_jetson/real_ws/src/driver/car_control/chassis_driver/chassis_driver/src/usb2can_core.cpp",
+    "driver_publish_lines": [
+      734,
+      743
+    ],
+    "driver_cache_lines": [
+      773,
+      790
+    ],
+    "driver_behavior": "Selected signed front wheel source uses independent cached CAN 0x168 values; stale age>.15 s causes NaN. Motor diagnostic updates cannot overwrite this selected cache. Finite trigger fields are consistent with fresh cache, not driver stale-NaN failure.",
+    "wheel_scalar_limit_is_not_030": "No .30 m/s single wheel limit in this integrator; .31756 alone is below .5. The failing condition is .30486 left-right difference above .10."
+  },
+  "limits": [
+    "Trace does not contain raw UDP/CAN packets; cannot determine whether the transient right wheel spike reflects real wheel slip, device measurement, message contents or decode/transport issues.",
+    "Trace lacks raw IMU samples; IMU freshness is not independently recomputed. The exact published fault reason distinguishes wheel validity from earlier age/main/IMU guard conditions.",
+    "Main speed units remain uncalibrated; raw .3 is reported as raw, not asserted physical m/s.",
+    "This run never entered LOCK_VERIFY; it cannot validate anti-chatter improvement on hardware.",
+    "No physical charging indicator confirmation for this run."
+  ],
+  "state_changes": {
+    "/charging_dock/state": [
+      {
+        "t": 91.65156153399997,
+        "state": "PRECHECK reason=dock_observation_invalid"
+      },
+      {
+        "t": 92.34159471699999,
+        "state": "APPROACH reason="
+      },
+      {
+        "t": 124.79304618400002,
+        "state": "FINAL_APPROACH reason="
+      },
+      {
+        "t": 131.708353083,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 131.86977163499998,
+        "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+      },
+      {
+        "t": 132.42155661500001,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 132.955588925,
+        "state": "FINAL_APPROACH reason="
+      },
+      {
+        "t": 152.741287916,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 152.91518764999998,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 152.99243700399998,
+        "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+      },
+      {
+        "t": 153.355951002,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 153.86110935499997,
+        "state": "FINAL_APPROACH reason="
+      },
+      {
+        "t": 182.229301165,
+        "state": "APPROACH reason="
+      },
+      {
+        "t": 183.310610942,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 183.46963972,
+        "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+      },
+      {
+        "t": 183.983584181,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 184.5071353,
+        "state": "APPROACH reason="
+      },
+      {
+        "t": 184.837109783,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 185.03897319,
+        "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+      },
+      {
+        "t": 185.476057618,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 185.99131296,
+        "state": "APPROACH reason="
+      },
+      {
+        "t": 186.54175832899998,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 186.70349961600002,
+        "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+      },
+      {
+        "t": 187.182353485,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 187.72004499099998,
+        "state": "APPROACH reason="
+      },
+      {
+        "t": 188.86290664599997,
+        "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+      },
+      {
+        "t": 189.027614312,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 189.14292207999998,
+        "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+      },
+      {
+        "t": 189.50364663399998,
+        "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+      },
+      {
+        "t": 190.02285650299999,
+        "state": "APPROACH reason="
+      },
+      {
+        "t": 190.31121976199998,
+        "state": "STOPPING reason=control_not_owned"
+      },
+      {
+        "t": 190.851386463,
+        "state": "FAILED reason=control_not_owned"
+      }
+    ],
+    "/standalone_docking/state": [
+      {
+        "t": 21.652314055000005,
+        "state": "IDLE reason=waiting_for_start"
+      },
+      {
+        "t": 90.00199262599997,
+        "state": "WAIT_SENSORS reason="
+      },
+      {
+        "t": 90.52492466700002,
+        "state": "SENDING reason="
+      },
+      {
+        "t": 90.55236071699997,
+        "state": "DOCKING reason="
+      },
+      {
+        "t": 190.90241798399998,
+        "state": "FAILED reason=dock_failed:control_not_owned"
+      }
+    ],
+    "/docking_feedback_odometry/state": [
+      {
+        "t": 21.614834360999993,
+        "state": "can_or_imu_stale"
+      },
+      {
+        "t": 22.275600491999995,
+        "state": "valid"
+      },
+      {
+        "t": 188.094722416,
+        "state": "forward_roll_in_reverse"
+      },
+      {
+        "t": 188.21487320600002,
+        "state": "valid"
+      },
+      {
+        "t": 190.25457684299997,
+        "state": "invalid_wheel_feedback"
+      }
+    ]
+  },
+  "stop_confirmation": {
+    "checks": {
+      "enough_samples": true,
+      "all_main_wheels_zero": true,
+      "all_vehicle_neutral": true,
+      "all_ecu_zero_neutral_brake": true
+    },
+    "vehicle_count": 301,
+    "ecu_count": 150,
+    "last_vehicle": {
+      "header": {
+        "stamp": {
+          "sec": 1793938118,
+          "nanosec": 179747682
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": 0.6075000762939453,
+      "left_wheel_speed": 0.0,
+      "right_wheel_speed": 0.0,
+      "wheel_direction": 1,
+      "shift_level": 2,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": true
+    },
+    "last_ecu": {
+      "header": {
+        "stamp": {
+          "sec": 1793938118,
+          "nanosec": 163041317
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.0,
+      "steer": 0.0,
+      "brake": true,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 2
+    }
+  },
+  "shutdown_confirmation": {
+    "completed_utc": "2026-11-06T04:09:48.614636+00:00",
+    "hardware_launch_exited": true,
+    "recorder_exited": true,
+    "bag_recorder_exit_code": 0,
+    "remaining_test_processes": [],
+    "ros_node_list_after_shutdown": [],
+    "stop_confirmation": "stop_confirmation.json",
+    "bag_integrity": "ok",
+    "bag_message_count": 126620,
+    "metadata_message_count": 126620,
+    "bag_duration_sec": 230.220688905,
+    "bag_read_only_after_recorder_exit": true
+  }
+}

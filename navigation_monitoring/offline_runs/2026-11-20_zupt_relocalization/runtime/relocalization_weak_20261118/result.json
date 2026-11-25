@@ -1,0 +1,2 @@
+[Info] 正在读取标定文件: /home/akun/workspace/Car_jetson/multi_map_navigation/src/map/map2/map2.csv
+{"initial": {"fitness_score": 0.031336507584985074, "cloud_stamp_ns": 1794975085431536913, "observation_id": 1}, "accepted": false, "result": {"success": false, "fitness_score": 0.031336507584985074, "reason": "fresh-cloud confirmation failed after weak score", "observation_id": 3, "confirmation_count": 0, "first_fitness_score": 0.031336507584985074, "first_cloud_stamp_ns": 1794975085431536913, "final_cloud_stamp_ns": 1794975085431536913}}

@@ -1,0 +1,25 @@
+[
+  {
+    "source_file": "/home/akun/.codex/sessions/2026/11/07/rollout-2026-11-07T16-08-22-01a1773a-ee0c-77c1-a0ad-4cfa7bfcdf1f_01a1b50d-2eee-7af1-a9d3-7c4a0ca02e12.jsonl",
+    "source_line": 136,
+    "timestamp_utc": "2026-11-07T08:16:46.637Z",
+    "cwd": "file:///home/akun/workspace/Car_jetson",
+    "command": [
+      "/bin/bash",
+      "-lc",
+      "source /opt/ros/humble/setup.bash\nsource real_ws/install/setup.bash\npython3 - <<'PY'\nimport subprocess\nfrom pathlib import Path\nrun = Path('navigation_monitoring/runs/2026-11-07_16-10-50').resolve()\nwith (run/'real_drivers.log').open('ab', buffering=0) as log:\n    proc = subprocess.Popen(['ros2','launch','launch_real','run.launch.py'], stdout=log, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, start_new_session=True)\n(run/'real_drivers.pid').write_text(str(proc.pid)+'\\n')\nprint('real_drivers_pid=',proc.pid)\nPY"
+    ],
+    "output": "real_drivers_pid= 4079\n"
+  },
+  {
+    "source_file": "/home/akun/.codex/sessions/2026/11/07/rollout-2026-11-07T16-08-22-01a1773a-ee0c-77c1-a0ad-4cfa7bfcdf1f_01a1b50d-2eee-7af1-a9d3-7c4a0ca02e12.jsonl",
+    "source_line": 167,
+    "timestamp_utc": "2026-11-07T08:17:37.051Z",
+    "matching_process_lines": [
+      "4130 /home/akun/workspace/Car_jetson/real_ws/install/chassis_driver/lib/chassis_driver/chassis_driver_node --ros-args -r __node:=chassis_driver --params-file /tmp/launch_params_lhjzeg8s --params-file /tmp/launch_params_s46e2uri --params-file /tmp/launch_params_ys91jyre --params-file /tmp/launch_params_x5iqm9t0 --params-file /tmp/launch_params_oknx1xyi --params-file /tmp/launch_params_3ks4ubzw --params-file /tmp/launch_params_um4febgt --params-file /tmp/launch_params_0vw4wr4n --params-file /tmp/launch_params_089_q5o9 --params-file /tmp/launch_params_s6xlua29 --params-file /tmp/launch_params_9wr614ut --params-file /tmp/launch_params_9yge80mo --params-file /tmp/launch_params__ahvpxhh --params-file /tmp/launch_params_8c3w8u1j",
+      "4132 /usr/bin/python3 /home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/lib/cmdvel_2_ecu/cmdvel_2_ecu --ros-args --params-file /home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml",
+      "4189 /home/akun/workspace/Car_jetson/real_ws/install/ros2_laser_scan_merger/lib/ros2_laser_scan_merger/ros2_laser_scan_merger --ros-args --params-file /home/akun/workspace/Car_jetson/real_ws/install/ros2_laser_scan_merger/share/ros2_laser_scan_merger/config/params.yaml",
+      "4193 /opt/ros/humble/lib/pointcloud_to_laserscan/pointcloud_to_laserscan_node --ros-args -r __node:=pointcloud_to_laserscan --params-file /home/akun/workspace/Car_jetson/real_ws/install/ros2_laser_scan_merger/share/ros2_laser_scan_merger/config/params.yaml -r cloud_in:=/laser/scan_merge -r scan:=/laser/scan_merge_laser"
+    ]
+  }
+]

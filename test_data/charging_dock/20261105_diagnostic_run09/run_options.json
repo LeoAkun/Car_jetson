@@ -1,0 +1,11 @@
+{
+  "dry_run": false,
+  "calibrated": true,
+  "auto_start": false,
+  "recorder_manual_start": true,
+  "recorder_total_deadline": null,
+  "shared_timeout": 0.0,
+  "standalone_action_timeout": 0.0,
+  "locked_final_timeout": 35.0,
+  "signed_wheels_continuous_source": true
+}

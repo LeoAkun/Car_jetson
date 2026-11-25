@@ -3,6 +3,8 @@
 
 
 #include <inttypes.h>
+#include <algorithm>
+#include <chrono>
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 #include <tf2_ros/transform_broadcaster.h>
@@ -53,6 +55,10 @@ class ahrsBringup : public rclcpp::Node
 public:
   ahrsBringup();
   ~ahrsBringup();
+  bool openSerialPort();
+  bool recoverSerialPort();
+  bool readExact(uint8_t * buffer, size_t length, const char * field);
+  rclcpp::Time imuTimestamp(int64_t device_timestamp_us);
   void processLoop();
   bool checkCS8(int len);
   bool checkCS16(int len);
@@ -64,15 +70,24 @@ private:
   //sum info
   int sn_lost_ = 0;
   int crc_error_ = 0;
+  int short_read_error_ = 0;
   uint8_t read_sn_ = 0;
-  bool frist_sn_;
+  bool frist_sn_ = false;
   int device_type_ = 1;
+  bool use_device_timestamp_ = true;
+  bool device_time_initialized_ = false;
+  int64_t device_time_epoch_us_ = 0;
+  int64_t ros_time_epoch_ns_ = 0;
+  int64_t last_device_time_us_ = -1;
+  int64_t last_ros_stamp_ns_ = 0;
 
   //serial
   serial::Serial serial_; //声明串口对象
   std::string serial_port_;
   int serial_baud_;
-  int serial_timeout_;
+  int serial_timeout_ = 1000;
+  int no_data_reconnect_ms_ = 5000;
+  bool reset_on_open_ = true;
   //data
   FDILink::imu_frame_read  imu_frame_;
   FDILink::ahrs_frame_read ahrs_frame_;

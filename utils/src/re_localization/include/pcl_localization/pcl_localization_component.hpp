@@ -36,7 +36,9 @@
 
 #include "pcl_localization/lidar_undistortion.hpp"
 #include "re_localization/srv/re_localization.hpp"
+#include "re_localization/srv/get_localization_readiness.hpp"
 #include "rclcpp/wait_for_message.hpp"
+#include "builtin_interfaces/msg/time.hpp"
 
 
 using namespace std::chrono_literals;
@@ -50,6 +52,7 @@ void handleLocalizationService(
   std::shared_ptr<re_localization::srv::ReLocalization::Request> request,
   std::shared_ptr<re_localization::srv::ReLocalization::Response> response);
   rclcpp::Service<re_localization::srv::ReLocalization>::SharedPtr localization_service_;
+  rclcpp::Service<re_localization::srv::GetLocalizationReadiness>::SharedPtr readiness_service_;
   
   explicit PCLLocalization(const rclcpp::NodeOptions & options);
   
@@ -66,6 +69,9 @@ void handleLocalizationService(
   void initializeService();
   void initializePubSub();
   void initializeRegistration();
+  bool prepareRegistrationTarget(const pcl::PointCloud<pcl::PointXYZI>::Ptr & map_cloud);
+  bool registrationTargetReady() const;
+  void resetLocalizationState();
   void initialPoseReceived(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg);
   void mapReceived(const sensor_msgs::msg::PointCloud2::SharedPtr msg);
   void odomReceived(const nav_msgs::msg::Odometry::ConstSharedPtr msg);
@@ -100,9 +106,11 @@ void handleLocalizationService(
   geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr corrent_pose_with_cov_stamped_ptr_;
   nav_msgs::msg::Path::SharedPtr path_ptr_;
   sensor_msgs::msg::PointCloud2::ConstSharedPtr last_scan_ptr_;
+  sensor_msgs::msg::PointCloud2::ConstSharedPtr topic_map_ptr_;
 
   bool map_recieved_{false};
   bool initialpose_recieved_{false};
+  std::string readiness_message_{"localization lifecycle is not active"};
 
   // parameters
   std::string global_frame_id_;
@@ -133,15 +141,22 @@ void handleLocalizationService(
   bool use_imu_{false};
   bool enable_debug_{false};
 
-  int ndt_num_threads_;
+  int ndt_num_threads_{0};
 
   // imu
   LidarUndistortion lidar_undistortion_;
 
   std::string lidar_topic_;
 
-  // ====================== 新增成员变量 ======================
+  std::string localization_session_id_;
+  std::string map_id_;
+  int64_t session_start_ns_{0};
+
   pcl::PointCloud<pcl::PointXYZI>::Ptr first_cloud_{nullptr};
   bool has_first_cloud_{false};
-  std::mutex cloud_mutex_;                     // 保护点云
+  std::string cached_session_id_;
+  std::string cached_map_id_;
+  builtin_interfaces::msg::Time first_cloud_stamp_;
+  uint64_t cached_observation_id_{0};
+  std::mutex cloud_mutex_;
 };

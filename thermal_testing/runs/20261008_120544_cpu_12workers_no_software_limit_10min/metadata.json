@@ -1,0 +1,12 @@
+{
+  "stage": "cpu_12workers_no_software_limit_10min",
+  "duration_s": 600,
+  "workers": 12,
+  "temperature_limit_c": 1000.0,
+  "sample_interval_s": 1.0,
+  "started_at": "2026-10-08T12:05:44+08:00",
+  "boot_id": "58405c89-381e-4691-b640-779ca667f4a5",
+  "hostname": "yunle-Default-string",
+  "kernel": "6.8.0-138-generic",
+  "cpu_count": 12
+}

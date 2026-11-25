@@ -1,0 +1,83 @@
+{
+  "started": "2026-10-26T18:08:49.693812+08:00",
+  "mode": "receive only; no serial write; restore original termios",
+  "attempts": [
+    {
+      "baud": 115200,
+      "seconds": 5,
+      "ports": {
+        "/dev/ttyS0": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS1": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS2": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS3": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS4": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS5": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS6": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS7": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        },
+        "/dev/ttyS8": {
+          "bytes": 1819,
+          "valid_nmea": 54,
+          "nmea_types": {
+            "$GNVTG": 5,
+            "$GNGGA": 5,
+            "$GNGSA": 20,
+            "$GPGSV": 4,
+            "$GAGSV": 4,
+            "$GBGSV": 4,
+            "$GQGSV": 4,
+            "$GNGLL": 4,
+            "$GNRMC": 4
+          },
+          "printable_fraction": 0.9708631115997801,
+          "capture": "ttyS8-115200.bin"
+        },
+        "/dev/ttyS11": {
+          "bytes": 0,
+          "valid_nmea": 0,
+          "nmea_types": {},
+          "printable_fraction": null
+        }
+      }
+    }
+  ]
+}

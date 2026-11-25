@@ -1,0 +1,1158 @@
+{
+  "created_at": "2026-11-14T12:33:08.898682+08:00",
+  "method": "read-only sqlite rosbag2 deserialization; no playback or ROS graph",
+  "static_map": {
+    "yaml": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.yaml",
+    "pgm": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.pgm",
+    "resolution": 0.1,
+    "width": 4097,
+    "height": 6354,
+    "origin": [
+      -92.9,
+      -532.0,
+      0.0
+    ]
+  },
+  "footprint": {
+    "configured_unpadded_m": [
+      [
+        -0.43,
+        -0.28
+      ],
+      [
+        -0.43,
+        0.28
+      ],
+      [
+        0.43,
+        0.28
+      ],
+      [
+        0.43,
+        -0.28
+      ]
+    ],
+    "padding_m": 0.02,
+    "effective_padded_m": [
+      [
+        -0.45,
+        -0.3
+      ],
+      [
+        -0.45,
+        0.3
+      ],
+      [
+        0.45,
+        0.3
+      ],
+      [
+        0.45,
+        -0.3
+      ]
+    ],
+    "smac_angle_bins": 64,
+    "circumscribed_radius_m": 0.5408326913195984,
+    "inscribed_radius_m": 0.3,
+    "possible_inscribed_raw_threshold": 75,
+    "possible_inscribed_display_threshold": 29
+  },
+  "runs": [
+    {
+      "label": "11:14:58",
+      "run_dir": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-12-06_manual_publish_monitor",
+      "nav_log": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-14_11-12-06_manual_publish_monitor/nav2_2026-11-14_11-14-11.log",
+      "first_lethal_event_ns": 1794626098812463091,
+      "first_lethal_event": "2026-11-14T11:14:58.812463091+08:00",
+      "tf": {
+        "map_to_odom": {
+          "bag_ns": 1794626098792751741,
+          "header_ns": 1794626098792153277,
+          "pose": [
+            156.80516052246094,
+            -192.34902954101562,
+            1.5683262699313045
+          ],
+          "bag_time": "2026-11-14T11:14:58.792751741+08:00",
+          "header_time": "2026-11-14T11:14:58.792153277+08:00"
+        },
+        "odom_to_base_link": {
+          "bag_ns": 1794626098820278304,
+          "header_ns": 1794626099160533951,
+          "pose": [
+            8.977482376493683,
+            -0.10288732604122106,
+            -0.22179955030272372
+          ],
+          "bag_time": "2026-11-14T11:14:58.820278304+08:00",
+          "header_time": "2026-11-14T11:14:59.160533951+08:00"
+        }
+      },
+      "actual_tf_pose_map": {
+        "x": 156.9302224040482,
+        "y": -183.3718286884175,
+        "yaw_rad": 1.3465267196285808
+      },
+      "actual_tf_pose_odom": {
+        "x": 8.977482376493683,
+        "y": -0.10288732604122106,
+        "yaw_rad": -0.22179955030272372
+      },
+      "smac_discretized_start": {
+        "x": 156.95000372305512,
+        "y": -183.34999480471015,
+        "yaw_rad": 1.3744467859455345,
+        "map_cell": [
+          2498,
+          3486
+        ],
+        "angle_bin": 14,
+        "translation_from_actual_m": 0.02946216318262462,
+        "yaw_from_actual_rad": 0.02792006631695365
+      },
+      "static_map_at_smac_start": {
+        "pose": {
+          "x": 156.95000372305512,
+          "y": -183.34999480471015,
+          "yaw_rad": 1.3744467859455345
+        },
+        "polygon": [
+          [
+            157.15644866226884,
+            -183.84987527749644
+          ],
+          [
+            156.5679774940269,
+            -183.73282108428677
+          ],
+          [
+            156.7435587838414,
+            -182.85011433192386
+          ],
+          [
+            157.33202995208333,
+            -182.96716852513353
+          ]
+        ],
+        "center_cell": [
+          2498,
+          3486
+        ],
+        "center_occupancy": 0,
+        "boundary_cell_count": 30,
+        "boundary_occupancy_counts": {
+          "0": 28,
+          "100": 2
+        },
+        "geometric_collision_if_unknown_disallowed": true,
+        "nearest_static_occupied": {
+          "distance_m": 0.41230821075346114,
+          "x": 157.35,
+          "y": -183.45,
+          "relative_forward_m": -0.02004822102969618,
+          "relative_left_m": -0.4118205063960086,
+          "cost_display": 100
+        },
+        "nearest_static_unknown": null
+      },
+      "global_costmap_primary_index": 2,
+      "global_costmap_frames": [
+        {
+          "pose": {
+            "x": 156.95000372305512,
+            "y": -183.34999480471015,
+            "yaw_rad": 1.3744467859455345
+          },
+          "polygon": [
+            [
+              157.15644866226884,
+              -183.84987527749644
+            ],
+            [
+              156.5679774940269,
+              -183.73282108428677
+            ],
+            [
+              156.7435587838414,
+              -182.85011433192386
+            ],
+            [
+              157.33202995208333,
+              -182.96716852513353
+            ]
+          ],
+          "center_cell": [
+            2498,
+            3486
+          ],
+          "center_cost_display": 143,
+          "center_cost_raw_upper": 143,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 10,
+            "56": 1,
+            "61": 2,
+            "92": 2,
+            "152": 2,
+            "232": 1,
+            "251": 2,
+            "253": 8,
+            "254": 2
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-14T11:14:57.023996604+08:00",
+          "header_time": "2026-11-14T11:14:56.982408881+08:00",
+          "bag_event_offset_s": -1.788466487,
+          "header_event_offset_s": -1.83005421,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.41231056870567223,
+            "x": 157.35000372901558,
+            "y": -183.44999480620027,
+            "relative_forward_m": -0.020042399532526733,
+            "relative_left_m": -0.41182315049954804,
+            "cost_display": 254
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.20000000298023224,
+            "x": 157.15000372603535,
+            "y": -183.34999480471015,
+            "relative_forward_m": 0.03901806498464013,
+            "relative_left_m": -0.196157059003614,
+            "cost_display": 253
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.95000372305512,
+            "y": -183.34999480471015,
+            "yaw_rad": 1.3744467859455345
+          },
+          "polygon": [
+            [
+              157.15644866226884,
+              -183.84987527749644
+            ],
+            [
+              156.5679774940269,
+              -183.73282108428677
+            ],
+            [
+              156.7435587838414,
+              -182.85011433192386
+            ],
+            [
+              157.33202995208333,
+              -182.96716852513353
+            ]
+          ],
+          "center_cell": [
+            2498,
+            3486
+          ],
+          "center_cost_display": 143,
+          "center_cost_raw_upper": 143,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 10,
+            "56": 1,
+            "61": 2,
+            "92": 2,
+            "152": 2,
+            "232": 1,
+            "251": 2,
+            "253": 8,
+            "254": 2
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-14T11:14:58.038837867+08:00",
+          "header_time": "2026-11-14T11:14:57.982505710+08:00",
+          "bag_event_offset_s": -0.773625224,
+          "header_event_offset_s": -0.829957381,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.41231056870567223,
+            "x": 157.35000372901558,
+            "y": -183.44999480620027,
+            "relative_forward_m": -0.020042399532526733,
+            "relative_left_m": -0.41182315049954804,
+            "cost_display": 254
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.20000000298023224,
+            "x": 157.15000372603535,
+            "y": -183.34999480471015,
+            "relative_forward_m": 0.03901806498464013,
+            "relative_left_m": -0.196157059003614,
+            "cost_display": 253
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.95000372305512,
+            "y": -183.34999480471015,
+            "yaw_rad": 1.3744467859455345
+          },
+          "polygon": [
+            [
+              157.15644866226884,
+              -183.84987527749644
+            ],
+            [
+              156.5679774940269,
+              -183.73282108428677
+            ],
+            [
+              156.7435587838414,
+              -182.85011433192386
+            ],
+            [
+              157.33202995208333,
+              -182.96716852513353
+            ]
+          ],
+          "center_cell": [
+            2498,
+            3486
+          ],
+          "center_cost_display": 143,
+          "center_cost_raw_upper": 143,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 10,
+            "56": 1,
+            "61": 2,
+            "92": 2,
+            "152": 2,
+            "232": 1,
+            "251": 2,
+            "253": 8,
+            "254": 2
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-14T11:14:59.374011316+08:00",
+          "header_time": "2026-11-14T11:14:59.308681691+08:00",
+          "bag_event_offset_s": 0.561548225,
+          "header_event_offset_s": 0.4962186,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.41231056870567223,
+            "x": 157.35000372901558,
+            "y": -183.44999480620027,
+            "relative_forward_m": -0.020042399532526733,
+            "relative_left_m": -0.41182315049954804,
+            "cost_display": 254
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.20000000298023224,
+            "x": 157.15000372603535,
+            "y": -183.34999480471015,
+            "relative_forward_m": 0.03901806498464013,
+            "relative_left_m": -0.196157059003614,
+            "cost_display": 253
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 156.95000372305512,
+            "y": -183.34999480471015,
+            "yaw_rad": 1.3744467859455345
+          },
+          "polygon": [
+            [
+              157.15644866226884,
+              -183.84987527749644
+            ],
+            [
+              156.5679774940269,
+              -183.73282108428677
+            ],
+            [
+              156.7435587838414,
+              -182.85011433192386
+            ],
+            [
+              157.33202995208333,
+              -182.96716852513353
+            ]
+          ],
+          "center_cell": [
+            2498,
+            3486
+          ],
+          "center_cost_display": 143,
+          "center_cost_raw_upper": 143,
+          "boundary_cell_count": 30,
+          "boundary_cost_counts_display": {
+            "0": 10,
+            "56": 1,
+            "61": 2,
+            "92": 2,
+            "152": 2,
+            "232": 1,
+            "251": 2,
+            "253": 8,
+            "254": 2
+          },
+          "boundary_raw_max": 254,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": true,
+          "smac_collision_mechanism": "footprint_boundary",
+          "bag_time": "2026-11-14T11:15:00.420137261+08:00",
+          "header_time": "2026-11-14T11:15:00.375409826+08:00",
+          "bag_event_offset_s": 1.60767417,
+          "header_event_offset_s": 1.562946735,
+          "resolution": 0.10000000149011612,
+          "width": 4097,
+          "height": 6354,
+          "origin": [
+            -92.9,
+            -532.0,
+            0.0
+          ],
+          "frame": "map",
+          "nearest_lethal": {
+            "distance_m": 0.41231056870567223,
+            "x": 157.35000372901558,
+            "y": -183.44999480620027,
+            "relative_forward_m": -0.020042399532526733,
+            "relative_left_m": -0.41182315049954804,
+            "cost_display": 254
+          },
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 0.20000000298023224,
+            "x": 157.15000372603535,
+            "y": -183.34999480471015,
+            "relative_forward_m": 0.03901806498464013,
+            "relative_left_m": -0.196157059003614,
+            "cost_display": 253
+          },
+          "nearest_unknown": null
+        }
+      ],
+      "local_costmap_primary_index": 5,
+      "local_costmap_frames": [
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.473129355+08:00",
+          "header_time": "2026-11-14T11:14:58.472935646+08:00",
+          "bag_event_offset_s": -0.339333736,
+          "header_event_offset_s": -0.339527445,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": {
+            "distance_m": 2.644906507033301,
+            "x": 6.975000080838784,
+            "y": 1.6250001374632124,
+            "relative_forward_m": -2.3335378887662612,
+            "relative_left_m": 1.245042711170744,
+            "cost_display": 253
+          },
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.572703236+08:00",
+          "header_time": "2026-11-14T11:14:58.572477665+08:00",
+          "bag_event_offset_s": -0.239759855,
+          "header_event_offset_s": -0.239985426,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.623897555+08:00",
+          "header_time": "2026-11-14T11:14:58.623464201+08:00",
+          "bag_event_offset_s": -0.188565536,
+          "header_event_offset_s": -0.18899889,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.674650657+08:00",
+          "header_time": "2026-11-14T11:14:58.674052660+08:00",
+          "bag_event_offset_s": -0.137812434,
+          "header_event_offset_s": -0.138410431,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            149,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.772420812+08:00",
+          "header_time": "2026-11-14T11:14:58.772161297+08:00",
+          "bag_event_offset_s": -0.040042279,
+          "header_event_offset_s": -0.040301794,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.4999999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            149,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.823204106+08:00",
+          "header_time": "2026-11-14T11:14:58.822882270+08:00",
+          "bag_event_offset_s": 0.010741015,
+          "header_event_offset_s": 0.010419179,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.4999999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            149,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.874765944+08:00",
+          "header_time": "2026-11-14T11:14:58.874151568+08:00",
+          "bag_event_offset_s": 0.062302853,
+          "header_event_offset_s": 0.061688477,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.4999999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:58.972378050+08:00",
+          "header_time": "2026-11-14T11:14:58.972169925+08:00",
+          "bag_event_offset_s": 0.159914959,
+          "header_event_offset_s": 0.159706834,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:59.022462956+08:00",
+          "header_time": "2026-11-14T11:14:59.022298757+08:00",
+          "bag_event_offset_s": 0.209999865,
+          "header_event_offset_s": 0.209835666,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:59.072699106+08:00",
+          "header_time": "2026-11-14T11:14:59.072501285+08:00",
+          "bag_event_offset_s": 0.260236015,
+          "header_event_offset_s": 0.260038194,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        },
+        {
+          "pose": {
+            "x": 8.977482376493683,
+            "y": -0.10288732604122106,
+            "yaw_rad": -0.22179955030272372
+          },
+          "polygon": [
+            [
+              8.472510323507638,
+              -0.2965448219019796
+            ],
+            [
+              8.604501590704503,
+              0.2887570706148357
+            ],
+            [
+              9.482454429479727,
+              0.0907701698195375
+            ],
+            [
+              9.350463162282862,
+              -0.49453172269727785
+            ]
+          ],
+          "center_cell": [
+            148,
+            149
+          ],
+          "center_cost_display": 0,
+          "center_cost_raw_upper": 0,
+          "boundary_cell_count": 57,
+          "boundary_cost_counts_display": {
+            "0": 57
+          },
+          "boundary_raw_max": 0,
+          "boundary_outside": false,
+          "smac_collision_reconstructed": false,
+          "smac_collision_mechanism": "center_below_full_check_threshold",
+          "bag_time": "2026-11-14T11:14:59.172568057+08:00",
+          "header_time": "2026-11-14T11:14:59.172373425+08:00",
+          "bag_event_offset_s": 0.360104966,
+          "header_event_offset_s": 0.359910334,
+          "resolution": 0.05000000074505806,
+          "width": 300,
+          "height": 300,
+          "origin": [
+            1.5499999999999847,
+            -7.6,
+            0.0
+          ],
+          "frame": "odom",
+          "nearest_lethal": null,
+          "nearest_inscribed_or_lethal": null,
+          "nearest_unknown": null
+        }
+      ],
+      "primary_global_static_overlap": {
+        "boundary_global_static_pairs": {
+          "global=0,static=0": 10,
+          "global=56,static=0": 1,
+          "global=61,static=0": 2,
+          "global=92,static=0": 2,
+          "global=152,static=0": 2,
+          "global=232,static=0": 1,
+          "global=251,static=0": 2,
+          "global=253,static=0": 8,
+          "global=254,static=100": 2
+        },
+        "global_lethal_or_unknown_boundary_cells": [
+          {
+            "x": 157.35000372901558,
+            "y": -183.0499948002398,
+            "global": 254,
+            "static": 100
+          },
+          {
+            "x": 157.35000372901558,
+            "y": -183.14999480172992,
+            "global": 254,
+            "static": 100
+          }
+        ]
+      },
+      "last_successful_plan_before_failure": {
+        "bag_time": "2026-11-14T11:14:57.753475092+08:00",
+        "event_offset_s": -1.058987999,
+        "header_time": "2026-11-14T11:14:57.751758174+08:00",
+        "frame": "map",
+        "pose_count": 396,
+        "start": [
+          156.95000219717622,
+          -183.14999480172992
+        ],
+        "end": [
+          150.85000210627913,
+          -110.34999371692538
+        ],
+        "actual_pose_to_plan_start_m": 0.22271397239308952,
+        "actual_pose_nearest_index": 1,
+        "actual_pose_cross_track_m": 0.03910713323259989,
+        "nearest_point": [
+          156.95962133794455,
+          -183.34603972652621
+        ],
+        "smac_pose_cross_track_m": 0.010399094172212202
+      },
+      "nearest_merged_scan": {
+        "bag_time": "2026-11-14T11:14:58.802015279+08:00",
+        "header_time": "2026-11-14T11:14:58.800466914+08:00",
+        "bag_event_offset_s": -0.010447812,
+        "header_event_offset_s": -0.011996177,
+        "frame": "laser_link",
+        "beam_count": 722,
+        "finite_count": 297,
+        "range_lt_1m_count": 0,
+        "range_lt_1m_inside_effective_footprint_count": 0,
+        "range_lt_1m_outside_effective_footprint_count": 0,
+        "minimum_finite_range_m": 3.035432815551758,
+        "closest_outside_return_to_footprint": null,
+        "closest_lt_1m_return_to_primary_global_nearest_lethal": null,
+        "range_lt_1m_returns": []
+      }
+    }
+  ],
+  "limitations": [
+    "Full costmap topics are snapshots (global 1 Hz, local 20 Hz); the planner checks the in-memory global map at 5 Hz.",
+    "The exact in-memory grid at the log nanosecond is not recorded. Bracketing global snapshots are retained.",
+    "TF is reconstructed from nearest bag-arrival samples. odom->base_link header stamps are about 0.3 s ahead of bag arrival in these runs.",
+    "The static-map comparison uses the unchanged map file whose mtime predates all three tests."
+  ]
+}

@@ -1,40 +1,93 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-from yunle_msgs.msg import Ecu
+from yunle_msgs.msg import Ecu, VehicleStatus
 from std_msgs.msg import Header
+from std_srvs.srv import SetBool
 import math
+
+
+MPS_TO_KMH = 3.6
+
 
 class CmdVelToEcu(Node):
     def __init__(self):
         super().__init__("cmdvel_to_ecu")
 
-        # 创建发布者和订阅者
+        # Topics remain configurable so the command mux can be inserted without
+        # changing the ECU message interface.
         self.ecu_pub = self.create_publisher(Ecu, "/ecu", 10)
-        self.cmd_sub = self.create_subscription(Twist, "/cmd_vel", self.cmd_callback, 10)
 
         # 声明参数
         self.declare_parameter('L', 0.5)
-        self.declare_parameter('MAX_STEER_DEG', 20.0)
-        self.declare_parameter('LOW_SPEED_THRESH', 0.3)
-        self.declare_parameter('Vel_Offeset', 0.05)
+        # L=0.5m and 26.565deg correspond to a conservative 1.0m bicycle-model
+        # turning radius, matching Smac and MPPI. The CAN layer hard-clamps near 27deg.
+        self.declare_parameter('MAX_STEER_DEG', 26.56505117707799)
+        # All linear-speed parameters are m/s. Historical ECU calibration was
+        # in km/h; migrate its physical values rather than multiplying them.
+        self.declare_parameter('navigation_max_speed', 2.0 / MPS_TO_KMH)
+        self.declare_parameter('LOW_SPEED_THRESH', 0.3 / MPS_TO_KMH)
+        self.declare_parameter('STOP_THRESH', 0.02 / MPS_TO_KMH)
+        self.declare_parameter('Vel_Offeset', 0.03 / MPS_TO_KMH)
         self.declare_parameter('OMEGA_DEADZONE', 0.20)
         self.declare_parameter('OMEGA_FULL_STEER', 1.20)
         self.declare_parameter('rear_wheel_flag', True)
-        self.declare_parameter('STOP_THRESH', 0.02)
-        
-        self.declare_parameter('Vel_RATE', 1.2)
+        self.declare_parameter('cmd_vel_topic', '/cmd_vel')
+        self.declare_parameter('docking_mode', False)
+        self.declare_parameter('docking_max_speed', 0.10)
+        self.declare_parameter('docking_max_steer_deg', 8.0)
+        self.declare_parameter('docking_stop_threshold', 0.001)
+        self.declare_parameter('docking_ecu_speed_scale', 3.6)
+        self.declare_parameter('input_timeout_sec', 0.20)
 
         # 读取参数
         self.L = self.get_parameter('L').value
         self.MAX_STEER_DEG = self.get_parameter('MAX_STEER_DEG').value
+        self.navigation_max_speed = self.get_parameter('navigation_max_speed').value
         self.LOW_SPEED_THRESH = self.get_parameter('LOW_SPEED_THRESH').value
+        self.STOP_THRESH = self.get_parameter('STOP_THRESH').value
         self.Vel_Offeset = self.get_parameter('Vel_Offeset').value
+        for name in ('navigation_max_speed', 'LOW_SPEED_THRESH',
+                     'STOP_THRESH', 'Vel_Offeset'):
+            value = getattr(self, name)
+            if not math.isfinite(value) or value < 0.0:
+                raise ValueError(f'{name} must be finite and nonnegative (m/s)')
+        if (self.navigation_max_speed <= 0.0
+                or self.LOW_SPEED_THRESH > self.navigation_max_speed
+                or self.STOP_THRESH >= self.navigation_max_speed):
+            raise ValueError('navigation speed thresholds must fit within its m/s limit')
         self.OMEGA_DEADZONE = self.get_parameter('OMEGA_DEADZONE').value
         self.OMEGA_FULL_STEER = self.get_parameter('OMEGA_FULL_STEER').value
         self.rear_wheel_flag = self.get_parameter('rear_wheel_flag').value
-        self.STOP_THRESH = self.get_parameter('STOP_THRESH').value
-        self.get_logger().info("/cmd_vel → /ecu 节点已启动")
+        self.cmd_vel_topic = self.get_parameter('cmd_vel_topic').value
+        self.docking_mode = self.get_parameter('docking_mode').value
+        self.docking_max_speed = abs(
+            self.get_parameter('docking_max_speed').value)
+        self.docking_max_steer_deg = abs(
+            self.get_parameter('docking_max_steer_deg').value)
+        self.docking_stop_threshold = abs(
+            self.get_parameter('docking_stop_threshold').value)
+        self.docking_ecu_speed_scale = self.get_parameter('docking_ecu_speed_scale').value
+        if (not math.isfinite(self.docking_ecu_speed_scale)
+                or self.docking_ecu_speed_scale <= 0):
+            raise ValueError('docking ECU speed scale must be positive and finite')
+        self.input_timeout_sec = max(
+            0.05, self.get_parameter('input_timeout_sec').value)
+        self.last_cmd_time = None
+        self.vehicle_status_received_time = None
+        self.autodrive_enabled = False
+        self.output_active = False
+        self.last_command_stopped = False
+        self.vehicle_stopped = False
+        self.vehicle_time = None
+        self.create_subscription(VehicleStatus, '/vehicle_status', self.vehicle_callback, 10)
+        self.create_service(SetBool, '~/set_docking_mode', self.set_docking_mode)
+        self.cmd_sub = self.create_subscription(
+            Twist, self.cmd_vel_topic, self.cmd_callback, 10)
+        self.watchdog_timer = self.create_timer(
+            min(0.05, self.input_timeout_sec / 2.0), self.watchdog_callback)
+        self.get_logger().info(
+            f"{self.cmd_vel_topic} → /ecu 节点已启动")
 
     def cmdvel_2_ecu(self, msg: Twist) -> Ecu:
         ecu_msg = Ecu()
@@ -45,66 +98,158 @@ class CmdVelToEcu(Node):
         ecu_msg.header.stamp = self.get_clock().now().to_msg()
         ecu_msg.header.frame_id = "base_link"
 
-        # 获取速度与角速度
-        if msg.linear.x >= self.STOP_THRESH:
-            if msg.linear.x > 0:
-                v = msg.linear.x + self.Vel_Offeset
-            else:
-                v = msg.linear.x - self.Vel_Offeset
-        else:
-            v = msg.linear.x
-
+        # Twist stays in SI units through limits and inverse kinematics.
+        v_cmd = msg.linear.x
         omega = -msg.angular.z
+        if not math.isfinite(v_cmd) or not math.isfinite(omega):
+            v_cmd = omega = 0.0
+        speed_limit = (self.docking_max_speed if self.docking_mode
+                       else self.navigation_max_speed)
+        v_cmd = max(-speed_limit, min(v_cmd, speed_limit))
+        stop_threshold = (self.docking_stop_threshold if self.docking_mode
+                          else self.STOP_THRESH)
+        # Check the requested speed before applying any forward compensation;
+        # both signs at the stop boundary must remain stopped.
+        if abs(v_cmd) <= stop_threshold:
+            v_cmd = 0.0
+
+        v_motor = v_cmd
+        if not self.docking_mode and v_motor != 0.0:
+            if v_motor > 0.0:
+                v_motor += self.Vel_Offeset
+            v_motor = math.copysign(
+                max(abs(v_motor), self.LOW_SPEED_THRESH), v_motor)
+            # Recovery/teleop can bypass Nav2 limits. Bound the final motor
+            # request too, including the offset and low-speed compensation.
+            v_motor = max(-speed_limit, min(v_motor, speed_limit))
 
         # ====================== 档位处理 ======================
-        if v > 0:
+        if v_motor > epsilon:
             ecu_msg.shift = Ecu.SHIFT_D
-        elif v < 0:
+        elif v_motor < -epsilon:
             ecu_msg.shift = Ecu.SHIFT_R
         else:
             ecu_msg.shift = Ecu.SHIFT_N
 
-        # ====================== 低速限幅（保留正负号） ======================
-        if abs(v) <= self.STOP_THRESH:
-            # 速度极小（接近停止指令），强制归零，不补偿死区
-            v = 0.0
-        elif abs(v) <= self.LOW_SPEED_THRESH:
-            v = self.LOW_SPEED_THRESH if v > 0 else -self.LOW_SPEED_THRESH
-
-        # 设置电机输出
-        ecu_msg.motor = abs(v)
+        # ECU motor is km/h; CAN setSpeed() then quantizes it in 0.1 km/h.
+        speed_scale = (self.docking_ecu_speed_scale if self.docking_mode
+                       else MPS_TO_KMH)
+        ecu_msg.motor = abs(v_motor) * speed_scale
 
         # ====================== 转向角计算 ======================
-        if abs(v) <= epsilon:
+        if abs(v_motor) <= epsilon:
             # 原地转向
             if abs(omega) < self.OMEGA_DEADZONE:
                 steer_deg = 0.0
             else:
-                steer_deg = omega * (self.MAX_STEER_DEG / self.OMEGA_FULL_STEER)
+                steer_deg = omega * (
+                    self.MAX_STEER_DEG / self.OMEGA_FULL_STEER)
         else:
-            # 行驶转向（阿克曼）
-            steer_deg = math.degrees(math.atan(self.L * omega / v))
+            # Use the speed that is actually sent to the motor. Otherwise the
+            # low-speed floor raises yaw rate above the controller request.
+            steer_deg = math.degrees(math.atan(self.L * omega / v_motor))
 
-        # 转向角限幅
-        ecu_msg.steer = max(-self.MAX_STEER_DEG, min(steer_deg, self.MAX_STEER_DEG))
+        # 转向角限幅. Docking uses a smaller independent envelope.
+        steer_limit = (self.docking_max_steer_deg
+                       if self.docking_mode else self.MAX_STEER_DEG)
+        ecu_msg.steer = max(-steer_limit, min(steer_deg, steer_limit))
 
-        # ====================== 刹车与标志位 ======================
-        ecu_msg.brake = abs(v) < epsilon
+        # A normal zero-speed command is not an emergency stop. On JD03 this
+        # bit controls both the brake mode and EBrake, so software parking must
+        # never be inferred from cmd_vel alone.
+        ecu_msg.brake = False
         ecu_msg.rear_wheel_flag = self.rear_wheel_flag
 
         return ecu_msg
 
     def cmd_callback(self, msg: Twist):
+        now = self.get_clock().now()
+        self.last_cmd_time = now
+        finite = all(math.isfinite(v) for v in (msg.linear.x, msg.angular.z))
+        self.last_command_stopped = (finite
+                                     and abs(msg.linear.x) < 1e-6
+                                     and abs(msg.angular.z) < 1e-6)
+        if not self._autodrive_feedback_fresh(now):
+            if self.output_active and self.autodrive_enabled:
+                self._publish_neutral_once()
+            else:
+                self.output_active = False
+            return
+        if not finite:
+            self._publish_neutral_once()
+            return
         ecu_msg = self.cmdvel_2_ecu(msg)
         self.ecu_pub.publish(ecu_msg)
+        self.output_active = True
+
+    def vehicle_callback(self, msg):
+        self.vehicle_status_received_time = self.get_clock().now()
+        self.autodrive_enabled = bool(msg.is_autodrive)
+        if not self.autodrive_enabled:
+            # The physical manual takeover has priority. Do not emit even a
+            # zero ECU frame: every JD03 ECU frame requests AUTO_MODE.
+            self.output_active = False
+        self.vehicle_time = msg.header.stamp.sec + msg.header.stamp.nanosec / 1e9
+        self.vehicle_stopped = math.isfinite(msg.cur_speed) and abs(msg.cur_speed / 3.6) <= 0.01
+
+    def _autodrive_feedback_fresh(self, now):
+        if not self.autodrive_enabled or self.vehicle_status_received_time is None:
+            return False
+        age = (now.nanoseconds - self.vehicle_status_received_time.nanoseconds) / 1e9
+        return 0.0 <= age <= self.input_timeout_sec
+
+    def _publish_neutral_once(self):
+        if not self.output_active:
+            return
+        self.ecu_pub.publish(self.cmdvel_2_ecu(Twist()))
+        self.output_active = False
+
+    def set_docking_mode(self, request, response):
+        now_time = self.get_clock().now()
+        now = now_time.nanoseconds / 1e9
+        fresh = (self._autodrive_feedback_fresh(now_time)
+                 and self.vehicle_time is not None
+                 and 0 <= now - self.vehicle_time <= self.input_timeout_sec)
+        command_fresh = (self.last_cmd_time is not None and
+                         0 <= now - self.last_cmd_time.nanoseconds / 1e9 <= self.input_timeout_sec)
+        response.success = bool(fresh and command_fresh and self.vehicle_stopped
+                                and self.last_command_stopped)
+        if response.success:
+            self.docking_mode = request.data
+            self.ecu_pub.publish(self.cmdvel_2_ecu(Twist()))
+            self.output_active = True
+        response.message = (
+            'mode switched while stopped' if response.success
+            else 'measured and commanded stop required')
+        return response
+
+    def watchdog_callback(self):
+        if not self.output_active:
+            return
+        now = self.get_clock().now()
+        if not self._autodrive_feedback_fresh(now):
+            if self.autodrive_enabled:
+                self._publish_neutral_once()
+            else:
+                self.output_active = False
+            return
+        command_age = ((now.nanoseconds - self.last_cmd_time.nanoseconds) / 1e9
+                       if self.last_cmd_time is not None else math.inf)
+        if command_age < 0.0 or command_age > self.input_timeout_sec:
+            self._publish_neutral_once()
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = CmdVelToEcu()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == "__main__":

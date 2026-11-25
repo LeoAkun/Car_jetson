@@ -1,0 +1,17 @@
+{
+  "time": "2026-11-09T15:47:22.852359+08:00",
+  "map": "3b2mus",
+  "route": [
+    113,
+    106,
+    107
+  ],
+  "speed_target_limit_kmh": 2,
+  "operator_command": "现在再发布一次测试；先不修复这个问题",
+  "field_confirmation": "已回到113附近，路线清空，人员已就位",
+  "sensor_precheck": false,
+  "monitor_mode": "passive; operator handles braking",
+  "known_issues_retained": true,
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7",
+  "existing_status_reporter_pgid": 20451
+}

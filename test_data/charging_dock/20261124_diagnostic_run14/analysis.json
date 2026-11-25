@@ -1,0 +1,461 @@
+{
+  "source": "motion_trace.jsonl after recorder close",
+  "physical_face_distance_note": "estimated as action longitudinal receiver error + 0.46 m confirmed receiver-to-face geometry",
+  "test_start_t": 310.27171404,
+  "terminal": {
+    "t": 389.871850944,
+    "state": "FAILED reason=dock_failed:dock_observation_reacquire_timeout"
+  },
+  "test_duration_s": 79.60013690400001,
+  "first_stopping": {
+    "t": 389.26333055800023,
+    "state": "STOPPING reason=dock_observation_reacquire_timeout"
+  },
+  "first_emergency_stop_t": 389.82407319899994,
+  "emergency_after_terminal_s": -0.04777774500007581,
+  "state_transitions": [
+    {
+      "t": 310.27171404,
+      "topic": "/standalone_docking/state",
+      "state": "DOCKING reason="
+    },
+    {
+      "t": 310.2792939199999,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "valid"
+    },
+    {
+      "t": 311.387195066,
+      "topic": "/charging_dock/state",
+      "state": "PRECHECK reason=dock_observation_invalid"
+    },
+    {
+      "t": 312.0340316249999,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 343.703746055,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 365.425747321,
+      "topic": "/charging_dock/state",
+      "state": "APPROACH reason="
+    },
+    {
+      "t": 369.2796227399999,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 375.82654816000013,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 376.0658010679999,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 376.1102527140001,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 376.269477673,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 376.47550634200024,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 376.713304417,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 377.2200731429998,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 379.4639446010001,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 379.6240531829999,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 379.87617975600006,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 380.23622688600017,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 380.4237632180002,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 380.9399927929999,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 381.8244521729998,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 381.9894960380002,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 382.3651746270002,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 382.46767551799985,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 382.99268660000007,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 383.34286640300024,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 383.6789771660001,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 384.1941935059999,
+      "topic": "/charging_dock/state",
+      "state": "FINAL_APPROACH reason="
+    },
+    {
+      "t": 387.264986401,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 387.45826759700003,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 387.795205336,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 387.8342549079998,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 388.03347889199995,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_measured_stop"
+    },
+    {
+      "t": 388.06795724899985,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 388.15354502499986,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 388.50066543599996,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 388.6101985629998,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 388.7525240210002,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 388.82311130000016,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 389.137378638,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=waiting_for_stable_reacquisition"
+    },
+    {
+      "t": 389.19118095600015,
+      "topic": "/charging_dock/state",
+      "state": "OBSERVATION_HOLD reason=dock_observation_invalid"
+    },
+    {
+      "t": 389.26333055800023,
+      "topic": "/charging_dock/state",
+      "state": "STOPPING reason=dock_observation_reacquire_timeout"
+    },
+    {
+      "t": 389.82299843400006,
+      "topic": "/charging_dock/state",
+      "state": "FAILED reason=dock_observation_reacquire_timeout"
+    },
+    {
+      "t": 389.871850944,
+      "topic": "/standalone_docking/state",
+      "state": "FAILED reason=dock_failed:dock_observation_reacquire_timeout"
+    }
+  ],
+  "phase_entries": {
+    "PRECHECK": 1,
+    "APPROACH": 2,
+    "FINAL_APPROACH": 6,
+    "OBSERVATION_HOLD": 5,
+    "STOPPING": 1,
+    "FAILED": 1
+  },
+  "feedback_state_counts": {
+    "PRECHECK": 16,
+    "APPROACH": 888,
+    "FINAL_APPROACH": 871,
+    "OBSERVATION_HOLD": 172,
+    "STOPPING": 14,
+    "FAILED": 1
+  },
+  "observation_reason_counts_after_start": {
+    "warming_up": 60,
+    "ok": 2255,
+    "no_complete_face_in_gate": 24
+  },
+  "lock_entries": {
+    "LOCK_VERIFY": 0,
+    "LOCKED_FINAL_APPROACH": 0
+  },
+  "lock_range_first_feedback": {
+    "t": 367.591906871,
+    "state": "APPROACH",
+    "reason": "",
+    "traveled_distance": 1.411089539527893,
+    "longitudinal_error": 0.5880566239356995,
+    "lateral_error": 0.0064930180087685585,
+    "yaw_error": 0.004519118461757898,
+    "quality": 0.9192425012588501
+  },
+  "longest_aligned_feedback_segment": {
+    "start_t": 367.86484458099994,
+    "end_t": 368.14921703300024,
+    "span_s": 0.2843724520002979,
+    "samples": 8,
+    "start": {
+      "t": 367.86484458099994,
+      "state": "APPROACH",
+      "reason": "",
+      "traveled_distance": 1.4273099899291992,
+      "longitudinal_error": 0.5702352523803711,
+      "lateral_error": 0.0023920892272144556,
+      "yaw_error": 0.001255549374036491,
+      "quality": 0.9242193698883057
+    },
+    "end": {
+      "t": 368.14921703300024,
+      "state": "APPROACH",
+      "reason": "",
+      "traveled_distance": 1.4430886507034302,
+      "longitudinal_error": 0.5554187297821045,
+      "lateral_error": -0.001325159682892263,
+      "yaw_error": 0.00017893838230520487,
+      "quality": 0.9087072014808655
+    }
+  },
+  "best_lock_range_alignment": {
+    "t": 368.0649407249998,
+    "state": "APPROACH",
+    "reason": "",
+    "traveled_distance": 1.4385828971862793,
+    "longitudinal_error": 0.5595160126686096,
+    "lateral_error": 4.664430889533833e-05,
+    "yaw_error": 0.00028062466299161315,
+    "quality": 0.9357262253761292
+  },
+  "key_samples": [
+    {
+      "t": 343.704,
+      "feedback": {
+        "state": "FINAL_APPROACH",
+        "longitudinal_error": 1.1399694681167603,
+        "lateral_error": -0.03102879226207733,
+        "yaw_error": -0.11035704612731934
+      },
+      "physical_face_distance_estimate_m": 1.5999694681167602,
+      "cmd_linear": -0.06,
+      "cmd_angular": 0.00882600739832765,
+      "ecu_motor": 0.2160000056028366,
+      "ecu_steer": 4.206533908843994,
+      "ecu_shift": 3,
+      "left_wheel": -0.02159426175057888,
+      "right_wheel": -0.05970177799463272
+    },
+    {
+      "t": 365.426,
+      "feedback": {
+        "state": "APPROACH",
+        "longitudinal_error": 0.6895673871040344,
+        "lateral_error": 0.027080174535512924,
+        "yaw_error": -0.017439745366573334
+      },
+      "physical_face_distance_estimate_m": 1.1495673871040344,
+      "cmd_linear": -0.025,
+      "cmd_angular": 0.007027041726984689,
+      "ecu_motor": 0.09000000357627869,
+      "ecu_steer": 8.0,
+      "ecu_shift": 3,
+      "left_wheel": -0.02540501207113266,
+      "right_wheel": -0.01651325821876526
+    },
+    {
+      "t": 368.065,
+      "feedback": {
+        "state": "APPROACH",
+        "longitudinal_error": 0.5595160126686096,
+        "lateral_error": 4.664430889533833e-05,
+        "yaw_error": 0.00028062466299161315
+      },
+      "physical_face_distance_estimate_m": 1.0195160126686096,
+      "cmd_linear": -0.06,
+      "cmd_angular": 0.0026191849318358477,
+      "ecu_motor": 0.2160000056028366,
+      "ecu_steer": 1.2503701448440552,
+      "ecu_shift": 3,
+      "left_wheel": -0.05970177799463272,
+      "right_wheel": -0.05081002414226532
+    },
+    {
+      "t": 369.28,
+      "feedback": {
+        "state": "FINAL_APPROACH",
+        "longitudinal_error": 0.499616414308548,
+        "lateral_error": 0.007487187162041664,
+        "yaw_error": 0.008060666732490063
+      },
+      "physical_face_distance_estimate_m": 0.9596164143085479,
+      "cmd_linear": -0.025,
+      "cmd_angular": 0.002885525586946065,
+      "ecu_motor": 0.09000000357627869,
+      "ecu_steer": 3.302905321121216,
+      "ecu_shift": 3,
+      "left_wheel": -0.05081002414226532,
+      "right_wheel": -0.05462078005075455
+    },
+    {
+      "t": 375.827,
+      "feedback": {
+        "state": "OBSERVATION_HOLD",
+        "longitudinal_error": 0.34606316685676575,
+        "lateral_error": 0.01687503792345524,
+        "yaw_error": 0.06222661957144737
+      },
+      "physical_face_distance_estimate_m": 0.8060631668567657,
+      "cmd_linear": -0.025,
+      "cmd_angular": 0.0031134370639528956,
+      "ecu_motor": 0.09000000357627869,
+      "ecu_steer": 3.5631356239318848,
+      "ecu_shift": 3,
+      "left_wheel": -0.00762150390073657,
+      "right_wheel": -0.03937776759266853
+    },
+    {
+      "t": 389.263,
+      "feedback": {
+        "state": "STOPPING",
+        "longitudinal_error": 0.332759290933609,
+        "lateral_error": 0.025121720507740974,
+        "yaw_error": 0.07674099504947662
+      },
+      "physical_face_distance_estimate_m": 0.792759290933609,
+      "cmd_linear": 0.0,
+      "cmd_angular": 0.0,
+      "ecu_motor": 0.0,
+      "ecu_steer": 0.0,
+      "ecu_shift": 2,
+      "left_wheel": 0.0,
+      "right_wheel": 0.0
+    }
+  ],
+  "last_feedback": {
+    "t": 389.823171045,
+    "state": "FAILED",
+    "reason": "dock_observation_reacquire_timeout",
+    "traveled_distance": 1.7032510042190552,
+    "longitudinal_error": 0.3324563503265381,
+    "lateral_error": 0.024146169424057007,
+    "yaw_error": 0.07536029070615768,
+    "quality": 0.8619464039802551
+  },
+  "last_valid_observation": {
+    "t": 389.8135289229999,
+    "header": {
+      "stamp": {
+        "sec": 1795489878,
+        "nanosec": 51810788
+      },
+      "frame_id": "base_link"
+    },
+    "valid": true,
+    "center_available": true,
+    "pose": {
+      "position": {
+        "x": -0.7920252859792294,
+        "y": 0.03558151245873336,
+        "z": 0.0
+      },
+      "orientation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.03766865528354117,
+        "w": 0.9992902843564175
+      }
+    },
+    "quality": 0.8619464039802551,
+    "visible_width": 0.25220927596092224,
+    "fit_residual": 0.004141607787460089,
+    "reason": "ok"
+  },
+  "motion": {
+    "positive_cmd_count": 0,
+    "drive_gear_count": 0,
+    "reverse_gear_count": 3518,
+    "max_abs_wheel_mps": 0.08129604160785675,
+    "max_wheel_difference_mps": 0.052080278750509024,
+    "max_positive_mean_wheel_mps": 0.015878132544457912,
+    "max_abs_ecu_steer_deg": 8.0
+  }
+}

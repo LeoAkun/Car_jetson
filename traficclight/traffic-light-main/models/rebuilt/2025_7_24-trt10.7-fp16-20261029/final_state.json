@@ -1,0 +1,7 @@
+{
+  "recorded_at_host_utc": "2026-10-29T08:47:32.231636+00:00",
+  "current_release": "/opt/traffic-light/releases/p2-20261029",
+  "source_sha256": "9fae5374557eb3ce6f83bd43e8a34d8023f96ef46b91713855ce4d8788abdc36",
+  "source_preserved": true,
+  "automatic_release_enabled": false
+}

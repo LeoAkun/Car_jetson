@@ -1,0 +1,63 @@
+Traffic Light P0 worktree snapshot
+Captured: 2026-09-28 America/Phoenix
+Repository: /home/akun/workspace/Car_jetson
+Branch: codex/traffic-light-p0
+HEAD: 0ee00cb7019af8f81831769daae81bfa7ad8af16
+
+This snapshot was captured immediately before finalizing the P0 evidence commit.
+The P0 baseline was modified and the integration plan was untracked at capture time
+because those evidence files had not yet been committed. All other entries predate or
+are independent from this P0 evidence finalization and were left untouched.
+
+git status --porcelain=v1
+
+ M CHARGING_DOCK_DEVELOPMENT_PLANA.md
+ D K8_point1.txt
+ D K8_point2.txt
+ D K8_start.py
+ M KNOWN_ISSUES.md
+ M TRAFFIC_LIGHT_P0_BASELINE_2026-09-22.md
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/navigation_manager.py
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/process_manager.py
+ M multi_map_navigation/src/multi_map_navigation/multi_map_navigation/route_planner.py
+ M multi_map_navigation/src/multi_map_navigation/test/test_process_health.py
+ M nav2/src/nav2/config/nav2_real_params.yaml
+ M nav2/src/nav2/launch/run.real_launch.py
+ M nav2/src/navigation2/nav2_controller/src/controller_server.cpp
+ M nav2/src/navigation2/nav2_costmap_2d/plugins/obstacle_layer.cpp
+ M nav2/src/navigation2/nav2_mppi_controller/src/controller.cpp
+ M nav2/src/navigation2/nav2_mppi_controller/src/optimizer.cpp
+ M real_ws/README.md
+ M "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert copy.py"
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml
+ M real_ws/src/driver/car_control/cmdvel_2_ecu/setup.py
+ M real_ws/src/driver/lock_controller/CMakeLists.txt
+ M real_ws/src/driver/lock_controller/QUICKSTART.md
+ M real_ws/src/driver/lock_controller/config/lock_controller.yaml
+ M real_ws/src/driver/lock_controller/package.xml
+ M real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/launch/lakibeam1_scan_dual_lidar.launch.py
+ M real_ws/src/driver/scan_laser/Lakibeam_ROS2_Driver-main/package.xml
+ M real_ws/src/driver/scan_laser/ros2_laser_scan_merger/config/params.yaml
+ M real_ws/src/launch_real/launch/run.launch.py
+ M real_ws/src/launch_real/package.xml
+ M real_ws/src/launch_real/setup.py
+ M utils/src/pcd2pgm/config/pcd2pgm.yaml
+?? FIXED_TRAJECTORY_LIDAR_DOCKING_PLAN.md
+?? TRAFFIC_LIGHT_NAVIGATION_INTEGRATION_PLAN.md
+?? multi_map_navigation/src/multi_map_navigation/test/test_navigation_recovery.py
+?? navigation_monitoring/
+?? navigation_tools/
+?? open_door.sh
+?? real_ws/src/charging_dock/
+?? real_ws/src/charging_dock_msgs/
+?? real_ws/src/driver/camera/calibration/
+?? real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml
+?? real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py
+?? real_ws/src/driver/config_manager/
+?? real_ws/src/driver/lock_controller/scripts/open_door_recover.py
+?? real_ws/src/launch_real/launch/pothole_detection.launch.py
+?? real_ws/src/launch_real/launch/realsense.launch.py
+?? real_ws/src/perception/
+?? test_data/
+?? "\345\257\274\350\210\252\351\227\256\351\242\230\346\226\260\350\201\212\345\244\251\344\272\244\346\216\245_2026-08-06.md"

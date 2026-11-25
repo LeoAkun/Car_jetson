@@ -228,8 +228,9 @@ protected:
   /**
    * @brief Perform fallback behavior to try to recover from a set of trajectories in collision
    * @param fail Whether the system failed to recover from
+   * @param retry_attempts Retry count local to the current evalControl call
    */
-  bool fallback(bool fail);
+  bool fallback(bool fail, size_t & retry_attempts);
 
 protected:
   rclcpp_lifecycle::LifecycleNode::WeakPtr parent_;

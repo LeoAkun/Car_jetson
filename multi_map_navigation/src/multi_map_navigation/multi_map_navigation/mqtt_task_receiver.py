@@ -319,7 +319,7 @@ class MQTTTaskReceiver(Node):
         self.declare_parameter('username', '')
         self.declare_parameter('password', '')
         self.declare_parameter('client_id', 'robot_nav_001')
-        self.declare_parameter('task_topic', 'prod/ctrl/vehicle/LS1234567890/task/start')
+        self.declare_parameter('task_topic', 'robot/LS1234567890/down/cmd/sendTask')
         self.declare_parameter('qos', 1)
         self.declare_parameter('reconnect_delay', 5.0)
 

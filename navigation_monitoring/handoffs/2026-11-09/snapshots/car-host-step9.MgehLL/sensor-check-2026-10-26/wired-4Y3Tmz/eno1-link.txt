@@ -1,0 +1,1 @@
+/home/akun/car-host-step9.MgehLL/sensor-check-2026-10-26/check-wired-sensors.bash: 行 48: ethtool: 未找到命令

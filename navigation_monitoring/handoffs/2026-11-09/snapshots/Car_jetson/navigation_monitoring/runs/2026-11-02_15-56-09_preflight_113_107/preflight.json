@@ -1,0 +1,29 @@
+{
+  "time": "2026-11-02T15:56:09.636034+08:00",
+  "navigation_dispatched": false,
+  "counts": {
+    "imu": 502,
+    "vehicle": 501,
+    "scan": 151,
+    "gps": 5
+  },
+  "freshness_sec": {
+    "imu": 0.001,
+    "vehicle": 0.01,
+    "scan": 0.033,
+    "gps": 0.432
+  },
+  "gps": {
+    "lat": 30.767311000000003,
+    "lng": 103.98557816666668,
+    "fix_status": 0,
+    "distance_to_113_m": 393.8
+  },
+  "vehicle": {
+    "cur_speed": 0.0,
+    "cur_steer": -0.04500000551342964,
+    "drive_mode": 1,
+    "is_autodrive": true
+  },
+  "outcome": "preflight_not_passed"
+}

@@ -12,7 +12,14 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 install(DIRECTORY launch urdf rviz_config world
-DESTINATION share/${PROJECT_NAME})
+  DESTINATION share/${PROJECT_NAME}
+  # Historical Gazebo plugins embedded in the source tree are not rebuilt by
+  # this resource-only package. Never install them as fresh host binaries.
+  PATTERN "*.so" EXCLUDE
+  PATTERN "build" EXCLUDE
+  PATTERN "install" EXCLUDE
+  PATTERN "log" EXCLUDE
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

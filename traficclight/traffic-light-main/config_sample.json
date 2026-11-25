@@ -1,0 +1,34 @@
+{
+    "socket": {
+        "port" : 12345,
+        "broadcast_port" : 37020
+    },
+    "camera": {
+        "mode" : "camera",
+        "device" : "/dev/video0",
+        "width" : 1920,
+        "height" : 1080,
+        "framerate" : 15,
+        "pformat" : "MJPG"
+    },
+    "model": {
+        "mpath" : "models/2025_4_11.engine",
+        "imgsz" : 640,
+        "conf" : 0.5,
+        "save" : true,
+        "input" : "images",
+        "output" : "output0"
+    },
+    "debug": {
+        "islog": true
+    },
+    "app": {
+        "freq": 1,
+        "python": "/home/dlinano/miniforge3/envs/TensorRT/bin/python",
+        "restart_time": 5
+    },
+    "updater": {
+        "repo_url": "https://gitee.com/bugrequiem/traffic-light.git",
+        "temp_path": "./temp"
+    }
+}

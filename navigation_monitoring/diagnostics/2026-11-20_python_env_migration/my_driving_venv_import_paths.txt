@@ -1,0 +1,6 @@
+python /home/akun/workspace/my-driving/.venv/bin/python 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+ENABLE_USER_SITE False
+numpy 2.2.6 /home/akun/workspace/my-driving/.venv/lib/python3.10/site-packages/numpy/__init__.py
+cv2 5.1.0 /home/akun/workspace/my-driving/.venv/lib/python3.10/site-packages/cv2/__init__.py
+av 16.1.0 /home/akun/workspace/my-driving/.venv/lib/python3.10/site-packages/av/__init__.py
+rd_vehicle /home/akun/workspace/my-driving/apps/vehicle/src/rd_vehicle/__init__.py

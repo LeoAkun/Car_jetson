@@ -1,0 +1,66 @@
+{
+  "/laser/scan_front": {
+    "message_count": 1072,
+    "received_hz": 30.904450159502673,
+    "nonmonotonic_stamps": 0,
+    "zero_stamps": 0,
+    "point_count_range": [
+      1440,
+      1440
+    ],
+    "first": {
+      "received": 26367.852246305,
+      "stamp": 1793007736.9970636,
+      "frame": "front_laser",
+      "points": 1440,
+      "valid": 1042,
+      "range_min": 0.06499999761581421,
+      "range_max": 5.5929999351501465,
+      "scan_time": 0.03211895376443863,
+      "angle_increment": 0.004363323096185923
+    },
+    "last": {
+      "received": 26402.507449503,
+      "stamp": 1793007771.6525195,
+      "frame": "front_laser",
+      "points": 1440,
+      "valid": 1036,
+      "range_min": 0.05999999865889549,
+      "range_max": 5.591000080108643,
+      "scan_time": 0.03239504620432854,
+      "angle_increment": 0.004363323096185923
+    }
+  },
+  "/laser/scan_back": {
+    "message_count": 1024,
+    "received_hz": 29.513443216053115,
+    "nonmonotonic_stamps": 0,
+    "zero_stamps": 0,
+    "point_count_range": [
+      1440,
+      1440
+    ],
+    "first": {
+      "received": 26367.866705597,
+      "stamp": 1793007737.0117278,
+      "frame": "rear_laser",
+      "points": 1440,
+      "valid": 917,
+      "range_min": 1.1449999809265137,
+      "range_max": 5.7769999504089355,
+      "scan_time": 0.03383145481348038,
+      "angle_increment": 0.004363323096185923
+    },
+    "last": {
+      "received": 26402.52887607,
+      "stamp": 1793007771.6738927,
+      "frame": "rear_laser",
+      "points": 1440,
+      "valid": 922,
+      "range_min": 1.1460000276565552,
+      "range_max": 5.771999835968018,
+      "scan_time": 0.03391261026263237,
+      "angle_increment": 0.004363323096185923
+    }
+  }
+}

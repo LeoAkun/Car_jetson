@@ -49,6 +49,17 @@ def generate_launch_description():
                 ('cloud_in', '/laser/scan_merge'),   # 输入合并点云
                 ('scan', '/laser/scan_merge_laser')             # 输出最终 LaserScan
             ],
-        )
+        ),
+
+        launch_ros.actions.Node(
+            name='pointcloud_to_laserscan_filtered',
+            package='pointcloud_to_laserscan',
+            executable='pointcloud_to_laserscan_node',
+            parameters=[config],
+            remappings=[
+                ('cloud_in', '/laser/scan_merge_filtered'),
+                ('scan', '/laser/scan_merge_laser_filtered')
+            ],
+        ),
         
     ])

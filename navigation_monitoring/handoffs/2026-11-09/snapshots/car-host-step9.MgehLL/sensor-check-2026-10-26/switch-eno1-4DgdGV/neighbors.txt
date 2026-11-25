@@ -1,0 +1,3 @@
+192.168.1.10 lladdr 00:02:27:80:02:1f REACHABLE
+192.168.1.13 lladdr 88:c9:b3:90:f6:c9 DELAY
+192.168.1.12 lladdr 88:c9:b3:90:8d:2d DELAY

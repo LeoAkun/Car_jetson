@@ -1,0 +1,717 @@
+{
+  "started": "2026-11-11T13:03:38.283976+08:00",
+  "output": "/home/akun/workspace/Car_jetson/navigation_monitoring/indoor_startup/2026-11-11_13-03-38",
+  "passed": false,
+  "mode": "live_imu_live_lidar_no_goal",
+  "domain": 88,
+  "limitations": [
+    "artificial empty map and map->odom",
+    "3D LiDAR projected to test scan, not front/rear laser chain",
+    "no GPS/relocalization/task/vehicle motion validation",
+    "small map and no RViz differ from production startup load"
+  ],
+  "error": "RuntimeError: Test domain already occupied: [('_ros2cli_daemon_88_7f70e8fbba744e7d97813a9e72aed102', '/')]",
+  "ended": "2026-11-11T13:03:40.339941+08:00",
+  "duration_sec": 2.0559780110002066,
+  "observations": {
+    "timestamp_utc": "2026-11-11T05:03:40.340637+00:00",
+    "elapsed_sec": 2.0315817380001135,
+    "phase": "sensor_baseline",
+    "ros_time_ns": 1794373420339965474,
+    "thresholds": {
+      "imu_gap_sec": 0.2,
+      "tf_max_age_sec": 2.0
+    },
+    "topics": {
+      "/imu": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/rslidar_Pointcloud2": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/laser/scan_merge_laser": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/lio_sam/mapping/odometry": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/lio_sam/mapping/odometry_incremental": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/odom": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/odom_incremental": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/lio_sam/imu_preintegration_ready": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/map": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/global_costmap/costmap": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/local_costmap/costmap": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/indoor_startup/cmd_vel": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/indoor_startup/cmd_vel_nav": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/indoor_startup/cmd_vel_smoothed": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/navigate_to_pose/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/navigate_through_poses/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/follow_waypoints/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/follow_path/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/spin/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/backup/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      },
+      "/drive_on_heading/_action/status": {
+        "count": 0,
+        "arrival_hz": null,
+        "last_arrival_age_sec": null,
+        "last_header_stamp_ns": null,
+        "last_header_age_sec": null,
+        "counters": {},
+        "latest": {},
+        "arrival_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "header_intervals": {
+          "count": 0,
+          "sum_sec": 0.0,
+          "min_sec": null,
+          "max_sec": null,
+          "nonpositive_count": 0,
+          "gap_count": 0,
+          "last_gap_sec": null,
+          "mean_sec": null
+        },
+        "interval_arrival_hz": 0.0,
+        "publisher_count": 0
+      }
+    },
+    "phases": {
+      "sensor_baseline": {
+        "first_start_elapsed_sec": 0.0,
+        "entries": 1,
+        "duration_sec": 2.0315817380001135,
+        "topics": {}
+      }
+    },
+    "imu_preintegration": {
+      "ready": null,
+      "ever_ready": false,
+      "transitions": 0,
+      "ready_to_not_ready_count": 0,
+      "last_transition_age_sec": null
+    },
+    "tf": {
+      "map->odom": {
+        "available": false,
+        "expected_static": true,
+        "fresh": false,
+        "error": "\"map\" passed to lookupTransform argument target_frame does not exist. "
+      },
+      "odom->base_link": {
+        "available": false,
+        "expected_static": false,
+        "fresh": false,
+        "error": "\"odom\" passed to lookupTransform argument target_frame does not exist. "
+      },
+      "map->base_link": {
+        "available": false,
+        "expected_static": false,
+        "fresh": false,
+        "error": "\"map\" passed to lookupTransform argument target_frame does not exist. "
+      }
+    }
+  },
+  "nav2_lifecycle": {},
+  "cleanup": [],
+  "finished_cleanup": "2026-11-11T13:03:40.340937+08:00"
+}

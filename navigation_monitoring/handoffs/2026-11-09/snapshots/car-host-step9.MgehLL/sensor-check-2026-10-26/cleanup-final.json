@@ -1,0 +1,30 @@
+{
+  "addresses": {
+    "returncode": 0,
+    "stdout": "lo               UNKNOWN        127.0.0.1/8 ::1/128 \nenp2s0           UP             \nenp3s0           DOWN           \nenp4s0           DOWN           \neno1             UP             \nwlx90de800ed399  UP             192.168.3.23/24 fe80::4af8:f1cb:ccbc:63eb/64 \n",
+    "stderr": ""
+  },
+  "default_route": {
+    "returncode": 0,
+    "stdout": "default via 192.168.3.1 dev wlx90de800ed399 proto dhcp metric 600 \n",
+    "stderr": ""
+  },
+  "connections": {
+    "returncode": 0,
+    "stdout": "NAME            UUID                                  DEVICE          \nHUAWEI31504     8c1564b0-ff3e-49f7-85fa-a60b981f162c  wlx90de800ed399 \nHUAWEI31504_5G  76b7ae8a-9c9e-422e-9117-ef71ce949dd3  --              \n有线连接 1      ae23001a-b9a8-3c6f-81d5-bad6ec5e75bd  --              \n有线连接 2      005dc580-e4d1-3dc4-8182-fc61f54c5197  --              \n有线连接 3      7bc94a63-0725-3d00-b082-ffcb469778d0  --              \n有线连接 4      a93c5323-f084-302f-910a-1221fcdcc5b2  --              \n",
+    "stderr": ""
+  },
+  "brltty_enabled": {
+    "returncode": 1,
+    "stdout": "masked\nmasked\n",
+    "stderr": ""
+  },
+  "brltty_active": {
+    "returncode": 3,
+    "stdout": "inactive\ninactive\n",
+    "stderr": ""
+  },
+  "imu_path_exists": true,
+  "gnss_acm_devices": [],
+  "rear_camera_alias_exists": false
+}

@@ -1,0 +1,12 @@
+{
+  "recorded_beijing": "2026-11-07T17:34:50.370063+08:00",
+  "latest_user_clarifications": {
+    "boot_2026_11_07_16_58_52": "用户最新纠正为手动关闭；覆盖此前也未主动操作的回答。该次不计入异常重启。",
+    "localization_attempt_16_36": "用户确认小车仍在3b2mus地图覆盖区域内。",
+    "initialization_attempt_17_04": "用户确认当时已回室内，明确要求该轮不算；排除本次户外初始化异常归因。"
+  },
+  "unexpected_reboots_under_analysis": [
+    "271a95a2→7a56ea4e，新boot16:16:07",
+    "7a56ea4e→ca32f49f，新boot16:19:30"
+  ]
+}

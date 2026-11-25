@@ -1,0 +1,23 @@
+{
+  "reason": "user_reported_severe_route_deviation_stop_test",
+  "task_id": "task_1794039959",
+  "map": "3b2mus",
+  "route": [
+    113,
+    106,
+    107
+  ],
+  "waypoints_reached": [
+    113
+  ],
+  "task_state": "fault",
+  "latest_observed_vehicle": {
+    "speed_kmh": 0.0,
+    "steer_deg": 0.135,
+    "drive_mode": 3,
+    "is_autodrive": false
+  },
+  "latest_snapshot_time": "2026-11-07T16:32:42.421+08:00",
+  "current_boot_id": "ca32f49f-62a3-4e77-aee9-af55c9ac556a",
+  "automatic_redispatch": false
+}

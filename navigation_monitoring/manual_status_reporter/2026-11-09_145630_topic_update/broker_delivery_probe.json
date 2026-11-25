@@ -1,0 +1,40 @@
+{
+  "broker": "106.14.88.91:1883",
+  "status_topic": "robot/LS1234567890/up/ack",
+  "old_topic": "prod/data/vehicle/LS1234567890/vehicle_status",
+  "messages": [
+    {
+      "received_at": "2026-11-09T14:59:59.792803+08:00",
+      "qos": 1,
+      "retained": 0,
+      "payload": {
+        "vin": "LS1234567890",
+        "gps_lng": 0.0,
+        "gps_lat": 0.0,
+        "task_status": 0,
+        "cur_speed": 0.0,
+        "battery_capacity": 0.0
+      }
+    },
+    {
+      "received_at": "2026-11-09T15:00:02.796839+08:00",
+      "qos": 1,
+      "retained": 0,
+      "payload": {
+        "vin": "LS1234567890",
+        "gps_lng": 0.0,
+        "gps_lat": 0.0,
+        "task_status": 0,
+        "cur_speed": 0.0,
+        "battery_capacity": 0.0
+      }
+    }
+  ],
+  "old_topic_messages": [],
+  "connection_return_code": 0,
+  "granted_qos": [
+    1,
+    1
+  ],
+  "observed_interval_seconds": 3.004
+}

@@ -1,0 +1,77 @@
+{
+  "static_map_yaml": "/home/akun/workspace/Car_jetson/multi_map_navigation/src/map/3b2mus/3b2mus_clean.yaml",
+  "image_size": [
+    4097,
+    6354
+  ],
+  "resolution_m": 0.1,
+  "origin": [
+    -92.9,
+    -532,
+    0
+  ],
+  "global_radius_config_m": 0.22,
+  "global_padding_default_m": 0.01,
+  "note": "static-map evidence only; raw global costmap not recorded; distance to pixel center is not physical obstacle ground truth",
+  "cases": [
+    {
+      "name": "113",
+      "map_pose": [
+        109.31,
+        -46.35
+      ],
+      "static_cell": {
+        "mx": 2022,
+        "my": 4856,
+        "pgm_value": 254,
+        "occupancy_probability": 0.00392156862745098,
+        "state": "free"
+      },
+      "search_window_m": 1.0,
+      "nearest_occupied": null
+    },
+    {
+      "name": "106",
+      "map_pose": [
+        115.12,
+        -143.71
+      ],
+      "static_cell": {
+        "mx": 2080,
+        "my": 3882,
+        "pgm_value": 254,
+        "occupancy_probability": 0.00392156862745098,
+        "state": "free"
+      },
+      "search_window_m": 1.0,
+      "nearest_occupied": null
+    },
+    {
+      "name": "pose_at_162808_929018",
+      "map_pose": [
+        111.57585489167599,
+        -47.99421231965108
+      ],
+      "static_cell": {
+        "mx": 2044,
+        "my": 4840,
+        "pgm_value": 254,
+        "occupancy_probability": 0.00392156862745098,
+        "state": "free"
+      },
+      "search_window_m": 1.0,
+      "nearest_occupied": {
+        "distance_to_pixel_center_m": 0.15791857639956605,
+        "world_xy_pixel_center": [
+          111.55000000000001,
+          -48.14999999999998
+        ],
+        "cell": [
+          2044,
+          4838
+        ],
+        "pgm_value": 0
+      }
+    }
+  ]
+}

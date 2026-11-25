@@ -12,10 +12,12 @@
     baselinkFrame: "base_link"
     odometryFrame: "odom" # 纯imu与激光融合里程计的frame
     mapFrame: "map"
+    mappingFrame: "lio_map" # graph-optimized frame; never published as odom TF
 
     # GPS Settings
     useImuHeadingInitialization: false          # if using GPS data, set to "true"
     useGpsElevation: false                       # if GPS elevation is bad, set to "false"
+    useGpsFactor: false                          # disabled until three-sample consistency is field validated
     gpsCovThreshold: 10.0                        # m^2, threshold for using GPS data (室外GPS协方差通常10-20)
     poseCovThreshold: 25.0                       # m^2, threshold for using GPS data
 
@@ -47,9 +49,18 @@
     imuGravity: 9.80511
     imuRPYWeight: 0.07
 
-    # extrinsicTrans:  [-0.011,  -0.0234, 0.044] # imu与mid360激光雷达之间的坐标变换。用于将雷达与imu数据进行转化，liosam内部计算odom值，计算的odom值会发布为odom->base_link的变换
-    
-    extrinsicTrans: [0.0, 0.0, -0.15]
+    # Constrain IMU velocity only after fresh chassis feedback has reported
+    # standstill for several consecutive samples. This prevents stationary
+    # accelerometer bias from accumulating into large scan-to-map corrections.
+    useVehicleZeroVelocityUpdate: true
+    vehicleStationarySpeedThresholdKmh: 0.10
+    vehicleStatusTimeoutSec: 0.25
+    vehicleStationaryMinSamples: 5
+    zeroVelocitySigma: 0.05
+
+    # IMU origin in rslidar coordinates: 0.11 m below the LiDAR.
+    # Height confirmed by the user on 2026-10-29; matches the existing static TF.
+    extrinsicTrans: [0.0, 0.0, -0.11]
     
     extrinsicRot:    [1.0,  0.0,  0.0,
                        0.0,  1.0,  0.0,
@@ -89,15 +100,28 @@
 
     # Loop closure
     loopClosureEnableFlag: true
-    loopClosureFrequency: 10.0                     # Hz, regulate loop closure constraint add frequency
+    loopClosureFrequency: 1.0                      # Hz, conservative online loop-closure check rate
     surroundingKeyframeSize: 50                   # submap size (when loop closure enabled)
     historyKeyframeSearchRadius: 15.0             # meters, key frame that is within n meters from
     # current pose will be considerd for loop closure
-    historyKeyframeSearchTimeDiff: 30.0           # seconds, key frame that is n seconds older will be
+    historyKeyframeSearchTimeDiff: 60.0           # seconds, reject nearby-in-time corridor matches
     # considered for loop closure
     historyKeyframeSearchNum: 25                  # number of hostory key frames will be fused into a
     # submap for loop closure
-    historyKeyframeFitnessScore: 0.5              # icp threshold, the smaller the better alignment
+    historyKeyframeFitnessScore: 0.30             # conservative ICP threshold; smaller is better
+    loopClosureMaxCorrespondenceDistance: 2.0     # meters, fixed ICP correspondence gate
+    loopClosureMinOverlap: 0.55                   # minimum 2 m inlier ratio
+    scanToMapMaxCorrectionTranslation: 0.30       # meters from prediction to optimized scan pose
+    scanToMapMaxCorrectionRotation: 0.087266463   # radians (5 degrees)
+
+    # Odom continuity guard. Keep 5 cm / 1 degree at normal cadence; only
+    # expand planar motion for delayed output, capped at 0.30 m / 5 degrees.
+    # Vertical input and every published output remain capped at 5 cm / 1 degree.
+    odomContinuityMaximumDtSec: 0.20
+    odomContinuityTranslationMargin: 0.005
+    odomContinuityYawMargin: 0.003490659           # 0.2 degrees
+    odomContinuityMaximumLinearSpeed: 2.0          # m/s, allowance calculation clamp
+    odomContinuityMaximumYawSpeed: 1.0             # rad/s, allowance calculation clamp
 
     # Visualization
     globalMapVisualizationSearchRadius: 1000.0    # meters, global map visualization radius

@@ -80,10 +80,12 @@ public:
     string baselinkFrame;
     string odometryFrame;
     string mapFrame;
+    string mappingFrame;
 
     // GPS Settings
     bool useImuHeadingInitialization;
     bool useGpsElevation;
+    bool useGpsFactor;
     float gpsCovThreshold;
     float poseCovThreshold;
 
@@ -146,6 +148,10 @@ public:
     float historyKeyframeSearchTimeDiff;
     int   historyKeyframeSearchNum;
     float historyKeyframeFitnessScore;
+    float loopClosureMaxCorrespondenceDistance;
+    float loopClosureMinOverlap;
+    float scanToMapMaxCorrectionTranslation;
+    float scanToMapMaxCorrectionRotation;
 
     // global map visualization radius
     float globalMapVisualizationSearchRadius;
@@ -171,11 +177,15 @@ public:
         get_parameter("odometryFrame", odometryFrame);
         declare_parameter("mapFrame", "map");
         get_parameter("mapFrame", mapFrame);
+        declare_parameter("mappingFrame", "lio_map");
+        get_parameter("mappingFrame", mappingFrame);
 
         declare_parameter("useImuHeadingInitialization", false);
         get_parameter("useImuHeadingInitialization", useImuHeadingInitialization);
         declare_parameter("useGpsElevation", false);
         get_parameter("useGpsElevation", useGpsElevation);
+        declare_parameter("useGpsFactor", false);
+        get_parameter("useGpsFactor", useGpsFactor);
         declare_parameter("gpsCovThreshold", 2.0);
         get_parameter("gpsCovThreshold", gpsCovThreshold);
         declare_parameter("poseCovThreshold", 25.0);
@@ -300,6 +310,14 @@ public:
         get_parameter("historyKeyframeSearchNum", historyKeyframeSearchNum);
         declare_parameter("historyKeyframeFitnessScore", 0.3);
         get_parameter("historyKeyframeFitnessScore", historyKeyframeFitnessScore);
+        declare_parameter("loopClosureMaxCorrespondenceDistance", 2.0);
+        get_parameter("loopClosureMaxCorrespondenceDistance", loopClosureMaxCorrespondenceDistance);
+        declare_parameter("loopClosureMinOverlap", 0.55);
+        get_parameter("loopClosureMinOverlap", loopClosureMinOverlap);
+        declare_parameter("scanToMapMaxCorrectionTranslation", 0.30);
+        get_parameter("scanToMapMaxCorrectionTranslation", scanToMapMaxCorrectionTranslation);
+        declare_parameter("scanToMapMaxCorrectionRotation", 0.087266463);
+        get_parameter("scanToMapMaxCorrectionRotation", scanToMapMaxCorrectionRotation);
 
         declare_parameter("globalMapVisualizationSearchRadius", 1000.0);
         get_parameter("globalMapVisualizationSearchRadius", globalMapVisualizationSearchRadius);

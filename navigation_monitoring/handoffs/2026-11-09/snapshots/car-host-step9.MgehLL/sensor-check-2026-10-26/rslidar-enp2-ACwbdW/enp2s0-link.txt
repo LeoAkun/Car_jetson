@@ -1,0 +1,3 @@
+carrier=1
+speed=100
+duplex=full

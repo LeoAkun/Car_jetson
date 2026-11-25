@@ -1,0 +1,35 @@
+condition_name: d2p50_am10_r01
+recorded_at: '2026-08-24T18:29:06.904558+08:00'
+operator: akun
+distance_m: 2.5
+expected_range_m: 2.1
+expected_range_source: external_approximate_measurement
+measured_dock_normal_angle_deg: -10.0
+angle_measurement_source: external_visual_estimate
+angle_measurement_quality: approximate_not_instrument_measured
+angle_sign_convention: positive_when_vehicle_rear_points_right
+vehicle_rear_deflection: left
+dock_angle_deg: -10
+lateral_offset_m: 0.0
+roi_center_deg: -9.0
+roi_min_deg: -12.0
+roi_max_deg: -6.0
+duration_sec: 15.0
+repeat: 1
+scan_topic: /laser/scan_back
+target_structure: dock_front_right_flat_face
+excluded_structure: central_protrusion_and_side_wall_transition
+topics:
+- /laser/scan_back
+- /laser/scan_front
+- /tf
+- /tf_static
+- /lio_sam/mapping/odometry
+- /lio_sam/mapping/odometry_incremental
+- /NED_odometry
+- /odom
+- /vehicle_status
+note: base_link-to-dock nominal=2.5m; rear of vehicle visually estimated to point
+  left by approximately 10deg; angle not instrument-measured; dock front-right flat
+  face; excludes central protrusion and side-wall transition; external approximate
+  lidar range=2.1m; static vehicle

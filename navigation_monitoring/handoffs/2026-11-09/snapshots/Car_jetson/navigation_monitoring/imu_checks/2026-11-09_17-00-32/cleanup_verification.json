@@ -1,0 +1,7 @@
+{
+  "completed_at": "2026-11-09T17:04:02.977848+08:00",
+  "driver_group": 26786,
+  "signal": "SIGINT",
+  "remaining_driver_pids": [],
+  "scope": "Only IMU driver was launched; no navigation or chassis control."
+}

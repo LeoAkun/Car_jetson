@@ -1,0 +1,480 @@
+{
+  "time": "2026-11-11T13:10:26.926194+08:00",
+  "domain": 88,
+  "localhost_only": true,
+  "params": {
+    "/local_costmap/local_costmap": {
+      "use_sim_time": false,
+      "global_frame": "odom",
+      "robot_base_frame": "base_link",
+      "update_frequency": 20.0,
+      "publish_frequency": 20.0,
+      "footprint": "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]",
+      "footprint_padding": 0.02,
+      "robot_radius": 0.1,
+      "resolution": 0.05,
+      "plugins": [
+        "obstacle_layer",
+        "inflation_layer"
+      ],
+      "obstacle_layer.observation_sources": "scan",
+      "obstacle_layer.scan.topic": "/laser/scan_merge_laser",
+      "rolling_window": true,
+      "width": 15,
+      "height": 15
+    },
+    "/global_costmap/global_costmap": {
+      "use_sim_time": false,
+      "global_frame": "map",
+      "robot_base_frame": "base_link",
+      "update_frequency": 5.0,
+      "publish_frequency": 1.0,
+      "footprint": "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]",
+      "footprint_padding": 0.02,
+      "robot_radius": 0.1,
+      "resolution": 0.05,
+      "plugins": [
+        "static_layer",
+        "obstacle_layer",
+        "inflation_layer"
+      ],
+      "obstacle_layer.observation_sources": "scan",
+      "obstacle_layer.scan.topic": "/laser/scan_merge_laser",
+      "rolling_window": false,
+      "width": 5,
+      "height": 5
+    }
+  },
+  "nodes": [
+    "/_ros2cli_daemon_88_7f70e8fbba744e7d97813a9e72aed102",
+    "/ahrs_bringup",
+    "/behavior_server",
+    "/bt_navigator",
+    "/bt_navigator_navigate_through_poses_rclcpp_node",
+    "/bt_navigator_navigate_to_pose_rclcpp_node",
+    "/controller_server",
+    "/global_costmap/global_costmap",
+    "/indoor_parameter_evidence",
+    "/indoor_startup_observer",
+    "/launch_ros_11162",
+    "/lifecycle_manager_localization",
+    "/lifecycle_manager_navigation",
+    "/local_costmap/local_costmap",
+    "/map_server",
+    "/nav2_container",
+    "/planner_server",
+    "/pointcloud_to_laserscan",
+    "/rslidar_converter",
+    "/rslidar_sdk/param_handle",
+    "/rslidar_sdk/rslidar_points_destination_0",
+    "/smoother_server",
+    "/transform_listener_impl_5b999e3fea10",
+    "/transform_listener_impl_722a90002780",
+    "/transform_listener_impl_722a98003e50",
+    "/transform_listener_impl_722aa0030df0",
+    "/transform_listener_impl_722aa4002370",
+    "/velocity_smoother",
+    "/waypoint_follower"
+  ],
+  "velocity_topics": {
+    "/cmd_vel_teleop": {
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ],
+      "publishers": [],
+      "subscriptions": [
+        {
+          "node": "/behavior_server",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ]
+    },
+    "/indoor_startup/cmd_vel": {
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ],
+      "publishers": [
+        {
+          "node": "/velocity_smoother",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ],
+      "subscriptions": [
+        {
+          "node": "/indoor_startup_observer",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ]
+    },
+    "/indoor_startup/cmd_vel_nav": {
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ],
+      "publishers": [
+        {
+          "node": "/controller_server",
+          "type": "geometry_msgs/msg/Twist"
+        },
+        {
+          "node": "/behavior_server",
+          "type": "geometry_msgs/msg/Twist"
+        },
+        {
+          "node": "/behavior_server",
+          "type": "geometry_msgs/msg/Twist"
+        },
+        {
+          "node": "/behavior_server",
+          "type": "geometry_msgs/msg/Twist"
+        },
+        {
+          "node": "/behavior_server",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ],
+      "subscriptions": [
+        {
+          "node": "/indoor_startup_observer",
+          "type": "geometry_msgs/msg/Twist"
+        },
+        {
+          "node": "/velocity_smoother",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ]
+    },
+    "/indoor_startup/cmd_vel_smoothed": {
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ],
+      "publishers": [],
+      "subscriptions": [
+        {
+          "node": "/indoor_startup_observer",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ]
+    }
+  },
+  "scan_endpoints": {
+    "publishers": [
+      {
+        "node": "/pointcloud_to_laserscan",
+        "type": "sensor_msgs/msg/LaserScan"
+      }
+    ],
+    "subscriptions": [
+      {
+        "node": "/indoor_startup_observer",
+        "type": "sensor_msgs/msg/LaserScan"
+      },
+      {
+        "node": "/local_costmap/local_costmap",
+        "type": "sensor_msgs/msg/LaserScan"
+      },
+      {
+        "node": "/global_costmap/global_costmap",
+        "type": "sensor_msgs/msg/LaserScan"
+      }
+    ]
+  },
+  "production_comparison": {
+    "local_costmap": {
+      "use_sim_time": {
+        "expected": false,
+        "actual": false,
+        "equal": true
+      },
+      "global_frame": {
+        "expected": "odom",
+        "actual": "odom",
+        "equal": true
+      },
+      "robot_base_frame": {
+        "expected": "base_link",
+        "actual": "base_link",
+        "equal": true
+      },
+      "update_frequency": {
+        "expected": 20.0,
+        "actual": 20.0,
+        "equal": true
+      },
+      "publish_frequency": {
+        "expected": 20.0,
+        "actual": 20.0,
+        "equal": true
+      },
+      "footprint": {
+        "expected": "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]",
+        "actual": "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]",
+        "equal": true
+      },
+      "footprint_padding": {
+        "expected": 0.02,
+        "actual": 0.02,
+        "equal": true
+      },
+      "robot_radius": {
+        "expected": null,
+        "actual": 0.1,
+        "equal": false
+      },
+      "resolution": {
+        "expected": 0.05,
+        "actual": 0.05,
+        "equal": true
+      },
+      "plugins": {
+        "expected": [
+          "obstacle_layer",
+          "inflation_layer"
+        ],
+        "actual": [
+          "obstacle_layer",
+          "inflation_layer"
+        ],
+        "equal": true
+      },
+      "obstacle_layer.observation_sources": {
+        "expected": "scan",
+        "actual": "scan",
+        "equal": true
+      },
+      "obstacle_layer.scan.topic": {
+        "expected": "/laser/scan_merge_laser",
+        "actual": "/laser/scan_merge_laser",
+        "equal": true
+      },
+      "rolling_window": {
+        "expected": true,
+        "actual": true,
+        "equal": true
+      },
+      "width": {
+        "expected": 15,
+        "actual": 15,
+        "equal": true
+      },
+      "height": {
+        "expected": 15,
+        "actual": 15,
+        "equal": true
+      }
+    },
+    "global_costmap": {
+      "use_sim_time": {
+        "expected": false,
+        "actual": false,
+        "equal": true
+      },
+      "global_frame": {
+        "expected": "map",
+        "actual": "map",
+        "equal": true
+      },
+      "robot_base_frame": {
+        "expected": "base_link",
+        "actual": "base_link",
+        "equal": true
+      },
+      "update_frequency": {
+        "expected": 5.0,
+        "actual": 5.0,
+        "equal": true
+      },
+      "publish_frequency": {
+        "expected": 1.0,
+        "actual": 1.0,
+        "equal": true
+      },
+      "footprint": {
+        "expected": "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]",
+        "actual": "[[-0.43, -0.28], [-0.43, 0.28], [0.43, 0.28], [0.43, -0.28]]",
+        "equal": true
+      },
+      "footprint_padding": {
+        "expected": 0.02,
+        "actual": 0.02,
+        "equal": true
+      },
+      "robot_radius": {
+        "expected": null,
+        "actual": 0.1,
+        "equal": false
+      },
+      "resolution": {
+        "expected": 0.05,
+        "actual": 0.05,
+        "equal": true
+      },
+      "plugins": {
+        "expected": [
+          "static_layer",
+          "obstacle_layer",
+          "inflation_layer"
+        ],
+        "actual": [
+          "static_layer",
+          "obstacle_layer",
+          "inflation_layer"
+        ],
+        "equal": true
+      },
+      "obstacle_layer.observation_sources": {
+        "expected": "scan",
+        "actual": "scan",
+        "equal": true
+      },
+      "obstacle_layer.scan.topic": {
+        "expected": "/laser/scan_merge_laser",
+        "actual": "/laser/scan_merge_laser",
+        "equal": true
+      },
+      "rolling_window": {
+        "expected": null,
+        "actual": false,
+        "equal": false
+      },
+      "width": {
+        "expected": null,
+        "actual": 5,
+        "equal": false
+      },
+      "height": {
+        "expected": null,
+        "actual": 5,
+        "equal": false
+      }
+    }
+  },
+  "obstacle_data": {
+    "time": "2026-11-11T13:11:00.176050+08:00",
+    "topics": {
+      "/laser/scan_merge_laser": {
+        "frame": "base_link",
+        "stamp_sec": 1794373860.1797576,
+        "count": 720,
+        "finite_count": 712,
+        "inf_count": 8,
+        "nan_count": 0,
+        "min_range": 0.3001459538936615,
+        "max_range": 6.478978633880615,
+        "declared_range_min": 0.30000001192092896,
+        "declared_range_max": 30.0,
+        "in_declared_range_count": 712
+      },
+      "/rslidar_Pointcloud2": {
+        "frame": "rslidar",
+        "stamp_sec": 1794373860.2793007,
+        "points": 57600,
+        "finite_xyz_count": 54341,
+        "bounds": {
+          "x": [
+            -2.644810438156128,
+            6.6864013671875
+          ],
+          "y": [
+            -5.402537822723389,
+            4.6173906326293945
+          ],
+          "z": [
+            -1.2257219552993774,
+            1.7756482362747192
+          ]
+        },
+        "eligible_scan_height_count": 33146,
+        "eligible_scan_height_and_range_count": 29107
+      },
+      "/local_costmap/costmap": {
+        "frame": "odom",
+        "stamp_sec": 1794373861.5185235,
+        "width": 300,
+        "height": 300,
+        "resolution": 0.05000000074505806,
+        "cells": 90000,
+        "unknown_count": 0,
+        "free_count": 86418,
+        "positive_count": 3582,
+        "occupied_100_count": 26,
+        "value_counts": {
+          "0": 86418,
+          "28": 22,
+          "29": 117,
+          "31": 52,
+          "32": 49,
+          "33": 63,
+          "34": 52,
+          "35": 46,
+          "36": 86,
+          "37": 94,
+          "41": 121,
+          "43": 109,
+          "45": 58,
+          "46": 98,
+          "51": 59,
+          "52": 95,
+          "55": 62,
+          "58": 127,
+          "59": 32,
+          "62": 63,
+          "65": 70,
+          "70": 64,
+          "72": 71,
+          "74": 98,
+          "76": 38,
+          "82": 74,
+          "88": 63,
+          "90": 80,
+          "95": 75,
+          "99": 1518,
+          "100": 26
+        }
+      },
+      "/global_costmap/costmap": {
+        "frame": "map",
+        "stamp_sec": 1794373862.2877018,
+        "width": 400,
+        "height": 400,
+        "resolution": 0.10000000149011612,
+        "cells": 160000,
+        "unknown_count": 0,
+        "free_count": 159625,
+        "positive_count": 375,
+        "occupied_100_count": 4,
+        "value_counts": {
+          "0": 159625,
+          "97": 16,
+          "34": 24,
+          "99": 96,
+          "36": 36,
+          "90": 31,
+          "100": 4,
+          "72": 28,
+          "46": 24,
+          "52": 12,
+          "22": 12,
+          "55": 26,
+          "24": 22,
+          "26": 12,
+          "59": 12,
+          "29": 20
+        }
+      }
+    }
+  },
+  "diagnostic_warning_review": {
+    "warning": "缓冲区内有效点数为 0！雷达数据在此处丢失。",
+    "source": "/home/akun/workspace/Car_jetson/nav2/src/navigation2/nav2_costmap_2d/plugins/obstacle_layer.cpp",
+    "initialization_line": 468,
+    "condition_line": 553,
+    "warning_line": 559,
+    "finding": "total_points is initialized to 0 and is never incremented before this condition; the warning always fires even when marked_points and occupied costmap cells are nonzero.",
+    "source_total_points_occurrences": [
+      468,
+      553,
+      556
+    ],
+    "source_changed": false
+  }
+}

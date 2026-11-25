@@ -1,8 +1,19 @@
 # Request
 geometry_msgs/PoseWithCovarianceStamped initial_pose
+string session_id
+string map_id
+builtin_interfaces/Time session_start
+uint64 observation_id
+bool refresh_cloud
+builtin_interfaces/Time min_cloud_stamp
 ---
 
 # Response
 bool success
 float64 fitness_score
 geometry_msgs/PoseWithCovarianceStamped pose
+string session_id
+string map_id
+builtin_interfaces/Time cloud_stamp
+uint64 observation_id
+string message

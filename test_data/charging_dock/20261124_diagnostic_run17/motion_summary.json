@@ -1,0 +1,60 @@
+{
+  "counts": {
+    "/vehicle_status": 204,
+    "/docking_feedback_odometry/state": 102,
+    "/charging_dock/local_odom": 102,
+    "/cmd_vel_selected": 102,
+    "/ecu": 102,
+    "/cmd_vel_dock": 51,
+    "/laser/scan_back": 60,
+    "/standalone_docking/state": 41,
+    "/charging_dock/emergency_stop": 40
+  },
+  "transitions": [
+    {
+      "t": 0.016561952001211466,
+      "topic": "/docking_feedback_odometry/state",
+      "state": "valid"
+    },
+    {
+      "t": 0.04869076100112579,
+      "topic": "/standalone_docking/state",
+      "state": "FAILED reason=multiple_ecu_publishers"
+    }
+  ],
+  "final_vehicle": {
+    "header": {
+      "stamp": {
+        "sec": 1795503119,
+        "nanosec": 486347450
+      },
+      "frame_id": ""
+    },
+    "cur_speed": 0.0,
+    "cur_steer": -0.33750003576278687,
+    "left_wheel_speed": 0.0,
+    "right_wheel_speed": 0.0,
+    "wheel_direction": 0,
+    "shift_level": 2,
+    "drive_mode": 1,
+    "is_autodrive": true,
+    "p_status": false
+  },
+  "final_ecu": {
+    "header": {
+      "stamp": {
+        "sec": 1795503119,
+        "nanosec": 485545420
+      },
+      "frame_id": "base_link"
+    },
+    "motor": 0.0,
+    "steer": 0.0,
+    "brake": false,
+    "set_torque": false,
+    "rear_wheel_flag": true,
+    "shift": 2
+  },
+  "final_state": "FAILED reason=multiple_ecu_publishers",
+  "start_service_called": false
+}

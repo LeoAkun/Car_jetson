@@ -1,0 +1,12 @@
+{
+  "stage": "smoke_idle",
+  "duration_s": 3,
+  "workers": 0,
+  "temperature_limit_c": 95.0,
+  "sample_interval_s": 1.0,
+  "started_at": "2026-10-08T11:35:59+08:00",
+  "boot_id": "58405c89-381e-4691-b640-779ca667f4a5",
+  "hostname": "yunle-Default-string",
+  "kernel": "6.8.0-138-generic",
+  "cpu_count": 12
+}

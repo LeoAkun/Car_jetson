@@ -1,0 +1,174 @@
+{
+  "time": "2026-11-09T15:53:58.233390+08:00",
+  "operator_request": "结束本次测试，我已经人工接管小车",
+  "reason": "operator_stop",
+  "brake_command_sent": false,
+  "signals": [
+    {
+      "pgid": 22674,
+      "signal": "SIGINT",
+      "members": [
+        {
+          "pid": 22674,
+          "cmd": "/usr/bin/python3 /opt/ros/humble/bin/ros2 launch /home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/management_reuse_reporter.launch.py "
+        },
+        {
+          "pid": 22676,
+          "cmd": "/usr/bin/python3 /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/process_manager --ros-args -r __node:=process_manager --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml "
+        },
+        {
+          "pid": 22678,
+          "cmd": "/usr/bin/python3 /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/mqtt_task_receiver --ros-args -r __node:=mqtt_task_receiver --params-file /home/akun/workspace/Car_jetson/navigation_monitoring/field_test_mqtt_local.yaml "
+        },
+        {
+          "pid": 22680,
+          "cmd": "/usr/bin/python3 /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/route_planner --ros-args -r __node:=route_planner "
+        },
+        {
+          "pid": 22682,
+          "cmd": "/usr/bin/python3 /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/navigation_manager --ros-args -r __node:=navigation_manager --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml "
+        },
+        {
+          "pid": 22684,
+          "cmd": "/usr/bin/python3 /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/lib/multi_map_navigation/map_switch_controller --ros-args -r __node:=map_switch_controller --params-file /home/akun/workspace/Car_jetson/multi_map_navigation/install/multi_map_navigation/share/multi_map_navigation/config/navigation_config.yaml "
+        }
+      ]
+    },
+    {
+      "pgid": 23338,
+      "signal": "SIGINT",
+      "members": [
+        {
+          "pid": 23391,
+          "cmd": "/opt/ros/humble/lib/rclcpp_components/component_container_isolated --ros-args --log-level warn --ros-args -r __node:=nav2_container --params-file /tmp/launch_params_v6o81i8o --params-file /tmp/launch_params_pm4n2uel -r /tf:=tf -r /tf_static:=tf_static "
+        }
+      ]
+    },
+    {
+      "pgid": 22673,
+      "signal": "SIGINT",
+      "members": [
+        {
+          "pid": 22673,
+          "cmd": "/usr/bin/python3 /opt/ros/humble/bin/ros2 launch launch_real run.launch.py "
+        },
+        {
+          "pid": 22706,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x 0.35 --y 0.0 --z 0.51 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id base_link --child-frame-id livox_frame --ros-args -r __node:=static_mid360_publisher "
+        },
+        {
+          "pid": 22710,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x 0.35 --y 0.0 --z 0.51 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id base_link --child-frame-id rslidar --ros-args -r __node:=static_mid360_publisher "
+        },
+        {
+          "pid": 22713,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x 0.0 --y 0.0 --z -0.11 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id livox_frame --child-frame-id imu_link --ros-args -r __node:=static_imu_publisher "
+        },
+        {
+          "pid": 22715,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x -0.7 --y 0.03 --z 0.0 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id livox_frame --child-frame-id gnss_link --ros-args -r __node:=static_gnss_publisher "
+        },
+        {
+          "pid": 22812,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/fdilink_ahrs/lib/fdilink_ahrs/ahrs_driver_node --ros-args --params-file /tmp/launch_params_ot3_50w4 "
+        },
+        {
+          "pid": 22814,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/chassis_driver/lib/chassis_driver/chassis_driver_node --ros-args -r __node:=chassis_driver --params-file /tmp/launch_params_8j297vn4 --params-file /tmp/launch_params_h1my0efu --params-file /tmp/launch_params_rfv_0ooi --params-file /tmp/launch_params_w8vvmrvf --params-file /tmp/launch_params_1n2dv35y --params-file /tmp/launch_params_wyy43r1s --params-file /tmp/launch_params_77717atb --params-file /tmp/launch_params_tb99h_ct --params-file /tmp/launch_params_fmieta4j --params-file /tmp/launch_params_6d8nzv_l --params-file /tmp/launch_params_d_y1pwor --params-file /tmp/launch_params_ypymr75e --params-file /tmp/launch_params_buryxrfm --params-file /tmp/launch_params_ir21f463 "
+        },
+        {
+          "pid": 22816,
+          "cmd": "/usr/bin/python3 /home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/lib/cmdvel_2_ecu/cmdvel_2_ecu --ros-args --params-file /home/akun/workspace/Car_jetson/real_ws/install/cmdvel_2_ecu/share/cmdvel_2_ecu/config/config.yaml "
+        },
+        {
+          "pid": 22818,
+          "cmd": "/home/akun/.venvs/car-host/bin/python /home/akun/workspace/Car_jetson/real_ws/install/alarm_controller/lib/alarm_controller/alarm_controller --ros-args -r __node:=alarm_controller --params-file /home/akun/workspace/Car_jetson/real_ws/install/alarm_controller/share/alarm_controller/config/alarm_controller.yaml "
+        },
+        {
+          "pid": 22824,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/gnss_converter/lib/gnss_converter/gnss_converter_node --ros-args -r __node:=gnss_converter_node --params-file /tmp/launch_params_5ni8xzbe "
+        },
+        {
+          "pid": 22832,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/lock_controller/lib/lock_controller/lock_controller_node --ros-args -r __node:=lock_controller --params-file /home/akun/workspace/Car_jetson/real_ws/install/lock_controller/share/lock_controller/config/lock_controller.yaml "
+        },
+        {
+          "pid": 22847,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/lakibeam1/lib/lakibeam1/lakibeam1_scan_node --ros-args -r __node:=richbeam_lidar_node0 --params-file /tmp/launch_params_wh1mr3ix "
+        },
+        {
+          "pid": 22850,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/lakibeam1/lib/lakibeam1/lakibeam1_scan_node --ros-args -r __node:=richbeam_lidar_node1 --params-file /tmp/launch_params_rrudcpeq "
+        },
+        {
+          "pid": 22853,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x 0.43 --y 0.28 --z 0.15 --roll 0.0 --pitch 0.0 --yaw 0.7853981633974483 --frame-id base_link --child-frame-id front_laser --ros-args -r __node:=static_front_laser_publisher "
+        },
+        {
+          "pid": 22856,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x -0.43 --y -0.28 --z 0.15 --roll 0.0 --pitch 0.0 --yaw 3.9269908169872414 --frame-id base_link --child-frame-id rear_laser --ros-args -r __node:=static_rear_laser_publisher "
+        },
+        {
+          "pid": 22860,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/ros2_laser_scan_merger/lib/ros2_laser_scan_merger/ros2_laser_scan_merger --ros-args --params-file /home/akun/workspace/Car_jetson/real_ws/install/ros2_laser_scan_merger/share/ros2_laser_scan_merger/config/params.yaml "
+        },
+        {
+          "pid": 22864,
+          "cmd": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher --x 0 --y 0 --z 0.6 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id base_link --child-frame-id laser_link --ros-args -r __node:=static_laser_publisher "
+        },
+        {
+          "pid": 22866,
+          "cmd": "/opt/ros/humble/lib/pointcloud_to_laserscan/pointcloud_to_laserscan_node --ros-args -r __node:=pointcloud_to_laserscan --params-file /home/akun/workspace/Car_jetson/real_ws/install/ros2_laser_scan_merger/share/ros2_laser_scan_merger/config/params.yaml -r cloud_in:=/laser/scan_merge -r scan:=/laser/scan_merge_laser "
+        },
+        {
+          "pid": 22992,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/convert_laser/lib/convert_laser/convert --ros-args "
+        },
+        {
+          "pid": 22994,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/rslidar_sdk/lib/rslidar_sdk/rslidar_sdk_node --ros-args -r __ns:=/rslidar_sdk --params-file /tmp/launch_params_6nasbob9 "
+        },
+        {
+          "pid": 22996,
+          "cmd": "/home/akun/workspace/Car_jetson/real_ws/install/rslidar_sdk/lib/rslidar_sdk/rslidar_convert_node --ros-args -r __node:=rslidar_converter "
+        },
+        {
+          "pid": 23032,
+          "cmd": "/opt/ros/humble/lib/realsense2_camera/realsense2_camera_node --ros-args --log-level info --ros-args -r __node:=front_depth_camera -r __ns:=/camera --params-file /tmp/launch_params_8627mn2j --params-file /tmp/launch_params_2m_ey9ej "
+        }
+      ]
+    },
+    {
+      "pgid": 22672,
+      "signal": "SIGINT",
+      "members": [
+        {
+          "pid": 22672,
+          "cmd": "python3 /home/akun/workspace/Car_jetson/navigation_monitoring/nav_task_monitor.py --output /home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/monitor.raw.jsonl "
+        }
+      ]
+    },
+    {
+      "pgid": 22671,
+      "signal": "SIGINT",
+      "members": [
+        {
+          "pid": 22671,
+          "cmd": "/usr/bin/python3 /opt/ros/humble/bin/ros2 bag record -o /home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-09_15-47-22/navigation_core_bag --max-bag-size 536870912 /tf /tf_static /imu /laser/scan_front /laser/scan_back /laser/scan_merge_laser /cmd_vel /cmd_vel_nav /ecu /vehicle_status /odom /odom_incremental /lio_sam/mapping/odometry /lio_sam/mapping/odometry_incremental /odometry/filtered_local /sensing/gnss/pose_with_covariance /plan /navigate_to_pose/_action/feedback /navigate_to_pose/_action/status /robot_state /robot_status /waypoint_list /start_end_graph /process_manager/fault /global_costmap/costmap_raw /local_costmap/costmap_raw /rosout /rslidar_Pointcloud2 /map "
+        }
+      ]
+    },
+    {
+      "pid": 23391,
+      "signal": "SIGTERM",
+      "reason": "Nav2 container did not exit after SIGINT",
+      "cmd": "/opt/ros/humble/lib/rclcpp_components/component_container_isolated --ros-args --log-level warn --ros-args -r __node:=nav2_container --params-file /tmp/launch_params_v6o81i8o --params-file /tmp/launch_params_pm4n2uel -r /tf:=tf -r /tf_static:=tf_static "
+    },
+    {
+      "pid": 23391,
+      "signal": "SIGKILL",
+      "reason": "Nav2 container still unresponsive after SIGINT and SIGTERM"
+    }
+  ],
+  "boot_id": "c0655125-d5e3-4420-bd94-382edb4858a7"
+}

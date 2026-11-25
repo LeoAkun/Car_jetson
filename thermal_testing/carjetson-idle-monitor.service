@@ -1,0 +1,19 @@
+[Unit]
+Description=CarJetson idle crash monitor
+After=local-fs.target
+
+[Service]
+Type=simple
+User=akun
+Group=akun
+WorkingDirectory=/home/akun/workspace/Car_jetson
+ExecStart=/usr/bin/python3 /home/akun/workspace/Car_jetson/thermal_testing/idle_crash_monitor.py --duration 86400 --interval 1 --label boot_idle_watch
+Restart=always
+RestartSec=5
+Nice=10
+IOSchedulingClass=idle
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

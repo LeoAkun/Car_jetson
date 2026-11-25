@@ -1,0 +1,94 @@
+command_mux:
+  ros__parameters:
+    output_topic: /cmd_vel_selected
+    nav_topic: /cmd_vel_nav
+    legacy_nav_topic: /cmd_vel
+    dock_topic: /cmd_vel_dock
+    command_timeout_sec: 0.20
+    handoff_stop_cycles: 3
+
+active_docking_controller:
+  ros__parameters:
+    scan_topic: /laser/scan_back
+    odom_topic: /lio_sam/mapping/odometry
+    vehicle_status_topic: /vehicle_status
+    command_topic: /cmd_vel_dock
+    state_topic: /charging_dock/state
+    pose_topic: /charging_dock/lidar_pose
+    quality_topic: /charging_dock/lidar_quality
+    control_frequency: 25.0
+
+    # The launch file overrides these from explicit command-line arguments.
+    dry_run: true
+    publish_nonzero_command: false
+
+    # Keep the first powered test to 0.10 m. Increase only after reviewing logs.
+    planned_reverse_distance_m: 2.04
+    run_distance_limit_m: 0.10
+    target_speed_mps: 0.06
+    final_speed_mps: 0.025
+    final_approach_distance_m: 0.90
+    stop_trigger_distance_m: 0.47
+    stop_distance_min_m: 0.45
+    stop_distance_max_m: 0.47
+    max_motion_distance_m: 2.30
+    max_duration_sec: 60.0
+    max_reverse_speed_mps: 0.10
+    max_actual_speed_mps: 0.15
+    max_actual_steer_deg: 10.0
+    max_steer_omega: 0.35
+    final_max_steer_omega: 0.10
+    max_lateral_error_m: 0.10
+    max_yaw_error_deg: 3.0
+    max_accel_mps2: 0.15
+    k_lateral: 0.8
+    k_yaw: 1.2
+    steering_sign: 1.0
+
+    # Stage 5 starts with longitudinal-only motion.
+    yaw_correction_enabled: false
+    lidar_yaw_gain: 0.5
+    lidar_yaw_sign: 1.0
+    lateral_correction_enabled: false
+    expected_lateral_center_m: 0.0
+    lidar_lateral_gain: 0.5
+    lidar_lateral_sign: 1.0
+
+    odom_timeout_sec: 0.20
+    scan_timeout_sec: 0.20
+    vehicle_status_timeout_sec: 0.20
+    acquire_timeout_sec: 5.0
+    precheck_stable_duration_sec: 1.0
+    stopped_speed_mps: 0.02
+    stop_stable_duration_sec: 0.50
+    stop_confirmation_timeout_sec: 2.0
+    lidar_odom_consistency_tolerance_m: 0.15
+
+    # Enable after the measured P0 map pose and tolerances are filled in.
+    start_pose_validation_enabled: false
+    p0_target_x: 0.0
+    p0_target_y: 0.0
+    p0_target_yaw: 0.0
+    p0_longitudinal_tolerance_m: 0.10
+    p0_lateral_tolerance_m: 0.05
+    p0_yaw_tolerance_deg: 1.0
+
+    roi_min_deg: -30.0
+    roi_max_deg: 30.0
+    expected_range_m: 2.50
+    expected_range_tolerance_m: 0.35
+    expected_angle_deg: 0.0
+    angle_tolerance_deg: 5.0
+    minimum_quality: 0.0
+    minimum_points: 5
+    stable_frames: 10
+    max_distance_jump_m: 0.10
+    min_target_width_m: 0.05
+    max_target_width_m: 0.60
+    max_fit_residual_m: 0.01
+    obstacle_range_m: 1.0
+    target_intrusion_margin_m: 0.15
+    expected_scan_frame: rear_laser
+    sensor_x_m: -0.43
+    sensor_y_m: -0.28
+    sensor_yaw_deg: -135.0

@@ -1,0 +1,260 @@
+{
+  "scope": "Historical analysis; no live vehicle controls or parameter changes performed during this analysis",
+  "client_timezone": "America/New_York",
+  "log_timezone": "Asia/Shanghai",
+  "map": "3b2mus",
+  "task_id": "task_1793612181",
+  "route": [
+    113,
+    106,
+    107
+  ],
+  "result": "ABORTED; not full-route acceptance",
+  "task_started": {
+    "Asia/Shanghai": "2026-11-02T17:36:21.628+08:00",
+    "America/New_York": "2026-11-02T04:36:21.628-05:00"
+  },
+  "terminal_confirmed": {
+    "Asia/Shanghai": "2026-11-02T17:53:02.259+08:00",
+    "America/New_York": "2026-11-02T04:53:02.259-05:00"
+  },
+  "goals": [
+    {
+      "waypoint": 113,
+      "status": "SUCCEEDED",
+      "time": {
+        "Asia/Shanghai": "2026-11-02T17:39:00.055+08:00",
+        "America/New_York": "2026-11-02T04:39:00.055-05:00"
+      }
+    },
+    {
+      "waypoint": 106,
+      "status": "SUCCEEDED",
+      "time": {
+        "Asia/Shanghai": "2026-11-02T17:46:24.706+08:00",
+        "America/New_York": "2026-11-02T04:46:24.706-05:00"
+      }
+    },
+    {
+      "waypoint": 107,
+      "status": "ABORTED",
+      "time": {
+        "Asia/Shanghai": "2026-11-02T17:52:44.131+08:00",
+        "America/New_York": "2026-11-02T04:52:44.131-05:00"
+      }
+    }
+  ],
+  "final_navigation_pose": {
+    "x": 120.62844870450596,
+    "y": -204.12869516243632,
+    "z": 1.4776527083475828,
+    "yaw": -1.5049794615742496,
+    "stamp": 1793613164.7352052
+  },
+  "final_distance_to_107_m": 45.41676456254181,
+  "navigation_peak_feedback_speed_kmh": 2.9000000953674316,
+  "nav2_log_counts": {
+    "optimizer_failure": 29,
+    "progress_failure": 1,
+    "backup_failure": 4,
+    "backup_collision_check": 4,
+    "control_rate_warning": 177,
+    "false_zero_points_warning": 914
+  },
+  "thermal_sample_window": {
+    "start": "2026-11-02T17:36:22.103+08:00",
+    "end": "2026-11-02T17:53:01.297+08:00",
+    "count": 971
+  },
+  "thermal": {
+    "cpu_peak_percent": 65.2,
+    "temperature_peak_c": 54.0,
+    "min_available_memory_gib": 24.22970199584961,
+    "package_throttle_max": 0,
+    "core_throttle_max": 0
+  },
+  "navigation_boot_ids": [
+    "5547afec-0740-4fd8-91ec-4a5b2746a064"
+  ],
+  "last_thermal_sample": {
+    "timestamp": "2026-11-02T18:10:39.675+08:00",
+    "elapsed_s": "3851.0",
+    "boot_id": "5547afec-0740-4fd8-91ec-4a5b2746a064",
+    "cpu_busy_pct": "4.0",
+    "load1": "1.30",
+    "load5": "1.24",
+    "freq_avg_mhz": "852.6",
+    "package_c": "33.0",
+    "core_max_c": "32.0",
+    "pch_c": "",
+    "mem_available_kib": "29873312",
+    "swap_free_kib": "2097148",
+    "package_throttle_count": "0",
+    "core_throttle_count": "0",
+    "c6_time_us": "2838253728",
+    "c8_time_us": "3306624316",
+    "c10_time_us": "96393136225",
+    "robot_processes": "14"
+  },
+  "later_boot_marker": {
+    "status": "ABNORMAL_REBOOT_DETECTED",
+    "started_at": "2026-11-02T17:06:28+08:00",
+    "boot_id": "5547afec-0740-4fd8-91ec-4a5b2746a064",
+    "duration_s": 86400,
+    "interval_s": 1.0,
+    "label": "nav_field_test",
+    "last_sample_at": "2026-11-02T18:10:38.640+08:00",
+    "last_elapsed_s": 3850.0,
+    "last_package_c": 32.0,
+    "last_cpu_busy_pct": 4.0,
+    "last_mem_available_kib": 29874920,
+    "samples": 3714,
+    "reason": "monitor restarted with a different host boot ID",
+    "detected_next_boot_id": "4a90152f-53db-4718-9f2e-463665c83b96",
+    "detected_next_boot_at": "2026-11-03T11:28:21+08:00"
+  },
+  "later_boot_marker_limit": "User confirmed deliberate shutdown/power-off in the intervening period; retain automatic marker as raw evidence but do not classify this later cross-boot record as an unexpected self-reboot or navigation-caused reboot",
+  "post_navigation_peak_feedback_speed_kmh": 5.300000190734863,
+  "brake_release_request_sent": false,
+  "brake_control_limit": "Superseded by operator confirmation: post-navigation motion was manual remote control, so it is excluded as a brake or autonomous motion fault. Historical commands retained; assistant is instructed not to proactively apply brakes.",
+  "observer_limit": "ecu.brake and ecu.shift are cached commands, not brake/shift feedback; vehicle observer omits p_status/shift_level; map pose is stale after navigation shutdown",
+  "speed_parameters_changed_during_test": false,
+  "first_attempt": "ABORTED before motion due missing installed general_nav_to_pose.xml; nav2 package resources rebuilt before second attempt",
+  "operator_power_off_confirmation": {
+    "confirmed_on_client_date": "2026-11-06",
+    "statement": "主动断电或关机过",
+    "covered_interval_log_timezone": "2026-11-02 after approximately 18:10 to 2026-11-03 morning, Asia/Shanghai",
+    "classification": "Known operator shutdown/power-off; later cross-boot marker excluded as evidence of unexpected self-reboot",
+    "limit": "Exact power-off time and mechanism not established; earlier pre-test unexpected boot remains a separate unresolved event"
+  },
+  "operator_manual_control_confirmation": {
+    "confirmed_on_client_date": "2026-11-06",
+    "statement": "测试后非零车速为人工遥控；制动问题排除；以后不需要主动制动，由人工干预",
+    "post_navigation_speed_classification": "operator remote control; not evidence of brake fault or autonomous navigation resumption",
+    "assistant_preference": "Do not proactively send braking commands; human intervention handles braking"
+  },
+  "mppi_failure_followup": {
+    "analysis_client_date": "2026-11-06",
+    "report": "MPPI_FAILURE_ANALYSIS.md",
+    "operator_observation": "straight route, no obstacle ahead; post-test movement was operator remote control",
+    "confirmed_issues": [
+      "normal-navigation m/s command number executed as km/h; TF displacement and chassis feedback support unit mismatch",
+      "optimizer fallback leaves fail_flag true and skips critic scoring on internal retry",
+      "LIO-SAM nav-frame linear velocity forwarded as odometry twist used by MPPI as body-forward speed"
+    ],
+    "stable_forward_intervals": 75,
+    "median_tf_speed_to_command": 0.2682374237607968,
+    "median_tf_speed_to_chassis_feedback_mps": 1.0015215944323155,
+    "first_collision_trigger": "not uniquely established; failed-time costmap and per-candidate first collision indices not saved",
+    "priority_check": "capture first collision critic, index, cell value, map bounds, scan/TF/footprint and candidate trajectories during forward optimization failure; do not prioritize near-body false collision based on backup failures",
+    "vehicle_control_commands_sent": false,
+    "control_parameter_or_source_edits": false,
+    "future_operator_preference": "human intervention; assistant does not proactively send braking commands",
+    "backup_collision_evidence": "excluded for now from software root-cause inference because operator reported possible people behind vehicle"
+  },
+  "operator_rear_obstacle_observation": {
+    "recorded_on_client_date": "2026-11-06",
+    "statement": "倒车恢复可能是因为我们站在后方导致，暂时先排除，先记录下来。",
+    "status": "possible real rear obstacle from personnel; not independently confirmed for each event",
+    "backup_collision_events_retained": 4,
+    "analysis_treatment": "temporarily exclude backup collision failures as evidence of software anomaly or near-body false collision; retain original logs and navigation outcome"
+  },
+  "odometry_record_search": {
+    "search_date_client": "2026-11-06",
+    "test_window_beijing": "2026-11-02 17:36:00–17:54:00 UTC+8",
+    "full_original_odom_found": false,
+    "scope": "accessible files under /home/akun, /tmp, /media, /mnt; includes ignored/hidden recording files; some system-private /tmp directories and /media/admin1 were not readable",
+    "rosbag2_metadata_checked": 96,
+    "sqlite_bag_databases_checked_read_only": 96,
+    "sqlite_databases_with_messages_in_test_window": 0,
+    "sqlite_databases_with_odometry_topics_any_date": 94,
+    "metadata_parse_errors": 0,
+    "sqlite_read_errors": 0,
+    "keyframe_pose_count": 479,
+    "keyframe_fields": [
+      "x",
+      "y",
+      "z",
+      "intensity",
+      "roll",
+      "pitch",
+      "yaw",
+      "time"
+    ],
+    "missing_original_odom_fields": [
+      "twist",
+      "pose/twist covariance",
+      "header.frame_id",
+      "child_frame_id",
+      "precise per-message header timestamps"
+    ],
+    "pcd_time_unique_values": 10,
+    "pcd_time_nonzero_step_seconds": 100,
+    "pcd_saved_time_values_are_quantized": true,
+    "observer_is_full_odom": false,
+    "observer_description": "2-second map-to-base_link TF summary with xyz/yaw/stamp; no original Odometry message body",
+    "evidence_files": [
+      {
+        "source": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/test/trajectory.pcd",
+        "preserved_copy": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/odometry_evidence/trajectory.pcd",
+        "sha256": "4f3adaf60ba2c4cbe879e1e62e496288d91682825c8d1fb48651f97f8a979ab5",
+        "source_mtime_epoch": 1793613164.761257,
+        "bytes": 16873
+      },
+      {
+        "source": "/home/akun/workspace/Car_jetson/slam/src/pcd_global/test/transformations.pcd",
+        "preserved_copy": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/odometry_evidence/transformations.pcd",
+        "sha256": "d52c6eb10f62166a4c2f0edce94339d9ec36479861ae13b60088bb46baf01378",
+        "source_mtime_epoch": 1793613164.7662573,
+        "bytes": 41424
+      }
+    ],
+    "report": "ODOMETRY_RECORD_SEARCH.md"
+  },
+  "speed_units_fix": {
+    "client_date": "2026-11-06",
+    "status": "software fixed, built, and installed; physical validation pending",
+    "ordinary_twist_linear_units": "m/s",
+    "ecu_motor_units": "km/h",
+    "normal_output_scale": 3.6,
+    "normal_target_limit_mps": 0.8333333333333333,
+    "normal_target_limit_kmh": 3.0,
+    "production_low_speed_compensation_kmh": 0.8,
+    "bare_default_low_speed_compensation_kmh": 0.3,
+    "forward_offset_kmh": 0.03,
+    "navigation_and_smoother_linear_parameters_migrated": true,
+    "ordinary_converter_final_limit_includes_compensation": true,
+    "steering_uses_signed_si_request_not_motor_bias": true,
+    "docking_keeps_independent_existing_scaling_and_limit": true,
+    "installed_module_and_config_equal_source": true,
+    "build": "colcon build --packages-select cmdvel_2_ecu --allow-overriding cmdvel_2_ecu --event-handlers console_direct+",
+    "offline_installed_pytest": {
+      "tests": 54,
+      "failures_and_errors": 0,
+      "junit": "speed_units_fix_20261106/pytest_installed.xml",
+      "creates_ros_nodes_or_publishers": false
+    },
+    "independent_review_boundary_cases": 238,
+    "physical_test_performed": false,
+    "vehicle_control_commands_sent": false,
+    "vehicle_nodes_started_or_restarted": false,
+    "unresolved_separate_issues": [
+      "MPPI fallback stale failure flag",
+      "odometry velocity frame contract",
+      "first collision cell not retained in historical logs"
+    ],
+    "report": "speed_units_fix_20261106/RESULT.md",
+    "rollback_snapshot": "speed_units_fix_20261106/before/",
+    "scoped_patch": "speed_units_fix_20261106/speed_units.patch",
+    "changed_source_files": [
+      "real_ws/src/driver/car_control/cmdvel_2_ecu/cmdvel_2_ecu/convert.py",
+      "real_ws/src/driver/car_control/cmdvel_2_ecu/config/config.yaml",
+      "real_ws/src/driver/car_control/cmdvel_2_ecu/config/docking_config.yaml",
+      "real_ws/src/driver/car_control/cmdvel_2_ecu/test/test_docking_conversion.py",
+      "real_ws/src/driver/car_control/cmdvel_2_ecu/package.xml",
+      "real_ws/src/driver/car_control/cmdvel_2_ecu/README.md",
+      "nav2/src/nav2/config/nav2_real_params.yaml"
+    ],
+    "offline_test_dependency": "python3-yaml declared in package.xml"
+  }
+}

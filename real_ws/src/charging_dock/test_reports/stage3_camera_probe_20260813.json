@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-08-13T17:54:57+0800",
+  "host": "yunle-Default-string",
+  "kernel": "6.8.0-136-generic",
+  "python": "3.10.12",
+  "device": "/dev/video0",
+  "packages": {
+    "ros-humble-apriltag-ros": "3.4.0-1jammy.20260609.121809",
+    "ros-humble-apriltag-msgs": "2.0.2-1jammy.20260605.124532",
+    "ros-humble-usb-cam": "0.8.1-1jammy.20260607.075229"
+  },
+  "thresholds": {
+    "image_min_hz": 20.0,
+    "observation_min_hz": 15.0,
+    "p95_age_max_sec": 0.15
+  },
+  "topics": {
+    "image_raw": {
+      "count": 204,
+      "observed_hz": 30.32192265735465,
+      "age_mean_sec": 0.7407798661905176,
+      "age_p95_sec": 0.7662501335144043,
+      "age_max_sec": 0.908883810043335,
+      "non_empty_messages": 0,
+      "pass": false,
+      "duration_sec": 8.000431472000855
+    },
+    "image_rect": {
+      "count": 196,
+      "observed_hz": 30.285926368797213,
+      "age_mean_sec": 0.7437640659663142,
+      "age_p95_sec": 0.7690258026123047,
+      "age_max_sec": 0.7799105644226074,
+      "non_empty_messages": 0,
+      "pass": false,
+      "duration_sec": 8.000431472000855
+    },
+    "camera_info": {
+      "count": 205,
+      "observed_hz": 30.454317439123525,
+      "age_mean_sec": 0.7433268756401248,
+      "age_p95_sec": 0.7690536975860596,
+      "age_max_sec": 0.9378197193145752,
+      "non_empty_messages": 0,
+      "pass": false,
+      "duration_sec": 8.000431472000855
+    },
+    "detections": {
+      "count": 203,
+      "observed_hz": 30.207717215209126,
+      "age_mean_sec": 0.7546777361132241,
+      "age_p95_sec": 0.784050464630127,
+      "age_max_sec": 0.9608767032623291,
+      "non_empty_messages": 0,
+      "pass": false,
+      "duration_sec": 8.000431472000855
+    },
+    "observations": {
+      "count": 188,
+      "observed_hz": 30.131144676774372,
+      "age_mean_sec": 0.7517116513658078,
+      "age_p95_sec": 0.7805328369140625,
+      "age_max_sec": 0.7934181690216064,
+      "non_empty_messages": 0,
+      "pass": false,
+      "duration_sec": 8.000431472000855
+    }
+  },
+  "camera_pass": false,
+  "stage3_pass": false
+}

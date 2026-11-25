@@ -1,0 +1,17 @@
+{
+  "changed_files": [
+    "nav2/src/nav2/config/nav2_real_params.yaml"
+  ],
+  "changed_parameters": {
+    "controller_server.FollowPath.GoalCritic.threshold_to_consider": {
+      "before": 0.8,
+      "after": 1.6
+    }
+  },
+  "all_other_backed_up_content_unchanged": true,
+  "yaml_other_parameters_unchanged": true,
+  "installed_config_is_source_symlink": true,
+  "installed_yaml_matches": true,
+  "controller_process_detected_before_change": false,
+  "runtime_update": "No runtime parameter service or ROS process started; next normal Nav2 launch reads updated YAML."
+}

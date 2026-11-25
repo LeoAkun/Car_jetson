@@ -55,8 +55,9 @@ class StatusReporter(Node):
         self.remote_driving_url = self.get_parameter('remote_driving_url').value
         self.speed_threshold_time = self.get_parameter('speed_threshold_time').value
 
-        # 构建MQTT topic - 格式: prod/data/vehicle/{vin}/vehicle_status
-        self.status_topic = f'prod/data/vehicle/{self.vin}/vehicle_status'
+        # 状态上报主题，默认使用 VIN 作为机器人唯一编码
+        self.declare_parameter('status_topic', f'robot/{self.vin}/up/ack')
+        self.status_topic = self.get_parameter('status_topic').value
 
         # 机器人状态数据
         self.robot_status = {
@@ -238,7 +239,10 @@ class StatusReporter(Node):
     def robot_state_callback(self, msg):
         """机器人任务状态回调 - 接收String类型，转换为int32存储"""
         # msg.data 是字符串: "idle" 或 "running"
-        status_map = {"idle": 0, "running": 1}
+        status_map = {"idle": 0, "fault": 0, "running": 1, "docking": 1,
+                      "docked": 1, "docking_ready": 1, "docking_failed": 1}
+        self.expected_docking_stop = msg.data.lower() in {
+            'docking', 'docked', 'docking_ready'}
         status_value = status_map.get(msg.data.lower())
 
         if status_value is not None:
@@ -262,6 +266,8 @@ class StatusReporter(Node):
 
     def check_vehicle_problem(self):
         """检测车辆是否发生问题"""
+        if getattr(self, 'expected_docking_stop', False):
+            return
         # 检查条件：速度为0且任务状态为running
         if self.zero_speed_start_time is not None:
             zero_speed_duration = time.time() - self.zero_speed_start_time
@@ -373,6 +379,7 @@ class StatusReporter(Node):
 
             # 准备MQTT JSON数据 - 严格按照Schema定义
             mqtt_payload = {
+                'operation': 'statusChange',
                 'vin': self.robot_status['vin'],
                 'gps_lng': self.robot_status['gps_lng'],
                 'gps_lat': self.robot_status['gps_lat'],

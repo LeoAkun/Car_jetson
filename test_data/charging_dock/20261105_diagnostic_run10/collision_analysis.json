@@ -1,0 +1,1418 @@
+{
+  "source": "motion_trace.jsonl sampled scans only",
+  "limitations": [
+    "The original failure scan at t302.715 is absent.",
+    "The nearest later sampled scan is after braking began; its points cannot be asserted to be the original trigger.",
+    "Transforms use interpolated local odometry and launch static TF; the exact controller callback schedule is not reproduced.",
+    "Locked pose uses an approximate observation average; this does not affect points far in front of the locked backplane.",
+    "No camera/image identifies the transient object. A person, another object, movable self structure or measurement artifact is unproven."
+  ],
+  "failure_t": 302.7153559970029,
+  "lock_t": 233.69135304800147,
+  "static_base_sensor_from_launch": {
+    "x": -0.43,
+    "y": -0.28,
+    "yaw": 3.9269908169872414
+  },
+  "bounds_front_rear_halfwidth_m": [
+    0.43,
+    0.43,
+    0.43
+  ],
+  "margin_m": 0.02,
+  "self_point_filter": "No automatic inside-footprint mask in collision().",
+  "target_filter": {
+    "locked_backplane_depth_tolerance_m": 0.015,
+    "total_width_m": 0.3
+  },
+  "approx_lock_observation_count": 16,
+  "approx_locked_dock_local": {
+    "x": -2.4265831112503298,
+    "y": 0.17411796956872494,
+    "yaw": -0.07926702721290917
+  },
+  "feedback_at_failure": {
+    "t": 302.70561550300044,
+    "topic": "/vehicle_status",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793869705,
+          "nanosec": 14842999
+        },
+        "frame_id": ""
+      },
+      "cur_speed": 0.0,
+      "cur_steer": 7.245000839233398,
+      "left_wheel_speed": 0.0,
+      "right_wheel_speed": 0.0,
+      "wheel_direction": 1,
+      "shift_level": 3,
+      "drive_mode": 1,
+      "is_autodrive": true,
+      "p_status": false
+    }
+  },
+  "ecu_at_failure": {
+    "t": 302.7079754469996,
+    "topic": "/ecu",
+    "message": {
+      "header": {
+        "stamp": {
+          "sec": 1793869705,
+          "nanosec": 17266910
+        },
+        "frame_id": "base_link"
+      },
+      "motor": 0.09000000357627869,
+      "steer": 8.0,
+      "brake": false,
+      "set_torque": false,
+      "rear_wheel_flag": true,
+      "shift": 3
+    }
+  },
+  "nearest_sample_before_t": 302.6339574690028,
+  "nearest_sample_before_collision": false,
+  "nearest_sample_after_t": 302.8372598470014,
+  "nearest_sample_after_collision": true,
+  "interpretation": "The immediate post-failure sampled frame contains a new short-range cluster on the vehicle right/front side, inside the expanded footprint already at zero sweep time. It is far from the rear dock and is not eligible for the locked backplane exemption. Nearby earlier samples show distant returns at these beam indices; later samples return to distant background while odometry is nearly stationary. This supports a transient near return, rather than a permanent fixed self return, but does not prove object identity or the original triggering beam.",
+  "sampled_scan_results": [
+    {
+      "t": 301.82070206900244,
+      "scan_ros_stamp": 1793869704.1298606,
+      "relative_to_failure_s": -0.8946539280004799,
+      "odom_interpolated_at_scan": {
+        "x": -1.9348832094036899,
+        "y": 0.1352110728228133,
+        "yaw": -0.08321636520259194
+      },
+      "locked_dock_base_approx": {
+        "x": -0.49323233718631754,
+        "y": -0.0020980095603072013,
+        "yaw": 0.0039493379896827765
+      },
+      "latest_command_t": 301.79051580000305,
+      "velocity_command_m_s": -0.025,
+      "omega_command_rad_s": 0.007027041726984689,
+      "sweep_horizon_s": 0.325,
+      "target_exempt_count": 36,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1208": {
+          "range_m": 6.47599983215332,
+          "point_base_at_scan": {
+            "x": 5.880020189167474,
+            "y": -1.736783799452998,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 302.02404800099976,
+      "scan_ros_stamp": 1793869704.3331945,
+      "relative_to_failure_s": -0.691307996003161,
+      "odom_interpolated_at_scan": {
+        "x": -1.9349847072426118,
+        "y": 0.13521954209710954,
+        "yaw": -0.08327105863560619
+      },
+      "locked_dock_base_approx": {
+        "x": -0.49313037112487457,
+        "y": -0.002124983986659029,
+        "yaw": 0.004004031422697021
+      },
+      "latest_command_t": 301.98700669000027,
+      "velocity_command_m_s": -0.025,
+      "omega_command_rad_s": 0.007027041726984689,
+      "sweep_horizon_s": 0.325,
+      "target_exempt_count": 30,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1208": {
+          "range_m": 6.480000019073486,
+          "point_base_at_scan": {
+            "x": 5.883917851440621,
+            "y": -1.7376836462181489,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 302.22729772300227,
+      "scan_ros_stamp": 1793869704.5364957,
+      "relative_to_failure_s": -0.48805827400065027,
+      "odom_interpolated_at_scan": {
+        "x": -1.9349847072426118,
+        "y": 0.13521954209710954,
+        "yaw": -0.08334416355469083
+      },
+      "locked_dock_base_approx": {
+        "x": -0.4931302144603667,
+        "y": -0.0021610342368279245,
+        "yaw": 0.0040771363417816675
+      },
+      "latest_command_t": 302.1864698999998,
+      "velocity_command_m_s": -0.025,
+      "omega_command_rad_s": 0.007027041726984689,
+      "sweep_horizon_s": 0.325,
+      "target_exempt_count": 38,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1208": {
+          "range_m": 6.480999946594238,
+          "point_base_at_scan": {
+            "x": 5.884892150854949,
+            "y": -1.7379085810931665,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 302.43087369200293,
+      "scan_ros_stamp": 1793869704.740014,
+      "relative_to_failure_s": -0.28448230499998317,
+      "odom_interpolated_at_scan": {
+        "x": -1.9349847072426118,
+        "y": 0.13521954209710954,
+        "yaw": -0.08344365639925341
+      },
+      "locked_dock_base_approx": {
+        "x": -0.49312999701221866,
+        "y": -0.0022100971538275282,
+        "yaw": 0.004176629186344246
+      },
+      "latest_command_t": 302.42680416200164,
+      "velocity_command_m_s": -0.025,
+      "omega_command_rad_s": 0.007027041726984689,
+      "sweep_horizon_s": 0.325,
+      "target_exempt_count": 40,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1208": {
+          "range_m": 6.480999946594238,
+          "point_base_at_scan": {
+            "x": 5.884892150854949,
+            "y": -1.7379085810931665,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 302.6339574690028,
+      "scan_ros_stamp": 1793869704.9431045,
+      "relative_to_failure_s": -0.08139852800013614,
+      "odom_interpolated_at_scan": {
+        "x": -1.9349847072426118,
+        "y": 0.13521954209710954,
+        "yaw": -0.08350520076388593
+      },
+      "locked_dock_base_approx": {
+        "x": -0.4931298600592774,
+        "y": -0.002240446521970141,
+        "yaw": 0.004238173550976762
+      },
+      "latest_command_t": 302.6264353059996,
+      "velocity_command_m_s": -0.025,
+      "omega_command_rad_s": 0.007027041726984689,
+      "sweep_horizon_s": 0.325,
+      "target_exempt_count": 37,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1205": {
+          "range_m": 0.7400000095367432,
+          "point_base_at_scan": {
+            "x": 0.28879311838496413,
+            "y": -0.45588765470265113,
+            "yaw": -2.3561944901923453
+          }
+        },
+        "1208": {
+          "range_m": 6.484000205993652,
+          "point_base_at_scan": {
+            "x": 5.887815513713768,
+            "y": -1.7385834929833006,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 302.8372598470014,
+      "scan_ros_stamp": 1793869705.1463845,
+      "relative_to_failure_s": 0.12190384999848902,
+      "odom_interpolated_at_scan": {
+        "x": -1.934825039407281,
+        "y": 0.1352061514999287,
+        "yaw": -0.08371763595409137
+      },
+      "locked_dock_base_approx": {
+        "x": -0.49328960133721184,
+        "y": -0.0023452123116982915,
+        "yaw": 0.004450608741182208
+      },
+      "latest_command_t": 302.825708114,
+      "velocity_command_m_s": 0.0,
+      "omega_command_rad_s": 0.0,
+      "sweep_horizon_s": 0.2,
+      "target_exempt_count": 31,
+      "scan_collision": true,
+      "dock_plane_collision_approx": false,
+      "hit_count": 13,
+      "hits": [
+        {
+          "index": 1205,
+          "range_m": 0.7139999866485596,
+          "sensor_angle_deg": 121.24999265745069,
+          "point_base_at_scan": {
+            "x": 0.2635382031295205,
+            "y": -0.44970781282551286,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8118292795602112,
+            "y": -0.4507265031823957,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1206,
+          "range_m": 0.7210000157356262,
+          "sensor_angle_deg": 121.49999265551409,
+          "point_base_at_scan": {
+            "x": 0.27107870633214676,
+            "y": -0.44831420088161544,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8193759104831483,
+            "y": -0.4493664647594261,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1207,
+          "range_m": 0.7250000238418579,
+          "sensor_angle_deg": 121.74999265357751,
+          "point_base_at_scan": {
+            "x": 0.27569996428475774,
+            "y": -0.44617037936764276,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8240066639463559,
+            "y": -0.44724323182087855,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1208,
+          "range_m": 0.7289999723434448,
+          "sensor_angle_deg": 121.99999265164091,
+          "point_base_at_scan": {
+            "x": 0.28031572924858,
+            "y": -0.4439894034954742,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8286320898341427,
+            "y": -0.44508282044504655,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1209,
+          "range_m": 0.734000027179718,
+          "sensor_angle_deg": 122.24999264970432,
+          "point_base_at_scan": {
+            "x": 0.28590126898133644,
+            "y": -0.4419920151450037,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8342264638127381,
+            "y": -0.4431103108464871,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1210,
+          "range_m": 0.7369999885559082,
+          "sensor_angle_deg": 122.49999264776773,
+          "point_base_at_scan": {
+            "x": 0.2895301256053663,
+            "y": -0.43951608532600955,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8378663038552961,
+            "y": -0.44065055611665316,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1211,
+          "range_m": 0.7390000224113464,
+          "sensor_angle_deg": 122.74999264583114,
+          "point_base_at_scan": {
+            "x": 0.29217378945108846,
+            "y": -0.43679939717302974,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8405220323944481,
+            "y": -0.4379456607441748,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1212,
+          "range_m": 0.7429999709129333,
+          "sensor_angle_deg": 122.99999264389454,
+          "point_base_at_scan": {
+            "x": 0.29676361906055665,
+            "y": -0.4344784735379722,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8451221460354236,
+            "y": -0.43564518756375464,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1213,
+          "range_m": 0.7450000047683716,
+          "sensor_angle_deg": 123.24999264195796,
+          "point_base_at_scan": {
+            "x": 0.29938886218615207,
+            "y": -0.43171319924009366,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8477596702740932,
+            "y": -0.43289162454442454,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1214,
+          "range_m": 0.7459999918937683,
+          "sensor_angle_deg": 123.49999264002136,
+          "point_base_at_scan": {
+            "x": 0.30102380259859174,
+            "y": -0.4287285713633992,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8494078778612413,
+            "y": -0.42991430268338265,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1215,
+          "range_m": 0.7429999709129333,
+          "sensor_angle_deg": 123.74999263808476,
+          "point_base_at_scan": {
+            "x": 0.29872341618658094,
+            "y": -0.42495219721680355,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8471243213404267,
+            "y": -0.42612772785170616,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1216,
+          "range_m": 0.7440000176429749,
+          "sensor_angle_deg": 123.99999263614818,
+          "point_base_at_scan": {
+            "x": 0.30033062355844564,
+            "y": -0.42196198979120764,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8487448209939733,
+            "y": -0.42314470306851704,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1217,
+          "range_m": 0.7440000176429749,
+          "sensor_angle_deg": 124.24999263421158,
+          "point_base_at_scan": {
+            "x": 0.30094309540073033,
+            "y": -0.41877398004938027,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.849371475307555,
+            "y": -0.4199594507640915,
+            "yaw": -2.3606450989335275
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        }
+      ],
+      "beam_track": {
+        "1205": {
+          "range_m": 0.7139999866485596,
+          "point_base_at_scan": {
+            "x": 0.2635382031295205,
+            "y": -0.44970781282551286,
+            "yaw": -2.3561944901923453
+          }
+        },
+        "1208": {
+          "range_m": 0.7289999723434448,
+          "point_base_at_scan": {
+            "x": 0.28031572924858,
+            "y": -0.4439894034954742,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 303.04045775600025,
+      "scan_ros_stamp": 1793869705.3496308,
+      "relative_to_failure_s": 0.3251017589973344,
+      "odom_interpolated_at_scan": {
+        "x": -1.92953456962356,
+        "y": 0.13475527321483777,
+        "yaw": -0.08606598183015737
+      },
+      "locked_dock_base_approx": {
+        "x": -0.49859237887339847,
+        "y": -0.0035091775264971814,
+        "yaw": 0.006798954617248207
+      },
+      "latest_command_t": 303.0283780210011,
+      "velocity_command_m_s": 0.0,
+      "omega_command_rad_s": 0.0,
+      "sweep_horizon_s": 0.2,
+      "target_exempt_count": 30,
+      "scan_collision": true,
+      "dock_plane_collision_approx": false,
+      "hit_count": 18,
+      "hits": [
+        {
+          "index": 1206,
+          "range_m": 0.7210000157356262,
+          "sensor_angle_deg": 121.49999265551409,
+          "point_base_at_scan": {
+            "x": 0.27107870633214676,
+            "y": -0.44831420088161544,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8236291100814851,
+            "y": -0.4500276611266237,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1207,
+          "range_m": 0.7229999899864197,
+          "sensor_angle_deg": 121.74999265357751,
+          "point_base_at_scan": {
+            "x": 0.2737531728724323,
+            "y": -0.4457119705765021,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8263212071167935,
+            "y": -0.44744367440288774,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1208,
+          "range_m": 0.7260000109672546,
+          "sensor_angle_deg": 121.99999265164091,
+          "point_base_at_scan": {
+            "x": 0.2773926567746592,
+            "y": -0.4433145586460164,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8299769066696815,
+            "y": -0.445071062378553,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1209,
+          "range_m": 0.7279999852180481,
+          "sensor_angle_deg": 122.24999264970432,
+          "point_base_at_scan": {
+            "x": 0.2800491743011696,
+            "y": -0.4406678205232949,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8326513577103671,
+            "y": -0.4424424468323196,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1210,
+          "range_m": 0.7310000061988831,
+          "sensor_angle_deg": 122.49999264776773,
+          "point_base_at_scan": {
+            "x": 0.2836723669540541,
+            "y": -0.43821745070934814,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.836291126445921,
+            "y": -0.4400167673859173,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1211,
+          "range_m": 0.734000027179718,
+          "sensor_angle_deg": 122.74999264583114,
+          "point_base_at_scan": {
+            "x": 0.28728763871474583,
+            "y": -0.43573850919683027,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8399231687285421,
+            "y": -0.43756246304794433,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1212,
+          "range_m": 0.7379999756813049,
+          "sensor_angle_deg": 122.99999264389454,
+          "point_base_at_scan": {
+            "x": 0.29187288585452587,
+            "y": -0.4334389154473709,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8445239446034946,
+            "y": -0.43529409709557415,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1213,
+          "range_m": 0.7400000095367432,
+          "sensor_angle_deg": 123.24999264195796,
+          "point_base_at_scan": {
+            "x": 0.29449363962294206,
+            "y": -0.4306949908267777,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8471632934741841,
+            "y": -0.4325680541434266,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1214,
+          "range_m": 0.7419999837875366,
+          "sensor_angle_deg": 123.49999264002136,
+          "point_base_at_scan": {
+            "x": 0.29710409593905185,
+            "y": -0.42793109750609837,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.84979248089581,
+            "y": -0.42982197294135394,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1215,
+          "range_m": 0.7429999709129333,
+          "sensor_angle_deg": 123.74999263808476,
+          "point_base_at_scan": {
+            "x": 0.29872341618658094,
+            "y": -0.42495219721680355,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8514320169681482,
+            "y": -0.42685415110284636,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1216,
+          "range_m": 0.7450000047683716,
+          "sensor_angle_deg": 123.99999263614818,
+          "point_base_at_scan": {
+            "x": 0.3013122380793097,
+            "y": -0.42215279645615456,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8540398118780378,
+            "y": -0.4240724161911511,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1217,
+          "range_m": 0.7480000257492065,
+          "sensor_angle_deg": 124.24999263421158,
+          "point_base_at_scan": {
+            "x": 0.3048729048596866,
+            "y": -0.4195200782106277,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8576182959553921,
+            "y": -0.42146396742045766,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1218,
+          "range_m": 0.7480000257492065,
+          "sensor_angle_deg": 124.499992632275,
+          "point_base_at_scan": {
+            "x": 0.30547467864733824,
+            "y": -0.41631227233601614,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.858241865392899,
+            "y": -0.4182603270883816,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1219,
+          "range_m": 0.7490000128746033,
+          "sensor_angle_deg": 124.7499926303384,
+          "point_base_at_scan": {
+            "x": 0.30704647806311436,
+            "y": -0.4132798126533611,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8598342458769027,
+            "y": -0.41523862400493233,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1220,
+          "range_m": 0.7490000128746033,
+          "sensor_angle_deg": 124.99999262840181,
+          "point_base_at_scan": {
+            "x": 0.3076210029514816,
+            "y": -0.410062582209513,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8604306311216485,
+            "y": -0.4120253740588456,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1221,
+          "range_m": 0.7509999871253967,
+          "sensor_angle_deg": 125.24999262646521,
+          "point_base_at_scan": {
+            "x": 0.3101525712966701,
+            "y": -0.4071815704623658,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8629817286724072,
+            "y": -0.4091616407856383,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1222,
+          "range_m": 0.7480000257492065,
+          "sensor_angle_deg": 125.49999262452863,
+          "point_base_at_scan": {
+            "x": 0.30774163945393535,
+            "y": -0.40345570840035466,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8605961843249698,
+            "y": -0.40541947314884574,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1223,
+          "range_m": 0.7480000257492065,
+          "sensor_angle_deg": 125.74999262259203,
+          "point_base_at_scan": {
+            "x": 0.30827329211989785,
+            "y": -0.40023553827076946,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.861149718324844,
+            "y": -0.4022029921009176,
+            "yaw": -2.362993444809593
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        }
+      ],
+      "beam_track": {
+        "1205": {
+          "range_m": 0.7179999947547913,
+          "point_base_at_scan": {
+            "x": 0.26742357916085774,
+            "y": -0.4506585588194719,
+            "yaw": -2.3561944901923453
+          }
+        },
+        "1208": {
+          "range_m": 0.7260000109672546,
+          "point_base_at_scan": {
+            "x": 0.2773926567746592,
+            "y": -0.4433145586460164,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 303.2435264170017,
+      "scan_ros_stamp": 1793869705.5526962,
+      "relative_to_failure_s": 0.5281704199987871,
+      "odom_interpolated_at_scan": {
+        "x": -1.9223590493184504,
+        "y": 0.1341302191262611,
+        "yaw": -0.08747458906263843
+      },
+      "locked_dock_base_approx": {
+        "x": -0.5057896327920315,
+        "y": -0.004215705947316545,
+        "yaw": 0.008207561849729275
+      },
+      "latest_command_t": 303.23119467900324,
+      "velocity_command_m_s": 0.0,
+      "omega_command_rad_s": 0.0,
+      "sweep_horizon_s": 0.2,
+      "target_exempt_count": 39,
+      "scan_collision": true,
+      "dock_plane_collision_approx": false,
+      "hit_count": 20,
+      "hits": [
+        {
+          "index": 1209,
+          "range_m": 0.7689999938011169,
+          "sensor_angle_deg": 122.24999264970432,
+          "point_base_at_scan": {
+            "x": 0.3200382166526325,
+            "y": -0.4497164223835065,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8791436004057731,
+            "y": -0.4522636682018474,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1210,
+          "range_m": 0.7699999809265137,
+          "sensor_angle_deg": 122.49999264776773,
+          "point_base_at_scan": {
+            "x": 0.3217478854752453,
+            "y": -0.446658595068868,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8808783086686179,
+            "y": -0.44921997593553986,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1211,
+          "range_m": 0.7720000147819519,
+          "sensor_angle_deg": 122.74999264583114,
+          "point_base_at_scan": {
+            "x": 0.32442240760995483,
+            "y": -0.44380126287465926,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8835761921878924,
+            "y": -0.44638469104094103,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1212,
+          "range_m": 0.7730000019073486,
+          "sensor_angle_deg": 122.99999264389454,
+          "point_base_at_scan": {
+            "x": 0.3261080765988802,
+            "y": -0.44071583447409024,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8852871279604851,
+            "y": -0.4433132016404506,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1213,
+          "range_m": 0.7720000147819519,
+          "sensor_angle_deg": 123.24999264195796,
+          "point_base_at_scan": {
+            "x": 0.3258230990408793,
+            "y": -0.4372115319548007,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8850309214578046,
+            "y": -0.4398066782078686,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1214,
+          "range_m": 0.7720000147819519,
+          "sensor_angle_deg": 123.49999264002136,
+          "point_base_at_scan": {
+            "x": 0.32650186668156955,
+            "y": -0.4339121454942229,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8857367458507543,
+            "y": -0.4365129738415646,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1215,
+          "range_m": 0.7739999890327454,
+          "sensor_angle_deg": 123.74999263808476,
+          "point_base_at_scan": {
+            "x": 0.32912777687364553,
+            "y": -0.4310000046409495,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8883864689051437,
+            "y": -0.43362248315291163,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1216,
+          "range_m": 0.7760000228881836,
+          "sensor_angle_deg": 123.99999263614818,
+          "point_base_at_scan": {
+            "x": 0.33174269779286014,
+            "y": -0.4280678826812786,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8910253670511363,
+            "y": -0.43071192183673784,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1217,
+          "range_m": 0.777999997138977,
+          "sensor_angle_deg": 124.24999263421158,
+          "point_base_at_scan": {
+            "x": 0.33434638796395044,
+            "y": -0.4251157977434247,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8936531986728152,
+            "y": -0.4277813060387459,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1218,
+          "range_m": 0.7789999842643738,
+          "sensor_angle_deg": 124.499992632275,
+          "point_base_at_scan": {
+            "x": 0.33595553926520655,
+            "y": -0.4219615699858286,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8952881840036345,
+            "y": -0.4246403915819148,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1219,
+          "range_m": 0.7789999842643738,
+          "sensor_angle_deg": 124.7499926303384,
+          "point_base_at_scan": {
+            "x": 0.33656767015223443,
+            "y": -0.4186181177237299,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8959277355561012,
+            "y": -0.42130207597917096,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1220,
+          "range_m": 0.7770000100135803,
+          "sensor_angle_deg": 124.99999262840181,
+          "point_base_at_scan": {
+            "x": 0.33519561659270813,
+            "y": -0.41492473423508847,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8945860415429493,
+            "y": -0.41759755580248803,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1221,
+          "range_m": 0.7760000228881836,
+          "sensor_angle_deg": 125.24999262646521,
+          "point_base_at_scan": {
+            "x": 0.33479150747450226,
+            "y": -0.41141531728584696,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8942107494691637,
+            "y": -0.4140849403435466,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1222,
+          "range_m": 0.7770000100135803,
+          "sensor_angle_deg": 125.49999262452863,
+          "point_base_at_scan": {
+            "x": 0.33634390576256074,
+            "y": -0.4082420900550497,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8957891396359317,
+            "y": -0.4109245612548153,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1223,
+          "range_m": 0.7760000228881836,
+          "sensor_angle_deg": 125.74999262259203,
+          "point_base_at_scan": {
+            "x": 0.3359091869802427,
+            "y": -0.40473633320618785,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8953832088888607,
+            "y": -0.407415354545084,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1224,
+          "range_m": 0.7789999842643738,
+          "sensor_angle_deg": 125.99999262065545,
+          "point_base_at_scan": {
+            "x": 0.3394091860865767,
+            "y": -0.4018625448999252,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.8989066766392121,
+            "y": -0.40457038916993676,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1225,
+          "range_m": 0.7889999747276306,
+          "sensor_angle_deg": 126.24999261871885,
+          "point_base_at_scan": {
+            "x": 0.349817191318235,
+            "y": -0.40002544832135034,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.9093294092245401,
+            "y": -0.40281877785575304,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1226,
+          "range_m": 0.8059999942779541,
+          "sensor_angle_deg": 126.49999261678227,
+          "point_base_at_scan": {
+            "x": 0.3671467648586736,
+            "y": -0.3991344872461903,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.9266657116089687,
+            "y": -0.40207007873957007,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1227,
+          "range_m": 0.8109999895095825,
+          "sensor_angle_deg": 126.74999261484567,
+          "point_base_at_scan": {
+            "x": 0.3726072493290243,
+            "y": -0.39637261838181925,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.9321486801151411,
+            "y": -0.3993531196608854,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        },
+        {
+          "index": 1228,
+          "range_m": 0.8140000104904175,
+          "sensor_angle_deg": 126.99999261290908,
+          "point_base_at_scan": {
+            "x": 0.3760782037379829,
+            "y": -0.39328700956838253,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 0.9356448426567905,
+            "y": -0.39629610252959635,
+            "yaw": -2.3644020520420743
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": true
+        }
+      ],
+      "beam_track": {
+        "1205": {
+          "range_m": 0.7609999775886536,
+          "point_base_at_scan": {
+            "x": 0.3091912701788632,
+            "y": -0.4608790534619476,
+            "yaw": -2.3561944901923453
+          }
+        },
+        "1208": {
+          "range_m": 0.7699999809265137,
+          "point_base_at_scan": {
+            "x": 0.32026490908498223,
+            "y": -0.4532124037779477,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 303.4472429350026,
+      "scan_ros_stamp": 1793869705.7557738,
+      "relative_to_failure_s": 0.7318869379996613,
+      "odom_interpolated_at_scan": {
+        "x": -1.9210067331216147,
+        "y": 0.1340114155272153,
+        "yaw": -0.08768187731198132
+      },
+      "locked_dock_base_approx": {
+        "x": -0.5071462727867567,
+        "y": -0.004320624646327376,
+        "yaw": 0.008414850099072155
+      },
+      "latest_command_t": 303.427735553003,
+      "velocity_command_m_s": 0.0,
+      "omega_command_rad_s": 0.0,
+      "sweep_horizon_s": 0.2,
+      "target_exempt_count": 30,
+      "scan_collision": true,
+      "dock_plane_collision_approx": false,
+      "hit_count": 3,
+      "hits": [
+        {
+          "index": 1225,
+          "range_m": 0.8870000243186951,
+          "sensor_angle_deg": 126.24999261871885,
+          "point_base_at_scan": {
+            "x": 0.44667666643739856,
+            "y": -0.41493356019010236,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 1.0073339639402994,
+            "y": -0.4186245802716334,
+            "yaw": -2.3646093402914174
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1226,
+          "range_m": 0.8889999985694885,
+          "sensor_angle_deg": 126.49999261678227,
+          "point_base_at_scan": {
+            "x": 0.4492350841812118,
+            "y": -0.4114026795822979,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 1.009922002584634,
+            "y": -0.41511535312112585,
+            "yaw": -2.3646093402914174
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        },
+        {
+          "index": 1228,
+          "range_m": 0.8859999775886536,
+          "sensor_angle_deg": 126.99999261290908,
+          "point_base_at_scan": {
+            "x": 0.44737747081388085,
+            "y": -0.40330747745101425,
+            "yaw": -2.3561944901923453
+          },
+          "point_locked_backplane_approx": {
+            "x": 1.0081325740939737,
+            "y": -0.40700480624402563,
+            "yaw": -2.3646093402914174
+          },
+          "first_sweep_hit_seconds": 0.0,
+          "inside_unexpanded_footprint": false
+        }
+      ],
+      "beam_track": {
+        "1208": {
+          "range_m": 6.455999851226807,
+          "point_base_at_scan": {
+            "x": 5.860532807033416,
+            "y": -1.7322847801574044,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 303.6503873790025,
+      "scan_ros_stamp": 1793869705.9594336,
+      "relative_to_failure_s": 0.935031381999579,
+      "odom_interpolated_at_scan": {
+        "x": -1.9212099081774088,
+        "y": 0.13402929055950966,
+        "yaw": -0.08779695134631184
+      },
+      "locked_dock_base_approx": {
+        "x": -0.5069418123882491,
+        "y": -0.0043789749263003774,
+        "yaw": 0.008529924133402672
+      },
+      "latest_command_t": 303.62897864499973,
+      "velocity_command_m_s": 0.0,
+      "omega_command_rad_s": 0.0,
+      "sweep_horizon_s": 0.2,
+      "target_exempt_count": 21,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1205": {
+          "range_m": 3.617000102996826,
+          "point_base_at_scan": {
+            "x": 3.083344256386437,
+            "y": -1.139710347265571,
+            "yaw": -2.3561944901923453
+          }
+        },
+        "1208": {
+          "range_m": 6.460999965667725,
+          "point_base_at_scan": {
+            "x": 5.86540476872089,
+            "y": -1.7334095617975733,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    },
+    {
+      "t": 303.85359651300314,
+      "scan_ros_stamp": 1793869706.1628058,
+      "relative_to_failure_s": 1.1382405160002236,
+      "odom_interpolated_at_scan": {
+        "x": -1.9209959906128047,
+        "y": 0.1340104574243854,
+        "yaw": -0.08788309447961697
+      },
+      "locked_dock_base_approx": {
+        "x": -0.5071561782797993,
+        "y": -0.0044226595595941165,
+        "yaw": 0.0086160672667078
+      },
+      "latest_command_t": 303.83802811600253,
+      "velocity_command_m_s": 0.0,
+      "omega_command_rad_s": 0.0,
+      "sweep_horizon_s": 0.2,
+      "target_exempt_count": 31,
+      "scan_collision": false,
+      "dock_plane_collision_approx": false,
+      "hit_count": 0,
+      "hits": [],
+      "beam_track": {
+        "1208": {
+          "range_m": 6.461999893188477,
+          "point_base_at_scan": {
+            "x": 5.866379068135218,
+            "y": -1.733634496672591,
+            "yaw": -2.3561944901923453
+          }
+        }
+      }
+    }
+  ]
+}

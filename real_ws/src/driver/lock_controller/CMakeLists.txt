@@ -49,6 +49,7 @@ install(DIRECTORY
 
 # Install Python scripts
 install(PROGRAMS
+  scripts/open_door_recover.py
   scripts/unlock_example.py
   scripts/query_status_example.py
   scripts/lock_status_monitor.py

@@ -10,8 +10,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
-from std_msgs.msg import Bool
-from multi_map_navigation_msgs.msg import MapSwitchTrigger
+from multi_map_navigation_msgs.msg import MapSwitchResult, MapSwitchTrigger
 from multi_map_navigation_msgs.srv import StartProcess, ShutdownProcess, GetProcessStatus
 from tf2_ros import LookupException, ConnectivityException, ExtrapolationException
 from geometry_msgs.msg import TransformStamped
@@ -57,7 +56,7 @@ class MapSwitchController(Node):
 
         # ROS2发布器用于地图切换完成
         self.map_switch_complete_pub = self.create_publisher(
-            Bool,
+            MapSwitchResult,
             '/test/map_switch_complete',
             10
         )
@@ -79,8 +78,9 @@ class MapSwitchController(Node):
 
         if self.count == 0 or self.count == 1:
             success = False
-            completion_msg = Bool()
-            completion_msg.data = success
+            completion_msg = MapSwitchResult()
+            completion_msg.transaction_id = msg.transaction_id
+            completion_msg.success = success
             self.map_switch_complete_pub.publish(completion_msg)
             self.count += 1
             return
@@ -92,8 +92,9 @@ class MapSwitchController(Node):
 
         # 发布完成状态
         success = True
-        completion_msg = Bool()
-        completion_msg.data = success
+        completion_msg = MapSwitchResult()
+        completion_msg.transaction_id = msg.transaction_id
+        completion_msg.success = success
         self.map_switch_complete_pub.publish(completion_msg)
 
         if success:

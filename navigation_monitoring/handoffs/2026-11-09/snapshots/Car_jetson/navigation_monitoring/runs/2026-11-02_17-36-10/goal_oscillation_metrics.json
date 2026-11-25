@@ -1,0 +1,722 @@
+{
+  "timezone": "Asia/Shanghai",
+  "run": "2026-11-02_17-36-10",
+  "pose_filter": "0 <= observer_time - TF_stamp <= 0.3 seconds",
+  "topic_filter": "topic age <= 0.2 seconds, vehicle mode == 1",
+  "distance_definition": "map TF base_link XY to original requested waypoint, NOT saved path.back()",
+  "limitations": [
+    "Observer samples approximately every 2 seconds; not full odometry.",
+    "ECU shift is a request, not measured gearbox feedback.",
+    "Original global/local paths, per-candidate costs and progress baselines were not recorded.",
+    "WARN logging cannot exclude successful BackUp actions without explicit messages."
+  ],
+  "source_sha256": {
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/pose_observer.jsonl": "e4f6d732cfb2a49fe0207dbfdd02e12ba09a9bfd639fac02f682bbc98f672e08",
+    "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-02_17-36-10/nav2_2026-11-02_17-36-55.log": "8080720b3ae7313f5fd8151fcd1528c57c5a007e55f728a0f73ce498dcae7233",
+    "/home/akun/.ros/log/python3_10311_1793611823820.log": "4e9a70ebd6b2675afdf10c1acea1c12fd0b2a25b192f40a659de32981e3d1ab0"
+  },
+  "goals": {
+    "113": {
+      "requested_xy": [
+        109.31,
+        -46.35
+      ],
+      "accepted": "2026-11-02T17:37:11.665+08:00",
+      "succeeded": "2026-11-02T17:39:00.055+08:00",
+      "succeeded_epoch": 1793612340.0553913,
+      "fresh_pose_samples": 54,
+      "first_distance_crossings": {
+        "5": {
+          "time": "2026-11-02T17:38:41.755+08:00",
+          "epoch": 1793612321.7550328,
+          "distance_m": 4.80955250608364,
+          "seconds_until_success": 18.300358533859253,
+          "observer_line": 55
+        },
+        "2": {
+          "time": "2026-11-02T17:38:55.769+08:00",
+          "epoch": 1793612335.7690768,
+          "distance_m": 1.4443539575766982,
+          "seconds_until_success": 4.286314487457275,
+          "observer_line": 62
+        },
+        "1": {
+          "time": "2026-11-02T17:38:57.769+08:00",
+          "epoch": 1793612337.7699063,
+          "distance_m": 0.9369866203006088,
+          "seconds_until_success": 2.285485029220581,
+          "observer_line": 63
+        },
+        "0.5": null
+      },
+      "last_pre_success_sample": {
+        "time": "2026-11-02T17:38:59.776+08:00",
+        "distance_m": 0.505280277084614,
+        "seconds_before_success": 0.278841495513916
+      }
+    },
+    "106": {
+      "requested_xy": [
+        115.12,
+        -143.71
+      ],
+      "accepted": "2026-11-02T17:39:12.129+08:00",
+      "succeeded": "2026-11-02T17:46:24.706+08:00",
+      "succeeded_epoch": 1793612784.7060132,
+      "fresh_pose_samples": 216,
+      "first_distance_crossings": {
+        "5": {
+          "time": "2026-11-02T17:44:08.118+08:00",
+          "epoch": 1793612648.1188173,
+          "distance_m": 4.59289779145527,
+          "seconds_until_success": 136.5871958732605,
+          "observer_line": 218
+        },
+        "2": {
+          "time": "2026-11-02T17:44:16.129+08:00",
+          "epoch": 1793612656.1292818,
+          "distance_m": 1.574918710374739,
+          "seconds_until_success": 128.57673144340515,
+          "observer_line": 222
+        },
+        "1": {
+          "time": "2026-11-02T17:45:46.212+08:00",
+          "epoch": 1793612746.2124453,
+          "distance_m": 0.999505952443367,
+          "seconds_until_success": 38.493567943573,
+          "observer_line": 267
+        },
+        "0.5": null
+      },
+      "last_pre_success_sample": {
+        "time": "2026-11-02T17:46:24.249+08:00",
+        "distance_m": 0.5529957540977822,
+        "seconds_before_success": 0.4563121795654297
+      }
+    }
+  },
+  "goal106_stall": {
+    "start": "2026-11-02T17:44:18.129+08:00",
+    "end": "2026-11-02T17:46:10.239+08:00",
+    "duration_s": 112.10947251319885,
+    "fresh_pose_samples": 57,
+    "fresh_cmd_ecu_vehicle_samples": 57,
+    "distance_min_m": 0.999505952443367,
+    "distance_max_m": 1.623855762259707,
+    "cmd_positive_samples": 23,
+    "cmd_negative_samples": 34,
+    "ecu_forward_request_samples": 21,
+    "ecu_reverse_request_samples": 29,
+    "ecu_zero_request_samples": 7,
+    "ecu_nonzero_request_direction_changes": 37,
+    "ecu_at_0_8_kmh_samples": 49,
+    "samples": [
+      {
+        "observer_line": 223,
+        "time": "2026-11-02T17:44:18.129+08:00",
+        "distance_m": 1.2046211105822355,
+        "cmd_mps": -0.08679945766925812,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 224,
+        "time": "2026-11-02T17:44:20.129+08:00",
+        "distance_m": 1.395721497714022,
+        "cmd_mps": -0.20502039790153503,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 225,
+        "time": "2026-11-02T17:44:22.130+08:00",
+        "distance_m": 1.2167305046623458,
+        "cmd_mps": -0.09008000791072845,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 226,
+        "time": "2026-11-02T17:44:24.131+08:00",
+        "distance_m": 1.3852638710770433,
+        "cmd_mps": 0.38534706830978394,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 227,
+        "time": "2026-11-02T17:44:26.131+08:00",
+        "distance_m": 1.2797024981353355,
+        "cmd_mps": -0.04042840003967285,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 228,
+        "time": "2026-11-02T17:44:28.132+08:00",
+        "distance_m": 1.2910897957983318,
+        "cmd_mps": 0.3213256895542145,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 229,
+        "time": "2026-11-02T17:44:30.132+08:00",
+        "distance_m": 1.0371628815707807,
+        "cmd_mps": -0.006684903055429459,
+        "ecu_signed_kmh": -0.0
+      },
+      {
+        "observer_line": 230,
+        "time": "2026-11-02T17:44:32.132+08:00",
+        "distance_m": 1.1955719546706136,
+        "cmd_mps": -0.040793608874082565,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 231,
+        "time": "2026-11-02T17:44:34.133+08:00",
+        "distance_m": 1.4771073071761642,
+        "cmd_mps": 0.7152929902076721,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 232,
+        "time": "2026-11-02T17:44:36.135+08:00",
+        "distance_m": 1.1188450953932314,
+        "cmd_mps": 0.0491720587015152,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 233,
+        "time": "2026-11-02T17:44:38.135+08:00",
+        "distance_m": 1.079389484140526,
+        "cmd_mps": -0.029946396127343178,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 234,
+        "time": "2026-11-02T17:44:40.138+08:00",
+        "distance_m": 1.3884442313325789,
+        "cmd_mps": -0.03884481266140938,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 235,
+        "time": "2026-11-02T17:44:42.138+08:00",
+        "distance_m": 1.1925400468572902,
+        "cmd_mps": -0.048562049865722656,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 236,
+        "time": "2026-11-02T17:44:44.138+08:00",
+        "distance_m": 1.3957369329211906,
+        "cmd_mps": 0.5148070454597473,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 237,
+        "time": "2026-11-02T17:44:46.138+08:00",
+        "distance_m": 1.3594130821082528,
+        "cmd_mps": -0.222571462392807,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 238,
+        "time": "2026-11-02T17:44:48.142+08:00",
+        "distance_m": 1.623855762259707,
+        "cmd_mps": 0.8588137030601501,
+        "ecu_signed_kmh": 0.8888136744499207
+      },
+      {
+        "observer_line": 239,
+        "time": "2026-11-02T17:44:50.148+08:00",
+        "distance_m": 1.2853760841697042,
+        "cmd_mps": 0.3429822623729706,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 240,
+        "time": "2026-11-02T17:44:52.152+08:00",
+        "distance_m": 1.0655543449704032,
+        "cmd_mps": -0.01572418212890625,
+        "ecu_signed_kmh": -0.0
+      },
+      {
+        "observer_line": 241,
+        "time": "2026-11-02T17:44:54.153+08:00",
+        "distance_m": 1.3356241287432902,
+        "cmd_mps": -0.04011242836713791,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 242,
+        "time": "2026-11-02T17:44:56.153+08:00",
+        "distance_m": 1.2340926052983545,
+        "cmd_mps": 0.044067658483982086,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 243,
+        "time": "2026-11-02T17:44:58.158+08:00",
+        "distance_m": 1.1757348142906607,
+        "cmd_mps": -0.018531739711761475,
+        "ecu_signed_kmh": -0.0
+      },
+      {
+        "observer_line": 244,
+        "time": "2026-11-02T17:45:00.158+08:00",
+        "distance_m": 1.3922695224946968,
+        "cmd_mps": -0.04224551469087601,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 245,
+        "time": "2026-11-02T17:45:02.168+08:00",
+        "distance_m": 1.192791605205742,
+        "cmd_mps": -0.026031121611595154,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 246,
+        "time": "2026-11-02T17:45:04.173+08:00",
+        "distance_m": 1.380766498108097,
+        "cmd_mps": -0.055431243032217026,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 247,
+        "time": "2026-11-02T17:45:06.177+08:00",
+        "distance_m": 1.2139596982614655,
+        "cmd_mps": -0.02938368171453476,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 248,
+        "time": "2026-11-02T17:45:08.178+08:00",
+        "distance_m": 1.4154528089127596,
+        "cmd_mps": 0.16614966094493866,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 249,
+        "time": "2026-11-02T17:45:10.178+08:00",
+        "distance_m": 1.172771290461773,
+        "cmd_mps": -0.028359215706586838,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 250,
+        "time": "2026-11-02T17:45:12.179+08:00",
+        "distance_m": 1.3428773490362333,
+        "cmd_mps": -0.025302615016698837,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 251,
+        "time": "2026-11-02T17:45:14.183+08:00",
+        "distance_m": 1.2686729404792805,
+        "cmd_mps": 0.13960614800453186,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 252,
+        "time": "2026-11-02T17:45:16.184+08:00",
+        "distance_m": 1.2909583799656599,
+        "cmd_mps": -0.021217569708824158,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 253,
+        "time": "2026-11-02T17:45:18.185+08:00",
+        "distance_m": 1.3029885542080781,
+        "cmd_mps": 0.26803138852119446,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 254,
+        "time": "2026-11-02T17:45:20.185+08:00",
+        "distance_m": 1.297457049916955,
+        "cmd_mps": -0.022731147706508636,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 255,
+        "time": "2026-11-02T17:45:22.186+08:00",
+        "distance_m": 1.278336584042339,
+        "cmd_mps": 0.19687722623348236,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 256,
+        "time": "2026-11-02T17:45:24.186+08:00",
+        "distance_m": 1.36684840284626,
+        "cmd_mps": -0.016016781330108643,
+        "ecu_signed_kmh": -0.0
+      },
+      {
+        "observer_line": 257,
+        "time": "2026-11-02T17:45:26.188+08:00",
+        "distance_m": 1.2669167563818573,
+        "cmd_mps": -0.032688550651073456,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 258,
+        "time": "2026-11-02T17:45:28.188+08:00",
+        "distance_m": 1.45736704373279,
+        "cmd_mps": 0.4473687708377838,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 259,
+        "time": "2026-11-02T17:45:30.189+08:00",
+        "distance_m": 1.2492483789583293,
+        "cmd_mps": 0.018438879400491714,
+        "ecu_signed_kmh": 0.0
+      },
+      {
+        "observer_line": 260,
+        "time": "2026-11-02T17:45:32.192+08:00",
+        "distance_m": 1.3726310554116505,
+        "cmd_mps": -0.02941080555319786,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 261,
+        "time": "2026-11-02T17:45:34.192+08:00",
+        "distance_m": 1.3402128748095685,
+        "cmd_mps": 0.7417134046554565,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 262,
+        "time": "2026-11-02T17:45:36.193+08:00",
+        "distance_m": 1.1289925864032928,
+        "cmd_mps": -0.015388689003884792,
+        "ecu_signed_kmh": -0.0
+      },
+      {
+        "observer_line": 263,
+        "time": "2026-11-02T17:45:38.199+08:00",
+        "distance_m": 1.2856104017633894,
+        "cmd_mps": -0.039987899363040924,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 264,
+        "time": "2026-11-02T17:45:40.203+08:00",
+        "distance_m": 1.2925402538661863,
+        "cmd_mps": 0.11748318374156952,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 265,
+        "time": "2026-11-02T17:45:42.203+08:00",
+        "distance_m": 1.2823010392149856,
+        "cmd_mps": -0.028670165687799454,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 266,
+        "time": "2026-11-02T17:45:44.209+08:00",
+        "distance_m": 1.2634954275495316,
+        "cmd_mps": 0.21699708700180054,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 267,
+        "time": "2026-11-02T17:45:46.212+08:00",
+        "distance_m": 0.999505952443367,
+        "cmd_mps": 0.010571727529168129,
+        "ecu_signed_kmh": 0.0
+      },
+      {
+        "observer_line": 268,
+        "time": "2026-11-02T17:45:48.213+08:00",
+        "distance_m": 1.1023964209909425,
+        "cmd_mps": -0.04971255362033844,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 269,
+        "time": "2026-11-02T17:45:50.219+08:00",
+        "distance_m": 1.4008184423057433,
+        "cmd_mps": -0.15465596318244934,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 270,
+        "time": "2026-11-02T17:45:52.219+08:00",
+        "distance_m": 1.2334386225201328,
+        "cmd_mps": -0.05676981434226036,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 271,
+        "time": "2026-11-02T17:45:54.219+08:00",
+        "distance_m": 1.3250768355366795,
+        "cmd_mps": 0.30125901103019714,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 272,
+        "time": "2026-11-02T17:45:56.228+08:00",
+        "distance_m": 1.2616449321286967,
+        "cmd_mps": -0.02901562675833702,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 273,
+        "time": "2026-11-02T17:45:58.232+08:00",
+        "distance_m": 1.317824820967033,
+        "cmd_mps": 0.15775585174560547,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 274,
+        "time": "2026-11-02T17:46:00.233+08:00",
+        "distance_m": 1.266241711274962,
+        "cmd_mps": -0.02445995807647705,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 275,
+        "time": "2026-11-02T17:46:02.236+08:00",
+        "distance_m": 1.294071782643073,
+        "cmd_mps": 0.27506718039512634,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 276,
+        "time": "2026-11-02T17:46:04.236+08:00",
+        "distance_m": 1.2740912962453623,
+        "cmd_mps": -0.028274938464164734,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 277,
+        "time": "2026-11-02T17:46:06.238+08:00",
+        "distance_m": 1.4644907539454795,
+        "cmd_mps": 0.5723399519920349,
+        "ecu_signed_kmh": 0.800000011920929
+      },
+      {
+        "observer_line": 278,
+        "time": "2026-11-02T17:46:08.239+08:00",
+        "distance_m": 1.202137290772661,
+        "cmd_mps": -0.045151516795158386,
+        "ecu_signed_kmh": -0.800000011920929
+      },
+      {
+        "observer_line": 279,
+        "time": "2026-11-02T17:46:10.239+08:00",
+        "distance_m": 1.4357627906234525,
+        "cmd_mps": 0.17536841332912445,
+        "ecu_signed_kmh": 0.800000011920929
+      }
+    ]
+  },
+  "events": [
+    {
+      "epoch": 1793612273.36066,
+      "time": "2026-11-02T17:37:53.360+08:00",
+      "source_line": 69,
+      "message": "[component_container_isolated-1] [ERROR] [1793612273.360660131] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793612414.5590405,
+      "time": "2026-11-02T17:40:14.559+08:00",
+      "source_line": 235,
+      "message": "[component_container_isolated-1] [ERROR] [1793612414.559040593] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793612427.3516912,
+      "time": "2026-11-02T17:40:27.351+08:00",
+      "source_line": 251,
+      "message": "[component_container_isolated-1] [ERROR] [1793612427.351691205] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793612431.7660165,
+      "time": "2026-11-02T17:40:31.766+08:00",
+      "source_line": 258,
+      "message": "[component_container_isolated-1] [ERROR] [1793612431.766016569] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793612582.4532154,
+      "time": "2026-11-02T17:43:02.453+08:00",
+      "source_line": 438,
+      "message": "[component_container_isolated-1] [ERROR] [1793612582.453215287] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793612770.3494713,
+      "time": "2026-11-02T17:46:10.349+08:00",
+      "source_line": 661,
+      "message": "[component_container_isolated-1] [ERROR] [1793612770.349471213] [controller_server]: Failed to make progress"
+    },
+    {
+      "epoch": 1793612797.8702698,
+      "time": "2026-11-02T17:46:37.870+08:00",
+      "source_line": 693,
+      "message": "[component_container_isolated-1] [ERROR] [1793612797.870269847] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613098.2564313,
+      "time": "2026-11-02T17:51:38.256+08:00",
+      "source_line": 1047,
+      "message": "[component_container_isolated-1] [ERROR] [1793613098.256431402] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613102.8725567,
+      "time": "2026-11-02T17:51:42.872+08:00",
+      "source_line": 1055,
+      "message": "[component_container_isolated-1] [ERROR] [1793613102.872556584] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613121.9655013,
+      "time": "2026-11-02T17:52:01.965+08:00",
+      "source_line": 1080,
+      "message": "[component_container_isolated-1] [ERROR] [1793613121.965501305] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613123.1462111,
+      "time": "2026-11-02T17:52:03.146+08:00",
+      "source_line": 1083,
+      "message": "[component_container_isolated-1] [ERROR] [1793613123.146211207] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613124.2566564,
+      "time": "2026-11-02T17:52:04.256+08:00",
+      "source_line": 1086,
+      "message": "[component_container_isolated-1] [ERROR] [1793613124.256656299] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613128.2498157,
+      "time": "2026-11-02T17:52:08.249+08:00",
+      "source_line": 1093,
+      "message": "[component_container_isolated-1] [ERROR] [1793613128.249815671] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613128.3649824,
+      "time": "2026-11-02T17:52:08.364+08:00",
+      "source_line": 1095,
+      "message": "[component_container_isolated-1] [ERROR] [1793613128.364982381] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613143.8687365,
+      "time": "2026-11-02T17:52:23.868+08:00",
+      "source_line": 1115,
+      "message": "[component_container_isolated-1] [ERROR] [1793613143.868736574] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613143.9703453,
+      "time": "2026-11-02T17:52:23.970+08:00",
+      "source_line": 1117,
+      "message": "[component_container_isolated-1] [ERROR] [1793613143.970345205] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613144.003734,
+      "time": "2026-11-02T17:52:24.003+08:00",
+      "source_line": 1120,
+      "message": "[component_container_isolated-1] [WARN] [1793613144.003734146] [behavior_server]: backup failed"
+    },
+    {
+      "epoch": 1793613144.7575336,
+      "time": "2026-11-02T17:52:24.757+08:00",
+      "source_line": 1123,
+      "message": "[component_container_isolated-1] [ERROR] [1793613144.757533530] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613144.859792,
+      "time": "2026-11-02T17:52:24.859+08:00",
+      "source_line": 1125,
+      "message": "[component_container_isolated-1] [ERROR] [1793613144.859791949] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613150.0708287,
+      "time": "2026-11-02T17:52:30.070+08:00",
+      "source_line": 1132,
+      "message": "[component_container_isolated-1] [ERROR] [1793613150.070828665] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613150.1674418,
+      "time": "2026-11-02T17:52:30.167+08:00",
+      "source_line": 1134,
+      "message": "[component_container_isolated-1] [ERROR] [1793613150.167441903] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613150.2027621,
+      "time": "2026-11-02T17:52:30.202+08:00",
+      "source_line": 1137,
+      "message": "[component_container_isolated-1] [WARN] [1793613150.202762070] [behavior_server]: backup failed"
+    },
+    {
+      "epoch": 1793613151.3705163,
+      "time": "2026-11-02T17:52:31.370+08:00",
+      "source_line": 1141,
+      "message": "[component_container_isolated-1] [ERROR] [1793613151.370516294] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613151.463088,
+      "time": "2026-11-02T17:52:31.463+08:00",
+      "source_line": 1143,
+      "message": "[component_container_isolated-1] [ERROR] [1793613151.463088064] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613156.763668,
+      "time": "2026-11-02T17:52:36.763+08:00",
+      "source_line": 1151,
+      "message": "[component_container_isolated-1] [ERROR] [1793613156.763668156] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613156.8573148,
+      "time": "2026-11-02T17:52:36.857+08:00",
+      "source_line": 1153,
+      "message": "[component_container_isolated-1] [ERROR] [1793613156.857314875] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613156.883195,
+      "time": "2026-11-02T17:52:36.883+08:00",
+      "source_line": 1156,
+      "message": "[component_container_isolated-1] [WARN] [1793613156.883194917] [behavior_server]: backup failed"
+    },
+    {
+      "epoch": 1793613157.5577202,
+      "time": "2026-11-02T17:52:37.557+08:00",
+      "source_line": 1158,
+      "message": "[component_container_isolated-1] [ERROR] [1793613157.557720211] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613157.657798,
+      "time": "2026-11-02T17:52:37.657+08:00",
+      "source_line": 1161,
+      "message": "[component_container_isolated-1] [ERROR] [1793613157.657797942] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613162.860202,
+      "time": "2026-11-02T17:52:42.860+08:00",
+      "source_line": 1168,
+      "message": "[component_container_isolated-1] [ERROR] [1793613162.860202082] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613162.977502,
+      "time": "2026-11-02T17:52:42.977+08:00",
+      "source_line": 1170,
+      "message": "[component_container_isolated-1] [ERROR] [1793613162.977502207] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613163.0036147,
+      "time": "2026-11-02T17:52:43.003+08:00",
+      "source_line": 1173,
+      "message": "[component_container_isolated-1] [WARN] [1793613163.003614645] [behavior_server]: backup failed"
+    },
+    {
+      "epoch": 1793613163.96413,
+      "time": "2026-11-02T17:52:43.964+08:00",
+      "source_line": 1176,
+      "message": "[component_container_isolated-1] [ERROR] [1793613163.964129947] [controller_server]: Optimizer fail to compute path"
+    },
+    {
+      "epoch": 1793613164.0687203,
+      "time": "2026-11-02T17:52:44.068+08:00",
+      "source_line": 1178,
+      "message": "[component_container_isolated-1] [ERROR] [1793613164.068720443] [controller_server]: Optimizer fail to compute path"
+    }
+  ],
+  "optimizer_failures_during_stall": 0
+}

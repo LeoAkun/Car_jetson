@@ -127,6 +127,12 @@ void Optimizer::reset()
   costs_ = xt::zeros<float>({settings_.batch_size});
   generated_trajectories_.reset(settings_.batch_size, settings_.time_steps);
 
+  // A fallback regenerates the candidate batch. Do not carry its failure or
+  // trajectory-dependent critic caches into the next scoring attempt.
+  critics_data_.fail_flag = false;
+  critics_data_.furthest_reached_path_point.reset();
+  critics_data_.path_pts_valid.reset();
+
   noise_generator_.reset(settings_, isHolonomic());
   RCLCPP_INFO(logger_, "Optimizer reset");
 }
@@ -136,35 +142,36 @@ geometry_msgs::msg::TwistStamped Optimizer::evalControl(
   const geometry_msgs::msg::Twist & robot_speed,
   const nav_msgs::msg::Path & plan, nav2_core::GoalChecker * goal_checker)
 {
-  RCLCPP_INFO(logger_, "[MPPI] === evalControl() called ===");
-  RCLCPP_INFO(logger_, "Robot pose: (%.2f, %.2f, %.2f), speed: (%.2f, %.2f, %.2f)",
+  RCLCPP_DEBUG(logger_, "[MPPI] === evalControl() called ===");
+  RCLCPP_DEBUG(logger_, "Robot pose: (%.2f, %.2f, %.2f), speed: (%.2f, %.2f, %.2f)",
               robot_pose.pose.position.x, robot_pose.pose.position.y,
               tf2::getYaw(robot_pose.pose.orientation),
               robot_speed.linear.x, robot_speed.linear.y, robot_speed.angular.z);
-  RCLCPP_INFO(logger_, "Plan size: %lu", plan.poses.size());
+  RCLCPP_DEBUG(logger_, "Plan size: %lu", plan.poses.size());
 
   prepare(robot_pose, robot_speed, plan, goal_checker);
-  RCLCPP_INFO(logger_, "[MPPI] prepare() done. critics_data_.fail_flag = %d", critics_data_.fail_flag);
+  RCLCPP_DEBUG(logger_, "[MPPI] prepare() done. critics_data_.fail_flag = %d", critics_data_.fail_flag);
 
   int optimize_count = 0;
+  size_t retry_attempts = 0;
   do {
-    RCLCPP_INFO(logger_, "[MPPI] Running optimize() iteration #%d", optimize_count++);
+    RCLCPP_DEBUG(logger_, "[MPPI] Running optimize() iteration #%d", optimize_count++);
     optimize();
-    RCLCPP_INFO(logger_, "[MPPI] optimize() finished. fail_flag = %d", critics_data_.fail_flag);
-  } while (fallback(critics_data_.fail_flag));
+    RCLCPP_DEBUG(logger_, "[MPPI] optimize() finished. fail_flag = %d", critics_data_.fail_flag);
+  } while (fallback(critics_data_.fail_flag, retry_attempts));
 
   utils::savitskyGolayFilter(control_sequence_, control_history_, settings_);
-  RCLCPP_INFO(logger_, "[MPPI] Applied savitskyGolayFilter()");
+  RCLCPP_DEBUG(logger_, "[MPPI] Applied savitskyGolayFilter()");
 
   auto control = getControlFromSequenceAsTwist(plan.header.stamp);
-  RCLCPP_INFO(logger_, "[MPPI] Output control: vx=%.3f, vy=%.3f, wz=%.3f",
+  RCLCPP_DEBUG(logger_, "[MPPI] Output control: vx=%.3f, vy=%.3f, wz=%.3f",
               control.twist.linear.x, control.twist.linear.y, control.twist.angular.z);
 
   if (settings_.shift_control_sequence) {
     shiftControlSequence();
-    RCLCPP_INFO(logger_, "[MPPI] shiftControlSequence() executed");
+    RCLCPP_DEBUG(logger_, "[MPPI] shiftControlSequence() executed");
   }
-  RCLCPP_INFO(logger_, "[MPPI] === evalControl() complete ===");
+  RCLCPP_DEBUG(logger_, "[MPPI] === evalControl() complete ===");
   return control;
 }
 
@@ -173,26 +180,32 @@ void Optimizer::optimize()
   for (size_t i = 0; i < settings_.iteration_count; ++i) {
     generateNoisedTrajectories();
     critic_manager_.evalTrajectoriesScores(critics_data_);
+    if (critics_data_.fail_flag) {
+      // The remaining critics were skipped; these costs cannot select a control.
+      return;
+    }
     updateControlSequence();
   }
 }
 
-bool Optimizer::fallback(bool fail)
+bool Optimizer::fallback(bool fail, size_t & retry_attempts)
 {
-  static size_t counter = 0;
-
   if (!fail) {
-    counter = 0;
+    retry_attempts = 0;
     return false;
   }
 
+  // reset() restores base constraints. A retry must retain any active speed limit.
+  const auto constraints = settings_.constraints;
   reset();
+  settings_.constraints = constraints;
 
-  if (++counter > settings_.retry_attempt_limit) {
-    counter = 0;
+  if (retry_attempts >= settings_.retry_attempt_limit) {
+    retry_attempts = 0;
     throw std::runtime_error("Optimizer fail to compute path");
   }
 
+  ++retry_attempts;
   return true;
 }
 

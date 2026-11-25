@@ -1,0 +1,100 @@
+Oct 26 16:59:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 16:59:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:00:19 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:00:19 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:00:45 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:00:45 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:00:49 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:00:49 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:00:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:00:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:00:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:00:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:00:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:00:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:00 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:02 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:28 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:28 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:29 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:29 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:33 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:33 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:42 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:42 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:01:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:01:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:02:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:02:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:02:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:02:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:02:16 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:02:16 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:02:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:02:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:02:51 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:02:51 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:02:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:03:55 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:03:55 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:03:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:03:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:03:58 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:03:58 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:03:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:03:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:01 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:01 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:02 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5763 ms
+Oct 26 17:04:02 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+Oct 26 17:04:02 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+Oct 26 17:04:02 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+Oct 26 17:04:15 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:15 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:35 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: NETDEV WATCHDOG: CPU: 10: transmit queue 0 timed out 5005 ms
+Oct 26 17:04:35 admin1-Default-string kernel: r8169 0000:02:00.0: can't disable ASPM; OS doesn't have ASPM control
+Oct 26 17:04:35 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_txcfg_empty_cond == 0 (loop: 42, delay: 100).
+Oct 26 17:04:35 admin1-Default-string kernel: r8169 0000:02:00.0 enp2s0: rtl_rxtx_empty_cond == 0 (loop: 42, delay: 100).
+Oct 26 17:04:35 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:35 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:40 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:40 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:52 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:52 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:04:59 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:04:59 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:05:03 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:05:03 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)
+Oct 26 17:05:04 admin1-Default-string kernel: pcieport 0000:00:1c.2: AER: Correctable error message received from 0000:00:1c.2
+Oct 26 17:05:04 admin1-Default-string kernel: pcieport 0000:00:1c.2:    [ 0] RxErr                  (First)

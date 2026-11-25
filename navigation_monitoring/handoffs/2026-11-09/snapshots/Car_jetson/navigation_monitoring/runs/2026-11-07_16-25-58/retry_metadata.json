@@ -1,0 +1,20 @@
+{
+  "requested_route": {
+    "map": "3b2mus",
+    "waypoints": [
+      113,
+      106,
+      107
+    ]
+  },
+  "created_beijing": "2026-11-07T16:25:58.086777+08:00",
+  "boot_id": "ca32f49f-62a3-4e77-aee9-af55c9ac556a",
+  "processes": {
+    "monitor": 4827,
+    "rosbag_record": 4828,
+    "real_drivers": 4829,
+    "management_stack": 4830
+  },
+  "sensor_precheck": "skipped_per_user_instruction",
+  "automatic_redispatch_after_reboot": false
+}
