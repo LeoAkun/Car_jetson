@@ -119,19 +119,19 @@ TEST(ContinuityOffsetRelease, InvalidTimeDoesNotChangeOffset)
     EXPECT_TRUE(offset.matrix().isApprox(before));
 }
 
-TEST(ContinuityStepGuard, PreservesOriginalLimitAtNormalCadence)
+TEST(ContinuityStepGuard, UsesConfiguredOutputLimitAtNormalCadence)
 {
     const auto accepted = lio_sam::evaluateContinuityStep(
-        0.05, 0.0, M_PI / 180.0, 0.01, 0.5, 0.25);
+        0.10, 0.0, 3.0 * M_PI / 180.0, 0.01, 0.5, 0.25);
     EXPECT_TRUE(accepted.accepted);
-    EXPECT_NEAR(accepted.translation_limit_m, 0.05, 1e-12);
-    EXPECT_NEAR(accepted.yaw_limit_rad, M_PI / 180.0, 1e-12);
+    EXPECT_NEAR(accepted.translation_limit_m, 0.10, 1e-12);
+    EXPECT_NEAR(accepted.yaw_limit_rad, 3.0 * M_PI / 180.0, 1e-12);
 
     const auto translationJump = lio_sam::evaluateContinuityStep(
-        0.051, 0.0, 0.0, 0.01, 0.5, 0.0);
+        0.101, 0.0, 0.0, 0.01, 0.5, 0.0);
     EXPECT_FALSE(translationJump.accepted);
     const auto yawJump = lio_sam::evaluateContinuityStep(
-        0.0, 0.0, 1.01 * M_PI / 180.0, 0.01, 0.0, 0.25);
+        0.0, 0.0, 3.01 * M_PI / 180.0, 0.01, 0.0, 0.25);
     EXPECT_FALSE(yawJump.accepted);
 }
 
@@ -157,7 +157,7 @@ TEST(ContinuityStepGuard, AcceptsRecordedDelayedTranslationSamples)
             sample.dt, sample.speed, 0.0);
         EXPECT_TRUE(decision.accepted);
         EXPECT_GE(decision.translation_limit_m, sample.step);
-        EXPECT_LT(decision.translation_limit_m, 0.06);
+        EXPECT_NEAR(decision.translation_limit_m, 0.10, 1e-12);
     }
 }
 
@@ -179,27 +179,29 @@ TEST(ContinuityStepGuard, LimitsAcceptedDelayedOutputToOriginalStepBounds)
     const Eigen::Isometry3d previous = pose(
         10.0, -2.0, 0.1, 0.0, 0.0, -0.3);
     const Eigen::Isometry3d candidate = previous * pose(
-        0.051343, 0.0, 0.0, 0.0, 0.0, 0.023260);
+        0.12, 0.0, 0.0, 0.0, 0.0, 0.07);
 
     const Eigen::Isometry3d limited = lio_sam::limitContinuityPoseStep(
-        previous, candidate, 0.05, M_PI / 180.0);
+        previous, candidate, 0.10, 3.0 * M_PI / 180.0);
     const Eigen::Isometry3d delta = previous.inverse() * limited;
 
-    EXPECT_NEAR(delta.translation().norm(), 0.05, 1e-12);
-    EXPECT_NEAR(rotationDistance(previous, limited), M_PI / 180.0, 1e-12);
+    EXPECT_NEAR(delta.translation().norm(), 0.10, 1e-12);
+    EXPECT_NEAR(
+        rotationDistance(previous, limited), 3.0 * M_PI / 180.0, 1e-12);
 }
 
 TEST(ContinuityStepGuard, StillRejectsHardJumpsAfterDelay)
 {
     const auto translationJump = lio_sam::evaluateContinuityStep(
-        0.31, 0.0, 0.0, 2.0, 50.0, 0.0);
+        0.51, 0.0, 0.0, 2.0, 50.0, 0.0);
     EXPECT_FALSE(translationJump.accepted);
-    EXPECT_NEAR(translationJump.translation_limit_m, 0.30, 1e-12);
+    EXPECT_LE(translationJump.translation_limit_m, 0.50);
+    EXPECT_GT(translationJump.translation_limit_m, 0.10);
 
     const auto yawJump = lio_sam::evaluateContinuityStep(
-        0.0, 0.0, 5.1 * M_PI / 180.0, 2.0, 0.0, 50.0);
+        0.0, 0.0, 10.1 * M_PI / 180.0, 2.0, 0.0, 50.0);
     EXPECT_FALSE(yawJump.accepted);
-    EXPECT_NEAR(yawJump.yaw_limit_rad, 5.0 * M_PI / 180.0, 1e-12);
+    EXPECT_NEAR(yawJump.yaw_limit_rad, 10.0 * M_PI / 180.0, 1e-12);
 }
 
 TEST(ContinuityStepGuard, VehicleSpeedCannotExcuseVerticalJump)
@@ -210,14 +212,87 @@ TEST(ContinuityStepGuard, VehicleSpeedCannotExcuseVerticalJump)
     EXPECT_NEAR(decision.vertical_limit_m, 0.05, 1e-12);
 }
 
+TEST(ContinuityStepGuard, ClassifiesOnlyHardBoundaryViolationsAsStrong)
+{
+    EXPECT_FALSE(lio_sam::isStrongContinuityViolation(
+        0.49, 0.049, 9.9 * M_PI / 180.0));
+    EXPECT_TRUE(lio_sam::isStrongContinuityViolation(
+        0.51, 0.0, 0.0));
+    EXPECT_TRUE(lio_sam::isStrongContinuityViolation(
+        0.0, 0.051, 0.0));
+    EXPECT_TRUE(lio_sam::isStrongContinuityViolation(
+        0.0, 0.0, 10.1 * M_PI / 180.0));
+}
+
 TEST(ContinuityStepGuard, InvalidTwistCannotDisableGuard)
 {
     const auto decision = lio_sam::evaluateContinuityStep(
-        0.06, 0.0, 0.0, 0.01,
+        0.11, 0.0, 0.0, 0.01,
         std::numeric_limits<double>::quiet_NaN(),
         std::numeric_limits<double>::infinity());
     EXPECT_FALSE(decision.accepted);
-    EXPECT_NEAR(decision.translation_limit_m, 0.05, 1e-12);
-    EXPECT_NEAR(decision.yaw_limit_rad, M_PI / 180.0, 1e-12);
+    EXPECT_NEAR(decision.translation_limit_m, 0.10, 1e-12);
+    EXPECT_NEAR(decision.yaw_limit_rad, 3.0 * M_PI / 180.0, 1e-12);
+}
+
+TEST(ContinuityPrediction, UsesLastLegalPlanarMotionWithinOutputLimits)
+{
+    const Eigen::Isometry3d previous = pose(
+        1.0, 2.0, 0.3, 0.0, 0.0, 0.0);
+    const Eigen::Isometry3d predicted = lio_sam::predictBoundedPlanarMotion(
+        previous, 0.20, 2.0, 0.0, 1.0);
+    const Eigen::Isometry3d delta = previous.inverse() * predicted;
+
+    EXPECT_NEAR(delta.translation().norm(), 0.10, 1e-12);
+    EXPECT_NEAR(rotationDistance(previous, predicted),
+        3.0 * M_PI / 180.0, 1e-12);
+    EXPECT_NEAR(predicted.translation().z(), previous.translation().z(), 1e-12);
+}
+
+TEST(ContinuityRecovery, RecoversAfterThreeConsecutiveValidSamples)
+{
+    lio_sam::ContinuityRecoveryTracker tracker;
+    EXPECT_TRUE(tracker.observeInvalid(1.0, false).entered_suspect);
+    EXPECT_FALSE(tracker.observeValid(1.01).recovered);
+    EXPECT_FALSE(tracker.observeValid(1.02).recovered);
+    EXPECT_TRUE(tracker.observeValid(1.03).recovered);
+    EXPECT_FALSE(tracker.suspect());
+}
+
+TEST(ContinuityRecovery, FaultsAtTenInvalidSamplesOrHalfSecond)
+{
+    lio_sam::ContinuityRecoveryTracker countTracker;
+    for (int index = 0; index < 9; ++index)
+        EXPECT_FALSE(countTracker.observeInvalid(1.0 + 0.01 * index, false)
+            .fault_confirmed);
+    EXPECT_TRUE(countTracker.observeInvalid(1.09, false).fault_confirmed);
+
+    lio_sam::ContinuityRecoveryTracker timeTracker;
+    EXPECT_FALSE(timeTracker.observeInvalid(2.0, false).fault_confirmed);
+    EXPECT_TRUE(timeTracker.checkTimeout(2.50).fault_confirmed);
+}
+
+TEST(ContinuityRecovery, StrongFaultRequiresThreeSamplesOrPointOneSecond)
+{
+    lio_sam::ContinuityRecoveryTracker sampleTracker;
+    EXPECT_FALSE(sampleTracker.observeInvalid(1.0, true).fault_confirmed);
+    EXPECT_FALSE(sampleTracker.observeInvalid(1.01, true).fault_confirmed);
+    EXPECT_TRUE(sampleTracker.observeInvalid(1.02, true).fault_confirmed);
+
+    lio_sam::ContinuityRecoveryTracker timeTracker;
+    EXPECT_FALSE(timeTracker.observeInvalid(2.0, true).fault_confirmed);
+    EXPECT_TRUE(timeTracker.checkTimeout(2.10).fault_confirmed);
+}
+
+TEST(ContinuityRecovery, InvalidSampleBreaksRecoveryStreak)
+{
+    lio_sam::ContinuityRecoveryTracker tracker;
+    tracker.observeInvalid(1.0, false);
+    tracker.observeValid(1.01);
+    tracker.observeValid(1.02);
+    tracker.observeInvalid(1.03, false);
+    EXPECT_FALSE(tracker.observeValid(1.04).recovered);
+    EXPECT_FALSE(tracker.observeValid(1.05).recovered);
+    EXPECT_TRUE(tracker.observeValid(1.06).recovered);
 }
 }  // namespace

@@ -114,14 +114,22 @@
     scanToMapMaxCorrectionTranslation: 0.30       # meters from prediction to optimized scan pose
     scanToMapMaxCorrectionRotation: 0.087266463   # radians (5 degrees)
 
-    # Odom continuity guard. Keep 5 cm / 1 degree at normal cadence; only
-    # expand planar motion for delayed output, capped at 0.30 m / 5 degrees.
-    # Vertical input and every published output remain capped at 5 cm / 1 degree.
+    # Odom continuity quarantine and short-term bounded prediction.
+    odomContinuityPublishedTranslationLimit: 0.10  # 10 cm per published sample
+    odomContinuityPublishedYawLimit: 0.052359878    # 3 degrees
+    odomContinuityHardTranslationLimit: 0.50       # strong anomaly boundary
+    odomContinuityHardYawLimit: 0.174532925         # 10 degrees
+    odomContinuityVerticalLimit: 0.05               # never relaxed by vehicle speed
     odomContinuityMaximumDtSec: 0.20
     odomContinuityTranslationMargin: 0.005
     odomContinuityYawMargin: 0.003490659           # 0.2 degrees
     odomContinuityMaximumLinearSpeed: 2.0          # m/s, allowance calculation clamp
     odomContinuityMaximumYawSpeed: 1.0             # rad/s, allowance calculation clamp
+    odomContinuitySuspectTimeoutSec: 0.50
+    odomContinuityRecoveryValidSamples: 3
+    odomContinuityMaximumInvalidSamples: 10
+    odomContinuityStrongInvalidSamples: 3
+    odomContinuityStrongTimeoutSec: 0.10
 
     # Visualization
     globalMapVisualizationSearchRadius: 1000.0    # meters, global map visualization radius

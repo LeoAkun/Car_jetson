@@ -39,6 +39,7 @@ class CmdVelToEcu(Node):
         self.declare_parameter('docking_stop_threshold', 0.001)
         self.declare_parameter('docking_ecu_speed_scale', 3.6)
         self.declare_parameter('input_timeout_sec', 0.20)
+        self.declare_parameter('brake_on_zero_command', True)
 
         # 读取参数
         self.L = self.get_parameter('L').value
@@ -73,6 +74,8 @@ class CmdVelToEcu(Node):
             raise ValueError('docking ECU speed scale must be positive and finite')
         self.input_timeout_sec = max(
             0.05, self.get_parameter('input_timeout_sec').value)
+        self.brake_on_zero_command = bool(
+            self.get_parameter('brake_on_zero_command').value)
         self.last_cmd_time = None
         self.vehicle_status_received_time = None
         self.autodrive_enabled = False
@@ -101,7 +104,8 @@ class CmdVelToEcu(Node):
         # Twist stays in SI units through limits and inverse kinematics.
         v_cmd = msg.linear.x
         omega = -msg.angular.z
-        if not math.isfinite(v_cmd) or not math.isfinite(omega):
+        finite_input = math.isfinite(v_cmd) and math.isfinite(omega)
+        if not finite_input:
             v_cmd = omega = 0.0
         speed_limit = (self.docking_max_speed if self.docking_mode
                        else self.navigation_max_speed)
@@ -154,10 +158,12 @@ class CmdVelToEcu(Node):
                        if self.docking_mode else self.MAX_STEER_DEG)
         ecu_msg.steer = max(-steer_limit, min(steer_deg, steer_limit))
 
-        # A normal zero-speed command is not an emergency stop. On JD03 this
-        # bit controls both the brake mode and EBrake, so software parking must
-        # never be inferred from cmd_vel alone.
-        ecu_msg.brake = False
+        # Restore the historical JD03 stop behavior only for a fresh, finite
+        # zero-speed command. Timeout/invalid/manual-takeover release frames
+        # explicitly clear this bit in _publish_neutral_once().
+        ecu_msg.brake = bool(
+            finite_input and self.brake_on_zero_command
+            and abs(v_motor) < epsilon)
         ecu_msg.rear_wheel_flag = self.rear_wheel_flag
 
         return ecu_msg
@@ -201,7 +207,11 @@ class CmdVelToEcu(Node):
     def _publish_neutral_once(self):
         if not self.output_active:
             return
-        self.ecu_pub.publish(self.cmdvel_2_ecu(Twist()))
+        neutral_release = self.cmdvel_2_ecu(Twist())
+        # JD03 maps the same flag to brake mode and EBrake. A watchdog release
+        # must not leave the vehicle parked after navigation stops publishing.
+        neutral_release.brake = False
+        self.ecu_pub.publish(neutral_release)
         self.output_active = False
 
     def set_docking_mode(self, request, response):

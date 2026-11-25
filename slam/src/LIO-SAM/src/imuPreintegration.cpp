@@ -1,6 +1,7 @@
 #include "utility.hpp"
 
 #include <atomic>
+#include <chrono>
 #include <cmath>
 #include <condition_variable>
 #include <cstdint>
@@ -89,6 +90,7 @@ public:
         WAITING_FOR_EPOCH,
         STABLE,
         RELEASING_SMALL,
+        SUSPECT_PREDICTION,
         REJECTED_LARGE,
         CONTINUITY_FAULT
     };
@@ -106,6 +108,7 @@ public:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pubLocalizationFault;
     rclcpp::Publisher<multi_map_navigation_msgs::msg::LioMapOdomCorrection>::SharedPtr
         pubMapOdomCorrection;
+    rclcpp::TimerBase::SharedPtr continuityRecoveryTimer;
 
     std::shared_ptr<tf2_ros::Buffer> tfBuffer;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tfBroadcaster;
@@ -122,6 +125,15 @@ public:
     bool hasLastPublishedPose = false;
     bool faultLatched = false;
     bool continuityOffsetReleasePending = false;
+    geometry_msgs::msg::Twist lastLegalTwist;
+    bool hasLastLegalTwist = false;
+    lio_sam::ContinuityRecoveryLimits continuityRecoveryLimits;
+    lio_sam::ContinuityRecoveryTracker continuityRecoveryTracker;
+    double lastAnomalyPlanarStep = 0.0;
+    double lastAnomalyVerticalStep = 0.0;
+    double lastAnomalyYawStep = 0.0;
+    double lastAnomalyTranslationLimit = 0.0;
+    double lastAnomalyYawLimit = 0.0;
     Eigen::Isometry3d lastPublishedPose = Eigen::Isometry3d::Identity();
     int64_t lastPublishedStamp = 0;
     lio_sam::ContinuityStepLimits continuityStepLimits;
@@ -131,13 +143,28 @@ public:
     TransformFusion(const rclcpp::NodeOptions & options)
         : ParamServer("lio_sam_transformFusion", options)
     {
-        // The dynamic guard only expands the original 5 cm / 1 degree
-        // per-sample limit when the output interval is delayed. Its hard
-        // ceilings intentionally share the scan-to-map correction limits.
-        continuityStepLimits.maximum_translation_m =
-            scanToMapMaxCorrectionTranslation;
-        continuityStepLimits.maximum_yaw_rad =
-            scanToMapMaxCorrectionRotation;
+        // Continuity quarantine limits are independent of the stricter
+        // scan-to-map acceptance gate. The latter remains 0.30 m / 5 degrees.
+        declare_parameter("odomContinuityPublishedTranslationLimit", 0.10);
+        get_parameter(
+            "odomContinuityPublishedTranslationLimit",
+            continuityStepLimits.minimum_translation_m);
+        declare_parameter("odomContinuityPublishedYawLimit", 0.052359878);
+        get_parameter(
+            "odomContinuityPublishedYawLimit",
+            continuityStepLimits.minimum_yaw_rad);
+        declare_parameter("odomContinuityHardTranslationLimit", 0.50);
+        get_parameter(
+            "odomContinuityHardTranslationLimit",
+            continuityStepLimits.maximum_translation_m);
+        declare_parameter("odomContinuityHardYawLimit", 0.174532925);
+        get_parameter(
+            "odomContinuityHardYawLimit",
+            continuityStepLimits.maximum_yaw_rad);
+        declare_parameter("odomContinuityVerticalLimit", 0.05);
+        get_parameter(
+            "odomContinuityVerticalLimit",
+            continuityStepLimits.maximum_vertical_step_m);
         declare_parameter("odomContinuityMaximumDtSec", 0.20);
         get_parameter(
             "odomContinuityMaximumDtSec",
@@ -158,6 +185,33 @@ public:
         get_parameter(
             "odomContinuityMaximumYawSpeed",
             continuityStepLimits.maximum_yaw_speed_radps);
+        declare_parameter("odomContinuitySuspectTimeoutSec", 0.50);
+        get_parameter(
+            "odomContinuitySuspectTimeoutSec",
+            continuityRecoveryLimits.suspect_timeout_sec);
+        int recoveryValidSamples = 3;
+        declare_parameter("odomContinuityRecoveryValidSamples", 3);
+        get_parameter(
+            "odomContinuityRecoveryValidSamples", recoveryValidSamples);
+        continuityRecoveryLimits.recovery_valid_samples =
+            static_cast<std::size_t>(std::max(1, recoveryValidSamples));
+        int maximumInvalidSamples = 10;
+        declare_parameter("odomContinuityMaximumInvalidSamples", 10);
+        get_parameter(
+            "odomContinuityMaximumInvalidSamples", maximumInvalidSamples);
+        continuityRecoveryLimits.maximum_invalid_samples =
+            static_cast<std::size_t>(std::max(1, maximumInvalidSamples));
+        int strongInvalidSamples = 3;
+        declare_parameter("odomContinuityStrongInvalidSamples", 3);
+        get_parameter(
+            "odomContinuityStrongInvalidSamples", strongInvalidSamples);
+        continuityRecoveryLimits.strong_invalid_samples =
+            static_cast<std::size_t>(std::max(1, strongInvalidSamples));
+        declare_parameter("odomContinuityStrongTimeoutSec", 0.10);
+        get_parameter(
+            "odomContinuityStrongTimeoutSec",
+            continuityRecoveryLimits.strong_timeout_sec);
+        continuityRecoveryTracker.setLimits(continuityRecoveryLimits);
 
         tfBuffer = std::make_shared<tf2_ros::Buffer>(get_clock());
         tfListener = std::make_shared<tf2_ros::TransformListener>(*tfBuffer);
@@ -193,6 +247,9 @@ public:
             multi_map_navigation_msgs::msg::LioMapOdomCorrection>(
                 "lio_sam/map_odom_correction", rclcpp::QoS(20).reliable());
         tfBroadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(this);
+        continuityRecoveryTimer = create_wall_timer(
+            std::chrono::milliseconds(20),
+            std::bind(&TransformFusion::continuityRecoveryTimerHandler, this));
     }
 
     static int64_t stampToNanoseconds(const builtin_interfaces::msg::Time & stamp)
@@ -225,6 +282,8 @@ public:
             case CorrectionState::WAITING_FOR_EPOCH: return "WAITING_FOR_EPOCH";
             case CorrectionState::STABLE: return "STABLE";
             case CorrectionState::RELEASING_SMALL: return "RELEASING_SMALL";
+            case CorrectionState::SUSPECT_PREDICTION:
+                return "SUSPECT_PREDICTION";
             case CorrectionState::REJECTED_LARGE: return "REJECTED_LARGE";
             case CorrectionState::CONTINUITY_FAULT: return "CONTINUITY_FAULT";
         }
@@ -248,6 +307,56 @@ public:
         message.data = reason;
         pubLocalizationFault->publish(message);
         RCLCPP_ERROR(get_logger(), "%s", reason.c_str());
+    }
+
+    static double steadyNowSec()
+    {
+        return std::chrono::duration<double>(
+            std::chrono::steady_clock::now().time_since_epoch()).count();
+    }
+
+    void publishConfirmedContinuityFault(const char * trigger)
+    {
+        state = CorrectionState::CONTINUITY_FAULT;
+        std::ostringstream reason;
+        reason << "LIO_ODOM_CONTINUITY_FAULT_CONFIRMED: epoch="
+               << outputEpoch
+               << "; trigger=" << trigger
+               << "; suspect_elapsed="
+               << continuityRecoveryTracker.suspectElapsed(steadyNowSec())
+               << "; invalid_samples="
+               << continuityRecoveryTracker.invalidSamples()
+               << "; strong_samples="
+               << continuityRecoveryTracker.strongSamples()
+               << "; planar_step=" << lastAnomalyPlanarStep
+               << "; vertical_step=" << lastAnomalyVerticalStep
+               << "; yaw_step=" << lastAnomalyYawStep
+               << "; translation_limit=" << lastAnomalyTranslationLimit
+               << "; yaw_limit=" << lastAnomalyYawLimit;
+        publishFaultOnce(reason.str());
+    }
+
+    void continuityRecoveryTimerHandler()
+    {
+        std::lock_guard<std::mutex> lock(mtx);
+        if (faultLatched || !continuityRecoveryTracker.suspect())
+            return;
+        const auto result = continuityRecoveryTracker.checkTimeout(
+            steadyNowSec());
+        if (result.fault_confirmed)
+            publishConfirmedContinuityFault("timeout");
+    }
+
+    Eigen::Isometry3d predictFromLastLegalMotion(double dt) const
+    {
+        if (!hasLastPublishedPose)
+            return Eigen::Isometry3d::Identity();
+        if (!hasLastLegalTwist)
+            return lastPublishedPose;
+        return lio_sam::predictBoundedPlanarMotion(
+            lastPublishedPose, dt,
+            lastLegalTwist.linear.x, lastLegalTwist.linear.y,
+            lastLegalTwist.angular.z, continuityStepLimits);
     }
 
     void tryActivateAnchor(int64_t stamp)
@@ -347,6 +456,7 @@ public:
             outputEpoch = 0;
             continuityOffset = Eigen::Isometry3d::Identity();
             continuityOffsetReleasePending = false;
+            continuityRecoveryTracker.reset();
             // Preserve the final legal odom pose across an in-process IMU
             // reset.  The first valid epoch after recovery will calculate a
             // fresh continuity offset against this pose.  A process restart
@@ -444,6 +554,12 @@ public:
         const multi_map_navigation_msgs::msg::EpochOdometry::SharedPtr message)
     {
         std::lock_guard<std::mutex> lock(mtx);
+        // Once a continuity or correction fault has been formally confirmed,
+        // fail closed.  Do not let later samples overwrite the fault state or
+        // resume odometry/TF publication until the process is restarted.
+        if (faultLatched)
+            return;
+
         if (!sameIdentity(message->instance_id, message->generation, activeAnchor) ||
             message->correction_epoch != activeAnchor.epoch)
         {
@@ -483,6 +599,8 @@ public:
         double outputVerticalLimit =
             continuityStepLimits.maximum_vertical_step_m;
         double outputYawLimit = continuityStepLimits.minimum_yaw_rad;
+        bool publishMapCorrection = true;
+        bool usingContinuityPrediction = false;
         if (hasLastPublishedPose)
         {
             const Eigen::Isometry3d delta = lastPublishedPose.inverse() * candidate;
@@ -499,30 +617,81 @@ public:
             outputTranslationLimit = decision.translation_limit_m;
             outputVerticalLimit = decision.vertical_limit_m;
             outputYawLimit = decision.yaw_limit_rad;
+            const bool strongViolation = lio_sam::isStrongContinuityViolation(
+                outputPlanarStep, outputVerticalStep, outputYawStep,
+                continuityStepLimits);
             if (!decision.accepted)
             {
-                state = CorrectionState::CONTINUITY_FAULT;
-                publishFaultOnce(
-                    "LIO_ODOM_CONTINUITY_FAULT: epoch=" +
-                    std::to_string(outputEpoch) + "; step=" +
-                    std::to_string(outputTranslationStep) + "; planar_step=" +
-                    std::to_string(outputPlanarStep) + "; vertical_step=" +
-                    std::to_string(outputVerticalStep) + "; yaw_step=" +
-                    std::to_string(outputYawStep) + "; dt=" +
-                    std::to_string(dt) + "; speed=" +
-                    std::to_string(linearSpeed) + "; yaw_rate=" +
-                    std::to_string(std::abs(twist.angular.z)) +
-                    "; translation_limit=" +
-                    std::to_string(outputTranslationLimit) +
-                    "; vertical_limit=" +
-                    std::to_string(outputVerticalLimit) +
-                    "; yaw_limit=" + std::to_string(outputYawLimit));
-                return;
+                lastAnomalyPlanarStep = outputPlanarStep;
+                lastAnomalyVerticalStep = outputVerticalStep;
+                lastAnomalyYawStep = outputYawStep;
+                lastAnomalyTranslationLimit = outputTranslationLimit;
+                lastAnomalyYawLimit = outputYawLimit;
+                const auto recovery = continuityRecoveryTracker.observeInvalid(
+                    steadyNowSec(), strongViolation);
+                if (recovery.entered_suspect)
+                {
+                    RCLCPP_WARN(
+                        get_logger(),
+                        "LIO_ODOM_CONTINUITY_SUSPECT epoch=%llu "
+                        "planar_step=%.6f vertical_step=%.6f yaw_step=%.6f "
+                        "translation_limit=%.6f vertical_limit=%.6f "
+                        "yaw_limit=%.6f strong=%s; quarantining raw pose",
+                        static_cast<unsigned long long>(outputEpoch),
+                        outputPlanarStep, outputVerticalStep, outputYawStep,
+                        outputTranslationLimit, outputVerticalLimit,
+                        outputYawLimit, strongViolation ? "true" : "false");
+                }
+                if (recovery.fault_confirmed)
+                {
+                    publishConfirmedContinuityFault(
+                        strongViolation ? "strong_samples" : "invalid_samples");
+                    return;
+                }
+                candidate = predictFromLastLegalMotion(dt);
+                publishMapCorrection = false;
+                usingContinuityPrediction = true;
+                state = CorrectionState::SUSPECT_PREDICTION;
+            }
+            else if (continuityRecoveryTracker.suspect())
+            {
+                const auto recovery = continuityRecoveryTracker.observeValid(
+                    steadyNowSec());
+                if (recovery.fault_confirmed)
+                {
+                    publishConfirmedContinuityFault("recovery_timeout");
+                    return;
+                }
+                if (!recovery.recovered)
+                {
+                    candidate = predictFromLastLegalMotion(dt);
+                    publishMapCorrection = false;
+                    usingContinuityPrediction = true;
+                    state = CorrectionState::SUSPECT_PREDICTION;
+                }
+                else
+                {
+                    continuityOffset = lastPublishedPose * rawCurrent.inverse();
+                    continuityOffsetReleasePending = true;
+                    state = CorrectionState::RELEASING_SMALL;
+                    candidate = lio_sam::limitContinuityPoseStep(
+                        lastPublishedPose, continuityOffset * rawCurrent,
+                        continuityStepLimits.minimum_translation_m,
+                        continuityStepLimits.minimum_yaw_rad);
+                    continuityOffset = candidate * rawCurrent.inverse();
+                    RCLCPP_INFO(
+                        get_logger(),
+                        "LIO_ODOM_CONTINUITY_RECOVERED epoch=%llu "
+                        "after %zu consecutive valid samples",
+                        static_cast<unsigned long long>(outputEpoch),
+                        continuityRecoveryLimits.recovery_valid_samples);
+                }
             }
 
-            if (outputTranslationStep >
+            if (!continuityRecoveryTracker.suspect() &&
+                (outputTranslationStep >
                     continuityStepLimits.minimum_translation_m ||
-                outputYawStep > continuityStepLimits.minimum_yaw_rad)
+                 outputYawStep > continuityStepLimits.minimum_yaw_rad))
             {
                 candidate = lio_sam::limitContinuityPoseStep(
                     lastPublishedPose, candidate,
@@ -541,33 +710,43 @@ public:
                     std::abs(limitedDelta.translation().z());
                 outputYawStep = std::abs(yawOf(limitedDelta));
             }
+
+            const Eigen::Isometry3d publishedDelta =
+                lastPublishedPose.inverse() * candidate;
+            outputTranslationStep = publishedDelta.translation().norm();
+            outputPlanarStep = publishedDelta.translation().head<2>().norm();
+            outputVerticalStep = std::abs(publishedDelta.translation().z());
+            outputYawStep = std::abs(yawOf(publishedDelta));
         }
 
-        const Eigen::Isometry3d lioMapToOdomTarget =
-            rawCurrent * candidate.inverse();
-        const auto correctionTransform =
-            tf2::eigenToTransform(lioMapToOdomTarget);
-        multi_map_navigation_msgs::msg::LioMapOdomCorrection correction;
-        correction.header = message->header;
-        correction.header.frame_id = "lio_map";
-        correction.instance_id = message->instance_id;
-        correction.generation = message->generation;
-        correction.correction_epoch = message->correction_epoch;
-        correction.lio_map_to_odom_target = correctionTransform.transform;
-        correction.translation_residual =
-            activeAnchor.translationResidual;
-        correction.yaw_residual = activeAnchor.yawResidual;
-        correction.accepted =
-            state == CorrectionState::STABLE ||
-            state == CorrectionState::RELEASING_SMALL;
-        if (state == CorrectionState::REJECTED_LARGE)
-            correction.state = correction.STATE_LARGE_REJECTED;
-        else if (state == CorrectionState::CONTINUITY_FAULT)
-            correction.state = correction.STATE_CONTINUITY_FAULT;
-        else
-            correction.state = correction.STATE_SMALL_ACCEPTED;
-        correction.reason = stateName(state);
-        pubMapOdomCorrection->publish(correction);
+        if (publishMapCorrection)
+        {
+            const Eigen::Isometry3d lioMapToOdomTarget =
+                rawCurrent * candidate.inverse();
+            const auto correctionTransform =
+                tf2::eigenToTransform(lioMapToOdomTarget);
+            multi_map_navigation_msgs::msg::LioMapOdomCorrection correction;
+            correction.header = message->header;
+            correction.header.frame_id = "lio_map";
+            correction.instance_id = message->instance_id;
+            correction.generation = message->generation;
+            correction.correction_epoch = message->correction_epoch;
+            correction.lio_map_to_odom_target = correctionTransform.transform;
+            correction.translation_residual =
+                activeAnchor.translationResidual;
+            correction.yaw_residual = activeAnchor.yawResidual;
+            correction.accepted =
+                state == CorrectionState::STABLE ||
+                state == CorrectionState::RELEASING_SMALL;
+            if (state == CorrectionState::REJECTED_LARGE)
+                correction.state = correction.STATE_LARGE_REJECTED;
+            else if (state == CorrectionState::CONTINUITY_FAULT)
+                correction.state = correction.STATE_CONTINUITY_FAULT;
+            else
+                correction.state = correction.STATE_SMALL_ACCEPTED;
+            correction.reason = stateName(state);
+            pubMapOdomCorrection->publish(correction);
+        }
 
         auto transform = tf2::eigenToTransform(candidate);
         nav_msgs::msg::Odometry fusedOdometry = message->odometry;
@@ -577,6 +756,15 @@ public:
         fusedOdometry.pose.pose.position.y = transform.transform.translation.y;
         fusedOdometry.pose.pose.position.z = transform.transform.translation.z;
         fusedOdometry.pose.pose.orientation = transform.transform.rotation;
+        if (usingContinuityPrediction && hasLastLegalTwist)
+        {
+            fusedOdometry.twist.twist = lastLegalTwist;
+            // The quarantine predictor is deliberately planar.  Never carry
+            // a stale vertical, roll, or pitch velocity through this path.
+            fusedOdometry.twist.twist.linear.z = 0.0;
+            fusedOdometry.twist.twist.angular.x = 0.0;
+            fusedOdometry.twist.twist.angular.y = 0.0;
+        }
         pubImuOdometry->publish(fusedOdometry);
 
         tf2::Stamped<tf2::Transform> currentTransform;
@@ -608,6 +796,11 @@ public:
         lastPublishedPose = candidate;
         lastPublishedStamp = stamp;
         hasLastPublishedPose = true;
+        if (!continuityRecoveryTracker.suspect())
+        {
+            lastLegalTwist = message->odometry.twist.twist;
+            hasLastLegalTwist = true;
+        }
         RCLCPP_DEBUG(
             get_logger(),
             "TFUSION_OUTPUT stamp=%.9f epoch=%llu state=%s "

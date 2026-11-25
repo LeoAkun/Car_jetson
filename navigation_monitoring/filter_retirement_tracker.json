@@ -2,7 +2,7 @@
   "baseline_at": "2026-11-18T13:34:02+08:00",
   "consecutive_zero_hit_observation_seconds": 0.0,
   "consecutive_zero_hit_sessions": 0,
-  "last_candidate_seen_at": "2026-11-25T11:53:31.259+08:00",
+  "last_candidate_seen_at": "2026-11-25T17:00:32.511+08:00",
   "policy": {
     "action": "remind_only_never_auto_remove",
     "minimum_consecutive_zero_hit_sessions": 3,
@@ -80,9 +80,18 @@
       "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-25_11-15-37_manual_publish_monitor/monitor.raw.jsonl",
       "observation_seconds": 2273.496,
       "task_id": "task_1795578558"
+    },
+    {
+      "candidate_frames": 109,
+      "candidate_points": 743,
+      "ended_at": "2026-11-25T17:00:32.511+08:00",
+      "front_scan_frames": 74284,
+      "monitor_output": "/home/akun/workspace/Car_jetson/navigation_monitoring/runs/2026-11-25_16-18-47_manual_publish_monitor/monitor.raw.jsonl",
+      "observation_seconds": 2504.165,
+      "task_id": "task_1795596271"
     }
   ],
   "removal_reminder_due": false,
   "schema_version": 1,
-  "updated_at": "2026-11-25T11:53:31.263+08:00"
+  "updated_at": "2026-11-25T17:00:32.511+08:00"
 }

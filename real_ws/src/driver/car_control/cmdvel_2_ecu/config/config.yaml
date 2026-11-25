@@ -17,3 +17,5 @@
     docking_max_speed: 0.10
     docking_max_steer_deg: 8.0
     input_timeout_sec: 0.20 # 超时仅发一次无驻车零驱动，随后停止占用底盘
+    # 有效且持续的新鲜零速命令使用JD03制动；超时/非法输入的释放帧仍解除制动。
+    brake_on_zero_command: True

@@ -35,6 +35,8 @@ def generate_launch_description():
     nav2_param_path = launch.substitutions.LaunchConfiguration(
         'params_file', default=params_dir)
     use_rviz = launch.substitutions.LaunchConfiguration('use_rviz')
+    use_costmap_cloud = launch.substitutions.LaunchConfiguration(
+        'use_costmap_cloud')
     log_level = launch.substitutions.LaunchConfiguration('log_level')
     configured_params = RewrittenYaml(
         source_file=nav2_param_path,
@@ -78,7 +80,8 @@ def generate_launch_description():
     voxel_pub = launch_ros.actions.Node(
         package='nav2_costmap_2d',
         executable='nav2_costmap_2d_cloud',
-        output = 'screen' # 日志输出到屏幕
+        output='screen',
+        condition=IfCondition(use_costmap_cloud)
     )
 
     return launch.LaunchDescription([
@@ -91,8 +94,11 @@ def generate_launch_description():
                                              description='Full path to map file to load'),
         launch.actions.DeclareLaunchArgument('params_file', default_value=nav2_param_path,
                                              description='Full path to param file to load'),
-        launch.actions.DeclareLaunchArgument('use_rviz', default_value='true',
+        launch.actions.DeclareLaunchArgument('use_rviz', default_value='false',
                                              description='Start RViz for Nav2 visualization'),
+        launch.actions.DeclareLaunchArgument(
+            'use_costmap_cloud', default_value='false',
+            description='Publish costmap voxel cloud for diagnostics'),
         launch.actions.DeclareLaunchArgument('log_level', default_value='warn',
                                              description='Nav2 logging level'),
 

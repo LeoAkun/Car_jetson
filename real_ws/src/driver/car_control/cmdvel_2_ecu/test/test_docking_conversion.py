@@ -46,6 +46,7 @@ def _converter(docking_mode=False):
         docking_max_steer_deg=8.0,
         docking_stop_threshold=0.001,
         docking_ecu_speed_scale=3.6,
+        brake_on_zero_command=True,
     )
 
 
@@ -146,7 +147,7 @@ def test_stop_deadband_includes_both_boundaries_and_selects_neutral(docking_mode
     assert ecu.motor == 0.0
     assert ecu.steer == 0.0
     assert ecu.shift == ecu.SHIFT_N
-    assert not ecu.brake
+    assert ecu.brake
 
 
 @pytest.mark.parametrize('direction', [-1, 1])
@@ -263,6 +264,20 @@ def test_fresh_autodrive_feedback_allows_command_without_parking_brake():
     assert converter.output_active
 
 
+def test_fresh_autodrive_zero_command_applies_jd03_brake():
+    converter, clock, published = _stateful_converter()
+    converter.autodrive_enabled = True
+    converter.vehicle_status_received_time = clock.now()
+
+    CmdVelToEcu.cmd_callback(converter, Twist())
+
+    assert len(published) == 1
+    assert published[0].motor == 0.0
+    assert published[0].shift == published[0].SHIFT_N
+    assert published[0].brake
+    assert converter.output_active
+
+
 def test_timeout_publishes_one_neutral_release_then_stays_silent():
     converter, clock, published = _stateful_converter()
     converter.autodrive_enabled = True
@@ -376,6 +391,8 @@ def test_real_navigation_configuration_uses_two_kmh_limit_and_retains_other_cali
         assert parameters['LOW_SPEED_THRESH'] == pytest.approx(0.8 / 3.6)
         assert parameters['STOP_THRESH'] == pytest.approx(historical_stop / 3.6)
         assert parameters['Vel_Offeset'] == pytest.approx(0.03 / 3.6)
+        if filename == 'config.yaml':
+            assert parameters['brake_on_zero_command'] is True
     assert controller['vx_max'] == pytest.approx(2.0 / 3.6)
     assert controller['vx_min'] == pytest.approx(-2.0 / 3.6)
     assert controller['vx_std'] == pytest.approx(1.5 / 3.6)

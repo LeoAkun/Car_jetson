@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <cstddef>
 #include <cmath>
 
 #include <Eigen/Geometry>
@@ -21,14 +22,14 @@ struct ContinuityReleaseLimits
 struct ContinuityStepLimits
 {
     // Preserve the original per-sample guard at the normal 100 Hz cadence.
-    double minimum_translation_m = 0.05;
+    double minimum_translation_m = 0.10;
     double maximum_vertical_step_m = 0.05;
-    double minimum_yaw_rad = M_PI / 180.0;
+    double minimum_yaw_rad = 3.0 * M_PI / 180.0;
 
     // A delayed sample may account for real vehicle motion, but can never
     // make the guard looser than the scan-to-map hard correction limits.
-    double maximum_translation_m = 0.30;
-    double maximum_yaw_rad = 5.0 * M_PI / 180.0;
+    double maximum_translation_m = 0.50;
+    double maximum_yaw_rad = 10.0 * M_PI / 180.0;
     double maximum_dt_sec = 0.20;
 
     // Allow estimator noise plus the deliberately rate-limited continuity
@@ -138,6 +139,211 @@ inline Eigen::Isometry3d limitContinuityPoseStep(
 
     return previous * delta;
 }
+
+inline bool isStrongContinuityViolation(
+    double planarStep,
+    double verticalStep,
+    double yawStep,
+    const ContinuityStepLimits & limits = ContinuityStepLimits())
+{
+    return !std::isfinite(planarStep) || planarStep < 0.0 ||
+        !std::isfinite(verticalStep) || verticalStep < 0.0 ||
+        !std::isfinite(yawStep) || yawStep < 0.0 ||
+        planarStep > finiteNonnegativeOrZero(limits.maximum_translation_m) ||
+        verticalStep > finiteNonnegativeOrZero(
+            limits.maximum_vertical_step_m) ||
+        yawStep > finiteNonnegativeOrZero(limits.maximum_yaw_rad);
+}
+
+inline Eigen::Isometry3d predictBoundedPlanarMotion(
+    const Eigen::Isometry3d & previous,
+    double dt,
+    double linearX,
+    double linearY,
+    double yawRate,
+    const ContinuityStepLimits & limits = ContinuityStepLimits())
+{
+    if (!previous.matrix().allFinite())
+        return Eigen::Isometry3d::Identity();
+
+    const double boundedDt = std::min(
+        finiteNonnegativeOrZero(dt),
+        finiteNonnegativeOrZero(limits.maximum_dt_sec));
+    Eigen::Vector2d planarVelocity(
+        std::isfinite(linearX) ? linearX : 0.0,
+        std::isfinite(linearY) ? linearY : 0.0);
+    const double maximumLinearSpeed = finiteNonnegativeOrZero(
+        limits.maximum_linear_speed_mps);
+    if (planarVelocity.norm() > maximumLinearSpeed &&
+        planarVelocity.norm() > 0.0)
+    {
+        planarVelocity *= maximumLinearSpeed / planarVelocity.norm();
+    }
+    const double boundedYawRate = std::clamp(
+        std::isfinite(yawRate) ? yawRate : 0.0,
+        -finiteNonnegativeOrZero(limits.maximum_yaw_speed_radps),
+        finiteNonnegativeOrZero(limits.maximum_yaw_speed_radps));
+
+    Eigen::Isometry3d delta = Eigen::Isometry3d::Identity();
+    delta.translation().x() = planarVelocity.x() * boundedDt;
+    delta.translation().y() = planarVelocity.y() * boundedDt;
+    delta.linear() = Eigen::AngleAxisd(
+        boundedYawRate * boundedDt,
+        Eigen::Vector3d::UnitZ()).toRotationMatrix();
+    return limitContinuityPoseStep(
+        previous, previous * delta,
+        limits.minimum_translation_m, limits.minimum_yaw_rad);
+}
+
+struct ContinuityRecoveryLimits
+{
+    double suspect_timeout_sec = 0.50;
+    std::size_t recovery_valid_samples = 3;
+    std::size_t maximum_invalid_samples = 10;
+    std::size_t strong_invalid_samples = 3;
+    double strong_timeout_sec = 0.10;
+};
+
+struct ContinuityRecoveryResult
+{
+    bool entered_suspect = false;
+    bool recovered = false;
+    bool fault_confirmed = false;
+};
+
+class ContinuityRecoveryTracker
+{
+public:
+    explicit ContinuityRecoveryTracker(
+        const ContinuityRecoveryLimits & limits = ContinuityRecoveryLimits())
+        : limits_(limits)
+    {
+    }
+
+    void setLimits(const ContinuityRecoveryLimits & limits)
+    {
+        limits_ = limits;
+        reset();
+    }
+
+    ContinuityRecoveryResult observeInvalid(double nowSec, bool strong)
+    {
+        ContinuityRecoveryResult result;
+        const double now = monotonicTime(nowSec);
+        if (!suspect_)
+        {
+            suspect_ = true;
+            suspectStartSec_ = now;
+            result.entered_suspect = true;
+        }
+
+        validSamples_ = 0;
+        ++invalidSamples_;
+        if (strong)
+        {
+            if (strongSamples_ == 0)
+                strongStartSec_ = now;
+            ++strongSamples_;
+        }
+        else
+        {
+            strongSamples_ = 0;
+            strongStartSec_ = -1.0;
+        }
+        result.fault_confirmed = shouldFault(now);
+        return result;
+    }
+
+    ContinuityRecoveryResult observeValid(double nowSec)
+    {
+        ContinuityRecoveryResult result;
+        if (!suspect_)
+            return result;
+
+        const double now = monotonicTime(nowSec);
+        if (shouldFault(now))
+        {
+            result.fault_confirmed = true;
+            return result;
+        }
+
+        invalidSamples_ = 0;
+        strongSamples_ = 0;
+        strongStartSec_ = -1.0;
+        ++validSamples_;
+        if (validSamples_ >= std::max<std::size_t>(
+                std::size_t{1}, limits_.recovery_valid_samples))
+        {
+            result.recovered = true;
+            reset();
+        }
+        return result;
+    }
+
+    ContinuityRecoveryResult checkTimeout(double nowSec)
+    {
+        ContinuityRecoveryResult result;
+        if (suspect_)
+            result.fault_confirmed = shouldFault(monotonicTime(nowSec));
+        return result;
+    }
+
+    void reset()
+    {
+        suspect_ = false;
+        suspectStartSec_ = -1.0;
+        strongStartSec_ = -1.0;
+        lastTimeSec_ = -1.0;
+        invalidSamples_ = 0;
+        validSamples_ = 0;
+        strongSamples_ = 0;
+    }
+
+    bool suspect() const { return suspect_; }
+    std::size_t invalidSamples() const { return invalidSamples_; }
+    std::size_t validSamples() const { return validSamples_; }
+    std::size_t strongSamples() const { return strongSamples_; }
+
+    double suspectElapsed(double nowSec) const
+    {
+        return suspect_ ? std::max(0.0, nowSec - suspectStartSec_) : 0.0;
+    }
+
+private:
+    double monotonicTime(double nowSec)
+    {
+        const double finiteNow = std::isfinite(nowSec) ? nowSec : 0.0;
+        lastTimeSec_ = std::max(lastTimeSec_, finiteNow);
+        return lastTimeSec_;
+    }
+
+    bool shouldFault(double nowSec) const
+    {
+        const bool suspectTimedOut =
+            nowSec - suspectStartSec_ >=
+            finiteNonnegativeOrZero(limits_.suspect_timeout_sec);
+        const bool tooManyInvalid = invalidSamples_ >=
+            std::max<std::size_t>(
+                std::size_t{1}, limits_.maximum_invalid_samples);
+        const bool enoughStrongSamples = strongSamples_ >=
+            std::max<std::size_t>(
+                std::size_t{1}, limits_.strong_invalid_samples);
+        const bool strongTimedOut = strongSamples_ > 0 &&
+            nowSec - strongStartSec_ >=
+            finiteNonnegativeOrZero(limits_.strong_timeout_sec);
+        return suspectTimedOut || tooManyInvalid ||
+            enoughStrongSamples || strongTimedOut;
+    }
+
+    ContinuityRecoveryLimits limits_;
+    bool suspect_ = false;
+    double suspectStartSec_ = -1.0;
+    double strongStartSec_ = -1.0;
+    double lastTimeSec_ = -1.0;
+    std::size_t invalidSamples_ = 0;
+    std::size_t validSamples_ = 0;
+    std::size_t strongSamples_ = 0;
+};
 
 inline bool releaseContinuityOffset(
     const Eigen::Isometry3d & rawCurrent,

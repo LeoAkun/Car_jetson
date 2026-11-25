@@ -5,10 +5,10 @@
   "duration_s": 86400,
   "interval_s": 1.0,
   "label": "nav_field_test",
-  "last_sample_at": "2026-11-25T14:53:32.948+08:00",
-  "last_elapsed_s": 16108.7,
-  "last_package_c": 49.0,
-  "last_cpu_busy_pct": 5.5,
-  "last_mem_available_kib": 30562720,
-  "samples": 15388
+  "last_sample_at": "2026-11-25T19:40:38.024+08:00",
+  "last_elapsed_s": 33333.7,
+  "last_package_c": 47.0,
+  "last_cpu_busy_pct": 6.1,
+  "last_mem_available_kib": 30513952,
+  "samples": 31802
 }
